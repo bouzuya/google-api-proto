@@ -247,7 +247,98 @@
 <a href="#247" id="247">247</a>
 <a href="#248" id="248">248</a>
 <a href="#249" id="249">249</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// A log entry for a de-identification long-running operation.
+</pre></div><pre class="rust"><code><span class="doccomment">/// A log entry for a FHIR import long-running operation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImportFhirLogEntry {
+    <span class="doccomment">/// The source in Cloud Storage (for example,
+    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
+    /// `bq://{projectId}.{bqDatasetId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>source: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ID in the source file of the FHIR resource being imported.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The error code and message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// A log entry for a FHIR export long-running operation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ExportFhirLogEntry {
+    <span class="doccomment">/// The destination in Cloud Storage (for example,
+    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
+    /// `bq://{projectId}.{bqDatasetId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
+    <span class="doccomment">/// The resource being exported (e.g.
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The error code and message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// A log entry for a FHIR configure search long-running operation
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FhirConfigureSearchLogEntry {
+    <span class="doccomment">/// The ID of the resource being reindexed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The error code and message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// A log entry for a FHIR store Pub/Sub notification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FhirNotificationLogEntry {
+    <span class="doccomment">/// The resource being changed (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The Pub/Sub topic that the notification is published on.
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
+    <span class="doccomment">/// The error code and message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// A log entry for a FHIR streaming export notification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FhirStreamLogEntry {
+    <span class="doccomment">/// The resource being changed (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The destination in BigQuery (for example,
+    /// `bq://{projectId}.{bqDatasetId}.{bqTableId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
+    <span class="doccomment">/// The error code and message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// A log entry for a FHIR streaming deidentification notification.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>FhirDeidentifyStreamToStoreLogEntry {
+    <span class="doccomment">/// The resource that changed (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The destination FHIR store name. (for example,
+    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}`).
+    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
+    <span class="doccomment">/// The error code and message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// A log entry for a de-identification long-running operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeidentifyLogEntry {
@@ -353,97 +444,6 @@
     </span><span class="kw">pub </span>golden_annotation_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The error code and message.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// A log entry for a FHIR import long-running operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImportFhirLogEntry {
-    <span class="doccomment">/// The source in Cloud Storage (for example,
-    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
-    /// `bq://{projectId}.{bqDatasetId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>source: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID in the source file of the FHIR resource being imported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The error code and message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// A log entry for a FHIR export long-running operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ExportFhirLogEntry {
-    <span class="doccomment">/// The destination in Cloud Storage (for example,
-    /// `gs://{bucket_id}/{path/to/file}`) or BigQuery (for example,
-    /// `bq://{projectId}.{bqDatasetId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
-    <span class="doccomment">/// The resource being exported (e.g.
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The error code and message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// A log entry for a FHIR configure search long-running operation
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FhirConfigureSearchLogEntry {
-    <span class="doccomment">/// The ID of the resource being reindexed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The error code and message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// A log entry for a FHIR store Pub/Sub notification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FhirNotificationLogEntry {
-    <span class="doccomment">/// The resource being changed (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The Pub/Sub topic that the notification is published on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
-    <span class="doccomment">/// The error code and message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// A log entry for a FHIR streaming export notification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FhirStreamLogEntry {
-    <span class="doccomment">/// The resource being changed (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The destination in BigQuery (for example,
-    /// `bq://{projectId}.{bqDatasetId}.{bqTableId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
-    <span class="doccomment">/// The error code and message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
-    </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// A log entry for a FHIR streaming deidentification notification.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>FhirDeidentifyStreamToStoreLogEntry {
-    <span class="doccomment">/// The resource that changed (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}/fhir/Patient/{patientId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
-    </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The destination FHIR store name. (for example,
-    /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
-    </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
-    <span class="doccomment">/// The error code and message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// A log entry for a Consent store QueryAccessibleData long-running operation.

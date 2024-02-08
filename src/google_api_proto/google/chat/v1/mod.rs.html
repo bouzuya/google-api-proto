@@ -3609,44 +3609,7 @@
 <a href="#3609" id="3609">3609</a>
 <a href="#3610" id="3610">3610</a>
 <a href="#3611" id="3611">3611</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// The history state for messages and spaces. Specifies how long messages and
-/// conversation threads are kept after creation.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>HistoryState {
-    <span class="doccomment">/// Default value. Do not use.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// History off. [Messages and threads are kept for 24
-    /// hours](&lt;https://support.google.com/chat/answer/7664687&gt;).
-    </span>HistoryOff = <span class="number">1</span>,
-    <span class="doccomment">/// History on. The organization&#39;s [Vault retention
-    /// rules](&lt;https://support.google.com/vault/answer/7657597&gt;) specify for
-    /// how long messages and threads are kept.
-    </span>HistoryOn = <span class="number">2</span>,
-}
-<span class="kw">impl </span>HistoryState {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            HistoryState::Unspecified =&gt; <span class="string">&quot;HISTORY_STATE_UNSPECIFIED&quot;</span>,
-            HistoryState::HistoryOff =&gt; <span class="string">&quot;HISTORY_OFF&quot;</span>,
-            HistoryState::HistoryOn =&gt; <span class="string">&quot;HISTORY_ON&quot;</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">&quot;HISTORY_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HISTORY_OFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistoryOff),
-            <span class="string">&quot;HISTORY_ON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistoryOn),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-<span class="doccomment">/// An attachment in Google Chat.
+</pre></div><pre class="rust"><code><span class="doccomment">/// An attachment in Google Chat.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Attachment {
@@ -5179,6 +5142,43 @@
     <span class="doccomment">/// The ID of the slash command invoked.
     </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
     </span><span class="kw">pub </span>command_id: i64,
+}
+<span class="doccomment">/// The history state for messages and spaces. Specifies how long messages and
+/// conversation threads are kept after creation.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>HistoryState {
+    <span class="doccomment">/// Default value. Do not use.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// History off. [Messages and threads are kept for 24
+    /// hours](&lt;https://support.google.com/chat/answer/7664687&gt;).
+    </span>HistoryOff = <span class="number">1</span>,
+    <span class="doccomment">/// History on. The organization&#39;s [Vault retention
+    /// rules](&lt;https://support.google.com/vault/answer/7657597&gt;) specify for
+    /// how long messages and threads are kept.
+    </span>HistoryOn = <span class="number">2</span>,
+}
+<span class="kw">impl </span>HistoryState {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            HistoryState::Unspecified =&gt; <span class="string">&quot;HISTORY_STATE_UNSPECIFIED&quot;</span>,
+            HistoryState::HistoryOff =&gt; <span class="string">&quot;HISTORY_OFF&quot;</span>,
+            HistoryState::HistoryOn =&gt; <span class="string">&quot;HISTORY_ON&quot;</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">&quot;HISTORY_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">&quot;HISTORY_OFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistoryOff),
+            <span class="string">&quot;HISTORY_ON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HistoryOn),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
 }
 <span class="doccomment">/// A space in Google Chat. Spaces are conversations between two or more users
 /// or 1:1 messages between a user and a Chat app.
