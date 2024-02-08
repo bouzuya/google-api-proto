@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["IndexingStatus","Type"],"mod":["failure_reason"],"struct":["FailureReason"]};
