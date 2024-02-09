@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Format"]};
+window.SIDEBAR_ITEMS = {"enum":["Format"],"mod":["text_style"],"struct":["TextStyle"]};

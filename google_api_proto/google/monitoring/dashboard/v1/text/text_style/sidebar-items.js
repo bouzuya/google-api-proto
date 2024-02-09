@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["FontSize","HorizontalAlignment","PaddingSize","PointerLocation","VerticalAlignment"]};
