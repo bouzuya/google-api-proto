@@ -1450,6 +1450,21 @@ pub struct PrivateServiceConnectConfig {
     #[prost(string, repeated, tag = "2")]
     pub project_allowlist: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
+/// PscAutomatedEndpoints defines the output of the forwarding rule
+/// automatically created by each PscAutomationConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PscAutomatedEndpoints {
+    /// Corresponding project_id in pscAutomationConfigs
+    #[prost(string, tag = "1")]
+    pub project_id: ::prost::alloc::string::String,
+    /// Corresponding network in pscAutomationConfigs.
+    #[prost(string, tag = "2")]
+    pub network: ::prost::alloc::string::String,
+    /// Ip Address created by the automated forwarding rule.
+    #[prost(string, tag = "3")]
+    pub match_address: ::prost::alloc::string::String,
+}
 /// Indexes are deployed into it. An IndexEndpoint can have multiple
 /// DeployedIndexes.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1707,6 +1722,10 @@ pub struct IndexPrivateEndpoints {
     /// private service connect is enabled.
     #[prost(string, tag = "2")]
     pub service_attachment: ::prost::alloc::string::String,
+    /// Output only. PscAutomatedEndpoints is populated if private service connect
+    /// is enabled if PscAutomatedConfig is set.
+    #[prost(message, repeated, tag = "3")]
+    pub psc_automated_endpoints: ::prost::alloc::vec::Vec<PscAutomatedEndpoints>,
 }
 /// Points to a DeployedModel.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2357,6 +2376,14 @@ pub struct Explanation {
     /// specific item.
     /// [Attribution.output_index][google.cloud.aiplatform.v1.Attribution.output_index]
     /// can be used to identify which output this attribution is explaining.
+    ///
+    /// By default, we provide Shapley values for the predicted class. However,
+    /// you can configure the explanation request to generate Shapley values for
+    /// any other classes too. For example, if a model predicts a probability of
+    /// `0.4` for approving a loan application, the model's decision is to reject
+    /// the application since `p(reject) = 0.6 > p(approve) = 0.4`, and the default
+    /// Shapley values would be computed for rejection decision and not approval,
+    /// even though the latter might be the positive class.
     ///
     /// If users set
     /// [ExplanationParameters.top_k][google.cloud.aiplatform.v1.ExplanationParameters.top_k],
@@ -3188,11 +3215,11 @@ pub struct Model {
     /// deploying this Model. The specification is ingested upon
     /// [ModelService.UploadModel][google.cloud.aiplatform.v1.ModelService.UploadModel],
     /// and all binaries it contains are copied and stored internally by Vertex AI.
-    /// Not present for AutoML Models or Large Models.
+    /// Not required for AutoML Models.
     #[prost(message, optional, tag = "9")]
     pub container_spec: ::core::option::Option<ModelContainerSpec>,
     /// Immutable. The path to the directory containing the Model artifact and any
-    /// of its supporting files. Not present for AutoML Models or Large Models.
+    /// of its supporting files. Not required for AutoML Models.
     #[prost(string, tag = "26")]
     pub artifact_uri: ::prost::alloc::string::String,
     /// Output only. When this Model is deployed, its prediction resources are
@@ -3381,7 +3408,8 @@ pub struct Model {
     #[prost(message, optional, tag = "24")]
     pub encryption_spec: ::core::option::Option<EncryptionSpec>,
     /// Output only. Source of a model. It can either be automl training pipeline,
-    /// custom training pipeline, BigQuery ML, or existing Vertex AI Model.
+    /// custom training pipeline, BigQuery ML, or saved and tuned from Genie or
+    /// Model Garden.
     #[prost(message, optional, tag = "38")]
     pub model_source_info: ::core::option::Option<ModelSourceInfo>,
     /// Output only. If this Model is a copy of another Model, this contains info
@@ -3915,6 +3943,10 @@ pub struct ModelSourceInfo {
 /// Nested message and enum types in `ModelSourceInfo`.
 pub mod model_source_info {
     /// Source of the model.
+    /// Different from `objective` field, this `ModelSourceType` enum
+    /// indicates the source from which the model was accessed or obtained,
+    /// whereas the `objective` indicates the overall aim or function of this
+    /// model.
     #[derive(
         Clone,
         Copy,
@@ -3942,6 +3974,8 @@ pub mod model_source_info {
         Genie = 5,
         /// The Model is uploaded by text embedding finetuning pipeline.
         CustomTextEmbedding = 6,
+        /// The Model is saved or tuned from Marketplace.
+        Marketplace = 7,
     }
     impl ModelSourceType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -3957,6 +3991,7 @@ pub mod model_source_info {
                 ModelSourceType::ModelGarden => "MODEL_GARDEN",
                 ModelSourceType::Genie => "GENIE",
                 ModelSourceType::CustomTextEmbedding => "CUSTOM_TEXT_EMBEDDING",
+                ModelSourceType::Marketplace => "MARKETPLACE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -3969,6 +4004,7 @@ pub mod model_source_info {
                 "MODEL_GARDEN" => Some(Self::ModelGarden),
                 "GENIE" => Some(Self::Genie),
                 "CUSTOM_TEXT_EMBEDDING" => Some(Self::CustomTextEmbedding),
+                "MARKETPLACE" => Some(Self::Marketplace),
                 _ => None,
             }
         }
@@ -5265,6 +5301,9 @@ pub mod publisher_model {
         pub open_notebook: ::core::option::Option<
             call_to_action::RegionalResourceReferences,
         >,
+        /// Optional. Open notebooks of the PublisherModel.
+        #[prost(message, optional, tag = "12")]
+        pub open_notebooks: ::core::option::Option<call_to_action::OpenNotebooks>,
         /// Optional. Create application using the PublisherModel.
         #[prost(message, optional, tag = "3")]
         pub create_application: ::core::option::Option<
@@ -5274,6 +5313,11 @@ pub mod publisher_model {
         #[prost(message, optional, tag = "4")]
         pub open_fine_tuning_pipeline: ::core::option::Option<
             call_to_action::RegionalResourceReferences,
+        >,
+        /// Optional. Open fine-tuning pipelines of the PublisherModel.
+        #[prost(message, optional, tag = "13")]
+        pub open_fine_tuning_pipelines: ::core::option::Option<
+            call_to_action::OpenFineTuningPipelines,
         >,
         /// Optional. Open prompt-tuning pipeline of the PublisherModel.
         #[prost(message, optional, tag = "5")]
@@ -5288,6 +5332,9 @@ pub mod publisher_model {
         /// Optional. Deploy the PublisherModel to Vertex Endpoint.
         #[prost(message, optional, tag = "7")]
         pub deploy: ::core::option::Option<call_to_action::Deploy>,
+        /// Optional. Deploy PublisherModel to Google Kubernetes Engine.
+        #[prost(message, optional, tag = "14")]
+        pub deploy_gke: ::core::option::Option<call_to_action::DeployGke>,
         /// Optional. Open in Generation AI Studio.
         #[prost(message, optional, tag = "8")]
         pub open_generation_ai_studio: ::core::option::Option<
@@ -5317,9 +5364,22 @@ pub mod publisher_model {
                 ::prost::alloc::string::String,
                 super::ResourceReference,
             >,
-            /// Required. The title of the regional resource reference.
+            /// Required.
             #[prost(string, tag = "2")]
             pub title: ::prost::alloc::string::String,
+            /// Optional. Title of the resource.
+            #[prost(string, optional, tag = "3")]
+            pub resource_title: ::core::option::Option<::prost::alloc::string::String>,
+            /// Optional. Use case (CUJ) of the resource.
+            #[prost(string, optional, tag = "4")]
+            pub resource_use_case: ::core::option::Option<
+                ::prost::alloc::string::String,
+            >,
+            /// Optional. Description of the resource.
+            #[prost(string, optional, tag = "5")]
+            pub resource_description: ::core::option::Option<
+                ::prost::alloc::string::String,
+            >,
         }
         /// Rest API docs.
         #[allow(clippy::derive_partial_eq_without_eq)]
@@ -5331,6 +5391,24 @@ pub mod publisher_model {
             /// Required. The title of the view rest API.
             #[prost(string, tag = "2")]
             pub title: ::prost::alloc::string::String,
+        }
+        /// Open notebooks.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct OpenNotebooks {
+            /// Required. Regional resource references to notebooks.
+            #[prost(message, repeated, tag = "1")]
+            pub notebooks: ::prost::alloc::vec::Vec<RegionalResourceReferences>,
+        }
+        /// Open fine tuning pipelines.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct OpenFineTuningPipelines {
+            /// Required. Regional resource references to fine tuning pipelines.
+            #[prost(message, repeated, tag = "1")]
+            pub fine_tuning_pipelines: ::prost::alloc::vec::Vec<
+                RegionalResourceReferences,
+            >,
         }
         /// Model metadata that is needed for UploadModel or
         /// DeployModel/CreateEndpoint requests.
@@ -5389,6 +5467,16 @@ pub mod publisher_model {
                 #[prost(string, tag = "7")]
                 SharedResources(::prost::alloc::string::String),
             }
+        }
+        /// Configurations for PublisherModel GKE deployment
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct DeployGke {
+            /// Optional. GKE deployment configuration in yaml format.
+            #[prost(string, repeated, tag = "1")]
+            pub gke_yaml_configs: ::prost::alloc::vec::Vec<
+                ::prost::alloc::string::String,
+            >,
         }
     }
     /// An enum representing the open source category of a PublisherModel.
@@ -13585,8 +13673,7 @@ pub struct GenerateContentRequest {
     ///
     /// A `Tool` is a piece of code that enables the system to interact with
     /// external systems to perform an action, or set of actions, outside of
-    /// knowledge and scope of the model. The only supported tool is currently
-    /// `Function`
+    /// knowledge and scope of the model.
     #[prost(message, repeated, tag = "6")]
     pub tools: ::prost::alloc::vec::Vec<Tool>,
     /// Optional. Per request settings for blocking unsafe content.
@@ -18713,6 +18800,10 @@ pub struct ModelDeploymentMonitoringBigQueryTable {
     /// `bq://<project_id>.model_deployment_monitoring_<endpoint_id>.<tolower(log_source)>_<tolower(log_type)>`
     #[prost(string, tag = "3")]
     pub bigquery_table_path: ::prost::alloc::string::String,
+    /// Output only. The schema version of the request/response logging BigQuery
+    /// table. Default to v1 if unset.
+    #[prost(string, tag = "4")]
+    pub request_response_logging_schema_version: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `ModelDeploymentMonitoringBigQueryTable`.
 pub mod model_deployment_monitoring_big_query_table {
@@ -20568,10 +20659,6 @@ pub struct Scheduling {
     /// `Scheduling.restart_job_on_worker_restart` to false.
     #[prost(bool, tag = "5")]
     pub disable_retries: bool,
-    /// Optional. This is the maximum time a user will wait in the QRM queue for
-    /// resources. Default is 1 day
-    #[prost(message, optional, tag = "6")]
-    pub max_wait_duration: ::core::option::Option<::prost_types::Duration>,
 }
 /// Represents a HyperparameterTuningJob. A HyperparameterTuningJob
 /// has a Study specification and multiple CustomJobs with identical
@@ -24506,6 +24593,7 @@ pub struct UpdateFeatureOnlineStoreRequest {
     /// Updatable fields:
     ///
     ///    * `big_query_source`
+    ///    * `bigtable`
     ///    * `labels`
     ///    * `sync_config`
     #[prost(message, optional, tag = "2")]
@@ -24659,6 +24747,7 @@ pub struct UpdateFeatureViewRequest {
     /// Updatable fields:
     ///
     ///    * `labels`
+    ///    * `serviceAgentType`
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
@@ -27075,6 +27164,15 @@ pub struct UpsertDatapointsRequest {
     /// A list of datapoints to be created/updated.
     #[prost(message, repeated, tag = "2")]
     pub datapoints: ::prost::alloc::vec::Vec<IndexDatapoint>,
+    /// Optional. Update mask is used to specify the fields to be overwritten in
+    /// the datapoints by the update. The fields specified in the update_mask are
+    /// relative to each IndexDatapoint inside datapoints, not the full request.
+    ///
+    /// Updatable fields:
+    ///
+    ///    * Use `all_restricts` to update both restricts and numeric_restricts.
+    #[prost(message, optional, tag = "3")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Response message for
 /// [IndexService.UpsertDatapoints][google.cloud.aiplatform.v1.IndexService.UpsertDatapoints]
@@ -27173,6 +27271,19 @@ pub mod nearest_neighbor_search_operation_metadata {
             EmbeddingSizeMismatch = 6,
             /// The `namespace` field is missing.
             NamespaceMissing = 7,
+            /// Generic catch-all error. Only used for validation failure where the
+            /// root cause cannot be easily retrieved programmatically.
+            ParsingError = 8,
+            /// There are multiple restricts with the same `namespace` value.
+            DuplicateNamespace = 9,
+            /// Numeric restrict has operator specified in datapoint.
+            OpInDatapoint = 10,
+            /// Numeric restrict has multiple values specified.
+            MultipleValues = 11,
+            /// Numeric restrict has invalid numeric value specified.
+            InvalidNumericValue = 12,
+            /// File is not in UTF_8 format.
+            InvalidEncoding = 13,
         }
         impl RecordErrorType {
             /// String value of the enum field names used in the ProtoBuf definition.
@@ -27189,6 +27300,12 @@ pub mod nearest_neighbor_search_operation_metadata {
                     RecordErrorType::InvalidEmbeddingId => "INVALID_EMBEDDING_ID",
                     RecordErrorType::EmbeddingSizeMismatch => "EMBEDDING_SIZE_MISMATCH",
                     RecordErrorType::NamespaceMissing => "NAMESPACE_MISSING",
+                    RecordErrorType::ParsingError => "PARSING_ERROR",
+                    RecordErrorType::DuplicateNamespace => "DUPLICATE_NAMESPACE",
+                    RecordErrorType::OpInDatapoint => "OP_IN_DATAPOINT",
+                    RecordErrorType::MultipleValues => "MULTIPLE_VALUES",
+                    RecordErrorType::InvalidNumericValue => "INVALID_NUMERIC_VALUE",
+                    RecordErrorType::InvalidEncoding => "INVALID_ENCODING",
                 }
             }
             /// Creates an enum from field names used in the ProtoBuf definition.
@@ -27202,6 +27319,12 @@ pub mod nearest_neighbor_search_operation_metadata {
                     "INVALID_EMBEDDING_ID" => Some(Self::InvalidEmbeddingId),
                     "EMBEDDING_SIZE_MISMATCH" => Some(Self::EmbeddingSizeMismatch),
                     "NAMESPACE_MISSING" => Some(Self::NamespaceMissing),
+                    "PARSING_ERROR" => Some(Self::ParsingError),
+                    "DUPLICATE_NAMESPACE" => Some(Self::DuplicateNamespace),
+                    "OP_IN_DATAPOINT" => Some(Self::OpInDatapoint),
+                    "MULTIPLE_VALUES" => Some(Self::MultipleValues),
+                    "INVALID_NUMERIC_VALUE" => Some(Self::InvalidNumericValue),
+                    "INVALID_ENCODING" => Some(Self::InvalidEncoding),
                     _ => None,
                 }
             }
