@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["deploy"],"struct":["Deploy","RegionalResourceReferences","ViewRestApi"]};
+window.SIDEBAR_ITEMS = {"mod":["deploy"],"struct":["Deploy","DeployGke","OpenFineTuningPipelines","OpenNotebooks","RegionalResourceReferences","ViewRestApi"]};
