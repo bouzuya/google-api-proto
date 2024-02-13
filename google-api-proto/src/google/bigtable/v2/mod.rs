@@ -1,147 +1,3 @@
-/// Feature flags supported or enabled by a client.
-/// This is intended to be sent as part of request metadata to assure the server
-/// that certain behaviors are safe to enable. This proto is meant to be
-/// serialized and websafe-base64 encoded under the `bigtable-features` metadata
-/// key. The value will remain constant for the lifetime of a client and due to
-/// HTTP2's HPACK compression, the request overhead will be tiny.
-/// This is an internal implementation detail and should not be used by end users
-/// directly.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FeatureFlags {
-    /// Notify the server that the client supports reverse scans. The server will
-    /// reject ReadRowsRequests with the reverse bit set when this is absent.
-    #[prost(bool, tag = "1")]
-    pub reverse_scans: bool,
-    /// Notify the server that the client enables batch write flow control by
-    /// requesting RateLimitInfo from MutateRowsResponse. Due to technical reasons,
-    /// this disables partial retries.
-    #[prost(bool, tag = "3")]
-    pub mutate_rows_rate_limit: bool,
-    /// Notify the server that the client enables batch write flow control by
-    /// requesting RateLimitInfo from MutateRowsResponse. With partial retries
-    /// enabled.
-    #[prost(bool, tag = "5")]
-    pub mutate_rows_rate_limit2: bool,
-    /// Notify the server that the client supports the last_scanned_row field
-    /// in ReadRowsResponse for long-running scans.
-    #[prost(bool, tag = "4")]
-    pub last_scanned_row_responses: bool,
-    /// Notify the server that the client supports using encoded routing cookie
-    /// strings to retry requests with.
-    #[prost(bool, tag = "6")]
-    pub routing_cookie: bool,
-    /// Notify the server that the client supports using retry info back off
-    /// durations to retry requests with.
-    #[prost(bool, tag = "7")]
-    pub retry_info: bool,
-}
-/// ReadIterationStats captures information about the iteration of rows or cells
-/// over the course of a read, e.g. how many results were scanned in a read
-/// operation versus the results returned.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReadIterationStats {
-    /// The rows seen (scanned) as part of the request. This includes the count of
-    /// rows returned, as captured below.
-    #[prost(int64, tag = "1")]
-    pub rows_seen_count: i64,
-    /// The rows returned as part of the request.
-    #[prost(int64, tag = "2")]
-    pub rows_returned_count: i64,
-    /// The cells seen (scanned) as part of the request. This includes the count of
-    /// cells returned, as captured below.
-    #[prost(int64, tag = "3")]
-    pub cells_seen_count: i64,
-    /// The cells returned as part of the request.
-    #[prost(int64, tag = "4")]
-    pub cells_returned_count: i64,
-}
-/// RequestLatencyStats provides a measurement of the latency of the request as
-/// it interacts with different systems over its lifetime, e.g. how long the
-/// request took to execute within a frontend server.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RequestLatencyStats {
-    /// The latency measured by the frontend server handling this request, from
-    /// when the request was received, to when this value is sent back in the
-    /// response. For more context on the component that is measuring this latency,
-    /// see: <https://cloud.google.com/bigtable/docs/overview>
-    ///
-    /// Note: This value may be slightly shorter than the value reported into
-    /// aggregate latency metrics in Monitoring for this request
-    /// (<https://cloud.google.com/bigtable/docs/monitoring-instance>) as this value
-    /// needs to be sent in the response before the latency measurement including
-    /// that transmission is finalized.
-    ///
-    /// Note: This value includes the end-to-end latency of contacting nodes in
-    /// the targeted cluster, e.g. measuring from when the first byte arrives at
-    /// the frontend server, to when this value is sent back as the last value in
-    /// the response, including any latency incurred by contacting nodes, waiting
-    /// for results from nodes, and finally sending results from nodes back to the
-    /// caller.
-    #[prost(message, optional, tag = "1")]
-    pub frontend_server_latency: ::core::option::Option<::prost_types::Duration>,
-}
-/// FullReadStatsView captures all known information about a read.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FullReadStatsView {
-    /// Iteration stats describe how efficient the read is, e.g. comparing
-    /// rows seen vs. rows returned or cells seen vs cells returned can provide an
-    /// indication of read efficiency (the higher the ratio of seen to retuned the
-    /// better).
-    #[prost(message, optional, tag = "1")]
-    pub read_iteration_stats: ::core::option::Option<ReadIterationStats>,
-    /// Request latency stats describe the time taken to complete a request, from
-    /// the server side.
-    #[prost(message, optional, tag = "2")]
-    pub request_latency_stats: ::core::option::Option<RequestLatencyStats>,
-}
-/// RequestStats is the container for additional information pertaining to a
-/// single request, helpful for evaluating the performance of the sent request.
-/// Currently, there are the following supported methods:
-///    * google.bigtable.v2.ReadRows
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RequestStats {
-    /// Information pertaining to each request type received. The type is chosen
-    /// based on the requested view.
-    ///
-    /// See the messages above for additional context.
-    #[prost(oneof = "request_stats::StatsView", tags = "1")]
-    pub stats_view: ::core::option::Option<request_stats::StatsView>,
-}
-/// Nested message and enum types in `RequestStats`.
-pub mod request_stats {
-    /// Information pertaining to each request type received. The type is chosen
-    /// based on the requested view.
-    ///
-    /// See the messages above for additional context.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum StatsView {
-        /// Available with the ReadRowsRequest.RequestStatsView.REQUEST_STATS_FULL
-        /// view, see package google.bigtable.v2.
-        #[prost(message, tag = "1")]
-        FullReadStatsView(super::FullReadStatsView),
-    }
-}
-/// Response metadata proto
-/// This is an experimental feature that will be used to get zone_id and
-/// cluster_id from response trailers to tag the metrics. This should not be
-/// used by customers directly
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResponseParams {
-    /// The cloud bigtable zone associated with the cluster.
-    #[prost(string, optional, tag = "1")]
-    pub zone_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Identifier for a cluster that represents set of
-    /// bigtable resources.
-    #[prost(string, optional, tag = "2")]
-    pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
-}
 /// Specifies the complete (requested) contents of a single row of a table.
 /// Rows which exceed 256MiB in size cannot be read in full.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -799,6 +655,97 @@ pub struct StreamContinuationToken {
     /// An encoded position in the stream to restart reading from.
     #[prost(string, tag = "2")]
     pub token: ::prost::alloc::string::String,
+}
+/// ReadIterationStats captures information about the iteration of rows or cells
+/// over the course of a read, e.g. how many results were scanned in a read
+/// operation versus the results returned.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReadIterationStats {
+    /// The rows seen (scanned) as part of the request. This includes the count of
+    /// rows returned, as captured below.
+    #[prost(int64, tag = "1")]
+    pub rows_seen_count: i64,
+    /// The rows returned as part of the request.
+    #[prost(int64, tag = "2")]
+    pub rows_returned_count: i64,
+    /// The cells seen (scanned) as part of the request. This includes the count of
+    /// cells returned, as captured below.
+    #[prost(int64, tag = "3")]
+    pub cells_seen_count: i64,
+    /// The cells returned as part of the request.
+    #[prost(int64, tag = "4")]
+    pub cells_returned_count: i64,
+}
+/// RequestLatencyStats provides a measurement of the latency of the request as
+/// it interacts with different systems over its lifetime, e.g. how long the
+/// request took to execute within a frontend server.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RequestLatencyStats {
+    /// The latency measured by the frontend server handling this request, from
+    /// when the request was received, to when this value is sent back in the
+    /// response. For more context on the component that is measuring this latency,
+    /// see: <https://cloud.google.com/bigtable/docs/overview>
+    ///
+    /// Note: This value may be slightly shorter than the value reported into
+    /// aggregate latency metrics in Monitoring for this request
+    /// (<https://cloud.google.com/bigtable/docs/monitoring-instance>) as this value
+    /// needs to be sent in the response before the latency measurement including
+    /// that transmission is finalized.
+    ///
+    /// Note: This value includes the end-to-end latency of contacting nodes in
+    /// the targeted cluster, e.g. measuring from when the first byte arrives at
+    /// the frontend server, to when this value is sent back as the last value in
+    /// the response, including any latency incurred by contacting nodes, waiting
+    /// for results from nodes, and finally sending results from nodes back to the
+    /// caller.
+    #[prost(message, optional, tag = "1")]
+    pub frontend_server_latency: ::core::option::Option<::prost_types::Duration>,
+}
+/// FullReadStatsView captures all known information about a read.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FullReadStatsView {
+    /// Iteration stats describe how efficient the read is, e.g. comparing
+    /// rows seen vs. rows returned or cells seen vs cells returned can provide an
+    /// indication of read efficiency (the higher the ratio of seen to retuned the
+    /// better).
+    #[prost(message, optional, tag = "1")]
+    pub read_iteration_stats: ::core::option::Option<ReadIterationStats>,
+    /// Request latency stats describe the time taken to complete a request, from
+    /// the server side.
+    #[prost(message, optional, tag = "2")]
+    pub request_latency_stats: ::core::option::Option<RequestLatencyStats>,
+}
+/// RequestStats is the container for additional information pertaining to a
+/// single request, helpful for evaluating the performance of the sent request.
+/// Currently, there are the following supported methods:
+///    * google.bigtable.v2.ReadRows
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RequestStats {
+    /// Information pertaining to each request type received. The type is chosen
+    /// based on the requested view.
+    ///
+    /// See the messages above for additional context.
+    #[prost(oneof = "request_stats::StatsView", tags = "1")]
+    pub stats_view: ::core::option::Option<request_stats::StatsView>,
+}
+/// Nested message and enum types in `RequestStats`.
+pub mod request_stats {
+    /// Information pertaining to each request type received. The type is chosen
+    /// based on the requested view.
+    ///
+    /// See the messages above for additional context.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum StatsView {
+        /// Available with the ReadRowsRequest.RequestStatsView.REQUEST_STATS_FULL
+        /// view, see package google.bigtable.v2.
+        #[prost(message, tag = "1")]
+        FullReadStatsView(super::FullReadStatsView),
+    }
 }
 /// Request message for Bigtable.ReadRows.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1910,4 +1857,57 @@ pub mod bigtable_client {
             self.inner.server_streaming(req, path, codec).await
         }
     }
+}
+/// Feature flags supported or enabled by a client.
+/// This is intended to be sent as part of request metadata to assure the server
+/// that certain behaviors are safe to enable. This proto is meant to be
+/// serialized and websafe-base64 encoded under the `bigtable-features` metadata
+/// key. The value will remain constant for the lifetime of a client and due to
+/// HTTP2's HPACK compression, the request overhead will be tiny.
+/// This is an internal implementation detail and should not be used by end users
+/// directly.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FeatureFlags {
+    /// Notify the server that the client supports reverse scans. The server will
+    /// reject ReadRowsRequests with the reverse bit set when this is absent.
+    #[prost(bool, tag = "1")]
+    pub reverse_scans: bool,
+    /// Notify the server that the client enables batch write flow control by
+    /// requesting RateLimitInfo from MutateRowsResponse. Due to technical reasons,
+    /// this disables partial retries.
+    #[prost(bool, tag = "3")]
+    pub mutate_rows_rate_limit: bool,
+    /// Notify the server that the client enables batch write flow control by
+    /// requesting RateLimitInfo from MutateRowsResponse. With partial retries
+    /// enabled.
+    #[prost(bool, tag = "5")]
+    pub mutate_rows_rate_limit2: bool,
+    /// Notify the server that the client supports the last_scanned_row field
+    /// in ReadRowsResponse for long-running scans.
+    #[prost(bool, tag = "4")]
+    pub last_scanned_row_responses: bool,
+    /// Notify the server that the client supports using encoded routing cookie
+    /// strings to retry requests with.
+    #[prost(bool, tag = "6")]
+    pub routing_cookie: bool,
+    /// Notify the server that the client supports using retry info back off
+    /// durations to retry requests with.
+    #[prost(bool, tag = "7")]
+    pub retry_info: bool,
+}
+/// Response metadata proto
+/// This is an experimental feature that will be used to get zone_id and
+/// cluster_id from response trailers to tag the metrics. This should not be
+/// used by customers directly
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseParams {
+    /// The cloud bigtable zone associated with the cluster.
+    #[prost(string, optional, tag = "1")]
+    pub zone_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Identifier for a cluster that represents set of
+    /// bigtable resources.
+    #[prost(string, optional, tag = "2")]
+    pub cluster_id: ::core::option::Option<::prost::alloc::string::String>,
 }

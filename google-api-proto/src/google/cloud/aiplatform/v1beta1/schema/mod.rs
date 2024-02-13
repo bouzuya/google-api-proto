@@ -8,6 +8,23 @@
 pub mod predict;
 #[cfg(any(feature = "google-cloud-aiplatform-v1beta1-schema-trainingjob-definition"))]
 pub mod trainingjob;
+/// An entry of mapping between color and AnnotationSpec. The mapping is used in
+/// segmentation mask.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AnnotationSpecColor {
+    /// The color of the AnnotationSpec in a segmentation mask.
+    #[prost(message, optional, tag = "1")]
+    pub color: ::core::option::Option<super::super::super::super::r#type::Color>,
+    /// The display name of the AnnotationSpec represented by the color in the
+    /// segmentation mask.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The ID of the AnnotationSpec represented by the color in the segmentation
+    /// mask.
+    #[prost(string, tag = "3")]
+    pub id: ::prost::alloc::string::String,
+}
 /// The metadata of Datasets that contain Image DataItems.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -150,69 +167,6 @@ pub mod time_series_dataset_metadata {
         pub uri: ::prost::alloc::string::String,
     }
 }
-/// Payload of Image DataItem.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageDataItem {
-    /// Required. Google Cloud Storage URI points to the original image in user's bucket.
-    /// The image is up to 30MB in size.
-    #[prost(string, tag = "1")]
-    pub gcs_uri: ::prost::alloc::string::String,
-    /// Output only. The mime type of the content of the image. Only the images in below listed
-    /// mime types are supported.
-    /// - image/jpeg
-    /// - image/gif
-    /// - image/png
-    /// - image/webp
-    /// - image/bmp
-    /// - image/tiff
-    /// - image/vnd.microsoft.icon
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Payload of Video DataItem.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VideoDataItem {
-    /// Required. Google Cloud Storage URI points to the original video in user's bucket.
-    /// The video is up to 50 GB in size and up to 3 hour in duration.
-    #[prost(string, tag = "1")]
-    pub gcs_uri: ::prost::alloc::string::String,
-    /// Output only. The mime type of the content of the video. Only the videos in below listed
-    /// mime types are supported.
-    /// Supported mime_type:
-    /// - video/mp4
-    /// - video/avi
-    /// - video/quicktime
-    #[prost(string, tag = "2")]
-    pub mime_type: ::prost::alloc::string::String,
-}
-/// Payload of Text DataItem.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextDataItem {
-    /// Output only. Google Cloud Storage URI points to the original text in user's bucket.
-    /// The text file is up to 10MB in size.
-    #[prost(string, tag = "1")]
-    pub gcs_uri: ::prost::alloc::string::String,
-}
-/// An entry of mapping between color and AnnotationSpec. The mapping is used in
-/// segmentation mask.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AnnotationSpecColor {
-    /// The color of the AnnotationSpec in a segmentation mask.
-    #[prost(message, optional, tag = "1")]
-    pub color: ::core::option::Option<super::super::super::super::r#type::Color>,
-    /// The display name of the AnnotationSpec represented by the color in the
-    /// segmentation mask.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The ID of the AnnotationSpec represented by the color in the segmentation
-    /// mask.
-    #[prost(string, tag = "3")]
-    pub id: ::prost::alloc::string::String,
-}
 /// A vertex represents a 2D point in the image.
 /// NOTE: the normalized vertex coordinates are relative to the original image
 /// and range from 0 to 1.
@@ -273,6 +227,52 @@ pub mod prediction_result {
         #[prost(string, tag = "2")]
         Key(::prost::alloc::string::String),
     }
+}
+/// Payload of Image DataItem.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImageDataItem {
+    /// Required. Google Cloud Storage URI points to the original image in user's bucket.
+    /// The image is up to 30MB in size.
+    #[prost(string, tag = "1")]
+    pub gcs_uri: ::prost::alloc::string::String,
+    /// Output only. The mime type of the content of the image. Only the images in below listed
+    /// mime types are supported.
+    /// - image/jpeg
+    /// - image/gif
+    /// - image/png
+    /// - image/webp
+    /// - image/bmp
+    /// - image/tiff
+    /// - image/vnd.microsoft.icon
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// Payload of Video DataItem.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoDataItem {
+    /// Required. Google Cloud Storage URI points to the original video in user's bucket.
+    /// The video is up to 50 GB in size and up to 3 hour in duration.
+    #[prost(string, tag = "1")]
+    pub gcs_uri: ::prost::alloc::string::String,
+    /// Output only. The mime type of the content of the video. Only the videos in below listed
+    /// mime types are supported.
+    /// Supported mime_type:
+    /// - video/mp4
+    /// - video/avi
+    /// - video/quicktime
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+}
+/// Payload of Text DataItem.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextDataItem {
+    /// Output only. Google Cloud Storage URI points to the original text in user's bucket.
+    /// The text file is up to 10MB in size.
+    #[prost(string, tag = "1")]
+    pub gcs_uri: ::prost::alloc::string::String,
 }
 /// Annotation details specific to image classification.
 #[allow(clippy::derive_partial_eq_without_eq)]

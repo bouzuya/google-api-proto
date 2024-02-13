@@ -1,78 +1,3 @@
-/// Information about a Generative Language Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Model {
-    /// Required. The resource name of the `Model`.
-    ///
-    /// Format: `models/{model}` with a `{model}` naming convention of:
-    ///
-    /// * "{base_model_id}-{version}"
-    ///
-    /// Examples:
-    ///
-    /// * `models/chat-bison-001`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The name of the base model, pass this to the generation request.
-    ///
-    /// Examples:
-    ///
-    /// * `chat-bison`
-    #[prost(string, tag = "2")]
-    pub base_model_id: ::prost::alloc::string::String,
-    /// Required. The version number of the model.
-    ///
-    /// This represents the major version
-    #[prost(string, tag = "3")]
-    pub version: ::prost::alloc::string::String,
-    /// The human-readable name of the model. E.g. "Chat Bison".
-    ///
-    /// The name can be up to 128 characters long and can consist of any UTF-8
-    /// characters.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A short description of the model.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Maximum number of input tokens allowed for this model.
-    #[prost(int32, tag = "6")]
-    pub input_token_limit: i32,
-    /// Maximum number of output tokens available for this model.
-    #[prost(int32, tag = "7")]
-    pub output_token_limit: i32,
-    /// The model's supported generation methods.
-    ///
-    /// The method names are defined as Pascal case
-    /// strings, such as `generateMessage` which correspond to API methods.
-    #[prost(string, repeated, tag = "8")]
-    pub supported_generation_methods: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
-    /// produce responses that are more varied, while a value closer to `0.0` will
-    /// typically result in less surprising responses from the model.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "9")]
-    pub temperature: ::core::option::Option<f32>,
-    /// For Nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "10")]
-    pub top_p: ::core::option::Option<f32>,
-    /// For Top-k sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(int32, optional, tag = "11")]
-    pub top_k: ::core::option::Option<i32>,
-}
 /// A collection of source attributions for a piece of content.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -103,66 +28,6 @@ pub struct CitationSource {
     /// License info is required for code citations.
     #[prost(string, optional, tag = "4")]
     pub license: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// The base structured datatype containing multi-part content of a message.
-///
-/// A `Content` includes a `role` field designating the producer of the `Content`
-/// and a `parts` field containing multi-part data that contains the content of
-/// the message turn.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Content {
-    /// Ordered `Parts` that constitute a single message. Parts may have different
-    /// MIME types.
-    #[prost(message, repeated, tag = "1")]
-    pub parts: ::prost::alloc::vec::Vec<Part>,
-    /// Optional. The producer of the content. Must be either 'user' or 'model'.
-    ///
-    /// Useful to set for multi-turn conversations, otherwise can be left blank
-    /// or unset.
-    #[prost(string, tag = "2")]
-    pub role: ::prost::alloc::string::String,
-}
-/// A datatype containing media that is part of a multi-part `Content` message.
-///
-/// A `Part` consists of data which has an associated datatype. A `Part` can only
-/// contain one of the accepted types in `Part.data`.
-///
-/// A `Part` must have a fixed IANA MIME type identifying the type and subtype
-/// of the media if the `inline_data` field is filled with raw bytes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Part {
-    #[prost(oneof = "part::Data", tags = "2, 3")]
-    pub data: ::core::option::Option<part::Data>,
-}
-/// Nested message and enum types in `Part`.
-pub mod part {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Data {
-        /// Inline text.
-        #[prost(string, tag = "2")]
-        Text(::prost::alloc::string::String),
-        /// Inline media bytes.
-        #[prost(message, tag = "3")]
-        InlineData(super::Blob),
-    }
-}
-/// Raw media bytes.
-///
-/// Text should not be sent as raw bytes, use the 'text' field.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Blob {
-    /// The IANA standard MIME type of the source data.
-    /// Accepted types include: "image/png", "image/jpeg", "image/heic",
-    /// "image/heif", "image/webp".
-    #[prost(string, tag = "1")]
-    pub mime_type: ::prost::alloc::string::String,
-    /// Raw bytes for media formats.
-    #[prost(bytes = "bytes", tag = "2")]
-    pub data: ::prost::bytes::Bytes,
 }
 /// Safety rating for a piece of content.
 ///
@@ -377,6 +242,324 @@ impl HarmCategory {
             _ => None,
         }
     }
+}
+/// Information about a Generative Language Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Model {
+    /// Required. The resource name of the `Model`.
+    ///
+    /// Format: `models/{model}` with a `{model}` naming convention of:
+    ///
+    /// * "{base_model_id}-{version}"
+    ///
+    /// Examples:
+    ///
+    /// * `models/chat-bison-001`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The name of the base model, pass this to the generation request.
+    ///
+    /// Examples:
+    ///
+    /// * `chat-bison`
+    #[prost(string, tag = "2")]
+    pub base_model_id: ::prost::alloc::string::String,
+    /// Required. The version number of the model.
+    ///
+    /// This represents the major version
+    #[prost(string, tag = "3")]
+    pub version: ::prost::alloc::string::String,
+    /// The human-readable name of the model. E.g. "Chat Bison".
+    ///
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A short description of the model.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Maximum number of input tokens allowed for this model.
+    #[prost(int32, tag = "6")]
+    pub input_token_limit: i32,
+    /// Maximum number of output tokens available for this model.
+    #[prost(int32, tag = "7")]
+    pub output_token_limit: i32,
+    /// The model's supported generation methods.
+    ///
+    /// The method names are defined as Pascal case
+    /// strings, such as `generateMessage` which correspond to API methods.
+    #[prost(string, repeated, tag = "8")]
+    pub supported_generation_methods: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
+    /// produce responses that are more varied, while a value closer to `0.0` will
+    /// typically result in less surprising responses from the model.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "9")]
+    pub temperature: ::core::option::Option<f32>,
+    /// For Nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "10")]
+    pub top_p: ::core::option::Option<f32>,
+    /// For Top-k sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(int32, optional, tag = "11")]
+    pub top_k: ::core::option::Option<i32>,
+}
+/// Request for getting information about a specific Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetModelRequest {
+    /// Required. The resource name of the model.
+    ///
+    /// This name should match a model name returned by the `ListModels` method.
+    ///
+    /// Format: `models/{model}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request for listing all Models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelsRequest {
+    /// The maximum number of `Models` to return (per page).
+    ///
+    /// The service may return fewer models.
+    /// If unspecified, at most 50 models will be returned per page.
+    /// This method returns at most 1000 models per page, even if you pass a larger
+    /// page_size.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListModels` call.
+    ///
+    /// Provide the `page_token` returned by one request as an argument to the next
+    /// request to retrieve the next page.
+    ///
+    /// When paginating, all other parameters provided to `ListModels` must match
+    /// the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response from `ListModel` containing a paginated list of Models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelsResponse {
+    /// The returned Models.
+    #[prost(message, repeated, tag = "1")]
+    pub models: ::prost::alloc::vec::Vec<Model>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    ///
+    /// If this field is omitted, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod model_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Provides methods for getting metadata information about Generative Models.
+    #[derive(Debug, Clone)]
+    pub struct ModelServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ModelServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ModelServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ModelServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Gets information about a specific Model.
+        pub async fn get_model(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetModelRequest>,
+        ) -> std::result::Result<tonic::Response<super::Model>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1.ModelService/GetModel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1.ModelService",
+                        "GetModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists models available through the API.
+        pub async fn list_models(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListModelsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListModelsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1.ModelService/ListModels",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1.ModelService",
+                        "ListModels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The base structured datatype containing multi-part content of a message.
+///
+/// A `Content` includes a `role` field designating the producer of the `Content`
+/// and a `parts` field containing multi-part data that contains the content of
+/// the message turn.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Content {
+    /// Ordered `Parts` that constitute a single message. Parts may have different
+    /// MIME types.
+    #[prost(message, repeated, tag = "1")]
+    pub parts: ::prost::alloc::vec::Vec<Part>,
+    /// Optional. The producer of the content. Must be either 'user' or 'model'.
+    ///
+    /// Useful to set for multi-turn conversations, otherwise can be left blank
+    /// or unset.
+    #[prost(string, tag = "2")]
+    pub role: ::prost::alloc::string::String,
+}
+/// A datatype containing media that is part of a multi-part `Content` message.
+///
+/// A `Part` consists of data which has an associated datatype. A `Part` can only
+/// contain one of the accepted types in `Part.data`.
+///
+/// A `Part` must have a fixed IANA MIME type identifying the type and subtype
+/// of the media if the `inline_data` field is filled with raw bytes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Part {
+    #[prost(oneof = "part::Data", tags = "2, 3")]
+    pub data: ::core::option::Option<part::Data>,
+}
+/// Nested message and enum types in `Part`.
+pub mod part {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Data {
+        /// Inline text.
+        #[prost(string, tag = "2")]
+        Text(::prost::alloc::string::String),
+        /// Inline media bytes.
+        #[prost(message, tag = "3")]
+        InlineData(super::Blob),
+    }
+}
+/// Raw media bytes.
+///
+/// Text should not be sent as raw bytes, use the 'text' field.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Blob {
+    /// The IANA standard MIME type of the source data.
+    /// Accepted types include: "image/png", "image/jpeg", "image/heic",
+    /// "image/heif", "image/webp".
+    #[prost(string, tag = "1")]
+    pub mime_type: ::prost::alloc::string::String,
+    /// Raw bytes for media formats.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub data: ::prost::bytes::Bytes,
 }
 /// Request to generate a completion from the model.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1023,189 +1206,6 @@ pub mod generative_service_client {
                     GrpcMethod::new(
                         "google.ai.generativelanguage.v1.GenerativeService",
                         "CountTokens",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Request for getting information about a specific Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetModelRequest {
-    /// Required. The resource name of the model.
-    ///
-    /// This name should match a model name returned by the `ListModels` method.
-    ///
-    /// Format: `models/{model}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request for listing all Models.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListModelsRequest {
-    /// The maximum number of `Models` to return (per page).
-    ///
-    /// The service may return fewer models.
-    /// If unspecified, at most 50 models will be returned per page.
-    /// This method returns at most 1000 models per page, even if you pass a larger
-    /// page_size.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListModels` call.
-    ///
-    /// Provide the `page_token` returned by one request as an argument to the next
-    /// request to retrieve the next page.
-    ///
-    /// When paginating, all other parameters provided to `ListModels` must match
-    /// the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response from `ListModel` containing a paginated list of Models.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListModelsResponse {
-    /// The returned Models.
-    #[prost(message, repeated, tag = "1")]
-    pub models: ::prost::alloc::vec::Vec<Model>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    ///
-    /// If this field is omitted, there are no more pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod model_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Provides methods for getting metadata information about Generative Models.
-    #[derive(Debug, Clone)]
-    pub struct ModelServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ModelServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ModelServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ModelServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Gets information about a specific Model.
-        pub async fn get_model(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetModelRequest>,
-        ) -> std::result::Result<tonic::Response<super::Model>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1.ModelService/GetModel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1.ModelService",
-                        "GetModel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists models available through the API.
-        pub async fn list_models(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListModelsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListModelsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1.ModelService/ListModels",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1.ModelService",
-                        "ListModels",
                     ),
                 );
             self.inner.unary(req, path, codec).await

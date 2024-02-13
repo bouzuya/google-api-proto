@@ -1,240 +1,3 @@
-/// Generated client implementations.
-pub mod sql_instance_names_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Cloud SQL instance names service.
-    #[derive(Debug, Clone)]
-    pub struct SqlInstanceNamesServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlInstanceNamesServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlInstanceNamesServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlInstanceNamesServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-    }
-}
-/// Generated client implementations.
-pub mod sql_available_database_versions_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service that exposes Cloud SQL database versions information. This
-    /// service is only used internally.
-    #[derive(Debug, Clone)]
-    pub struct SqlAvailableDatabaseVersionsServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlAvailableDatabaseVersionsServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlAvailableDatabaseVersionsServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlAvailableDatabaseVersionsServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-    }
-}
-/// Generated client implementations.
-pub mod sql_regions_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service that exposes Cloud SQL region information. This service is only used
-    /// internally and does not follow the same patterns as the other v1 RPCs.
-    #[derive(Debug, Clone)]
-    pub struct SqlRegionsServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlRegionsServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlRegionsServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlRegionsServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-    }
-}
 /// An entry for an Access Control list.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2458,553 +2221,6 @@ impl SqlUpdateTrack {
             "stable" => Some(Self::Stable),
             "week5" => Some(Self::Week5),
             _ => None,
-        }
-    }
-}
-/// Connect settings retrieval request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetConnectSettingsRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-    /// Optional. Optional snapshot read timestamp to trade freshness for
-    /// performance.
-    #[prost(message, optional, tag = "7")]
-    pub read_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Connect settings retrieval response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConnectSettings {
-    /// This is always `sql#connectSettings`.
-    #[prost(string, tag = "1")]
-    pub kind: ::prost::alloc::string::String,
-    /// SSL configuration.
-    #[prost(message, optional, tag = "2")]
-    pub server_ca_cert: ::core::option::Option<SslCert>,
-    /// The assigned IP addresses for the instance.
-    #[prost(message, repeated, tag = "3")]
-    pub ip_addresses: ::prost::alloc::vec::Vec<IpMapping>,
-    /// The cloud region for the instance. For example, `us-central1`,
-    /// `europe-west1`. The region cannot be changed after instance creation.
-    #[prost(string, tag = "4")]
-    pub region: ::prost::alloc::string::String,
-    /// The database engine type and version. The `databaseVersion`
-    /// field cannot be changed after instance creation.
-    ///    MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default),
-    /// or `MYSQL_5_6`.
-    ///    PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`,
-    /// `POSTGRES_11`, `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`.
-    ///    SQL Server instances: `SQLSERVER_2017_STANDARD` (default),
-    /// `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`,
-    /// `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`,
-    /// `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or
-    /// `SQLSERVER_2019_WEB`.
-    #[prost(enumeration = "SqlDatabaseVersion", tag = "31")]
-    pub database_version: i32,
-    /// `SECOND_GEN`: Cloud SQL database instance.
-    /// `EXTERNAL`: A database server that is not managed by Google.
-    /// This property is read-only; use the `tier` property in the `settings`
-    /// object to determine the database type.
-    #[prost(enumeration = "SqlBackendType", tag = "32")]
-    pub backend_type: i32,
-    /// Whether PSC connectivity is enabled for this instance.
-    #[prost(bool, tag = "33")]
-    pub psc_enabled: bool,
-    /// The dns name of the instance.
-    #[prost(string, tag = "34")]
-    pub dns_name: ::prost::alloc::string::String,
-}
-/// Ephemeral certificate creation request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GenerateEphemeralCertRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-    /// PEM encoded public key to include in the signed certificate.
-    #[prost(string, tag = "3")]
-    pub public_key: ::prost::alloc::string::String,
-    /// Optional. Access token to include in the signed certificate.
-    #[prost(string, tag = "4")]
-    pub access_token: ::prost::alloc::string::String,
-    /// Optional. Optional snapshot read timestamp to trade freshness for
-    /// performance.
-    #[prost(message, optional, tag = "7")]
-    pub read_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. If set, it will contain the cert valid duration.
-    #[prost(message, optional, tag = "12")]
-    pub valid_duration: ::core::option::Option<::prost_types::Duration>,
-}
-/// Ephemeral certificate creation request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GenerateEphemeralCertResponse {
-    /// Generated cert
-    #[prost(message, optional, tag = "1")]
-    pub ephemeral_cert: ::core::option::Option<SslCert>,
-}
-/// Generated client implementations.
-pub mod sql_connect_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Cloud SQL connect service.
-    #[derive(Debug, Clone)]
-    pub struct SqlConnectServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlConnectServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlConnectServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlConnectServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Retrieves connect settings about a Cloud SQL instance.
-        pub async fn get_connect_settings(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetConnectSettingsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ConnectSettings>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlConnectService/GetConnectSettings",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.sql.v1.SqlConnectService",
-                        "GetConnectSettings",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Generates a short-lived X509 certificate containing the provided public key
-        /// and signed by a private key specific to the target instance. Users may use
-        /// the certificate to authenticate as themselves when connecting to the
-        /// database.
-        pub async fn generate_ephemeral_cert(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GenerateEphemeralCertRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::GenerateEphemeralCertResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlConnectService/GenerateEphemeralCert",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.sql.v1.SqlConnectService",
-                        "GenerateEphemeralCert",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Database delete request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlDatabasesDeleteRequest {
-    /// Name of the database to be deleted in the instance.
-    #[prost(string, tag = "1")]
-    pub database: ::prost::alloc::string::String,
-    /// Database instance ID. This does not include the project ID.
-    #[prost(string, tag = "2")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "3")]
-    pub project: ::prost::alloc::string::String,
-}
-/// Database get request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlDatabasesGetRequest {
-    /// Name of the database in the instance.
-    #[prost(string, tag = "1")]
-    pub database: ::prost::alloc::string::String,
-    /// Database instance ID. This does not include the project ID.
-    #[prost(string, tag = "2")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "3")]
-    pub project: ::prost::alloc::string::String,
-}
-/// Database insert request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlDatabasesInsertRequest {
-    /// Database instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-    #[prost(message, optional, tag = "100")]
-    pub body: ::core::option::Option<Database>,
-}
-/// Database list request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlDatabasesListRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-}
-/// Database update request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlDatabasesUpdateRequest {
-    /// Name of the database to be updated in the instance.
-    #[prost(string, tag = "1")]
-    pub database: ::prost::alloc::string::String,
-    /// Database instance ID. This does not include the project ID.
-    #[prost(string, tag = "2")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "3")]
-    pub project: ::prost::alloc::string::String,
-    #[prost(message, optional, tag = "100")]
-    pub body: ::core::option::Option<Database>,
-}
-/// Database list response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DatabasesListResponse {
-    /// This is always `sql#databasesList`.
-    #[prost(string, tag = "1")]
-    pub kind: ::prost::alloc::string::String,
-    /// List of database resources in the instance.
-    #[prost(message, repeated, tag = "2")]
-    pub items: ::prost::alloc::vec::Vec<Database>,
-}
-/// Generated client implementations.
-pub mod sql_databases_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service to manage databases.
-    #[derive(Debug, Clone)]
-    pub struct SqlDatabasesServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlDatabasesServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlDatabasesServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlDatabasesServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Deletes a database from a Cloud SQL instance.
-        pub async fn delete(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlDatabasesDeleteRequest>,
-        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlDatabasesService/Delete",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Delete"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Retrieves a resource containing information about a database inside a Cloud
-        /// SQL instance.
-        pub async fn get(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlDatabasesGetRequest>,
-        ) -> std::result::Result<tonic::Response<super::Database>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlDatabasesService/Get",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Get"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Inserts a resource containing information about a database inside a Cloud
-        /// SQL instance.
-        ///
-        /// **Note:** You can't modify the default character set and collation.
-        pub async fn insert(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlDatabasesInsertRequest>,
-        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlDatabasesService/Insert",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Insert"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists databases in the specified Cloud SQL instance.
-        pub async fn list(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlDatabasesListRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::DatabasesListResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlDatabasesService/List",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "List"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Partially updates a resource containing information about a database inside
-        /// a Cloud SQL instance. This method supports patch semantics.
-        pub async fn patch(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlDatabasesUpdateRequest>,
-        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlDatabasesService/Patch",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Patch"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a resource containing information about a database inside a Cloud
-        /// SQL instance.
-        pub async fn update(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlDatabasesUpdateRequest>,
-        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlDatabasesService/Update",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Update"),
-                );
-            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -5851,6 +5067,572 @@ pub mod sql_instances_service_client {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlSslCertsDeleteRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+    /// Sha1 FingerPrint.
+    #[prost(string, tag = "3")]
+    pub sha1_fingerprint: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlSslCertsGetRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+    /// Sha1 FingerPrint.
+    #[prost(string, tag = "3")]
+    pub sha1_fingerprint: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlSslCertsInsertRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "100")]
+    pub body: ::core::option::Option<SslCertsInsertRequest>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlSslCertsListRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+}
+/// SslCerts insert request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SslCertsInsertRequest {
+    /// User supplied name.  Must be a distinct name from the other certificates
+    /// for this instance.
+    #[prost(string, tag = "1")]
+    pub common_name: ::prost::alloc::string::String,
+}
+/// SslCert insert response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SslCertsInsertResponse {
+    /// This is always `sql#sslCertsInsert`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// The operation to track the ssl certs insert request.
+    #[prost(message, optional, tag = "2")]
+    pub operation: ::core::option::Option<Operation>,
+    /// The server Certificate Authority's certificate.  If this is missing you can
+    /// force a new one to be generated by calling resetSslConfig method on
+    /// instances resource.
+    #[prost(message, optional, tag = "3")]
+    pub server_ca_cert: ::core::option::Option<SslCert>,
+    /// The new client certificate and private key.
+    #[prost(message, optional, tag = "4")]
+    pub client_cert: ::core::option::Option<SslCertDetail>,
+}
+/// SslCerts list response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SslCertsListResponse {
+    /// This is always `sql#sslCertsList`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// List of client certificates for the instance.
+    #[prost(message, repeated, tag = "2")]
+    pub items: ::prost::alloc::vec::Vec<SslCert>,
+}
+/// Generated client implementations.
+pub mod sql_ssl_certs_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service to manage SSL certs for Cloud SQL instances.
+    #[derive(Debug, Clone)]
+    pub struct SqlSslCertsServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlSslCertsServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlSslCertsServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlSslCertsServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Deletes the SSL certificate. For First Generation instances, the
+        /// certificate remains valid until the instance is restarted.
+        pub async fn delete(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlSslCertsDeleteRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlSslCertsService/Delete",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "Delete"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a particular SSL certificate.  Does not include the private key
+        /// (required for usage).  The private key must be saved from the response to
+        /// initial creation.
+        pub async fn get(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlSslCertsGetRequest>,
+        ) -> std::result::Result<tonic::Response<super::SslCert>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlSslCertsService/Get",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "Get"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates an SSL certificate and returns it along with the private key and
+        /// server certificate authority.  The new certificate will not be usable until
+        /// the instance is restarted.
+        pub async fn insert(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlSslCertsInsertRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SslCertsInsertResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlSslCertsService/Insert",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "Insert"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists all of the current SSL certificates for the instance.
+        pub async fn list(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlSslCertsListRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SslCertsListResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlSslCertsService/List",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "List"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Generated client implementations.
+pub mod sql_available_database_versions_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service that exposes Cloud SQL database versions information. This
+    /// service is only used internally.
+    #[derive(Debug, Clone)]
+    pub struct SqlAvailableDatabaseVersionsServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlAvailableDatabaseVersionsServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlAvailableDatabaseVersionsServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlAvailableDatabaseVersionsServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+    }
+}
+/// Operations get request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlOperationsGetRequest {
+    /// Instance operation ID.
+    #[prost(string, tag = "1")]
+    pub operation: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Operations list request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlOperationsListRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Maximum number of operations per response.
+    #[prost(uint32, tag = "2")]
+    pub max_results: u32,
+    /// A previously-returned page token representing part of the larger set of
+    /// results to view.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "4")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Operations list response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OperationsListResponse {
+    /// This is always `sql#operationsList`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// List of operation resources.
+    #[prost(message, repeated, tag = "2")]
+    pub items: ::prost::alloc::vec::Vec<Operation>,
+    /// The continuation token, used to page through large result sets. Provide
+    /// this value in a subsequent request to return the next page of results.
+    #[prost(string, tag = "3")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Operations cancel request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlOperationsCancelRequest {
+    /// Instance operation ID.
+    #[prost(string, tag = "1")]
+    pub operation: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod sql_operations_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service to fetch operations for database instances.
+    #[derive(Debug, Clone)]
+    pub struct SqlOperationsServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlOperationsServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlOperationsServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlOperationsServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Retrieves an instance operation that has been performed on an instance.
+        pub async fn get(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlOperationsGetRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlOperationsService/Get",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlOperationsService", "Get"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists all instance operations that have been performed on the given Cloud
+        /// SQL instance in the reverse chronological order of the start time.
+        pub async fn list(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlOperationsListRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::OperationsListResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlOperationsService/List",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlOperationsService", "List"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Cancels an instance operation that has been performed on an instance.
+        pub async fn cancel(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlOperationsCancelRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlOperationsService/Cancel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlOperationsService", "Cancel"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SqlUsersDeleteRequest {
     /// Host of the user in the instance.
     #[prost(string, tag = "1")]
@@ -6346,104 +6128,18 @@ pub mod sql_users_service_client {
         }
     }
 }
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlSslCertsDeleteRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-    /// Sha1 FingerPrint.
-    #[prost(string, tag = "3")]
-    pub sha1_fingerprint: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlSslCertsGetRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-    /// Sha1 FingerPrint.
-    #[prost(string, tag = "3")]
-    pub sha1_fingerprint: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlSslCertsInsertRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-    #[prost(message, optional, tag = "100")]
-    pub body: ::core::option::Option<SslCertsInsertRequest>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlSslCertsListRequest {
-    /// Cloud SQL instance ID. This does not include the project ID.
-    #[prost(string, tag = "1")]
-    pub instance: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-}
-/// SslCerts insert request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SslCertsInsertRequest {
-    /// User supplied name.  Must be a distinct name from the other certificates
-    /// for this instance.
-    #[prost(string, tag = "1")]
-    pub common_name: ::prost::alloc::string::String,
-}
-/// SslCert insert response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SslCertsInsertResponse {
-    /// This is always `sql#sslCertsInsert`.
-    #[prost(string, tag = "1")]
-    pub kind: ::prost::alloc::string::String,
-    /// The operation to track the ssl certs insert request.
-    #[prost(message, optional, tag = "2")]
-    pub operation: ::core::option::Option<Operation>,
-    /// The server Certificate Authority's certificate.  If this is missing you can
-    /// force a new one to be generated by calling resetSslConfig method on
-    /// instances resource.
-    #[prost(message, optional, tag = "3")]
-    pub server_ca_cert: ::core::option::Option<SslCert>,
-    /// The new client certificate and private key.
-    #[prost(message, optional, tag = "4")]
-    pub client_cert: ::core::option::Option<SslCertDetail>,
-}
-/// SslCerts list response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SslCertsListResponse {
-    /// This is always `sql#sslCertsList`.
-    #[prost(string, tag = "1")]
-    pub kind: ::prost::alloc::string::String,
-    /// List of client certificates for the instance.
-    #[prost(message, repeated, tag = "2")]
-    pub items: ::prost::alloc::vec::Vec<SslCert>,
-}
 /// Generated client implementations.
-pub mod sql_ssl_certs_service_client {
+pub mod sql_events_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// Service to manage SSL certs for Cloud SQL instances.
+    /// Service that exposes Cloud SQL event information. This
+    /// service is only used internally.
     #[derive(Debug, Clone)]
-    pub struct SqlSslCertsServiceClient<T> {
+    pub struct SqlEventsServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> SqlSslCertsServiceClient<T>
+    impl<T> SqlEventsServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -6461,7 +6157,7 @@ pub mod sql_ssl_certs_service_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> SqlSslCertsServiceClient<InterceptedService<T, F>>
+        ) -> SqlEventsServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -6475,7 +6171,7 @@ pub mod sql_ssl_certs_service_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            SqlSslCertsServiceClient::new(InterceptedService::new(inner, interceptor))
+            SqlEventsServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -6508,11 +6204,166 @@ pub mod sql_ssl_certs_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Deletes the SSL certificate. For First Generation instances, the
-        /// certificate remains valid until the instance is restarted.
+    }
+}
+/// Database delete request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlDatabasesDeleteRequest {
+    /// Name of the database to be deleted in the instance.
+    #[prost(string, tag = "1")]
+    pub database: ::prost::alloc::string::String,
+    /// Database instance ID. This does not include the project ID.
+    #[prost(string, tag = "2")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "3")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Database get request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlDatabasesGetRequest {
+    /// Name of the database in the instance.
+    #[prost(string, tag = "1")]
+    pub database: ::prost::alloc::string::String,
+    /// Database instance ID. This does not include the project ID.
+    #[prost(string, tag = "2")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "3")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Database insert request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlDatabasesInsertRequest {
+    /// Database instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "100")]
+    pub body: ::core::option::Option<Database>,
+}
+/// Database list request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlDatabasesListRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Database update request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlDatabasesUpdateRequest {
+    /// Name of the database to be updated in the instance.
+    #[prost(string, tag = "1")]
+    pub database: ::prost::alloc::string::String,
+    /// Database instance ID. This does not include the project ID.
+    #[prost(string, tag = "2")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "3")]
+    pub project: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "100")]
+    pub body: ::core::option::Option<Database>,
+}
+/// Database list response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DatabasesListResponse {
+    /// This is always `sql#databasesList`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// List of database resources in the instance.
+    #[prost(message, repeated, tag = "2")]
+    pub items: ::prost::alloc::vec::Vec<Database>,
+}
+/// Generated client implementations.
+pub mod sql_databases_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service to manage databases.
+    #[derive(Debug, Clone)]
+    pub struct SqlDatabasesServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlDatabasesServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlDatabasesServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlDatabasesServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Deletes a database from a Cloud SQL instance.
         pub async fn delete(
             &mut self,
-            request: impl tonic::IntoRequest<super::SqlSslCertsDeleteRequest>,
+            request: impl tonic::IntoRequest<super::SqlDatabasesDeleteRequest>,
         ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
@@ -6525,22 +6376,21 @@ pub mod sql_ssl_certs_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlSslCertsService/Delete",
+                "/google.cloud.sql.v1.SqlDatabasesService/Delete",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "Delete"),
+                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Delete"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Retrieves a particular SSL certificate.  Does not include the private key
-        /// (required for usage).  The private key must be saved from the response to
-        /// initial creation.
+        /// Retrieves a resource containing information about a database inside a Cloud
+        /// SQL instance.
         pub async fn get(
             &mut self,
-            request: impl tonic::IntoRequest<super::SqlSslCertsGetRequest>,
-        ) -> std::result::Result<tonic::Response<super::SslCert>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::SqlDatabasesGetRequest>,
+        ) -> std::result::Result<tonic::Response<super::Database>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -6552,25 +6402,23 @@ pub mod sql_ssl_certs_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlSslCertsService/Get",
+                "/google.cloud.sql.v1.SqlDatabasesService/Get",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "Get"),
+                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Get"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Creates an SSL certificate and returns it along with the private key and
-        /// server certificate authority.  The new certificate will not be usable until
-        /// the instance is restarted.
+        /// Inserts a resource containing information about a database inside a Cloud
+        /// SQL instance.
+        ///
+        /// **Note:** You can't modify the default character set and collation.
         pub async fn insert(
             &mut self,
-            request: impl tonic::IntoRequest<super::SqlSslCertsInsertRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::SslCertsInsertResponse>,
-            tonic::Status,
-        > {
+            request: impl tonic::IntoRequest<super::SqlDatabasesInsertRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -6582,21 +6430,21 @@ pub mod sql_ssl_certs_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlSslCertsService/Insert",
+                "/google.cloud.sql.v1.SqlDatabasesService/Insert",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "Insert"),
+                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Insert"),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists all of the current SSL certificates for the instance.
+        /// Lists databases in the specified Cloud SQL instance.
         pub async fn list(
             &mut self,
-            request: impl tonic::IntoRequest<super::SqlSslCertsListRequest>,
+            request: impl tonic::IntoRequest<super::SqlDatabasesListRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::SslCertsListResponse>,
+            tonic::Response<super::DatabasesListResponse>,
             tonic::Status,
         > {
             self.inner
@@ -6610,12 +6458,64 @@ pub mod sql_ssl_certs_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlSslCertsService/List",
+                "/google.cloud.sql.v1.SqlDatabasesService/List",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlSslCertsService", "List"),
+                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "List"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Partially updates a resource containing information about a database inside
+        /// a Cloud SQL instance. This method supports patch semantics.
+        pub async fn patch(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlDatabasesUpdateRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlDatabasesService/Patch",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Patch"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a resource containing information about a database inside a Cloud
+        /// SQL instance.
+        pub async fn update(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlDatabasesUpdateRequest>,
+        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlDatabasesService/Update",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.cloud.sql.v1.SqlDatabasesService", "Update"),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -7081,72 +6981,107 @@ pub mod sql_backup_runs_service_client {
         }
     }
 }
-/// Operations get request.
+/// Connect settings retrieval request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlOperationsGetRequest {
-    /// Instance operation ID.
-    #[prost(string, tag = "1")]
-    pub operation: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "2")]
-    pub project: ::prost::alloc::string::String,
-}
-/// Operations list request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlOperationsListRequest {
+pub struct GetConnectSettingsRequest {
     /// Cloud SQL instance ID. This does not include the project ID.
     #[prost(string, tag = "1")]
     pub instance: ::prost::alloc::string::String,
-    /// Maximum number of operations per response.
-    #[prost(uint32, tag = "2")]
-    pub max_results: u32,
-    /// A previously-returned page token representing part of the larger set of
-    /// results to view.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Project ID of the project that contains the instance.
-    #[prost(string, tag = "4")]
-    pub project: ::prost::alloc::string::String,
-}
-/// Operations list response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OperationsListResponse {
-    /// This is always `sql#operationsList`.
-    #[prost(string, tag = "1")]
-    pub kind: ::prost::alloc::string::String,
-    /// List of operation resources.
-    #[prost(message, repeated, tag = "2")]
-    pub items: ::prost::alloc::vec::Vec<Operation>,
-    /// The continuation token, used to page through large result sets. Provide
-    /// this value in a subsequent request to return the next page of results.
-    #[prost(string, tag = "3")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Operations cancel request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlOperationsCancelRequest {
-    /// Instance operation ID.
-    #[prost(string, tag = "1")]
-    pub operation: ::prost::alloc::string::String,
     /// Project ID of the project that contains the instance.
     #[prost(string, tag = "2")]
     pub project: ::prost::alloc::string::String,
+    /// Optional. Optional snapshot read timestamp to trade freshness for
+    /// performance.
+    #[prost(message, optional, tag = "7")]
+    pub read_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Connect settings retrieval response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConnectSettings {
+    /// This is always `sql#connectSettings`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// SSL configuration.
+    #[prost(message, optional, tag = "2")]
+    pub server_ca_cert: ::core::option::Option<SslCert>,
+    /// The assigned IP addresses for the instance.
+    #[prost(message, repeated, tag = "3")]
+    pub ip_addresses: ::prost::alloc::vec::Vec<IpMapping>,
+    /// The cloud region for the instance. For example, `us-central1`,
+    /// `europe-west1`. The region cannot be changed after instance creation.
+    #[prost(string, tag = "4")]
+    pub region: ::prost::alloc::string::String,
+    /// The database engine type and version. The `databaseVersion`
+    /// field cannot be changed after instance creation.
+    ///    MySQL instances: `MYSQL_8_0`, `MYSQL_5_7` (default),
+    /// or `MYSQL_5_6`.
+    ///    PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`,
+    /// `POSTGRES_11`, `POSTGRES_12` (default), `POSTGRES_13`, or `POSTGRES_14`.
+    ///    SQL Server instances: `SQLSERVER_2017_STANDARD` (default),
+    /// `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`,
+    /// `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`,
+    /// `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or
+    /// `SQLSERVER_2019_WEB`.
+    #[prost(enumeration = "SqlDatabaseVersion", tag = "31")]
+    pub database_version: i32,
+    /// `SECOND_GEN`: Cloud SQL database instance.
+    /// `EXTERNAL`: A database server that is not managed by Google.
+    /// This property is read-only; use the `tier` property in the `settings`
+    /// object to determine the database type.
+    #[prost(enumeration = "SqlBackendType", tag = "32")]
+    pub backend_type: i32,
+    /// Whether PSC connectivity is enabled for this instance.
+    #[prost(bool, tag = "33")]
+    pub psc_enabled: bool,
+    /// The dns name of the instance.
+    #[prost(string, tag = "34")]
+    pub dns_name: ::prost::alloc::string::String,
+}
+/// Ephemeral certificate creation request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenerateEphemeralCertRequest {
+    /// Cloud SQL instance ID. This does not include the project ID.
+    #[prost(string, tag = "1")]
+    pub instance: ::prost::alloc::string::String,
+    /// Project ID of the project that contains the instance.
+    #[prost(string, tag = "2")]
+    pub project: ::prost::alloc::string::String,
+    /// PEM encoded public key to include in the signed certificate.
+    #[prost(string, tag = "3")]
+    pub public_key: ::prost::alloc::string::String,
+    /// Optional. Access token to include in the signed certificate.
+    #[prost(string, tag = "4")]
+    pub access_token: ::prost::alloc::string::String,
+    /// Optional. Optional snapshot read timestamp to trade freshness for
+    /// performance.
+    #[prost(message, optional, tag = "7")]
+    pub read_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. If set, it will contain the cert valid duration.
+    #[prost(message, optional, tag = "12")]
+    pub valid_duration: ::core::option::Option<::prost_types::Duration>,
+}
+/// Ephemeral certificate creation request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenerateEphemeralCertResponse {
+    /// Generated cert
+    #[prost(message, optional, tag = "1")]
+    pub ephemeral_cert: ::core::option::Option<SslCert>,
 }
 /// Generated client implementations.
-pub mod sql_operations_service_client {
+pub mod sql_connect_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// Service to fetch operations for database instances.
+    /// Cloud SQL connect service.
     #[derive(Debug, Clone)]
-    pub struct SqlOperationsServiceClient<T> {
+    pub struct SqlConnectServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> SqlOperationsServiceClient<T>
+    impl<T> SqlConnectServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -7164,7 +7099,7 @@ pub mod sql_operations_service_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> SqlOperationsServiceClient<InterceptedService<T, F>>
+        ) -> SqlConnectServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -7178,7 +7113,7 @@ pub mod sql_operations_service_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            SqlOperationsServiceClient::new(InterceptedService::new(inner, interceptor))
+            SqlConnectServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -7211,38 +7146,12 @@ pub mod sql_operations_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Retrieves an instance operation that has been performed on an instance.
-        pub async fn get(
+        /// Retrieves connect settings about a Cloud SQL instance.
+        pub async fn get_connect_settings(
             &mut self,
-            request: impl tonic::IntoRequest<super::SqlOperationsGetRequest>,
-        ) -> std::result::Result<tonic::Response<super::Operation>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlOperationsService/Get",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlOperationsService", "Get"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists all instance operations that have been performed on the given Cloud
-        /// SQL instance in the reverse chronological order of the start time.
-        pub async fn list(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlOperationsListRequest>,
+            request: impl tonic::IntoRequest<super::GetConnectSettingsRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::OperationsListResponse>,
+            tonic::Response<super::ConnectSettings>,
             tonic::Status,
         > {
             self.inner
@@ -7256,20 +7165,29 @@ pub mod sql_operations_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlOperationsService/List",
+                "/google.cloud.sql.v1.SqlConnectService/GetConnectSettings",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlOperationsService", "List"),
+                    GrpcMethod::new(
+                        "google.cloud.sql.v1.SqlConnectService",
+                        "GetConnectSettings",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Cancels an instance operation that has been performed on an instance.
-        pub async fn cancel(
+        /// Generates a short-lived X509 certificate containing the provided public key
+        /// and signed by a private key specific to the target instance. Users may use
+        /// the certificate to authenticate as themselves when connecting to the
+        /// database.
+        pub async fn generate_ephemeral_cert(
             &mut self,
-            request: impl tonic::IntoRequest<super::SqlOperationsCancelRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::GenerateEphemeralCertRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::GenerateEphemeralCertResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -7281,14 +7199,396 @@ pub mod sql_operations_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlOperationsService/Cancel",
+                "/google.cloud.sql.v1.SqlConnectService/GenerateEphemeralCert",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.cloud.sql.v1.SqlOperationsService", "Cancel"),
+                    GrpcMethod::new(
+                        "google.cloud.sql.v1.SqlConnectService",
+                        "GenerateEphemeralCert",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Generated client implementations.
+pub mod sql_iam_policies_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service for providing IAM Meta APIs for Cloud SQL.
+    #[derive(Debug, Clone)]
+    pub struct SqlIamPoliciesServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlIamPoliciesServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlIamPoliciesServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlIamPoliciesServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+    }
+}
+/// Generated client implementations.
+pub mod sql_instance_names_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Cloud SQL instance names service.
+    #[derive(Debug, Clone)]
+    pub struct SqlInstanceNamesServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlInstanceNamesServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlInstanceNamesServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlInstanceNamesServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+    }
+}
+/// Tiers list request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SqlTiersListRequest {
+    /// Project ID of the project for which to list tiers.
+    #[prost(string, tag = "1")]
+    pub project: ::prost::alloc::string::String,
+}
+/// Tiers list response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TiersListResponse {
+    /// This is always `sql#tiersList`.
+    #[prost(string, tag = "1")]
+    pub kind: ::prost::alloc::string::String,
+    /// List of tiers.
+    #[prost(message, repeated, tag = "2")]
+    pub items: ::prost::alloc::vec::Vec<Tier>,
+}
+/// A Google Cloud SQL service tier resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Tier {
+    /// An identifier for the machine type, for example, `db-custom-1-3840`. For
+    /// related information, see [Pricing](/sql/pricing).
+    #[prost(string, tag = "1")]
+    pub tier: ::prost::alloc::string::String,
+    /// The maximum RAM usage of this tier in bytes.
+    #[prost(int64, tag = "2")]
+    pub ram: i64,
+    /// This is always `sql#tier`.
+    #[prost(string, tag = "3")]
+    pub kind: ::prost::alloc::string::String,
+    /// The maximum disk size of this tier in bytes.
+    #[prost(int64, tag = "4")]
+    pub disk_quota: i64,
+    /// The applicable regions for this tier.
+    #[prost(string, repeated, tag = "5")]
+    pub region: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Generated client implementations.
+pub mod sql_tiers_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service for providing machine types (tiers) for Cloud SQL instances.
+    #[derive(Debug, Clone)]
+    pub struct SqlTiersServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlTiersServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlTiersServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlTiersServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Lists all available machine types (tiers) for Cloud SQL, for example,
+        /// `db-custom-1-3840`. For more information, see
+        /// https://cloud.google.com/sql/pricing.
+        pub async fn list(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SqlTiersListRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::TiersListResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.sql.v1.SqlTiersService/List",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(GrpcMethod::new("google.cloud.sql.v1.SqlTiersService", "List"));
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Generated client implementations.
+pub mod sql_regions_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service that exposes Cloud SQL region information. This service is only used
+    /// internally and does not follow the same patterns as the other v1 RPCs.
+    #[derive(Debug, Clone)]
+    pub struct SqlRegionsServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SqlRegionsServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SqlRegionsServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SqlRegionsServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
         }
     }
 }
@@ -7514,306 +7814,6 @@ pub mod sql_flags_service_client {
             req.extensions_mut()
                 .insert(GrpcMethod::new("google.cloud.sql.v1.SqlFlagsService", "List"));
             self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Tiers list request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SqlTiersListRequest {
-    /// Project ID of the project for which to list tiers.
-    #[prost(string, tag = "1")]
-    pub project: ::prost::alloc::string::String,
-}
-/// Tiers list response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TiersListResponse {
-    /// This is always `sql#tiersList`.
-    #[prost(string, tag = "1")]
-    pub kind: ::prost::alloc::string::String,
-    /// List of tiers.
-    #[prost(message, repeated, tag = "2")]
-    pub items: ::prost::alloc::vec::Vec<Tier>,
-}
-/// A Google Cloud SQL service tier resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Tier {
-    /// An identifier for the machine type, for example, `db-custom-1-3840`. For
-    /// related information, see [Pricing](/sql/pricing).
-    #[prost(string, tag = "1")]
-    pub tier: ::prost::alloc::string::String,
-    /// The maximum RAM usage of this tier in bytes.
-    #[prost(int64, tag = "2")]
-    pub ram: i64,
-    /// This is always `sql#tier`.
-    #[prost(string, tag = "3")]
-    pub kind: ::prost::alloc::string::String,
-    /// The maximum disk size of this tier in bytes.
-    #[prost(int64, tag = "4")]
-    pub disk_quota: i64,
-    /// The applicable regions for this tier.
-    #[prost(string, repeated, tag = "5")]
-    pub region: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Generated client implementations.
-pub mod sql_tiers_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service for providing machine types (tiers) for Cloud SQL instances.
-    #[derive(Debug, Clone)]
-    pub struct SqlTiersServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlTiersServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlTiersServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlTiersServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Lists all available machine types (tiers) for Cloud SQL, for example,
-        /// `db-custom-1-3840`. For more information, see
-        /// https://cloud.google.com/sql/pricing.
-        pub async fn list(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SqlTiersListRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::TiersListResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.sql.v1.SqlTiersService/List",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(GrpcMethod::new("google.cloud.sql.v1.SqlTiersService", "List"));
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Generated client implementations.
-pub mod sql_events_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service that exposes Cloud SQL event information. This
-    /// service is only used internally.
-    #[derive(Debug, Clone)]
-    pub struct SqlEventsServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlEventsServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlEventsServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlEventsServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-    }
-}
-/// Generated client implementations.
-pub mod sql_iam_policies_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service for providing IAM Meta APIs for Cloud SQL.
-    #[derive(Debug, Clone)]
-    pub struct SqlIamPoliciesServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SqlIamPoliciesServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SqlIamPoliciesServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SqlIamPoliciesServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
         }
     }
 }

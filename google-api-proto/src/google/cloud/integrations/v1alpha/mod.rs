@@ -1,3 +1,136 @@
+/// The type of the parameter.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ValueType {
+    #[prost(oneof = "value_type::Value", tags = "1, 2, 3, 4, 5, 6, 7, 8, 9")]
+    pub value: ::core::option::Option<value_type::Value>,
+}
+/// Nested message and enum types in `ValueType`.
+pub mod value_type {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// String.
+        #[prost(string, tag = "1")]
+        StringValue(::prost::alloc::string::String),
+        /// Integer.
+        #[prost(int64, tag = "2")]
+        IntValue(i64),
+        /// Double Number.
+        #[prost(double, tag = "3")]
+        DoubleValue(f64),
+        /// Boolean.
+        #[prost(bool, tag = "4")]
+        BooleanValue(bool),
+        /// String Array.
+        #[prost(message, tag = "5")]
+        StringArray(super::StringParameterArray),
+        /// Integer Array.
+        #[prost(message, tag = "6")]
+        IntArray(super::IntParameterArray),
+        /// Double Number Array.
+        #[prost(message, tag = "7")]
+        DoubleArray(super::DoubleParameterArray),
+        /// Boolean Array.
+        #[prost(message, tag = "8")]
+        BooleanArray(super::BooleanParameterArray),
+        /// Json.
+        #[prost(string, tag = "9")]
+        JsonValue(::prost::alloc::string::String),
+    }
+}
+/// This message only contains a field of string array.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StringParameterArray {
+    /// String array.
+    #[prost(string, repeated, tag = "1")]
+    pub string_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// This message only contains a field of integer array.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IntParameterArray {
+    /// Integer array.
+    #[prost(int64, repeated, tag = "1")]
+    pub int_values: ::prost::alloc::vec::Vec<i64>,
+}
+/// This message only contains a field of double number array.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DoubleParameterArray {
+    /// Double number array.
+    #[prost(double, repeated, tag = "1")]
+    pub double_values: ::prost::alloc::vec::Vec<f64>,
+}
+/// This message only contains a field of boolean array.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BooleanParameterArray {
+    /// Boolean array.
+    #[prost(bool, repeated, tag = "1")]
+    pub boolean_values: ::prost::alloc::vec::Vec<bool>,
+}
+/// Indicates the status of the integration.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum IntegrationState {
+    /// Default.
+    Unspecified = 0,
+    /// Draft.
+    Draft = 1,
+    /// Active.
+    Active = 2,
+    /// Archived.
+    Archived = 3,
+    /// Snapshot.
+    Snapshot = 4,
+}
+impl IntegrationState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            IntegrationState::Unspecified => "INTEGRATION_STATE_UNSPECIFIED",
+            IntegrationState::Draft => "DRAFT",
+            IntegrationState::Active => "ACTIVE",
+            IntegrationState::Archived => "ARCHIVED",
+            IntegrationState::Snapshot => "SNAPSHOT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "INTEGRATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "DRAFT" => Some(Self::Draft),
+            "ACTIVE" => Some(Self::Active),
+            "ARCHIVED" => Some(Self::Archived),
+            "SNAPSHOT" => Some(Self::Snapshot),
+            _ => None,
+        }
+    }
+}
+/// This message is used for processing and persisting (when applicable) key
+/// value pair parameters for each event in the event bus.
+/// Next available id: 4
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EventParameter {
+    /// Key is used to retrieve the corresponding parameter value. This should be
+    /// unique for a given fired event. These parameters must be predefined in the
+    /// integration definition.
+    #[prost(string, tag = "1")]
+    pub key: ::prost::alloc::string::String,
+    /// Values for the defined keys. Each value can either be string, int, double
+    /// or any proto message.
+    #[prost(message, optional, tag = "2")]
+    pub value: ::core::option::Option<ValueType>,
+    /// True if this parameter should be masked in the logs
+    #[prost(bool, tag = "3")]
+    pub masked: bool,
+}
 /// Configuration detail of coordinate, it used for UI
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -77,139 +210,6 @@ pub mod cloud_logging_details {
                 "WARNING" => Some(Self::Warning),
                 _ => None,
             }
-        }
-    }
-}
-/// The type of the parameter.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ValueType {
-    #[prost(oneof = "value_type::Value", tags = "1, 2, 3, 4, 5, 6, 7, 8, 9")]
-    pub value: ::core::option::Option<value_type::Value>,
-}
-/// Nested message and enum types in `ValueType`.
-pub mod value_type {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// String.
-        #[prost(string, tag = "1")]
-        StringValue(::prost::alloc::string::String),
-        /// Integer.
-        #[prost(int64, tag = "2")]
-        IntValue(i64),
-        /// Double Number.
-        #[prost(double, tag = "3")]
-        DoubleValue(f64),
-        /// Boolean.
-        #[prost(bool, tag = "4")]
-        BooleanValue(bool),
-        /// String Array.
-        #[prost(message, tag = "5")]
-        StringArray(super::StringParameterArray),
-        /// Integer Array.
-        #[prost(message, tag = "6")]
-        IntArray(super::IntParameterArray),
-        /// Double Number Array.
-        #[prost(message, tag = "7")]
-        DoubleArray(super::DoubleParameterArray),
-        /// Boolean Array.
-        #[prost(message, tag = "8")]
-        BooleanArray(super::BooleanParameterArray),
-        /// Json.
-        #[prost(string, tag = "9")]
-        JsonValue(::prost::alloc::string::String),
-    }
-}
-/// This message only contains a field of string array.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StringParameterArray {
-    /// String array.
-    #[prost(string, repeated, tag = "1")]
-    pub string_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// This message only contains a field of integer array.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IntParameterArray {
-    /// Integer array.
-    #[prost(int64, repeated, tag = "1")]
-    pub int_values: ::prost::alloc::vec::Vec<i64>,
-}
-/// This message only contains a field of double number array.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DoubleParameterArray {
-    /// Double number array.
-    #[prost(double, repeated, tag = "1")]
-    pub double_values: ::prost::alloc::vec::Vec<f64>,
-}
-/// This message only contains a field of boolean array.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BooleanParameterArray {
-    /// Boolean array.
-    #[prost(bool, repeated, tag = "1")]
-    pub boolean_values: ::prost::alloc::vec::Vec<bool>,
-}
-/// This message is used for processing and persisting (when applicable) key
-/// value pair parameters for each event in the event bus.
-/// Next available id: 4
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EventParameter {
-    /// Key is used to retrieve the corresponding parameter value. This should be
-    /// unique for a given fired event. These parameters must be predefined in the
-    /// integration definition.
-    #[prost(string, tag = "1")]
-    pub key: ::prost::alloc::string::String,
-    /// Values for the defined keys. Each value can either be string, int, double
-    /// or any proto message.
-    #[prost(message, optional, tag = "2")]
-    pub value: ::core::option::Option<ValueType>,
-    /// True if this parameter should be masked in the logs
-    #[prost(bool, tag = "3")]
-    pub masked: bool,
-}
-/// Indicates the status of the integration.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum IntegrationState {
-    /// Default.
-    Unspecified = 0,
-    /// Draft.
-    Draft = 1,
-    /// Active.
-    Active = 2,
-    /// Archived.
-    Archived = 3,
-    /// Snapshot.
-    Snapshot = 4,
-}
-impl IntegrationState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            IntegrationState::Unspecified => "INTEGRATION_STATE_UNSPECIFIED",
-            IntegrationState::Draft => "DRAFT",
-            IntegrationState::Active => "ACTIVE",
-            IntegrationState::Archived => "ARCHIVED",
-            IntegrationState::Snapshot => "SNAPSHOT",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "INTEGRATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "DRAFT" => Some(Self::Draft),
-            "ACTIVE" => Some(Self::Active),
-            "ARCHIVED" => Some(Self::Archived),
-            "SNAPSHOT" => Some(Self::Snapshot),
-            _ => None,
         }
     }
 }
