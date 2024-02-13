@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["SchedulerResource","TriggererResource","WebServerResource","WorkerResource"]};
+window.SIDEBAR_ITEMS = {"struct":["DagProcessorResource","SchedulerResource","TriggererResource","WebServerResource","WorkerResource"]};
