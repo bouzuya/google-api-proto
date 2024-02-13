@@ -1183,7 +1183,140 @@
 <a href="#1182" id="1182">1182</a>
 <a href="#1183" id="1183">1183</a>
 <a href="#1184" id="1184">1184</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Configuration detail of coordinate, it used for UI
+</pre></div><pre class="rust"><code><span class="doccomment">/// The type of the parameter.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ValueType {
+    <span class="attr">#[prost(oneof = <span class="string">"value_type::Value"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 8, 9"</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;value_type::Value&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `ValueType`.
+</span><span class="kw">pub mod </span>value_type {
+    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Value {
+        <span class="doccomment">/// String.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+        </span>StringValue(::prost::alloc::string::String),
+        <span class="doccomment">/// Integer.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
+        </span>IntValue(i64),
+        <span class="doccomment">/// Double Number.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
+        </span>DoubleValue(f64),
+        <span class="doccomment">/// Boolean.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
+        </span>BooleanValue(bool),
+        <span class="doccomment">/// String Array.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
+        </span>StringArray(<span class="kw">super</span>::StringParameterArray),
+        <span class="doccomment">/// Integer Array.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
+        </span>IntArray(<span class="kw">super</span>::IntParameterArray),
+        <span class="doccomment">/// Double Number Array.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
+        </span>DoubleArray(<span class="kw">super</span>::DoubleParameterArray),
+        <span class="doccomment">/// Boolean Array.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
+        </span>BooleanArray(<span class="kw">super</span>::BooleanParameterArray),
+        <span class="doccomment">/// Json.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
+        </span>JsonValue(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// This message only contains a field of string array.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>StringParameterArray {
+    <span class="doccomment">/// String array.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>string_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="doccomment">/// This message only contains a field of integer array.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>IntParameterArray {
+    <span class="doccomment">/// Integer array.
+    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>int_values: ::prost::alloc::vec::Vec&lt;i64&gt;,
+}
+<span class="doccomment">/// This message only contains a field of double number array.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>DoubleParameterArray {
+    <span class="doccomment">/// Double number array.
+    </span><span class="attr">#[prost(double, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>double_values: ::prost::alloc::vec::Vec&lt;f64&gt;,
+}
+<span class="doccomment">/// This message only contains a field of boolean array.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>BooleanParameterArray {
+    <span class="doccomment">/// Boolean array.
+    </span><span class="attr">#[prost(bool, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>boolean_values: ::prost::alloc::vec::Vec&lt;bool&gt;,
+}
+<span class="doccomment">/// Indicates the status of the integration.
+</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+</span><span class="kw">pub enum </span>IntegrationState {
+    <span class="doccomment">/// Default.
+    </span>Unspecified = <span class="number">0</span>,
+    <span class="doccomment">/// Draft.
+    </span>Draft = <span class="number">1</span>,
+    <span class="doccomment">/// Active.
+    </span>Active = <span class="number">2</span>,
+    <span class="doccomment">/// Archived.
+    </span>Archived = <span class="number">3</span>,
+    <span class="doccomment">/// Snapshot.
+    </span>Snapshot = <span class="number">4</span>,
+}
+<span class="kw">impl </span>IntegrationState {
+    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
+        <span class="kw">match </span><span class="self">self </span>{
+            IntegrationState::Unspecified =&gt; <span class="string">"INTEGRATION_STATE_UNSPECIFIED"</span>,
+            IntegrationState::Draft =&gt; <span class="string">"DRAFT"</span>,
+            IntegrationState::Active =&gt; <span class="string">"ACTIVE"</span>,
+            IntegrationState::Archived =&gt; <span class="string">"ARCHIVED"</span>,
+            IntegrationState::Snapshot =&gt; <span class="string">"SNAPSHOT"</span>,
+        }
+    }
+    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">match </span>value {
+            <span class="string">"INTEGRATION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DRAFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
+            <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+            <span class="string">"ARCHIVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Archived),
+            <span class="string">"SNAPSHOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Snapshot),
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+        }
+    }
+}
+<span class="doccomment">/// This message is used for processing and persisting (when applicable) key
+/// value pair parameters for each event in the event bus.
+/// Next available id: 4
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>EventParameter {
+    <span class="doccomment">/// Key is used to retrieve the corresponding parameter value. This should be
+    /// unique for a given fired event. These parameters must be predefined in the
+    /// integration definition.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
+    <span class="doccomment">/// Values for the defined keys. Each value can either be string, int, double
+    /// or any proto message.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;ValueType&gt;,
+    <span class="doccomment">/// True if this parameter should be masked in the logs
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>masked: bool,
+}
+<span class="doccomment">/// Configuration detail of coordinate, it used for UI
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Coordinate {
@@ -1262,139 +1395,6 @@
                 <span class="string">"WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
-        }
-    }
-}
-<span class="doccomment">/// The type of the parameter.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ValueType {
-    <span class="attr">#[prost(oneof = <span class="string">"value_type::Value"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 8, 9"</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;value_type::Value&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `ValueType`.
-</span><span class="kw">pub mod </span>value_type {
-    <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Value {
-        <span class="doccomment">/// String.
-        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-        </span>StringValue(::prost::alloc::string::String),
-        <span class="doccomment">/// Integer.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
-        </span>IntValue(i64),
-        <span class="doccomment">/// Double Number.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
-        </span>DoubleValue(f64),
-        <span class="doccomment">/// Boolean.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
-        </span>BooleanValue(bool),
-        <span class="doccomment">/// String Array.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
-        </span>StringArray(<span class="kw">super</span>::StringParameterArray),
-        <span class="doccomment">/// Integer Array.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
-        </span>IntArray(<span class="kw">super</span>::IntParameterArray),
-        <span class="doccomment">/// Double Number Array.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
-        </span>DoubleArray(<span class="kw">super</span>::DoubleParameterArray),
-        <span class="doccomment">/// Boolean Array.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
-        </span>BooleanArray(<span class="kw">super</span>::BooleanParameterArray),
-        <span class="doccomment">/// Json.
-        </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
-        </span>JsonValue(::prost::alloc::string::String),
-    }
-}
-<span class="doccomment">/// This message only contains a field of string array.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>StringParameterArray {
-    <span class="doccomment">/// String array.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>string_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="doccomment">/// This message only contains a field of integer array.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>IntParameterArray {
-    <span class="doccomment">/// Integer array.
-    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>int_values: ::prost::alloc::vec::Vec&lt;i64&gt;,
-}
-<span class="doccomment">/// This message only contains a field of double number array.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>DoubleParameterArray {
-    <span class="doccomment">/// Double number array.
-    </span><span class="attr">#[prost(double, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>double_values: ::prost::alloc::vec::Vec&lt;f64&gt;,
-}
-<span class="doccomment">/// This message only contains a field of boolean array.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>BooleanParameterArray {
-    <span class="doccomment">/// Boolean array.
-    </span><span class="attr">#[prost(bool, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>boolean_values: ::prost::alloc::vec::Vec&lt;bool&gt;,
-}
-<span class="doccomment">/// This message is used for processing and persisting (when applicable) key
-/// value pair parameters for each event in the event bus.
-/// Next available id: 4
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>EventParameter {
-    <span class="doccomment">/// Key is used to retrieve the corresponding parameter value. This should be
-    /// unique for a given fired event. These parameters must be predefined in the
-    /// integration definition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
-    <span class="doccomment">/// Values for the defined keys. Each value can either be string, int, double
-    /// or any proto message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;ValueType&gt;,
-    <span class="doccomment">/// True if this parameter should be masked in the logs
-    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>masked: bool,
-}
-<span class="doccomment">/// Indicates the status of the integration.
-</span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-</span><span class="kw">pub enum </span>IntegrationState {
-    <span class="doccomment">/// Default.
-    </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Draft.
-    </span>Draft = <span class="number">1</span>,
-    <span class="doccomment">/// Active.
-    </span>Active = <span class="number">2</span>,
-    <span class="doccomment">/// Archived.
-    </span>Archived = <span class="number">3</span>,
-    <span class="doccomment">/// Snapshot.
-    </span>Snapshot = <span class="number">4</span>,
-}
-<span class="kw">impl </span>IntegrationState {
-    <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
-        <span class="kw">match </span><span class="self">self </span>{
-            IntegrationState::Unspecified =&gt; <span class="string">"INTEGRATION_STATE_UNSPECIFIED"</span>,
-            IntegrationState::Draft =&gt; <span class="string">"DRAFT"</span>,
-            IntegrationState::Active =&gt; <span class="string">"ACTIVE"</span>,
-            IntegrationState::Archived =&gt; <span class="string">"ARCHIVED"</span>,
-            IntegrationState::Snapshot =&gt; <span class="string">"SNAPSHOT"</span>,
-        }
-    }
-    <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-    </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">match </span>value {
-            <span class="string">"INTEGRATION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">"DRAFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
-            <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-            <span class="string">"ARCHIVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Archived),
-            <span class="string">"SNAPSHOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Snapshot),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }

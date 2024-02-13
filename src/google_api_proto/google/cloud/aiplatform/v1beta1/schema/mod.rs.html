@@ -521,6 +521,23 @@
 </span><span class="kw">pub mod </span>predict;
 <span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-trainingjob-definition"</span>))]
 </span><span class="kw">pub mod </span>trainingjob;
+<span class="doccomment">/// An entry of mapping between color and AnnotationSpec. The mapping is used in
+/// segmentation mask.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AnnotationSpecColor {
+    <span class="doccomment">/// The color of the AnnotationSpec in a segmentation mask.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
+    <span class="doccomment">/// The display name of the AnnotationSpec represented by the color in the
+    /// segmentation mask.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The ID of the AnnotationSpec represented by the color in the segmentation
+    /// mask.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// The metadata of Datasets that contain Image DataItems.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -663,69 +680,6 @@
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     }
 }
-<span class="doccomment">/// Payload of Image DataItem.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ImageDataItem {
-    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original image in user's bucket.
-    /// The image is up to 30MB in size.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The mime type of the content of the image. Only the images in below listed
-    /// mime types are supported.
-    /// - image/jpeg
-    /// - image/gif
-    /// - image/png
-    /// - image/webp
-    /// - image/bmp
-    /// - image/tiff
-    /// - image/vnd.microsoft.icon
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Payload of Video DataItem.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>VideoDataItem {
-    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original video in user's bucket.
-    /// The video is up to 50 GB in size and up to 3 hour in duration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The mime type of the content of the video. Only the videos in below listed
-    /// mime types are supported.
-    /// Supported mime_type:
-    /// - video/mp4
-    /// - video/avi
-    /// - video/quicktime
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Payload of Text DataItem.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>TextDataItem {
-    <span class="doccomment">/// Output only. Google Cloud Storage URI points to the original text in user's bucket.
-    /// The text file is up to 10MB in size.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// An entry of mapping between color and AnnotationSpec. The mapping is used in
-/// segmentation mask.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AnnotationSpecColor {
-    <span class="doccomment">/// The color of the AnnotationSpec in a segmentation mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
-    <span class="doccomment">/// The display name of the AnnotationSpec represented by the color in the
-    /// segmentation mask.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID of the AnnotationSpec represented by the color in the segmentation
-    /// mask.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-}
 <span class="doccomment">/// A vertex represents a 2D point in the image.
 /// NOTE: the normalized vertex coordinates are relative to the original image
 /// and range from 0 to 1.
@@ -786,6 +740,52 @@
         </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Key(::prost::alloc::string::String),
     }
+}
+<span class="doccomment">/// Payload of Image DataItem.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ImageDataItem {
+    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original image in user's bucket.
+    /// The image is up to 30MB in size.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The mime type of the content of the image. Only the images in below listed
+    /// mime types are supported.
+    /// - image/jpeg
+    /// - image/gif
+    /// - image/png
+    /// - image/webp
+    /// - image/bmp
+    /// - image/tiff
+    /// - image/vnd.microsoft.icon
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Payload of Video DataItem.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>VideoDataItem {
+    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original video in user's bucket.
+    /// The video is up to 50 GB in size and up to 3 hour in duration.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// Output only. The mime type of the content of the video. Only the videos in below listed
+    /// mime types are supported.
+    /// Supported mime_type:
+    /// - video/mp4
+    /// - video/avi
+    /// - video/quicktime
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Payload of Text DataItem.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>TextDataItem {
+    <span class="doccomment">/// Output only. Google Cloud Storage URI points to the original text in user's bucket.
+    /// The text file is up to 10MB in size.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Annotation details specific to image classification.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

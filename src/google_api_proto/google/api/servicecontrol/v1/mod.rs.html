@@ -1489,643 +1489,7 @@
 <a href="#1488" id="1488">1488</a>
 <a href="#1489" id="1489">1489</a>
 <a href="#1490" id="1490">1490</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Distribution represents a frequency distribution of double-valued sample
-/// points. It contains the size of the population of sample points plus
-/// additional optional information:
-///
-/// * the arithmetic mean of the samples
-/// * the minimum and maximum of the samples
-/// * the sum-squared-deviation of the samples, used to compute variance
-/// * a histogram of the values of the sample points
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Distribution {
-    <span class="doccomment">/// The total number of samples in the distribution. Must be &gt;= 0.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>count: i64,
-    <span class="doccomment">/// The arithmetic mean of the samples in the distribution. If `count` is
-    /// zero then this field must be zero.
-    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>mean: f64,
-    <span class="doccomment">/// The minimum of the population of values. Ignored if `count` is zero.
-    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>minimum: f64,
-    <span class="doccomment">/// The maximum of the population of values. Ignored if `count` is zero.
-    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>maximum: f64,
-    <span class="doccomment">/// The sum of squared deviations from the mean:
-    ///    Sum[i=1..count]((x_i - mean)^2)
-    /// where each x_i is a sample values. If `count` is zero then this field
-    /// must be zero, otherwise validation of the request fails.
-    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>sum_of_squared_deviation: f64,
-    <span class="doccomment">/// The number of samples in each histogram bucket. `bucket_counts` are
-    /// optional. If present, they must sum to the `count` value.
-    ///
-    /// The buckets are defined below in `bucket_option`. There are N buckets.
-    /// `bucket_counts\[0\]` is the number of samples in the underflow bucket.
-    /// `bucket_counts\[1\]` to `bucket_counts\[N-1\]` are the numbers of samples
-    /// in each of the finite buckets. And `bucket_counts\[N\] is the number
-    /// of samples in the overflow bucket. See the comments of `bucket_option`
-    /// below for more details.
-    ///
-    /// Any suffix of trailing zeros may be omitted.
-    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"6"</span>)]
-    </span><span class="kw">pub </span>bucket_counts: ::prost::alloc::vec::Vec&lt;i64&gt;,
-    <span class="doccomment">/// Example points. Must be in increasing order of `value` field.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
-    </span><span class="kw">pub </span>exemplars: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::distribution::Exemplar&gt;,
-    <span class="doccomment">/// Defines the buckets in the histogram. `bucket_option` and `bucket_counts`
-    /// must be both set, or both unset.
-    ///
-    /// Buckets are numbered in the range of \[0, N\], with a total of N+1 buckets.
-    /// There must be at least two buckets (a single-bucket histogram gives
-    /// no information that isn't already provided by `count`).
-    ///
-    /// The first bucket is the underflow bucket which has a lower bound
-    /// of -inf. The last bucket is the overflow bucket which has an
-    /// upper bound of +inf. All other buckets (if any) are called "finite"
-    /// buckets because they have finite lower and upper bounds. As described
-    /// below, there are three ways to define the finite buckets.
-    ///
-    ///    (1) Buckets with constant width.
-    ///    (2) Buckets with exponentially growing widths.
-    ///    (3) Buckets with arbitrary user-provided widths.
-    ///
-    /// In all cases, the buckets cover the entire real number line (-inf,
-    /// +inf). Bucket upper bounds are exclusive and lower bounds are
-    /// inclusive. The upper bound of the underflow bucket is equal to the
-    /// lower bound of the smallest finite bucket; the lower bound of the
-    /// overflow bucket is equal to the upper bound of the largest finite
-    /// bucket.
-    </span><span class="attr">#[prost(oneof = <span class="string">"distribution::BucketOption"</span>, tags = <span class="string">"7, 8, 9"</span>)]
-    </span><span class="kw">pub </span>bucket_option: ::core::option::Option&lt;distribution::BucketOption&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Distribution`.
-</span><span class="kw">pub mod </span>distribution {
-    <span class="doccomment">/// Describing buckets with constant width.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>LinearBuckets {
-        <span class="doccomment">/// The number of finite buckets. With the underflow and overflow buckets,
-        /// the total number of buckets is `num_finite_buckets` + 2.
-        /// See comments on `bucket_options` for details.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
-        </span><span class="kw">pub </span>num_finite_buckets: i32,
-        <span class="doccomment">/// The i'th linear bucket covers the interval
-        ///    [offset + (i-1) * width, offset + i * width)
-        /// where i ranges from 1 to num_finite_buckets, inclusive.
-        /// Must be strictly positive.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
-        </span><span class="kw">pub </span>width: f64,
-        <span class="doccomment">/// The i'th linear bucket covers the interval
-        ///    [offset + (i-1) * width, offset + i * width)
-        /// where i ranges from 1 to num_finite_buckets, inclusive.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
-        </span><span class="kw">pub </span>offset: f64,
-    }
-    <span class="doccomment">/// Describing buckets with exponentially growing width.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ExponentialBuckets {
-        <span class="doccomment">/// The number of finite buckets. With the underflow and overflow buckets,
-        /// the total number of buckets is `num_finite_buckets` + 2.
-        /// See comments on `bucket_options` for details.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
-        </span><span class="kw">pub </span>num_finite_buckets: i32,
-        <span class="doccomment">/// The i'th exponential bucket covers the interval
-        ///    [scale * growth_factor^(i-1), scale * growth_factor^i)
-        /// where i ranges from 1 to num_finite_buckets inclusive.
-        /// Must be larger than 1.0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
-        </span><span class="kw">pub </span>growth_factor: f64,
-        <span class="doccomment">/// The i'th exponential bucket covers the interval
-        ///    [scale * growth_factor^(i-1), scale * growth_factor^i)
-        /// where i ranges from 1 to num_finite_buckets inclusive.
-        /// Must be &gt; 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
-        </span><span class="kw">pub </span>scale: f64,
-    }
-    <span class="doccomment">/// Describing buckets with arbitrary user-provided width.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    </span><span class="kw">pub struct </span>ExplicitBuckets {
-        <span class="doccomment">/// 'bound' is a list of strictly increasing boundaries between
-        /// buckets. Note that a list of length N-1 defines N buckets because
-        /// of fenceposting. See comments on `bucket_options` for details.
-        ///
-        /// The i'th finite bucket covers the interval
-        ///    \[bound[i-1\], bound\[i\])
-        /// where i ranges from 1 to bound_size() - 1. Note that there are no
-        /// finite buckets at all if 'bound' only contains a single element; in
-        /// that special case the single bound defines the boundary between the
-        /// underflow and overflow buckets.
-        ///
-        /// bucket number                   lower bound    upper bound
-        ///   i == 0 (underflow)              -inf           bound\[i\]
-        ///   0 &lt; i &lt; bound_size()            bound\[i-1\]     bound\[i\]
-        ///   i == bound_size() (overflow)    bound\[i-1\]     +inf
-        </span><span class="attr">#[prost(double, repeated, tag = <span class="string">"1"</span>)]
-        </span><span class="kw">pub </span>bounds: ::prost::alloc::vec::Vec&lt;f64&gt;,
-    }
-    <span class="doccomment">/// Defines the buckets in the histogram. `bucket_option` and `bucket_counts`
-    /// must be both set, or both unset.
-    ///
-    /// Buckets are numbered in the range of \[0, N\], with a total of N+1 buckets.
-    /// There must be at least two buckets (a single-bucket histogram gives
-    /// no information that isn't already provided by `count`).
-    ///
-    /// The first bucket is the underflow bucket which has a lower bound
-    /// of -inf. The last bucket is the overflow bucket which has an
-    /// upper bound of +inf. All other buckets (if any) are called "finite"
-    /// buckets because they have finite lower and upper bounds. As described
-    /// below, there are three ways to define the finite buckets.
-    ///
-    ///    (1) Buckets with constant width.
-    ///    (2) Buckets with exponentially growing widths.
-    ///    (3) Buckets with arbitrary user-provided widths.
-    ///
-    /// In all cases, the buckets cover the entire real number line (-inf,
-    /// +inf). Bucket upper bounds are exclusive and lower bounds are
-    /// inclusive. The upper bound of the underflow bucket is equal to the
-    /// lower bound of the smallest finite bucket; the lower bound of the
-    /// overflow bucket is equal to the upper bound of the largest finite
-    /// bucket.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>BucketOption {
-        <span class="doccomment">/// Buckets with constant width.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
-        </span>LinearBuckets(LinearBuckets),
-        <span class="doccomment">/// Buckets with exponentially growing width.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
-        </span>ExponentialBuckets(ExponentialBuckets),
-        <span class="doccomment">/// Buckets with arbitrary user-provided width.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
-        </span>ExplicitBuckets(ExplicitBuckets),
-    }
-}
-<span class="doccomment">/// Represents a single metric value.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MetricValue {
-    <span class="doccomment">/// The labels describing the metric value.
-    /// See comments on [google.api.servicecontrol.v1.Operation.labels][google.api.servicecontrol.v1.Operation.labels] for
-    /// the overriding relationship.
-    /// Note that this map must not contain monitored resource labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// The start of the time period over which this metric value's measurement
-    /// applies. The time period has different semantics for different metric
-    /// types (cumulative, delta, and gauge). See the metric definition
-    /// documentation in the service configuration for details. If not specified,
-    /// [google.api.servicecontrol.v1.Operation.start_time][google.api.servicecontrol.v1.Operation.start_time] will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The end of the time period over which this metric value's measurement
-    /// applies.  If not specified,
-    /// [google.api.servicecontrol.v1.Operation.end_time][google.api.servicecontrol.v1.Operation.end_time] will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The value. The type of value used in the request must
-    /// agree with the metric definition in the service configuration, otherwise
-    /// the MetricValue is rejected.
-    </span><span class="attr">#[prost(oneof = <span class="string">"metric_value::Value"</span>, tags = <span class="string">"4, 5, 6, 7, 8"</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;metric_value::Value&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `MetricValue`.
-</span><span class="kw">pub mod </span>metric_value {
-    <span class="doccomment">/// The value. The type of value used in the request must
-    /// agree with the metric definition in the service configuration, otherwise
-    /// the MetricValue is rejected.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Value {
-        <span class="doccomment">/// A boolean value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
-        </span>BoolValue(bool),
-        <span class="doccomment">/// A signed 64-bit integer value.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
-        </span>Int64Value(i64),
-        <span class="doccomment">/// A double precision floating point value.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"6"</span>)]
-        </span>DoubleValue(f64),
-        <span class="doccomment">/// A text string value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
-        </span>StringValue(::prost::alloc::string::String),
-        <span class="doccomment">/// A distribution value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
-        </span>DistributionValue(<span class="kw">super</span>::Distribution),
-    }
-}
-<span class="doccomment">/// Represents a set of metric values in the same metric.
-/// Each metric value in the set should have a unique combination of start time,
-/// end time, and label values.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>MetricValueSet {
-    <span class="doccomment">/// The metric name defined in the service configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The values in this metric.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>metric_values: ::prost::alloc::vec::Vec&lt;MetricValue&gt;,
-}
-<span class="doccomment">/// Request message for the AllocateQuota method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AllocateQuotaRequest {
-    <span class="doccomment">/// Name of the service as specified in the service configuration. For example,
-    /// `"pubsub.googleapis.com"`.
-    ///
-    /// See [google.api.Service][google.api.Service] for the definition of a service name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>service_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Operation that describes the quota allocation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>allocate_operation: ::core::option::Option&lt;QuotaOperation&gt;,
-    <span class="doccomment">/// Specifies which version of service configuration should be used to process
-    /// the request. If unspecified or no matching version can be found, the latest
-    /// one will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Represents information regarding a quota operation.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>QuotaOperation {
-    <span class="doccomment">/// Identity of the operation. This is expected to be unique within the scope
-    /// of the service that generated the operation, and guarantees idempotency in
-    /// case of retries.
-    ///
-    /// In order to ensure best performance and latency in the Quota backends,
-    /// operation_ids are optimally associated with time, so that related
-    /// operations can be accessed fast in storage. For this reason, the
-    /// recommended token for services that intend to operate at a high QPS is
-    /// Unix time in nanos + UUID
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Fully qualified name of the API method for which this quota operation is
-    /// requested. This name is used for matching quota rules or metric rules and
-    /// billing status rules defined in service configuration.
-    ///
-    /// This field should not be set if any of the following is true:
-    /// (1) the quota operation is performed on non-API resources.
-    /// (2) quota_metrics is set because the caller is doing quota override.
-    ///
-    ///
-    /// Example of an RPC method name:
-    ///      google.example.library.v1.LibraryService.CreateShelf
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>method_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Identity of the consumer for whom this quota operation is being performed.
-    ///
-    /// This can be in one of the following formats:
-    ///    project:&lt;project_id&gt;,
-    ///    project_number:&lt;project_number&gt;,
-    ///    api_key:&lt;api_key&gt;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>consumer_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Labels describing the operation.
-    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
-    <span class="doccomment">/// Represents information about this operation. Each MetricValueSet
-    /// corresponds to a metric defined in the service configuration.
-    /// The data type used in the MetricValueSet must agree with
-    /// the data type specified in the metric definition.
-    ///
-    /// Within a single operation, it is not allowed to have more than one
-    /// MetricValue instances that have the same metric names and identical
-    /// label value combinations. If a request has such duplicated MetricValue
-    /// instances, the entire request is rejected with
-    /// an invalid argument error.
-    ///
-    /// This field is mutually exclusive with method_name.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>quota_metrics: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
-    <span class="doccomment">/// Quota mode for this operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">"quota_operation::QuotaMode"</span>, tag = <span class="string">"6"</span>)]
-    </span><span class="kw">pub </span>quota_mode: i32,
-}
-<span class="doccomment">/// Nested message and enum types in `QuotaOperation`.
-</span><span class="kw">pub mod </span>quota_operation {
-    <span class="doccomment">/// Supported quota modes.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>QuotaMode {
-        <span class="doccomment">/// Guard against implicit default. Must not be used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// For AllocateQuota request, allocates quota for the amount specified in
-        /// the service configuration or specified using the quota metrics. If the
-        /// amount is higher than the available quota, allocation error will be
-        /// returned and no quota will be allocated.
-        /// If multiple quotas are part of the request, and one fails, none of the
-        /// quotas are allocated or released.
-        </span>Normal = <span class="number">1</span>,
-        <span class="doccomment">/// The operation allocates quota for the amount specified in the service
-        /// configuration or specified using the quota metrics. If the amount is
-        /// higher than the available quota, request does not fail but all available
-        /// quota will be allocated.
-        /// For rate quota, BEST_EFFORT will continue to deduct from other groups
-        /// even if one does not have enough quota. For allocation, it will find the
-        /// minimum available amount across all groups and deduct that amount from
-        /// all the affected groups.
-        </span>BestEffort = <span class="number">2</span>,
-        <span class="doccomment">/// For AllocateQuota request, only checks if there is enough quota
-        /// available and does not change the available quota. No lock is placed on
-        /// the available quota either.
-        </span>CheckOnly = <span class="number">3</span>,
-        <span class="doccomment">/// Unimplemented. When used in AllocateQuotaRequest, this returns the
-        /// effective quota limit(s) in the response, and no quota check will be
-        /// performed. Not supported for other requests, and even for
-        /// AllocateQuotaRequest, this is currently supported only for allowlisted
-        /// services.
-        </span>QueryOnly = <span class="number">4</span>,
-        <span class="doccomment">/// The operation allocates quota for the amount specified in the service
-        /// configuration or specified using the quota metrics. If the requested
-        /// amount is higher than the available quota, request does not fail and
-        /// remaining quota would become negative (going over the limit).
-        /// Not supported for Rate Quota.
-        </span>AdjustOnly = <span class="number">5</span>,
-    }
-    <span class="kw">impl </span>QuotaMode {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                QuotaMode::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
-                QuotaMode::Normal =&gt; <span class="string">"NORMAL"</span>,
-                QuotaMode::BestEffort =&gt; <span class="string">"BEST_EFFORT"</span>,
-                QuotaMode::CheckOnly =&gt; <span class="string">"CHECK_ONLY"</span>,
-                QuotaMode::QueryOnly =&gt; <span class="string">"QUERY_ONLY"</span>,
-                QuotaMode::AdjustOnly =&gt; <span class="string">"ADJUST_ONLY"</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">"NORMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-                <span class="string">"BEST_EFFORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BestEffort),
-                <span class="string">"CHECK_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckOnly),
-                <span class="string">"QUERY_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QueryOnly),
-                <span class="string">"ADJUST_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdjustOnly),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Response message for the AllocateQuota method.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AllocateQuotaResponse {
-    <span class="doccomment">/// The same operation_id value used in the AllocateQuotaRequest. Used for
-    /// logging and diagnostics purposes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Indicates the decision of the allocate.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>allocate_errors: ::prost::alloc::vec::Vec&lt;QuotaError&gt;,
-    <span class="doccomment">/// Quota metrics to indicate the result of allocation. Depending on the
-    /// request, one or more of the following metrics will be included:
-    ///
-    /// 1. Per quota group or per quota metric incremental usage will be specified
-    /// using the following delta metric :
-    ///    "serviceruntime.googleapis.com/api/consumer/quota_used_count"
-    ///
-    /// 2. The quota limit reached condition will be specified using the following
-    /// boolean metric :
-    ///    "serviceruntime.googleapis.com/quota/exceeded"
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>quota_metrics: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
-    <span class="doccomment">/// ID of the actual config used to process the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Represents error information for [QuotaOperation][google.api.servicecontrol.v1.QuotaOperation].
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>QuotaError {
-    <span class="doccomment">/// Error code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">"quota_error::Code"</span>, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>code: i32,
-    <span class="doccomment">/// Subject to whom this error applies. See the specific enum for more details
-    /// on this field. For example, "clientip:&lt;ip address of client&gt;" or
-    /// "project:&lt;Google developer project id&gt;".
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
-    <span class="doccomment">/// Free-form text that provides details on the cause of the error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Contains additional information about the quota error.
-    /// If available, `status.code` will be non zero.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `QuotaError`.
-</span><span class="kw">pub mod </span>quota_error {
-    <span class="doccomment">/// Error codes related to project config validations are deprecated since the
-    /// quota controller methods do not perform these validations. Instead services
-    /// have to call the Check method, without quota_properties field, to perform
-    /// these validations before calling the quota controller methods. These
-    /// methods check only for project deletion to be wipe out compliant.
-    </span><span class="attr">#[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    </span><span class="kw">pub enum </span>Code {
-        <span class="doccomment">/// This is never used.
-        </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Quota allocation failed.
-        /// Same as [google.rpc.Code.RESOURCE_EXHAUSTED][google.rpc.Code.RESOURCE_EXHAUSTED].
-        </span>ResourceExhausted = <span class="number">8</span>,
-        <span class="doccomment">/// Consumer cannot access the service because the service requires active
-        /// billing.
-        </span>BillingNotActive = <span class="number">107</span>,
-        <span class="doccomment">/// Consumer's project has been marked as deleted (soft deletion).
-        </span>ProjectDeleted = <span class="number">108</span>,
-        <span class="doccomment">/// Specified API key is invalid.
-        </span>ApiKeyInvalid = <span class="number">105</span>,
-        <span class="doccomment">/// Specified API Key has expired.
-        </span>ApiKeyExpired = <span class="number">112</span>,
-    }
-    <span class="kw">impl </span>Code {
-        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
-            <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
-                Code::ResourceExhausted =&gt; <span class="string">"RESOURCE_EXHAUSTED"</span>,
-                Code::BillingNotActive =&gt; <span class="string">"BILLING_NOT_ACTIVE"</span>,
-                Code::ProjectDeleted =&gt; <span class="string">"PROJECT_DELETED"</span>,
-                Code::ApiKeyInvalid =&gt; <span class="string">"API_KEY_INVALID"</span>,
-                Code::ApiKeyExpired =&gt; <span class="string">"API_KEY_EXPIRED"</span>,
-            }
-        }
-        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
-        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
-            <span class="kw">match </span>value {
-                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">"RESOURCE_EXHAUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
-                <span class="string">"BILLING_NOT_ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingNotActive),
-                <span class="string">"PROJECT_DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectDeleted),
-                <span class="string">"API_KEY_INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyInvalid),
-                <span class="string">"API_KEY_EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyExpired),
-                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-            }
-        }
-    }
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>quota_controller_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// [Google Quota Control API](/service-control/overview)
-    ///
-    /// Allows clients to allocate and release quota against a [managed
-    /// service](https://cloud.google.com/service-management/reference/rpc/google.api/servicemanagement.v1#google.api.servicemanagement.v1.ManagedService).
-    </span><span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>QuotaControllerClient&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; QuotaControllerClient&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; QuotaControllerClient&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            QuotaControllerClient::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Attempts to allocate quota for the specified consumer. It should be called
-        /// before the operation is executed.
-        ///
-        /// This method requires the `servicemanagement.services.quota`
-        /// permission on the specified service. For more information, see
-        /// [Cloud IAM](https://cloud.google.com/iam).
-        ///
-        /// **NOTE:** The client **must** fail-open on server errors `INTERNAL`,
-        /// `UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system
-        /// reliability, the server may inject these errors to prohibit any hard
-        /// dependency on the quota functionality.
-        </span><span class="kw">pub async fn </span>allocate_quota(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::AllocateQuotaRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::AllocateQuotaResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">"/google.api.servicecontrol.v1.QuotaController/AllocateQuota"</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">"google.api.servicecontrol.v1.QuotaController"</span>,
-                        <span class="string">"AllocateQuota"</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
-<span class="doccomment">/// Defines the errors to be returned in
+</pre></div><pre class="rust"><code><span class="doccomment">/// Defines the errors to be returned in
 /// [google.api.servicecontrol.v1.CheckResponse.check_errors][google.api.servicecontrol.v1.CheckResponse.check_errors].
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2461,6 +1825,251 @@
     /// (Python).
     </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Distribution represents a frequency distribution of double-valued sample
+/// points. It contains the size of the population of sample points plus
+/// additional optional information:
+///
+/// * the arithmetic mean of the samples
+/// * the minimum and maximum of the samples
+/// * the sum-squared-deviation of the samples, used to compute variance
+/// * a histogram of the values of the sample points
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Distribution {
+    <span class="doccomment">/// The total number of samples in the distribution. Must be &gt;= 0.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>count: i64,
+    <span class="doccomment">/// The arithmetic mean of the samples in the distribution. If `count` is
+    /// zero then this field must be zero.
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>mean: f64,
+    <span class="doccomment">/// The minimum of the population of values. Ignored if `count` is zero.
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>minimum: f64,
+    <span class="doccomment">/// The maximum of the population of values. Ignored if `count` is zero.
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>maximum: f64,
+    <span class="doccomment">/// The sum of squared deviations from the mean:
+    ///    Sum[i=1..count]((x_i - mean)^2)
+    /// where each x_i is a sample values. If `count` is zero then this field
+    /// must be zero, otherwise validation of the request fails.
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>sum_of_squared_deviation: f64,
+    <span class="doccomment">/// The number of samples in each histogram bucket. `bucket_counts` are
+    /// optional. If present, they must sum to the `count` value.
+    ///
+    /// The buckets are defined below in `bucket_option`. There are N buckets.
+    /// `bucket_counts\[0\]` is the number of samples in the underflow bucket.
+    /// `bucket_counts\[1\]` to `bucket_counts\[N-1\]` are the numbers of samples
+    /// in each of the finite buckets. And `bucket_counts\[N\] is the number
+    /// of samples in the overflow bucket. See the comments of `bucket_option`
+    /// below for more details.
+    ///
+    /// Any suffix of trailing zeros may be omitted.
+    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"6"</span>)]
+    </span><span class="kw">pub </span>bucket_counts: ::prost::alloc::vec::Vec&lt;i64&gt;,
+    <span class="doccomment">/// Example points. Must be in increasing order of `value` field.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
+    </span><span class="kw">pub </span>exemplars: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::distribution::Exemplar&gt;,
+    <span class="doccomment">/// Defines the buckets in the histogram. `bucket_option` and `bucket_counts`
+    /// must be both set, or both unset.
+    ///
+    /// Buckets are numbered in the range of \[0, N\], with a total of N+1 buckets.
+    /// There must be at least two buckets (a single-bucket histogram gives
+    /// no information that isn't already provided by `count`).
+    ///
+    /// The first bucket is the underflow bucket which has a lower bound
+    /// of -inf. The last bucket is the overflow bucket which has an
+    /// upper bound of +inf. All other buckets (if any) are called "finite"
+    /// buckets because they have finite lower and upper bounds. As described
+    /// below, there are three ways to define the finite buckets.
+    ///
+    ///    (1) Buckets with constant width.
+    ///    (2) Buckets with exponentially growing widths.
+    ///    (3) Buckets with arbitrary user-provided widths.
+    ///
+    /// In all cases, the buckets cover the entire real number line (-inf,
+    /// +inf). Bucket upper bounds are exclusive and lower bounds are
+    /// inclusive. The upper bound of the underflow bucket is equal to the
+    /// lower bound of the smallest finite bucket; the lower bound of the
+    /// overflow bucket is equal to the upper bound of the largest finite
+    /// bucket.
+    </span><span class="attr">#[prost(oneof = <span class="string">"distribution::BucketOption"</span>, tags = <span class="string">"7, 8, 9"</span>)]
+    </span><span class="kw">pub </span>bucket_option: ::core::option::Option&lt;distribution::BucketOption&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Distribution`.
+</span><span class="kw">pub mod </span>distribution {
+    <span class="doccomment">/// Describing buckets with constant width.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>LinearBuckets {
+        <span class="doccomment">/// The number of finite buckets. With the underflow and overflow buckets,
+        /// the total number of buckets is `num_finite_buckets` + 2.
+        /// See comments on `bucket_options` for details.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
+        </span><span class="kw">pub </span>num_finite_buckets: i32,
+        <span class="doccomment">/// The i'th linear bucket covers the interval
+        ///    [offset + (i-1) * width, offset + i * width)
+        /// where i ranges from 1 to num_finite_buckets, inclusive.
+        /// Must be strictly positive.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
+        </span><span class="kw">pub </span>width: f64,
+        <span class="doccomment">/// The i'th linear bucket covers the interval
+        ///    [offset + (i-1) * width, offset + i * width)
+        /// where i ranges from 1 to num_finite_buckets, inclusive.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
+        </span><span class="kw">pub </span>offset: f64,
+    }
+    <span class="doccomment">/// Describing buckets with exponentially growing width.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ExponentialBuckets {
+        <span class="doccomment">/// The number of finite buckets. With the underflow and overflow buckets,
+        /// the total number of buckets is `num_finite_buckets` + 2.
+        /// See comments on `bucket_options` for details.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
+        </span><span class="kw">pub </span>num_finite_buckets: i32,
+        <span class="doccomment">/// The i'th exponential bucket covers the interval
+        ///    [scale * growth_factor^(i-1), scale * growth_factor^i)
+        /// where i ranges from 1 to num_finite_buckets inclusive.
+        /// Must be larger than 1.0.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
+        </span><span class="kw">pub </span>growth_factor: f64,
+        <span class="doccomment">/// The i'th exponential bucket covers the interval
+        ///    [scale * growth_factor^(i-1), scale * growth_factor^i)
+        /// where i ranges from 1 to num_finite_buckets inclusive.
+        /// Must be &gt; 0.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
+        </span><span class="kw">pub </span>scale: f64,
+    }
+    <span class="doccomment">/// Describing buckets with arbitrary user-provided width.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>ExplicitBuckets {
+        <span class="doccomment">/// 'bound' is a list of strictly increasing boundaries between
+        /// buckets. Note that a list of length N-1 defines N buckets because
+        /// of fenceposting. See comments on `bucket_options` for details.
+        ///
+        /// The i'th finite bucket covers the interval
+        ///    \[bound[i-1\], bound\[i\])
+        /// where i ranges from 1 to bound_size() - 1. Note that there are no
+        /// finite buckets at all if 'bound' only contains a single element; in
+        /// that special case the single bound defines the boundary between the
+        /// underflow and overflow buckets.
+        ///
+        /// bucket number                   lower bound    upper bound
+        ///   i == 0 (underflow)              -inf           bound\[i\]
+        ///   0 &lt; i &lt; bound_size()            bound\[i-1\]     bound\[i\]
+        ///   i == bound_size() (overflow)    bound\[i-1\]     +inf
+        </span><span class="attr">#[prost(double, repeated, tag = <span class="string">"1"</span>)]
+        </span><span class="kw">pub </span>bounds: ::prost::alloc::vec::Vec&lt;f64&gt;,
+    }
+    <span class="doccomment">/// Defines the buckets in the histogram. `bucket_option` and `bucket_counts`
+    /// must be both set, or both unset.
+    ///
+    /// Buckets are numbered in the range of \[0, N\], with a total of N+1 buckets.
+    /// There must be at least two buckets (a single-bucket histogram gives
+    /// no information that isn't already provided by `count`).
+    ///
+    /// The first bucket is the underflow bucket which has a lower bound
+    /// of -inf. The last bucket is the overflow bucket which has an
+    /// upper bound of +inf. All other buckets (if any) are called "finite"
+    /// buckets because they have finite lower and upper bounds. As described
+    /// below, there are three ways to define the finite buckets.
+    ///
+    ///    (1) Buckets with constant width.
+    ///    (2) Buckets with exponentially growing widths.
+    ///    (3) Buckets with arbitrary user-provided widths.
+    ///
+    /// In all cases, the buckets cover the entire real number line (-inf,
+    /// +inf). Bucket upper bounds are exclusive and lower bounds are
+    /// inclusive. The upper bound of the underflow bucket is equal to the
+    /// lower bound of the smallest finite bucket; the lower bound of the
+    /// overflow bucket is equal to the upper bound of the largest finite
+    /// bucket.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>BucketOption {
+        <span class="doccomment">/// Buckets with constant width.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
+        </span>LinearBuckets(LinearBuckets),
+        <span class="doccomment">/// Buckets with exponentially growing width.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
+        </span>ExponentialBuckets(ExponentialBuckets),
+        <span class="doccomment">/// Buckets with arbitrary user-provided width.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
+        </span>ExplicitBuckets(ExplicitBuckets),
+    }
+}
+<span class="doccomment">/// Represents a single metric value.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MetricValue {
+    <span class="doccomment">/// The labels describing the metric value.
+    /// See comments on [google.api.servicecontrol.v1.Operation.labels][google.api.servicecontrol.v1.Operation.labels] for
+    /// the overriding relationship.
+    /// Note that this map must not contain monitored resource labels.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// The start of the time period over which this metric value's measurement
+    /// applies. The time period has different semantics for different metric
+    /// types (cumulative, delta, and gauge). See the metric definition
+    /// documentation in the service configuration for details. If not specified,
+    /// [google.api.servicecontrol.v1.Operation.start_time][google.api.servicecontrol.v1.Operation.start_time] will be used.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The end of the time period over which this metric value's measurement
+    /// applies.  If not specified,
+    /// [google.api.servicecontrol.v1.Operation.end_time][google.api.servicecontrol.v1.Operation.end_time] will be used.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The value. The type of value used in the request must
+    /// agree with the metric definition in the service configuration, otherwise
+    /// the MetricValue is rejected.
+    </span><span class="attr">#[prost(oneof = <span class="string">"metric_value::Value"</span>, tags = <span class="string">"4, 5, 6, 7, 8"</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;metric_value::Value&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `MetricValue`.
+</span><span class="kw">pub mod </span>metric_value {
+    <span class="doccomment">/// The value. The type of value used in the request must
+    /// agree with the metric definition in the service configuration, otherwise
+    /// the MetricValue is rejected.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Value {
+        <span class="doccomment">/// A boolean value.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
+        </span>BoolValue(bool),
+        <span class="doccomment">/// A signed 64-bit integer value.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
+        </span>Int64Value(i64),
+        <span class="doccomment">/// A double precision floating point value.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"6"</span>)]
+        </span>DoubleValue(f64),
+        <span class="doccomment">/// A text string value.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
+        </span>StringValue(::prost::alloc::string::String),
+        <span class="doccomment">/// A distribution value.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
+        </span>DistributionValue(<span class="kw">super</span>::Distribution),
+    }
+}
+<span class="doccomment">/// Represents a set of metric values in the same metric.
+/// Each metric value in the set should have a unique combination of start time,
+/// end time, and label values.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>MetricValueSet {
+    <span class="doccomment">/// The metric name defined in the service configuration.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The values in this metric.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>metric_values: ::prost::alloc::vec::Vec&lt;MetricValue&gt;,
 }
 <span class="doccomment">/// Represents information regarding an operation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2973,6 +2582,397 @@
                     GrpcMethod::new(
                         <span class="string">"google.api.servicecontrol.v1.ServiceController"</span>,
                         <span class="string">"Report"</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
+}
+<span class="doccomment">/// Request message for the AllocateQuota method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AllocateQuotaRequest {
+    <span class="doccomment">/// Name of the service as specified in the service configuration. For example,
+    /// `"pubsub.googleapis.com"`.
+    ///
+    /// See [google.api.Service][google.api.Service] for the definition of a service name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>service_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Operation that describes the quota allocation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>allocate_operation: ::core::option::Option&lt;QuotaOperation&gt;,
+    <span class="doccomment">/// Specifies which version of service configuration should be used to process
+    /// the request. If unspecified or no matching version can be found, the latest
+    /// one will be used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Represents information regarding a quota operation.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QuotaOperation {
+    <span class="doccomment">/// Identity of the operation. This is expected to be unique within the scope
+    /// of the service that generated the operation, and guarantees idempotency in
+    /// case of retries.
+    ///
+    /// In order to ensure best performance and latency in the Quota backends,
+    /// operation_ids are optimally associated with time, so that related
+    /// operations can be accessed fast in storage. For this reason, the
+    /// recommended token for services that intend to operate at a high QPS is
+    /// Unix time in nanos + UUID
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Fully qualified name of the API method for which this quota operation is
+    /// requested. This name is used for matching quota rules or metric rules and
+    /// billing status rules defined in service configuration.
+    ///
+    /// This field should not be set if any of the following is true:
+    /// (1) the quota operation is performed on non-API resources.
+    /// (2) quota_metrics is set because the caller is doing quota override.
+    ///
+    ///
+    /// Example of an RPC method name:
+    ///      google.example.library.v1.LibraryService.CreateShelf
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>method_name: ::prost::alloc::string::String,
+    <span class="doccomment">/// Identity of the consumer for whom this quota operation is being performed.
+    ///
+    /// This can be in one of the following formats:
+    ///    project:&lt;project_id&gt;,
+    ///    project_number:&lt;project_number&gt;,
+    ///    api_key:&lt;api_key&gt;.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>consumer_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Labels describing the operation.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+    <span class="doccomment">/// Represents information about this operation. Each MetricValueSet
+    /// corresponds to a metric defined in the service configuration.
+    /// The data type used in the MetricValueSet must agree with
+    /// the data type specified in the metric definition.
+    ///
+    /// Within a single operation, it is not allowed to have more than one
+    /// MetricValue instances that have the same metric names and identical
+    /// label value combinations. If a request has such duplicated MetricValue
+    /// instances, the entire request is rejected with
+    /// an invalid argument error.
+    ///
+    /// This field is mutually exclusive with method_name.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>quota_metrics: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
+    <span class="doccomment">/// Quota mode for this operation.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"quota_operation::QuotaMode"</span>, tag = <span class="string">"6"</span>)]
+    </span><span class="kw">pub </span>quota_mode: i32,
+}
+<span class="doccomment">/// Nested message and enum types in `QuotaOperation`.
+</span><span class="kw">pub mod </span>quota_operation {
+    <span class="doccomment">/// Supported quota modes.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>QuotaMode {
+        <span class="doccomment">/// Guard against implicit default. Must not be used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// For AllocateQuota request, allocates quota for the amount specified in
+        /// the service configuration or specified using the quota metrics. If the
+        /// amount is higher than the available quota, allocation error will be
+        /// returned and no quota will be allocated.
+        /// If multiple quotas are part of the request, and one fails, none of the
+        /// quotas are allocated or released.
+        </span>Normal = <span class="number">1</span>,
+        <span class="doccomment">/// The operation allocates quota for the amount specified in the service
+        /// configuration or specified using the quota metrics. If the amount is
+        /// higher than the available quota, request does not fail but all available
+        /// quota will be allocated.
+        /// For rate quota, BEST_EFFORT will continue to deduct from other groups
+        /// even if one does not have enough quota. For allocation, it will find the
+        /// minimum available amount across all groups and deduct that amount from
+        /// all the affected groups.
+        </span>BestEffort = <span class="number">2</span>,
+        <span class="doccomment">/// For AllocateQuota request, only checks if there is enough quota
+        /// available and does not change the available quota. No lock is placed on
+        /// the available quota either.
+        </span>CheckOnly = <span class="number">3</span>,
+        <span class="doccomment">/// Unimplemented. When used in AllocateQuotaRequest, this returns the
+        /// effective quota limit(s) in the response, and no quota check will be
+        /// performed. Not supported for other requests, and even for
+        /// AllocateQuotaRequest, this is currently supported only for allowlisted
+        /// services.
+        </span>QueryOnly = <span class="number">4</span>,
+        <span class="doccomment">/// The operation allocates quota for the amount specified in the service
+        /// configuration or specified using the quota metrics. If the requested
+        /// amount is higher than the available quota, request does not fail and
+        /// remaining quota would become negative (going over the limit).
+        /// Not supported for Rate Quota.
+        </span>AdjustOnly = <span class="number">5</span>,
+    }
+    <span class="kw">impl </span>QuotaMode {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                QuotaMode::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
+                QuotaMode::Normal =&gt; <span class="string">"NORMAL"</span>,
+                QuotaMode::BestEffort =&gt; <span class="string">"BEST_EFFORT"</span>,
+                QuotaMode::CheckOnly =&gt; <span class="string">"CHECK_ONLY"</span>,
+                QuotaMode::QueryOnly =&gt; <span class="string">"QUERY_ONLY"</span>,
+                QuotaMode::AdjustOnly =&gt; <span class="string">"ADJUST_ONLY"</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NORMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
+                <span class="string">"BEST_EFFORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BestEffort),
+                <span class="string">"CHECK_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckOnly),
+                <span class="string">"QUERY_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QueryOnly),
+                <span class="string">"ADJUST_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdjustOnly),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Response message for the AllocateQuota method.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AllocateQuotaResponse {
+    <span class="doccomment">/// The same operation_id value used in the AllocateQuotaRequest. Used for
+    /// logging and diagnostics purposes.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Indicates the decision of the allocate.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>allocate_errors: ::prost::alloc::vec::Vec&lt;QuotaError&gt;,
+    <span class="doccomment">/// Quota metrics to indicate the result of allocation. Depending on the
+    /// request, one or more of the following metrics will be included:
+    ///
+    /// 1. Per quota group or per quota metric incremental usage will be specified
+    /// using the following delta metric :
+    ///    "serviceruntime.googleapis.com/api/consumer/quota_used_count"
+    ///
+    /// 2. The quota limit reached condition will be specified using the following
+    /// boolean metric :
+    ///    "serviceruntime.googleapis.com/quota/exceeded"
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>quota_metrics: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
+    <span class="doccomment">/// ID of the actual config used to process the request.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Represents error information for [QuotaOperation][google.api.servicecontrol.v1.QuotaOperation].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>QuotaError {
+    <span class="doccomment">/// Error code.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"quota_error::Code"</span>, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>code: i32,
+    <span class="doccomment">/// Subject to whom this error applies. See the specific enum for more details
+    /// on this field. For example, "clientip:&lt;ip address of client&gt;" or
+    /// "project:&lt;Google developer project id&gt;".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
+    <span class="doccomment">/// Free-form text that provides details on the cause of the error.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Contains additional information about the quota error.
+    /// If available, `status.code` will be non zero.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `QuotaError`.
+</span><span class="kw">pub mod </span>quota_error {
+    <span class="doccomment">/// Error codes related to project config validations are deprecated since the
+    /// quota controller methods do not perform these validations. Instead services
+    /// have to call the Check method, without quota_properties field, to perform
+    /// these validations before calling the quota controller methods. These
+    /// methods check only for project deletion to be wipe out compliant.
+    </span><span class="attr">#[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    </span><span class="kw">pub enum </span>Code {
+        <span class="doccomment">/// This is never used.
+        </span>Unspecified = <span class="number">0</span>,
+        <span class="doccomment">/// Quota allocation failed.
+        /// Same as [google.rpc.Code.RESOURCE_EXHAUSTED][google.rpc.Code.RESOURCE_EXHAUSTED].
+        </span>ResourceExhausted = <span class="number">8</span>,
+        <span class="doccomment">/// Consumer cannot access the service because the service requires active
+        /// billing.
+        </span>BillingNotActive = <span class="number">107</span>,
+        <span class="doccomment">/// Consumer's project has been marked as deleted (soft deletion).
+        </span>ProjectDeleted = <span class="number">108</span>,
+        <span class="doccomment">/// Specified API key is invalid.
+        </span>ApiKeyInvalid = <span class="number">105</span>,
+        <span class="doccomment">/// Specified API Key has expired.
+        </span>ApiKeyExpired = <span class="number">112</span>,
+    }
+    <span class="kw">impl </span>Code {
+        <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
+            <span class="kw">match </span><span class="self">self </span>{
+                Code::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
+                Code::ResourceExhausted =&gt; <span class="string">"RESOURCE_EXHAUSTED"</span>,
+                Code::BillingNotActive =&gt; <span class="string">"BILLING_NOT_ACTIVE"</span>,
+                Code::ProjectDeleted =&gt; <span class="string">"PROJECT_DELETED"</span>,
+                Code::ApiKeyInvalid =&gt; <span class="string">"API_KEY_INVALID"</span>,
+                Code::ApiKeyExpired =&gt; <span class="string">"API_KEY_EXPIRED"</span>,
+            }
+        }
+        <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
+        </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
+            <span class="kw">match </span>value {
+                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RESOURCE_EXHAUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
+                <span class="string">"BILLING_NOT_ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingNotActive),
+                <span class="string">"PROJECT_DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectDeleted),
+                <span class="string">"API_KEY_INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyInvalid),
+                <span class="string">"API_KEY_EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyExpired),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
+            }
+        }
+    }
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>quota_controller_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="doccomment">/// [Google Quota Control API](/service-control/overview)
+    ///
+    /// Allows clients to allocate and release quota against a [managed
+    /// service](https://cloud.google.com/service-management/reference/rpc/google.api/servicemanagement.v1#google.api.servicemanagement.v1.ManagedService).
+    </span><span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>QuotaControllerClient&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; QuotaControllerClient&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; QuotaControllerClient&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            QuotaControllerClient::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Attempts to allocate quota for the specified consumer. It should be called
+        /// before the operation is executed.
+        ///
+        /// This method requires the `servicemanagement.services.quota`
+        /// permission on the specified service. For more information, see
+        /// [Cloud IAM](https://cloud.google.com/iam).
+        ///
+        /// **NOTE:** The client **must** fail-open on server errors `INTERNAL`,
+        /// `UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system
+        /// reliability, the server may inject these errors to prohibit any hard
+        /// dependency on the quota functionality.
+        </span><span class="kw">pub async fn </span>allocate_quota(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::AllocateQuotaRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::AllocateQuotaResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">"/google.api.servicecontrol.v1.QuotaController/AllocateQuota"</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">"google.api.servicecontrol.v1.QuotaController"</span>,
+                        <span class="string">"AllocateQuota"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

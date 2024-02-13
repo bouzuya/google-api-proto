@@ -1512,6 +1512,23 @@
         }
     }
 }
+<span class="doccomment">/// Avro schema.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AvroSchema {
+    <span class="doccomment">/// Json serialized schema, as described at
+    /// &lt;https://avro.apache.org/docs/1.8.1/spec.html.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>schema: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Avro rows.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>AvroRows {
+    <span class="doccomment">/// Binary serialized rows in a block.
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>serialized_binary_rows: ::prost::bytes::Bytes,
+}
 <span class="doccomment">/// ProtoSchema describes the schema of the serialized protocol buffer data rows.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1531,23 +1548,6 @@
     /// information on deserializing this field.
     </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_rows: ::prost::alloc::vec::Vec&lt;::prost::bytes::Bytes&gt;,
-}
-<span class="doccomment">/// Avro schema.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AvroSchema {
-    <span class="doccomment">/// Json serialized schema, as described at
-    /// &lt;https://avro.apache.org/docs/1.8.1/spec.html.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>schema: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Avro rows.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>AvroRows {
-    <span class="doccomment">/// Binary serialized rows in a block.
-    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>serialized_binary_rows: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Schema of a table
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]

@@ -7782,477 +7782,6 @@
         </span>}
     }
 }
-<span class="doccomment">/// A reference is a canonical assembled DNA sequence, intended to act as a
-/// reference coordinate space for other genomic annotations. A single reference
-/// might represent the human chromosome 1 or mitochandrial DNA, for instance. A
-/// reference belongs to one or more reference sets.
-///
-/// For more genomics resource definitions, see [Fundamentals of Google
-/// Genomics](&lt;https://cloud.google.com/genomics/fundamentals-of-google-genomics&gt;)
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Reference {
-    <span class="doccomment">/// The server-generated reference ID, unique across all references.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The length of this reference's sequence.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>length: i64,
-    <span class="doccomment">/// MD5 of the upper-case sequence excluding all whitespace characters (this
-    /// is equivalent to SQ:M5 in SAM). This value is represented in lower case
-    /// hexadecimal format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>md5checksum: ::prost::alloc::string::String,
-    <span class="doccomment">/// The name of this reference, for example `22`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URI from which the sequence was obtained. Typically specifies a FASTA
-    /// format file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>source_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
-    /// with a version number, for example `GCF_000001405.26`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
-    </span><span class="kw">pub </span>source_accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// ID from &lt;http://www.ncbi.nlm.nih.gov/taxonomy.&gt; For example, 9606 for human.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
-    </span><span class="kw">pub </span>ncbi_taxon_id: i32,
-}
-<span class="doccomment">/// A reference set is a set of references which typically comprise a reference
-/// assembly for a species, such as `GRCh38` which is representative
-/// of the human genome. A reference set defines a common coordinate space for
-/// comparing reference-aligned experimental data. A reference set contains 1 or
-/// more references.
-///
-/// For more genomics resource definitions, see [Fundamentals of Google
-/// Genomics](&lt;https://cloud.google.com/genomics/fundamentals-of-google-genomics&gt;)
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ReferenceSet {
-    <span class="doccomment">/// The server-generated reference set ID, unique across all reference sets.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The IDs of the reference objects that are part of this set.
-    /// `Reference.md5checksum` must be unique within this set.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>reference_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Order-independent MD5 checksum which identifies this reference set. The
-    /// checksum is computed by sorting all lower case hexidecimal string
-    /// `reference.md5checksum` (for all reference in this set) in
-    /// ascending lexicographic order, concatenating, and taking the MD5 of that
-    /// value. The resulting value is represented in lower case hexadecimal format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>md5checksum: ::prost::alloc::string::String,
-    <span class="doccomment">/// ID from &lt;http://www.ncbi.nlm.nih.gov/taxonomy&gt; (for example, 9606 for human)
-    /// indicating the species which this reference set is intended to model. Note
-    /// that contained references may specify a different `ncbiTaxonId`, as
-    /// assemblies may contain reference sequences which do not belong to the
-    /// modeled species, for example EBV in a human reference genome.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>ncbi_taxon_id: i32,
-    <span class="doccomment">/// Free text description of this reference set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// Public id of this reference set, such as `GRCh37`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
-    </span><span class="kw">pub </span>assembly_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The URI from which the references were obtained.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
-    </span><span class="kw">pub </span>source_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
-    /// with a version number, for example `NC_000001.11`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
-    </span><span class="kw">pub </span>source_accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchReferenceSetsRequest {
-    <span class="doccomment">/// If present, return reference sets for which the
-    /// [md5checksum][google.genomics.v1.ReferenceSet.md5checksum] matches exactly.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>md5checksums: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// If present, return reference sets for which a prefix of any of
-    /// [sourceAccessions][google.genomics.v1.ReferenceSet.source_accessions]
-    /// match any of these strings. Accession numbers typically have a main number
-    /// and a version, for example `NC_000001.11`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// If present, return reference sets for which a substring of their
-    /// `assemblyId` matches this string (case insensitive).
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>assembly_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
-    /// To get the next page of results, set this parameter to the value of
-    /// `nextPageToken` from the previous response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of results to return in a single page. If unspecified,
-    /// defaults to 1024. The maximum value is 4096.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchReferenceSetsResponse {
-    <span class="doccomment">/// The matching references sets.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>reference_sets: ::prost::alloc::vec::Vec&lt;ReferenceSet&gt;,
-    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
-    /// Provide this value in a subsequent request to return the next page of
-    /// results. This field will be empty if there aren't any additional results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetReferenceSetRequest {
-    <span class="doccomment">/// The ID of the reference set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>reference_set_id: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchReferencesRequest {
-    <span class="doccomment">/// If present, return references for which the
-    /// [md5checksum][google.genomics.v1.Reference.md5checksum] matches exactly.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>md5checksums: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// If present, return references for which a prefix of any of
-    /// [sourceAccessions][google.genomics.v1.Reference.source_accessions] match
-    /// any of these strings. Accession numbers typically have a main number and a
-    /// version, for example `GCF_000001405.26`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// If present, return only references which belong to this reference set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>reference_set_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
-    /// To get the next page of results, set this parameter to the value of
-    /// `nextPageToken` from the previous response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of results to return in a single page. If unspecified,
-    /// defaults to 1024. The maximum value is 4096.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>SearchReferencesResponse {
-    <span class="doccomment">/// The matching references.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>references: ::prost::alloc::vec::Vec&lt;Reference&gt;,
-    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
-    /// Provide this value in a subsequent request to return the next page of
-    /// results. This field will be empty if there aren't any additional results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>GetReferenceRequest {
-    <span class="doccomment">/// The ID of the reference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>reference_id: ::prost::alloc::string::String,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListBasesRequest {
-    <span class="doccomment">/// The ID of the reference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>reference_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The start position (0-based) of this query. Defaults to 0.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>start: i64,
-    <span class="doccomment">/// The end position (0-based, exclusive) of this query. Defaults to the length
-    /// of this reference.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>end: i64,
-    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
-    /// To get the next page of results, set this parameter to the value of
-    /// `nextPageToken` from the previous response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// The maximum number of bases to return in a single page. If unspecified,
-    /// defaults to 200Kbp (kilo base pairs). The maximum value is 10Mbp (mega base
-    /// pairs).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>page_size: i32,
-}
-<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>ListBasesResponse {
-    <span class="doccomment">/// The offset position (0-based) of the given `sequence` from the
-    /// start of this `Reference`. This value will differ for each page
-    /// in a paginated request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>offset: i64,
-    <span class="doccomment">/// A substring of the bases that make up this reference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>sequence: ::prost::alloc::string::String,
-    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
-    /// Provide this value in a subsequent request to return the next page of
-    /// results. This field will be empty if there aren't any additional results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-}
-<span class="doccomment">/// Generated client implementations.
-</span><span class="kw">pub mod </span>reference_service_v1_client {
-    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
-    <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="attr">#[derive(Debug, Clone)]
-    </span><span class="kw">pub struct </span>ReferenceServiceV1Client&lt;T&gt; {
-        inner: tonic::client::Grpc&lt;T&gt;,
-    }
-    <span class="kw">impl</span>&lt;T&gt; ReferenceServiceV1Client&lt;T&gt;
-    <span class="kw">where
-        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
-        T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
-        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
-    {
-        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
-            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
-            <span class="self">Self </span>{ inner }
-        }
-        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
-            inner: T,
-            interceptor: F,
-        ) -&gt; ReferenceServiceV1Client&lt;InterceptedService&lt;T, F&gt;&gt;
-        <span class="kw">where
-            </span>F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-                Response = http::Response&lt;
-                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
-                &gt;,
-            &gt;,
-            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
-                http::Request&lt;tonic::body::BoxBody&gt;,
-            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
-        {
-            ReferenceServiceV1Client::new(InterceptedService::new(inner, interceptor))
-        }
-        <span class="doccomment">/// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Enable decompressing responses.
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        </span><span class="attr">#[must_use]
-        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
-            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
-            <span class="self">self
-        </span>}
-        <span class="doccomment">/// Searches for reference sets which match the given criteria.
-        ///
-        /// For the definitions of references and other genomics resources, see
-        /// [Fundamentals of Google
-        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-        ///
-        /// Implements
-        /// [GlobalAllianceApi.searchReferenceSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L71)
-        </span><span class="kw">pub async fn </span>search_reference_sets(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchReferenceSetsRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::SearchReferenceSetsResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">"/google.genomics.v1.ReferenceServiceV1/SearchReferenceSets"</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
-                        <span class="string">"SearchReferenceSets"</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a reference set.
-        ///
-        /// For the definitions of references and other genomics resources, see
-        /// [Fundamentals of Google
-        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-        ///
-        /// Implements
-        /// [GlobalAllianceApi.getReferenceSet](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L83).
-        </span><span class="kw">pub async fn </span>get_reference_set(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetReferenceSetRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::ReferenceSet&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">"/google.genomics.v1.ReferenceServiceV1/GetReferenceSet"</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
-                        <span class="string">"GetReferenceSet"</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Searches for references which match the given criteria.
-        ///
-        /// For the definitions of references and other genomics resources, see
-        /// [Fundamentals of Google
-        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-        ///
-        /// Implements
-        /// [GlobalAllianceApi.searchReferences](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L146).
-        </span><span class="kw">pub async fn </span>search_references(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchReferencesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::SearchReferencesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">"/google.genomics.v1.ReferenceServiceV1/SearchReferences"</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
-                        <span class="string">"SearchReferences"</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Gets a reference.
-        ///
-        /// For the definitions of references and other genomics resources, see
-        /// [Fundamentals of Google
-        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-        ///
-        /// Implements
-        /// [GlobalAllianceApi.getReference](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L158).
-        </span><span class="kw">pub async fn </span>get_reference(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetReferenceRequest&gt;,
-        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Reference&gt;, tonic::Status&gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">"/google.genomics.v1.ReferenceServiceV1/GetReference"</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
-                        <span class="string">"GetReference"</span>,
-                    ),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-        <span class="doccomment">/// Lists the bases in a reference, optionally restricted to a range.
-        ///
-        /// For the definitions of references and other genomics resources, see
-        /// [Fundamentals of Google
-        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
-        ///
-        /// Implements
-        /// [GlobalAllianceApi.getReferenceBases](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L221).
-        </span><span class="kw">pub async fn </span>list_bases(
-            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListBasesRequest&gt;,
-        ) -&gt; std::result::Result&lt;
-            tonic::Response&lt;<span class="kw">super</span>::ListBasesResponse&gt;,
-            tonic::Status,
-        &gt; {
-            <span class="self">self</span>.inner
-                .ready()
-                .<span class="kw">await
-                </span>.map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
-                    )
-                })<span class="question-mark">?</span>;
-            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
-            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">"/google.genomics.v1.ReferenceServiceV1/ListBases"</span>,
-            );
-            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(<span class="string">"google.genomics.v1.ReferenceServiceV1"</span>, <span class="string">"ListBases"</span>),
-                );
-            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
-        </span>}
-    }
-}
 <span class="doccomment">/// Metadata describes a single piece of variant call metadata.
 /// These data include a top level key and either a single value string (value)
 /// or a list of key-value pairs (info.)
@@ -9928,6 +9457,62 @@
         </span>}
     }
 }
+<span class="doccomment">/// Metadata describing an [Operation][google.longrunning.Operation].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OperationMetadata {
+    <span class="doccomment">/// The Google Cloud Project in which the job is scoped.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The time at which the job was submitted to the Genomics service.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time at which the job began to run.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The time at which the job stopped running.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// The original request that started the operation. Note that this will be in
+    /// current version of the API. If the operation was started with v1beta2 API
+    /// and a GetOperation is performed on v1 API, a v1 request will be returned.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>request: ::core::option::Option&lt;::prost_types::Any&gt;,
+    <span class="doccomment">/// Optional event messages that were generated during the job's execution.
+    /// This also contains any warnings that were generated during import
+    /// or export.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
+    </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;OperationEvent&gt;,
+    <span class="doccomment">/// This field is deprecated. Use `labels` instead. Optionally provided by the
+    /// caller when submitting the request that creates the operation.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
+    </span><span class="kw">pub </span>client_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// Runtime metadata on this Operation.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
+    </span><span class="kw">pub </span>runtime_metadata: ::core::option::Option&lt;::prost_types::Any&gt;,
+    <span class="doccomment">/// Optionally provided by the caller when submitting the request that creates
+    /// the operation.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
+}
+<span class="doccomment">/// An event that occurred during an [Operation][google.longrunning.Operation].
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>OperationEvent {
+    <span class="doccomment">/// Optional time of when event started.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Optional time of when event finished. An event can have a start time and no
+    /// finish time. If an event has a finish time, there must be a start time.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
+    <span class="doccomment">/// Required description of event.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// A Dataset is a collection of genomic data.
 ///
 /// For more genomics resource definitions, see [Fundamentals of Google
@@ -10421,60 +10006,475 @@
         </span>}
     }
 }
-<span class="doccomment">/// Metadata describing an [Operation][google.longrunning.Operation].
+<span class="doccomment">/// A reference is a canonical assembled DNA sequence, intended to act as a
+/// reference coordinate space for other genomic annotations. A single reference
+/// might represent the human chromosome 1 or mitochandrial DNA, for instance. A
+/// reference belongs to one or more reference sets.
+///
+/// For more genomics resource definitions, see [Fundamentals of Google
+/// Genomics](&lt;https://cloud.google.com/genomics/fundamentals-of-google-genomics&gt;)
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperationMetadata {
-    <span class="doccomment">/// The Google Cloud Project in which the job is scoped.
+</span><span class="kw">pub struct </span>Reference {
+    <span class="doccomment">/// The server-generated reference ID, unique across all references.
     </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The time at which the job was submitted to the Genomics service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time at which the job began to run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The time at which the job stopped running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The original request that started the operation. Note that this will be in
-    /// current version of the API. If the operation was started with v1beta2 API
-    /// and a GetOperation is performed on v1 API, a v1 request will be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
-    </span><span class="kw">pub </span>request: ::core::option::Option&lt;::prost_types::Any&gt;,
-    <span class="doccomment">/// Optional event messages that were generated during the job's execution.
-    /// This also contains any warnings that were generated during import
-    /// or export.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
-    </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;OperationEvent&gt;,
-    <span class="doccomment">/// This field is deprecated. Use `labels` instead. Optionally provided by the
-    /// caller when submitting the request that creates the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
-    </span><span class="kw">pub </span>client_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Runtime metadata on this Operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
-    </span><span class="kw">pub </span>runtime_metadata: ::core::option::Option&lt;::prost_types::Any&gt;,
-    <span class="doccomment">/// Optionally provided by the caller when submitting the request that creates
-    /// the operation.
-    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
-    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    &gt;,
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The length of this reference's sequence.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>length: i64,
+    <span class="doccomment">/// MD5 of the upper-case sequence excluding all whitespace characters (this
+    /// is equivalent to SQ:M5 in SAM). This value is represented in lower case
+    /// hexadecimal format.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>md5checksum: ::prost::alloc::string::String,
+    <span class="doccomment">/// The name of this reference, for example `22`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URI from which the sequence was obtained. Typically specifies a FASTA
+    /// format file.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>source_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
+    /// with a version number, for example `GCF_000001405.26`.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
+    </span><span class="kw">pub </span>source_accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// ID from &lt;http://www.ncbi.nlm.nih.gov/taxonomy.&gt; For example, 9606 for human.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
+    </span><span class="kw">pub </span>ncbi_taxon_id: i32,
 }
-<span class="doccomment">/// An event that occurred during an [Operation][google.longrunning.Operation].
+<span class="doccomment">/// A reference set is a set of references which typically comprise a reference
+/// assembly for a species, such as `GRCh38` which is representative
+/// of the human genome. A reference set defines a common coordinate space for
+/// comparing reference-aligned experimental data. A reference set contains 1 or
+/// more references.
+///
+/// For more genomics resource definitions, see [Fundamentals of Google
+/// Genomics](&lt;https://cloud.google.com/genomics/fundamentals-of-google-genomics&gt;)
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>OperationEvent {
-    <span class="doccomment">/// Optional time of when event started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
-    </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Optional time of when event finished. An event can have a start time and no
-    /// finish time. If an event has a finish time, there must be a start time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
-    </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// Required description of event.
+</span><span class="kw">pub struct </span>ReferenceSet {
+    <span class="doccomment">/// The server-generated reference set ID, unique across all reference sets.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The IDs of the reference objects that are part of this set.
+    /// `Reference.md5checksum` must be unique within this set.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>reference_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// Order-independent MD5 checksum which identifies this reference set. The
+    /// checksum is computed by sorting all lower case hexidecimal string
+    /// `reference.md5checksum` (for all reference in this set) in
+    /// ascending lexicographic order, concatenating, and taking the MD5 of that
+    /// value. The resulting value is represented in lower case hexadecimal format.
     </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>md5checksum: ::prost::alloc::string::String,
+    <span class="doccomment">/// ID from &lt;http://www.ncbi.nlm.nih.gov/taxonomy&gt; (for example, 9606 for human)
+    /// indicating the species which this reference set is intended to model. Note
+    /// that contained references may specify a different `ncbiTaxonId`, as
+    /// assemblies may contain reference sequences which do not belong to the
+    /// modeled species, for example EBV in a human reference genome.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>ncbi_taxon_id: i32,
+    <span class="doccomment">/// Free text description of this reference set.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
+    <span class="doccomment">/// Public id of this reference set, such as `GRCh37`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
+    </span><span class="kw">pub </span>assembly_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The URI from which the references were obtained.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
+    </span><span class="kw">pub </span>source_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
+    /// with a version number, for example `NC_000001.11`.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
+    </span><span class="kw">pub </span>source_accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchReferenceSetsRequest {
+    <span class="doccomment">/// If present, return reference sets for which the
+    /// [md5checksum][google.genomics.v1.ReferenceSet.md5checksum] matches exactly.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>md5checksums: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// If present, return reference sets for which a prefix of any of
+    /// [sourceAccessions][google.genomics.v1.ReferenceSet.source_accessions]
+    /// match any of these strings. Accession numbers typically have a main number
+    /// and a version, for example `NC_000001.11`.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// If present, return reference sets for which a substring of their
+    /// `assemblyId` matches this string (case insensitive).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>assembly_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
+    /// To get the next page of results, set this parameter to the value of
+    /// `nextPageToken` from the previous response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of results to return in a single page. If unspecified,
+    /// defaults to 1024. The maximum value is 4096.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchReferenceSetsResponse {
+    <span class="doccomment">/// The matching references sets.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>reference_sets: ::prost::alloc::vec::Vec&lt;ReferenceSet&gt;,
+    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
+    /// Provide this value in a subsequent request to return the next page of
+    /// results. This field will be empty if there aren't any additional results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetReferenceSetRequest {
+    <span class="doccomment">/// The ID of the reference set.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>reference_set_id: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchReferencesRequest {
+    <span class="doccomment">/// If present, return references for which the
+    /// [md5checksum][google.genomics.v1.Reference.md5checksum] matches exactly.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>md5checksums: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// If present, return references for which a prefix of any of
+    /// [sourceAccessions][google.genomics.v1.Reference.source_accessions] match
+    /// any of these strings. Accession numbers typically have a main number and a
+    /// version, for example `GCF_000001405.26`.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>accessions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// If present, return only references which belong to this reference set.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>reference_set_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
+    /// To get the next page of results, set this parameter to the value of
+    /// `nextPageToken` from the previous response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of results to return in a single page. If unspecified,
+    /// defaults to 1024. The maximum value is 4096.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>SearchReferencesResponse {
+    <span class="doccomment">/// The matching references.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>references: ::prost::alloc::vec::Vec&lt;Reference&gt;,
+    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
+    /// Provide this value in a subsequent request to return the next page of
+    /// results. This field will be empty if there aren't any additional results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>GetReferenceRequest {
+    <span class="doccomment">/// The ID of the reference.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>reference_id: ::prost::alloc::string::String,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListBasesRequest {
+    <span class="doccomment">/// The ID of the reference.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>reference_id: ::prost::alloc::string::String,
+    <span class="doccomment">/// The start position (0-based) of this query. Defaults to 0.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>start: i64,
+    <span class="doccomment">/// The end position (0-based, exclusive) of this query. Defaults to the length
+    /// of this reference.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>end: i64,
+    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
+    /// To get the next page of results, set this parameter to the value of
+    /// `nextPageToken` from the previous response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
+    </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
+    <span class="doccomment">/// The maximum number of bases to return in a single page. If unspecified,
+    /// defaults to 200Kbp (kilo base pairs). The maximum value is 10Mbp (mega base
+    /// pairs).
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
+    </span><span class="kw">pub </span>page_size: i32,
+}
+<span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>ListBasesResponse {
+    <span class="doccomment">/// The offset position (0-based) of the given `sequence` from the
+    /// start of this `Reference`. This value will differ for each page
+    /// in a paginated request.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>offset: i64,
+    <span class="doccomment">/// A substring of the bases that make up this reference.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>sequence: ::prost::alloc::string::String,
+    <span class="doccomment">/// The continuation token, which is used to page through large result sets.
+    /// Provide this value in a subsequent request to return the next page of
+    /// results. This field will be empty if there aren't any additional results.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
+    </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
+}
+<span class="doccomment">/// Generated client implementations.
+</span><span class="kw">pub mod </span>reference_service_v1_client {
+    <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
+    <span class="kw">use </span>tonic::codegen::http::Uri;
+    <span class="attr">#[derive(Debug, Clone)]
+    </span><span class="kw">pub struct </span>ReferenceServiceV1Client&lt;T&gt; {
+        inner: tonic::client::Grpc&lt;T&gt;,
+    }
+    <span class="kw">impl</span>&lt;T&gt; ReferenceServiceV1Client&lt;T&gt;
+    <span class="kw">where
+        </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
+        T::Error: Into&lt;StdError&gt;,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
+        &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
+    {
+        <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::new(inner);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_origin(inner: T, origin: Uri) -&gt; <span class="self">Self </span>{
+            <span class="kw">let </span>inner = tonic::client::Grpc::with_origin(inner, origin);
+            <span class="self">Self </span>{ inner }
+        }
+        <span class="kw">pub fn </span>with_interceptor&lt;F&gt;(
+            inner: T,
+            interceptor: F,
+        ) -&gt; ReferenceServiceV1Client&lt;InterceptedService&lt;T, F&gt;&gt;
+        <span class="kw">where
+            </span>F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+                Response = http::Response&lt;
+                    &lt;T <span class="kw">as </span>tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;&gt;::ResponseBody,
+                &gt;,
+            &gt;,
+            &lt;T <span class="kw">as </span>tonic::codegen::Service&lt;
+                http::Request&lt;tonic::body::BoxBody&gt;,
+            &gt;&gt;::Error: Into&lt;StdError&gt; + Send + Sync,
+        {
+            ReferenceServiceV1Client::new(InterceptedService::new(inner, interceptor))
+        }
+        <span class="doccomment">/// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>send_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.send_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Enable decompressing responses.
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>accept_compressed(<span class="kw-2">mut </span><span class="self">self</span>, encoding: CompressionEncoding) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.accept_compressed(encoding);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_decoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_decoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        </span><span class="attr">#[must_use]
+        </span><span class="kw">pub fn </span>max_encoding_message_size(<span class="kw-2">mut </span><span class="self">self</span>, limit: usize) -&gt; <span class="self">Self </span>{
+            <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
+            <span class="self">self
+        </span>}
+        <span class="doccomment">/// Searches for reference sets which match the given criteria.
+        ///
+        /// For the definitions of references and other genomics resources, see
+        /// [Fundamentals of Google
+        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+        ///
+        /// Implements
+        /// [GlobalAllianceApi.searchReferenceSets](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L71)
+        </span><span class="kw">pub async fn </span>search_reference_sets(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchReferenceSetsRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::SearchReferenceSetsResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">"/google.genomics.v1.ReferenceServiceV1/SearchReferenceSets"</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
+                        <span class="string">"SearchReferenceSets"</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a reference set.
+        ///
+        /// For the definitions of references and other genomics resources, see
+        /// [Fundamentals of Google
+        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+        ///
+        /// Implements
+        /// [GlobalAllianceApi.getReferenceSet](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L83).
+        </span><span class="kw">pub async fn </span>get_reference_set(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetReferenceSetRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::ReferenceSet&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">"/google.genomics.v1.ReferenceServiceV1/GetReferenceSet"</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
+                        <span class="string">"GetReferenceSet"</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Searches for references which match the given criteria.
+        ///
+        /// For the definitions of references and other genomics resources, see
+        /// [Fundamentals of Google
+        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+        ///
+        /// Implements
+        /// [GlobalAllianceApi.searchReferences](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L146).
+        </span><span class="kw">pub async fn </span>search_references(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SearchReferencesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::SearchReferencesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">"/google.genomics.v1.ReferenceServiceV1/SearchReferences"</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
+                        <span class="string">"SearchReferences"</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Gets a reference.
+        ///
+        /// For the definitions of references and other genomics resources, see
+        /// [Fundamentals of Google
+        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+        ///
+        /// Implements
+        /// [GlobalAllianceApi.getReference](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L158).
+        </span><span class="kw">pub async fn </span>get_reference(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::GetReferenceRequest&gt;,
+        ) -&gt; std::result::Result&lt;tonic::Response&lt;<span class="kw">super</span>::Reference&gt;, tonic::Status&gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">"/google.genomics.v1.ReferenceServiceV1/GetReference"</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        <span class="string">"google.genomics.v1.ReferenceServiceV1"</span>,
+                        <span class="string">"GetReference"</span>,
+                    ),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+        <span class="doccomment">/// Lists the bases in a reference, optionally restricted to a range.
+        ///
+        /// For the definitions of references and other genomics resources, see
+        /// [Fundamentals of Google
+        /// Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+        ///
+        /// Implements
+        /// [GlobalAllianceApi.getReferenceBases](https://github.com/ga4gh/schemas/blob/v0.5.1/src/main/resources/avro/referencemethods.avdl#L221).
+        </span><span class="kw">pub async fn </span>list_bases(
+            <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+            request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListBasesRequest&gt;,
+        ) -&gt; std::result::Result&lt;
+            tonic::Response&lt;<span class="kw">super</span>::ListBasesResponse&gt;,
+            tonic::Status,
+        &gt; {
+            <span class="self">self</span>.inner
+                .ready()
+                .<span class="kw">await
+                </span>.map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
+                    )
+                })<span class="question-mark">?</span>;
+            <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
+            <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
+                <span class="string">"/google.genomics.v1.ReferenceServiceV1/ListBases"</span>,
+            );
+            <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(<span class="string">"google.genomics.v1.ReferenceServiceV1"</span>, <span class="string">"ListBases"</span>),
+                );
+            <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
+        </span>}
+    }
 }
 </code></pre></div></section></main></body></html>
