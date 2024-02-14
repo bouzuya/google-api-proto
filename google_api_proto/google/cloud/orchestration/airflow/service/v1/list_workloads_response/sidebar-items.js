@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ComposerWorkloadState","ComposerWorkloadType"],"struct":["ComposerWorkload","ComposerWorkloadStatus"]};
