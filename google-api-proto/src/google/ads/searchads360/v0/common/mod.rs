@@ -1,3 +1,34 @@
+/// A generic data container.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Value {
+    /// A value.
+    #[prost(oneof = "value::Value", tags = "1, 2, 3, 4, 5")]
+    pub value: ::core::option::Option<value::Value>,
+}
+/// Nested message and enum types in `Value`.
+pub mod value {
+    /// A value.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// A boolean.
+        #[prost(bool, tag = "1")]
+        BooleanValue(bool),
+        /// An int64.
+        #[prost(int64, tag = "2")]
+        Int64Value(i64),
+        /// A float.
+        #[prost(float, tag = "3")]
+        FloatValue(f32),
+        /// A double.
+        #[prost(double, tag = "4")]
+        DoubleValue(f64),
+        /// A string.
+        #[prost(string, tag = "5")]
+        StringValue(::prost::alloc::string::String),
+    }
+}
 /// Metrics data.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -117,6 +148,9 @@ pub struct Metrics {
     /// value below 0.1 is reported as 0.0999.
     #[prost(double, optional, tag = "160")]
     pub content_impression_share: ::core::option::Option<f64>,
+    /// The conversion custom metrics.
+    #[prost(message, repeated, tag = "336")]
+    pub conversion_custom_metrics: ::prost::alloc::vec::Vec<Value>,
     /// The estimated percentage of impressions on the Display Network
     /// that your ads didn't receive due to poor Ad Rank.
     /// Note: Content rank lost impression share is reported in the range of 0
@@ -258,6 +292,9 @@ pub struct Metrics {
     /// The percentage of mobile clicks that go to a mobile-friendly page.
     #[prost(double, optional, tag = "229")]
     pub mobile_friendly_clicks_percentage: ::core::option::Option<f64>,
+    /// The raw event conversion metrics.
+    #[prost(message, repeated, tag = "337")]
+    pub raw_event_conversion_metrics: ::prost::alloc::vec::Vec<Value>,
     /// The percentage of the customer's Shopping or Search ad impressions that are
     /// shown in the most prominent Shopping position. See
     /// <https://support.google.com/sa360/answer/9566729>
@@ -847,6 +884,9 @@ pub struct Segments {
     /// Conversion action name.
     #[prost(string, optional, tag = "114")]
     pub conversion_action_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The conversion custom dimensions.
+    #[prost(message, repeated, tag = "188")]
+    pub conversion_custom_dimensions: ::prost::alloc::vec::Vec<Value>,
     /// Date to which metrics apply.
     /// yyyy-MM-dd format, for example, 2018-04-17.
     #[prost(string, optional, tag = "79")]
@@ -1051,6 +1091,9 @@ pub struct Segments {
     /// 2018 starts on 2018-04-01. Formatted as yyyy-MM-dd.
     #[prost(string, optional, tag = "128")]
     pub quarter: ::core::option::Option<::prost::alloc::string::String>,
+    /// The raw event conversion dimensions.
+    #[prost(message, repeated, tag = "189")]
+    pub raw_event_conversion_dimensions: ::prost::alloc::vec::Vec<Value>,
     /// Week as defined as Monday through Sunday, and represented by the date of
     /// Monday. Formatted as yyyy-MM-dd.
     #[prost(string, optional, tag = "130")]
@@ -1094,37 +1137,6 @@ pub struct AssetInteractionTarget {
     /// different asset or ad unit.
     #[prost(bool, tag = "2")]
     pub interaction_on_this_asset: bool,
-}
-/// A generic data container.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Value {
-    /// A value.
-    #[prost(oneof = "value::Value", tags = "1, 2, 3, 4, 5")]
-    pub value: ::core::option::Option<value::Value>,
-}
-/// Nested message and enum types in `Value`.
-pub mod value {
-    /// A value.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// A boolean.
-        #[prost(bool, tag = "1")]
-        BooleanValue(bool),
-        /// An int64.
-        #[prost(int64, tag = "2")]
-        Int64Value(i64),
-        /// A float.
-        #[prost(float, tag = "3")]
-        FloatValue(f32),
-        /// A double.
-        #[prost(double, tag = "4")]
-        DoubleValue(f64),
-        /// A string.
-        #[prost(string, tag = "5")]
-        StringValue(::prost::alloc::string::String),
-    }
 }
 /// Settings for the targeting-related features, at the campaign and ad group
 /// levels. For more details about the targeting setting, visit

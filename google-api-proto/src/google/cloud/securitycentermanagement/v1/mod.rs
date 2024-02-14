@@ -97,7 +97,7 @@ pub struct ListEffectiveSecurityHealthAnalyticsCustomModulesRequest {
     /// Default is 10, minimum is 1, maximum is 1000.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// Optional. The value returned by the last call indicating a continuation
+    /// Optional. The value returned by the last call indicating a continuation.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }

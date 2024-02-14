@@ -1473,6 +1473,19 @@ pub struct Geolocation {
     #[prost(string, tag = "1")]
     pub region_code: ::prost::alloc::string::String,
 }
+/// Represents an application associated with a finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Application {
+    /// The base URI that identifies the network location of the application in
+    /// which the vulnerability was detected. For example, `<http://example.com`.>
+    #[prost(string, tag = "1")]
+    pub base_uri: ::prost::alloc::string::String,
+    /// The full URI with payload that can be used to reproduce the
+    /// vulnerability. For example, `<http://example.com?p=aMmYgI6H`.>
+    #[prost(string, tag = "2")]
+    pub full_uri: ::prost::alloc::string::String,
+}
 /// The [data profile](<https://cloud.google.com/dlp/docs/data-profiles>)
 /// associated with the finding.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2421,6 +2434,9 @@ pub struct Finding {
     /// Signature of the kernel rootkit.
     #[prost(message, optional, tag = "50")]
     pub kernel_rootkit: ::core::option::Option<KernelRootkit>,
+    /// Represents an application associated with the finding.
+    #[prost(message, optional, tag = "53")]
+    pub application: ::core::option::Option<Application>,
 }
 /// Nested message and enum types in `Finding`.
 pub mod finding {
