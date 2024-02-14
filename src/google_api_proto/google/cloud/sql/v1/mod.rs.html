@@ -7818,6 +7818,21 @@
 <a href="#7817" id="7817">7817</a>
 <a href="#7818" id="7818">7818</a>
 <a href="#7819" id="7819">7819</a>
+<a href="#7820" id="7820">7820</a>
+<a href="#7821" id="7821">7821</a>
+<a href="#7822" id="7822">7822</a>
+<a href="#7823" id="7823">7823</a>
+<a href="#7824" id="7824">7824</a>
+<a href="#7825" id="7825">7825</a>
+<a href="#7826" id="7826">7826</a>
+<a href="#7827" id="7827">7827</a>
+<a href="#7828" id="7828">7828</a>
+<a href="#7829" id="7829">7829</a>
+<a href="#7830" id="7830">7830</a>
+<a href="#7831" id="7831">7831</a>
+<a href="#7832" id="7832">7832</a>
+<a href="#7833" id="7833">7833</a>
+<a href="#7834" id="7834">7834</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// An entry for an Access Control list.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -8254,6 +8269,12 @@
         </span><span class="kw">pub </span>mysql_export_options: ::core::option::Option&lt;
             sql_export_options::MysqlExportOptions,
         &gt;,
+        <span class="doccomment">/// Optional. The number of threads to use for parallel export.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
+        </span><span class="kw">pub </span>threads: ::core::option::Option&lt;i32&gt;,
+        <span class="doccomment">/// Optional. Whether or not the export should be parallel.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
+        </span><span class="kw">pub </span>parallel: ::core::option::Option&lt;bool&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `SqlExportOptions`.
     </span><span class="kw">pub mod </span>sql_export_options {
@@ -11184,7 +11205,7 @@
             }
         }
     }
-    <span class="doccomment">/// The current SQL network architecture for the instance.
+    <span class="doccomment">/// The SQL network architecture for the instance.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -11199,9 +11220,9 @@
     #[repr(i32)]
     </span><span class="kw">pub enum </span>SqlNetworkArchitecture {
         Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Instance is a Tenancy Unit (TU) instance.
+        <span class="doccomment">/// The instance uses the new network architecture.
         </span>NewNetworkArchitecture = <span class="number">1</span>,
-        <span class="doccomment">/// Instance is an Umbrella instance.
+        <span class="doccomment">/// The instance uses the old network architecture.
         </span>OldNetworkArchitecture = <span class="number">2</span>,
     }
     <span class="kw">impl </span>SqlNetworkArchitecture {
@@ -11517,6 +11538,9 @@
         </span>SourceMaxSubscriptions = <span class="number">38</span>,
         <span class="doccomment">/// Unable to verify definers on the source for MySQL.
         </span>UnableToVerifyDefiners = <span class="number">39</span>,
+        <span class="doccomment">/// If a time out occurs while the subscription counts are calculated, then
+        /// this value is set to 1. Otherwise, this value is set to 2.
+        </span>SubscriptionCalculationStatus = <span class="number">40</span>,
     }
     <span class="kw">impl </span>SqlExternalSyncSettingErrorType {
         <span class="doccomment">/// String value of the enum field names used in the ProtoBuf definition.
@@ -11635,6 +11659,9 @@
                 SqlExternalSyncSettingErrorType::UnableToVerifyDefiners =&gt; {
                     <span class="string">"UNABLE_TO_VERIFY_DEFINERS"
                 </span>}
+                SqlExternalSyncSettingErrorType::SubscriptionCalculationStatus =&gt; {
+                    <span class="string">"SUBSCRIPTION_CALCULATION_STATUS"
+                </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
@@ -11700,6 +11727,9 @@
                 }
                 <span class="string">"SOURCE_MAX_SUBSCRIPTIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SourceMaxSubscriptions),
                 <span class="string">"UNABLE_TO_VERIFY_DEFINERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnableToVerifyDefiners),
+                <span class="string">"SUBSCRIPTION_CALCULATION_STATUS" </span>=&gt; {
+                    <span class="prelude-val">Some</span>(<span class="self">Self</span>::SubscriptionCalculationStatus)
+                }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

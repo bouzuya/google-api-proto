@@ -1736,7 +1736,50 @@
 <a href="#1735" id="1735">1735</a>
 <a href="#1736" id="1736">1736</a>
 <a href="#1737" id="1737">1737</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Metrics data.
+<a href="#1738" id="1738">1738</a>
+<a href="#1739" id="1739">1739</a>
+<a href="#1740" id="1740">1740</a>
+<a href="#1741" id="1741">1741</a>
+<a href="#1742" id="1742">1742</a>
+<a href="#1743" id="1743">1743</a>
+<a href="#1744" id="1744">1744</a>
+<a href="#1745" id="1745">1745</a>
+<a href="#1746" id="1746">1746</a>
+<a href="#1747" id="1747">1747</a>
+<a href="#1748" id="1748">1748</a>
+<a href="#1749" id="1749">1749</a>
+</pre></div><pre class="rust"><code><span class="doccomment">/// A generic data container.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Value {
+    <span class="doccomment">/// A value.
+    </span><span class="attr">#[prost(oneof = <span class="string">"value::Value"</span>, tags = <span class="string">"1, 2, 3, 4, 5"</span>)]
+    </span><span class="kw">pub </span>value: ::core::option::Option&lt;value::Value&gt;,
+}
+<span class="doccomment">/// Nested message and enum types in `Value`.
+</span><span class="kw">pub mod </span>value {
+    <span class="doccomment">/// A value.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    </span><span class="kw">pub enum </span>Value {
+        <span class="doccomment">/// A boolean.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
+        </span>BooleanValue(bool),
+        <span class="doccomment">/// An int64.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
+        </span>Int64Value(i64),
+        <span class="doccomment">/// A float.
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
+        </span>FloatValue(f32),
+        <span class="doccomment">/// A double.
+        </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
+        </span>DoubleValue(f64),
+        <span class="doccomment">/// A string.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
+        </span>StringValue(::prost::alloc::string::String),
+    }
+}
+<span class="doccomment">/// Metrics data.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Metrics {
@@ -1855,6 +1898,9 @@
     /// value below 0.1 is reported as 0.0999.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">"160"</span>)]
     </span><span class="kw">pub </span>content_impression_share: ::core::option::Option&lt;f64&gt;,
+    <span class="doccomment">/// The conversion custom metrics.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"336"</span>)]
+    </span><span class="kw">pub </span>conversion_custom_metrics: ::prost::alloc::vec::Vec&lt;Value&gt;,
     <span class="doccomment">/// The estimated percentage of impressions on the Display Network
     /// that your ads didn't receive due to poor Ad Rank.
     /// Note: Content rank lost impression share is reported in the range of 0
@@ -1996,6 +2042,9 @@
     <span class="doccomment">/// The percentage of mobile clicks that go to a mobile-friendly page.
     </span><span class="attr">#[prost(double, optional, tag = <span class="string">"229"</span>)]
     </span><span class="kw">pub </span>mobile_friendly_clicks_percentage: ::core::option::Option&lt;f64&gt;,
+    <span class="doccomment">/// The raw event conversion metrics.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"337"</span>)]
+    </span><span class="kw">pub </span>raw_event_conversion_metrics: ::prost::alloc::vec::Vec&lt;Value&gt;,
     <span class="doccomment">/// The percentage of the customer's Shopping or Search ad impressions that are
     /// shown in the most prominent Shopping position. See
     /// &lt;https://support.google.com/sa360/answer/9566729&gt;
@@ -2585,6 +2634,9 @@
     <span class="doccomment">/// Conversion action name.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">"114"</span>)]
     </span><span class="kw">pub </span>conversion_action_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The conversion custom dimensions.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"188"</span>)]
+    </span><span class="kw">pub </span>conversion_custom_dimensions: ::prost::alloc::vec::Vec&lt;Value&gt;,
     <span class="doccomment">/// Date to which metrics apply.
     /// yyyy-MM-dd format, for example, 2018-04-17.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">"79"</span>)]
@@ -2789,6 +2841,9 @@
     /// 2018 starts on 2018-04-01. Formatted as yyyy-MM-dd.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">"128"</span>)]
     </span><span class="kw">pub </span>quarter: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
+    <span class="doccomment">/// The raw event conversion dimensions.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"189"</span>)]
+    </span><span class="kw">pub </span>raw_event_conversion_dimensions: ::prost::alloc::vec::Vec&lt;Value&gt;,
     <span class="doccomment">/// Week as defined as Monday through Sunday, and represented by the date of
     /// Monday. Formatted as yyyy-MM-dd.
     </span><span class="attr">#[prost(string, optional, tag = <span class="string">"130"</span>)]
@@ -2832,37 +2887,6 @@
     /// different asset or ad unit.
     </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>interaction_on_this_asset: bool,
-}
-<span class="doccomment">/// A generic data container.
-</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-</span><span class="kw">pub struct </span>Value {
-    <span class="doccomment">/// A value.
-    </span><span class="attr">#[prost(oneof = <span class="string">"value::Value"</span>, tags = <span class="string">"1, 2, 3, 4, 5"</span>)]
-    </span><span class="kw">pub </span>value: ::core::option::Option&lt;value::Value&gt;,
-}
-<span class="doccomment">/// Nested message and enum types in `Value`.
-</span><span class="kw">pub mod </span>value {
-    <span class="doccomment">/// A value.
-    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    </span><span class="kw">pub enum </span>Value {
-        <span class="doccomment">/// A boolean.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
-        </span>BooleanValue(bool),
-        <span class="doccomment">/// An int64.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
-        </span>Int64Value(i64),
-        <span class="doccomment">/// A float.
-        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
-        </span>FloatValue(f32),
-        <span class="doccomment">/// A double.
-        </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
-        </span>DoubleValue(f64),
-        <span class="doccomment">/// A string.
-        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
-        </span>StringValue(::prost::alloc::string::String),
-    }
 }
 <span class="doccomment">/// Settings for the targeting-related features, at the campaign and ad group
 /// levels. For more details about the targeting setting, visit

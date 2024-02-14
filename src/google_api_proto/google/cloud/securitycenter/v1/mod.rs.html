@@ -6099,6 +6099,22 @@
 <a href="#6098" id="6098">6098</a>
 <a href="#6099" id="6099">6099</a>
 <a href="#6100" id="6100">6100</a>
+<a href="#6101" id="6101">6101</a>
+<a href="#6102" id="6102">6102</a>
+<a href="#6103" id="6103">6103</a>
+<a href="#6104" id="6104">6104</a>
+<a href="#6105" id="6105">6105</a>
+<a href="#6106" id="6106">6106</a>
+<a href="#6107" id="6107">6107</a>
+<a href="#6108" id="6108">6108</a>
+<a href="#6109" id="6109">6109</a>
+<a href="#6110" id="6110">6110</a>
+<a href="#6111" id="6111">6111</a>
+<a href="#6112" id="6112">6112</a>
+<a href="#6113" id="6113">6113</a>
+<a href="#6114" id="6114">6114</a>
+<a href="#6115" id="6115">6115</a>
+<a href="#6116" id="6116">6116</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Response of asset discovery run
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -7574,6 +7590,19 @@
     </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
 }
+<span class="doccomment">/// Represents an application associated with a finding.
+</span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+</span><span class="kw">pub struct </span>Application {
+    <span class="doccomment">/// The base URI that identifies the network location of the application in
+    /// which the vulnerability was detected. For example, `&lt;http://example.com`.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
+    </span><span class="kw">pub </span>base_uri: ::prost::alloc::string::String,
+    <span class="doccomment">/// The full URI with payload that can be used to reproduce the
+    /// vulnerability. For example, `&lt;http://example.com?p=aMmYgI6H`.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
+    </span><span class="kw">pub </span>full_uri: ::prost::alloc::string::String,
+}
 <span class="doccomment">/// The [data profile](&lt;https://cloud.google.com/dlp/docs/data-profiles&gt;)
 /// associated with the finding.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -8522,6 +8551,9 @@
     <span class="doccomment">/// Signature of the kernel rootkit.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"50"</span>)]
     </span><span class="kw">pub </span>kernel_rootkit: ::core::option::Option&lt;KernelRootkit&gt;,
+    <span class="doccomment">/// Represents an application associated with the finding.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"53"</span>)]
+    </span><span class="kw">pub </span>application: ::core::option::Option&lt;Application&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Finding`.
 </span><span class="kw">pub mod </span>finding {
