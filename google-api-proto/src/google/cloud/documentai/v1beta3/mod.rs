@@ -244,6 +244,9 @@ pub mod document_schema {
             /// EntityType name.
             #[prost(string, tag = "1")]
             pub name: ::prost::alloc::string::String,
+            /// User defined name for the property.
+            #[prost(string, tag = "6")]
+            pub display_name: ::prost::alloc::string::String,
             /// A reference to the value type of the property.  This type is subject
             /// to the same conventions as the `Entity.base_types` field.
             #[prost(string, tag = "2")]
@@ -261,14 +264,14 @@ pub mod document_schema {
         /// Nested message and enum types in `Property`.
         pub mod property {
             /// Types of occurrences of the entity type in the document.  This
-            /// represents the number of instances of instances of an entity, not
-            /// number of mentions of an entity.  For example, a bank statement may
-            /// only have one `account_number`, but this account number may be
-            /// mentioned in several places on the document.  In this case the
-            /// 'account_number' would be considered a `REQUIRED_ONCE` entity type. If,
-            /// on the other hand, we expect a bank statement to contain the status of
-            /// multiple different accounts for the customers, the occurrence type will
-            /// be set to `REQUIRED_MULTIPLE`.
+            /// represents the number of instances, not mentions, of an entity.
+            /// For example, a bank statement might only have one
+            /// `account_number`, but this account number can be mentioned in several
+            /// places on the document.  In this case, the `account_number` is
+            /// considered a `REQUIRED_ONCE` entity type. If, on the other hand, we
+            /// expect a bank statement to contain the status of multiple different
+            /// accounts for the customers, the occurrence type is set to
+            /// `REQUIRED_MULTIPLE`.
             #[derive(
                 Clone,
                 Copy,
@@ -1365,7 +1368,8 @@ pub mod document {
             #[prost(string, tag = "3")]
             pub layout_id: ::prost::alloc::string::String,
             /// Optional. Identifies the bounding polygon of a layout element on the
-            /// page.
+            /// page. If `layout_type` is set, the bounding polygon must be exactly the
+            /// same to the layout element it's referring to.
             #[prost(message, optional, tag = "4")]
             pub bounding_poly: ::core::option::Option<super::super::BoundingPoly>,
             /// Optional. Confidence of detected page element, if applicable. Range
@@ -2031,7 +2035,8 @@ pub mod dataset {
         /// Cloud Storage location.
         #[prost(message, tag = "3")]
         GcsManagedConfig(GcsManagedConfig),
-        /// Optional. Document AI Warehouse-based dataset configuration.
+        /// Optional. Deprecated. Warehouse-based dataset configuration is not
+        /// supported.
         #[prost(message, tag = "5")]
         DocumentWarehouseConfig(DocumentWarehouseConfig),
         /// Optional. Unmanaged dataset configuration. Use this configuration if the
@@ -2410,8 +2415,9 @@ pub struct ListDocumentsRequest {
     /// - String match is case sensitive (for filter `DisplayName` & `EntityType`).
     #[prost(string, tag = "4")]
     pub filter: ::prost::alloc::string::String,
-    /// Optional. Controls if the ListDocuments request requires a total size
-    /// of matched documents. See ListDocumentsResponse.total_size.
+    /// Optional. Controls if the request requires a total size of matched
+    /// documents. See
+    /// [ListDocumentsResponse.total_size][google.cloud.documentai.v1beta3.ListDocumentsResponse.total_size].
     ///
     /// Enabling this flag may adversely impact performance.
     ///
@@ -2420,10 +2426,13 @@ pub struct ListDocumentsRequest {
     pub return_total_size: bool,
     /// Optional. Number of results to skip beginning from the `page_token` if
     /// provided. <https://google.aip.dev/158#skipping-results.> It must be a
-    /// non-negative integer. Negative values wil be rejected. Note that this is
+    /// non-negative integer. Negative values will be rejected. Note that this is
     /// not the number of pages to skip. If this value causes the cursor to move
-    /// past the end of results, `ListDocumentsResponse.document_metadata` and
-    /// `ListDocumentsResponse.next_page_token` will be empty.
+    /// past the end of results,
+    /// [ListDocumentsResponse.document_metadata][google.cloud.documentai.v1beta3.ListDocumentsResponse.document_metadata]
+    /// and
+    /// [ListDocumentsResponse.next_page_token][google.cloud.documentai.v1beta3.ListDocumentsResponse.next_page_token]
+    /// will be empty.
     #[prost(int32, tag = "8")]
     pub skip: i32,
 }
@@ -2433,8 +2442,10 @@ pub struct ListDocumentsResponse {
     /// Document metadata corresponding to the listed documents.
     #[prost(message, repeated, tag = "1")]
     pub document_metadata: ::prost::alloc::vec::Vec<DocumentMetadata>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
+    /// A token, which can be sent as
+    /// [ListDocumentsRequest.page_token][google.cloud.documentai.v1beta3.ListDocumentsRequest.page_token]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
     /// Total count of documents queried.
@@ -2541,7 +2552,7 @@ pub struct DocumentMetadata {
     /// Type of the dataset split to which the document belongs.
     #[prost(enumeration = "DatasetSplitType", tag = "3")]
     pub dataset_type: i32,
-    /// Labelling state of the document.
+    /// Labeling state of the document.
     #[prost(enumeration = "DocumentLabelingState", tag = "5")]
     pub labeling_state: i32,
     /// The display name of the document.
@@ -2586,17 +2597,17 @@ impl DatasetSplitType {
         }
     }
 }
-/// Describes the labelling status of a document.
+/// Describes the labeling status of a document.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum DocumentLabelingState {
     /// Default value if the enum is not set.
     Unspecified = 0,
-    /// Document has been labelled.
+    /// Document has been labeled.
     DocumentLabeled = 1,
-    /// Document has not been labelled.
+    /// Document has not been labeled.
     DocumentUnlabeled = 2,
-    /// Document has been auto-labelled.
+    /// Document has been auto-labeled.
     DocumentAutoLabeled = 3,
 }
 impl DocumentLabelingState {
@@ -3404,8 +3415,8 @@ pub mod processor {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ProcessOptions {
-    /// Only applicable to `OCR_PROCESSOR`. Returns error if set on other
-    /// processor types.
+    /// Only applicable to `OCR_PROCESSOR` and `FORM_PARSER_PROCESSOR`.
+    /// Returns error if set on other processor types.
     #[prost(message, optional, tag = "1")]
     pub ocr_config: ::core::option::Option<OcrConfig>,
     /// Optional. Override the schema of the
@@ -3416,12 +3427,11 @@ pub struct ProcessOptions {
     #[prost(message, optional, tag = "8")]
     pub schema_override: ::core::option::Option<DocumentSchema>,
     /// A subset of pages to process. If not specified, all pages are processed.
-    ///   If a page range is set, only the given pages are extracted and processed
-    ///   from the document. In the output document,
-    ///   [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
-    ///   refers to the page number in the original document. This configuration
-    ///   only applies to sync requests. `page_range` can be only one of the
-    ///   following:
+    /// If a page range is set, only the given pages are extracted and processed
+    /// from the document. In the output document,
+    /// [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
+    /// refers to the page number in the original document. This configuration
+    /// only applies to sync requests.
     #[prost(oneof = "process_options::PageRange", tags = "5, 6, 7")]
     pub page_range: ::core::option::Option<process_options::PageRange>,
 }
@@ -3436,12 +3446,11 @@ pub mod process_options {
         pub pages: ::prost::alloc::vec::Vec<i32>,
     }
     /// A subset of pages to process. If not specified, all pages are processed.
-    ///   If a page range is set, only the given pages are extracted and processed
-    ///   from the document. In the output document,
-    ///   [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
-    ///   refers to the page number in the original document. This configuration
-    ///   only applies to sync requests. `page_range` can be only one of the
-    ///   following:
+    /// If a page range is set, only the given pages are extracted and processed
+    /// from the document. In the output document,
+    /// [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
+    /// refers to the page number in the original document. This configuration
+    /// only applies to sync requests.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum PageRange {
@@ -3495,6 +3504,17 @@ pub struct ProcessRequest {
     /// Inference-time options for the process API
     #[prost(message, optional, tag = "7")]
     pub process_options: ::core::option::Option<ProcessOptions>,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
     /// The document payload.
     #[prost(oneof = "process_request::Source", tags = "4, 5, 8")]
     pub source: ::core::option::Option<process_request::Source>,
@@ -3652,6 +3672,17 @@ pub struct BatchProcessRequest {
     /// Inference-time options for the process API
     #[prost(message, optional, tag = "7")]
     pub process_options: ::core::option::Option<ProcessOptions>,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// Nested message and enum types in `BatchProcessRequest`.
 pub mod batch_process_request {
@@ -4038,7 +4069,8 @@ pub struct CreateProcessorRequest {
     pub parent: ::prost::alloc::string::String,
     /// Required. The processor to be created, requires
     /// [Processor.type][google.cloud.documentai.v1beta3.Processor.type] and
-    /// \[Processor.display_name\]][] to be set. Also, the
+    /// [Processor.display_name][google.cloud.documentai.v1beta3.Processor.display_name]
+    /// to be set. Also, the
     /// [Processor.kms_key_name][google.cloud.documentai.v1beta3.Processor.kms_key_name]
     /// field must be set if the processor is under CMEK.
     #[prost(message, optional, tag = "2")]
@@ -4176,7 +4208,7 @@ pub struct TrainProcessorVersionRequest {
     /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`.
     #[prost(string, tag = "8")]
     pub base_processor_version: ::prost::alloc::string::String,
-    #[prost(oneof = "train_processor_version_request::ProcessorFlags", tags = "5")]
+    #[prost(oneof = "train_processor_version_request::ProcessorFlags", tags = "5, 12")]
     pub processor_flags: ::core::option::Option<
         train_processor_version_request::ProcessorFlags,
     >,
@@ -4251,12 +4283,29 @@ pub mod train_processor_version_request {
             }
         }
     }
+    /// Options to control foundation model tuning of the processor.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FoundationModelTuningOptions {
+        /// Optional. The number of steps to run for model tuning. Valid values are
+        /// between 1 and 400. If not provided, recommended steps will be used.
+        #[prost(int32, tag = "2")]
+        pub train_steps: i32,
+        /// Optional. The multiplier to apply to the recommended learning rate. Valid
+        /// values are between 0.1 and 10. If not provided, recommended learning rate
+        /// will be used.
+        #[prost(float, tag = "3")]
+        pub learning_rate_multiplier: f32,
+    }
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum ProcessorFlags {
         /// Options to control Custom Document Extraction (CDE) Processor.
         #[prost(message, tag = "5")]
         CustomDocumentExtractionOptions(CustomDocumentExtractionOptions),
+        /// Options to control foundation model tuning of a processor.
+        #[prost(message, tag = "12")]
+        FoundationModelTuningOptions(FoundationModelTuningOptions),
     }
 }
 /// The response for
