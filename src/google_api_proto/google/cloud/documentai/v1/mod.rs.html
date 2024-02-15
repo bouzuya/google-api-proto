@@ -4117,6 +4117,40 @@
 <a href="#4116" id="4116">4116</a>
 <a href="#4117" id="4117">4117</a>
 <a href="#4118" id="4118">4118</a>
+<a href="#4119" id="4119">4119</a>
+<a href="#4120" id="4120">4120</a>
+<a href="#4121" id="4121">4121</a>
+<a href="#4122" id="4122">4122</a>
+<a href="#4123" id="4123">4123</a>
+<a href="#4124" id="4124">4124</a>
+<a href="#4125" id="4125">4125</a>
+<a href="#4126" id="4126">4126</a>
+<a href="#4127" id="4127">4127</a>
+<a href="#4128" id="4128">4128</a>
+<a href="#4129" id="4129">4129</a>
+<a href="#4130" id="4130">4130</a>
+<a href="#4131" id="4131">4131</a>
+<a href="#4132" id="4132">4132</a>
+<a href="#4133" id="4133">4133</a>
+<a href="#4134" id="4134">4134</a>
+<a href="#4135" id="4135">4135</a>
+<a href="#4136" id="4136">4136</a>
+<a href="#4137" id="4137">4137</a>
+<a href="#4138" id="4138">4138</a>
+<a href="#4139" id="4139">4139</a>
+<a href="#4140" id="4140">4140</a>
+<a href="#4141" id="4141">4141</a>
+<a href="#4142" id="4142">4142</a>
+<a href="#4143" id="4143">4143</a>
+<a href="#4144" id="4144">4144</a>
+<a href="#4145" id="4145">4145</a>
+<a href="#4146" id="4146">4146</a>
+<a href="#4147" id="4147">4147</a>
+<a href="#4148" id="4148">4148</a>
+<a href="#4149" id="4149">4149</a>
+<a href="#4150" id="4150">4150</a>
+<a href="#4151" id="4151">4151</a>
+<a href="#4152" id="4152">4152</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Encodes the detailed information of a barcode.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5120,7 +5154,8 @@
             #[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>layout_id: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. Identifies the bounding polygon of a layout element on the
-            /// page.
+            /// page. If `layout_type` is set, the bounding polygon must be exactly the
+            /// same to the layout element it's referring to.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::BoundingPoly&gt;,
             <span class="doccomment">/// Optional. Confidence of detected page element, if applicable. Range
@@ -5525,6 +5560,9 @@
             /// EntityType name.
             </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            <span class="doccomment">/// User defined name for the property.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
+            </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
             <span class="doccomment">/// A reference to the value type of the property.  This type is subject
             /// to the same conventions as the `Entity.base_types` field.
             </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
@@ -5537,13 +5575,13 @@
         <span class="doccomment">/// Nested message and enum types in `Property`.
         </span><span class="kw">pub mod </span>property {
             <span class="doccomment">/// Types of occurrences of the entity type in the document.  This
-            /// represents the number of instances of an entity, not number of mentions
-            /// of an entity.  For example, a bank statement may only have one
-            /// `account_number`, but this account number may be mentioned in several
-            /// places on the document.  In this case the 'account_number' would be
+            /// represents the number of instances, not mentions, of an entity.
+            /// For example, a bank statement might only have one
+            /// `account_number`, but this account number can be mentioned in several
+            /// places on the document.  In this case, the `account_number` is
             /// considered a `REQUIRED_ONCE` entity type. If, on the other hand, we
             /// expect a bank statement to contain the status of multiple different
-            /// accounts for the customers, the occurrence type will be set to
+            /// accounts for the customers, the occurrence type is set to
             /// `REQUIRED_MULTIPLE`.
             </span><span class="attr">#[derive(
                 Clone,
@@ -6396,10 +6434,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ProcessOptions {
-    <span class="doccomment">/// Only applicable to `OCR_PROCESSOR`. Returns error if set on other
-    /// processor types.
+    <span class="doccomment">/// Only applicable to `OCR_PROCESSOR` and `FORM_PARSER_PROCESSOR`.
+    /// Returns error if set on other processor types.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ocr_config: ::core::option::Option&lt;OcrConfig&gt;,
+    <span class="doccomment">/// Optional. Override the schema of the
+    /// [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion]. Will
+    /// return an Invalid Argument error if this field is set when the underlying
+    /// [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion] doesn't
+    /// support schema override.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
+    </span><span class="kw">pub </span>schema_override: ::core::option::Option&lt;DocumentSchema&gt;,
     <span class="doccomment">/// A subset of pages to process. If not specified, all pages are processed.
     /// If a page range is set, only the given pages are extracted and processed
     /// from the document. In the output document,
@@ -6471,6 +6516,17 @@
     <span class="doccomment">/// Inference-time options for the process API
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>process_options: ::core::option::Option&lt;ProcessOptions&gt;,
+    <span class="doccomment">/// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"10"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
     <span class="doccomment">/// The document payload.
     </span><span class="attr">#[prost(oneof = <span class="string">"process_request::Source"</span>, tags = <span class="string">"4, 5, 8"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;process_request::Source&gt;,
@@ -6613,6 +6669,17 @@
     <span class="doccomment">/// Inference-time options for the process API
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>process_options: ::core::option::Option&lt;ProcessOptions&gt;,
+    <span class="doccomment">/// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
 }
 <span class="doccomment">/// Response message for
 /// [BatchProcessDocuments][google.cloud.documentai.v1.DocumentProcessorService.BatchProcessDocuments].
@@ -6960,7 +7027,8 @@
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The processor to be created, requires
     /// [Processor.type][google.cloud.documentai.v1.Processor.type] and
-    /// \[Processor.display_name\]][] to be set. Also, the
+    /// [Processor.display_name][google.cloud.documentai.v1.Processor.display_name]
+    /// to be set. Also, the
     /// [Processor.kms_key_name][google.cloud.documentai.v1.Processor.kms_key_name]
     /// field must be set if the processor is under CMEK.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]

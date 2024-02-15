@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["instance","parallelstore_client"],"struct":["CreateInstanceRequest","DeleteInstanceRequest","GetInstanceRequest","Instance","ListInstancesRequest","ListInstancesResponse","OperationMetadata","UpdateInstanceRequest"]};
