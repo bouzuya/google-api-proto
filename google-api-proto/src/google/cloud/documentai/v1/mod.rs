@@ -1001,7 +1001,8 @@ pub mod document {
             #[prost(string, tag = "3")]
             pub layout_id: ::prost::alloc::string::String,
             /// Optional. Identifies the bounding polygon of a layout element on the
-            /// page.
+            /// page. If `layout_type` is set, the bounding polygon must be exactly the
+            /// same to the layout element it's referring to.
             #[prost(message, optional, tag = "4")]
             pub bounding_poly: ::core::option::Option<super::super::BoundingPoly>,
             /// Optional. Confidence of detected page element, if applicable. Range
@@ -1406,6 +1407,9 @@ pub mod document_schema {
             /// EntityType name.
             #[prost(string, tag = "1")]
             pub name: ::prost::alloc::string::String,
+            /// User defined name for the property.
+            #[prost(string, tag = "6")]
+            pub display_name: ::prost::alloc::string::String,
             /// A reference to the value type of the property.  This type is subject
             /// to the same conventions as the `Entity.base_types` field.
             #[prost(string, tag = "2")]
@@ -1418,13 +1422,13 @@ pub mod document_schema {
         /// Nested message and enum types in `Property`.
         pub mod property {
             /// Types of occurrences of the entity type in the document.  This
-            /// represents the number of instances of an entity, not number of mentions
-            /// of an entity.  For example, a bank statement may only have one
-            /// `account_number`, but this account number may be mentioned in several
-            /// places on the document.  In this case the 'account_number' would be
+            /// represents the number of instances, not mentions, of an entity.
+            /// For example, a bank statement might only have one
+            /// `account_number`, but this account number can be mentioned in several
+            /// places on the document.  In this case, the `account_number` is
             /// considered a `REQUIRED_ONCE` entity type. If, on the other hand, we
             /// expect a bank statement to contain the status of multiple different
-            /// accounts for the customers, the occurrence type will be set to
+            /// accounts for the customers, the occurrence type is set to
             /// `REQUIRED_MULTIPLE`.
             #[derive(
                 Clone,
@@ -2277,10 +2281,17 @@ pub mod ocr_config {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ProcessOptions {
-    /// Only applicable to `OCR_PROCESSOR`. Returns error if set on other
-    /// processor types.
+    /// Only applicable to `OCR_PROCESSOR` and `FORM_PARSER_PROCESSOR`.
+    /// Returns error if set on other processor types.
     #[prost(message, optional, tag = "1")]
     pub ocr_config: ::core::option::Option<OcrConfig>,
+    /// Optional. Override the schema of the
+    /// [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion]. Will
+    /// return an Invalid Argument error if this field is set when the underlying
+    /// [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion] doesn't
+    /// support schema override.
+    #[prost(message, optional, tag = "8")]
+    pub schema_override: ::core::option::Option<DocumentSchema>,
     /// A subset of pages to process. If not specified, all pages are processed.
     /// If a page range is set, only the given pages are extracted and processed
     /// from the document. In the output document,
@@ -2352,6 +2363,17 @@ pub struct ProcessRequest {
     /// Inference-time options for the process API
     #[prost(message, optional, tag = "7")]
     pub process_options: ::core::option::Option<ProcessOptions>,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
     /// The document payload.
     #[prost(oneof = "process_request::Source", tags = "4, 5, 8")]
     pub source: ::core::option::Option<process_request::Source>,
@@ -2494,6 +2516,17 @@ pub struct BatchProcessRequest {
     /// Inference-time options for the process API
     #[prost(message, optional, tag = "7")]
     pub process_options: ::core::option::Option<ProcessOptions>,
+    /// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 /// Response message for
 /// [BatchProcessDocuments][google.cloud.documentai.v1.DocumentProcessorService.BatchProcessDocuments].
@@ -2841,7 +2874,8 @@ pub struct CreateProcessorRequest {
     pub parent: ::prost::alloc::string::String,
     /// Required. The processor to be created, requires
     /// [Processor.type][google.cloud.documentai.v1.Processor.type] and
-    /// \[Processor.display_name\]][] to be set. Also, the
+    /// [Processor.display_name][google.cloud.documentai.v1.Processor.display_name]
+    /// to be set. Also, the
     /// [Processor.kms_key_name][google.cloud.documentai.v1.Processor.kms_key_name]
     /// field must be set if the processor is under CMEK.
     #[prost(message, optional, tag = "2")]

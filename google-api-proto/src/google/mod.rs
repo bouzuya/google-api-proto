@@ -325,6 +325,7 @@ pub mod chromeos;
         feature = "google-cloud-oslogin-v1",
         feature = "google-cloud-oslogin-v1alpha",
         feature = "google-cloud-oslogin-v1beta",
+        feature = "google-cloud-parallelstore-v1beta",
         feature = "google-cloud-paymentgateway-issuerswitch-accountmanager-v1",
         feature = "google-cloud-paymentgateway-issuerswitch-v1",
         feature = "google-cloud-phishingprotection-v1beta1",

@@ -452,6 +452,8 @@ pub mod osconfig;
     )
 )]
 pub mod oslogin;
+#[cfg(any(feature = "google-cloud-parallelstore-v1beta"))]
+pub mod parallelstore;
 #[cfg(
     any(
         feature = "google-cloud-paymentgateway-issuerswitch-accountmanager-v1",
