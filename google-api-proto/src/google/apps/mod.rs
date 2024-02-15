@@ -10,6 +10,8 @@ pub mod card;
     )
 )]
 pub mod drive;
+#[cfg(any(feature = "google-apps-events-subscriptions-v1"))]
+pub mod events;
 #[cfg(any(feature = "google-apps-meet-v2", feature = "google-apps-meet-v2beta"))]
 pub mod meet;
 #[cfg(
