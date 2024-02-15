@@ -25,6 +25,8 @@
 <a href="#24" id="24">24</a>
 <a href="#25" id="25">25</a>
 <a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-apps-alertcenter-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>alertcenter;
 <span class="attr">#[cfg(any(feature = <span class="string">"google-apps-card-v1"</span>))]
@@ -37,6 +39,8 @@
     )
 )]
 </span><span class="kw">pub mod </span>drive;
+<span class="attr">#[cfg(any(feature = <span class="string">"google-apps-events-subscriptions-v1"</span>))]
+</span><span class="kw">pub mod </span>events;
 <span class="attr">#[cfg(any(feature = <span class="string">"google-apps-meet-v2"</span>, feature = <span class="string">"google-apps-meet-v2beta"</span>))]
 </span><span class="kw">pub mod </span>meet;
 <span class="attr">#[cfg(
