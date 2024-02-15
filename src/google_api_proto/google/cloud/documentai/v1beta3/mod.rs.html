@@ -5496,6 +5496,55 @@
 <a href="#5495" id="5495">5495</a>
 <a href="#5496" id="5496">5496</a>
 <a href="#5497" id="5497">5497</a>
+<a href="#5498" id="5498">5498</a>
+<a href="#5499" id="5499">5499</a>
+<a href="#5500" id="5500">5500</a>
+<a href="#5501" id="5501">5501</a>
+<a href="#5502" id="5502">5502</a>
+<a href="#5503" id="5503">5503</a>
+<a href="#5504" id="5504">5504</a>
+<a href="#5505" id="5505">5505</a>
+<a href="#5506" id="5506">5506</a>
+<a href="#5507" id="5507">5507</a>
+<a href="#5508" id="5508">5508</a>
+<a href="#5509" id="5509">5509</a>
+<a href="#5510" id="5510">5510</a>
+<a href="#5511" id="5511">5511</a>
+<a href="#5512" id="5512">5512</a>
+<a href="#5513" id="5513">5513</a>
+<a href="#5514" id="5514">5514</a>
+<a href="#5515" id="5515">5515</a>
+<a href="#5516" id="5516">5516</a>
+<a href="#5517" id="5517">5517</a>
+<a href="#5518" id="5518">5518</a>
+<a href="#5519" id="5519">5519</a>
+<a href="#5520" id="5520">5520</a>
+<a href="#5521" id="5521">5521</a>
+<a href="#5522" id="5522">5522</a>
+<a href="#5523" id="5523">5523</a>
+<a href="#5524" id="5524">5524</a>
+<a href="#5525" id="5525">5525</a>
+<a href="#5526" id="5526">5526</a>
+<a href="#5527" id="5527">5527</a>
+<a href="#5528" id="5528">5528</a>
+<a href="#5529" id="5529">5529</a>
+<a href="#5530" id="5530">5530</a>
+<a href="#5531" id="5531">5531</a>
+<a href="#5532" id="5532">5532</a>
+<a href="#5533" id="5533">5533</a>
+<a href="#5534" id="5534">5534</a>
+<a href="#5535" id="5535">5535</a>
+<a href="#5536" id="5536">5536</a>
+<a href="#5537" id="5537">5537</a>
+<a href="#5538" id="5538">5538</a>
+<a href="#5539" id="5539">5539</a>
+<a href="#5540" id="5540">5540</a>
+<a href="#5541" id="5541">5541</a>
+<a href="#5542" id="5542">5542</a>
+<a href="#5543" id="5543">5543</a>
+<a href="#5544" id="5544">5544</a>
+<a href="#5545" id="5545">5545</a>
+<a href="#5546" id="5546">5546</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A processor type is responsible for performing a certain document
 /// understanding task on a certain type of document.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -5742,6 +5791,9 @@
             /// EntityType name.
             </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
+            <span class="doccomment">/// User defined name for the property.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
+            </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
             <span class="doccomment">/// A reference to the value type of the property.  This type is subject
             /// to the same conventions as the `Entity.base_types` field.
             </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
@@ -5759,14 +5811,14 @@
         <span class="doccomment">/// Nested message and enum types in `Property`.
         </span><span class="kw">pub mod </span>property {
             <span class="doccomment">/// Types of occurrences of the entity type in the document.  This
-            /// represents the number of instances of instances of an entity, not
-            /// number of mentions of an entity.  For example, a bank statement may
-            /// only have one `account_number`, but this account number may be
-            /// mentioned in several places on the document.  In this case the
-            /// 'account_number' would be considered a `REQUIRED_ONCE` entity type. If,
-            /// on the other hand, we expect a bank statement to contain the status of
-            /// multiple different accounts for the customers, the occurrence type will
-            /// be set to `REQUIRED_MULTIPLE`.
+            /// represents the number of instances, not mentions, of an entity.
+            /// For example, a bank statement might only have one
+            /// `account_number`, but this account number can be mentioned in several
+            /// places on the document.  In this case, the `account_number` is
+            /// considered a `REQUIRED_ONCE` entity type. If, on the other hand, we
+            /// expect a bank statement to contain the status of multiple different
+            /// accounts for the customers, the occurrence type is set to
+            /// `REQUIRED_MULTIPLE`.
             </span><span class="attr">#[derive(
                 Clone,
                 Copy,
@@ -6863,7 +6915,8 @@
             #[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>layout_id: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. Identifies the bounding polygon of a layout element on the
-            /// page.
+            /// page. If `layout_type` is set, the bounding polygon must be exactly the
+            /// same to the layout element it's referring to.
             </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::BoundingPoly&gt;,
             <span class="doccomment">/// Optional. Confidence of detected page element, if applicable. Range
@@ -7529,7 +7582,8 @@
         /// Cloud Storage location.
         </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>GcsManagedConfig(GcsManagedConfig),
-        <span class="doccomment">/// Optional. Document AI Warehouse-based dataset configuration.
+        <span class="doccomment">/// Optional. Deprecated. Warehouse-based dataset configuration is not
+        /// supported.
         </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>DocumentWarehouseConfig(DocumentWarehouseConfig),
         <span class="doccomment">/// Optional. Unmanaged dataset configuration. Use this configuration if the
@@ -7908,8 +7962,9 @@
     /// - String match is case sensitive (for filter `DisplayName` &amp; `EntityType`).
     </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Controls if the ListDocuments request requires a total size
-    /// of matched documents. See ListDocumentsResponse.total_size.
+    <span class="doccomment">/// Optional. Controls if the request requires a total size of matched
+    /// documents. See
+    /// [ListDocumentsResponse.total_size][google.cloud.documentai.v1beta3.ListDocumentsResponse.total_size].
     ///
     /// Enabling this flag may adversely impact performance.
     ///
@@ -7918,10 +7973,13 @@
     </span><span class="kw">pub </span>return_total_size: bool,
     <span class="doccomment">/// Optional. Number of results to skip beginning from the `page_token` if
     /// provided. &lt;https://google.aip.dev/158#skipping-results.&gt; It must be a
-    /// non-negative integer. Negative values wil be rejected. Note that this is
+    /// non-negative integer. Negative values will be rejected. Note that this is
     /// not the number of pages to skip. If this value causes the cursor to move
-    /// past the end of results, `ListDocumentsResponse.document_metadata` and
-    /// `ListDocumentsResponse.next_page_token` will be empty.
+    /// past the end of results,
+    /// [ListDocumentsResponse.document_metadata][google.cloud.documentai.v1beta3.ListDocumentsResponse.document_metadata]
+    /// and
+    /// [ListDocumentsResponse.next_page_token][google.cloud.documentai.v1beta3.ListDocumentsResponse.next_page_token]
+    /// will be empty.
     </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>skip: i32,
 }
@@ -7931,8 +7989,10 @@
     <span class="doccomment">/// Document metadata corresponding to the listed documents.
     </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document_metadata: ::prost::alloc::vec::Vec&lt;DocumentMetadata&gt;,
-    <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
+    <span class="doccomment">/// A token, which can be sent as
+    /// [ListDocumentsRequest.page_token][google.cloud.documentai.v1beta3.ListDocumentsRequest.page_token]
+    /// to retrieve the next page. If this field is omitted, there are no
+    /// subsequent pages.
     </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Total count of documents queried.
@@ -8039,7 +8099,7 @@
     <span class="doccomment">/// Type of the dataset split to which the document belongs.
     </span><span class="attr">#[prost(enumeration = <span class="string">"DatasetSplitType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dataset_type: i32,
-    <span class="doccomment">/// Labelling state of the document.
+    <span class="doccomment">/// Labeling state of the document.
     </span><span class="attr">#[prost(enumeration = <span class="string">"DocumentLabelingState"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labeling_state: i32,
     <span class="doccomment">/// The display name of the document.
@@ -8084,17 +8144,17 @@
         }
     }
 }
-<span class="doccomment">/// Describes the labelling status of a document.
+<span class="doccomment">/// Describes the labeling status of a document.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>DocumentLabelingState {
     <span class="doccomment">/// Default value if the enum is not set.
     </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Document has been labelled.
+    <span class="doccomment">/// Document has been labeled.
     </span>DocumentLabeled = <span class="number">1</span>,
-    <span class="doccomment">/// Document has not been labelled.
+    <span class="doccomment">/// Document has not been labeled.
     </span>DocumentUnlabeled = <span class="number">2</span>,
-    <span class="doccomment">/// Document has been auto-labelled.
+    <span class="doccomment">/// Document has been auto-labeled.
     </span>DocumentAutoLabeled = <span class="number">3</span>,
 }
 <span class="kw">impl </span>DocumentLabelingState {
@@ -8902,8 +8962,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ProcessOptions {
-    <span class="doccomment">/// Only applicable to `OCR_PROCESSOR`. Returns error if set on other
-    /// processor types.
+    <span class="doccomment">/// Only applicable to `OCR_PROCESSOR` and `FORM_PARSER_PROCESSOR`.
+    /// Returns error if set on other processor types.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ocr_config: ::core::option::Option&lt;OcrConfig&gt;,
     <span class="doccomment">/// Optional. Override the schema of the
@@ -8914,12 +8974,11 @@
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>schema_override: ::core::option::Option&lt;DocumentSchema&gt;,
     <span class="doccomment">/// A subset of pages to process. If not specified, all pages are processed.
-    ///   If a page range is set, only the given pages are extracted and processed
-    ///   from the document. In the output document,
-    ///   [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
-    ///   refers to the page number in the original document. This configuration
-    ///   only applies to sync requests. `page_range` can be only one of the
-    ///   following:
+    /// If a page range is set, only the given pages are extracted and processed
+    /// from the document. In the output document,
+    /// [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
+    /// refers to the page number in the original document. This configuration
+    /// only applies to sync requests.
     </span><span class="attr">#[prost(oneof = <span class="string">"process_options::PageRange"</span>, tags = <span class="string">"5, 6, 7"</span>)]
     </span><span class="kw">pub </span>page_range: ::core::option::Option&lt;process_options::PageRange&gt;,
 }
@@ -8934,12 +8993,11 @@
         </span><span class="kw">pub </span>pages: ::prost::alloc::vec::Vec&lt;i32&gt;,
     }
     <span class="doccomment">/// A subset of pages to process. If not specified, all pages are processed.
-    ///   If a page range is set, only the given pages are extracted and processed
-    ///   from the document. In the output document,
-    ///   [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
-    ///   refers to the page number in the original document. This configuration
-    ///   only applies to sync requests. `page_range` can be only one of the
-    ///   following:
+    /// If a page range is set, only the given pages are extracted and processed
+    /// from the document. In the output document,
+    /// [Document.Page.page_number][google.cloud.documentai.v1beta3.Document.Page.page_number]
+    /// refers to the page number in the original document. This configuration
+    /// only applies to sync requests.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>PageRange {
@@ -8993,6 +9051,17 @@
     <span class="doccomment">/// Inference-time options for the process API
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>process_options: ::core::option::Option&lt;ProcessOptions&gt;,
+    <span class="doccomment">/// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"10"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
     <span class="doccomment">/// The document payload.
     </span><span class="attr">#[prost(oneof = <span class="string">"process_request::Source"</span>, tags = <span class="string">"4, 5, 8"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;process_request::Source&gt;,
@@ -9150,6 +9219,17 @@
     <span class="doccomment">/// Inference-time options for the process API
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>process_options: ::core::option::Option&lt;ProcessOptions&gt;,
+    <span class="doccomment">/// Optional. The labels with user-defined metadata for the request.
+    ///
+    /// Label keys and values can be no longer than 63 characters
+    /// (Unicode codepoints) and can only contain lowercase letters, numeric
+    /// characters, underscores, and dashes. International characters are allowed.
+    /// Label values are optional. Label keys must start with a letter.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
+    </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    &gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BatchProcessRequest`.
 </span><span class="kw">pub mod </span>batch_process_request {
@@ -9536,7 +9616,8 @@
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The processor to be created, requires
     /// [Processor.type][google.cloud.documentai.v1beta3.Processor.type] and
-    /// \[Processor.display_name\]][] to be set. Also, the
+    /// [Processor.display_name][google.cloud.documentai.v1beta3.Processor.display_name]
+    /// to be set. Also, the
     /// [Processor.kms_key_name][google.cloud.documentai.v1beta3.Processor.kms_key_name]
     /// field must be set if the processor is under CMEK.
     </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
@@ -9674,7 +9755,7 @@
     /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`.
     </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>base_processor_version: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">"train_processor_version_request::ProcessorFlags"</span>, tags = <span class="string">"5"</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"train_processor_version_request::ProcessorFlags"</span>, tags = <span class="string">"5, 12"</span>)]
     </span><span class="kw">pub </span>processor_flags: ::core::option::Option&lt;
         train_processor_version_request::ProcessorFlags,
     &gt;,
@@ -9749,12 +9830,29 @@
             }
         }
     }
+    <span class="doccomment">/// Options to control foundation model tuning of the processor.
+    </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    </span><span class="kw">pub struct </span>FoundationModelTuningOptions {
+        <span class="doccomment">/// Optional. The number of steps to run for model tuning. Valid values are
+        /// between 1 and 400. If not provided, recommended steps will be used.
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
+        </span><span class="kw">pub </span>train_steps: i32,
+        <span class="doccomment">/// Optional. The multiplier to apply to the recommended learning rate. Valid
+        /// values are between 0.1 and 10. If not provided, recommended learning rate
+        /// will be used.
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
+        </span><span class="kw">pub </span>learning_rate_multiplier: f32,
+    }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ProcessorFlags {
         <span class="doccomment">/// Options to control Custom Document Extraction (CDE) Processor.
         </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>CustomDocumentExtractionOptions(CustomDocumentExtractionOptions),
+        <span class="doccomment">/// Options to control foundation model tuning of a processor.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
+        </span>FoundationModelTuningOptions(FoundationModelTuningOptions),
     }
 }
 <span class="doccomment">/// The response for
