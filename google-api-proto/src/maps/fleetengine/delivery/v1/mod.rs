@@ -642,7 +642,7 @@ pub mod vehicle_stop {
 ///
 /// Note: gRPC and REST APIs use different field naming conventions. For example,
 /// the `Task.journey_sharing_info` field in the gRPC API and the
-/// `DeliveryVehicle.journeySharingInfo` field in the REST API refer to the same
+/// `Task.journeySharingInfo` field in the REST API refer to the same
 /// field.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
