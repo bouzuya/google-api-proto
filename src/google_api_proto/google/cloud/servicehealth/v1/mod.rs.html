@@ -1249,6 +1249,18 @@
 <a href="#1248" id="1248">1248</a>
 <a href="#1249" id="1249">1249</a>
 <a href="#1250" id="1250">1250</a>
+<a href="#1251" id="1251">1251</a>
+<a href="#1252" id="1252">1252</a>
+<a href="#1253" id="1253">1253</a>
+<a href="#1254" id="1254">1254</a>
+<a href="#1255" id="1255">1255</a>
+<a href="#1256" id="1256">1256</a>
+<a href="#1257" id="1257">1257</a>
+<a href="#1258" id="1258">1258</a>
+<a href="#1259" id="1259">1259</a>
+<a href="#1260" id="1260">1260</a>
+<a href="#1261" id="1261">1261</a>
+<a href="#1262" id="1262">1262</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Represents service health events that may affect Google Cloud products.
 /// Event resource is a read-only view and does not allow any modifications. All
 /// fields are output only.
@@ -1469,11 +1481,17 @@
         /// be published to the parent only. The `parent_event` field contains the
         /// name of the parent.
         </span>Merged = <span class="number">4</span>,
-        <span class="doccomment">/// The incident was automatically closed because the issues couldn’t be
-        /// confirmed or is no longer impacting Google Cloud Products and/or
-        /// Locations.
+        <span class="doccomment">/// The incident was automatically closed because of the following reasons:
+        ///
+        ///   * The impact of the incident could not be confirmed.
+        ///   * The incident was intermittent or resolved itself.
+        ///
+        ///   The incident does not have a resolution because no action or
+        ///   investigation happened. If it is intermittent, the incident may reopen.
         </span>AutoClosed = <span class="number">9</span>,
-        <span class="doccomment">/// The incident was verified as non-impactful. No further action required.
+        <span class="doccomment">/// Upon investigation, Google engineers concluded that the incident is not
+        /// affecting a Google Cloud product. This state can change if the incident
+        /// is reviewed again.
         </span>FalsePositive = <span class="number">10</span>,
     }
     <span class="kw">impl </span>DetailedState {
@@ -1792,11 +1810,17 @@
         /// published to the parent only. The `parent_event` contains the name of the
         /// parent.
         </span>Merged = <span class="number">4</span>,
-        <span class="doccomment">/// The incident was automatically closed because the issues couldn’t be
-        /// confirmed or is no longer impacting Google Cloud Products and/or
-        /// Locations.
+        <span class="doccomment">/// The incident was automatically closed because of the following reasons:
+        ///
+        ///   * The impact of the incident could not be confirmed.
+        ///   * The incident was intermittent or resolved itself.
+        ///
+        ///   The incident does not have a resolution because no action or
+        ///   investigation happened. If it is intermittent, the incident may reopen.
         </span>AutoClosed = <span class="number">9</span>,
-        <span class="doccomment">/// The incident was verified as non-impactful. No further action required.
+        <span class="doccomment">/// Upon investigation, Google engineers concluded that the incident is not
+        /// affecting a Google Cloud product. This state can change if the incident
+        /// is reviewed again.
         </span>FalsePositive = <span class="number">10</span>,
     }
     <span class="kw">impl </span>DetailedState {
