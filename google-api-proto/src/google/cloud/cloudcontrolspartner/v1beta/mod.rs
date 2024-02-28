@@ -831,7 +831,7 @@ pub struct Workload {
     /// The project id of the key management project for the workload
     #[prost(string, tag = "7")]
     pub key_management_project_id: ::prost::alloc::string::String,
-    /// The gcp location of the workload
+    /// The Google Cloud location of the workload
     #[prost(string, tag = "8")]
     pub location: ::prost::alloc::string::String,
     /// Partner associated with this workload.
@@ -1215,8 +1215,8 @@ pub struct Partner {
     /// <https://cloud.google.com/compute/docs/regions-zones>
     #[prost(string, repeated, tag = "5")]
     pub operated_cloud_regions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// GCP project ID in the partner's GCP organization for receiving enhanced
-    /// Logs for Partners.
+    /// Google Cloud project ID in the partner's Google Cloud organization for
+    /// receiving enhanced Logs for Partners.
     #[prost(string, tag = "7")]
     pub partner_project_id: ::prost::alloc::string::String,
     /// Output only. Time the resource was created
@@ -1511,7 +1511,7 @@ pub mod cloud_controls_partner_core_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists customers of a partner identified by its GCP organization id
+        /// Lists customers of a partner identified by its Google Cloud organization ID
         pub async fn list_customers(
             &mut self,
             request: impl tonic::IntoRequest<super::ListCustomersRequest>,

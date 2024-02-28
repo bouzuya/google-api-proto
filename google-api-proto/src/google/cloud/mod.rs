@@ -298,7 +298,6 @@ pub mod gkeconnect;
         feature = "google-cloud-gkehub-servicemesh-v1alpha",
         feature = "google-cloud-gkehub-v1",
         feature = "google-cloud-gkehub-v1alpha",
-        feature = "google-cloud-gkehub-v1alpha2",
         feature = "google-cloud-gkehub-v1beta",
         feature = "google-cloud-gkehub-v1beta1",
     )

@@ -13484,6 +13484,10 @@ pub struct Feature {
     /// If no value is provided, will use feature_id.
     #[prost(string, tag = "106")]
     pub version_column_name: ::prost::alloc::string::String,
+    /// Entity responsible for maintaining this feature. Can be comma separated
+    /// list of email addresses or URIs.
+    #[prost(string, tag = "107")]
+    pub point_of_contact: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `Feature`.
 pub mod feature {
@@ -19620,17 +19624,30 @@ pub mod featurestore_online_serving_service_client {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FeatureViewDataKey {
-    #[prost(oneof = "feature_view_data_key::KeyOneof", tags = "1")]
+    #[prost(oneof = "feature_view_data_key::KeyOneof", tags = "1, 2")]
     pub key_oneof: ::core::option::Option<feature_view_data_key::KeyOneof>,
 }
 /// Nested message and enum types in `FeatureViewDataKey`.
 pub mod feature_view_data_key {
+    /// ID that is comprised from several parts (columns).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CompositeKey {
+        /// Parts to construct Entity ID. Should match with the same ID columns as
+        /// defined in FeatureView in the same order.
+        #[prost(string, repeated, tag = "1")]
+        pub parts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum KeyOneof {
         /// String key to use for lookup.
         #[prost(string, tag = "1")]
         Key(::prost::alloc::string::String),
+        /// The actual Entity ID will be composed from this struct. This should match
+        /// with the way ID is defined in the FeatureView spec.
+        #[prost(message, tag = "2")]
+        CompositeKey(CompositeKey),
     }
 }
 /// Request message for

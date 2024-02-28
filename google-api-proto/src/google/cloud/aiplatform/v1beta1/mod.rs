@@ -13821,6 +13821,10 @@ pub struct Feature {
     /// If no value is provided, will use feature_id.
     #[prost(string, tag = "106")]
     pub version_column_name: ::prost::alloc::string::String,
+    /// Entity responsible for maintaining this feature. Can be comma separated
+    /// list of email addresses or URIs.
+    #[prost(string, tag = "107")]
+    pub point_of_contact: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `Feature`.
 pub mod feature {
@@ -16416,6 +16420,19 @@ pub struct FeatureView {
     /// online serving.
     #[prost(message, optional, tag = "8")]
     pub vector_search_config: ::core::option::Option<feature_view::VectorSearchConfig>,
+    /// Optional. Service agent type used during data sync. By default, the Vertex
+    /// AI Service Agent is used. When using an IAM Policy to isolate this
+    /// FeatureView within a project, a separate service account should be
+    /// provisioned by setting this field to `SERVICE_AGENT_TYPE_FEATURE_VIEW`.
+    /// This will generate a separate service account to access the BigQuery source
+    /// table.
+    #[prost(enumeration = "feature_view::ServiceAgentType", tag = "14")]
+    pub service_agent_type: i32,
+    /// Output only. A Service Account unique to this FeatureView. The role
+    /// bigquery.dataViewer should be granted to this service account to allow
+    /// Vertex AI Feature Store to sync data to the online store.
+    #[prost(string, tag = "13")]
+    pub service_account_email: ::prost::alloc::string::String,
     #[prost(oneof = "feature_view::Source", tags = "6, 9")]
     pub source: ::core::option::Option<feature_view::Source>,
 }
@@ -16587,6 +16604,53 @@ pub mod feature_view {
             /// Required. Identifiers of features under the feature group.
             #[prost(string, repeated, tag = "2")]
             pub feature_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        }
+    }
+    /// Service agent type used during data sync.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ServiceAgentType {
+        /// By default, the project-level Vertex AI Service Agent is enabled.
+        Unspecified = 0,
+        /// Indicates the project-level Vertex AI Service Agent
+        /// (<https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents>)
+        /// will be used during sync jobs.
+        Project = 1,
+        /// Enable a FeatureView service account to be created by Vertex AI and
+        /// output in the field `service_account_email`. This service account will
+        /// be used to read from the source BigQuery table during sync.
+        FeatureView = 2,
+    }
+    impl ServiceAgentType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ServiceAgentType::Unspecified => "SERVICE_AGENT_TYPE_UNSPECIFIED",
+                ServiceAgentType::Project => "SERVICE_AGENT_TYPE_PROJECT",
+                ServiceAgentType::FeatureView => "SERVICE_AGENT_TYPE_FEATURE_VIEW",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "SERVICE_AGENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SERVICE_AGENT_TYPE_PROJECT" => Some(Self::Project),
+                "SERVICE_AGENT_TYPE_FEATURE_VIEW" => Some(Self::FeatureView),
+                _ => None,
+            }
         }
     }
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -18514,6 +18578,9 @@ pub struct RaySpec {
     /// set.
     #[prost(string, tag = "7")]
     pub head_node_resource_pool_id: ::prost::alloc::string::String,
+    /// Optional. Ray metrics configurations.
+    #[prost(message, optional, tag = "8")]
+    pub ray_metric_spec: ::core::option::Option<RayMetricSpec>,
 }
 /// Persistent Cluster runtime information as output
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -18555,6 +18622,14 @@ pub struct ServiceAccountSpec {
     /// Required if any containers are specified in `ResourceRuntimeSpec`.
     #[prost(string, tag = "2")]
     pub service_account: ::prost::alloc::string::String,
+}
+/// Configuration for the Ray metrics.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RayMetricSpec {
+    /// Optional. Flag to disable the Ray metrics collection.
+    #[prost(bool, tag = "1")]
+    pub disabled: bool,
 }
 /// All the data stored in a TensorboardTimeSeries.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -20330,17 +20405,30 @@ pub mod featurestore_online_serving_service_client {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FeatureViewDataKey {
-    #[prost(oneof = "feature_view_data_key::KeyOneof", tags = "1")]
+    #[prost(oneof = "feature_view_data_key::KeyOneof", tags = "1, 2")]
     pub key_oneof: ::core::option::Option<feature_view_data_key::KeyOneof>,
 }
 /// Nested message and enum types in `FeatureViewDataKey`.
 pub mod feature_view_data_key {
+    /// ID that is comprised from several parts (columns).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CompositeKey {
+        /// Parts to construct Entity ID. Should match with the same ID columns as
+        /// defined in FeatureView in the same order.
+        #[prost(string, repeated, tag = "1")]
+        pub parts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum KeyOneof {
         /// String key to use for lookup.
         #[prost(string, tag = "1")]
         Key(::prost::alloc::string::String),
+        /// The actual Entity ID will be composed from this struct. This should match
+        /// with the way ID is defined in the FeatureView spec.
+        #[prost(message, tag = "2")]
+        CompositeKey(CompositeKey),
     }
 }
 /// Request message for

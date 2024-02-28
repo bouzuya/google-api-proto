@@ -1294,8 +1294,9 @@ pub struct PasswordValidationPolicy {
     /// Whether the password policy is enabled or not.
     #[prost(message, optional, tag = "6")]
     pub enable_password_policy: ::core::option::Option<bool>,
-    /// Disallow credentials that have been previously compromised by a public data
-    /// breach.
+    /// This field is deprecated and will be removed in a future version of the
+    /// API.
+    #[deprecated]
     #[prost(message, optional, tag = "7")]
     pub disallow_compromised_credentials: ::core::option::Option<bool>,
 }

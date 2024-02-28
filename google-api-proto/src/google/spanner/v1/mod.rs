@@ -746,6 +746,22 @@ pub struct QueryPlan {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TransactionOptions {
+    /// When `exclude_txn_from_change_streams` is set to `true`:
+    ///   * Mutations from this transaction will not be recorded in change streams
+    ///   with DDL option `allow_txn_exclusion=true` that are tracking columns
+    ///   modified by these transactions.
+    ///   * Mutations from this transaction will be recorded in change streams with
+    ///   DDL option `allow_txn_exclusion=false or not set` that are tracking
+    ///   columns modified by these transactions.
+    ///
+    /// When `exclude_txn_from_change_streams` is set to `false` or not set,
+    /// mutations from this transaction will be recorded in all change streams that
+    /// are tracking columns modified by these transactions.
+    /// `exclude_txn_from_change_streams` may only be specified for read-write or
+    /// partitioned-dml transactions, otherwise the API will return an
+    /// `INVALID_ARGUMENT` error.
+    #[prost(bool, tag = "5")]
+    pub exclude_txn_from_change_streams: bool,
     /// Required. The type of transaction.
     #[prost(oneof = "transaction_options::Mode", tags = "1, 3, 2")]
     pub mode: ::core::option::Option<transaction_options::Mode>,

@@ -407,6 +407,9 @@ pub struct NodeConfig {
     /// A map of resource manager tag keys and values to be attached to the nodes.
     #[prost(message, optional, tag = "45")]
     pub resource_manager_tags: ::core::option::Option<ResourceManagerTags>,
+    /// Optional. Reserved for future use.
+    #[prost(bool, tag = "46")]
+    pub enable_confidential_storage: bool,
 }
 /// Specifies options for controlling advanced machine features.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3006,6 +3009,9 @@ pub struct UpdateNodePoolRequest {
     /// Existing tags will be replaced with new values.
     #[prost(message, optional, tag = "39")]
     pub resource_manager_tags: ::core::option::Option<ResourceManagerTags>,
+    /// Specifies the configuration of queued provisioning.
+    #[prost(message, optional, tag = "42")]
+    pub queued_provisioning: ::core::option::Option<node_pool::QueuedProvisioning>,
 }
 /// SetNodePoolAutoscalingRequest sets the autoscaler settings of a node pool.
 #[allow(clippy::derive_partial_eq_without_eq)]

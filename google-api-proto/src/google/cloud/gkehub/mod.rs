@@ -29,8 +29,6 @@ pub mod servicemesh;
 pub mod v1;
 #[cfg(any(feature = "google-cloud-gkehub-v1alpha"))]
 pub mod v1alpha;
-#[cfg(any(feature = "google-cloud-gkehub-v1alpha2"))]
-pub mod v1alpha2;
 #[cfg(any(feature = "google-cloud-gkehub-v1beta"))]
 pub mod v1beta;
 #[cfg(any(feature = "google-cloud-gkehub-v1beta1"))]

@@ -20,13 +20,13 @@ pub struct ScheduleOptions {
     /// Specifies time to start scheduling transfer runs. The first run will be
     /// scheduled at or after the start time according to a recurrence pattern
     /// defined in the schedule string. The start time can be changed at any
-    /// moment. The time when a data transfer can be trigerred manually is not
+    /// moment. The time when a data transfer can be triggered manually is not
     /// limited by this option.
     #[prost(message, optional, tag = "1")]
     pub start_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Defines time to stop scheduling transfer runs. A transfer run cannot be
     /// scheduled at or after the end time. The end time can be changed at any
-    /// moment. The time when a data transfer can be trigerred manually is not
+    /// moment. The time when a data transfer can be triggered manually is not
     /// limited by this option.
     #[prost(message, optional, tag = "2")]
     pub end_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -73,8 +73,7 @@ pub struct TransferConfig {
     pub params: ::core::option::Option<::prost_types::Struct>,
     /// Data transfer schedule.
     /// If the data source does not support a custom schedule, this should be
-    /// empty. If it is empty, the default value for the data source will be
-    /// used.
+    /// empty. If it is empty, the default value for the data source will be used.
     /// The specified times are in UTC.
     /// Examples of valid format:
     /// `1st,3rd monday of month 15:30`,
@@ -94,12 +93,12 @@ pub struct TransferConfig {
     /// For example, if `data_refresh_window_days = 10`, then every day
     /// BigQuery reingests data for \[today-10, today-1\], rather than ingesting data
     /// for just \[today-1\].
-    /// Only valid if the data source supports the feature. Set the value to  0
+    /// Only valid if the data source supports the feature. Set the value to 0
     /// to use the default value.
     #[prost(int32, tag = "12")]
     pub data_refresh_window_days: i32,
-    /// Is this config disabled. When set to true, no runs are scheduled
-    /// for a given transfer.
+    /// Is this config disabled. When set to true, no runs will be scheduled for
+    /// this transfer config.
     #[prost(bool, tag = "13")]
     pub disabled: bool,
     /// Output only. Data transfer modification time. Ignored by server on input.
@@ -121,7 +120,7 @@ pub struct TransferConfig {
     /// associated with this transfer config finish.
     ///
     /// The format for specifying a pubsub topic is:
-    /// `projects/{project}/topics/{topic}`
+    /// `projects/{project_id}/topics/{topic_id}`
     #[prost(string, tag = "15")]
     pub notification_pubsub_topic: ::prost::alloc::string::String,
     /// Email notifications will be sent according to these preferences
@@ -221,7 +220,7 @@ pub struct TransferRun {
     /// transfer run finishes.
     ///
     /// The format for specifying a pubsub topic is:
-    /// `projects/{project}/topics/{topic}`
+    /// `projects/{project_id}/topics/{topic_id}`
     #[prost(string, tag = "23")]
     pub notification_pubsub_topic: ::prost::alloc::string::String,
     /// Output only. Email notifications will be sent according to these
@@ -1724,7 +1723,8 @@ pub mod data_transfer_service_client {
         /// Unenroll data sources in a user project. This allows users to remove
         /// transfer configurations for these data sources. They will no longer appear
         /// in the ListDataSources RPC and will also no longer appear in the [BigQuery
-        /// UI](https://console.cloud.google.com/bigquery).
+        /// UI](https://console.cloud.google.com/bigquery). Data transfers
+        /// configurations of unenrolled data sources will not be scheduled.
         pub async fn unenroll_data_sources(
             &mut self,
             request: impl tonic::IntoRequest<super::UnenrollDataSourcesRequest>,
