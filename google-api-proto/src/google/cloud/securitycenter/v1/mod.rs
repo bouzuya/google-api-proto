@@ -284,9 +284,20 @@ pub struct Vulnerability {
     /// (<https://cve.mitre.org/about/>)
     #[prost(message, optional, tag = "1")]
     pub cve: ::core::option::Option<Cve>,
+    /// The offending package is relevant to the finding.
+    #[prost(message, optional, tag = "2")]
+    pub offending_package: ::core::option::Option<Package>,
+    /// The fixed package is relevant to the finding.
+    #[prost(message, optional, tag = "3")]
+    pub fixed_package: ::core::option::Option<Package>,
+    /// The security bulletin is relevant to this finding.
+    #[prost(message, optional, tag = "4")]
+    pub security_bulletin: ::core::option::Option<SecurityBulletin>,
 }
 /// CVE stands for Common Vulnerabilities and Exposures.
-/// More information: <https://cve.mitre.org>
+/// Information from the [CVE
+/// record](<https://www.cve.org/ResourcesSupport/Glossary>) that describes this
+/// vulnerability.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Cve {
@@ -304,6 +315,135 @@ pub struct Cve {
     /// Whether upstream fix is available for the CVE.
     #[prost(bool, tag = "4")]
     pub upstream_fix_available: bool,
+    /// The potential impact of the vulnerability if it was to be exploited.
+    #[prost(enumeration = "cve::RiskRating", tag = "5")]
+    pub impact: i32,
+    /// The exploitation activity of the vulnerability in the wild.
+    #[prost(enumeration = "cve::ExploitationActivity", tag = "6")]
+    pub exploitation_activity: i32,
+    /// Whether or not the vulnerability has been observed in the wild.
+    #[prost(bool, tag = "7")]
+    pub observed_in_the_wild: bool,
+    /// Whether or not the vulnerability was zero day when the finding was
+    /// published.
+    #[prost(bool, tag = "8")]
+    pub zero_day: bool,
+}
+/// Nested message and enum types in `Cve`.
+pub mod cve {
+    /// The possible values of impact of the vulnerability if it was to be
+    /// exploited.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RiskRating {
+        /// Invalid or empty value.
+        Unspecified = 0,
+        /// Exploitation would have little to no security impact.
+        Low = 1,
+        /// Exploitation would enable attackers to perform activities, or could allow
+        /// attackers to have a direct impact, but would require additional steps.
+        Medium = 2,
+        /// Exploitation would enable attackers to have a notable direct impact
+        /// without needing to overcome any major mitigating factors.
+        High = 3,
+        /// Exploitation would fundamentally undermine the security of affected
+        /// systems, enable actors to perform significant attacks with minimal
+        /// effort, with little to no mitigating factors to overcome.
+        Critical = 4,
+    }
+    impl RiskRating {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RiskRating::Unspecified => "RISK_RATING_UNSPECIFIED",
+                RiskRating::Low => "LOW",
+                RiskRating::Medium => "MEDIUM",
+                RiskRating::High => "HIGH",
+                RiskRating::Critical => "CRITICAL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RISK_RATING_UNSPECIFIED" => Some(Self::Unspecified),
+                "LOW" => Some(Self::Low),
+                "MEDIUM" => Some(Self::Medium),
+                "HIGH" => Some(Self::High),
+                "CRITICAL" => Some(Self::Critical),
+                _ => None,
+            }
+        }
+    }
+    /// The possible values of exploitation activity of the vulnerability in the
+    /// wild.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ExploitationActivity {
+        /// Invalid or empty value.
+        Unspecified = 0,
+        /// Exploitation has been reported or confirmed to widely occur.
+        Wide = 1,
+        /// Limited reported or confirmed exploitation activities.
+        Confirmed = 2,
+        /// Exploit is publicly available.
+        Available = 3,
+        /// No known exploitation activity, but has a high potential for
+        /// exploitation.
+        Anticipated = 4,
+        /// No known exploitation activity.
+        NoKnown = 5,
+    }
+    impl ExploitationActivity {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ExploitationActivity::Unspecified => "EXPLOITATION_ACTIVITY_UNSPECIFIED",
+                ExploitationActivity::Wide => "WIDE",
+                ExploitationActivity::Confirmed => "CONFIRMED",
+                ExploitationActivity::Available => "AVAILABLE",
+                ExploitationActivity::Anticipated => "ANTICIPATED",
+                ExploitationActivity::NoKnown => "NO_KNOWN",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "EXPLOITATION_ACTIVITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "WIDE" => Some(Self::Wide),
+                "CONFIRMED" => Some(Self::Confirmed),
+                "AVAILABLE" => Some(Self::Available),
+                "ANTICIPATED" => Some(Self::Anticipated),
+                "NO_KNOWN" => Some(Self::NoKnown),
+                _ => None,
+            }
+        }
+    }
 }
 /// Additional Links
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -667,6 +807,38 @@ pub mod cvssv3 {
             }
         }
     }
+}
+/// Package is a generic definition of a package.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Package {
+    /// The name of the package where the vulnerability was detected.
+    #[prost(string, tag = "1")]
+    pub package_name: ::prost::alloc::string::String,
+    /// The CPE URI where the vulnerability was detected.
+    #[prost(string, tag = "2")]
+    pub cpe_uri: ::prost::alloc::string::String,
+    /// Type of package, for example, os, maven, or go.
+    #[prost(string, tag = "3")]
+    pub package_type: ::prost::alloc::string::String,
+    /// The version of the package.
+    #[prost(string, tag = "4")]
+    pub package_version: ::prost::alloc::string::String,
+}
+/// SecurityBulletin are notifications of vulnerabilities of Google products.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SecurityBulletin {
+    /// ID of the bulletin corresponding to the vulnerability.
+    #[prost(string, tag = "1")]
+    pub bulletin_id: ::prost::alloc::string::String,
+    /// Submission time of this Security Bulletin.
+    #[prost(message, optional, tag = "2")]
+    pub submission_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// This represents a version that the cluster receiving this notification
+    /// should be upgraded to, based on its current version. For example, 1.15.0
+    #[prost(string, tag = "3")]
+    pub suggested_upgrade_version: ::prost::alloc::string::String,
 }
 /// Information related to Google Cloud Backup and DR Service findings.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1960,6 +2132,9 @@ pub struct Container {
     /// Container labels, as provided by the container runtime.
     #[prost(message, repeated, tag = "4")]
     pub labels: ::prost::alloc::vec::Vec<Label>,
+    /// The time that the container was created.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// Represents database access information, such as queries. A database may be a
 /// sub-resource of an instance (as in the case of Cloud SQL instances or Cloud

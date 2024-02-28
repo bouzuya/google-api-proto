@@ -36,6 +36,8 @@ pub mod apigateway;
 pub mod apigeeconnect;
 #[cfg(any(feature = "google-cloud-apigeeregistry-v1"))]
 pub mod apigeeregistry;
+#[cfg(any(feature = "google-cloud-apphub-v1"))]
+pub mod apphub;
 #[cfg(
     any(
         feature = "google-cloud-asset-v1",
