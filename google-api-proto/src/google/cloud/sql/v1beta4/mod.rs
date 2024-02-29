@@ -524,13 +524,14 @@ pub struct DatabaseInstance {
     /// Name of the Cloud SQL instance. This does not include the project ID.
     #[prost(string, tag = "23")]
     pub name: ::prost::alloc::string::String,
-    /// The geographical region. Can be:
-    /// *  `us-central` (`FIRST_GEN` instances only)
-    /// *  `us-central1` (`SECOND_GEN` instances only)
-    /// *  `asia-east1` or `europe-west1`.
+    /// The geographical region of the Cloud SQL instance.
     ///
-    /// Defaults to `us-central` or `us-central1` depending on the instance
-    /// type. The region cannot be changed after instance creation.
+    /// It can be one of the
+    /// [regions](<https://cloud.google.com/sql/docs/mysql/locations#location-r>)
+    /// where Cloud SQL operates:
+    ///
+    /// For example,  `asia-east1`, `europe-west1`, and  `us-central1`.
+    /// The default value is `us-central1`.
     #[prost(string, tag = "24")]
     pub region: ::prost::alloc::string::String,
     /// The Compute Engine zone that the instance is currently serving from. This
@@ -1812,6 +1813,13 @@ pub mod ip_configuration {
         /// client certificates.
         /// When this value is used, the legacy `require_ssl` flag must be true or
         /// cleared to avoid the conflict between values of two flags.
+        /// PostgreSQL clients or users that connect using IAM database
+        /// authentication must use either the
+        /// [Cloud SQL Auth
+        /// Proxy](<https://cloud.google.com/sql/docs/postgres/connect-auth-proxy>) or
+        /// [Cloud SQL
+        /// Connectors](<https://cloud.google.com/sql/docs/postgres/connect-connectors>)
+        /// to enforce client identity verification.
         TrustedClientCertificateRequired = 3,
     }
     impl SslMode {

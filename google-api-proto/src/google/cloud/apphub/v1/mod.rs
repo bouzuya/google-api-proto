@@ -23,7 +23,7 @@ pub struct Attributes {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Criticality {
-    /// Optional. Criticality Type.
+    /// Required. Criticality Type.
     #[prost(enumeration = "criticality::Type", tag = "3")]
     pub r#type: i32,
 }
@@ -85,7 +85,7 @@ pub mod criticality {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Environment {
-    /// Optional. Environment Type.
+    /// Required. Environment Type.
     #[prost(enumeration = "environment::Type", tag = "2")]
     pub r#type: i32,
 }
@@ -910,6 +910,27 @@ pub struct GetDiscoveredServiceRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// Request for LookupDiscoveredService.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LookupDiscoveredServiceRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. GCP resource URI to find service for
+    /// Accepts both project number and project id and does translation when
+    /// needed.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+}
+/// Response for LookupDiscoveredService.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LookupDiscoveredServiceResponse {
+    /// Discovered service if exists, empty otherwise.
+    #[prost(message, optional, tag = "1")]
+    pub discovered_service: ::core::option::Option<DiscoveredService>,
+}
 /// Request for UpdateService.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1216,6 +1237,27 @@ pub struct GetDiscoveredWorkloadRequest {
     /// Required. Value for name.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// Request for LookupDiscoveredWorkload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LookupDiscoveredWorkloadRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. GCP resource URI to find workload for.
+    /// Accepts both project number and project id and does translation when
+    /// needed.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+}
+/// Response for LookupDiscoveredWorkload.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LookupDiscoveredWorkloadResponse {
+    /// Discovered workload if exists, empty otherwise.
+    #[prost(message, optional, tag = "1")]
+    pub discovered_workload: ::core::option::Option<DiscoveredWorkload>,
 }
 /// Request for UpdateWorkload.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1639,6 +1681,38 @@ pub mod app_hub_client {
                 );
             self.inner.unary(req, path, codec).await
         }
+        /// Looks up a discovered service in a host project and location and with a
+        /// given resource URI.
+        pub async fn lookup_discovered_service(
+            &mut self,
+            request: impl tonic::IntoRequest<super::LookupDiscoveredServiceRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::LookupDiscoveredServiceResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.apphub.v1.AppHub/LookupDiscoveredService",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.apphub.v1.AppHub",
+                        "LookupDiscoveredService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
         /// List Services in an Application.
         pub async fn list_services(
             &mut self,
@@ -1833,6 +1907,38 @@ pub mod app_hub_client {
                     GrpcMethod::new(
                         "google.cloud.apphub.v1.AppHub",
                         "GetDiscoveredWorkload",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Looks up a discovered Workload in a host project and location and with a
+        /// given resource URI.
+        pub async fn lookup_discovered_workload(
+            &mut self,
+            request: impl tonic::IntoRequest<super::LookupDiscoveredWorkloadRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::LookupDiscoveredWorkloadResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.apphub.v1.AppHub/LookupDiscoveredWorkload",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.apphub.v1.AppHub",
+                        "LookupDiscoveredWorkload",
                     ),
                 );
             self.inner.unary(req, path, codec).await
