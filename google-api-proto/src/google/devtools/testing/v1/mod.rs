@@ -2931,6 +2931,12 @@ pub struct PerAndroidVersionInfo {
     /// The number of online devices for an Android version.
     #[prost(enumeration = "DeviceCapacity", tag = "2")]
     pub device_capacity: i32,
+    /// Output only. The estimated wait time for a single interactive device
+    /// session using Direct Access.
+    #[prost(message, optional, tag = "3")]
+    pub interactive_device_availability_estimate: ::core::option::Option<
+        ::prost_types::Duration,
+    >,
     /// Output only. Identifies supported clients for DirectAccess for this Android
     /// version.
     #[prost(message, optional, tag = "4")]

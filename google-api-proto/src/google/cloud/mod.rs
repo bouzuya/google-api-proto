@@ -563,6 +563,7 @@ pub mod security;
         feature = "google-cloud-securitycenter-v1",
         feature = "google-cloud-securitycenter-v1beta1",
         feature = "google-cloud-securitycenter-v1p1beta1",
+        feature = "google-cloud-securitycenter-v2",
     )
 )]
 pub mod securitycenter;

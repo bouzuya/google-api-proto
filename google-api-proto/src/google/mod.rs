@@ -375,6 +375,7 @@ pub mod chromeos;
         feature = "google-cloud-securitycenter-v1",
         feature = "google-cloud-securitycenter-v1beta1",
         feature = "google-cloud-securitycenter-v1p1beta1",
+        feature = "google-cloud-securitycenter-v2",
         feature = "google-cloud-securitycentermanagement-v1",
         feature = "google-cloud-securityposture-v1",
         feature = "google-cloud-sensitiveaction-logging-v1",
