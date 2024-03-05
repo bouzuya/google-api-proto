@@ -1884,7 +1884,7 @@ pub struct FirewallPolicyAssessment {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FirewallAction {
-    #[prost(oneof = "firewall_action::FirewallActionOneof", tags = "1, 2, 5, 3, 4")]
+    #[prost(oneof = "firewall_action::FirewallActionOneof", tags = "1, 2, 6, 5, 3, 4")]
     pub firewall_action_oneof: ::core::option::Option<
         firewall_action::FirewallActionOneof,
     >,
@@ -1900,6 +1900,14 @@ pub mod firewall_action {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct BlockAction {}
+    /// An include reCAPTCHA script action involves injecting reCAPTCHA JavaScript
+    /// code into the HTML returned by the site backend. This reCAPTCHA
+    /// script is tasked with collecting user signals on the requested web page,
+    /// issuing tokens as a cookie within the site domain, and enabling their
+    /// utilization in subsequent page requests.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IncludeRecaptchaScriptAction {}
     /// A redirect action returns a 307 (temporary redirect) response, pointing
     /// the user to a ReCaptcha interstitial page to attach a token.
     #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1939,6 +1947,10 @@ pub mod firewall_action {
         /// error code.
         #[prost(message, tag = "2")]
         Block(BlockAction),
+        /// This action will inject reCAPTCHA JavaScript code into the HTML page
+        /// returned by the site backend.
+        #[prost(message, tag = "6")]
+        IncludeRecaptchaScript(IncludeRecaptchaScriptAction),
         /// This action will redirect the request to a ReCaptcha interstitial to
         /// attach a token.
         #[prost(message, tag = "5")]
