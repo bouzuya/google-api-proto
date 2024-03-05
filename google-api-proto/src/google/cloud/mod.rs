@@ -121,7 +121,12 @@ pub mod binaryauthorization;
 pub mod certificatemanager;
 #[cfg(any(feature = "google-cloud-channel-v1"))]
 pub mod channel;
-#[cfg(any(feature = "google-cloud-cloudcontrolspartner-v1beta"))]
+#[cfg(
+    any(
+        feature = "google-cloud-cloudcontrolspartner-v1",
+        feature = "google-cloud-cloudcontrolspartner-v1beta",
+    )
+)]
 pub mod cloudcontrolspartner;
 #[cfg(
     any(

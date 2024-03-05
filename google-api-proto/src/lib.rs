@@ -147,6 +147,7 @@ pub mod cloud;
         feature = "google-cloud-certificatemanager-logging-v1",
         feature = "google-cloud-certificatemanager-v1",
         feature = "google-cloud-channel-v1",
+        feature = "google-cloud-cloudcontrolspartner-v1",
         feature = "google-cloud-cloudcontrolspartner-v1beta",
         feature = "google-cloud-clouddms-logging-v1",
         feature = "google-cloud-clouddms-v1",
