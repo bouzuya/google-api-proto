@@ -751,11 +751,18 @@ pub mod request_stats {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReadRowsRequest {
-    /// Required. The unique name of the table from which to read.
+    /// Optional. The unique name of the table from which to read.
+    ///
     /// Values are of the form
     /// `projects/<project>/instances/<instance>/tables/<table>`.
     #[prost(string, tag = "1")]
     pub table_name: ::prost::alloc::string::String,
+    /// Optional. The unique name of the AuthorizedView from which to read.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>`.
+    #[prost(string, tag = "9")]
+    pub authorized_view_name: ::prost::alloc::string::String,
     /// This value specifies routing for replication. If not specified, the
     /// "default" application profile will be used.
     #[prost(string, tag = "5")]
@@ -960,11 +967,19 @@ pub mod read_rows_response {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SampleRowKeysRequest {
-    /// Required. The unique name of the table from which to sample row keys.
+    /// Optional. The unique name of the table from which to sample row keys.
+    ///
     /// Values are of the form
     /// `projects/<project>/instances/<instance>/tables/<table>`.
     #[prost(string, tag = "1")]
     pub table_name: ::prost::alloc::string::String,
+    /// Optional. The unique name of the AuthorizedView from which to sample row
+    /// keys.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>`.
+    #[prost(string, tag = "4")]
+    pub authorized_view_name: ::prost::alloc::string::String,
     /// This value specifies routing for replication. If not specified, the
     /// "default" application profile will be used.
     #[prost(string, tag = "2")]
@@ -994,11 +1009,20 @@ pub struct SampleRowKeysResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MutateRowRequest {
-    /// Required. The unique name of the table to which the mutation should be
-    /// applied. Values are of the form
+    /// Optional. The unique name of the table to which the mutation should be
+    /// applied.
+    ///
+    /// Values are of the form
     /// `projects/<project>/instances/<instance>/tables/<table>`.
     #[prost(string, tag = "1")]
     pub table_name: ::prost::alloc::string::String,
+    /// Optional. The unique name of the AuthorizedView to which the mutation
+    /// should be applied.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>`.
+    #[prost(string, tag = "6")]
+    pub authorized_view_name: ::prost::alloc::string::String,
     /// This value specifies routing for replication. If not specified, the
     /// "default" application profile will be used.
     #[prost(string, tag = "4")]
@@ -1020,10 +1044,20 @@ pub struct MutateRowResponse {}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MutateRowsRequest {
-    /// Required. The unique name of the table to which the mutations should be
+    /// Optional. The unique name of the table to which the mutations should be
     /// applied.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>`.
     #[prost(string, tag = "1")]
     pub table_name: ::prost::alloc::string::String,
+    /// Optional. The unique name of the AuthorizedView to which the mutations
+    /// should be applied.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>`.
+    #[prost(string, tag = "5")]
+    pub authorized_view_name: ::prost::alloc::string::String,
     /// This value specifies routing for replication. If not specified, the
     /// "default" application profile will be used.
     #[prost(string, tag = "3")]
@@ -1111,11 +1145,20 @@ pub struct RateLimitInfo {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CheckAndMutateRowRequest {
-    /// Required. The unique name of the table to which the conditional mutation
-    /// should be applied. Values are of the form
+    /// Optional. The unique name of the table to which the conditional mutation
+    /// should be applied.
+    ///
+    /// Values are of the form
     /// `projects/<project>/instances/<instance>/tables/<table>`.
     #[prost(string, tag = "1")]
     pub table_name: ::prost::alloc::string::String,
+    /// Optional. The unique name of the AuthorizedView to which the conditional
+    /// mutation should be applied.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>`.
+    #[prost(string, tag = "9")]
+    pub authorized_view_name: ::prost::alloc::string::String,
     /// This value specifies routing for replication. If not specified, the
     /// "default" application profile will be used.
     #[prost(string, tag = "7")]
@@ -1176,11 +1219,20 @@ pub struct PingAndWarmResponse {}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReadModifyWriteRowRequest {
-    /// Required. The unique name of the table to which the read/modify/write rules
-    /// should be applied. Values are of the form
+    /// Optional. The unique name of the table to which the read/modify/write rules
+    /// should be applied.
+    ///
+    /// Values are of the form
     /// `projects/<project>/instances/<instance>/tables/<table>`.
     #[prost(string, tag = "1")]
     pub table_name: ::prost::alloc::string::String,
+    /// Optional. The unique name of the AuthorizedView to which the
+    /// read/modify/write rules should be applied.
+    ///
+    /// Values are of the form
+    /// `projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>`.
+    #[prost(string, tag = "6")]
+    pub authorized_view_name: ::prost::alloc::string::String,
     /// This value specifies routing for replication. If not specified, the
     /// "default" application profile will be used.
     #[prost(string, tag = "4")]

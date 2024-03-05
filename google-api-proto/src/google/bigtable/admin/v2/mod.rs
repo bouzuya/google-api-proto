@@ -2037,6 +2037,121 @@ pub mod table {
         }
     }
 }
+/// AuthorizedViews represent subsets of a particular Cloud Bigtable table. Users
+/// can configure access to each Authorized View independently from the table and
+/// use the existing Data APIs to access the subset of data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthorizedView {
+    /// Identifier. The name of this AuthorizedView.
+    /// Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The etag for this AuthorizedView.
+    /// If this is provided on update, it must match the server's etag. The server
+    /// returns ABORTED error on a mismatched etag.
+    #[prost(string, tag = "3")]
+    pub etag: ::prost::alloc::string::String,
+    /// Set to true to make the AuthorizedView protected against deletion.
+    /// The parent Table and containing Instance cannot be deleted if an
+    /// AuthorizedView has this bit set.
+    #[prost(bool, tag = "4")]
+    pub deletion_protection: bool,
+    /// The type of this AuthorizedView.
+    #[prost(oneof = "authorized_view::AuthorizedView", tags = "2")]
+    pub authorized_view: ::core::option::Option<authorized_view::AuthorizedView>,
+}
+/// Nested message and enum types in `AuthorizedView`.
+pub mod authorized_view {
+    /// Subsets of a column family that are included in this AuthorizedView.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FamilySubsets {
+        /// Individual exact column qualifiers to be included in the AuthorizedView.
+        #[prost(bytes = "bytes", repeated, tag = "1")]
+        pub qualifiers: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+        /// Prefixes for qualifiers to be included in the AuthorizedView. Every
+        /// qualifier starting with one of these prefixes is included in the
+        /// AuthorizedView. To provide access to all qualifiers, include the empty
+        /// string as a prefix
+        /// ("").
+        #[prost(bytes = "bytes", repeated, tag = "2")]
+        pub qualifier_prefixes: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+    }
+    /// Defines a simple AuthorizedView that is a subset of the underlying Table.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SubsetView {
+        /// Row prefixes to be included in the AuthorizedView.
+        /// To provide access to all rows, include the empty string as a prefix ("").
+        #[prost(bytes = "bytes", repeated, tag = "1")]
+        pub row_prefixes: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+        /// Map from column family name to the columns in this family to be included
+        /// in the AuthorizedView.
+        #[prost(btree_map = "string, message", tag = "2")]
+        pub family_subsets: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            FamilySubsets,
+        >,
+    }
+    /// Defines a subset of an AuthorizedView's fields.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ResponseView {
+        /// Uses the default view for each method as documented in the request.
+        Unspecified = 0,
+        /// Only populates `name`.
+        NameOnly = 1,
+        /// Only populates the AuthorizedView's basic metadata. This includes:
+        /// name, deletion_protection, etag.
+        Basic = 2,
+        /// Populates every fields.
+        Full = 3,
+    }
+    impl ResponseView {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ResponseView::Unspecified => "RESPONSE_VIEW_UNSPECIFIED",
+                ResponseView::NameOnly => "NAME_ONLY",
+                ResponseView::Basic => "BASIC",
+                ResponseView::Full => "FULL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESPONSE_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+                "NAME_ONLY" => Some(Self::NameOnly),
+                "BASIC" => Some(Self::Basic),
+                "FULL" => Some(Self::Full),
+                _ => None,
+            }
+        }
+    }
+    /// The type of this AuthorizedView.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum AuthorizedView {
+        /// An AuthorizedView permitting access to an explicit subset of a Table.
+        #[prost(message, tag = "2")]
+        SubsetView(SubsetView),
+    }
+}
 /// A set of columns within a table which share a common configuration.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3220,6 +3335,156 @@ pub struct CopyBackupMetadata {
     #[prost(message, optional, tag = "3")]
     pub progress: ::core::option::Option<OperationProgress>,
 }
+/// The request for
+/// [CreateAuthorizedView][google.bigtable.admin.v2.BigtableTableAdmin.CreateAuthorizedView]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateAuthorizedViewRequest {
+    /// Required. This is the name of the table the AuthorizedView belongs to.
+    /// Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The id of the AuthorizedView to create. This AuthorizedView must
+    /// not already exist. The `authorized_view_id` appended to `parent` forms the
+    /// full AuthorizedView name of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}/authorizedView/{authorized_view}`.
+    #[prost(string, tag = "2")]
+    pub authorized_view_id: ::prost::alloc::string::String,
+    /// Required. The AuthorizedView to create.
+    #[prost(message, optional, tag = "3")]
+    pub authorized_view: ::core::option::Option<AuthorizedView>,
+}
+/// The metadata for the Operation returned by CreateAuthorizedView.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateAuthorizedViewMetadata {
+    /// The request that prompted the initiation of this CreateInstance operation.
+    #[prost(message, optional, tag = "1")]
+    pub original_request: ::core::option::Option<CreateAuthorizedViewRequest>,
+    /// The time at which the original request was received.
+    #[prost(message, optional, tag = "2")]
+    pub request_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The time at which the operation failed or was completed successfully.
+    #[prost(message, optional, tag = "3")]
+    pub finish_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Request message for
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ListAuthorizedViews][google.bigtable.admin.v2.BigtableTableAdmin.ListAuthorizedViews]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListAuthorizedViewsRequest {
+    /// Required. The unique name of the table for which AuthorizedViews should be
+    /// listed. Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Maximum number of results per page.
+    ///
+    /// A page_size of zero lets the server choose the number of items to return.
+    /// A page_size which is strictly positive will return at most that many items.
+    /// A negative page_size will cause an error.
+    ///
+    /// Following the first request, subsequent paginated calls are not required
+    /// to pass a page_size. If a page_size is set in subsequent calls, it must
+    /// match the page_size given in the first request.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. The value of `next_page_token` returned by a previous call.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. The resource_view to be applied to the returned views' fields.
+    /// Default to NAME_ONLY.
+    #[prost(enumeration = "authorized_view::ResponseView", tag = "4")]
+    pub view: i32,
+}
+/// Response message for
+/// [google.bigtable.admin.v2.BigtableTableAdmin.ListAuthorizedViews][google.bigtable.admin.v2.BigtableTableAdmin.ListAuthorizedViews]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListAuthorizedViewsResponse {
+    /// The AuthorizedViews present in the requested table.
+    #[prost(message, repeated, tag = "1")]
+    pub authorized_views: ::prost::alloc::vec::Vec<AuthorizedView>,
+    /// Set if not all tables could be returned in a single response.
+    /// Pass this value to `page_token` in another request to get the next
+    /// page of results.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [google.bigtable.admin.v2.BigtableTableAdmin.GetAuthorizedView][google.bigtable.admin.v2.BigtableTableAdmin.GetAuthorizedView]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetAuthorizedViewRequest {
+    /// Required. The unique name of the requested AuthorizedView.
+    /// Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. The resource_view to be applied to the returned AuthorizedView's
+    /// fields. Default to BASIC.
+    #[prost(enumeration = "authorized_view::ResponseView", tag = "2")]
+    pub view: i32,
+}
+/// The request for
+/// [UpdateAuthorizedView][google.bigtable.admin.v2.BigtableTableAdmin.UpdateAuthorizedView].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateAuthorizedViewRequest {
+    /// Required. The AuthorizedView to update. The `name` in `authorized_view` is
+    /// used to identify the AuthorizedView. AuthorizedView name must in this
+    /// format
+    /// projects/<project>/instances/<instance>/tables/<table>/authorizedViews/<authorized_view>
+    #[prost(message, optional, tag = "1")]
+    pub authorized_view: ::core::option::Option<AuthorizedView>,
+    /// Optional. The list of fields to update.
+    /// A mask specifying which fields in the AuthorizedView resource should be
+    /// updated. This mask is relative to the AuthorizedView resource, not to the
+    /// request message. A field will be overwritten if it is in the mask. If
+    /// empty, all fields set in the request will be overwritten. A special value
+    /// `*` means to overwrite all fields (including fields not set in the
+    /// request).
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Optional. If true, ignore the safety checks when updating the
+    /// AuthorizedView.
+    #[prost(bool, tag = "3")]
+    pub ignore_warnings: bool,
+}
+/// Metadata for the google.longrunning.Operation returned by
+/// [UpdateAuthorizedView][google.bigtable.admin.v2.BigtableTableAdmin.UpdateAuthorizedView].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateAuthorizedViewMetadata {
+    /// The request that prompted the initiation of this UpdateAuthorizedView
+    /// operation.
+    #[prost(message, optional, tag = "1")]
+    pub original_request: ::core::option::Option<UpdateAuthorizedViewRequest>,
+    /// The time at which the original request was received.
+    #[prost(message, optional, tag = "2")]
+    pub request_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The time at which the operation failed or was completed successfully.
+    #[prost(message, optional, tag = "3")]
+    pub finish_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Request message for
+/// [google.bigtable.admin.v2.BigtableTableAdmin.DeleteAuthorizedView][google.bigtable.admin.v2.BigtableTableAdmin.DeleteAuthorizedView]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteAuthorizedViewRequest {
+    /// Required. The unique name of the AuthorizedView to be deleted.
+    /// Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. The current etag of the AuthorizedView.
+    /// If an etag is provided and does not match the current etag of the
+    /// AuthorizedView, deletion will be blocked and an ABORTED error will be
+    /// returned.
+    #[prost(string, tag = "2")]
+    pub etag: ::prost::alloc::string::String,
+}
 /// Generated client implementations.
 pub mod bigtable_table_admin_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -3512,6 +3777,155 @@ pub mod bigtable_table_admin_client {
                     GrpcMethod::new(
                         "google.bigtable.admin.v2.BigtableTableAdmin",
                         "UndeleteTable",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new AuthorizedView in a table.
+        pub async fn create_authorized_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateAuthorizedViewRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.bigtable.admin.v2.BigtableTableAdmin/CreateAuthorizedView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.bigtable.admin.v2.BigtableTableAdmin",
+                        "CreateAuthorizedView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists all AuthorizedViews from a specific table.
+        pub async fn list_authorized_views(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListAuthorizedViewsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListAuthorizedViewsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.bigtable.admin.v2.BigtableTableAdmin/ListAuthorizedViews",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.bigtable.admin.v2.BigtableTableAdmin",
+                        "ListAuthorizedViews",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets information from a specified AuthorizedView.
+        pub async fn get_authorized_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetAuthorizedViewRequest>,
+        ) -> std::result::Result<tonic::Response<super::AuthorizedView>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.bigtable.admin.v2.BigtableTableAdmin/GetAuthorizedView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.bigtable.admin.v2.BigtableTableAdmin",
+                        "GetAuthorizedView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates an AuthorizedView in a table.
+        pub async fn update_authorized_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateAuthorizedViewRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.bigtable.admin.v2.BigtableTableAdmin/UpdateAuthorizedView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.bigtable.admin.v2.BigtableTableAdmin",
+                        "UpdateAuthorizedView",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Permanently deletes a specified AuthorizedView.
+        pub async fn delete_authorized_view(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteAuthorizedViewRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.bigtable.admin.v2.BigtableTableAdmin/DeleteAuthorizedView",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.bigtable.admin.v2.BigtableTableAdmin",
+                        "DeleteAuthorizedView",
                     ),
                 );
             self.inner.unary(req, path, codec).await
