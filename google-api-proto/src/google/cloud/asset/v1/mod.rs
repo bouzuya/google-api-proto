@@ -3282,6 +3282,18 @@ pub mod analyzer_org_policy {
         /// The evaluating condition for this rule.
         #[prost(message, optional, tag = "7")]
         pub condition: ::core::option::Option<super::super::super::super::r#type::Expr>,
+        /// The condition evaluation result for this rule.
+        /// Only populated if it meets all the following criteria:
+        /// * there is a
+        /// [condition][google.cloud.asset.v1.AnalyzerOrgPolicy.Rule.condition]
+        /// defined for this rule
+        /// * this rule is within a consolidated_policy
+        /// * the consolidated_policy is within
+        ///    [AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer]
+        ///    or
+        ///    [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource]
+        #[prost(message, optional, tag = "8")]
+        pub condition_evaluation: ::core::option::Option<super::ConditionEvaluation>,
         #[prost(oneof = "rule::Kind", tags = "3, 4, 5, 6")]
         pub kind: ::core::option::Option<rule::Kind>,
     }
@@ -3671,6 +3683,21 @@ pub mod analyze_org_policies_response {
         /// the list.
         #[prost(message, repeated, tag = "2")]
         pub policy_bundle: ::prost::alloc::vec::Vec<super::AnalyzerOrgPolicy>,
+        /// The project that this consolidated policy belongs to, in the format of
+        /// projects/{PROJECT_NUMBER}. This field is available when the consolidated
+        /// policy belongs to a project.
+        #[prost(string, tag = "3")]
+        pub project: ::prost::alloc::string::String,
+        /// The folder(s) that this consolidated policy belongs to, in the format of
+        /// folders/{FOLDER_NUMBER}. This field is available when the consolidated
+        /// policy belongs (directly or cascadingly) to one or more folders.
+        #[prost(string, repeated, tag = "4")]
+        pub folders: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// The organization that this consolidated policy belongs to, in the format
+        /// of organizations/{ORGANIZATION_NUMBER}. This field is available when the
+        /// consolidated policy belongs (directly or cascadingly) to an organization.
+        #[prost(string, tag = "5")]
+        pub organization: ::prost::alloc::string::String,
     }
 }
 /// A request message for
@@ -3765,6 +3792,24 @@ pub mod analyze_org_policy_governed_containers_response {
         /// the list.
         #[prost(message, repeated, tag = "4")]
         pub policy_bundle: ::prost::alloc::vec::Vec<super::AnalyzerOrgPolicy>,
+        /// The project that this resource belongs to, in the format of
+        /// projects/{PROJECT_NUMBER}. This field is available when the resource
+        /// belongs to a project.
+        #[prost(string, tag = "5")]
+        pub project: ::prost::alloc::string::String,
+        /// The folder(s) that this resource belongs to, in the format of
+        /// folders/{FOLDER_NUMBER}. This field is available when the resource
+        /// belongs (directly or cascadingly) to one or more folders.
+        #[prost(string, repeated, tag = "6")]
+        pub folders: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// The organization that this resource belongs to, in the format of
+        /// organizations/{ORGANIZATION_NUMBER}. This field is available when the
+        /// resource belongs (directly or cascadingly) to an organization.
+        #[prost(string, tag = "7")]
+        pub organization: ::prost::alloc::string::String,
+        /// The effective tags on this resource.
+        #[prost(message, repeated, tag = "8")]
+        pub effective_tags: ::prost::alloc::vec::Vec<super::EffectiveTagDetails>,
     }
 }
 /// A request message for
@@ -3874,6 +3919,18 @@ pub mod analyze_org_policy_governed_assets_response {
         /// resource belongs (directly or cascadingly) to an organization.
         #[prost(string, tag = "7")]
         pub organization: ::prost::alloc::string::String,
+        /// The asset type of the
+        /// [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource.full_resource_name]
+        /// Example:
+        /// `cloudresourcemanager.googleapis.com/Project`
+        /// See [Cloud Asset Inventory Supported Asset
+        /// Types](<https://cloud.google.com/asset-inventory/docs/supported-asset-types>)
+        /// for all supported asset types.
+        #[prost(string, tag = "8")]
+        pub asset_type: ::prost::alloc::string::String,
+        /// The effective tags on this resource.
+        #[prost(message, repeated, tag = "9")]
+        pub effective_tags: ::prost::alloc::vec::Vec<super::EffectiveTagDetails>,
     }
     /// The IAM policies governed by the organization policies of the
     /// [AnalyzeOrgPolicyGovernedAssetsRequest.constraint][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsRequest.constraint].
@@ -3906,6 +3963,15 @@ pub mod analyze_org_policy_governed_assets_response {
         /// IAM policy belongs (directly or cascadingly) to an organization.
         #[prost(string, tag = "7")]
         pub organization: ::prost::alloc::string::String,
+        /// The asset type of the
+        /// [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedIamPolicy.attached_resource][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedIamPolicy.attached_resource].
+        /// Example:
+        /// `cloudresourcemanager.googleapis.com/Project`
+        /// See [Cloud Asset Inventory Supported Asset
+        /// Types](<https://cloud.google.com/asset-inventory/docs/supported-asset-types>)
+        /// for all supported asset types.
+        #[prost(string, tag = "8")]
+        pub asset_type: ::prost::alloc::string::String,
     }
     /// Represents a Google Cloud asset(resource or IAM policy) governed by the
     /// organization policies of the
@@ -4758,18 +4824,49 @@ pub mod asset_service_client {
         }
         /// Analyzes organization policies governed assets (Google Cloud resources or
         /// policies) under a scope. This RPC supports custom constraints and the
-        /// following 10 canned constraints:
+        /// following canned constraints:
         ///
-        /// * storage.uniformBucketLevelAccess
-        /// * iam.disableServiceAccountKeyCreation
-        /// * iam.allowedPolicyMemberDomains
-        /// * compute.vmExternalIpAccess
-        /// * appengine.enforceServiceAccountActAsCheck
-        /// * gcp.resourceLocations
-        /// * compute.trustedImageProjects
-        /// * compute.skipDefaultNetworkCreation
-        /// * compute.requireOsLogin
-        /// * compute.disableNestedVirtualization
+        /// * constraints/ainotebooks.accessMode
+        /// * constraints/ainotebooks.disableFileDownloads
+        /// * constraints/ainotebooks.disableRootAccess
+        /// * constraints/ainotebooks.disableTerminal
+        /// * constraints/ainotebooks.environmentOptions
+        /// * constraints/ainotebooks.requireAutoUpgradeSchedule
+        /// * constraints/ainotebooks.restrictVpcNetworks
+        /// * constraints/compute.disableGuestAttributesAccess
+        /// * constraints/compute.disableInstanceDataAccessApis
+        /// * constraints/compute.disableNestedVirtualization
+        /// * constraints/compute.disableSerialPortAccess
+        /// * constraints/compute.disableSerialPortLogging
+        /// * constraints/compute.disableVpcExternalIpv6
+        /// * constraints/compute.requireOsLogin
+        /// * constraints/compute.requireShieldedVm
+        /// * constraints/compute.restrictLoadBalancerCreationForTypes
+        /// * constraints/compute.restrictProtocolForwardingCreationForTypes
+        /// * constraints/compute.restrictXpnProjectLienRemoval
+        /// * constraints/compute.setNewProjectDefaultToZonalDNSOnly
+        /// * constraints/compute.skipDefaultNetworkCreation
+        /// * constraints/compute.trustedImageProjects
+        /// * constraints/compute.vmCanIpForward
+        /// * constraints/compute.vmExternalIpAccess
+        /// * constraints/gcp.detailedAuditLoggingMode
+        /// * constraints/gcp.resourceLocations
+        /// * constraints/iam.allowedPolicyMemberDomains
+        /// * constraints/iam.automaticIamGrantsForDefaultServiceAccounts
+        /// * constraints/iam.disableServiceAccountCreation
+        /// * constraints/iam.disableServiceAccountKeyCreation
+        /// * constraints/iam.disableServiceAccountKeyUpload
+        /// * constraints/iam.restrictCrossProjectServiceAccountLienRemoval
+        /// * constraints/iam.serviceAccountKeyExpiryHours
+        /// * constraints/resourcemanager.accessBoundaries
+        /// * constraints/resourcemanager.allowedExportDestinations
+        /// * constraints/sql.restrictAuthorizedNetworks
+        /// * constraints/sql.restrictNoncompliantDiagnosticDataAccess
+        /// * constraints/sql.restrictNoncompliantResourceCreation
+        /// * constraints/sql.restrictPublicIp
+        /// * constraints/storage.publicAccessPrevention
+        /// * constraints/storage.restrictAuthTypes
+        /// * constraints/storage.uniformBucketLevelAccess
         ///
         /// This RPC only returns either resources of types [supported by search
         /// APIs](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
