@@ -1,3 +1,15 @@
+/// Sink Settings for Security Command Center
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SinkSettings {
+    /// The resource name of the project to send logs to. This project must be
+    /// part of the same organization where the Security Center API is
+    /// enabled. The format is `projects/{project}`. If it is empty, we do
+    /// not output logs. If a project ID is provided it will be normalized to a
+    /// project number.
+    #[prost(string, tag = "1")]
+    pub logging_sink_project: ::prost::alloc::string::String,
+}
 /// Billing settings
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -88,18 +100,6 @@ impl BillingType {
             _ => None,
         }
     }
-}
-/// Sink Settings for Security Command Center
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SinkSettings {
-    /// The resource name of the project to send logs to. This project must be
-    /// part of the same organization where the Security Center API is
-    /// enabled. The format is `projects/{project}`. If it is empty, we do
-    /// not output logs. If a project ID is provided it will be normalized to a
-    /// project number.
-    #[prost(string, tag = "1")]
-    pub logging_sink_project: ::prost::alloc::string::String,
 }
 /// Component Settings for Security Command Center
 #[allow(clippy::derive_partial_eq_without_eq)]

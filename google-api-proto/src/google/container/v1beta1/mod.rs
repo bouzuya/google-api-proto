@@ -2462,6 +2462,9 @@ pub struct Cluster {
     /// GKE Enterprise Configuration.
     #[prost(message, optional, tag = "149")]
     pub enterprise_config: ::core::option::Option<EnterpriseConfig>,
+    /// Secret CSI driver configuration.
+    #[prost(message, optional, tag = "150")]
+    pub secret_manager_config: ::core::option::Option<SecretManagerConfig>,
 }
 /// Nested message and enum types in `Cluster`.
 pub mod cluster {
@@ -3091,6 +3094,12 @@ pub struct ClusterUpdate {
     /// Specify the details of in-transit encryption.
     #[prost(enumeration = "InTransitEncryptionConfig", optional, tag = "137")]
     pub desired_in_transit_encryption_config: ::core::option::Option<i32>,
+    /// Enable/Disable Cilium Clusterwide Network Policy for the cluster.
+    #[prost(bool, optional, tag = "138")]
+    pub desired_enable_cilium_clusterwide_network_policy: ::core::option::Option<bool>,
+    /// Enable/Disable Secret Manager Config.
+    #[prost(message, optional, tag = "139")]
+    pub desired_secret_manager_config: ::core::option::Option<SecretManagerConfig>,
 }
 /// AdditionalPodRangesConfig is the configuration for additional pod secondary
 /// ranges supporting the ClusterUpdate message.
@@ -6196,6 +6205,9 @@ pub struct NetworkConfig {
     /// Specify the details of in-transit encryption.
     #[prost(enumeration = "InTransitEncryptionConfig", optional, tag = "20")]
     pub in_transit_encryption_config: ::core::option::Option<i32>,
+    /// Whether CiliumClusterWideNetworkPolicy is enabled on this cluster.
+    #[prost(bool, optional, tag = "21")]
+    pub enable_cilium_clusterwide_network_policy: ::core::option::Option<bool>,
 }
 /// Nested message and enum types in `NetworkConfig`.
 pub mod network_config {
@@ -7766,6 +7778,14 @@ pub mod enterprise_config {
             }
         }
     }
+}
+/// SecretManagerConfig is config for secret manager enablement.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SecretManagerConfig {
+    /// Whether the cluster is configured to use secret manager CSI component.
+    #[prost(bool, optional, tag = "1")]
+    pub enabled: ::core::option::Option<bool>,
 }
 /// SecondaryBootDisk represents a persistent disk attached to a node
 /// with special configurations based on its mode.

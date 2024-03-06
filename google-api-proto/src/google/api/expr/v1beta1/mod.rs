@@ -1,3 +1,45 @@
+/// Source information collected at parse time.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SourceInfo {
+    /// The location name. All position information attached to an expression is
+    /// relative to this location.
+    ///
+    /// The location could be a file, UI element, or similar. For example,
+    /// `acme/app/AnvilPolicy.cel`.
+    #[prost(string, tag = "2")]
+    pub location: ::prost::alloc::string::String,
+    /// Monotonically increasing list of character offsets where newlines appear.
+    ///
+    /// The line number of a given position is the index `i` where for a given
+    /// `id` the `line_offsets\[i\] < id_positions\[id\] < line_offsets\[i+1\]`. The
+    /// column may be derivd from `id_positions\[id\] - line_offsets\[i\]`.
+    #[prost(int32, repeated, tag = "3")]
+    pub line_offsets: ::prost::alloc::vec::Vec<i32>,
+    /// A map from the parse node id (e.g. `Expr.id`) to the character offset
+    /// within source.
+    #[prost(btree_map = "int32, int32", tag = "4")]
+    pub positions: ::prost::alloc::collections::BTreeMap<i32, i32>,
+}
+/// A specific position in source.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SourcePosition {
+    /// The soucre location name (e.g. file name).
+    #[prost(string, tag = "1")]
+    pub location: ::prost::alloc::string::String,
+    /// The character offset.
+    #[prost(int32, tag = "2")]
+    pub offset: i32,
+    /// The 1-based index of the starting line in the source text
+    /// where the issue occurs, or 0 if unknown.
+    #[prost(int32, tag = "3")]
+    pub line: i32,
+    /// The 0-based index of the starting position within the line of source text
+    /// where the issue occurs.  Only meaningful if line is nonzer..
+    #[prost(int32, tag = "4")]
+    pub column: i32,
+}
 /// Represents a CEL value.
 ///
 /// This is similar to `google.protobuf.Value`, but can represent CEL's full
@@ -226,48 +268,6 @@ pub struct IdRef {
     /// The expression id.
     #[prost(int32, tag = "1")]
     pub id: i32,
-}
-/// Source information collected at parse time.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SourceInfo {
-    /// The location name. All position information attached to an expression is
-    /// relative to this location.
-    ///
-    /// The location could be a file, UI element, or similar. For example,
-    /// `acme/app/AnvilPolicy.cel`.
-    #[prost(string, tag = "2")]
-    pub location: ::prost::alloc::string::String,
-    /// Monotonically increasing list of character offsets where newlines appear.
-    ///
-    /// The line number of a given position is the index `i` where for a given
-    /// `id` the `line_offsets\[i\] < id_positions\[id\] < line_offsets\[i+1\]`. The
-    /// column may be derivd from `id_positions\[id\] - line_offsets\[i\]`.
-    #[prost(int32, repeated, tag = "3")]
-    pub line_offsets: ::prost::alloc::vec::Vec<i32>,
-    /// A map from the parse node id (e.g. `Expr.id`) to the character offset
-    /// within source.
-    #[prost(btree_map = "int32, int32", tag = "4")]
-    pub positions: ::prost::alloc::collections::BTreeMap<i32, i32>,
-}
-/// A specific position in source.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SourcePosition {
-    /// The soucre location name (e.g. file name).
-    #[prost(string, tag = "1")]
-    pub location: ::prost::alloc::string::String,
-    /// The character offset.
-    #[prost(int32, tag = "2")]
-    pub offset: i32,
-    /// The 1-based index of the starting line in the source text
-    /// where the issue occurs, or 0 if unknown.
-    #[prost(int32, tag = "3")]
-    pub line: i32,
-    /// The 0-based index of the starting position within the line of source text
-    /// where the issue occurs.  Only meaningful if line is nonzer..
-    #[prost(int32, tag = "4")]
-    pub column: i32,
 }
 /// An expression together with source information as returned by the parser.
 #[allow(clippy::derive_partial_eq_without_eq)]

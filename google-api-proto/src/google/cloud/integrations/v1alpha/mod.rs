@@ -1,3 +1,14 @@
+/// Configuration detail of coordinate, it used for UI
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Coordinate {
+    /// Required. X axis of the coordinate
+    #[prost(int32, tag = "1")]
+    pub x: i32,
+    /// Required. Y axis of the coordinate
+    #[prost(int32, tag = "2")]
+    pub y: i32,
+}
 /// The type of the parameter.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -71,47 +82,6 @@ pub struct BooleanParameterArray {
     #[prost(bool, repeated, tag = "1")]
     pub boolean_values: ::prost::alloc::vec::Vec<bool>,
 }
-/// Indicates the status of the integration.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum IntegrationState {
-    /// Default.
-    Unspecified = 0,
-    /// Draft.
-    Draft = 1,
-    /// Active.
-    Active = 2,
-    /// Archived.
-    Archived = 3,
-    /// Snapshot.
-    Snapshot = 4,
-}
-impl IntegrationState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            IntegrationState::Unspecified => "INTEGRATION_STATE_UNSPECIFIED",
-            IntegrationState::Draft => "DRAFT",
-            IntegrationState::Active => "ACTIVE",
-            IntegrationState::Archived => "ARCHIVED",
-            IntegrationState::Snapshot => "SNAPSHOT",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "INTEGRATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "DRAFT" => Some(Self::Draft),
-            "ACTIVE" => Some(Self::Active),
-            "ARCHIVED" => Some(Self::Archived),
-            "SNAPSHOT" => Some(Self::Snapshot),
-            _ => None,
-        }
-    }
-}
 /// This message is used for processing and persisting (when applicable) key
 /// value pair parameters for each event in the event bus.
 /// Next available id: 4
@@ -130,88 +100,6 @@ pub struct EventParameter {
     /// True if this parameter should be masked in the logs
     #[prost(bool, tag = "3")]
     pub masked: bool,
-}
-/// Configuration detail of coordinate, it used for UI
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Coordinate {
-    /// Required. X axis of the coordinate
-    #[prost(int32, tag = "1")]
-    pub x: i32,
-    /// Required. Y axis of the coordinate
-    #[prost(int32, tag = "2")]
-    pub y: i32,
-}
-/// Cloud Logging details for execution info
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CloudLoggingDetails {
-    /// Optional. Severity selected by the customer for the logs to be sent to
-    /// Cloud Logging, for the integration version getting executed.
-    #[prost(
-        enumeration = "cloud_logging_details::CloudLoggingSeverity",
-        optional,
-        tag = "1"
-    )]
-    pub cloud_logging_severity: ::core::option::Option<i32>,
-    /// Optional. Status of whether Cloud Logging is enabled or not for the
-    /// integration version getting executed.
-    #[prost(bool, optional, tag = "2")]
-    pub enable_cloud_logging: ::core::option::Option<bool>,
-}
-/// Nested message and enum types in `CloudLoggingDetails`.
-pub mod cloud_logging_details {
-    /// The severity will be mapped to the Integration Execution State.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum CloudLoggingSeverity {
-        /// Unspecified
-        Unspecified = 0,
-        /// If Severity selected is `INFO`, then all the Integration Execution States
-        /// (`IN_PROCESS`, `ON_HOLD`, `SUCCEEDED`, `SUSPENDED`, `ERROR`, `CANCELLED`)
-        /// will be sent to Cloud Logging.
-        Info = 2,
-        /// If Severity selected is `ERROR`, then only the following Integration
-        /// Execution States (`ERROR`, `CANCELLED`) will be sent to Cloud Logging.
-        Error = 3,
-        /// If Severity selected is `WARNING`, then only the following Integration
-        /// Execution States (`ERROR`, `CANCELLED`) will be sent to Cloud Logging.
-        Warning = 4,
-    }
-    impl CloudLoggingSeverity {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                CloudLoggingSeverity::Unspecified => "CLOUD_LOGGING_SEVERITY_UNSPECIFIED",
-                CloudLoggingSeverity::Info => "INFO",
-                CloudLoggingSeverity::Error => "ERROR",
-                CloudLoggingSeverity::Warning => "WARNING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CLOUD_LOGGING_SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
-                "INFO" => Some(Self::Info),
-                "ERROR" => Some(Self::Error),
-                "WARNING" => Some(Self::Warning),
-                _ => None,
-            }
-        }
-    }
 }
 /// Options for how to validate json schemas.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -676,6 +564,118 @@ pub struct NextTask {
     /// about the task.
     #[prost(string, tag = "5")]
     pub description: ::prost::alloc::string::String,
+}
+/// Cloud Logging details for execution info
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudLoggingDetails {
+    /// Optional. Severity selected by the customer for the logs to be sent to
+    /// Cloud Logging, for the integration version getting executed.
+    #[prost(
+        enumeration = "cloud_logging_details::CloudLoggingSeverity",
+        optional,
+        tag = "1"
+    )]
+    pub cloud_logging_severity: ::core::option::Option<i32>,
+    /// Optional. Status of whether Cloud Logging is enabled or not for the
+    /// integration version getting executed.
+    #[prost(bool, optional, tag = "2")]
+    pub enable_cloud_logging: ::core::option::Option<bool>,
+}
+/// Nested message and enum types in `CloudLoggingDetails`.
+pub mod cloud_logging_details {
+    /// The severity will be mapped to the Integration Execution State.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum CloudLoggingSeverity {
+        /// Unspecified
+        Unspecified = 0,
+        /// If Severity selected is `INFO`, then all the Integration Execution States
+        /// (`IN_PROCESS`, `ON_HOLD`, `SUCCEEDED`, `SUSPENDED`, `ERROR`, `CANCELLED`)
+        /// will be sent to Cloud Logging.
+        Info = 2,
+        /// If Severity selected is `ERROR`, then only the following Integration
+        /// Execution States (`ERROR`, `CANCELLED`) will be sent to Cloud Logging.
+        Error = 3,
+        /// If Severity selected is `WARNING`, then only the following Integration
+        /// Execution States (`ERROR`, `CANCELLED`) will be sent to Cloud Logging.
+        Warning = 4,
+    }
+    impl CloudLoggingSeverity {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                CloudLoggingSeverity::Unspecified => "CLOUD_LOGGING_SEVERITY_UNSPECIFIED",
+                CloudLoggingSeverity::Info => "INFO",
+                CloudLoggingSeverity::Error => "ERROR",
+                CloudLoggingSeverity::Warning => "WARNING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CLOUD_LOGGING_SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "INFO" => Some(Self::Info),
+                "ERROR" => Some(Self::Error),
+                "WARNING" => Some(Self::Warning),
+                _ => None,
+            }
+        }
+    }
+}
+/// Indicates the status of the integration.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum IntegrationState {
+    /// Default.
+    Unspecified = 0,
+    /// Draft.
+    Draft = 1,
+    /// Active.
+    Active = 2,
+    /// Archived.
+    Archived = 3,
+    /// Snapshot.
+    Snapshot = 4,
+}
+impl IntegrationState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            IntegrationState::Unspecified => "INTEGRATION_STATE_UNSPECIFIED",
+            IntegrationState::Draft => "DRAFT",
+            IntegrationState::Active => "ACTIVE",
+            IntegrationState::Archived => "ARCHIVED",
+            IntegrationState::Snapshot => "SNAPSHOT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "INTEGRATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "DRAFT" => Some(Self::Draft),
+            "ACTIVE" => Some(Self::Active),
+            "ARCHIVED" => Some(Self::Archived),
+            "SNAPSHOT" => Some(Self::Snapshot),
+            _ => None,
+        }
+    }
 }
 /// Log entry to log execution info for the monitored resource
 /// `integrations.googleapis.com/IntegrationVersion`.

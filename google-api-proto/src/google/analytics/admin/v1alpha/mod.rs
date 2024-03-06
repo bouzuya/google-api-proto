@@ -1,227 +1,3 @@
-/// A specific filter expression
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SubpropertyEventFilterCondition {
-    /// Required. The field that is being filtered.
-    #[prost(string, tag = "1")]
-    pub field_name: ::prost::alloc::string::String,
-    #[prost(oneof = "subproperty_event_filter_condition::OneFilter", tags = "2, 3")]
-    pub one_filter: ::core::option::Option<
-        subproperty_event_filter_condition::OneFilter,
-    >,
-}
-/// Nested message and enum types in `SubpropertyEventFilterCondition`.
-pub mod subproperty_event_filter_condition {
-    /// A filter for a string-type dimension that matches a particular pattern.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StringFilter {
-        /// Required. The match type for the string filter.
-        #[prost(enumeration = "string_filter::MatchType", tag = "1")]
-        pub match_type: i32,
-        /// Required. The string value used for the matching.
-        #[prost(string, tag = "2")]
-        pub value: ::prost::alloc::string::String,
-        /// Optional. If true, the string value is case sensitive. If false, the
-        /// match is case-insensitive.
-        #[prost(bool, tag = "3")]
-        pub case_sensitive: bool,
-    }
-    /// Nested message and enum types in `StringFilter`.
-    pub mod string_filter {
-        /// How the filter will be used to determine a match.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum MatchType {
-            /// Match type unknown or not specified.
-            Unspecified = 0,
-            /// Exact match of the string value.
-            Exact = 1,
-            /// Begins with the string value.
-            BeginsWith = 2,
-            /// Ends with the string value.
-            EndsWith = 3,
-            /// Contains the string value.
-            Contains = 4,
-            /// Full regular expression matches with the string value.
-            FullRegexp = 5,
-            /// Partial regular expression matches with the string value.
-            PartialRegexp = 6,
-        }
-        impl MatchType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
-                    MatchType::Exact => "EXACT",
-                    MatchType::BeginsWith => "BEGINS_WITH",
-                    MatchType::EndsWith => "ENDS_WITH",
-                    MatchType::Contains => "CONTAINS",
-                    MatchType::FullRegexp => "FULL_REGEXP",
-                    MatchType::PartialRegexp => "PARTIAL_REGEXP",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "EXACT" => Some(Self::Exact),
-                    "BEGINS_WITH" => Some(Self::BeginsWith),
-                    "ENDS_WITH" => Some(Self::EndsWith),
-                    "CONTAINS" => Some(Self::Contains),
-                    "FULL_REGEXP" => Some(Self::FullRegexp),
-                    "PARTIAL_REGEXP" => Some(Self::PartialRegexp),
-                    _ => None,
-                }
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum OneFilter {
-        /// A filter for null values.
-        #[prost(bool, tag = "2")]
-        NullFilter(bool),
-        /// A filter for a string-type dimension that matches a particular pattern.
-        #[prost(message, tag = "3")]
-        StringFilter(StringFilter),
-    }
-}
-/// A logical expression of Subproperty event filters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SubpropertyEventFilterExpression {
-    /// The expression applied to a filter.
-    #[prost(oneof = "subproperty_event_filter_expression::Expr", tags = "1, 2, 3")]
-    pub expr: ::core::option::Option<subproperty_event_filter_expression::Expr>,
-}
-/// Nested message and enum types in `SubpropertyEventFilterExpression`.
-pub mod subproperty_event_filter_expression {
-    /// The expression applied to a filter.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Expr {
-        /// A list of expressions to OR’ed together. Must only contain
-        /// not_expression or filter_condition expressions.
-        #[prost(message, tag = "1")]
-        OrGroup(super::SubpropertyEventFilterExpressionList),
-        /// A filter expression to be NOT'ed (inverted, complemented). It can only
-        /// include a filter. This cannot be set on the top level
-        /// SubpropertyEventFilterExpression.
-        #[prost(message, tag = "2")]
-        NotExpression(
-            ::prost::alloc::boxed::Box<super::SubpropertyEventFilterExpression>,
-        ),
-        /// Creates a filter that matches a specific event. This cannot be set on the
-        /// top level SubpropertyEventFilterExpression.
-        #[prost(message, tag = "3")]
-        FilterCondition(super::SubpropertyEventFilterCondition),
-    }
-}
-/// A list of Subproperty event filter expressions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SubpropertyEventFilterExpressionList {
-    /// Required. Unordered list. A list of Subproperty event filter expressions
-    #[prost(message, repeated, tag = "1")]
-    pub filter_expressions: ::prost::alloc::vec::Vec<SubpropertyEventFilterExpression>,
-}
-/// A clause for defining a filter. A filter may be inclusive (events satisfying
-/// the filter clause are included in the subproperty's data) or exclusive
-/// (events satisfying the filter clause are excluded from the subproperty's
-/// data).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SubpropertyEventFilterClause {
-    /// Required. The type for the filter clause.
-    #[prost(
-        enumeration = "subproperty_event_filter_clause::FilterClauseType",
-        tag = "1"
-    )]
-    pub filter_clause_type: i32,
-    /// Required. The logical expression for what events are sent to the
-    /// subproperty.
-    #[prost(message, optional, tag = "2")]
-    pub filter_expression: ::core::option::Option<SubpropertyEventFilterExpression>,
-}
-/// Nested message and enum types in `SubpropertyEventFilterClause`.
-pub mod subproperty_event_filter_clause {
-    /// Specifies whether this is an include or exclude filter clause.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum FilterClauseType {
-        /// Filter clause type unknown or not specified.
-        Unspecified = 0,
-        /// Events will be included in the Sub property if the filter clause is met.
-        Include = 1,
-        /// Events will be excluded from the Sub property if the filter clause is
-        /// met.
-        Exclude = 2,
-    }
-    impl FilterClauseType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                FilterClauseType::Unspecified => "FILTER_CLAUSE_TYPE_UNSPECIFIED",
-                FilterClauseType::Include => "INCLUDE",
-                FilterClauseType::Exclude => "EXCLUDE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "FILTER_CLAUSE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "INCLUDE" => Some(Self::Include),
-                "EXCLUDE" => Some(Self::Exclude),
-                _ => None,
-            }
-        }
-    }
-}
-/// A resource message representing a GA4 Subproperty event filter.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SubpropertyEventFilter {
-    /// Output only. Format:
-    /// properties/{ordinary_property_id}/subpropertyEventFilters/{sub_property_event_filter}
-    /// Example: properties/1234/subpropertyEventFilters/5678
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Immutable. Resource name of the Subproperty that uses this filter.
-    #[prost(string, optional, tag = "2")]
-    pub apply_to_property: ::core::option::Option<::prost::alloc::string::String>,
-    /// Required. Unordered list. Filter clauses that define the
-    /// SubpropertyEventFilter. All clauses are AND'ed together to determine what
-    /// data is sent to the subproperty.
-    #[prost(message, repeated, tag = "3")]
-    pub filter_clauses: ::prost::alloc::vec::Vec<SubpropertyEventFilterClause>,
-}
 /// Dimensions are attributes of your data. For example, the dimension
 /// `userEmail` indicates the email of the user that accessed reporting data.
 /// Dimension values in report responses are strings.
@@ -721,6 +497,230 @@ pub struct AccessQuotaStatus {
     /// Quota remaining after this request.
     #[prost(int32, tag = "2")]
     pub remaining: i32,
+}
+/// A specific filter expression
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SubpropertyEventFilterCondition {
+    /// Required. The field that is being filtered.
+    #[prost(string, tag = "1")]
+    pub field_name: ::prost::alloc::string::String,
+    #[prost(oneof = "subproperty_event_filter_condition::OneFilter", tags = "2, 3")]
+    pub one_filter: ::core::option::Option<
+        subproperty_event_filter_condition::OneFilter,
+    >,
+}
+/// Nested message and enum types in `SubpropertyEventFilterCondition`.
+pub mod subproperty_event_filter_condition {
+    /// A filter for a string-type dimension that matches a particular pattern.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StringFilter {
+        /// Required. The match type for the string filter.
+        #[prost(enumeration = "string_filter::MatchType", tag = "1")]
+        pub match_type: i32,
+        /// Required. The string value used for the matching.
+        #[prost(string, tag = "2")]
+        pub value: ::prost::alloc::string::String,
+        /// Optional. If true, the string value is case sensitive. If false, the
+        /// match is case-insensitive.
+        #[prost(bool, tag = "3")]
+        pub case_sensitive: bool,
+    }
+    /// Nested message and enum types in `StringFilter`.
+    pub mod string_filter {
+        /// How the filter will be used to determine a match.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum MatchType {
+            /// Match type unknown or not specified.
+            Unspecified = 0,
+            /// Exact match of the string value.
+            Exact = 1,
+            /// Begins with the string value.
+            BeginsWith = 2,
+            /// Ends with the string value.
+            EndsWith = 3,
+            /// Contains the string value.
+            Contains = 4,
+            /// Full regular expression matches with the string value.
+            FullRegexp = 5,
+            /// Partial regular expression matches with the string value.
+            PartialRegexp = 6,
+        }
+        impl MatchType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    MatchType::Unspecified => "MATCH_TYPE_UNSPECIFIED",
+                    MatchType::Exact => "EXACT",
+                    MatchType::BeginsWith => "BEGINS_WITH",
+                    MatchType::EndsWith => "ENDS_WITH",
+                    MatchType::Contains => "CONTAINS",
+                    MatchType::FullRegexp => "FULL_REGEXP",
+                    MatchType::PartialRegexp => "PARTIAL_REGEXP",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "MATCH_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "EXACT" => Some(Self::Exact),
+                    "BEGINS_WITH" => Some(Self::BeginsWith),
+                    "ENDS_WITH" => Some(Self::EndsWith),
+                    "CONTAINS" => Some(Self::Contains),
+                    "FULL_REGEXP" => Some(Self::FullRegexp),
+                    "PARTIAL_REGEXP" => Some(Self::PartialRegexp),
+                    _ => None,
+                }
+            }
+        }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum OneFilter {
+        /// A filter for null values.
+        #[prost(bool, tag = "2")]
+        NullFilter(bool),
+        /// A filter for a string-type dimension that matches a particular pattern.
+        #[prost(message, tag = "3")]
+        StringFilter(StringFilter),
+    }
+}
+/// A logical expression of Subproperty event filters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SubpropertyEventFilterExpression {
+    /// The expression applied to a filter.
+    #[prost(oneof = "subproperty_event_filter_expression::Expr", tags = "1, 2, 3")]
+    pub expr: ::core::option::Option<subproperty_event_filter_expression::Expr>,
+}
+/// Nested message and enum types in `SubpropertyEventFilterExpression`.
+pub mod subproperty_event_filter_expression {
+    /// The expression applied to a filter.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Expr {
+        /// A list of expressions to OR’ed together. Must only contain
+        /// not_expression or filter_condition expressions.
+        #[prost(message, tag = "1")]
+        OrGroup(super::SubpropertyEventFilterExpressionList),
+        /// A filter expression to be NOT'ed (inverted, complemented). It can only
+        /// include a filter. This cannot be set on the top level
+        /// SubpropertyEventFilterExpression.
+        #[prost(message, tag = "2")]
+        NotExpression(
+            ::prost::alloc::boxed::Box<super::SubpropertyEventFilterExpression>,
+        ),
+        /// Creates a filter that matches a specific event. This cannot be set on the
+        /// top level SubpropertyEventFilterExpression.
+        #[prost(message, tag = "3")]
+        FilterCondition(super::SubpropertyEventFilterCondition),
+    }
+}
+/// A list of Subproperty event filter expressions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SubpropertyEventFilterExpressionList {
+    /// Required. Unordered list. A list of Subproperty event filter expressions
+    #[prost(message, repeated, tag = "1")]
+    pub filter_expressions: ::prost::alloc::vec::Vec<SubpropertyEventFilterExpression>,
+}
+/// A clause for defining a filter. A filter may be inclusive (events satisfying
+/// the filter clause are included in the subproperty's data) or exclusive
+/// (events satisfying the filter clause are excluded from the subproperty's
+/// data).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SubpropertyEventFilterClause {
+    /// Required. The type for the filter clause.
+    #[prost(
+        enumeration = "subproperty_event_filter_clause::FilterClauseType",
+        tag = "1"
+    )]
+    pub filter_clause_type: i32,
+    /// Required. The logical expression for what events are sent to the
+    /// subproperty.
+    #[prost(message, optional, tag = "2")]
+    pub filter_expression: ::core::option::Option<SubpropertyEventFilterExpression>,
+}
+/// Nested message and enum types in `SubpropertyEventFilterClause`.
+pub mod subproperty_event_filter_clause {
+    /// Specifies whether this is an include or exclude filter clause.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum FilterClauseType {
+        /// Filter clause type unknown or not specified.
+        Unspecified = 0,
+        /// Events will be included in the Sub property if the filter clause is met.
+        Include = 1,
+        /// Events will be excluded from the Sub property if the filter clause is
+        /// met.
+        Exclude = 2,
+    }
+    impl FilterClauseType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                FilterClauseType::Unspecified => "FILTER_CLAUSE_TYPE_UNSPECIFIED",
+                FilterClauseType::Include => "INCLUDE",
+                FilterClauseType::Exclude => "EXCLUDE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "FILTER_CLAUSE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INCLUDE" => Some(Self::Include),
+                "EXCLUDE" => Some(Self::Exclude),
+                _ => None,
+            }
+        }
+    }
+}
+/// A resource message representing a GA4 Subproperty event filter.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SubpropertyEventFilter {
+    /// Output only. Format:
+    /// properties/{ordinary_property_id}/subpropertyEventFilters/{sub_property_event_filter}
+    /// Example: properties/1234/subpropertyEventFilters/5678
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Immutable. Resource name of the Subproperty that uses this filter.
+    #[prost(string, optional, tag = "2")]
+    pub apply_to_property: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Unordered list. Filter clauses that define the
+    /// SubpropertyEventFilter. All clauses are AND'ed together to determine what
+    /// data is sent to the subproperty.
+    #[prost(message, repeated, tag = "3")]
+    pub filter_clauses: ::prost::alloc::vec::Vec<SubpropertyEventFilterClause>,
 }
 /// A specific filter for a single dimension or metric.
 #[allow(clippy::derive_partial_eq_without_eq)]
