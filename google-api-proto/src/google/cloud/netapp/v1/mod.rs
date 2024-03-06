@@ -1,182 +1,3 @@
-/// ListSnapshotsRequest lists snapshots.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnapshotsRequest {
-    /// Required. The volume for which to retrieve snapshot information,
-    /// in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnapshotsResponse {
-    /// A list of snapshots in the project for the specified volume.
-    #[prost(message, repeated, tag = "1")]
-    pub snapshots: ::prost::alloc::vec::Vec<Snapshot>,
-    /// The token you can use to retrieve the next page of results. Not returned
-    /// if there are no more results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetSnapshotRequest gets the state of a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetSnapshotRequest {
-    /// Required. The snapshot resource name, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateSnapshotRequest creates a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateSnapshotRequest {
-    /// Required. The NetApp volume to create the snapshots of, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. A snapshot resource
-    #[prost(message, optional, tag = "2")]
-    pub snapshot: ::core::option::Option<Snapshot>,
-    /// Required. ID of the snapshot to create.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    #[prost(string, tag = "3")]
-    pub snapshot_id: ::prost::alloc::string::String,
-}
-/// DeleteSnapshotRequest deletes a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteSnapshotRequest {
-    /// Required. The snapshot resource name, in the format
-    /// `projects/*/locations/*/volumes/*/snapshots/{snapshot_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateSnapshotRequest {
-    /// Required. Mask of fields to update.  At least one path must be supplied in
-    /// this field.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. A snapshot resource
-    #[prost(message, optional, tag = "2")]
-    pub snapshot: ::core::option::Option<Snapshot>,
-}
-/// Snapshot is a point-in-time version of a Volume's content.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Snapshot {
-    /// Identifier. The resource name of the snapshot.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The snapshot state.
-    #[prost(enumeration = "snapshot::State", tag = "2")]
-    pub state: i32,
-    /// Output only. State details of the storage pool
-    #[prost(string, tag = "3")]
-    pub state_details: ::prost::alloc::string::String,
-    /// A description of the snapshot with 2048 characters or less.
-    /// Requests with longer descriptions will be rejected.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Current storage usage for the snapshot in bytes.
-    #[prost(double, tag = "5")]
-    pub used_bytes: f64,
-    /// Output only. The time when the snapshot was created.
-    #[prost(message, optional, tag = "6")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Resource labels to represent user provided metadata.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Nested message and enum types in `Snapshot`.
-pub mod snapshot {
-    /// The Snapshot States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Snapshot State
-        Unspecified = 0,
-        /// Snapshot State is Ready
-        Ready = 1,
-        /// Snapshot State is Creating
-        Creating = 2,
-        /// Snapshot State is Deleting
-        Deleting = 3,
-        /// Snapshot State is Updating
-        Updating = 4,
-        /// Snapshot State is Disabled
-        Disabled = 5,
-        /// Snapshot State is Error
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-                State::Disabled => "DISABLED",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                "DISABLED" => Some(Self::Disabled),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
 /// ListActiveDirectoriesRequest for requesting multiple active directories.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1698,6 +1519,185 @@ pub struct ReverseReplicationDirectionRequest {
     /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// ListSnapshotsRequest lists snapshots.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSnapshotsRequest {
+    /// Required. The volume for which to retrieve snapshot information,
+    /// in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSnapshotsResponse {
+    /// A list of snapshots in the project for the specified volume.
+    #[prost(message, repeated, tag = "1")]
+    pub snapshots: ::prost::alloc::vec::Vec<Snapshot>,
+    /// The token you can use to retrieve the next page of results. Not returned
+    /// if there are no more results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetSnapshotRequest gets the state of a snapshot.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSnapshotRequest {
+    /// Required. The snapshot resource name, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateSnapshotRequest creates a snapshot.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateSnapshotRequest {
+    /// Required. The NetApp volume to create the snapshots of, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. A snapshot resource
+    #[prost(message, optional, tag = "2")]
+    pub snapshot: ::core::option::Option<Snapshot>,
+    /// Required. ID of the snapshot to create.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    #[prost(string, tag = "3")]
+    pub snapshot_id: ::prost::alloc::string::String,
+}
+/// DeleteSnapshotRequest deletes a snapshot.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteSnapshotRequest {
+    /// Required. The snapshot resource name, in the format
+    /// `projects/*/locations/*/volumes/*/snapshots/{snapshot_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSnapshotRequest {
+    /// Required. Mask of fields to update.  At least one path must be supplied in
+    /// this field.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. A snapshot resource
+    #[prost(message, optional, tag = "2")]
+    pub snapshot: ::core::option::Option<Snapshot>,
+}
+/// Snapshot is a point-in-time version of a Volume's content.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Snapshot {
+    /// Identifier. The resource name of the snapshot.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The snapshot state.
+    #[prost(enumeration = "snapshot::State", tag = "2")]
+    pub state: i32,
+    /// Output only. State details of the storage pool
+    #[prost(string, tag = "3")]
+    pub state_details: ::prost::alloc::string::String,
+    /// A description of the snapshot with 2048 characters or less.
+    /// Requests with longer descriptions will be rejected.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Current storage usage for the snapshot in bytes.
+    #[prost(double, tag = "5")]
+    pub used_bytes: f64,
+    /// Output only. The time when the snapshot was created.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Resource labels to represent user provided metadata.
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Nested message and enum types in `Snapshot`.
+pub mod snapshot {
+    /// The Snapshot States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Snapshot State
+        Unspecified = 0,
+        /// Snapshot State is Ready
+        Ready = 1,
+        /// Snapshot State is Creating
+        Creating = 2,
+        /// Snapshot State is Deleting
+        Deleting = 3,
+        /// Snapshot State is Updating
+        Updating = 4,
+        /// Snapshot State is Disabled
+        Disabled = 5,
+        /// Snapshot State is Error
+        Error = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+                State::Disabled => "DISABLED",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                "DISABLED" => Some(Self::Disabled),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
 }
 /// The service levels - Storage Pool, Volumes
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]

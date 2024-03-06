@@ -708,6 +708,128 @@ pub mod restore_config {
         ExcludedNamespaces(super::Namespaces),
     }
 }
+/// The configuration of a potential series of Restore operations to be performed
+/// against Backups belong to a particular BackupPlan.
+/// Next id: 13
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RestorePlan {
+    /// Output only. The full name of the RestorePlan resource.
+    /// Format: `projects/*/locations/*/restorePlans/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Server generated global unique identifier of
+    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The timestamp when this RestorePlan resource was
+    /// created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when this RestorePlan resource was last
+    /// updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// User specified descriptive string for this RestorePlan.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. Immutable. A reference to the
+    /// [BackupPlan][google.cloud.gkebackup.v1.BackupPlan] from which Backups may
+    /// be used as the source for Restores created via this RestorePlan. Format:
+    /// `projects/*/locations/*/backupPlans/*`.
+    #[prost(string, tag = "6")]
+    pub backup_plan: ::prost::alloc::string::String,
+    /// Required. Immutable. The target cluster into which Restores created via
+    /// this RestorePlan will restore data. NOTE: the cluster's region must be the
+    /// same as the RestorePlan. Valid formats:
+    ///
+    ///    - `projects/*/locations/*/clusters/*`
+    ///    - `projects/*/zones/*/clusters/*`
+    #[prost(string, tag = "7")]
+    pub cluster: ::prost::alloc::string::String,
+    /// Required. Configuration of Restores created via this RestorePlan.
+    #[prost(message, optional, tag = "8")]
+    pub restore_config: ::core::option::Option<RestoreConfig>,
+    /// A set of custom labels supplied by user.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. `etag` is used for optimistic concurrency control as a way to
+    /// help prevent simultaneous updates of a restore from overwriting each other.
+    /// It is strongly suggested that systems make use of the `etag` in the
+    /// read-modify-write cycle to perform restore updates in order to avoid
+    /// race conditions: An `etag` is returned in the response to `GetRestorePlan`,
+    /// and systems are expected to put that etag in the request to
+    /// `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change
+    /// will be applied to the same version of the resource.
+    #[prost(string, tag = "10")]
+    pub etag: ::prost::alloc::string::String,
+    /// Output only. State of the RestorePlan. This State field reflects the
+    /// various stages a RestorePlan can be in
+    /// during the Create operation.
+    #[prost(enumeration = "restore_plan::State", tag = "11")]
+    pub state: i32,
+    /// Output only. Human-readable description of why RestorePlan is in the
+    /// current `state`
+    #[prost(string, tag = "12")]
+    pub state_reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `RestorePlan`.
+pub mod restore_plan {
+    /// State
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Default first value for Enums.
+        Unspecified = 0,
+        /// Waiting for cluster state to be RUNNING.
+        ClusterPending = 1,
+        /// The RestorePlan has successfully been created and is ready for Restores.
+        Ready = 2,
+        /// RestorePlan creation has failed.
+        Failed = 3,
+        /// The RestorePlan is in the process of being deleted.
+        Deleting = 4,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::ClusterPending => "CLUSTER_PENDING",
+                State::Ready => "READY",
+                State::Failed => "FAILED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CLUSTER_PENDING" => Some(Self::ClusterPending),
+                "READY" => Some(Self::Ready),
+                "FAILED" => Some(Self::Failed),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
+        }
+    }
+}
 /// Represents a request to perform a single point-in-time capture of
 /// some portion of the state of a GKE cluster, the record of the backup
 /// operation itself, and an anchor for the underlying artifacts that
@@ -1218,128 +1340,6 @@ pub mod backup_plan {
                 "READY" => Some(Self::Ready),
                 "FAILED" => Some(Self::Failed),
                 "DEACTIVATED" => Some(Self::Deactivated),
-                "DELETING" => Some(Self::Deleting),
-                _ => None,
-            }
-        }
-    }
-}
-/// The configuration of a potential series of Restore operations to be performed
-/// against Backups belong to a particular BackupPlan.
-/// Next id: 13
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RestorePlan {
-    /// Output only. The full name of the RestorePlan resource.
-    /// Format: `projects/*/locations/*/restorePlans/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Server generated global unique identifier of
-    /// [UUID](<https://en.wikipedia.org/wiki/Universally_unique_identifier>) format.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The timestamp when this RestorePlan resource was
-    /// created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when this RestorePlan resource was last
-    /// updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// User specified descriptive string for this RestorePlan.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Required. Immutable. A reference to the
-    /// [BackupPlan][google.cloud.gkebackup.v1.BackupPlan] from which Backups may
-    /// be used as the source for Restores created via this RestorePlan. Format:
-    /// `projects/*/locations/*/backupPlans/*`.
-    #[prost(string, tag = "6")]
-    pub backup_plan: ::prost::alloc::string::String,
-    /// Required. Immutable. The target cluster into which Restores created via
-    /// this RestorePlan will restore data. NOTE: the cluster's region must be the
-    /// same as the RestorePlan. Valid formats:
-    ///
-    ///    - `projects/*/locations/*/clusters/*`
-    ///    - `projects/*/zones/*/clusters/*`
-    #[prost(string, tag = "7")]
-    pub cluster: ::prost::alloc::string::String,
-    /// Required. Configuration of Restores created via this RestorePlan.
-    #[prost(message, optional, tag = "8")]
-    pub restore_config: ::core::option::Option<RestoreConfig>,
-    /// A set of custom labels supplied by user.
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. `etag` is used for optimistic concurrency control as a way to
-    /// help prevent simultaneous updates of a restore from overwriting each other.
-    /// It is strongly suggested that systems make use of the `etag` in the
-    /// read-modify-write cycle to perform restore updates in order to avoid
-    /// race conditions: An `etag` is returned in the response to `GetRestorePlan`,
-    /// and systems are expected to put that etag in the request to
-    /// `UpdateRestorePlan` or `DeleteRestorePlan` to ensure that their change
-    /// will be applied to the same version of the resource.
-    #[prost(string, tag = "10")]
-    pub etag: ::prost::alloc::string::String,
-    /// Output only. State of the RestorePlan. This State field reflects the
-    /// various stages a RestorePlan can be in
-    /// during the Create operation.
-    #[prost(enumeration = "restore_plan::State", tag = "11")]
-    pub state: i32,
-    /// Output only. Human-readable description of why RestorePlan is in the
-    /// current `state`
-    #[prost(string, tag = "12")]
-    pub state_reason: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `RestorePlan`.
-pub mod restore_plan {
-    /// State
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Default first value for Enums.
-        Unspecified = 0,
-        /// Waiting for cluster state to be RUNNING.
-        ClusterPending = 1,
-        /// The RestorePlan has successfully been created and is ready for Restores.
-        Ready = 2,
-        /// RestorePlan creation has failed.
-        Failed = 3,
-        /// The RestorePlan is in the process of being deleted.
-        Deleting = 4,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::ClusterPending => "CLUSTER_PENDING",
-                State::Ready => "READY",
-                State::Failed => "FAILED",
-                State::Deleting => "DELETING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CLUSTER_PENDING" => Some(Self::ClusterPending),
-                "READY" => Some(Self::Ready),
-                "FAILED" => Some(Self::Failed),
                 "DELETING" => Some(Self::Deleting),
                 _ => None,
             }

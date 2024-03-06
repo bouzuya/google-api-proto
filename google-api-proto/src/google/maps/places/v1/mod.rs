@@ -1,3 +1,42 @@
+/// Information about the author of the UGC data. Used in
+/// [Photo][google.maps.places.v1.Photo], and
+/// [Review][google.maps.places.v1.Review].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthorAttribution {
+    /// Name of the author of the [Photo][google.maps.places.v1.Photo] or
+    /// [Review][google.maps.places.v1.Review].
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// URI of the author of the [Photo][google.maps.places.v1.Photo] or
+    /// [Review][google.maps.places.v1.Review].
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Profile photo URI of the author of the
+    /// [Photo][google.maps.places.v1.Photo] or
+    /// [Review][google.maps.places.v1.Review].
+    #[prost(string, tag = "3")]
+    pub photo_uri: ::prost::alloc::string::String,
+}
+/// Information about a photo of a place.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Photo {
+    /// Identifier. A reference representing this place photo which may be used to
+    /// look up this place photo again (also called the API "resource" name:
+    /// `places/{place_id}/photos/{photo}`).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The maximum available width, in pixels.
+    #[prost(int32, tag = "2")]
+    pub width_px: i32,
+    /// The maximum available height, in pixels.
+    #[prost(int32, tag = "3")]
+    pub height_px: i32,
+    /// This photo's authors.
+    #[prost(message, repeated, tag = "4")]
+    pub author_attributions: ::prost::alloc::vec::Vec<AuthorAttribution>,
+}
 /// Information about the EV Charge Station hosted in Place.
 /// Terminology follows
 /// <https://afdc.energy.gov/fuels/electricity_infrastructure.html> One port
@@ -123,21 +162,6 @@ impl EvConnectorType {
             _ => None,
         }
     }
-}
-/// Circle with a LatLng as center and radius.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Circle {
-    /// Required. Center latitude and longitude.
-    ///
-    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
-    /// longitude must be within \[-180.0, 180.0\].
-    #[prost(message, optional, tag = "1")]
-    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
-    /// Required. Radius measured in meters. The radius must be within [0.0,
-    /// 50000.0].
-    #[prost(double, tag = "2")]
-    pub radius: f64,
 }
 /// The most recent information about fuel options in a gas station. This
 /// information is updated regularly.
@@ -275,45 +299,6 @@ pub mod fuel_options {
             }
         }
     }
-}
-/// Information about the author of the UGC data. Used in
-/// [Photo][google.maps.places.v1.Photo], and
-/// [Review][google.maps.places.v1.Review].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthorAttribution {
-    /// Name of the author of the [Photo][google.maps.places.v1.Photo] or
-    /// [Review][google.maps.places.v1.Review].
-    #[prost(string, tag = "1")]
-    pub display_name: ::prost::alloc::string::String,
-    /// URI of the author of the [Photo][google.maps.places.v1.Photo] or
-    /// [Review][google.maps.places.v1.Review].
-    #[prost(string, tag = "2")]
-    pub uri: ::prost::alloc::string::String,
-    /// Profile photo URI of the author of the
-    /// [Photo][google.maps.places.v1.Photo] or
-    /// [Review][google.maps.places.v1.Review].
-    #[prost(string, tag = "3")]
-    pub photo_uri: ::prost::alloc::string::String,
-}
-/// Information about a photo of a place.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Photo {
-    /// Identifier. A reference representing this place photo which may be used to
-    /// look up this place photo again (also called the API "resource" name:
-    /// `places/{place_id}/photos/{photo}`).
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The maximum available width, in pixels.
-    #[prost(int32, tag = "2")]
-    pub width_px: i32,
-    /// The maximum available height, in pixels.
-    #[prost(int32, tag = "3")]
-    pub height_px: i32,
-    /// This photo's authors.
-    #[prost(message, repeated, tag = "4")]
-    pub author_attributions: ::prost::alloc::vec::Vec<AuthorAttribution>,
 }
 /// Information about a review of a place.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -980,6 +965,21 @@ impl PriceLevel {
             _ => None,
         }
     }
+}
+/// Circle with a LatLng as center and radius.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Circle {
+    /// Required. Center latitude and longitude.
+    ///
+    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
+    /// longitude must be within \[-180.0, 180.0\].
+    #[prost(message, optional, tag = "1")]
+    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
+    /// Required. Radius measured in meters. The radius must be within [0.0,
+    /// 50000.0].
+    #[prost(double, tag = "2")]
+    pub radius: f64,
 }
 /// Request proto for Search Nearby.
 ///

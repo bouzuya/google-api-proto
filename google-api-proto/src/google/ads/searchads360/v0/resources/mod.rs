@@ -1,107 +1,97 @@
-/// A language.
+/// An ad group.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LanguageConstant {
-    /// Output only. The resource name of the language constant.
-    /// Language constant resource names have the form:
+pub struct AdGroup {
+    /// Immutable. The resource name of the ad group.
+    /// Ad group resource names have the form:
     ///
-    /// `languageConstants/{criterion_id}`
+    /// `customers/{customer_id}/adGroups/{ad_group_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the language constant.
-    #[prost(int64, optional, tag = "6")]
+    /// Output only. The ID of the ad group.
+    #[prost(int64, optional, tag = "34")]
     pub id: ::core::option::Option<i64>,
-    /// Output only. The language code, for example, "en_US", "en_AU", "es", "fr",
-    /// etc.
-    #[prost(string, optional, tag = "7")]
-    pub code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The full name of the language in English, for example,
-    /// "English (US)", "Spanish", etc.
-    #[prost(string, optional, tag = "8")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Whether the language is targetable.
-    #[prost(bool, optional, tag = "9")]
-    pub targetable: ::core::option::Option<bool>,
-}
-/// A conversion custom variable.
-/// See "About custom Floodlight metrics and dimensions in the new
-/// Search Ads 360" at <https://support.google.com/sa360/answer/13567857>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionCustomVariable {
-    /// Immutable. The resource name of the conversion custom variable.
-    /// Conversion custom variable resource names have the form:
+    /// The name of the ad group.
     ///
-    /// `customers/{customer_id}/conversionCustomVariables/{conversion_custom_variable_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the conversion custom variable.
-    #[prost(int64, tag = "2")]
-    pub id: i64,
-    /// Required. The name of the conversion custom variable.
-    /// Name should be unique. The maximum length of name is 100 characters.
-    /// There should not be any extra spaces before and after.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. The tag of the conversion custom variable.
-    /// Tag should be unique and consist of a "u" character directly followed with
-    /// a number less than ormequal to 100. For example: "u4".
-    #[prost(string, tag = "4")]
-    pub tag: ::prost::alloc::string::String,
-    /// The status of the conversion custom variable for conversion event accrual.
+    /// This field is required and should not be empty when creating new ad
+    /// groups.
+    ///
+    /// It must contain fewer than 255 UTF-8 full-width characters.
+    ///
+    /// It must not contain any null (code point 0x0), NL line feed
+    /// (code point 0xA) or carriage return (code point 0xD) characters.
+    #[prost(string, optional, tag = "35")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The status of the ad group.
     #[prost(
-        enumeration = "super::enums::conversion_custom_variable_status_enum::ConversionCustomVariableStatus",
+        enumeration = "super::enums::ad_group_status_enum::AdGroupStatus",
         tag = "5"
     )]
     pub status: i32,
-    /// Output only. The resource name of the customer that owns the conversion
-    /// custom variable.
-    #[prost(string, tag = "6")]
-    pub owner_customer: ::prost::alloc::string::String,
-    /// Output only. Family of the conversion custom variable.
+    /// Immutable. The type of the ad group.
+    #[prost(enumeration = "super::enums::ad_group_type_enum::AdGroupType", tag = "12")]
+    pub r#type: i32,
+    /// The ad rotation mode of the ad group.
     #[prost(
-        enumeration = "super::enums::conversion_custom_variable_family_enum::ConversionCustomVariableFamily",
-        tag = "7"
+        enumeration = "super::enums::ad_group_ad_rotation_mode_enum::AdGroupAdRotationMode",
+        tag = "22"
     )]
-    pub family: i32,
-    /// Output only. Cardinality of the conversion custom variable.
+    pub ad_rotation_mode: i32,
+    /// The maximum CPC (cost-per-click) bid.
+    #[prost(int64, optional, tag = "39")]
+    pub cpc_bid_micros: ::core::option::Option<i64>,
+    /// Output only. The timestamp when this ad_group was created. The timestamp is
+    /// in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+    #[prost(string, tag = "60")]
+    pub creation_time: ::prost::alloc::string::String,
+    /// Output only. The Engine Status for ad group.
     #[prost(
-        enumeration = "super::enums::conversion_custom_variable_cardinality_enum::ConversionCustomVariableCardinality",
-        tag = "8"
+        enumeration = "super::enums::ad_group_engine_status_enum::AdGroupEngineStatus",
+        optional,
+        tag = "61"
     )]
-    pub cardinality: i32,
-    /// Output only. Fields for Search Ads 360 floodlight conversion custom
-    /// variables.
-    #[prost(message, optional, tag = "9")]
-    pub floodlight_conversion_custom_variable_info: ::core::option::Option<
-        conversion_custom_variable::FloodlightConversionCustomVariableInfo,
-    >,
-    /// Output only. The IDs of custom columns that use this conversion custom
-    /// variable.
-    #[prost(int64, repeated, packed = "false", tag = "10")]
-    pub custom_column_ids: ::prost::alloc::vec::Vec<i64>,
-}
-/// Nested message and enum types in `ConversionCustomVariable`.
-pub mod conversion_custom_variable {
-    /// Information for Search Ads 360 Floodlight Conversion Custom Variables.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FloodlightConversionCustomVariableInfo {
-        /// Output only. Floodlight variable type defined in Search Ads 360.
-        #[prost(
-            enumeration = "super::super::enums::floodlight_variable_type_enum::FloodlightVariableType",
-            optional,
-            tag = "1"
-        )]
-        pub floodlight_variable_type: ::core::option::Option<i32>,
-        /// Output only. Floodlight variable data type defined in Search Ads 360.
-        #[prost(
-            enumeration = "super::super::enums::floodlight_variable_data_type_enum::FloodlightVariableDataType",
-            optional,
-            tag = "2"
-        )]
-        pub floodlight_variable_data_type: ::core::option::Option<i32>,
-    }
+    pub engine_status: ::core::option::Option<i32>,
+    /// Setting for targeting related features.
+    #[prost(message, optional, tag = "25")]
+    pub targeting_setting: ::core::option::Option<super::common::TargetingSetting>,
+    /// Output only. The resource names of labels attached to this ad group.
+    #[prost(string, repeated, tag = "49")]
+    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. ID of the ad group in the external engine account. This field
+    /// is for non-Google Ads account only, for example, Yahoo Japan, Microsoft,
+    /// Baidu etc. For Google Ads entity, use "ad_group.id" instead.
+    #[prost(string, tag = "50")]
+    pub engine_id: ::prost::alloc::string::String,
+    /// Output only. Date when this ad group starts serving ads. By default, the ad
+    /// group starts now or the ad group's start date, whichever is later. If this
+    /// field is set, then the ad group starts at the beginning of the specified
+    /// date in the customer's time zone. This field is only available for
+    /// Microsoft Advertising and Facebook gateway accounts.
+    ///
+    /// Format: YYYY-MM-DD
+    /// Example: 2019-03-14
+    #[prost(string, tag = "51")]
+    pub start_date: ::prost::alloc::string::String,
+    /// Output only. Date when the ad group ends serving ads. By default, the ad
+    /// group ends on the ad group's end date. If this field is set, then the ad
+    /// group ends at the end of the specified date in the customer's time zone.
+    /// This field is only available for Microsoft Advertising and Facebook gateway
+    /// accounts.
+    ///
+    /// Format: YYYY-MM-DD
+    /// Example: 2019-03-14
+    #[prost(string, tag = "52")]
+    pub end_date: ::prost::alloc::string::String,
+    /// Output only. The language of the ads and keywords in an ad group. This
+    /// field is only available for Microsoft Advertising accounts. More details:
+    /// <https://docs.microsoft.com/en-us/advertising/guides/ad-languages?view=bingads-13#adlanguage>
+    #[prost(string, tag = "53")]
+    pub language_code: ::prost::alloc::string::String,
+    /// Output only. The datetime when this ad group was last modified. The
+    /// datetime is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss"
+    /// format.
+    #[prost(string, tag = "55")]
+    pub last_modified_time: ::prost::alloc::string::String,
 }
 /// An ad.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -206,6 +196,45 @@ pub struct AdGroupAd {
     #[prost(string, tag = "12")]
     pub last_modified_time: ::prost::alloc::string::String,
 }
+/// A relationship between an ad group ad and a label.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdGroupAdLabel {
+    /// Immutable. The resource name of the ad group ad label.
+    /// Ad group ad label resource names have the form:
+    /// `customers/{customer_id}/adGroupAdLabels/{ad_group_id}~{ad_id}~{label_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The ad group ad to which the label is attached.
+    #[prost(string, optional, tag = "4")]
+    pub ad_group_ad: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The label assigned to the ad group ad.
+    #[prost(string, optional, tag = "5")]
+    pub label: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A link between an ad group and an asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdGroupAsset {
+    /// Immutable. The resource name of the ad group asset.
+    /// AdGroupAsset resource names have the form:
+    ///
+    /// `customers/{customer_id}/adGroupAssets/{ad_group_id}~{asset_id}~{field_type}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Required. Immutable. The ad group to which the asset is linked.
+    #[prost(string, tag = "2")]
+    pub ad_group: ::prost::alloc::string::String,
+    /// Required. Immutable. The asset which is linked to the ad group.
+    #[prost(string, tag = "3")]
+    pub asset: ::prost::alloc::string::String,
+    /// Status of the ad group asset.
+    #[prost(
+        enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+}
 /// AdGroupAssetSet is the linkage between an ad group and an asset set.
 /// Creating an AdGroupAssetSet links an asset set with an ad group.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -230,164 +259,257 @@ pub struct AdGroupAssetSet {
     )]
     pub status: i32,
 }
-/// A campaign audience view.
+/// An ad group audience view.
 /// Includes performance data from interests and remarketing lists for Display
 /// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
-/// aggregated by campaign and audience criterion. This view only includes
-/// audiences attached at the campaign level.
+/// aggregated at the audience level.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignAudienceView {
-    /// Output only. The resource name of the campaign audience view.
-    /// Campaign audience view resource names have the form:
+pub struct AdGroupAudienceView {
+    /// Output only. The resource name of the ad group audience view.
+    /// Ad group audience view resource names have the form:
     ///
-    /// `customers/{customer_id}/campaignAudienceViews/{campaign_id}~{criterion_id}`
+    /// `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
 }
-/// AssetGroupAsset is the link between an asset and an asset group.
-/// Adding an AssetGroupAsset links an asset with an asset group.
+/// Represents an ad group bid modifier.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetGroupAsset {
-    /// Immutable. The resource name of the asset group asset.
-    /// Asset group asset resource name have the form:
+pub struct AdGroupBidModifier {
+    /// Immutable. The resource name of the ad group bid modifier.
+    /// Ad group bid modifier resource names have the form:
     ///
-    /// `customers/{customer_id}/assetGroupAssets/{asset_group_id}~{asset_id}~{field_type}`
+    /// `customers/{customer_id}/adGroupBidModifiers/{ad_group_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The asset group which this asset group asset is linking.
-    #[prost(string, tag = "2")]
-    pub asset_group: ::prost::alloc::string::String,
-    /// Immutable. The asset which this asset group asset is linking.
-    #[prost(string, tag = "3")]
-    pub asset: ::prost::alloc::string::String,
-    /// The description of the placement of the asset within the asset group. For
-    /// example: HEADLINE, YOUTUBE_VIDEO etc
-    #[prost(
-        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
-        tag = "4"
-    )]
-    pub field_type: i32,
-    /// The status of the link between an asset and asset group.
-    #[prost(
-        enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-}
-/// Cart data sales view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CartDataSalesView {
-    /// Output only. The resource name of the Cart data sales view.
-    /// Cart data sales view resource names have the form:
-    /// `customers/{customer_id}/cartDataSalesView`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// CampaignAssetSet is the linkage between a campaign and an asset set.
-/// Adding a CampaignAssetSet links an asset set with a campaign.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignAssetSet {
-    /// Immutable. The resource name of the campaign asset set.
-    /// Asset set asset resource names have the form:
+    /// The modifier for the bid when the criterion matches. The modifier must be
+    /// in the range: 0.1 - 10.0. The range is 1.0 - 6.0 for PreferredContent.
+    /// Use 0 to opt out of a Device type.
+    #[prost(double, optional, tag = "15")]
+    pub bid_modifier: ::core::option::Option<f64>,
+    /// The criterion of this ad group bid modifier.
     ///
-    /// `customers/{customer_id}/campaignAssetSets/{campaign_id}~{asset_set_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The campaign to which this asset set is linked.
-    #[prost(string, tag = "2")]
-    pub campaign: ::prost::alloc::string::String,
-    /// Immutable. The asset set which is linked to the campaign.
-    #[prost(string, tag = "3")]
-    pub asset_set: ::prost::alloc::string::String,
-    /// Output only. The status of the campaign asset set asset. Read-only.
-    #[prost(
-        enumeration = "super::enums::asset_set_link_status_enum::AssetSetLinkStatus",
-        tag = "4"
-    )]
-    pub status: i32,
+    /// Required in create operations starting in V5.
+    #[prost(oneof = "ad_group_bid_modifier::Criterion", tags = "11")]
+    pub criterion: ::core::option::Option<ad_group_bid_modifier::Criterion>,
 }
-/// CustomerAssetSet is the linkage between a customer and an asset set.
-/// Adding a CustomerAssetSet links an asset set with a customer.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerAssetSet {
-    /// Immutable. The resource name of the customer asset set.
-    /// Asset set asset resource names have the form:
+/// Nested message and enum types in `AdGroupBidModifier`.
+pub mod ad_group_bid_modifier {
+    /// The criterion of this ad group bid modifier.
     ///
-    /// `customers/{customer_id}/customerAssetSets/{asset_set_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The asset set which is linked to the customer.
-    #[prost(string, tag = "2")]
-    pub asset_set: ::prost::alloc::string::String,
-    /// Immutable. The customer to which this asset set is linked.
-    #[prost(string, tag = "3")]
-    pub customer: ::prost::alloc::string::String,
-    /// Output only. The status of the customer asset set asset. Read-only.
-    #[prost(
-        enumeration = "super::enums::asset_set_link_status_enum::AssetSetLinkStatus",
-        tag = "4"
-    )]
-    pub status: i32,
-}
-/// AssetGroupSignal represents a signal in an asset group. The existence of a
-/// signal tells the performance max campaign who's most likely to convert.
-/// Performance Max uses the signal to look for new people with similar or
-/// stronger intent to find conversions across Search, Display, Video, and more.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetGroupSignal {
-    /// Immutable. The resource name of the asset group signal.
-    /// Asset group signal resource name have the form:
-    ///
-    /// `customers/{customer_id}/assetGroupSignals/{asset_group_id}~{signal_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The asset group which this asset group signal belongs to.
-    #[prost(string, tag = "2")]
-    pub asset_group: ::prost::alloc::string::String,
-    /// The signal of the asset group.
-    #[prost(oneof = "asset_group_signal::Signal", tags = "4")]
-    pub signal: ::core::option::Option<asset_group_signal::Signal>,
-}
-/// Nested message and enum types in `AssetGroupSignal`.
-pub mod asset_group_signal {
-    /// The signal of the asset group.
+    /// Required in create operations starting in V5.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Signal {
-        /// Immutable. The audience signal to be used by the performance max
-        /// campaign.
-        #[prost(message, tag = "4")]
-        Audience(super::super::common::AudienceInfo),
+    pub enum Criterion {
+        /// Immutable. A device criterion.
+        #[prost(message, tag = "11")]
+        Device(super::super::common::DeviceInfo),
     }
 }
-/// A link between a Campaign and an Asset.
+/// An ad group criterion.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignAsset {
-    /// Immutable. The resource name of the campaign asset.
-    /// CampaignAsset resource names have the form:
+pub struct AdGroupCriterion {
+    /// Immutable. The resource name of the ad group criterion.
+    /// Ad group criterion resource names have the form:
     ///
-    /// `customers/{customer_id}/campaignAssets/{campaign_id}~{asset_id}~{field_type}`
+    /// `customers/{customer_id}/adGroupCriteria/{ad_group_id}~{criterion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The campaign to which the asset is linked.
-    #[prost(string, optional, tag = "6")]
-    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The asset which is linked to the campaign.
-    #[prost(string, optional, tag = "7")]
-    pub asset: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Status of the campaign asset.
+    /// Output only. The ID of the criterion.
+    #[prost(int64, optional, tag = "56")]
+    pub criterion_id: ::core::option::Option<i64>,
+    /// Output only. The timestamp when this ad group criterion was created. The
+    /// timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss"
+    /// format.
+    #[prost(string, tag = "81")]
+    pub creation_time: ::prost::alloc::string::String,
+    /// The status of the criterion.
+    ///
+    /// This is the status of the ad group criterion entity, set by the client.
+    /// Note: UI reports may incorporate additional information that affects
+    /// whether a criterion is eligible to run. In some cases a criterion that's
+    /// REMOVED in the API can still show as enabled in the UI.
+    /// For example, campaigns by default show to users of all age ranges unless
+    /// excluded. The UI will show each age range as "enabled", since they're
+    /// eligible to see the ads; but AdGroupCriterion.status will show "removed",
+    /// since no positive criterion was added.
     #[prost(
-        enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
-        tag = "5"
+        enumeration = "super::enums::ad_group_criterion_status_enum::AdGroupCriterionStatus",
+        tag = "3"
     )]
     pub status: i32,
+    /// Output only. Information regarding the quality of the criterion.
+    #[prost(message, optional, tag = "4")]
+    pub quality_info: ::core::option::Option<ad_group_criterion::QualityInfo>,
+    /// Immutable. The ad group to which the criterion belongs.
+    #[prost(string, optional, tag = "57")]
+    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The type of the criterion.
+    #[prost(
+        enumeration = "super::enums::criterion_type_enum::CriterionType",
+        tag = "25"
+    )]
+    pub r#type: i32,
+    /// Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
+    ///
+    /// This field is immutable. To switch a criterion from positive to negative,
+    /// remove then re-add it.
+    #[prost(bool, optional, tag = "58")]
+    pub negative: ::core::option::Option<bool>,
+    /// Output only. The resource names of labels attached to this ad group
+    /// criterion.
+    #[prost(string, repeated, tag = "60")]
+    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The modifier for the bid when the criterion matches. The modifier must be
+    /// in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
+    #[prost(double, optional, tag = "61")]
+    pub bid_modifier: ::core::option::Option<f64>,
+    /// The CPC (cost-per-click) bid.
+    #[prost(int64, optional, tag = "62")]
+    pub cpc_bid_micros: ::core::option::Option<i64>,
+    /// Output only. The effective CPC (cost-per-click) bid.
+    #[prost(int64, optional, tag = "66")]
+    pub effective_cpc_bid_micros: ::core::option::Option<i64>,
+    /// Output only. Estimates for criterion bids at various positions.
+    #[prost(message, optional, tag = "10")]
+    pub position_estimates: ::core::option::Option<
+        ad_group_criterion::PositionEstimates,
+    >,
+    /// The list of possible final URLs after all cross-domain redirects for the
+    /// ad.
+    #[prost(string, repeated, tag = "70")]
+    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. The Engine Status for ad group criterion.
+    #[prost(
+        enumeration = "super::enums::ad_group_criterion_engine_status_enum::AdGroupCriterionEngineStatus",
+        optional,
+        tag = "80"
+    )]
+    pub engine_status: ::core::option::Option<i32>,
+    /// URL template for appending params to final URL.
+    #[prost(string, optional, tag = "72")]
+    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
+    /// The URL template for constructing a tracking URL.
+    #[prost(string, optional, tag = "73")]
+    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. ID of the ad group criterion in the external engine account.
+    /// This field is for non-Google Ads account only, for example, Yahoo Japan,
+    /// Microsoft, Baidu etc. For Google Ads entity, use
+    /// "ad_group_criterion.criterion_id" instead.
+    #[prost(string, tag = "76")]
+    pub engine_id: ::prost::alloc::string::String,
+    /// Output only. The datetime when this ad group criterion was last modified.
+    /// The datetime is in the customer's time zone and in "yyyy-MM-dd
+    /// HH:mm:ss.ssssss" format.
+    #[prost(string, tag = "78")]
+    pub last_modified_time: ::prost::alloc::string::String,
+    /// The ad group criterion.
+    ///
+    /// Exactly one must be set.
+    #[prost(
+        oneof = "ad_group_criterion::Criterion",
+        tags = "27, 32, 36, 37, 42, 46, 82"
+    )]
+    pub criterion: ::core::option::Option<ad_group_criterion::Criterion>,
+}
+/// Nested message and enum types in `AdGroupCriterion`.
+pub mod ad_group_criterion {
+    /// A container for ad group criterion quality information.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct QualityInfo {
+        /// Output only. The quality score.
+        ///
+        /// This field may not be populated if Google does not have enough
+        /// information to determine a value.
+        #[prost(int32, optional, tag = "5")]
+        pub quality_score: ::core::option::Option<i32>,
+    }
+    /// Estimates for criterion bids at various positions.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PositionEstimates {
+        /// Output only. The estimate of the CPC bid required for ad to be displayed
+        /// at the top of the first page of search results.
+        #[prost(int64, optional, tag = "8")]
+        pub top_of_page_cpc_micros: ::core::option::Option<i64>,
+    }
+    /// The ad group criterion.
+    ///
+    /// Exactly one must be set.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Criterion {
+        /// Immutable. Keyword.
+        #[prost(message, tag = "27")]
+        Keyword(super::super::common::KeywordInfo),
+        /// Immutable. Listing group.
+        #[prost(message, tag = "32")]
+        ListingGroup(super::super::common::ListingGroupInfo),
+        /// Immutable. Age range.
+        #[prost(message, tag = "36")]
+        AgeRange(super::super::common::AgeRangeInfo),
+        /// Immutable. Gender.
+        #[prost(message, tag = "37")]
+        Gender(super::super::common::GenderInfo),
+        /// Immutable. User List.
+        /// The Similar Audiences sunset starts May 2023. Refer to
+        /// <https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html>
+        /// for other options.
+        #[prost(message, tag = "42")]
+        UserList(super::super::common::UserListInfo),
+        /// Immutable. Webpage
+        #[prost(message, tag = "46")]
+        Webpage(super::super::common::WebpageInfo),
+        /// Immutable. Location.
+        #[prost(message, tag = "82")]
+        Location(super::super::common::LocationInfo),
+    }
+}
+/// A relationship between an ad group criterion and a label.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdGroupCriterionLabel {
+    /// Immutable. The resource name of the ad group criterion label.
+    /// Ad group criterion label resource names have the form:
+    /// `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The ad group criterion to which the label is attached.
+    #[prost(string, optional, tag = "4")]
+    pub ad_group_criterion: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The label assigned to the ad group criterion.
+    #[prost(string, optional, tag = "5")]
+    pub label: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A relationship between an ad group and a label.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdGroupLabel {
+    /// Immutable. The resource name of the ad group label.
+    /// Ad group label resource names have the form:
+    /// `customers/{customer_id}/adGroupLabels/{ad_group_id}~{label_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The ad group to which the label is attached.
+    #[prost(string, optional, tag = "4")]
+    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The label assigned to the ad group.
+    #[prost(string, optional, tag = "5")]
+    pub label: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// An age range view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AgeRangeView {
+    /// Output only. The resource name of the age range view.
+    /// Age range view resource names have the form:
+    ///
+    /// `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
 }
 /// Asset is a part of an ad which can be shared across multiple ads.
 /// It can be an image (ImageAsset), a video (YoutubeVideoAsset), etc.
@@ -477,257 +599,86 @@ pub mod asset {
         LocationAsset(super::super::common::UnifiedLocationAsset),
     }
 }
-/// Represents customer-manager link relationship.
+/// An asset group.
+/// AssetGroupAsset is used to link an asset to the asset group.
+/// AssetGroupSignal is used to associate a signal to an asset group.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerManagerLink {
-    /// Immutable. Name of the resource.
-    /// CustomerManagerLink resource names have the form:
-    /// `customers/{customer_id}/customerManagerLinks/{manager_customer_id}~{manager_link_id}`
+pub struct AssetGroup {
+    /// Immutable. The resource name of the asset group.
+    /// Asset group resource names have the form:
+    ///
+    /// `customers/{customer_id}/assetGroups/{asset_group_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The manager customer linked to the customer.
-    #[prost(string, optional, tag = "6")]
-    pub manager_customer: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. ID of the customer-manager link. This field is read only.
-    #[prost(int64, optional, tag = "7")]
-    pub manager_link_id: ::core::option::Option<i64>,
-    /// Status of the link between the customer and the manager.
+    /// Output only. The ID of the asset group.
+    #[prost(int64, tag = "9")]
+    pub id: i64,
+    /// Immutable. The campaign with which this asset group is associated.
+    /// The asset which is linked to the asset group.
+    #[prost(string, tag = "2")]
+    pub campaign: ::prost::alloc::string::String,
+    /// Required. Name of the asset group. Required. It must have a minimum length
+    /// of 1 and maximum length of 128. It must be unique under a campaign.
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// A list of final URLs after all cross domain redirects. In performance max,
+    /// by default, the urls are eligible for expansion unless opted out.
+    #[prost(string, repeated, tag = "4")]
+    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// A list of final mobile URLs after all cross domain redirects. In
+    /// performance max, by default, the urls are eligible for expansion
+    /// unless opted out.
+    #[prost(string, repeated, tag = "5")]
+    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The status of the asset group.
     #[prost(
-        enumeration = "super::enums::manager_link_status_enum::ManagerLinkStatus",
-        tag = "5"
+        enumeration = "super::enums::asset_group_status_enum::AssetGroupStatus",
+        tag = "6"
     )]
     pub status: i32,
+    /// First part of text that may appear appended to the url displayed in
+    /// the ad.
+    #[prost(string, tag = "7")]
+    pub path1: ::prost::alloc::string::String,
+    /// Second part of text that may appear appended to the url displayed in
+    /// the ad. This field can only be set when path1 is set.
+    #[prost(string, tag = "8")]
+    pub path2: ::prost::alloc::string::String,
+    /// Output only. Overall ad strength of this asset group.
+    #[prost(enumeration = "super::enums::ad_strength_enum::AdStrength", tag = "10")]
+    pub ad_strength: i32,
 }
-/// A link between an ad group and an asset.
+/// AssetGroupAsset is the link between an asset and an asset group.
+/// Adding an AssetGroupAsset links an asset with an asset group.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupAsset {
-    /// Immutable. The resource name of the ad group asset.
-    /// AdGroupAsset resource names have the form:
+pub struct AssetGroupAsset {
+    /// Immutable. The resource name of the asset group asset.
+    /// Asset group asset resource name have the form:
     ///
-    /// `customers/{customer_id}/adGroupAssets/{ad_group_id}~{asset_id}~{field_type}`
+    /// `customers/{customer_id}/assetGroupAssets/{asset_group_id}~{asset_id}~{field_type}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Required. Immutable. The ad group to which the asset is linked.
+    /// Immutable. The asset group which this asset group asset is linking.
     #[prost(string, tag = "2")]
-    pub ad_group: ::prost::alloc::string::String,
-    /// Required. Immutable. The asset which is linked to the ad group.
+    pub asset_group: ::prost::alloc::string::String,
+    /// Immutable. The asset which this asset group asset is linking.
     #[prost(string, tag = "3")]
     pub asset: ::prost::alloc::string::String,
-    /// Status of the ad group asset.
+    /// The description of the placement of the asset within the asset group. For
+    /// example: HEADLINE, YOUTUBE_VIDEO etc
+    #[prost(
+        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
+        tag = "4"
+    )]
+    pub field_type: i32,
+    /// The status of the link between an asset and asset group.
     #[prost(
         enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
         tag = "5"
     )]
     pub status: i32,
-}
-/// A label.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Label {
-    /// Immutable. Name of the resource.
-    /// Label resource names have the form:
-    /// `customers/{customer_id}/labels/{label_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. ID of the label. Read only.
-    #[prost(int64, optional, tag = "6")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the label.
-    ///
-    /// This field is required and should not be empty when creating a new label.
-    ///
-    /// The length of this string should be between 1 and 80, inclusive.
-    #[prost(string, optional, tag = "7")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Status of the label. Read only.
-    #[prost(enumeration = "super::enums::label_status_enum::LabelStatus", tag = "4")]
-    pub status: i32,
-    /// A type of label displaying text on a colored background.
-    #[prost(message, optional, tag = "5")]
-    pub text_label: ::core::option::Option<super::common::TextLabel>,
-}
-/// A conversion.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Conversion {
-    /// Output only. The resource name of the conversion.
-    /// Conversion resource names have the form:
-    ///
-    /// `customers/{customer_id}/conversions/{ad_group_id}~{criterion_id}~{ds_conversion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the conversion
-    #[prost(int64, optional, tag = "2")]
-    pub id: ::core::option::Option<i64>,
-    /// Output only. Search Ads 360 criterion ID. A value of 0 indicates that the
-    /// criterion is unattributed.
-    #[prost(int64, optional, tag = "3")]
-    pub criterion_id: ::core::option::Option<i64>,
-    /// Output only. The SearchAds360 inventory account ID containing the product
-    /// that was clicked on. SearchAds360 generates this ID when you link an
-    /// inventory account in SearchAds360.
-    #[prost(int64, optional, tag = "4")]
-    pub merchant_id: ::core::option::Option<i64>,
-    /// Output only. Ad ID. A value of 0 indicates that the ad is unattributed.
-    #[prost(int64, optional, tag = "5")]
-    pub ad_id: ::core::option::Option<i64>,
-    /// Output only. A unique string, for the visit that the conversion is
-    /// attributed to, that is passed to the landing page as the click id URL
-    /// parameter.
-    #[prost(string, optional, tag = "6")]
-    pub click_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The SearchAds360 visit ID that the conversion is attributed
-    /// to.
-    #[prost(int64, optional, tag = "7")]
-    pub visit_id: ::core::option::Option<i64>,
-    /// Output only. For offline conversions, this is an ID provided by
-    /// advertisers. If an advertiser doesn't specify such an ID, Search Ads 360
-    /// generates one. For online conversions, this is equal to the id column or
-    /// the floodlight_order_id column depending on the advertiser's Floodlight
-    /// instructions.
-    #[prost(string, optional, tag = "8")]
-    pub advertiser_conversion_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the product clicked on.
-    #[prost(string, optional, tag = "9")]
-    pub product_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The sales channel of the product that was clicked on: Online
-    /// or Local.
-    #[prost(
-        enumeration = "super::enums::product_channel_enum::ProductChannel",
-        optional,
-        tag = "10"
-    )]
-    pub product_channel: ::core::option::Option<i32>,
-    /// Output only. The language (ISO-639-1) that has been set for the Merchant
-    /// Center feed containing data about the product.
-    #[prost(string, optional, tag = "11")]
-    pub product_language_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The store in the Local Inventory Ad that was clicked on. This
-    /// should match the store IDs used in your local products feed.
-    #[prost(string, optional, tag = "12")]
-    pub product_store_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The country (ISO-3166-format) registered for the inventory
-    /// feed that contains the product clicked on.
-    #[prost(string, optional, tag = "13")]
-    pub product_country_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. What the conversion is attributed to: Visit or Keyword+Ad.
-    #[prost(
-        enumeration = "super::enums::attribution_type_enum::AttributionType",
-        optional,
-        tag = "14"
-    )]
-    pub attribution_type: ::core::option::Option<i32>,
-    /// Output only. The timestamp of the conversion event.
-    #[prost(string, optional, tag = "15")]
-    pub conversion_date_time: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The timestamp of the last time the conversion was modified.
-    #[prost(string, optional, tag = "16")]
-    pub conversion_last_modified_date_time: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The timestamp of the visit that the conversion is attributed
-    /// to.
-    #[prost(string, optional, tag = "17")]
-    pub conversion_visit_date_time: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The quantity of items recorded by the conversion, as
-    /// determined by the qty url parameter. The advertiser is responsible for
-    /// dynamically populating the parameter (such as number of items sold in the
-    /// conversion), otherwise it defaults to 1.
-    #[prost(int64, optional, tag = "18")]
-    pub conversion_quantity: ::core::option::Option<i64>,
-    /// Output only. The adjusted revenue in micros for the conversion event. This
-    /// will always be in the currency of the serving account.
-    #[prost(int64, optional, tag = "19")]
-    pub conversion_revenue_micros: ::core::option::Option<i64>,
-    /// Output only. The original, unchanged revenue associated with the Floodlight
-    /// event (in the currency of the current report), before Floodlight currency
-    /// instruction modifications.
-    #[prost(int64, optional, tag = "20")]
-    pub floodlight_original_revenue: ::core::option::Option<i64>,
-    /// Output only. The Floodlight order ID provided by the advertiser for the
-    /// conversion.
-    #[prost(string, optional, tag = "21")]
-    pub floodlight_order_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The status of the conversion, either ENABLED or REMOVED..
-    #[prost(
-        enumeration = "super::enums::conversion_status_enum::ConversionStatus",
-        optional,
-        tag = "22"
-    )]
-    pub status: ::core::option::Option<i32>,
-    /// Output only. ID of the asset which was interacted with during the
-    /// conversion event.
-    #[prost(int64, optional, tag = "23")]
-    pub asset_id: ::core::option::Option<i64>,
-    /// Output only. Asset field type of the conversion event.
-    #[prost(
-        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
-        optional,
-        tag = "24"
-    )]
-    pub asset_field_type: ::core::option::Option<i32>,
-}
-/// A product group view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProductGroupView {
-    /// Output only. The resource name of the product group view.
-    /// Product group view resource names have the form:
-    ///
-    /// `customers/{customer_id}/productGroupViews/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// A custom column.
-/// See Search Ads 360 custom column at
-/// <https://support.google.com/sa360/answer/9633916>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomColumn {
-    /// Immutable. The resource name of the custom column.
-    /// Custom column resource names have the form:
-    ///
-    /// `customers/{customer_id}/customColumns/{custom_column_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. ID of the custom column.
-    #[prost(int64, tag = "2")]
-    pub id: i64,
-    /// Output only. User-defined name of the custom column.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. User-defined description of the custom column.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. The type of the result value of the custom column.
-    #[prost(
-        enumeration = "super::enums::custom_column_value_type_enum::CustomColumnValueType",
-        tag = "5"
-    )]
-    pub value_type: i32,
-    /// Output only. True when the custom column is referring to one or more
-    /// attributes.
-    #[prost(bool, tag = "6")]
-    pub references_attributes: bool,
-    /// Output only. True when the custom column is referring to one or more
-    /// metrics.
-    #[prost(bool, tag = "7")]
-    pub references_metrics: bool,
-    /// Output only. True when the custom column is available to be used in the
-    /// query of SearchAds360Service.Search and SearchAds360Service.SearchStream.
-    #[prost(bool, tag = "8")]
-    pub queryable: bool,
-    /// Output only. The list of the referenced system columns of this custom
-    /// column. For example, A custom column "sum of impressions and clicks" has
-    /// referenced system columns of {"metrics.clicks", "metrics.impressions"}.
-    #[prost(string, repeated, tag = "9")]
-    pub referenced_system_columns: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
 }
 /// AssetGroupListingGroupFilter represents a listing group filter tree node in
 /// an asset group.
@@ -908,603 +859,37 @@ pub mod listing_group_filter_dimension {
         ProductType(ProductType),
     }
 }
-/// Shopping performance view.
-/// Provides Shopping campaign statistics aggregated at several product dimension
-/// levels. Product dimension values from Merchant Center such as brand,
-/// category, custom attributes, product condition and product type will reflect
-/// the state of each dimension as of the date and time when the corresponding
-/// event was recorded.
+/// AssetGroupSignal represents a signal in an asset group. The existence of a
+/// signal tells the performance max campaign who's most likely to convert.
+/// Performance Max uses the signal to look for new people with similar or
+/// stronger intent to find conversions across Search, Display, Video, and more.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ShoppingPerformanceView {
-    /// Output only. The resource name of the Shopping performance view.
-    /// Shopping performance view resource names have the form:
-    /// `customers/{customer_id}/shoppingPerformanceView`
+pub struct AssetGroupSignal {
+    /// Immutable. The resource name of the asset group signal.
+    /// Asset group signal resource name have the form:
+    ///
+    /// `customers/{customer_id}/assetGroupSignals/{asset_group_id}~{signal_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The asset group which this asset group signal belongs to.
+    #[prost(string, tag = "2")]
+    pub asset_group: ::prost::alloc::string::String,
+    /// The signal of the asset group.
+    #[prost(oneof = "asset_group_signal::Signal", tags = "4")]
+    pub signal: ::core::option::Option<asset_group_signal::Signal>,
 }
-/// A link between the given customer and a client customer. CustomerClients only
-/// exist for manager customers. All direct and indirect client customers are
-/// included, as well as the manager itself.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerClient {
-    /// Output only. The resource name of the customer client.
-    /// CustomerClient resource names have the form:
-    /// `customers/{customer_id}/customerClients/{client_customer_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The resource name of the client-customer which is linked to
-    /// the given customer. Read only.
-    #[prost(string, optional, tag = "12")]
-    pub client_customer: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Specifies whether this is a hidden account.
-    ///
-    /// Read only.
-    #[prost(bool, optional, tag = "13")]
-    pub hidden: ::core::option::Option<bool>,
-    /// Output only. Distance between given customer and client. For self link, the
-    /// level value will be 0. Read only.
-    #[prost(int64, optional, tag = "14")]
-    pub level: ::core::option::Option<i64>,
-    /// Output only. Common Locale Data Repository (CLDR) string representation of
-    /// the time zone of the client, for example, America/Los_Angeles. Read only.
-    #[prost(string, optional, tag = "15")]
-    pub time_zone: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Identifies if the client is a test account. Read only.
-    #[prost(bool, optional, tag = "16")]
-    pub test_account: ::core::option::Option<bool>,
-    /// Output only. Identifies if the client is a manager. Read only.
-    #[prost(bool, optional, tag = "17")]
-    pub manager: ::core::option::Option<bool>,
-    /// Output only. Descriptive name for the client. Read only.
-    #[prost(string, optional, tag = "18")]
-    pub descriptive_name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Currency code (for example, 'USD', 'EUR') for the client. Read
-    /// only.
-    #[prost(string, optional, tag = "19")]
-    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the client customer. Read only.
-    #[prost(int64, optional, tag = "20")]
-    pub id: ::core::option::Option<i64>,
-    /// Output only. The resource names of the labels owned by the requesting
-    /// customer that are applied to the client customer. Label resource names have
-    /// the form:
-    ///
-    /// `customers/{customer_id}/labels/{label_id}`
-    #[prost(string, repeated, tag = "21")]
-    pub applied_labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. The status of the client customer. Read only.
-    #[prost(
-        enumeration = "super::enums::customer_status_enum::CustomerStatus",
-        tag = "22"
-    )]
-    pub status: i32,
-}
-/// A geo target constant.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GeoTargetConstant {
-    /// Output only. The resource name of the geo target constant.
-    /// Geo target constant resource names have the form:
-    ///
-    /// `geoTargetConstants/{geo_target_constant_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the geo target constant.
-    #[prost(int64, optional, tag = "10")]
-    pub id: ::core::option::Option<i64>,
-    /// Output only. Geo target constant English name.
-    #[prost(string, optional, tag = "11")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ISO-3166-1 alpha-2 country code that is associated with
-    /// the target.
-    #[prost(string, optional, tag = "12")]
-    pub country_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Geo target constant target type.
-    #[prost(string, optional, tag = "13")]
-    pub target_type: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Geo target constant status.
-    #[prost(
-        enumeration = "super::enums::geo_target_constant_status_enum::GeoTargetConstantStatus",
-        tag = "7"
-    )]
-    pub status: i32,
-    /// Output only. The fully qualified English name, consisting of the target's
-    /// name and that of its parent and country.
-    #[prost(string, optional, tag = "14")]
-    pub canonical_name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The resource name of the parent geo target constant.
-    /// Geo target constant resource names have the form:
-    ///
-    /// `geoTargetConstants/{parent_geo_target_constant_id}`
-    #[prost(string, optional, tag = "9")]
-    pub parent_geo_target: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A webpage view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WebpageView {
-    /// Output only. The resource name of the webpage view.
-    /// Webpage view resource names have the form:
-    ///
-    /// `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// A visit.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Visit {
-    /// Output only. The resource name of the visit.
-    /// Visit resource names have the form:
-    ///
-    /// `customers/{customer_id}/visits/{ad_group_id}~{criterion_id}~{ds_visit_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the visit.
-    #[prost(int64, optional, tag = "2")]
-    pub id: ::core::option::Option<i64>,
-    /// Output only. Search Ads 360 keyword ID. A value of 0 indicates that the
-    /// keyword is unattributed.
-    #[prost(int64, optional, tag = "3")]
-    pub criterion_id: ::core::option::Option<i64>,
-    /// Output only. The Search Ads 360 inventory account ID containing the product
-    /// that was clicked on. Search Ads 360 generates this ID when you link an
-    /// inventory account in Search Ads 360.
-    #[prost(int64, optional, tag = "4")]
-    pub merchant_id: ::core::option::Option<i64>,
-    /// Output only. Ad ID. A value of 0 indicates that the ad is unattributed.
-    #[prost(int64, optional, tag = "5")]
-    pub ad_id: ::core::option::Option<i64>,
-    /// Output only. A unique string for each visit that is passed to the landing
-    /// page as the click id URL parameter.
-    #[prost(string, optional, tag = "6")]
-    pub click_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The timestamp of the visit event. The timestamp is in the
-    /// customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
-    #[prost(string, optional, tag = "7")]
-    pub visit_date_time: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The ID of the product clicked on.
-    #[prost(string, optional, tag = "8")]
-    pub product_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The sales channel of the product that was clicked on: Online
-    /// or Local.
-    #[prost(
-        enumeration = "super::enums::product_channel_enum::ProductChannel",
-        optional,
-        tag = "9"
-    )]
-    pub product_channel: ::core::option::Option<i32>,
-    /// Output only. The language (ISO-639-1) that has been set for the Merchant
-    /// Center feed containing data about the product.
-    #[prost(string, optional, tag = "10")]
-    pub product_language_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The store in the Local Inventory Ad that was clicked on. This
-    /// should match the store IDs used in your local products feed.
-    #[prost(string, optional, tag = "11")]
-    pub product_store_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The country (ISO-3166 format) registered for the inventory
-    /// feed that contains the product clicked on.
-    #[prost(string, optional, tag = "12")]
-    pub product_country_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. ID of the asset which was interacted with during the visit
-    /// event.
-    #[prost(int64, optional, tag = "13")]
-    pub asset_id: ::core::option::Option<i64>,
-    /// Output only. Asset field type of the visit event.
-    #[prost(
-        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
-        optional,
-        tag = "14"
-    )]
-    pub asset_field_type: ::core::option::Option<i32>,
-}
-/// A campaign criterion.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignCriterion {
-    /// Immutable. The resource name of the campaign criterion.
-    /// Campaign criterion resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignCriteria/{campaign_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the criterion.
-    ///
-    /// This field is ignored during mutate.
-    #[prost(int64, optional, tag = "38")]
-    pub criterion_id: ::core::option::Option<i64>,
-    /// Output only. The display name of the criterion.
-    ///
-    /// This field is ignored for mutates.
-    #[prost(string, tag = "43")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The modifier for the bids when the criterion matches. The modifier must be
-    /// in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
-    /// Use 0 to opt out of a Device type.
-    #[prost(float, optional, tag = "39")]
-    pub bid_modifier: ::core::option::Option<f32>,
-    /// Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
-    #[prost(bool, optional, tag = "40")]
-    pub negative: ::core::option::Option<bool>,
-    /// Output only. The type of the criterion.
-    #[prost(enumeration = "super::enums::criterion_type_enum::CriterionType", tag = "6")]
-    pub r#type: i32,
-    /// The status of the criterion.
-    #[prost(
-        enumeration = "super::enums::campaign_criterion_status_enum::CampaignCriterionStatus",
-        tag = "35"
-    )]
-    pub status: i32,
-    /// Output only. The datetime when this campaign criterion was last modified.
-    /// The datetime is in the customer's time zone and in "yyyy-MM-dd
-    /// HH:mm:ss.ssssss" format.
-    #[prost(string, tag = "44")]
-    pub last_modified_time: ::prost::alloc::string::String,
-    /// The campaign criterion.
-    ///
-    /// Exactly one must be set.
-    #[prost(
-        oneof = "campaign_criterion::Criterion",
-        tags = "8, 12, 13, 16, 17, 22, 26, 31, 34"
-    )]
-    pub criterion: ::core::option::Option<campaign_criterion::Criterion>,
-}
-/// Nested message and enum types in `CampaignCriterion`.
-pub mod campaign_criterion {
-    /// The campaign criterion.
-    ///
-    /// Exactly one must be set.
+/// Nested message and enum types in `AssetGroupSignal`.
+pub mod asset_group_signal {
+    /// The signal of the asset group.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criterion {
-        /// Immutable. Keyword.
-        #[prost(message, tag = "8")]
-        Keyword(super::super::common::KeywordInfo),
-        /// Immutable. Location.
-        #[prost(message, tag = "12")]
-        Location(super::super::common::LocationInfo),
-        /// Immutable. Device.
-        #[prost(message, tag = "13")]
-        Device(super::super::common::DeviceInfo),
-        /// Immutable. Age range.
-        #[prost(message, tag = "16")]
-        AgeRange(super::super::common::AgeRangeInfo),
-        /// Immutable. Gender.
-        #[prost(message, tag = "17")]
-        Gender(super::super::common::GenderInfo),
-        /// Immutable. User List.
-        /// The Similar Audiences sunset starts May 2023. Refer to
-        /// <https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html>
-        /// for other options.
-        #[prost(message, tag = "22")]
-        UserList(super::super::common::UserListInfo),
-        /// Immutable. Language.
-        #[prost(message, tag = "26")]
-        Language(super::super::common::LanguageInfo),
-        /// Immutable. Webpage.
-        #[prost(message, tag = "31")]
-        Webpage(super::super::common::WebpageInfo),
-        /// Immutable. Location Group
-        #[prost(message, tag = "34")]
-        LocationGroup(super::super::common::LocationGroupInfo),
+    pub enum Signal {
+        /// Immutable. The audience signal to be used by the performance max
+        /// campaign.
+        #[prost(message, tag = "4")]
+        Audience(super::super::common::AudienceInfo),
     }
-}
-/// A conversion action.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ConversionAction {
-    /// Immutable. The resource name of the conversion action.
-    /// Conversion action resource names have the form:
-    ///
-    /// `customers/{customer_id}/conversionActions/{conversion_action_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the conversion action.
-    #[prost(int64, optional, tag = "21")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the conversion action.
-    ///
-    /// This field is required and should not be empty when creating new
-    /// conversion actions.
-    #[prost(string, optional, tag = "22")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Timestamp of the Floodlight activity's creation, formatted in
-    /// ISO 8601.
-    #[prost(string, tag = "33")]
-    pub creation_time: ::prost::alloc::string::String,
-    /// The status of this conversion action for conversion event accrual.
-    #[prost(
-        enumeration = "super::enums::conversion_action_status_enum::ConversionActionStatus",
-        tag = "4"
-    )]
-    pub status: i32,
-    /// Immutable. The type of this conversion action.
-    #[prost(
-        enumeration = "super::enums::conversion_action_type_enum::ConversionActionType",
-        tag = "5"
-    )]
-    pub r#type: i32,
-    /// If a conversion action's primary_for_goal bit is false, the conversion
-    /// action is non-biddable for all campaigns regardless of their customer
-    /// conversion goal or campaign conversion goal.
-    /// However, custom conversion goals do not respect primary_for_goal, so if
-    /// a campaign has a custom conversion goal configured with a
-    /// primary_for_goal = false conversion action, that conversion action is
-    /// still biddable.
-    /// By default, primary_for_goal will be true if not set. In V9,
-    /// primary_for_goal can only be set to false after creation through an
-    /// 'update' operation because it's not declared as optional.
-    #[prost(bool, optional, tag = "31")]
-    pub primary_for_goal: ::core::option::Option<bool>,
-    /// The category of conversions reported for this conversion action.
-    #[prost(
-        enumeration = "super::enums::conversion_action_category_enum::ConversionActionCategory",
-        tag = "6"
-    )]
-    pub category: i32,
-    /// Output only. The resource name of the conversion action owner customer, or
-    /// null if this is a system-defined conversion action.
-    #[prost(string, optional, tag = "23")]
-    pub owner_customer: ::core::option::Option<::prost::alloc::string::String>,
-    /// Whether this conversion action should be included in the
-    /// "client_account_conversions" metric.
-    #[prost(bool, optional, tag = "24")]
-    pub include_in_client_account_conversions_metric: ::core::option::Option<bool>,
-    /// Output only. Whether this conversion action should be included in the
-    /// "conversions" metric.
-    #[prost(bool, optional, tag = "32")]
-    pub include_in_conversions_metric: ::core::option::Option<bool>,
-    /// The maximum number of days that may elapse between an interaction
-    /// (for example, a click) and a conversion event.
-    #[prost(int64, optional, tag = "25")]
-    pub click_through_lookback_window_days: ::core::option::Option<i64>,
-    /// Settings related to the value for conversion events associated with this
-    /// conversion action.
-    #[prost(message, optional, tag = "11")]
-    pub value_settings: ::core::option::Option<conversion_action::ValueSettings>,
-    /// Settings related to this conversion action's attribution model.
-    #[prost(message, optional, tag = "13")]
-    pub attribution_model_settings: ::core::option::Option<
-        conversion_action::AttributionModelSettings,
-    >,
-    /// App ID for an app conversion action.
-    #[prost(string, optional, tag = "28")]
-    pub app_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Floodlight settings for Floodlight conversion types.
-    #[prost(message, optional, tag = "29")]
-    pub floodlight_settings: ::core::option::Option<
-        conversion_action::FloodlightSettings,
-    >,
-}
-/// Nested message and enum types in `ConversionAction`.
-pub mod conversion_action {
-    /// Settings related to this conversion action's attribution model.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AttributionModelSettings {
-        /// The attribution model type of this conversion action.
-        #[prost(
-            enumeration = "super::super::enums::attribution_model_enum::AttributionModel",
-            tag = "1"
-        )]
-        pub attribution_model: i32,
-        /// Output only. The status of the data-driven attribution model for the
-        /// conversion action.
-        #[prost(
-            enumeration = "super::super::enums::data_driven_model_status_enum::DataDrivenModelStatus",
-            tag = "2"
-        )]
-        pub data_driven_model_status: i32,
-    }
-    /// Settings related to the value for conversion events associated with this
-    /// conversion action.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ValueSettings {
-        /// The value to use when conversion events for this conversion action are
-        /// sent with an invalid, disallowed or missing value, or when
-        /// this conversion action is configured to always use the default value.
-        #[prost(double, optional, tag = "4")]
-        pub default_value: ::core::option::Option<f64>,
-        /// The currency code to use when conversion events for this conversion
-        /// action are sent with an invalid or missing currency code, or when this
-        /// conversion action is configured to always use the default value.
-        #[prost(string, optional, tag = "5")]
-        pub default_currency_code: ::core::option::Option<
-            ::prost::alloc::string::String,
-        >,
-        /// Controls whether the default value and default currency code are used in
-        /// place of the value and currency code specified in conversion events for
-        /// this conversion action.
-        #[prost(bool, optional, tag = "6")]
-        pub always_use_default_value: ::core::option::Option<bool>,
-    }
-    /// Settings related to a Floodlight conversion action.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FloodlightSettings {
-        /// Output only. String used to identify a Floodlight activity group when
-        /// reporting conversions.
-        #[prost(string, tag = "1")]
-        pub activity_group_tag: ::prost::alloc::string::String,
-        /// Output only. String used to identify a Floodlight activity when reporting
-        /// conversions.
-        #[prost(string, tag = "2")]
-        pub activity_tag: ::prost::alloc::string::String,
-        /// Output only. ID of the Floodlight activity in DoubleClick Campaign
-        /// Manager (DCM).
-        #[prost(int64, tag = "3")]
-        pub activity_id: i64,
-    }
-}
-/// A keyword view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KeywordView {
-    /// Output only. The resource name of the keyword view.
-    /// Keyword view resource names have the form:
-    ///
-    /// `customers/{customer_id}/keywordViews/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// An ad group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroup {
-    /// Immutable. The resource name of the ad group.
-    /// Ad group resource names have the form:
-    ///
-    /// `customers/{customer_id}/adGroups/{ad_group_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the ad group.
-    #[prost(int64, optional, tag = "34")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the ad group.
-    ///
-    /// This field is required and should not be empty when creating new ad
-    /// groups.
-    ///
-    /// It must contain fewer than 255 UTF-8 full-width characters.
-    ///
-    /// It must not contain any null (code point 0x0), NL line feed
-    /// (code point 0xA) or carriage return (code point 0xD) characters.
-    #[prost(string, optional, tag = "35")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// The status of the ad group.
-    #[prost(
-        enumeration = "super::enums::ad_group_status_enum::AdGroupStatus",
-        tag = "5"
-    )]
-    pub status: i32,
-    /// Immutable. The type of the ad group.
-    #[prost(enumeration = "super::enums::ad_group_type_enum::AdGroupType", tag = "12")]
-    pub r#type: i32,
-    /// The ad rotation mode of the ad group.
-    #[prost(
-        enumeration = "super::enums::ad_group_ad_rotation_mode_enum::AdGroupAdRotationMode",
-        tag = "22"
-    )]
-    pub ad_rotation_mode: i32,
-    /// The maximum CPC (cost-per-click) bid.
-    #[prost(int64, optional, tag = "39")]
-    pub cpc_bid_micros: ::core::option::Option<i64>,
-    /// Output only. The timestamp when this ad_group was created. The timestamp is
-    /// in the customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
-    #[prost(string, tag = "60")]
-    pub creation_time: ::prost::alloc::string::String,
-    /// Output only. The Engine Status for ad group.
-    #[prost(
-        enumeration = "super::enums::ad_group_engine_status_enum::AdGroupEngineStatus",
-        optional,
-        tag = "61"
-    )]
-    pub engine_status: ::core::option::Option<i32>,
-    /// Setting for targeting related features.
-    #[prost(message, optional, tag = "25")]
-    pub targeting_setting: ::core::option::Option<super::common::TargetingSetting>,
-    /// Output only. The resource names of labels attached to this ad group.
-    #[prost(string, repeated, tag = "49")]
-    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. ID of the ad group in the external engine account. This field
-    /// is for non-Google Ads account only, for example, Yahoo Japan, Microsoft,
-    /// Baidu etc. For Google Ads entity, use "ad_group.id" instead.
-    #[prost(string, tag = "50")]
-    pub engine_id: ::prost::alloc::string::String,
-    /// Output only. Date when this ad group starts serving ads. By default, the ad
-    /// group starts now or the ad group's start date, whichever is later. If this
-    /// field is set, then the ad group starts at the beginning of the specified
-    /// date in the customer's time zone. This field is only available for
-    /// Microsoft Advertising and Facebook gateway accounts.
-    ///
-    /// Format: YYYY-MM-DD
-    /// Example: 2019-03-14
-    #[prost(string, tag = "51")]
-    pub start_date: ::prost::alloc::string::String,
-    /// Output only. Date when the ad group ends serving ads. By default, the ad
-    /// group ends on the ad group's end date. If this field is set, then the ad
-    /// group ends at the end of the specified date in the customer's time zone.
-    /// This field is only available for Microsoft Advertising and Facebook gateway
-    /// accounts.
-    ///
-    /// Format: YYYY-MM-DD
-    /// Example: 2019-03-14
-    #[prost(string, tag = "52")]
-    pub end_date: ::prost::alloc::string::String,
-    /// Output only. The language of the ads and keywords in an ad group. This
-    /// field is only available for Microsoft Advertising accounts. More details:
-    /// <https://docs.microsoft.com/en-us/advertising/guides/ad-languages?view=bingads-13#adlanguage>
-    #[prost(string, tag = "53")]
-    pub language_code: ::prost::alloc::string::String,
-    /// Output only. The datetime when this ad group was last modified. The
-    /// datetime is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss.ssssss"
-    /// format.
-    #[prost(string, tag = "55")]
-    pub last_modified_time: ::prost::alloc::string::String,
-}
-/// A Product Bidding Category.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ProductBiddingCategoryConstant {
-    /// Output only. The resource name of the product bidding category.
-    /// Product bidding category resource names have the form:
-    ///
-    /// `productBiddingCategoryConstants/{country_code}~{level}~{id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. ID of the product bidding category.
-    ///
-    /// This ID is equivalent to the google_product_category ID as described in
-    /// this article: <https://support.google.com/merchants/answer/6324436.>
-    #[prost(int64, optional, tag = "10")]
-    pub id: ::core::option::Option<i64>,
-    /// Output only. Two-letter upper-case country code of the product bidding
-    /// category.
-    #[prost(string, optional, tag = "11")]
-    pub country_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Resource name of the parent product bidding category.
-    #[prost(string, optional, tag = "12")]
-    pub product_bidding_category_constant_parent: ::core::option::Option<
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Level of the product bidding category.
-    #[prost(
-        enumeration = "super::enums::product_bidding_category_level_enum::ProductBiddingCategoryLevel",
-        tag = "5"
-    )]
-    pub level: i32,
-    /// Output only. Status of the product bidding category.
-    #[prost(
-        enumeration = "super::enums::product_bidding_category_status_enum::ProductBiddingCategoryStatus",
-        tag = "6"
-    )]
-    pub status: i32,
-    /// Output only. Language code of the product bidding category.
-    #[prost(string, optional, tag = "13")]
-    pub language_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Display value of the product bidding category localized
-    /// according to language_code.
-    #[prost(string, optional, tag = "14")]
-    pub localized_name: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A relationship between an ad group criterion and a label.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupCriterionLabel {
-    /// Immutable. The resource name of the ad group criterion label.
-    /// Ad group criterion label resource names have the form:
-    /// `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The ad group criterion to which the label is attached.
-    #[prost(string, optional, tag = "4")]
-    pub ad_group_criterion: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The label assigned to the ad group criterion.
-    #[prost(string, optional, tag = "5")]
-    pub label: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// A view on the usage of ad group ad asset combination.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1531,6 +916,45 @@ pub struct AssetGroupAssetCombinationData {
         super::common::AssetUsage,
     >,
 }
+/// An asset set representing a collection of assets.
+/// Use AssetSetAsset to link an asset to the asset set.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetSet {
+    /// Output only. The ID of the asset set.
+    #[prost(int64, tag = "6")]
+    pub id: i64,
+    /// Immutable. The resource name of the asset set.
+    /// Asset set resource names have the form:
+    ///
+    /// `customers/{customer_id}/assetSets/{asset_set_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// AssetSetAsset is the link between an asset and an asset set.
+/// Adding an AssetSetAsset links an asset with an asset set.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetSetAsset {
+    /// Immutable. The resource name of the asset set asset.
+    /// Asset set asset resource names have the form:
+    ///
+    /// `customers/{customer_id}/assetSetAssets/{asset_set_id}~{asset_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The asset set which this asset set asset is linking to.
+    #[prost(string, tag = "2")]
+    pub asset_set: ::prost::alloc::string::String,
+    /// Immutable. The asset which this asset set asset is linking to.
+    #[prost(string, tag = "3")]
+    pub asset: ::prost::alloc::string::String,
+    /// Output only. The status of the asset set asset. Read-only.
+    #[prost(
+        enumeration = "super::enums::asset_set_asset_status_enum::AssetSetAssetStatus",
+        tag = "4"
+    )]
+    pub status: i32,
+}
 /// Audience is an effective targeting option that lets you
 /// intersect different segment attributes, such as detailed demographics and
 /// affinities, to create audiences that represent sections of your target
@@ -1556,21 +980,128 @@ pub struct Audience {
     #[prost(string, tag = "5")]
     pub description: ::prost::alloc::string::String,
 }
-/// Represents a relationship between a campaign and a label.
+/// A bidding strategy.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignLabel {
-    /// Immutable. Name of the resource.
-    /// Campaign label resource names have the form:
-    /// `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
+pub struct BiddingStrategy {
+    /// Immutable. The resource name of the bidding strategy.
+    /// Bidding strategy resource names have the form:
+    ///
+    /// `customers/{customer_id}/biddingStrategies/{bidding_strategy_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The campaign to which the label is attached.
-    #[prost(string, optional, tag = "4")]
-    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The label assigned to the campaign.
-    #[prost(string, optional, tag = "5")]
-    pub label: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the bidding strategy.
+    #[prost(int64, optional, tag = "16")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the bidding strategy.
+    /// All bidding strategies within an account must be named distinctly.
+    ///
+    /// The length of this string should be between 1 and 255, inclusive,
+    /// in UTF-8 bytes, (trimmed).
+    #[prost(string, optional, tag = "17")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The status of the bidding strategy.
+    ///
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::bidding_strategy_status_enum::BiddingStrategyStatus",
+        tag = "15"
+    )]
+    pub status: i32,
+    /// Output only. The type of the bidding strategy.
+    /// Create a bidding strategy by setting the bidding scheme.
+    ///
+    /// This field is read-only.
+    #[prost(
+        enumeration = "super::enums::bidding_strategy_type_enum::BiddingStrategyType",
+        tag = "5"
+    )]
+    pub r#type: i32,
+    /// Immutable. The currency used by the bidding strategy (ISO 4217 three-letter
+    /// code).
+    ///
+    /// For bidding strategies in manager customers, this currency can be set on
+    /// creation and defaults to the manager customer's currency. For serving
+    /// customers, this field cannot be set; all strategies in a serving customer
+    /// implicitly use the serving customer's currency. In all cases the
+    /// effective_currency_code field returns the currency used by the strategy.
+    #[prost(string, tag = "23")]
+    pub currency_code: ::prost::alloc::string::String,
+    /// Output only. The currency used by the bidding strategy (ISO 4217
+    /// three-letter code).
+    ///
+    /// For bidding strategies in manager customers, this is the currency set by
+    /// the advertiser when creating the strategy. For serving customers, this is
+    /// the customer's currency_code.
+    ///
+    /// Bidding strategy metrics are reported in this currency.
+    ///
+    /// This field is read-only.
+    #[prost(string, optional, tag = "20")]
+    pub effective_currency_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The number of campaigns attached to this bidding strategy.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "18")]
+    pub campaign_count: ::core::option::Option<i64>,
+    /// Output only. The number of non-removed campaigns attached to this bidding
+    /// strategy.
+    ///
+    /// This field is read-only.
+    #[prost(int64, optional, tag = "19")]
+    pub non_removed_campaign_count: ::core::option::Option<i64>,
+    /// The bidding scheme.
+    ///
+    /// Only one can be set.
+    #[prost(oneof = "bidding_strategy::Scheme", tags = "7, 21, 22, 9, 48, 10, 11, 12")]
+    pub scheme: ::core::option::Option<bidding_strategy::Scheme>,
+}
+/// Nested message and enum types in `BiddingStrategy`.
+pub mod bidding_strategy {
+    /// The bidding scheme.
+    ///
+    /// Only one can be set.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Scheme {
+        /// A bidding strategy that raises bids for clicks that seem more likely to
+        /// lead to a conversion and lowers them for clicks where they seem less
+        /// likely.
+        #[prost(message, tag = "7")]
+        EnhancedCpc(super::super::common::EnhancedCpc),
+        /// An automated bidding strategy to help get the most conversion value for
+        /// your campaigns while spending your budget.
+        #[prost(message, tag = "21")]
+        MaximizeConversionValue(super::super::common::MaximizeConversionValue),
+        /// An automated bidding strategy to help get the most conversions for your
+        /// campaigns while spending your budget.
+        #[prost(message, tag = "22")]
+        MaximizeConversions(super::super::common::MaximizeConversions),
+        /// A bidding strategy that sets bids to help get as many conversions as
+        /// possible at the target cost-per-acquisition (CPA) you set.
+        #[prost(message, tag = "9")]
+        TargetCpa(super::super::common::TargetCpa),
+        /// A bidding strategy that automatically optimizes towards a chosen
+        /// percentage of impressions.
+        #[prost(message, tag = "48")]
+        TargetImpressionShare(super::super::common::TargetImpressionShare),
+        /// A bidding strategy that sets bids based on the target fraction of
+        /// auctions where the advertiser should outrank a specific competitor.
+        /// This field is deprecated. Creating a new bidding strategy with this
+        /// field or attaching bidding strategies with this field to a campaign will
+        /// fail. Mutates to strategies that already have this scheme populated are
+        /// allowed.
+        #[prost(message, tag = "10")]
+        TargetOutrankShare(super::super::common::TargetOutrankShare),
+        /// A bidding strategy that helps you maximize revenue while averaging a
+        /// specific target Return On Ad Spend (ROAS).
+        #[prost(message, tag = "11")]
+        TargetRoas(super::super::common::TargetRoas),
+        /// A bid strategy that sets your bids to help get as many clicks as
+        /// possible within your budget.
+        #[prost(message, tag = "12")]
+        TargetSpend(super::super::common::TargetSpend),
+    }
 }
 /// A campaign.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1954,72 +1485,564 @@ pub mod campaign {
         TargetCpm(super::super::common::TargetCpm),
     }
 }
-/// A dynamic search ads search term view.
+/// A link between a Campaign and an Asset.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DynamicSearchAdsSearchTermView {
-    /// Output only. The resource name of the dynamic search ads search term view.
-    /// Dynamic search ads search term view resource names have the form:
+pub struct CampaignAsset {
+    /// Immutable. The resource name of the campaign asset.
+    /// CampaignAsset resource names have the form:
     ///
-    /// `customers/{customer_id}/dynamicSearchAdsSearchTermViews/{ad_group_id}~{search_term_fingerprint}~{headline_fingerprint}~{landing_page_fingerprint}~{page_url_fingerprint}`
+    /// `customers/{customer_id}/campaignAssets/{campaign_id}~{asset_id}~{field_type}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The dynamically selected landing page URL of the impression.
-    ///
-    /// This field is read-only.
-    #[prost(string, optional, tag = "11")]
-    pub landing_page: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The campaign to which the asset is linked.
+    #[prost(string, optional, tag = "6")]
+    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The asset which is linked to the campaign.
+    #[prost(string, optional, tag = "7")]
+    pub asset: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Status of the campaign asset.
+    #[prost(
+        enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
+        tag = "5"
+    )]
+    pub status: i32,
 }
-/// A relationship between an ad group and a label.
+/// CampaignAssetSet is the linkage between a campaign and an asset set.
+/// Adding a CampaignAssetSet links an asset set with a campaign.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupLabel {
-    /// Immutable. The resource name of the ad group label.
-    /// Ad group label resource names have the form:
-    /// `customers/{customer_id}/adGroupLabels/{ad_group_id}~{label_id}`
+pub struct CampaignAssetSet {
+    /// Immutable. The resource name of the campaign asset set.
+    /// Asset set asset resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignAssetSets/{campaign_id}~{asset_set_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The ad group to which the label is attached.
+    /// Immutable. The campaign to which this asset set is linked.
+    #[prost(string, tag = "2")]
+    pub campaign: ::prost::alloc::string::String,
+    /// Immutable. The asset set which is linked to the campaign.
+    #[prost(string, tag = "3")]
+    pub asset_set: ::prost::alloc::string::String,
+    /// Output only. The status of the campaign asset set asset. Read-only.
+    #[prost(
+        enumeration = "super::enums::asset_set_link_status_enum::AssetSetLinkStatus",
+        tag = "4"
+    )]
+    pub status: i32,
+}
+/// A campaign audience view.
+/// Includes performance data from interests and remarketing lists for Display
+/// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
+/// aggregated by campaign and audience criterion. This view only includes
+/// audiences attached at the campaign level.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignAudienceView {
+    /// Output only. The resource name of the campaign audience view.
+    /// Campaign audience view resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignAudienceViews/{campaign_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// A campaign budget.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignBudget {
+    /// Immutable. The resource name of the campaign budget.
+    /// Campaign budget resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignBudgets/{campaign_budget_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The amount of the budget, in the local currency for the account.
+    /// Amount is specified in micros, where one million is equivalent to one
+    /// currency unit. Monthly spend is capped at 30.4 times this amount.
+    #[prost(int64, optional, tag = "21")]
+    pub amount_micros: ::core::option::Option<i64>,
+    /// The delivery method that determines the rate at which the campaign budget
+    /// is spent.
+    ///
+    /// Defaults to STANDARD if unspecified in a create operation.
+    #[prost(
+        enumeration = "super::enums::budget_delivery_method_enum::BudgetDeliveryMethod",
+        tag = "7"
+    )]
+    pub delivery_method: i32,
+    /// Immutable. Period over which to spend the budget. Defaults to DAILY if not
+    /// specified.
+    #[prost(enumeration = "super::enums::budget_period_enum::BudgetPeriod", tag = "13")]
+    pub period: i32,
+}
+/// A campaign criterion.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignCriterion {
+    /// Immutable. The resource name of the campaign criterion.
+    /// Campaign criterion resource names have the form:
+    ///
+    /// `customers/{customer_id}/campaignCriteria/{campaign_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the criterion.
+    ///
+    /// This field is ignored during mutate.
+    #[prost(int64, optional, tag = "38")]
+    pub criterion_id: ::core::option::Option<i64>,
+    /// Output only. The display name of the criterion.
+    ///
+    /// This field is ignored for mutates.
+    #[prost(string, tag = "43")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The modifier for the bids when the criterion matches. The modifier must be
+    /// in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
+    /// Use 0 to opt out of a Device type.
+    #[prost(float, optional, tag = "39")]
+    pub bid_modifier: ::core::option::Option<f32>,
+    /// Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
+    #[prost(bool, optional, tag = "40")]
+    pub negative: ::core::option::Option<bool>,
+    /// Output only. The type of the criterion.
+    #[prost(enumeration = "super::enums::criterion_type_enum::CriterionType", tag = "6")]
+    pub r#type: i32,
+    /// The status of the criterion.
+    #[prost(
+        enumeration = "super::enums::campaign_criterion_status_enum::CampaignCriterionStatus",
+        tag = "35"
+    )]
+    pub status: i32,
+    /// Output only. The datetime when this campaign criterion was last modified.
+    /// The datetime is in the customer's time zone and in "yyyy-MM-dd
+    /// HH:mm:ss.ssssss" format.
+    #[prost(string, tag = "44")]
+    pub last_modified_time: ::prost::alloc::string::String,
+    /// The campaign criterion.
+    ///
+    /// Exactly one must be set.
+    #[prost(
+        oneof = "campaign_criterion::Criterion",
+        tags = "8, 12, 13, 16, 17, 22, 26, 31, 34"
+    )]
+    pub criterion: ::core::option::Option<campaign_criterion::Criterion>,
+}
+/// Nested message and enum types in `CampaignCriterion`.
+pub mod campaign_criterion {
+    /// The campaign criterion.
+    ///
+    /// Exactly one must be set.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Criterion {
+        /// Immutable. Keyword.
+        #[prost(message, tag = "8")]
+        Keyword(super::super::common::KeywordInfo),
+        /// Immutable. Location.
+        #[prost(message, tag = "12")]
+        Location(super::super::common::LocationInfo),
+        /// Immutable. Device.
+        #[prost(message, tag = "13")]
+        Device(super::super::common::DeviceInfo),
+        /// Immutable. Age range.
+        #[prost(message, tag = "16")]
+        AgeRange(super::super::common::AgeRangeInfo),
+        /// Immutable. Gender.
+        #[prost(message, tag = "17")]
+        Gender(super::super::common::GenderInfo),
+        /// Immutable. User List.
+        /// The Similar Audiences sunset starts May 2023. Refer to
+        /// <https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html>
+        /// for other options.
+        #[prost(message, tag = "22")]
+        UserList(super::super::common::UserListInfo),
+        /// Immutable. Language.
+        #[prost(message, tag = "26")]
+        Language(super::super::common::LanguageInfo),
+        /// Immutable. Webpage.
+        #[prost(message, tag = "31")]
+        Webpage(super::super::common::WebpageInfo),
+        /// Immutable. Location Group
+        #[prost(message, tag = "34")]
+        LocationGroup(super::super::common::LocationGroupInfo),
+    }
+}
+/// Represents a relationship between a campaign and a label.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CampaignLabel {
+    /// Immutable. Name of the resource.
+    /// Campaign label resource names have the form:
+    /// `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Immutable. The campaign to which the label is attached.
     #[prost(string, optional, tag = "4")]
-    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The label assigned to the ad group.
+    pub campaign: ::core::option::Option<::prost::alloc::string::String>,
+    /// Immutable. The label assigned to the campaign.
     #[prost(string, optional, tag = "5")]
     pub label: ::core::option::Option<::prost::alloc::string::String>,
 }
-/// A user list. This is a list of users a customer may target.
+/// Cart data sales view.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UserList {
-    /// Immutable. The resource name of the user list.
-    /// User list resource names have the form:
-    ///
-    /// `customers/{customer_id}/userLists/{user_list_id}`
+pub struct CartDataSalesView {
+    /// Output only. The resource name of the Cart data sales view.
+    /// Cart data sales view resource names have the form:
+    /// `customers/{customer_id}/cartDataSalesView`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Output only. Id of the user list.
-    #[prost(int64, optional, tag = "25")]
-    pub id: ::core::option::Option<i64>,
-    /// Name of this user list. Depending on its access_reason, the user list name
-    /// may not be unique (for example, if access_reason=SHARED)
-    #[prost(string, optional, tag = "27")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Type of this list.
-    ///
-    /// This field is read-only.
-    #[prost(enumeration = "super::enums::user_list_type_enum::UserListType", tag = "13")]
-    pub r#type: i32,
 }
-/// A location view summarizes the performance of campaigns by
-/// Location criteria.
+/// A conversion.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocationView {
-    /// Output only. The resource name of the location view.
-    /// Location view resource names have the form:
+pub struct Conversion {
+    /// Output only. The resource name of the conversion.
+    /// Conversion resource names have the form:
     ///
-    /// `customers/{customer_id}/locationViews/{campaign_id}~{criterion_id}`
+    /// `customers/{customer_id}/conversions/{ad_group_id}~{criterion_id}~{ds_conversion_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the conversion
+    #[prost(int64, optional, tag = "2")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. Search Ads 360 criterion ID. A value of 0 indicates that the
+    /// criterion is unattributed.
+    #[prost(int64, optional, tag = "3")]
+    pub criterion_id: ::core::option::Option<i64>,
+    /// Output only. The SearchAds360 inventory account ID containing the product
+    /// that was clicked on. SearchAds360 generates this ID when you link an
+    /// inventory account in SearchAds360.
+    #[prost(int64, optional, tag = "4")]
+    pub merchant_id: ::core::option::Option<i64>,
+    /// Output only. Ad ID. A value of 0 indicates that the ad is unattributed.
+    #[prost(int64, optional, tag = "5")]
+    pub ad_id: ::core::option::Option<i64>,
+    /// Output only. A unique string, for the visit that the conversion is
+    /// attributed to, that is passed to the landing page as the click id URL
+    /// parameter.
+    #[prost(string, optional, tag = "6")]
+    pub click_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The SearchAds360 visit ID that the conversion is attributed
+    /// to.
+    #[prost(int64, optional, tag = "7")]
+    pub visit_id: ::core::option::Option<i64>,
+    /// Output only. For offline conversions, this is an ID provided by
+    /// advertisers. If an advertiser doesn't specify such an ID, Search Ads 360
+    /// generates one. For online conversions, this is equal to the id column or
+    /// the floodlight_order_id column depending on the advertiser's Floodlight
+    /// instructions.
+    #[prost(string, optional, tag = "8")]
+    pub advertiser_conversion_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the product clicked on.
+    #[prost(string, optional, tag = "9")]
+    pub product_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The sales channel of the product that was clicked on: Online
+    /// or Local.
+    #[prost(
+        enumeration = "super::enums::product_channel_enum::ProductChannel",
+        optional,
+        tag = "10"
+    )]
+    pub product_channel: ::core::option::Option<i32>,
+    /// Output only. The language (ISO-639-1) that has been set for the Merchant
+    /// Center feed containing data about the product.
+    #[prost(string, optional, tag = "11")]
+    pub product_language_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The store in the Local Inventory Ad that was clicked on. This
+    /// should match the store IDs used in your local products feed.
+    #[prost(string, optional, tag = "12")]
+    pub product_store_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The country (ISO-3166-format) registered for the inventory
+    /// feed that contains the product clicked on.
+    #[prost(string, optional, tag = "13")]
+    pub product_country_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. What the conversion is attributed to: Visit or Keyword+Ad.
+    #[prost(
+        enumeration = "super::enums::attribution_type_enum::AttributionType",
+        optional,
+        tag = "14"
+    )]
+    pub attribution_type: ::core::option::Option<i32>,
+    /// Output only. The timestamp of the conversion event.
+    #[prost(string, optional, tag = "15")]
+    pub conversion_date_time: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The timestamp of the last time the conversion was modified.
+    #[prost(string, optional, tag = "16")]
+    pub conversion_last_modified_date_time: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The timestamp of the visit that the conversion is attributed
+    /// to.
+    #[prost(string, optional, tag = "17")]
+    pub conversion_visit_date_time: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The quantity of items recorded by the conversion, as
+    /// determined by the qty url parameter. The advertiser is responsible for
+    /// dynamically populating the parameter (such as number of items sold in the
+    /// conversion), otherwise it defaults to 1.
+    #[prost(int64, optional, tag = "18")]
+    pub conversion_quantity: ::core::option::Option<i64>,
+    /// Output only. The adjusted revenue in micros for the conversion event. This
+    /// will always be in the currency of the serving account.
+    #[prost(int64, optional, tag = "19")]
+    pub conversion_revenue_micros: ::core::option::Option<i64>,
+    /// Output only. The original, unchanged revenue associated with the Floodlight
+    /// event (in the currency of the current report), before Floodlight currency
+    /// instruction modifications.
+    #[prost(int64, optional, tag = "20")]
+    pub floodlight_original_revenue: ::core::option::Option<i64>,
+    /// Output only. The Floodlight order ID provided by the advertiser for the
+    /// conversion.
+    #[prost(string, optional, tag = "21")]
+    pub floodlight_order_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The status of the conversion, either ENABLED or REMOVED..
+    #[prost(
+        enumeration = "super::enums::conversion_status_enum::ConversionStatus",
+        optional,
+        tag = "22"
+    )]
+    pub status: ::core::option::Option<i32>,
+    /// Output only. ID of the asset which was interacted with during the
+    /// conversion event.
+    #[prost(int64, optional, tag = "23")]
+    pub asset_id: ::core::option::Option<i64>,
+    /// Output only. Asset field type of the conversion event.
+    #[prost(
+        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
+        optional,
+        tag = "24"
+    )]
+    pub asset_field_type: ::core::option::Option<i32>,
+}
+/// A conversion action.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConversionAction {
+    /// Immutable. The resource name of the conversion action.
+    /// Conversion action resource names have the form:
+    ///
+    /// `customers/{customer_id}/conversionActions/{conversion_action_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the conversion action.
+    #[prost(int64, optional, tag = "21")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the conversion action.
+    ///
+    /// This field is required and should not be empty when creating new
+    /// conversion actions.
+    #[prost(string, optional, tag = "22")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Timestamp of the Floodlight activity's creation, formatted in
+    /// ISO 8601.
+    #[prost(string, tag = "33")]
+    pub creation_time: ::prost::alloc::string::String,
+    /// The status of this conversion action for conversion event accrual.
+    #[prost(
+        enumeration = "super::enums::conversion_action_status_enum::ConversionActionStatus",
+        tag = "4"
+    )]
+    pub status: i32,
+    /// Immutable. The type of this conversion action.
+    #[prost(
+        enumeration = "super::enums::conversion_action_type_enum::ConversionActionType",
+        tag = "5"
+    )]
+    pub r#type: i32,
+    /// If a conversion action's primary_for_goal bit is false, the conversion
+    /// action is non-biddable for all campaigns regardless of their customer
+    /// conversion goal or campaign conversion goal.
+    /// However, custom conversion goals do not respect primary_for_goal, so if
+    /// a campaign has a custom conversion goal configured with a
+    /// primary_for_goal = false conversion action, that conversion action is
+    /// still biddable.
+    /// By default, primary_for_goal will be true if not set. In V9,
+    /// primary_for_goal can only be set to false after creation through an
+    /// 'update' operation because it's not declared as optional.
+    #[prost(bool, optional, tag = "31")]
+    pub primary_for_goal: ::core::option::Option<bool>,
+    /// The category of conversions reported for this conversion action.
+    #[prost(
+        enumeration = "super::enums::conversion_action_category_enum::ConversionActionCategory",
+        tag = "6"
+    )]
+    pub category: i32,
+    /// Output only. The resource name of the conversion action owner customer, or
+    /// null if this is a system-defined conversion action.
+    #[prost(string, optional, tag = "23")]
+    pub owner_customer: ::core::option::Option<::prost::alloc::string::String>,
+    /// Whether this conversion action should be included in the
+    /// "client_account_conversions" metric.
+    #[prost(bool, optional, tag = "24")]
+    pub include_in_client_account_conversions_metric: ::core::option::Option<bool>,
+    /// Output only. Whether this conversion action should be included in the
+    /// "conversions" metric.
+    #[prost(bool, optional, tag = "32")]
+    pub include_in_conversions_metric: ::core::option::Option<bool>,
+    /// The maximum number of days that may elapse between an interaction
+    /// (for example, a click) and a conversion event.
+    #[prost(int64, optional, tag = "25")]
+    pub click_through_lookback_window_days: ::core::option::Option<i64>,
+    /// Settings related to the value for conversion events associated with this
+    /// conversion action.
+    #[prost(message, optional, tag = "11")]
+    pub value_settings: ::core::option::Option<conversion_action::ValueSettings>,
+    /// Settings related to this conversion action's attribution model.
+    #[prost(message, optional, tag = "13")]
+    pub attribution_model_settings: ::core::option::Option<
+        conversion_action::AttributionModelSettings,
+    >,
+    /// App ID for an app conversion action.
+    #[prost(string, optional, tag = "28")]
+    pub app_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Floodlight settings for Floodlight conversion types.
+    #[prost(message, optional, tag = "29")]
+    pub floodlight_settings: ::core::option::Option<
+        conversion_action::FloodlightSettings,
+    >,
+}
+/// Nested message and enum types in `ConversionAction`.
+pub mod conversion_action {
+    /// Settings related to this conversion action's attribution model.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AttributionModelSettings {
+        /// The attribution model type of this conversion action.
+        #[prost(
+            enumeration = "super::super::enums::attribution_model_enum::AttributionModel",
+            tag = "1"
+        )]
+        pub attribution_model: i32,
+        /// Output only. The status of the data-driven attribution model for the
+        /// conversion action.
+        #[prost(
+            enumeration = "super::super::enums::data_driven_model_status_enum::DataDrivenModelStatus",
+            tag = "2"
+        )]
+        pub data_driven_model_status: i32,
+    }
+    /// Settings related to the value for conversion events associated with this
+    /// conversion action.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ValueSettings {
+        /// The value to use when conversion events for this conversion action are
+        /// sent with an invalid, disallowed or missing value, or when
+        /// this conversion action is configured to always use the default value.
+        #[prost(double, optional, tag = "4")]
+        pub default_value: ::core::option::Option<f64>,
+        /// The currency code to use when conversion events for this conversion
+        /// action are sent with an invalid or missing currency code, or when this
+        /// conversion action is configured to always use the default value.
+        #[prost(string, optional, tag = "5")]
+        pub default_currency_code: ::core::option::Option<
+            ::prost::alloc::string::String,
+        >,
+        /// Controls whether the default value and default currency code are used in
+        /// place of the value and currency code specified in conversion events for
+        /// this conversion action.
+        #[prost(bool, optional, tag = "6")]
+        pub always_use_default_value: ::core::option::Option<bool>,
+    }
+    /// Settings related to a Floodlight conversion action.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FloodlightSettings {
+        /// Output only. String used to identify a Floodlight activity group when
+        /// reporting conversions.
+        #[prost(string, tag = "1")]
+        pub activity_group_tag: ::prost::alloc::string::String,
+        /// Output only. String used to identify a Floodlight activity when reporting
+        /// conversions.
+        #[prost(string, tag = "2")]
+        pub activity_tag: ::prost::alloc::string::String,
+        /// Output only. ID of the Floodlight activity in DoubleClick Campaign
+        /// Manager (DCM).
+        #[prost(int64, tag = "3")]
+        pub activity_id: i64,
+    }
+}
+/// A conversion custom variable.
+/// See "About custom Floodlight metrics and dimensions in the new
+/// Search Ads 360" at <https://support.google.com/sa360/answer/13567857>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ConversionCustomVariable {
+    /// Immutable. The resource name of the conversion custom variable.
+    /// Conversion custom variable resource names have the form:
+    ///
+    /// `customers/{customer_id}/conversionCustomVariables/{conversion_custom_variable_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the conversion custom variable.
+    #[prost(int64, tag = "2")]
+    pub id: i64,
+    /// Required. The name of the conversion custom variable.
+    /// Name should be unique. The maximum length of name is 100 characters.
+    /// There should not be any extra spaces before and after.
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Immutable. The tag of the conversion custom variable.
+    /// Tag should be unique and consist of a "u" character directly followed with
+    /// a number less than ormequal to 100. For example: "u4".
+    #[prost(string, tag = "4")]
+    pub tag: ::prost::alloc::string::String,
+    /// The status of the conversion custom variable for conversion event accrual.
+    #[prost(
+        enumeration = "super::enums::conversion_custom_variable_status_enum::ConversionCustomVariableStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+    /// Output only. The resource name of the customer that owns the conversion
+    /// custom variable.
+    #[prost(string, tag = "6")]
+    pub owner_customer: ::prost::alloc::string::String,
+    /// Output only. Family of the conversion custom variable.
+    #[prost(
+        enumeration = "super::enums::conversion_custom_variable_family_enum::ConversionCustomVariableFamily",
+        tag = "7"
+    )]
+    pub family: i32,
+    /// Output only. Cardinality of the conversion custom variable.
+    #[prost(
+        enumeration = "super::enums::conversion_custom_variable_cardinality_enum::ConversionCustomVariableCardinality",
+        tag = "8"
+    )]
+    pub cardinality: i32,
+    /// Output only. Fields for Search Ads 360 floodlight conversion custom
+    /// variables.
+    #[prost(message, optional, tag = "9")]
+    pub floodlight_conversion_custom_variable_info: ::core::option::Option<
+        conversion_custom_variable::FloodlightConversionCustomVariableInfo,
+    >,
+    /// Output only. The IDs of custom columns that use this conversion custom
+    /// variable.
+    #[prost(int64, repeated, packed = "false", tag = "10")]
+    pub custom_column_ids: ::prost::alloc::vec::Vec<i64>,
+}
+/// Nested message and enum types in `ConversionCustomVariable`.
+pub mod conversion_custom_variable {
+    /// Information for Search Ads 360 Floodlight Conversion Custom Variables.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FloodlightConversionCustomVariableInfo {
+        /// Output only. Floodlight variable type defined in Search Ads 360.
+        #[prost(
+            enumeration = "super::super::enums::floodlight_variable_type_enum::FloodlightVariableType",
+            optional,
+            tag = "1"
+        )]
+        pub floodlight_variable_type: ::core::option::Option<i32>,
+        /// Output only. Floodlight variable data type defined in Search Ads 360.
+        #[prost(
+            enumeration = "super::super::enums::floodlight_variable_data_type_enum::FloodlightVariableDataType",
+            optional,
+            tag = "2"
+        )]
+        pub floodlight_variable_data_type: ::core::option::Option<i32>,
+    }
 }
 /// A customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2159,298 +2182,443 @@ pub struct DoubleClickCampaignManagerSetting {
     #[prost(string, tag = "3")]
     pub time_zone: ::prost::alloc::string::String,
 }
-/// A relationship between an ad group ad and a label.
+/// A link between a customer and an asset.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupAdLabel {
-    /// Immutable. The resource name of the ad group ad label.
-    /// Ad group ad label resource names have the form:
-    /// `customers/{customer_id}/adGroupAdLabels/{ad_group_id}~{ad_id}~{label_id}`
+pub struct CustomerAsset {
+    /// Immutable. The resource name of the customer asset.
+    /// CustomerAsset resource names have the form:
+    ///
+    /// `customers/{customer_id}/customerAssets/{asset_id}~{field_type}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The ad group ad to which the label is attached.
-    #[prost(string, optional, tag = "4")]
-    pub ad_group_ad: ::core::option::Option<::prost::alloc::string::String>,
-    /// Immutable. The label assigned to the ad group ad.
-    #[prost(string, optional, tag = "5")]
-    pub label: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Represents an ad group bid modifier.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupBidModifier {
-    /// Immutable. The resource name of the ad group bid modifier.
-    /// Ad group bid modifier resource names have the form:
-    ///
-    /// `customers/{customer_id}/adGroupBidModifiers/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The modifier for the bid when the criterion matches. The modifier must be
-    /// in the range: 0.1 - 10.0. The range is 1.0 - 6.0 for PreferredContent.
-    /// Use 0 to opt out of a Device type.
-    #[prost(double, optional, tag = "15")]
-    pub bid_modifier: ::core::option::Option<f64>,
-    /// The criterion of this ad group bid modifier.
-    ///
-    /// Required in create operations starting in V5.
-    #[prost(oneof = "ad_group_bid_modifier::Criterion", tags = "11")]
-    pub criterion: ::core::option::Option<ad_group_bid_modifier::Criterion>,
-}
-/// Nested message and enum types in `AdGroupBidModifier`.
-pub mod ad_group_bid_modifier {
-    /// The criterion of this ad group bid modifier.
-    ///
-    /// Required in create operations starting in V5.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criterion {
-        /// Immutable. A device criterion.
-        #[prost(message, tag = "11")]
-        Device(super::super::common::DeviceInfo),
-    }
-}
-/// AssetSetAsset is the link between an asset and an asset set.
-/// Adding an AssetSetAsset links an asset with an asset set.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetSetAsset {
-    /// Immutable. The resource name of the asset set asset.
-    /// Asset set asset resource names have the form:
-    ///
-    /// `customers/{customer_id}/assetSetAssets/{asset_set_id}~{asset_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Immutable. The asset set which this asset set asset is linking to.
+    /// Required. Immutable. The asset which is linked to the customer.
     #[prost(string, tag = "2")]
-    pub asset_set: ::prost::alloc::string::String,
-    /// Immutable. The asset which this asset set asset is linking to.
-    #[prost(string, tag = "3")]
     pub asset: ::prost::alloc::string::String,
-    /// Output only. The status of the asset set asset. Read-only.
+    /// Status of the customer asset.
     #[prost(
-        enumeration = "super::enums::asset_set_asset_status_enum::AssetSetAssetStatus",
+        enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
         tag = "4"
     )]
     pub status: i32,
 }
-/// An ad group audience view.
-/// Includes performance data from interests and remarketing lists for Display
-/// Network and YouTube Network ads, and remarketing lists for search ads (RLSA),
-/// aggregated at the audience level.
+/// CustomerAssetSet is the linkage between a customer and an asset set.
+/// Adding a CustomerAssetSet links an asset set with a customer.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupAudienceView {
-    /// Output only. The resource name of the ad group audience view.
-    /// Ad group audience view resource names have the form:
+pub struct CustomerAssetSet {
+    /// Immutable. The resource name of the customer asset set.
+    /// Asset set asset resource names have the form:
     ///
-    /// `customers/{customer_id}/adGroupAudienceViews/{ad_group_id}~{criterion_id}`
+    /// `customers/{customer_id}/customerAssetSets/{asset_set_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-}
-/// A campaign budget.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CampaignBudget {
-    /// Immutable. The resource name of the campaign budget.
-    /// Campaign budget resource names have the form:
-    ///
-    /// `customers/{customer_id}/campaignBudgets/{campaign_budget_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The amount of the budget, in the local currency for the account.
-    /// Amount is specified in micros, where one million is equivalent to one
-    /// currency unit. Monthly spend is capped at 30.4 times this amount.
-    #[prost(int64, optional, tag = "21")]
-    pub amount_micros: ::core::option::Option<i64>,
-    /// The delivery method that determines the rate at which the campaign budget
-    /// is spent.
-    ///
-    /// Defaults to STANDARD if unspecified in a create operation.
+    /// Immutable. The asset set which is linked to the customer.
+    #[prost(string, tag = "2")]
+    pub asset_set: ::prost::alloc::string::String,
+    /// Immutable. The customer to which this asset set is linked.
+    #[prost(string, tag = "3")]
+    pub customer: ::prost::alloc::string::String,
+    /// Output only. The status of the customer asset set asset. Read-only.
     #[prost(
-        enumeration = "super::enums::budget_delivery_method_enum::BudgetDeliveryMethod",
-        tag = "7"
-    )]
-    pub delivery_method: i32,
-    /// Immutable. Period over which to spend the budget. Defaults to DAILY if not
-    /// specified.
-    #[prost(enumeration = "super::enums::budget_period_enum::BudgetPeriod", tag = "13")]
-    pub period: i32,
-}
-/// An asset set representing a collection of assets.
-/// Use AssetSetAsset to link an asset to the asset set.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetSet {
-    /// Output only. The ID of the asset set.
-    #[prost(int64, tag = "6")]
-    pub id: i64,
-    /// Immutable. The resource name of the asset set.
-    /// Asset set resource names have the form:
-    ///
-    /// `customers/{customer_id}/assetSets/{asset_set_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// An ad group criterion.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AdGroupCriterion {
-    /// Immutable. The resource name of the ad group criterion.
-    /// Ad group criterion resource names have the form:
-    ///
-    /// `customers/{customer_id}/adGroupCriteria/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the criterion.
-    #[prost(int64, optional, tag = "56")]
-    pub criterion_id: ::core::option::Option<i64>,
-    /// Output only. The timestamp when this ad group criterion was created. The
-    /// timestamp is in the customer's time zone and in "yyyy-MM-dd HH:mm:ss"
-    /// format.
-    #[prost(string, tag = "81")]
-    pub creation_time: ::prost::alloc::string::String,
-    /// The status of the criterion.
-    ///
-    /// This is the status of the ad group criterion entity, set by the client.
-    /// Note: UI reports may incorporate additional information that affects
-    /// whether a criterion is eligible to run. In some cases a criterion that's
-    /// REMOVED in the API can still show as enabled in the UI.
-    /// For example, campaigns by default show to users of all age ranges unless
-    /// excluded. The UI will show each age range as "enabled", since they're
-    /// eligible to see the ads; but AdGroupCriterion.status will show "removed",
-    /// since no positive criterion was added.
-    #[prost(
-        enumeration = "super::enums::ad_group_criterion_status_enum::AdGroupCriterionStatus",
-        tag = "3"
+        enumeration = "super::enums::asset_set_link_status_enum::AssetSetLinkStatus",
+        tag = "4"
     )]
     pub status: i32,
-    /// Output only. Information regarding the quality of the criterion.
-    #[prost(message, optional, tag = "4")]
-    pub quality_info: ::core::option::Option<ad_group_criterion::QualityInfo>,
-    /// Immutable. The ad group to which the criterion belongs.
-    #[prost(string, optional, tag = "57")]
-    pub ad_group: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The type of the criterion.
-    #[prost(
-        enumeration = "super::enums::criterion_type_enum::CriterionType",
-        tag = "25"
-    )]
-    pub r#type: i32,
-    /// Immutable. Whether to target (`false`) or exclude (`true`) the criterion.
-    ///
-    /// This field is immutable. To switch a criterion from positive to negative,
-    /// remove then re-add it.
-    #[prost(bool, optional, tag = "58")]
-    pub negative: ::core::option::Option<bool>,
-    /// Output only. The resource names of labels attached to this ad group
-    /// criterion.
-    #[prost(string, repeated, tag = "60")]
-    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The modifier for the bid when the criterion matches. The modifier must be
-    /// in the range: 0.1 - 10.0. Most targetable criteria types support modifiers.
-    #[prost(double, optional, tag = "61")]
-    pub bid_modifier: ::core::option::Option<f64>,
-    /// The CPC (cost-per-click) bid.
-    #[prost(int64, optional, tag = "62")]
-    pub cpc_bid_micros: ::core::option::Option<i64>,
-    /// Output only. The effective CPC (cost-per-click) bid.
-    #[prost(int64, optional, tag = "66")]
-    pub effective_cpc_bid_micros: ::core::option::Option<i64>,
-    /// Output only. Estimates for criterion bids at various positions.
-    #[prost(message, optional, tag = "10")]
-    pub position_estimates: ::core::option::Option<
-        ad_group_criterion::PositionEstimates,
-    >,
-    /// The list of possible final URLs after all cross-domain redirects for the
-    /// ad.
-    #[prost(string, repeated, tag = "70")]
-    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. The Engine Status for ad group criterion.
-    #[prost(
-        enumeration = "super::enums::ad_group_criterion_engine_status_enum::AdGroupCriterionEngineStatus",
-        optional,
-        tag = "80"
-    )]
-    pub engine_status: ::core::option::Option<i32>,
-    /// URL template for appending params to final URL.
-    #[prost(string, optional, tag = "72")]
-    pub final_url_suffix: ::core::option::Option<::prost::alloc::string::String>,
-    /// The URL template for constructing a tracking URL.
-    #[prost(string, optional, tag = "73")]
-    pub tracking_url_template: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. ID of the ad group criterion in the external engine account.
-    /// This field is for non-Google Ads account only, for example, Yahoo Japan,
-    /// Microsoft, Baidu etc. For Google Ads entity, use
-    /// "ad_group_criterion.criterion_id" instead.
-    #[prost(string, tag = "76")]
-    pub engine_id: ::prost::alloc::string::String,
-    /// Output only. The datetime when this ad group criterion was last modified.
-    /// The datetime is in the customer's time zone and in "yyyy-MM-dd
-    /// HH:mm:ss.ssssss" format.
-    #[prost(string, tag = "78")]
-    pub last_modified_time: ::prost::alloc::string::String,
-    /// The ad group criterion.
-    ///
-    /// Exactly one must be set.
-    #[prost(
-        oneof = "ad_group_criterion::Criterion",
-        tags = "27, 32, 36, 37, 42, 46, 82"
-    )]
-    pub criterion: ::core::option::Option<ad_group_criterion::Criterion>,
 }
-/// Nested message and enum types in `AdGroupCriterion`.
-pub mod ad_group_criterion {
-    /// A container for ad group criterion quality information.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct QualityInfo {
-        /// Output only. The quality score.
-        ///
-        /// This field may not be populated if Google does not have enough
-        /// information to determine a value.
-        #[prost(int32, optional, tag = "5")]
-        pub quality_score: ::core::option::Option<i32>,
-    }
-    /// Estimates for criterion bids at various positions.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PositionEstimates {
-        /// Output only. The estimate of the CPC bid required for ad to be displayed
-        /// at the top of the first page of search results.
-        #[prost(int64, optional, tag = "8")]
-        pub top_of_page_cpc_micros: ::core::option::Option<i64>,
-    }
-    /// The ad group criterion.
+/// A link between the given customer and a client customer. CustomerClients only
+/// exist for manager customers. All direct and indirect client customers are
+/// included, as well as the manager itself.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerClient {
+    /// Output only. The resource name of the customer client.
+    /// CustomerClient resource names have the form:
+    /// `customers/{customer_id}/customerClients/{client_customer_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The resource name of the client-customer which is linked to
+    /// the given customer. Read only.
+    #[prost(string, optional, tag = "12")]
+    pub client_customer: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Specifies whether this is a hidden account.
     ///
-    /// Exactly one must be set.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Criterion {
-        /// Immutable. Keyword.
-        #[prost(message, tag = "27")]
-        Keyword(super::super::common::KeywordInfo),
-        /// Immutable. Listing group.
-        #[prost(message, tag = "32")]
-        ListingGroup(super::super::common::ListingGroupInfo),
-        /// Immutable. Age range.
-        #[prost(message, tag = "36")]
-        AgeRange(super::super::common::AgeRangeInfo),
-        /// Immutable. Gender.
-        #[prost(message, tag = "37")]
-        Gender(super::super::common::GenderInfo),
-        /// Immutable. User List.
-        /// The Similar Audiences sunset starts May 2023. Refer to
-        /// <https://ads-developers.googleblog.com/2022/11/announcing-deprecation-and-sunset-of.html>
-        /// for other options.
-        #[prost(message, tag = "42")]
-        UserList(super::super::common::UserListInfo),
-        /// Immutable. Webpage
-        #[prost(message, tag = "46")]
-        Webpage(super::super::common::WebpageInfo),
-        /// Immutable. Location.
-        #[prost(message, tag = "82")]
-        Location(super::super::common::LocationInfo),
-    }
+    /// Read only.
+    #[prost(bool, optional, tag = "13")]
+    pub hidden: ::core::option::Option<bool>,
+    /// Output only. Distance between given customer and client. For self link, the
+    /// level value will be 0. Read only.
+    #[prost(int64, optional, tag = "14")]
+    pub level: ::core::option::Option<i64>,
+    /// Output only. Common Locale Data Repository (CLDR) string representation of
+    /// the time zone of the client, for example, America/Los_Angeles. Read only.
+    #[prost(string, optional, tag = "15")]
+    pub time_zone: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Identifies if the client is a test account. Read only.
+    #[prost(bool, optional, tag = "16")]
+    pub test_account: ::core::option::Option<bool>,
+    /// Output only. Identifies if the client is a manager. Read only.
+    #[prost(bool, optional, tag = "17")]
+    pub manager: ::core::option::Option<bool>,
+    /// Output only. Descriptive name for the client. Read only.
+    #[prost(string, optional, tag = "18")]
+    pub descriptive_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Currency code (for example, 'USD', 'EUR') for the client. Read
+    /// only.
+    #[prost(string, optional, tag = "19")]
+    pub currency_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the client customer. Read only.
+    #[prost(int64, optional, tag = "20")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. The resource names of the labels owned by the requesting
+    /// customer that are applied to the client customer. Label resource names have
+    /// the form:
+    ///
+    /// `customers/{customer_id}/labels/{label_id}`
+    #[prost(string, repeated, tag = "21")]
+    pub applied_labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. The status of the client customer. Read only.
+    #[prost(
+        enumeration = "super::enums::customer_status_enum::CustomerStatus",
+        tag = "22"
+    )]
+    pub status: i32,
+}
+/// Represents customer-manager link relationship.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomerManagerLink {
+    /// Immutable. Name of the resource.
+    /// CustomerManagerLink resource names have the form:
+    /// `customers/{customer_id}/customerManagerLinks/{manager_customer_id}~{manager_link_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The manager customer linked to the customer.
+    #[prost(string, optional, tag = "6")]
+    pub manager_customer: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. ID of the customer-manager link. This field is read only.
+    #[prost(int64, optional, tag = "7")]
+    pub manager_link_id: ::core::option::Option<i64>,
+    /// Status of the link between the customer and the manager.
+    #[prost(
+        enumeration = "super::enums::manager_link_status_enum::ManagerLinkStatus",
+        tag = "5"
+    )]
+    pub status: i32,
+}
+/// A dynamic search ads search term view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DynamicSearchAdsSearchTermView {
+    /// Output only. The resource name of the dynamic search ads search term view.
+    /// Dynamic search ads search term view resource names have the form:
+    ///
+    /// `customers/{customer_id}/dynamicSearchAdsSearchTermViews/{ad_group_id}~{search_term_fingerprint}~{headline_fingerprint}~{landing_page_fingerprint}~{page_url_fingerprint}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The dynamically selected landing page URL of the impression.
+    ///
+    /// This field is read-only.
+    #[prost(string, optional, tag = "11")]
+    pub landing_page: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A gender view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenderView {
+    /// Output only. The resource name of the gender view.
+    /// Gender view resource names have the form:
+    ///
+    /// `customers/{customer_id}/genderViews/{ad_group_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// A geo target constant.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GeoTargetConstant {
+    /// Output only. The resource name of the geo target constant.
+    /// Geo target constant resource names have the form:
+    ///
+    /// `geoTargetConstants/{geo_target_constant_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the geo target constant.
+    #[prost(int64, optional, tag = "10")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. Geo target constant English name.
+    #[prost(string, optional, tag = "11")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ISO-3166-1 alpha-2 country code that is associated with
+    /// the target.
+    #[prost(string, optional, tag = "12")]
+    pub country_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Geo target constant target type.
+    #[prost(string, optional, tag = "13")]
+    pub target_type: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Geo target constant status.
+    #[prost(
+        enumeration = "super::enums::geo_target_constant_status_enum::GeoTargetConstantStatus",
+        tag = "7"
+    )]
+    pub status: i32,
+    /// Output only. The fully qualified English name, consisting of the target's
+    /// name and that of its parent and country.
+    #[prost(string, optional, tag = "14")]
+    pub canonical_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The resource name of the parent geo target constant.
+    /// Geo target constant resource names have the form:
+    ///
+    /// `geoTargetConstants/{parent_geo_target_constant_id}`
+    #[prost(string, optional, tag = "9")]
+    pub parent_geo_target: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A keyword view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KeywordView {
+    /// Output only. The resource name of the keyword view.
+    /// Keyword view resource names have the form:
+    ///
+    /// `customers/{customer_id}/keywordViews/{ad_group_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// A label.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Label {
+    /// Immutable. Name of the resource.
+    /// Label resource names have the form:
+    /// `customers/{customer_id}/labels/{label_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. ID of the label. Read only.
+    #[prost(int64, optional, tag = "6")]
+    pub id: ::core::option::Option<i64>,
+    /// The name of the label.
+    ///
+    /// This field is required and should not be empty when creating a new label.
+    ///
+    /// The length of this string should be between 1 and 80, inclusive.
+    #[prost(string, optional, tag = "7")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Status of the label. Read only.
+    #[prost(enumeration = "super::enums::label_status_enum::LabelStatus", tag = "4")]
+    pub status: i32,
+    /// A type of label displaying text on a colored background.
+    #[prost(message, optional, tag = "5")]
+    pub text_label: ::core::option::Option<super::common::TextLabel>,
+}
+/// A language.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LanguageConstant {
+    /// Output only. The resource name of the language constant.
+    /// Language constant resource names have the form:
+    ///
+    /// `languageConstants/{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the language constant.
+    #[prost(int64, optional, tag = "6")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. The language code, for example, "en_US", "en_AU", "es", "fr",
+    /// etc.
+    #[prost(string, optional, tag = "7")]
+    pub code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The full name of the language in English, for example,
+    /// "English (US)", "Spanish", etc.
+    #[prost(string, optional, tag = "8")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Whether the language is targetable.
+    #[prost(bool, optional, tag = "9")]
+    pub targetable: ::core::option::Option<bool>,
+}
+/// A location view summarizes the performance of campaigns by
+/// Location criteria.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocationView {
+    /// Output only. The resource name of the location view.
+    /// Location view resource names have the form:
+    ///
+    /// `customers/{customer_id}/locationViews/{campaign_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// A Product Bidding Category.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProductBiddingCategoryConstant {
+    /// Output only. The resource name of the product bidding category.
+    /// Product bidding category resource names have the form:
+    ///
+    /// `productBiddingCategoryConstants/{country_code}~{level}~{id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. ID of the product bidding category.
+    ///
+    /// This ID is equivalent to the google_product_category ID as described in
+    /// this article: <https://support.google.com/merchants/answer/6324436.>
+    #[prost(int64, optional, tag = "10")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. Two-letter upper-case country code of the product bidding
+    /// category.
+    #[prost(string, optional, tag = "11")]
+    pub country_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Resource name of the parent product bidding category.
+    #[prost(string, optional, tag = "12")]
+    pub product_bidding_category_constant_parent: ::core::option::Option<
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Level of the product bidding category.
+    #[prost(
+        enumeration = "super::enums::product_bidding_category_level_enum::ProductBiddingCategoryLevel",
+        tag = "5"
+    )]
+    pub level: i32,
+    /// Output only. Status of the product bidding category.
+    #[prost(
+        enumeration = "super::enums::product_bidding_category_status_enum::ProductBiddingCategoryStatus",
+        tag = "6"
+    )]
+    pub status: i32,
+    /// Output only. Language code of the product bidding category.
+    #[prost(string, optional, tag = "13")]
+    pub language_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Display value of the product bidding category localized
+    /// according to language_code.
+    #[prost(string, optional, tag = "14")]
+    pub localized_name: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A product group view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProductGroupView {
+    /// Output only. The resource name of the product group view.
+    /// Product group view resource names have the form:
+    ///
+    /// `customers/{customer_id}/productGroupViews/{ad_group_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// Shopping performance view.
+/// Provides Shopping campaign statistics aggregated at several product dimension
+/// levels. Product dimension values from Merchant Center such as brand,
+/// category, custom attributes, product condition and product type will reflect
+/// the state of each dimension as of the date and time when the corresponding
+/// event was recorded.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ShoppingPerformanceView {
+    /// Output only. The resource name of the Shopping performance view.
+    /// Shopping performance view resource names have the form:
+    /// `customers/{customer_id}/shoppingPerformanceView`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+}
+/// A user list. This is a list of users a customer may target.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UserList {
+    /// Immutable. The resource name of the user list.
+    /// User list resource names have the form:
+    ///
+    /// `customers/{customer_id}/userLists/{user_list_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. Id of the user list.
+    #[prost(int64, optional, tag = "25")]
+    pub id: ::core::option::Option<i64>,
+    /// Name of this user list. Depending on its access_reason, the user list name
+    /// may not be unique (for example, if access_reason=SHARED)
+    #[prost(string, optional, tag = "27")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Type of this list.
+    ///
+    /// This field is read-only.
+    #[prost(enumeration = "super::enums::user_list_type_enum::UserListType", tag = "13")]
+    pub r#type: i32,
+}
+/// A visit.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Visit {
+    /// Output only. The resource name of the visit.
+    /// Visit resource names have the form:
+    ///
+    /// `customers/{customer_id}/visits/{ad_group_id}~{criterion_id}~{ds_visit_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Output only. The ID of the visit.
+    #[prost(int64, optional, tag = "2")]
+    pub id: ::core::option::Option<i64>,
+    /// Output only. Search Ads 360 keyword ID. A value of 0 indicates that the
+    /// keyword is unattributed.
+    #[prost(int64, optional, tag = "3")]
+    pub criterion_id: ::core::option::Option<i64>,
+    /// Output only. The Search Ads 360 inventory account ID containing the product
+    /// that was clicked on. Search Ads 360 generates this ID when you link an
+    /// inventory account in Search Ads 360.
+    #[prost(int64, optional, tag = "4")]
+    pub merchant_id: ::core::option::Option<i64>,
+    /// Output only. Ad ID. A value of 0 indicates that the ad is unattributed.
+    #[prost(int64, optional, tag = "5")]
+    pub ad_id: ::core::option::Option<i64>,
+    /// Output only. A unique string for each visit that is passed to the landing
+    /// page as the click id URL parameter.
+    #[prost(string, optional, tag = "6")]
+    pub click_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The timestamp of the visit event. The timestamp is in the
+    /// customer's time zone and in "yyyy-MM-dd HH:mm:ss" format.
+    #[prost(string, optional, tag = "7")]
+    pub visit_date_time: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The ID of the product clicked on.
+    #[prost(string, optional, tag = "8")]
+    pub product_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The sales channel of the product that was clicked on: Online
+    /// or Local.
+    #[prost(
+        enumeration = "super::enums::product_channel_enum::ProductChannel",
+        optional,
+        tag = "9"
+    )]
+    pub product_channel: ::core::option::Option<i32>,
+    /// Output only. The language (ISO-639-1) that has been set for the Merchant
+    /// Center feed containing data about the product.
+    #[prost(string, optional, tag = "10")]
+    pub product_language_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The store in the Local Inventory Ad that was clicked on. This
+    /// should match the store IDs used in your local products feed.
+    #[prost(string, optional, tag = "11")]
+    pub product_store_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The country (ISO-3166 format) registered for the inventory
+    /// feed that contains the product clicked on.
+    #[prost(string, optional, tag = "12")]
+    pub product_country_code: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. ID of the asset which was interacted with during the visit
+    /// event.
+    #[prost(int64, optional, tag = "13")]
+    pub asset_id: ::core::option::Option<i64>,
+    /// Output only. Asset field type of the visit event.
+    #[prost(
+        enumeration = "super::enums::asset_field_type_enum::AssetFieldType",
+        optional,
+        tag = "14"
+    )]
+    pub asset_field_type: ::core::option::Option<i32>,
+}
+/// A webpage view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WebpageView {
+    /// Output only. The resource name of the webpage view.
+    /// Webpage view resource names have the form:
+    ///
+    /// `customers/{customer_id}/webpageViews/{ad_group_id}~{criterion_id}`
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
 }
 /// A field or resource (artifact) used by SearchAds360Service.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2524,218 +2692,50 @@ pub struct SearchAds360Field {
     #[prost(bool, optional, tag = "31")]
     pub is_repeated: ::core::option::Option<bool>,
 }
-/// A link between a customer and an asset.
+/// A custom column.
+/// See Search Ads 360 custom column at
+/// <https://support.google.com/sa360/answer/9633916>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomerAsset {
-    /// Immutable. The resource name of the customer asset.
-    /// CustomerAsset resource names have the form:
+pub struct CustomColumn {
+    /// Immutable. The resource name of the custom column.
+    /// Custom column resource names have the form:
     ///
-    /// `customers/{customer_id}/customerAssets/{asset_id}~{field_type}`
+    /// `customers/{customer_id}/customColumns/{custom_column_id}`
     #[prost(string, tag = "1")]
     pub resource_name: ::prost::alloc::string::String,
-    /// Required. Immutable. The asset which is linked to the customer.
-    #[prost(string, tag = "2")]
-    pub asset: ::prost::alloc::string::String,
-    /// Status of the customer asset.
-    #[prost(
-        enumeration = "super::enums::asset_link_status_enum::AssetLinkStatus",
-        tag = "4"
-    )]
-    pub status: i32,
-}
-/// An age range view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AgeRangeView {
-    /// Output only. The resource name of the age range view.
-    /// Age range view resource names have the form:
-    ///
-    /// `customers/{customer_id}/ageRangeViews/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// A gender view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GenderView {
-    /// Output only. The resource name of the gender view.
-    /// Gender view resource names have the form:
-    ///
-    /// `customers/{customer_id}/genderViews/{ad_group_id}~{criterion_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-}
-/// A bidding strategy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BiddingStrategy {
-    /// Immutable. The resource name of the bidding strategy.
-    /// Bidding strategy resource names have the form:
-    ///
-    /// `customers/{customer_id}/biddingStrategies/{bidding_strategy_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the bidding strategy.
-    #[prost(int64, optional, tag = "16")]
-    pub id: ::core::option::Option<i64>,
-    /// The name of the bidding strategy.
-    /// All bidding strategies within an account must be named distinctly.
-    ///
-    /// The length of this string should be between 1 and 255, inclusive,
-    /// in UTF-8 bytes, (trimmed).
-    #[prost(string, optional, tag = "17")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The status of the bidding strategy.
-    ///
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::bidding_strategy_status_enum::BiddingStrategyStatus",
-        tag = "15"
-    )]
-    pub status: i32,
-    /// Output only. The type of the bidding strategy.
-    /// Create a bidding strategy by setting the bidding scheme.
-    ///
-    /// This field is read-only.
-    #[prost(
-        enumeration = "super::enums::bidding_strategy_type_enum::BiddingStrategyType",
-        tag = "5"
-    )]
-    pub r#type: i32,
-    /// Immutable. The currency used by the bidding strategy (ISO 4217 three-letter
-    /// code).
-    ///
-    /// For bidding strategies in manager customers, this currency can be set on
-    /// creation and defaults to the manager customer's currency. For serving
-    /// customers, this field cannot be set; all strategies in a serving customer
-    /// implicitly use the serving customer's currency. In all cases the
-    /// effective_currency_code field returns the currency used by the strategy.
-    #[prost(string, tag = "23")]
-    pub currency_code: ::prost::alloc::string::String,
-    /// Output only. The currency used by the bidding strategy (ISO 4217
-    /// three-letter code).
-    ///
-    /// For bidding strategies in manager customers, this is the currency set by
-    /// the advertiser when creating the strategy. For serving customers, this is
-    /// the customer's currency_code.
-    ///
-    /// Bidding strategy metrics are reported in this currency.
-    ///
-    /// This field is read-only.
-    #[prost(string, optional, tag = "20")]
-    pub effective_currency_code: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The number of campaigns attached to this bidding strategy.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "18")]
-    pub campaign_count: ::core::option::Option<i64>,
-    /// Output only. The number of non-removed campaigns attached to this bidding
-    /// strategy.
-    ///
-    /// This field is read-only.
-    #[prost(int64, optional, tag = "19")]
-    pub non_removed_campaign_count: ::core::option::Option<i64>,
-    /// The bidding scheme.
-    ///
-    /// Only one can be set.
-    #[prost(oneof = "bidding_strategy::Scheme", tags = "7, 21, 22, 9, 48, 10, 11, 12")]
-    pub scheme: ::core::option::Option<bidding_strategy::Scheme>,
-}
-/// Nested message and enum types in `BiddingStrategy`.
-pub mod bidding_strategy {
-    /// The bidding scheme.
-    ///
-    /// Only one can be set.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Scheme {
-        /// A bidding strategy that raises bids for clicks that seem more likely to
-        /// lead to a conversion and lowers them for clicks where they seem less
-        /// likely.
-        #[prost(message, tag = "7")]
-        EnhancedCpc(super::super::common::EnhancedCpc),
-        /// An automated bidding strategy to help get the most conversion value for
-        /// your campaigns while spending your budget.
-        #[prost(message, tag = "21")]
-        MaximizeConversionValue(super::super::common::MaximizeConversionValue),
-        /// An automated bidding strategy to help get the most conversions for your
-        /// campaigns while spending your budget.
-        #[prost(message, tag = "22")]
-        MaximizeConversions(super::super::common::MaximizeConversions),
-        /// A bidding strategy that sets bids to help get as many conversions as
-        /// possible at the target cost-per-acquisition (CPA) you set.
-        #[prost(message, tag = "9")]
-        TargetCpa(super::super::common::TargetCpa),
-        /// A bidding strategy that automatically optimizes towards a chosen
-        /// percentage of impressions.
-        #[prost(message, tag = "48")]
-        TargetImpressionShare(super::super::common::TargetImpressionShare),
-        /// A bidding strategy that sets bids based on the target fraction of
-        /// auctions where the advertiser should outrank a specific competitor.
-        /// This field is deprecated. Creating a new bidding strategy with this
-        /// field or attaching bidding strategies with this field to a campaign will
-        /// fail. Mutates to strategies that already have this scheme populated are
-        /// allowed.
-        #[prost(message, tag = "10")]
-        TargetOutrankShare(super::super::common::TargetOutrankShare),
-        /// A bidding strategy that helps you maximize revenue while averaging a
-        /// specific target Return On Ad Spend (ROAS).
-        #[prost(message, tag = "11")]
-        TargetRoas(super::super::common::TargetRoas),
-        /// A bid strategy that sets your bids to help get as many clicks as
-        /// possible within your budget.
-        #[prost(message, tag = "12")]
-        TargetSpend(super::super::common::TargetSpend),
-    }
-}
-/// An asset group.
-/// AssetGroupAsset is used to link an asset to the asset group.
-/// AssetGroupSignal is used to associate a signal to an asset group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetGroup {
-    /// Immutable. The resource name of the asset group.
-    /// Asset group resource names have the form:
-    ///
-    /// `customers/{customer_id}/assetGroups/{asset_group_id}`
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Output only. The ID of the asset group.
-    #[prost(int64, tag = "9")]
+    /// Output only. ID of the custom column.
+    #[prost(int64, tag = "2")]
     pub id: i64,
-    /// Immutable. The campaign with which this asset group is associated.
-    /// The asset which is linked to the asset group.
-    #[prost(string, tag = "2")]
-    pub campaign: ::prost::alloc::string::String,
-    /// Required. Name of the asset group. Required. It must have a minimum length
-    /// of 1 and maximum length of 128. It must be unique under a campaign.
+    /// Output only. User-defined name of the custom column.
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
-    /// A list of final URLs after all cross domain redirects. In performance max,
-    /// by default, the urls are eligible for expansion unless opted out.
-    #[prost(string, repeated, tag = "4")]
-    pub final_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// A list of final mobile URLs after all cross domain redirects. In
-    /// performance max, by default, the urls are eligible for expansion
-    /// unless opted out.
-    #[prost(string, repeated, tag = "5")]
-    pub final_mobile_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The status of the asset group.
+    /// Output only. User-defined description of the custom column.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. The type of the result value of the custom column.
     #[prost(
-        enumeration = "super::enums::asset_group_status_enum::AssetGroupStatus",
-        tag = "6"
+        enumeration = "super::enums::custom_column_value_type_enum::CustomColumnValueType",
+        tag = "5"
     )]
-    pub status: i32,
-    /// First part of text that may appear appended to the url displayed in
-    /// the ad.
-    #[prost(string, tag = "7")]
-    pub path1: ::prost::alloc::string::String,
-    /// Second part of text that may appear appended to the url displayed in
-    /// the ad. This field can only be set when path1 is set.
-    #[prost(string, tag = "8")]
-    pub path2: ::prost::alloc::string::String,
-    /// Output only. Overall ad strength of this asset group.
-    #[prost(enumeration = "super::enums::ad_strength_enum::AdStrength", tag = "10")]
-    pub ad_strength: i32,
+    pub value_type: i32,
+    /// Output only. True when the custom column is referring to one or more
+    /// attributes.
+    #[prost(bool, tag = "6")]
+    pub references_attributes: bool,
+    /// Output only. True when the custom column is referring to one or more
+    /// metrics.
+    #[prost(bool, tag = "7")]
+    pub references_metrics: bool,
+    /// Output only. True when the custom column is available to be used in the
+    /// query of SearchAds360Service.Search and SearchAds360Service.SearchStream.
+    #[prost(bool, tag = "8")]
+    pub queryable: bool,
+    /// Output only. The list of the referenced system columns of this custom
+    /// column. For example, A custom column "sum of impressions and clicks" has
+    /// referenced system columns of {"metrics.clicks", "metrics.impressions"}.
+    #[prost(string, repeated, tag = "9")]
+    pub referenced_system_columns: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
 }
