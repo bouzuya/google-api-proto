@@ -2405,6 +2405,9 @@ pub struct ClusterUpdate {
     /// Specify the details of in-transit encryption.
     #[prost(enumeration = "InTransitEncryptionConfig", optional, tag = "137")]
     pub desired_in_transit_encryption_config: ::core::option::Option<i32>,
+    /// Enable/Disable Cilium Clusterwide Network Policy for the cluster.
+    #[prost(bool, optional, tag = "138")]
+    pub desired_enable_cilium_clusterwide_network_policy: ::core::option::Option<bool>,
 }
 /// AdditionalPodRangesConfig is the configuration for additional pod secondary
 /// ranges supporting the ClusterUpdate message.
@@ -5267,6 +5270,9 @@ pub struct NetworkConfig {
     /// Specify the details of in-transit encryption.
     #[prost(enumeration = "InTransitEncryptionConfig", optional, tag = "20")]
     pub in_transit_encryption_config: ::core::option::Option<i32>,
+    /// Whether CiliumClusterwideNetworkPolicy is enabled on this cluster.
+    #[prost(bool, optional, tag = "21")]
+    pub enable_cilium_clusterwide_network_policy: ::core::option::Option<bool>,
 }
 /// Nested message and enum types in `NetworkConfig`.
 pub mod network_config {
