@@ -1524,6 +1524,11 @@ pub mod sql_external_sync_setting_error {
         /// If a time out occurs while the subscription counts are calculated, then
         /// this value is set to 1. Otherwise, this value is set to 2.
         SubscriptionCalculationStatus = 40,
+        /// Count of subscriptions needed to sync source data for PostgreSQL
+        /// database.
+        PgSubscriptionCount = 41,
+        /// Final parallel level that is used to do migration.
+        PgSyncParallelLevel = 42,
     }
     impl SqlExternalSyncSettingErrorType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1645,6 +1650,12 @@ pub mod sql_external_sync_setting_error {
                 SqlExternalSyncSettingErrorType::SubscriptionCalculationStatus => {
                     "SUBSCRIPTION_CALCULATION_STATUS"
                 }
+                SqlExternalSyncSettingErrorType::PgSubscriptionCount => {
+                    "PG_SUBSCRIPTION_COUNT"
+                }
+                SqlExternalSyncSettingErrorType::PgSyncParallelLevel => {
+                    "PG_SYNC_PARALLEL_LEVEL"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1713,6 +1724,8 @@ pub mod sql_external_sync_setting_error {
                 "SUBSCRIPTION_CALCULATION_STATUS" => {
                     Some(Self::SubscriptionCalculationStatus)
                 }
+                "PG_SUBSCRIPTION_COUNT" => Some(Self::PgSubscriptionCount),
+                "PG_SYNC_PARALLEL_LEVEL" => Some(Self::PgSyncParallelLevel),
                 _ => None,
             }
         }

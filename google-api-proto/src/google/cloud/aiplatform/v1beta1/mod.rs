@@ -2350,6 +2350,9 @@ pub struct CreatePersistentResourceOperationMetadata {
     /// Operation metadata for PersistentResource.
     #[prost(message, optional, tag = "1")]
     pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+    /// Progress Message for Create LRO
+    #[prost(string, tag = "2")]
+    pub progress_message: ::prost::alloc::string::String,
 }
 /// Details of operations that perform update PersistentResource.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2358,6 +2361,9 @@ pub struct UpdatePersistentResourceOperationMetadata {
     /// Operation metadata for PersistentResource.
     #[prost(message, optional, tag = "1")]
     pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+    /// Progress Message for Update LRO
+    #[prost(string, tag = "2")]
+    pub progress_message: ::prost::alloc::string::String,
 }
 /// Request message for
 /// [PersistentResourceService.GetPersistentResource][google.cloud.aiplatform.v1beta1.PersistentResourceService.GetPersistentResource].
@@ -3452,6 +3458,14 @@ pub struct DatasetVersion {
     /// Output only. Name of the associated BigQuery dataset.
     #[prost(string, tag = "4")]
     pub big_query_dataset_name: ::prost::alloc::string::String,
+    /// The user-defined name of the DatasetVersion.
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "7")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Required. Output only. Additional information about the DatasetVersion.
+    #[prost(message, optional, tag = "8")]
+    pub metadata: ::core::option::Option<::prost_types::Value>,
 }
 /// A TensorboardExperiment is a group of TensorboardRuns, that are typically the
 /// results of a training job run, in a Tensorboard.
@@ -6523,6 +6537,10 @@ pub struct Model {
     /// `projects/{project}/locations/{location}/metadataStores/{metadata_store}/artifacts/{artifact}`.
     #[prost(string, tag = "44")]
     pub metadata_artifact: ::prost::alloc::string::String,
+    /// Optional. User input field to specify the base model source. Currently it
+    /// only supports specifing the Model Garden models and Genie models.
+    #[prost(message, optional, tag = "50")]
+    pub base_model_source: ::core::option::Option<model::BaseModelSource>,
 }
 /// Nested message and enum types in `Model`.
 pub mod model {
@@ -6626,6 +6644,27 @@ pub mod model {
         #[prost(string, tag = "1")]
         pub model: ::prost::alloc::string::String,
     }
+    /// User input field to specify the base model source. Currently it only
+    /// supports specifing the Model Garden models and Genie models.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BaseModelSource {
+        #[prost(oneof = "base_model_source::Source", tags = "1, 2")]
+        pub source: ::core::option::Option<base_model_source::Source>,
+    }
+    /// Nested message and enum types in `BaseModelSource`.
+    pub mod base_model_source {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Source {
+            /// Source information of Model Garden models.
+            #[prost(message, tag = "1")]
+            ModelGardenSource(super::super::ModelGardenSource),
+            /// Information about the base model of Genie models.
+            #[prost(message, tag = "2")]
+            GenieSource(super::super::GenieSource),
+        }
+    }
     /// Identifies a type of Model's prediction resources.
     #[derive(
         Clone,
@@ -6692,6 +6731,24 @@ pub struct LargeModelReference {
     /// "chat-bison@001", "text-bison@005", etc.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// Contains information about the source of the models generated from Model
+/// Garden.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelGardenSource {
+    /// Required. The model garden source model resource name.
+    #[prost(string, tag = "1")]
+    pub public_model_name: ::prost::alloc::string::String,
+}
+/// Contains information about the source of the models generated from Generative
+/// AI Studio.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GenieSource {
+    /// Required. The public base model URI.
+    #[prost(string, tag = "1")]
+    pub base_model_uri: ::prost::alloc::string::String,
 }
 /// Contains the schemata used in Model's predictions and explanations via
 /// [PredictionService.Predict][google.cloud.aiplatform.v1beta1.PredictionService.Predict],
@@ -7497,13 +7554,20 @@ pub mod publisher_model {
     pub enum LaunchStage {
         /// The model launch stage is unspecified.
         Unspecified = 0,
-        /// Used to indicate the PublisherModel is at Experimental launch stage.
+        /// Used to indicate the PublisherModel is at Experimental launch stage,
+        /// available to a small set of customers.
         Experimental = 1,
-        /// Used to indicate the PublisherModel is at Private Preview launch stage.
+        /// Used to indicate the PublisherModel is at Private Preview launch stage,
+        /// only available to a small set of customers, although a larger set of
+        /// customers than an Experimental launch. Previews are the first launch
+        /// stage used to get feedback from customers.
         PrivatePreview = 2,
-        /// Used to indicate the PublisherModel is at Public Preview launch stage.
+        /// Used to indicate the PublisherModel is at Public Preview launch stage,
+        /// available to all customers, although not supported for production
+        /// workloads.
         PublicPreview = 3,
-        /// Used to indicate the PublisherModel is at GA launch stage.
+        /// Used to indicate the PublisherModel is at GA launch stage, available to
+        /// all customers and ready for production workload.
         Ga = 4,
     }
     impl LaunchStage {
@@ -13242,6 +13306,9 @@ pub struct PipelineJob {
     /// Only returned if the Pipeline is created by Schedule API.
     #[prost(string, tag = "22")]
     pub schedule_name: ::prost::alloc::string::String,
+    /// Optional. Whether to do component level validations before job creation.
+    #[prost(bool, tag = "26")]
+    pub preflight_validations: bool,
 }
 /// Nested message and enum types in `PipelineJob`.
 pub mod pipeline_job {
@@ -14170,10 +14237,6 @@ pub struct CreatePipelineJobRequest {
     /// are `/[a-z][0-9]-/`.
     #[prost(string, tag = "3")]
     pub pipeline_job_id: ::prost::alloc::string::String,
-    /// Optional. Whether to do component level validations before job creation.
-    /// Currently we only support Google First Party Component/Pipelines.
-    #[prost(bool, tag = "4")]
-    pub preflight_validations: bool,
 }
 /// Request message for
 /// [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1beta1.PipelineService.GetPipelineJob].
@@ -15887,8 +15950,8 @@ pub mod feature_group {
         /// BigQuery Table or View.
         #[prost(message, optional, tag = "1")]
         pub big_query_source: ::core::option::Option<super::BigQuerySource>,
-        /// Optional. Columns to construct entity_id / row keys. Currently only
-        /// supports 1 entity_id_column. If not provided defaults to `entity_id`.
+        /// Optional. Columns to construct entity_id / row keys.
+        /// If not provided defaults to `entity_id`.
         #[prost(string, repeated, tag = "2")]
         pub entity_id_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
@@ -18592,26 +18655,29 @@ pub mod feature_registry_service_client {
 /// A `Tool` is a piece of code that enables the system to interact with
 /// external systems to perform an action, or set of actions, outside of
 /// knowledge and scope of the model. A Tool object should contain exactly
-/// one type of Tool.
+/// one type of Tool (e.g FunctionDeclaration, Retrieval or
+/// GoogleSearchRetrieval).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Tool {
-    /// Optional. One or more function declarations to be passed to the model along
-    /// with the current user query. Model may decide to call a subset of these
-    /// functions by populating [FunctionCall][content.part.function_call] in the
-    /// response. User should provide a
-    /// [FunctionResponse][content.part.function_response] for each function call
-    /// in the next turn. Based on the function responses, Model will generate the
-    /// final response back to the user. Maximum 64 function declarations can be
-    /// provided.
+    /// Optional. Function tool type.
+    /// One or more function declarations to be passed to the model along with the
+    /// current user query. Model may decide to call a subset of these functions
+    /// by populating [FunctionCall][content.part.function_call] in the response.
+    /// User should provide a [FunctionResponse][content.part.function_response]
+    /// for each function call in the next turn. Based on the function responses,
+    /// Model will generate the final response back to the user.
+    /// Maximum 64 function declarations can be provided.
     #[prost(message, repeated, tag = "1")]
     pub function_declarations: ::prost::alloc::vec::Vec<FunctionDeclaration>,
-    /// Optional. System will always execute the provided retrieval tool(s) to get
-    /// external knowledge to answer the prompt. Retrieval results are presented to
-    /// the model for generation.
+    /// Optional. Retrieval tool type.
+    /// System will always execute the provided retrieval tool(s) to get external
+    /// knowledge to answer the prompt. Retrieval results are presented to the
+    /// model for generation.
     #[prost(message, optional, tag = "2")]
     pub retrieval: ::core::option::Option<Retrieval>,
-    /// Optional. Specialized retrieval tool that is powered by Google search.
+    /// Optional. GoogleSearchRetrieval tool type.
+    /// Specialized retrieval tool that is powered by Google search.
     #[prost(message, optional, tag = "3")]
     pub google_search_retrieval: ::core::option::Option<GoogleSearchRetrieval>,
 }
@@ -18922,6 +18988,15 @@ pub struct SafetyRating {
     /// Output only. Harm probability levels in the content.
     #[prost(enumeration = "safety_rating::HarmProbability", tag = "2")]
     pub probability: i32,
+    /// Output only. Harm probability score.
+    #[prost(float, tag = "5")]
+    pub probability_score: f32,
+    /// Output only. Harm severity levels in the content.
+    #[prost(enumeration = "safety_rating::HarmSeverity", tag = "6")]
+    pub severity: i32,
+    /// Output only. Harm severity score.
+    #[prost(float, tag = "7")]
+    pub severity_score: f32,
     /// Output only. Indicates whether the content was filtered out because of this
     /// rating.
     #[prost(bool, tag = "3")]
@@ -18976,6 +19051,57 @@ pub mod safety_rating {
                 "LOW" => Some(Self::Low),
                 "MEDIUM" => Some(Self::Medium),
                 "HIGH" => Some(Self::High),
+                _ => None,
+            }
+        }
+    }
+    /// Harm severity levels.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum HarmSeverity {
+        /// Harm severity unspecified.
+        Unspecified = 0,
+        /// Negligible level of harm severity.
+        Negligible = 1,
+        /// Low level of harm severity.
+        Low = 2,
+        /// Medium level of harm severity.
+        Medium = 3,
+        /// High level of harm severity.
+        High = 4,
+    }
+    impl HarmSeverity {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                HarmSeverity::Unspecified => "HARM_SEVERITY_UNSPECIFIED",
+                HarmSeverity::Negligible => "HARM_SEVERITY_NEGLIGIBLE",
+                HarmSeverity::Low => "HARM_SEVERITY_LOW",
+                HarmSeverity::Medium => "HARM_SEVERITY_MEDIUM",
+                HarmSeverity::High => "HARM_SEVERITY_HIGH",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "HARM_SEVERITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "HARM_SEVERITY_NEGLIGIBLE" => Some(Self::Negligible),
+                "HARM_SEVERITY_LOW" => Some(Self::Low),
+                "HARM_SEVERITY_MEDIUM" => Some(Self::Medium),
+                "HARM_SEVERITY_HIGH" => Some(Self::High),
                 _ => None,
             }
         }
@@ -19074,6 +19200,15 @@ pub mod candidate {
         Recitation = 4,
         /// All other reasons that stopped the token generation
         Other = 5,
+        /// The token generation was stopped as the response was flagged for the
+        /// terms which are included from the terminology blocklist.
+        Blocklist = 6,
+        /// The token generation was stopped as the response was flagged for
+        /// the prohibited contents.
+        ProhibitedContent = 7,
+        /// The token generation was stopped as the response was flagged for
+        /// Sensitive Personally Identifiable Information (SPII) contents.
+        Spii = 8,
     }
     impl FinishReason {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -19088,6 +19223,9 @@ pub mod candidate {
                 FinishReason::Safety => "SAFETY",
                 FinishReason::Recitation => "RECITATION",
                 FinishReason::Other => "OTHER",
+                FinishReason::Blocklist => "BLOCKLIST",
+                FinishReason::ProhibitedContent => "PROHIBITED_CONTENT",
+                FinishReason::Spii => "SPII",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -19099,6 +19237,9 @@ pub mod candidate {
                 "SAFETY" => Some(Self::Safety),
                 "RECITATION" => Some(Self::Recitation),
                 "OTHER" => Some(Self::Other),
+                "BLOCKLIST" => Some(Self::Blocklist),
+                "PROHIBITED_CONTENT" => Some(Self::ProhibitedContent),
+                "SPII" => Some(Self::Spii),
                 _ => None,
             }
         }
@@ -19227,6 +19368,24 @@ pub struct FeatureViewSync {
     /// Output only. Final status of the FeatureViewSync.
     #[prost(message, optional, tag = "4")]
     pub final_status: ::core::option::Option<super::super::super::rpc::Status>,
+    /// Output only. Summary of the sync job.
+    #[prost(message, optional, tag = "6")]
+    pub sync_summary: ::core::option::Option<feature_view_sync::SyncSummary>,
+}
+/// Nested message and enum types in `FeatureViewSync`.
+pub mod feature_view_sync {
+    /// Summary from the Sync job. For continuous syncs, the summary is updated
+    /// periodically. For batch syncs, it gets updated on completion of the sync.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SyncSummary {
+        /// Output only. Total number of rows synced.
+        #[prost(int64, tag = "1")]
+        pub row_synced: i64,
+        /// Output only. BigQuery slot milliseconds consumed for the sync job.
+        #[prost(int64, tag = "2")]
+        pub total_slot: i64,
+    }
 }
 /// Request message for
 /// [VizierService.GetStudy][google.cloud.aiplatform.v1beta1.VizierService.GetStudy].
@@ -22086,6 +22245,8 @@ pub mod index_datapoint {
             GreaterEqual = 4,
             /// Datapoints are eligible iff their value is > the query's.
             Greater = 5,
+            /// Datapoints are eligible iff their value is != the query's.
+            NotEqual = 6,
         }
         impl Operator {
             /// String value of the enum field names used in the ProtoBuf definition.
@@ -22100,6 +22261,7 @@ pub mod index_datapoint {
                     Operator::Equal => "EQUAL",
                     Operator::GreaterEqual => "GREATER_EQUAL",
                     Operator::Greater => "GREATER",
+                    Operator::NotEqual => "NOT_EQUAL",
                 }
             }
             /// Creates an enum from field names used in the ProtoBuf definition.
@@ -22111,6 +22273,7 @@ pub mod index_datapoint {
                     "EQUAL" => Some(Self::Equal),
                     "GREATER_EQUAL" => Some(Self::GreaterEqual),
                     "GREATER" => Some(Self::Greater),
+                    "NOT_EQUAL" => Some(Self::NotEqual),
                     _ => None,
                 }
             }
@@ -23534,12 +23697,14 @@ pub struct ListEndpointsRequest {
     ///      * `labels.key=value` - key:value equality
     ///      * `labels.key:* or labels:key - key existence
     ///      * A key including a space must be quoted. `labels."a key"`.
+    ///    * `base_model_name` only supports =
     ///
     /// Some examples:
     ///
     ///    * `endpoint=1`
     ///    * `displayName="myDisplayName"`
     ///    * `labels.myKey="myValue"`
+    ///    * `baseModelName="text-bison"`
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
     /// Optional. The standard list page size.
@@ -28406,10 +28571,10 @@ pub struct FeatureView {
     /// FeatureView are made ready for online serving.
     #[prost(message, optional, tag = "7")]
     pub sync_config: ::core::option::Option<feature_view::SyncConfig>,
-    /// Optional. Configuration for vector search. It contains the required
-    /// configurations to create an index from source data, so that approximate
-    /// nearest neighbor (a.k.a ANN) algorithms search can be performed during
-    /// online serving.
+    /// Optional. Deprecated: please use
+    /// [FeatureView.index_config][google.cloud.aiplatform.v1beta1.FeatureView.index_config]
+    /// instead.
+    #[deprecated]
     #[prost(message, optional, tag = "8")]
     pub vector_search_config: ::core::option::Option<feature_view::VectorSearchConfig>,
     /// Optional. Service agent type used during data sync. By default, the Vertex
@@ -28437,8 +28602,7 @@ pub mod feature_view {
         /// trigger based on FeatureView.SyncConfig.
         #[prost(string, tag = "1")]
         pub uri: ::prost::alloc::string::String,
-        /// Required. Columns to construct entity_id / row keys. Start by supporting
-        /// 1 only.
+        /// Required. Columns to construct entity_id / row keys.
         #[prost(string, repeated, tag = "2")]
         pub entity_id_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
@@ -28455,7 +28619,9 @@ pub mod feature_view {
         #[prost(string, tag = "1")]
         pub cron: ::prost::alloc::string::String,
     }
-    /// Configuration for vector search.
+    /// Deprecated. Use
+    /// [IndexConfig][google.cloud.aiplatform.v1beta1.FeatureView.IndexConfig]
+    /// instead.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct VectorSearchConfig {
@@ -28582,6 +28748,9 @@ pub mod feature_view {
         pub feature_groups: ::prost::alloc::vec::Vec<
             feature_registry_source::FeatureGroup,
         >,
+        /// Optional. The project number of the parent project of the Feature Groups.
+        #[prost(int64, optional, tag = "2")]
+        pub project_number: ::core::option::Option<i64>,
     }
     /// Nested message and enum types in `FeatureRegistrySource`.
     pub mod feature_registry_source {
@@ -29792,12 +29961,14 @@ pub struct ListModelsRequest {
     ///      * `labels.key=value` - key:value equality
     ///      * `labels.key:* or labels:key - key existence
     ///      * A key including a space must be quoted. `labels."a key"`.
+    ///    * `base_model_name` only supports =
     ///
     /// Some examples:
     ///
     ///    * `model=1234`
     ///    * `displayName="myDisplayName"`
     ///    * `labels.myKey="myValue"`
+    ///    * `baseModelName="text-bison"`
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
     /// The standard list page size.
