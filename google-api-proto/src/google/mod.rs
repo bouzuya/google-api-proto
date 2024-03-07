@@ -367,6 +367,7 @@ pub mod chromeos;
         feature = "google-cloud-scheduler-v1beta1",
         feature = "google-cloud-secretmanager-logging-v1",
         feature = "google-cloud-secretmanager-v1",
+        feature = "google-cloud-secretmanager-v1beta2",
         feature = "google-cloud-secrets-v1beta1",
         feature = "google-cloud-securesourcemanager-v1",
         feature = "google-cloud-security-privateca-v1",

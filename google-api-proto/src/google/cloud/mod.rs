@@ -547,6 +547,7 @@ pub mod scheduler;
     any(
         feature = "google-cloud-secretmanager-logging-v1",
         feature = "google-cloud-secretmanager-v1",
+        feature = "google-cloud-secretmanager-v1beta2",
     )
 )]
 pub mod secretmanager;
