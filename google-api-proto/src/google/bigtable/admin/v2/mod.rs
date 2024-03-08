@@ -1768,6 +1768,182 @@ pub mod bigtable_instance_admin_client {
         }
     }
 }
+/// `Type` represents the type of data that is written to, read from, or stored
+/// in Bigtable. It is heavily based on the GoogleSQL standard to help maintain
+/// familiarity and consistency across products and features.
+///
+/// For compatibility with Bigtable's existing untyped APIs, each `Type` includes
+/// an `Encoding` which describes how to convert to/from the underlying data.
+/// This might involve composing a series of steps into an "encoding chain," for
+/// example to convert from INT64 -> STRING -> raw bytes. In most cases, a "link"
+/// in the encoding chain will be based an on existing GoogleSQL conversion
+/// function like `CAST`.
+///
+/// Each link in the encoding chain also defines the following properties:
+///   * Natural sort: Does the encoded value sort consistently with the original
+///     typed value? Note that Bigtable will always sort data based on the raw
+///     encoded value, *not* the decoded type.
+///      - Example: STRING values sort in the same order as their UTF-8 encodings.
+///      - Counterexample: Encoding INT64 to a fixed-width STRING does *not*
+///        preserve sort order when dealing with negative numbers.
+///        INT64(1) > INT64(-1), but STRING("-00001") > STRING("00001).
+///      - The overall encoding chain sorts naturally if *every* link does.
+///   * Self-delimiting: If we concatenate two encoded values, can we always tell
+///     where the first one ends and the second one begins?
+///      - Example: If we encode INT64s to fixed-width STRINGs, the first value
+///        will always contain exactly N digits, possibly preceded by a sign.
+///      - Counterexample: If we concatenate two UTF-8 encoded STRINGs, we have
+///        no way to tell where the first one ends.
+///      - The overall encoding chain is self-delimiting if *any* link is.
+///   * Compatibility: Which other systems have matching encoding schemes? For
+///     example, does this encoding have a GoogleSQL equivalent? HBase? Java?
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Type {
+    /// The kind of type that this represents.
+    #[prost(oneof = "r#type::Kind", tags = "1, 5, 6")]
+    pub kind: ::core::option::Option<r#type::Kind>,
+}
+/// Nested message and enum types in `Type`.
+pub mod r#type {
+    /// Bytes
+    /// Values of type `Bytes` are stored in `Value.bytes_value`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Bytes {
+        /// The encoding to use when converting to/from lower level types.
+        #[prost(message, optional, tag = "1")]
+        pub encoding: ::core::option::Option<bytes::Encoding>,
+    }
+    /// Nested message and enum types in `Bytes`.
+    pub mod bytes {
+        /// Rules used to convert to/from lower level types.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Encoding {
+            /// Which encoding to use.
+            #[prost(oneof = "encoding::Encoding", tags = "1")]
+            pub encoding: ::core::option::Option<encoding::Encoding>,
+        }
+        /// Nested message and enum types in `Encoding`.
+        pub mod encoding {
+            /// Leaves the value "as-is"
+            /// * Natural sort? Yes
+            /// * Self-delimiting? No
+            /// * Compatibility? N/A
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct Raw {}
+            /// Which encoding to use.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Encoding {
+                /// Use `Raw` encoding.
+                #[prost(message, tag = "1")]
+                Raw(Raw),
+            }
+        }
+    }
+    /// Int64
+    /// Values of type `Int64` are stored in `Value.int_value`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Int64 {
+        /// The encoding to use when converting to/from lower level types.
+        #[prost(message, optional, tag = "1")]
+        pub encoding: ::core::option::Option<int64::Encoding>,
+    }
+    /// Nested message and enum types in `Int64`.
+    pub mod int64 {
+        /// Rules used to convert to/from lower level types.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Encoding {
+            /// Which encoding to use.
+            #[prost(oneof = "encoding::Encoding", tags = "1")]
+            pub encoding: ::core::option::Option<encoding::Encoding>,
+        }
+        /// Nested message and enum types in `Encoding`.
+        pub mod encoding {
+            /// Encodes the value as an 8-byte big endian twos complement `Bytes`
+            /// value.
+            /// * Natural sort? No (positive values only)
+            /// * Self-delimiting? Yes
+            /// * Compatibility?
+            ///     - BigQuery Federation `BINARY` encoding
+            ///     - HBase `Bytes.toBytes`
+            ///     - Java `ByteBuffer.putLong()` with `ByteOrder.BIG_ENDIAN`
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct BigEndianBytes {
+                /// The underlying `Bytes` type, which may be able to encode further.
+                #[prost(message, optional, tag = "1")]
+                pub bytes_type: ::core::option::Option<super::super::Bytes>,
+            }
+            /// Which encoding to use.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Encoding {
+                /// Use `BigEndianBytes` encoding.
+                #[prost(message, tag = "1")]
+                BigEndianBytes(BigEndianBytes),
+            }
+        }
+    }
+    /// A value that combines incremental updates into a summarized value.
+    ///
+    /// Data is never directly written or read using type `Aggregate`. Writes will
+    /// provide either the `input_type` or `state_type`, and reads will always
+    /// return the `state_type` .
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Aggregate {
+        /// Type of the inputs that are accumulated by this `Aggregate`, which must
+        /// specify a full encoding.
+        /// Use `AddInput` mutations to accumulate new inputs.
+        #[prost(message, optional, boxed, tag = "1")]
+        pub input_type: ::core::option::Option<::prost::alloc::boxed::Box<super::Type>>,
+        /// Output only. Type that holds the internal accumulator state for the
+        /// `Aggregate`. This is a function of the `input_type` and `aggregator`
+        /// chosen, and will always specify a full encoding.
+        #[prost(message, optional, boxed, tag = "2")]
+        pub state_type: ::core::option::Option<::prost::alloc::boxed::Box<super::Type>>,
+        /// Which aggregator function to use. The configured types must match.
+        #[prost(oneof = "aggregate::Aggregator", tags = "4")]
+        pub aggregator: ::core::option::Option<aggregate::Aggregator>,
+    }
+    /// Nested message and enum types in `Aggregate`.
+    pub mod aggregate {
+        /// Computes the sum of the input values.
+        /// Allowed input: `Int64`
+        /// State: same as input
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Sum {}
+        /// Which aggregator function to use. The configured types must match.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Aggregator {
+            /// Sum aggregator.
+            #[prost(message, tag = "4")]
+            Sum(Sum),
+        }
+    }
+    /// The kind of type that this represents.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Kind {
+        /// Bytes
+        #[prost(message, tag = "1")]
+        BytesType(Bytes),
+        /// Int64
+        #[prost(message, tag = "5")]
+        Int64Type(Int64),
+        /// Aggregate
+        #[prost(message, tag = "6")]
+        AggregateType(::prost::alloc::boxed::Box<Aggregate>),
+    }
+}
 /// Information about a table restore.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2164,6 +2340,18 @@ pub struct ColumnFamily {
     /// GC expression for its family.
     #[prost(message, optional, tag = "1")]
     pub gc_rule: ::core::option::Option<GcRule>,
+    /// The type of data stored in each of this family's cell values, including its
+    /// full encoding. If omitted, the family only serves raw untyped bytes.
+    ///
+    /// For now, only the `Aggregate` type is supported.
+    ///
+    /// `Aggregate` can only be set at family creation and is immutable afterwards.
+    ///
+    ///
+    /// If `value_type` is `Aggregate`, written data must be compatible with:
+    ///   * `value_type.input_type` for `AddInput` mutations
+    #[prost(message, optional, tag = "3")]
+    pub value_type: ::core::option::Option<Type>,
 }
 /// Rule for determining which cells to delete during garbage collection.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2883,6 +3071,11 @@ pub mod modify_column_families_request {
         /// The ID of the column family to be modified.
         #[prost(string, tag = "1")]
         pub id: ::prost::alloc::string::String,
+        /// Optional. A mask specifying which fields (e.g. `gc_rule`) in the `update`
+        /// mod should be updated, ignored for other modification types. If unset or
+        /// empty, we treat it as updating `gc_rule` to be backward compatible.
+        #[prost(message, optional, tag = "6")]
+        pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
         /// Column family modifications.
         #[prost(oneof = "modification::Mod", tags = "2, 3, 4")]
         pub r#mod: ::core::option::Option<modification::Mod>,

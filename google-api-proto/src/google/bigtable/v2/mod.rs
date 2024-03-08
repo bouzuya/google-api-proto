@@ -82,6 +82,47 @@ pub struct Cell {
     #[prost(string, repeated, tag = "3")]
     pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
+/// `Value` represents a dynamically typed value.
+/// The typed fields in `Value` are used as a transport encoding for the actual
+/// value (which may be of a more complex type). See the documentation of the
+/// `Type` message for more details.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Value {
+    /// Options for transporting values within the protobuf type system. A given
+    /// `kind` may support more than one `type` and vice versa. On write, this is
+    /// roughly analogous to a GoogleSQL literal.
+    ///
+    /// The value is `NULL` if none of the fields in `kind` is set. If `type` is
+    /// also omitted on write, we will infer it based on the schema.
+    #[prost(oneof = "value::Kind", tags = "8, 9, 6")]
+    pub kind: ::core::option::Option<value::Kind>,
+}
+/// Nested message and enum types in `Value`.
+pub mod value {
+    /// Options for transporting values within the protobuf type system. A given
+    /// `kind` may support more than one `type` and vice versa. On write, this is
+    /// roughly analogous to a GoogleSQL literal.
+    ///
+    /// The value is `NULL` if none of the fields in `kind` is set. If `type` is
+    /// also omitted on write, we will infer it based on the schema.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Kind {
+        /// Represents a raw byte sequence with no type information.
+        /// The `type` field must be omitted.
+        #[prost(bytes, tag = "8")]
+        RawValue(::prost::bytes::Bytes),
+        /// Represents a raw cell timestamp with no type information.
+        /// The `type` field must be omitted.
+        #[prost(int64, tag = "9")]
+        RawTimestampMicros(i64),
+        /// Represents a typed value transported as an integer.
+        /// Default type for writes: `Int64`
+        #[prost(int64, tag = "6")]
+        IntValue(i64),
+    }
+}
 /// Specifies a contiguous range of rows.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -523,7 +564,7 @@ pub mod row_filter {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Mutation {
     /// Which of the possible Mutation types to apply.
-    #[prost(oneof = "mutation::Mutation", tags = "1, 2, 3, 4")]
+    #[prost(oneof = "mutation::Mutation", tags = "1, 5, 2, 3, 4")]
     pub mutation: ::core::option::Option<mutation::Mutation>,
 }
 /// Nested message and enum types in `Mutation`.
@@ -550,6 +591,28 @@ pub mod mutation {
         /// The value to be written into the specified cell.
         #[prost(bytes = "bytes", tag = "4")]
         pub value: ::prost::bytes::Bytes,
+    }
+    /// A Mutation which incrementally updates a cell in an `Aggregate` family.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AddToCell {
+        /// The name of the `Aggregate` family into which new data should be added.
+        /// This must be a family with a `value_type` of `Aggregate`.
+        /// Format: `\[-_.a-zA-Z0-9\]+`
+        #[prost(string, tag = "1")]
+        pub family_name: ::prost::alloc::string::String,
+        /// The qualifier of the column into which new data should be added. This
+        /// must be a `raw_value`.
+        #[prost(message, optional, tag = "2")]
+        pub column_qualifier: ::core::option::Option<super::Value>,
+        /// The timestamp of the cell to which new data should be added. This must
+        /// be a `raw_timestamp_micros` that matches the table's `granularity`.
+        #[prost(message, optional, tag = "3")]
+        pub timestamp: ::core::option::Option<super::Value>,
+        /// The input value to be accumulated into the specified cell. This must be
+        /// compatible with the family's `value_type.input_type`.
+        #[prost(message, optional, tag = "4")]
+        pub input: ::core::option::Option<super::Value>,
     }
     /// A Mutation which deletes cells from the specified column, optionally
     /// restricting the deletions to a given timestamp range.
@@ -588,6 +651,9 @@ pub mod mutation {
         /// Set a cell's value.
         #[prost(message, tag = "1")]
         SetCell(SetCell),
+        /// Incrementally updates an `Aggregate` cell.
+        #[prost(message, tag = "5")]
+        AddToCell(AddToCell),
         /// Deletes cells from a column.
         #[prost(message, tag = "2")]
         DeleteFromColumn(DeleteFromColumn),
