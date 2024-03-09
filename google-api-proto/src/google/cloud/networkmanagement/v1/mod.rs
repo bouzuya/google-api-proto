@@ -51,7 +51,7 @@ pub struct Step {
     /// final state the configuration is cleared.
     #[prost(
         oneof = "step::StepInfo",
-        tags = "5, 6, 7, 8, 24, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23"
+        tags = "5, 6, 7, 8, 24, 9, 10, 11, 21, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 25, 26, 27, 28"
     )]
     pub step_info: ::core::option::Option<step::StepInfo>,
 }
@@ -113,6 +113,8 @@ pub mod step {
         ApplyRoute = 6,
         /// Config checking state: match forwarding rule.
         ApplyForwardingRule = 7,
+        /// Config checking state: verify load balancer backend configuration.
+        AnalyzeLoadBalancerBackend = 28,
         /// Config checking state: packet sent or received under foreign IP
         /// address and allowed.
         SpoofingApproved = 8,
@@ -167,6 +169,7 @@ pub mod step {
                 State::ApplyEgressFirewallRule => "APPLY_EGRESS_FIREWALL_RULE",
                 State::ApplyRoute => "APPLY_ROUTE",
                 State::ApplyForwardingRule => "APPLY_FORWARDING_RULE",
+                State::AnalyzeLoadBalancerBackend => "ANALYZE_LOAD_BALANCER_BACKEND",
                 State::SpoofingApproved => "SPOOFING_APPROVED",
                 State::ArriveAtInstance => "ARRIVE_AT_INSTANCE",
                 State::ArriveAtInternalLoadBalancer => "ARRIVE_AT_INTERNAL_LOAD_BALANCER",
@@ -200,6 +203,7 @@ pub mod step {
                 "APPLY_EGRESS_FIREWALL_RULE" => Some(Self::ApplyEgressFirewallRule),
                 "APPLY_ROUTE" => Some(Self::ApplyRoute),
                 "APPLY_FORWARDING_RULE" => Some(Self::ApplyForwardingRule),
+                "ANALYZE_LOAD_BALANCER_BACKEND" => Some(Self::AnalyzeLoadBalancerBackend),
                 "SPOOFING_APPROVED" => Some(Self::SpoofingApproved),
                 "ARRIVE_AT_INSTANCE" => Some(Self::ArriveAtInstance),
                 "ARRIVE_AT_INTERNAL_LOAD_BALANCER" => {
@@ -293,6 +297,18 @@ pub mod step {
         /// Display information of a Cloud Run revision.
         #[prost(message, tag = "23")]
         CloudRunRevision(super::CloudRunRevisionInfo),
+        /// Display information of a NAT.
+        #[prost(message, tag = "25")]
+        Nat(super::NatInfo),
+        /// Display information of a ProxyConnection.
+        #[prost(message, tag = "26")]
+        ProxyConnection(super::ProxyConnectionInfo),
+        /// Display information of a specific load balancer backend.
+        #[prost(message, tag = "27")]
+        LoadBalancerBackendInfo(super::LoadBalancerBackendInfo),
+        /// Display information of a Storage Bucket. Used only for return traces.
+        #[prost(message, tag = "28")]
+        StorageBucket(super::StorageBucketInfo),
     }
 }
 /// For display only. Metadata associated with a Compute Engine instance.
@@ -1219,6 +1235,8 @@ pub mod deliver_info {
         PscVpcSc = 8,
         /// Target is a serverless network endpoint group.
         ServerlessNeg = 9,
+        /// Target is a Cloud Storage bucket.
+        StorageBucket = 10,
     }
     impl Target {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1237,6 +1255,7 @@ pub mod deliver_info {
                 Target::PscGoogleApi => "PSC_GOOGLE_API",
                 Target::PscVpcSc => "PSC_VPC_SC",
                 Target::ServerlessNeg => "SERVERLESS_NEG",
+                Target::StorageBucket => "STORAGE_BUCKET",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1252,6 +1271,7 @@ pub mod deliver_info {
                 "PSC_GOOGLE_API" => Some(Self::PscGoogleApi),
                 "PSC_VPC_SC" => Some(Self::PscVpcSc),
                 "SERVERLESS_NEG" => Some(Self::ServerlessNeg),
+                "STORAGE_BUCKET" => Some(Self::StorageBucket),
                 _ => None,
             }
         }
@@ -1925,6 +1945,278 @@ pub struct VpcConnectorInfo {
     /// Location in which the VPC connector is deployed.
     #[prost(string, tag = "3")]
     pub location: ::prost::alloc::string::String,
+}
+/// For display only. Metadata associated with NAT.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NatInfo {
+    /// Type of NAT.
+    #[prost(enumeration = "nat_info::Type", tag = "1")]
+    pub r#type: i32,
+    /// IP protocol in string format, for example: "TCP", "UDP", "ICMP".
+    #[prost(string, tag = "2")]
+    pub protocol: ::prost::alloc::string::String,
+    /// URI of the network where NAT translation takes place.
+    #[prost(string, tag = "3")]
+    pub network_uri: ::prost::alloc::string::String,
+    /// Source IP address before NAT translation.
+    #[prost(string, tag = "4")]
+    pub old_source_ip: ::prost::alloc::string::String,
+    /// Source IP address after NAT translation.
+    #[prost(string, tag = "5")]
+    pub new_source_ip: ::prost::alloc::string::String,
+    /// Destination IP address before NAT translation.
+    #[prost(string, tag = "6")]
+    pub old_destination_ip: ::prost::alloc::string::String,
+    /// Destination IP address after NAT translation.
+    #[prost(string, tag = "7")]
+    pub new_destination_ip: ::prost::alloc::string::String,
+    /// Source port before NAT translation. Only valid when protocol is TCP or UDP.
+    #[prost(int32, tag = "8")]
+    pub old_source_port: i32,
+    /// Source port after NAT translation. Only valid when protocol is TCP or UDP.
+    #[prost(int32, tag = "9")]
+    pub new_source_port: i32,
+    /// Destination port before NAT translation. Only valid when protocol is TCP or
+    /// UDP.
+    #[prost(int32, tag = "10")]
+    pub old_destination_port: i32,
+    /// Destination port after NAT translation. Only valid when protocol is TCP or
+    /// UDP.
+    #[prost(int32, tag = "11")]
+    pub new_destination_port: i32,
+    /// Uri of the Cloud Router. Only valid when type is CLOUD_NAT.
+    #[prost(string, tag = "12")]
+    pub router_uri: ::prost::alloc::string::String,
+    /// The name of Cloud NAT Gateway. Only valid when type is CLOUD_NAT.
+    #[prost(string, tag = "13")]
+    pub nat_gateway_name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `NatInfo`.
+pub mod nat_info {
+    /// Types of NAT.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// Type is unspecified.
+        Unspecified = 0,
+        /// From Compute Engine instance's internal address to external address.
+        InternalToExternal = 1,
+        /// From Compute Engine instance's external address to internal address.
+        ExternalToInternal = 2,
+        /// Cloud NAT Gateway.
+        CloudNat = 3,
+        /// Private service connect NAT.
+        PrivateServiceConnect = 4,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::InternalToExternal => "INTERNAL_TO_EXTERNAL",
+                Type::ExternalToInternal => "EXTERNAL_TO_INTERNAL",
+                Type::CloudNat => "CLOUD_NAT",
+                Type::PrivateServiceConnect => "PRIVATE_SERVICE_CONNECT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "INTERNAL_TO_EXTERNAL" => Some(Self::InternalToExternal),
+                "EXTERNAL_TO_INTERNAL" => Some(Self::ExternalToInternal),
+                "CLOUD_NAT" => Some(Self::CloudNat),
+                "PRIVATE_SERVICE_CONNECT" => Some(Self::PrivateServiceConnect),
+                _ => None,
+            }
+        }
+    }
+}
+/// For display only. Metadata associated with ProxyConnection.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProxyConnectionInfo {
+    /// IP protocol in string format, for example: "TCP", "UDP", "ICMP".
+    #[prost(string, tag = "1")]
+    pub protocol: ::prost::alloc::string::String,
+    /// Source IP address of an original connection.
+    #[prost(string, tag = "2")]
+    pub old_source_ip: ::prost::alloc::string::String,
+    /// Source IP address of a new connection.
+    #[prost(string, tag = "3")]
+    pub new_source_ip: ::prost::alloc::string::String,
+    /// Destination IP address of an original connection
+    #[prost(string, tag = "4")]
+    pub old_destination_ip: ::prost::alloc::string::String,
+    /// Destination IP address of a new connection.
+    #[prost(string, tag = "5")]
+    pub new_destination_ip: ::prost::alloc::string::String,
+    /// Source port of an original connection. Only valid when protocol is TCP or
+    /// UDP.
+    #[prost(int32, tag = "6")]
+    pub old_source_port: i32,
+    /// Source port of a new connection. Only valid when protocol is TCP or UDP.
+    #[prost(int32, tag = "7")]
+    pub new_source_port: i32,
+    /// Destination port of an original connection. Only valid when protocol is TCP
+    /// or UDP.
+    #[prost(int32, tag = "8")]
+    pub old_destination_port: i32,
+    /// Destination port of a new connection. Only valid when protocol is TCP or
+    /// UDP.
+    #[prost(int32, tag = "9")]
+    pub new_destination_port: i32,
+    /// Uri of proxy subnet.
+    #[prost(string, tag = "10")]
+    pub subnet_uri: ::prost::alloc::string::String,
+    /// URI of the network where connection is proxied.
+    #[prost(string, tag = "11")]
+    pub network_uri: ::prost::alloc::string::String,
+}
+/// For display only. Metadata associated with the load balancer backend.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LoadBalancerBackendInfo {
+    /// Display name of the backend. For example, it might be an instance name for
+    /// the instance group backends, or an IP address and port for zonal network
+    /// endpoint group backends.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// URI of the backend instance (if applicable). Populated for instance group
+    /// backends, and zonal NEG backends.
+    #[prost(string, tag = "2")]
+    pub instance_uri: ::prost::alloc::string::String,
+    /// URI of the backend service this backend belongs to (if applicable).
+    #[prost(string, tag = "3")]
+    pub backend_service_uri: ::prost::alloc::string::String,
+    /// URI of the instance group this backend belongs to (if applicable).
+    #[prost(string, tag = "4")]
+    pub instance_group_uri: ::prost::alloc::string::String,
+    /// URI of the network endpoint group this backend belongs to (if applicable).
+    #[prost(string, tag = "5")]
+    pub network_endpoint_group_uri: ::prost::alloc::string::String,
+    /// URI of the backend bucket this backend targets (if applicable).
+    #[prost(string, tag = "8")]
+    pub backend_bucket_uri: ::prost::alloc::string::String,
+    /// URI of the PSC service attachment this PSC NEG backend targets (if
+    /// applicable).
+    #[prost(string, tag = "9")]
+    pub psc_service_attachment_uri: ::prost::alloc::string::String,
+    /// PSC Google API target this PSC NEG backend targets (if applicable).
+    #[prost(string, tag = "10")]
+    pub psc_google_api_target: ::prost::alloc::string::String,
+    /// URI of the health check attached to this backend (if applicable).
+    #[prost(string, tag = "6")]
+    pub health_check_uri: ::prost::alloc::string::String,
+    /// Health check firewalls configuration state for the backend. This is a
+    /// result of the static firewall analysis (verifying that health check traffic
+    /// from required IP ranges to the backend is allowed or not). The backend
+    /// might still be unhealthy even if these firewalls are configured. Please
+    /// refer to the documentation for more information:
+    /// <https://cloud.google.com/load-balancing/docs/firewall-rules>
+    #[prost(
+        enumeration = "load_balancer_backend_info::HealthCheckFirewallsConfigState",
+        tag = "7"
+    )]
+    pub health_check_firewalls_config_state: i32,
+}
+/// Nested message and enum types in `LoadBalancerBackendInfo`.
+pub mod load_balancer_backend_info {
+    /// Health check firewalls configuration state enum.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum HealthCheckFirewallsConfigState {
+        /// Configuration state unspecified. It usually means that the backend has
+        /// no health check attached, or there was an unexpected configuration error
+        /// preventing Connectivity tests from verifying health check configuration.
+        Unspecified = 0,
+        /// Firewall rules (policies) allowing health check traffic from all required
+        /// IP ranges to the backend are configured.
+        FirewallsConfigured = 1,
+        /// Firewall rules (policies) allow health check traffic only from a part of
+        /// required IP ranges.
+        FirewallsPartiallyConfigured = 2,
+        /// Firewall rules (policies) deny health check traffic from all required
+        /// IP ranges to the backend.
+        FirewallsNotConfigured = 3,
+        /// The network contains firewall rules of unsupported types, so Connectivity
+        /// tests were not able to verify health check configuration status. Please
+        /// refer to the documentation for the list of unsupported configurations:
+        /// <https://cloud.google.com/network-intelligence-center/docs/connectivity-tests/concepts/overview#unsupported-configs>
+        FirewallsUnsupported = 4,
+    }
+    impl HealthCheckFirewallsConfigState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                HealthCheckFirewallsConfigState::Unspecified => {
+                    "HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED"
+                }
+                HealthCheckFirewallsConfigState::FirewallsConfigured => {
+                    "FIREWALLS_CONFIGURED"
+                }
+                HealthCheckFirewallsConfigState::FirewallsPartiallyConfigured => {
+                    "FIREWALLS_PARTIALLY_CONFIGURED"
+                }
+                HealthCheckFirewallsConfigState::FirewallsNotConfigured => {
+                    "FIREWALLS_NOT_CONFIGURED"
+                }
+                HealthCheckFirewallsConfigState::FirewallsUnsupported => {
+                    "FIREWALLS_UNSUPPORTED"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED" => {
+                    Some(Self::Unspecified)
+                }
+                "FIREWALLS_CONFIGURED" => Some(Self::FirewallsConfigured),
+                "FIREWALLS_PARTIALLY_CONFIGURED" => {
+                    Some(Self::FirewallsPartiallyConfigured)
+                }
+                "FIREWALLS_NOT_CONFIGURED" => Some(Self::FirewallsNotConfigured),
+                "FIREWALLS_UNSUPPORTED" => Some(Self::FirewallsUnsupported),
+                _ => None,
+            }
+        }
+    }
+}
+/// For display only. Metadata associated with Storage Bucket.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StorageBucketInfo {
+    /// Cloud Storage Bucket name.
+    #[prost(string, tag = "1")]
+    pub bucket: ::prost::alloc::string::String,
 }
 /// Type of a load balancer. For more information, see [Summary of Google Cloud
 /// load
