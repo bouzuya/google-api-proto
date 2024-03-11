@@ -1,3 +1,893 @@
+/// A fine-tuned model created using ModelService.CreateTunedModel.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TunedModel {
+    /// Output only. The tuned model name. A unique name will be generated on
+    /// create. Example: `tunedModels/az2mb0bpw6i` If display_name is set on
+    /// create, the id portion of the name will be set by concatenating the words
+    /// of the display_name with hyphens and adding a random portion for
+    /// uniqueness. Example:
+    ///      display_name = "Sentence Translator"
+    ///      name = "tunedModels/sentence-translator-u3b7m"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. The name to display for this model in user interfaces.
+    /// The display name must be up to 40 characters including spaces.
+    #[prost(string, tag = "5")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. A short description of this model.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
+    /// produce responses that are more varied, while a value closer to `0.0` will
+    /// typically result in less surprising responses from the model.
+    ///
+    /// This value specifies default to be the one used by the base model while
+    /// creating the model.
+    #[prost(float, optional, tag = "11")]
+    pub temperature: ::core::option::Option<f32>,
+    /// Optional. For Nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    ///
+    /// This value specifies default to be the one used by the base model while
+    /// creating the model.
+    #[prost(float, optional, tag = "12")]
+    pub top_p: ::core::option::Option<f32>,
+    /// Optional. For Top-k sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    ///
+    /// This value specifies default to be the one used by the base model while
+    /// creating the model.
+    #[prost(int32, optional, tag = "13")]
+    pub top_k: ::core::option::Option<i32>,
+    /// Output only. The state of the tuned model.
+    #[prost(enumeration = "tuned_model::State", tag = "7")]
+    pub state: i32,
+    /// Output only. The timestamp when this model was created.
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when this model was updated.
+    #[prost(message, optional, tag = "9")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. The tuning task that creates the tuned model.
+    #[prost(message, optional, tag = "10")]
+    pub tuning_task: ::core::option::Option<TuningTask>,
+    /// The model used as the starting point for tuning.
+    #[prost(oneof = "tuned_model::SourceModel", tags = "3, 4")]
+    pub source_model: ::core::option::Option<tuned_model::SourceModel>,
+}
+/// Nested message and enum types in `TunedModel`.
+pub mod tuned_model {
+    /// The state of the tuned model.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// The model is being created.
+        Creating = 1,
+        /// The model is ready to be used.
+        Active = 2,
+        /// The model failed to be created.
+        Failed = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Active => "ACTIVE",
+                State::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "ACTIVE" => Some(Self::Active),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
+    /// The model used as the starting point for tuning.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SourceModel {
+        /// Optional. TunedModel to use as the starting point for training the new
+        /// model.
+        #[prost(message, tag = "3")]
+        TunedModelSource(super::TunedModelSource),
+        /// Immutable. The name of the `Model` to tune.
+        /// Example: `models/text-bison-001`
+        #[prost(string, tag = "4")]
+        BaseModel(::prost::alloc::string::String),
+    }
+}
+/// Tuned model as a source for training a new model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TunedModelSource {
+    /// Immutable. The name of the `TunedModel` to use as the starting point for
+    /// training the new model.
+    /// Example: `tunedModels/my-tuned-model`
+    #[prost(string, tag = "1")]
+    pub tuned_model: ::prost::alloc::string::String,
+    /// Output only. The name of the base `Model` this `TunedModel` was tuned from.
+    /// Example: `models/text-bison-001`
+    #[prost(string, tag = "2")]
+    pub base_model: ::prost::alloc::string::String,
+}
+/// Tuning tasks that create tuned models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TuningTask {
+    /// Output only. The timestamp when tuning this model started.
+    #[prost(message, optional, tag = "1")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when tuning this model completed.
+    #[prost(message, optional, tag = "2")]
+    pub complete_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Metrics collected during tuning.
+    #[prost(message, repeated, tag = "3")]
+    pub snapshots: ::prost::alloc::vec::Vec<TuningSnapshot>,
+    /// Required. Input only. Immutable. The model training data.
+    #[prost(message, optional, tag = "4")]
+    pub training_data: ::core::option::Option<Dataset>,
+    /// Immutable. Hyperparameters controlling the tuning process. If not provided,
+    /// default values will be used.
+    #[prost(message, optional, tag = "5")]
+    pub hyperparameters: ::core::option::Option<Hyperparameters>,
+}
+/// Hyperparameters controlling the tuning process.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Hyperparameters {
+    /// Immutable. The number of training epochs. An epoch is one pass through the
+    /// training data. If not set, a default of 10 will be used.
+    #[prost(int32, optional, tag = "14")]
+    pub epoch_count: ::core::option::Option<i32>,
+    /// Immutable. The batch size hyperparameter for tuning.
+    /// If not set, a default of 16 or 64 will be used based on the number of
+    /// training examples.
+    #[prost(int32, optional, tag = "15")]
+    pub batch_size: ::core::option::Option<i32>,
+    /// Immutable. The learning rate hyperparameter for tuning.
+    /// If not set, a default of 0.0002 or 0.002 will be calculated based on the
+    /// number of training examples.
+    #[prost(float, optional, tag = "16")]
+    pub learning_rate: ::core::option::Option<f32>,
+}
+/// Dataset for training or validation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Dataset {
+    /// Inline data or a reference to the data.
+    #[prost(oneof = "dataset::Dataset", tags = "1")]
+    pub dataset: ::core::option::Option<dataset::Dataset>,
+}
+/// Nested message and enum types in `Dataset`.
+pub mod dataset {
+    /// Inline data or a reference to the data.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Dataset {
+        /// Optional. Inline examples.
+        #[prost(message, tag = "1")]
+        Examples(super::TuningExamples),
+    }
+}
+/// A set of tuning examples. Can be training or validatation data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TuningExamples {
+    /// Required. The examples. Example input can be for text or discuss, but all
+    /// examples in a set must be of the same type.
+    #[prost(message, repeated, tag = "1")]
+    pub examples: ::prost::alloc::vec::Vec<TuningExample>,
+}
+/// A single example for tuning.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TuningExample {
+    /// Required. The expected model output.
+    #[prost(string, tag = "3")]
+    pub output: ::prost::alloc::string::String,
+    /// The input to the model for this example.
+    #[prost(oneof = "tuning_example::ModelInput", tags = "1")]
+    pub model_input: ::core::option::Option<tuning_example::ModelInput>,
+}
+/// Nested message and enum types in `TuningExample`.
+pub mod tuning_example {
+    /// The input to the model for this example.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ModelInput {
+        /// Optional. Text model input.
+        #[prost(string, tag = "1")]
+        TextInput(::prost::alloc::string::String),
+    }
+}
+/// Record for a single tuning step.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TuningSnapshot {
+    /// Output only. The tuning step.
+    #[prost(int32, tag = "1")]
+    pub step: i32,
+    /// Output only. The epoch this step was part of.
+    #[prost(int32, tag = "2")]
+    pub epoch: i32,
+    /// Output only. The mean loss of the training examples for this step.
+    #[prost(float, tag = "3")]
+    pub mean_loss: f32,
+    /// Output only. The timestamp when this metric was computed.
+    #[prost(message, optional, tag = "4")]
+    pub compute_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Information about a Generative Language Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Model {
+    /// Required. The resource name of the `Model`.
+    ///
+    /// Format: `models/{model}` with a `{model}` naming convention of:
+    ///
+    /// * "{base_model_id}-{version}"
+    ///
+    /// Examples:
+    ///
+    /// * `models/chat-bison-001`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The name of the base model, pass this to the generation request.
+    ///
+    /// Examples:
+    ///
+    /// * `chat-bison`
+    #[prost(string, tag = "2")]
+    pub base_model_id: ::prost::alloc::string::String,
+    /// Required. The version number of the model.
+    ///
+    /// This represents the major version
+    #[prost(string, tag = "3")]
+    pub version: ::prost::alloc::string::String,
+    /// The human-readable name of the model. E.g. "Chat Bison".
+    ///
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A short description of the model.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Maximum number of input tokens allowed for this model.
+    #[prost(int32, tag = "6")]
+    pub input_token_limit: i32,
+    /// Maximum number of output tokens available for this model.
+    #[prost(int32, tag = "7")]
+    pub output_token_limit: i32,
+    /// The model's supported generation methods.
+    ///
+    /// The method names are defined as Pascal case
+    /// strings, such as `generateMessage` which correspond to API methods.
+    #[prost(string, repeated, tag = "8")]
+    pub supported_generation_methods: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
+    /// produce responses that are more varied, while a value closer to `0.0` will
+    /// typically result in less surprising responses from the model.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "9")]
+    pub temperature: ::core::option::Option<f32>,
+    /// For Nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "10")]
+    pub top_p: ::core::option::Option<f32>,
+    /// For Top-k sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(int32, optional, tag = "11")]
+    pub top_k: ::core::option::Option<i32>,
+}
+/// Request for getting information about a specific Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetModelRequest {
+    /// Required. The resource name of the model.
+    ///
+    /// This name should match a model name returned by the `ListModels` method.
+    ///
+    /// Format: `models/{model}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request for listing all Models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelsRequest {
+    /// The maximum number of `Models` to return (per page).
+    ///
+    /// The service may return fewer models.
+    /// If unspecified, at most 50 models will be returned per page.
+    /// This method returns at most 1000 models per page, even if you pass a larger
+    /// page_size.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A page token, received from a previous `ListModels` call.
+    ///
+    /// Provide the `page_token` returned by one request as an argument to the next
+    /// request to retrieve the next page.
+    ///
+    /// When paginating, all other parameters provided to `ListModels` must match
+    /// the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response from `ListModel` containing a paginated list of Models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelsResponse {
+    /// The returned Models.
+    #[prost(message, repeated, tag = "1")]
+    pub models: ::prost::alloc::vec::Vec<Model>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    ///
+    /// If this field is omitted, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request for getting information about a specific Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetTunedModelRequest {
+    /// Required. The resource name of the model.
+    ///
+    /// Format: `tunedModels/my-model-id`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request for listing TunedModels.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListTunedModelsRequest {
+    /// Optional. The maximum number of `TunedModels` to return (per page).
+    /// The service may return fewer tuned models.
+    ///
+    /// If unspecified, at most 10 tuned models will be returned.
+    /// This method returns at most 1000 models per page, even if you pass a larger
+    /// page_size.
+    #[prost(int32, tag = "1")]
+    pub page_size: i32,
+    /// Optional. A page token, received from a previous `ListTunedModels` call.
+    ///
+    /// Provide the `page_token` returned by one request as an argument to the next
+    /// request to retrieve the next page.
+    ///
+    /// When paginating, all other parameters provided to `ListTunedModels`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "2")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response from `ListTunedModels` containing a paginated list of Models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListTunedModelsResponse {
+    /// The returned Models.
+    #[prost(message, repeated, tag = "1")]
+    pub tuned_models: ::prost::alloc::vec::Vec<TunedModel>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    ///
+    /// If this field is omitted, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request to create a TunedModel.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateTunedModelRequest {
+    /// Optional. The unique id for the tuned model if specified.
+    /// This value should be up to 40 characters, the first character must be a
+    /// letter, the last could be a letter or a number. The id must match the
+    /// regular expression: [a-z](\[a-z0-9-\]{0,38}\[a-z0-9\])?.
+    #[prost(string, optional, tag = "1")]
+    pub tuned_model_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The tuned model to create.
+    #[prost(message, optional, tag = "2")]
+    pub tuned_model: ::core::option::Option<TunedModel>,
+}
+/// Metadata about the state and progress of creating a tuned model returned from
+/// the long-running operation
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateTunedModelMetadata {
+    /// Name of the tuned model associated with the tuning operation.
+    #[prost(string, tag = "5")]
+    pub tuned_model: ::prost::alloc::string::String,
+    /// The total number of tuning steps.
+    #[prost(int32, tag = "1")]
+    pub total_steps: i32,
+    /// The number of steps completed.
+    #[prost(int32, tag = "2")]
+    pub completed_steps: i32,
+    /// The completed percentage for the tuning operation.
+    #[prost(float, tag = "3")]
+    pub completed_percent: f32,
+    /// Metrics collected during tuning.
+    #[prost(message, repeated, tag = "4")]
+    pub snapshots: ::prost::alloc::vec::Vec<TuningSnapshot>,
+}
+/// Request to update a TunedModel.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateTunedModelRequest {
+    /// Required. The tuned model to update.
+    #[prost(message, optional, tag = "1")]
+    pub tuned_model: ::core::option::Option<TunedModel>,
+    /// Required. The list of fields to update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request to delete a TunedModel.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteTunedModelRequest {
+    /// Required. The resource name of the model.
+    /// Format: `tunedModels/my-model-id`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod model_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Provides methods for getting metadata information about Generative Models.
+    #[derive(Debug, Clone)]
+    pub struct ModelServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ModelServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ModelServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ModelServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Gets information about a specific Model.
+        pub async fn get_model(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetModelRequest>,
+        ) -> std::result::Result<tonic::Response<super::Model>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/GetModel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "GetModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists models available through the API.
+        pub async fn list_models(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListModelsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListModelsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/ListModels",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "ListModels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets information about a specific TunedModel.
+        pub async fn get_tuned_model(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetTunedModelRequest>,
+        ) -> std::result::Result<tonic::Response<super::TunedModel>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/GetTunedModel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "GetTunedModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists tuned models owned by the user.
+        pub async fn list_tuned_models(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListTunedModelsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListTunedModelsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/ListTunedModels",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "ListTunedModels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a tuned model.
+        /// Intermediate tuning progress (if any) is accessed through the
+        /// [google.longrunning.Operations] service.
+        ///
+        /// Status and results can be accessed through the Operations service.
+        /// Example:
+        ///   GET /v1/tunedModels/az2mb0bpw6i/operations/000-111-222
+        pub async fn create_tuned_model(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateTunedModelRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/CreateTunedModel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "CreateTunedModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a tuned model.
+        pub async fn update_tuned_model(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateTunedModelRequest>,
+        ) -> std::result::Result<tonic::Response<super::TunedModel>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/UpdateTunedModel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "UpdateTunedModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a tuned model.
+        pub async fn delete_tuned_model(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteTunedModelRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.ModelService/DeleteTunedModel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.ModelService",
+                        "DeleteTunedModel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Permission resource grants user, group or the rest of the world access to the
+/// PaLM API resource (e.g. a tuned model, file).
+///
+/// A role is a collection of permitted operations that allows users to perform
+/// specific actions on PaLM API resources. To make them available to users,
+/// groups, or service accounts, you assign roles. When you assign a role, you
+/// grant permissions that the role contains.
+///
+/// There are three concentric roles. Each role is a superset of the previous
+/// role's permitted operations:
+///   - reader can use the resource (e.g. tuned model) for inference
+///   - writer has reader's permissions and additionally can edit and share
+///   - owner has writer's permissions and additionally can delete
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Permission {
+    /// Output only. The permission name. A unique name will be generated on
+    /// create. Example: tunedModels/{tuned_model}permssions/{permission} Output
+    /// only.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Immutable. The type of the grantee.
+    #[prost(enumeration = "permission::GranteeType", optional, tag = "2")]
+    pub grantee_type: ::core::option::Option<i32>,
+    /// Optional. Immutable. The email address of the user of group which this
+    /// permission refers. Field is not set when permission's grantee type is
+    /// EVERYONE.
+    #[prost(string, optional, tag = "3")]
+    pub email_address: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The role granted by this permission.
+    #[prost(enumeration = "permission::Role", optional, tag = "4")]
+    pub role: ::core::option::Option<i32>,
+}
+/// Nested message and enum types in `Permission`.
+pub mod permission {
+    /// Defines types of the grantee of this permission.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum GranteeType {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// Represents a user. When set, you must provide email_address for the user.
+        User = 1,
+        /// Represents a group. When set, you must provide email_address for the
+        /// group.
+        Group = 2,
+        /// Represents access to everyone. No extra information is required.
+        Everyone = 3,
+    }
+    impl GranteeType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                GranteeType::Unspecified => "GRANTEE_TYPE_UNSPECIFIED",
+                GranteeType::User => "USER",
+                GranteeType::Group => "GROUP",
+                GranteeType::Everyone => "EVERYONE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "GRANTEE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "USER" => Some(Self::User),
+                "GROUP" => Some(Self::Group),
+                "EVERYONE" => Some(Self::Everyone),
+                _ => None,
+            }
+        }
+    }
+    /// Defines the role granted by this permission.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Role {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// Owner can use, update, share and delete the resource.
+        Owner = 1,
+        /// Writer can use, update and share the resource.
+        Writer = 2,
+        /// Reader can use the resource.
+        Reader = 3,
+    }
+    impl Role {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Role::Unspecified => "ROLE_UNSPECIFIED",
+                Role::Owner => "OWNER",
+                Role::Writer => "WRITER",
+                Role::Reader => "READER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
+                "OWNER" => Some(Self::Owner),
+                "WRITER" => Some(Self::Writer),
+                "READER" => Some(Self::Reader),
+                _ => None,
+            }
+        }
+    }
+}
 /// A collection of source attributions for a piece of content.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -634,742 +1524,6 @@ pub mod discuss_service_client {
         }
     }
 }
-/// A fine-tuned model created using ModelService.CreateTunedModel.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TunedModel {
-    /// Output only. The tuned model name. A unique name will be generated on
-    /// create. Example: `tunedModels/az2mb0bpw6i` If display_name is set on
-    /// create, the id portion of the name will be set by concatenating the words
-    /// of the display_name with hyphens and adding a random portion for
-    /// uniqueness. Example:
-    ///      display_name = "Sentence Translator"
-    ///      name = "tunedModels/sentence-translator-u3b7m"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. The name to display for this model in user interfaces.
-    /// The display name must be up to 40 characters including spaces.
-    #[prost(string, tag = "5")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. A short description of this model.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
-    /// produce responses that are more varied, while a value closer to `0.0` will
-    /// typically result in less surprising responses from the model.
-    ///
-    /// This value specifies default to be the one used by the base model while
-    /// creating the model.
-    #[prost(float, optional, tag = "11")]
-    pub temperature: ::core::option::Option<f32>,
-    /// Optional. For Nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    ///
-    /// This value specifies default to be the one used by the base model while
-    /// creating the model.
-    #[prost(float, optional, tag = "12")]
-    pub top_p: ::core::option::Option<f32>,
-    /// Optional. For Top-k sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    ///
-    /// This value specifies default to be the one used by the base model while
-    /// creating the model.
-    #[prost(int32, optional, tag = "13")]
-    pub top_k: ::core::option::Option<i32>,
-    /// Output only. The state of the tuned model.
-    #[prost(enumeration = "tuned_model::State", tag = "7")]
-    pub state: i32,
-    /// Output only. The timestamp when this model was created.
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when this model was updated.
-    #[prost(message, optional, tag = "9")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Required. The tuning task that creates the tuned model.
-    #[prost(message, optional, tag = "10")]
-    pub tuning_task: ::core::option::Option<TuningTask>,
-    /// The model used as the starting point for tuning.
-    #[prost(oneof = "tuned_model::SourceModel", tags = "3, 4")]
-    pub source_model: ::core::option::Option<tuned_model::SourceModel>,
-}
-/// Nested message and enum types in `TunedModel`.
-pub mod tuned_model {
-    /// The state of the tuned model.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// The model is being created.
-        Creating = 1,
-        /// The model is ready to be used.
-        Active = 2,
-        /// The model failed to be created.
-        Failed = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Active => "ACTIVE",
-                State::Failed => "FAILED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "ACTIVE" => Some(Self::Active),
-                "FAILED" => Some(Self::Failed),
-                _ => None,
-            }
-        }
-    }
-    /// The model used as the starting point for tuning.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum SourceModel {
-        /// Optional. TunedModel to use as the starting point for training the new
-        /// model.
-        #[prost(message, tag = "3")]
-        TunedModelSource(super::TunedModelSource),
-        /// Immutable. The name of the `Model` to tune.
-        /// Example: `models/text-bison-001`
-        #[prost(string, tag = "4")]
-        BaseModel(::prost::alloc::string::String),
-    }
-}
-/// Tuned model as a source for training a new model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TunedModelSource {
-    /// Immutable. The name of the `TunedModel` to use as the starting point for
-    /// training the new model.
-    /// Example: `tunedModels/my-tuned-model`
-    #[prost(string, tag = "1")]
-    pub tuned_model: ::prost::alloc::string::String,
-    /// Output only. The name of the base `Model` this `TunedModel` was tuned from.
-    /// Example: `models/text-bison-001`
-    #[prost(string, tag = "2")]
-    pub base_model: ::prost::alloc::string::String,
-}
-/// Tuning tasks that create tuned models.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TuningTask {
-    /// Output only. The timestamp when tuning this model started.
-    #[prost(message, optional, tag = "1")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when tuning this model completed.
-    #[prost(message, optional, tag = "2")]
-    pub complete_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Metrics collected during tuning.
-    #[prost(message, repeated, tag = "3")]
-    pub snapshots: ::prost::alloc::vec::Vec<TuningSnapshot>,
-    /// Required. Input only. Immutable. The model training data.
-    #[prost(message, optional, tag = "4")]
-    pub training_data: ::core::option::Option<Dataset>,
-    /// Immutable. Hyperparameters controlling the tuning process. If not provided,
-    /// default values will be used.
-    #[prost(message, optional, tag = "5")]
-    pub hyperparameters: ::core::option::Option<Hyperparameters>,
-}
-/// Hyperparameters controlling the tuning process.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Hyperparameters {
-    /// Immutable. The number of training epochs. An epoch is one pass through the
-    /// training data. If not set, a default of 10 will be used.
-    #[prost(int32, optional, tag = "14")]
-    pub epoch_count: ::core::option::Option<i32>,
-    /// Immutable. The batch size hyperparameter for tuning.
-    /// If not set, a default of 16 or 64 will be used based on the number of
-    /// training examples.
-    #[prost(int32, optional, tag = "15")]
-    pub batch_size: ::core::option::Option<i32>,
-    /// Immutable. The learning rate hyperparameter for tuning.
-    /// If not set, a default of 0.0002 or 0.002 will be calculated based on the
-    /// number of training examples.
-    #[prost(float, optional, tag = "16")]
-    pub learning_rate: ::core::option::Option<f32>,
-}
-/// Dataset for training or validation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Dataset {
-    /// Inline data or a reference to the data.
-    #[prost(oneof = "dataset::Dataset", tags = "1")]
-    pub dataset: ::core::option::Option<dataset::Dataset>,
-}
-/// Nested message and enum types in `Dataset`.
-pub mod dataset {
-    /// Inline data or a reference to the data.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Dataset {
-        /// Optional. Inline examples.
-        #[prost(message, tag = "1")]
-        Examples(super::TuningExamples),
-    }
-}
-/// A set of tuning examples. Can be training or validatation data.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TuningExamples {
-    /// Required. The examples. Example input can be for text or discuss, but all
-    /// examples in a set must be of the same type.
-    #[prost(message, repeated, tag = "1")]
-    pub examples: ::prost::alloc::vec::Vec<TuningExample>,
-}
-/// A single example for tuning.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TuningExample {
-    /// Required. The expected model output.
-    #[prost(string, tag = "3")]
-    pub output: ::prost::alloc::string::String,
-    /// The input to the model for this example.
-    #[prost(oneof = "tuning_example::ModelInput", tags = "1")]
-    pub model_input: ::core::option::Option<tuning_example::ModelInput>,
-}
-/// Nested message and enum types in `TuningExample`.
-pub mod tuning_example {
-    /// The input to the model for this example.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ModelInput {
-        /// Optional. Text model input.
-        #[prost(string, tag = "1")]
-        TextInput(::prost::alloc::string::String),
-    }
-}
-/// Record for a single tuning step.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TuningSnapshot {
-    /// Output only. The tuning step.
-    #[prost(int32, tag = "1")]
-    pub step: i32,
-    /// Output only. The epoch this step was part of.
-    #[prost(int32, tag = "2")]
-    pub epoch: i32,
-    /// Output only. The mean loss of the training examples for this step.
-    #[prost(float, tag = "3")]
-    pub mean_loss: f32,
-    /// Output only. The timestamp when this metric was computed.
-    #[prost(message, optional, tag = "4")]
-    pub compute_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Permission resource grants user, group or the rest of the world access to the
-/// PaLM API resource (e.g. a tuned model, file).
-///
-/// A role is a collection of permitted operations that allows users to perform
-/// specific actions on PaLM API resources. To make them available to users,
-/// groups, or service accounts, you assign roles. When you assign a role, you
-/// grant permissions that the role contains.
-///
-/// There are three concentric roles. Each role is a superset of the previous
-/// role's permitted operations:
-///   - reader can use the resource (e.g. tuned model) for inference
-///   - writer has reader's permissions and additionally can edit and share
-///   - owner has writer's permissions and additionally can delete
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Permission {
-    /// Output only. The permission name. A unique name will be generated on
-    /// create. Example: tunedModels/{tuned_model}permssions/{permission} Output
-    /// only.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. The type of the grantee.
-    #[prost(enumeration = "permission::GranteeType", optional, tag = "2")]
-    pub grantee_type: ::core::option::Option<i32>,
-    /// Optional. Immutable. The email address of the user of group which this
-    /// permission refers. Field is not set when permission's grantee type is
-    /// EVERYONE.
-    #[prost(string, optional, tag = "3")]
-    pub email_address: ::core::option::Option<::prost::alloc::string::String>,
-    /// Required. The role granted by this permission.
-    #[prost(enumeration = "permission::Role", optional, tag = "4")]
-    pub role: ::core::option::Option<i32>,
-}
-/// Nested message and enum types in `Permission`.
-pub mod permission {
-    /// Defines types of the grantee of this permission.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum GranteeType {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// Represents a user. When set, you must provide email_address for the user.
-        User = 1,
-        /// Represents a group. When set, you must provide email_address for the
-        /// group.
-        Group = 2,
-        /// Represents access to everyone. No extra information is required.
-        Everyone = 3,
-    }
-    impl GranteeType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                GranteeType::Unspecified => "GRANTEE_TYPE_UNSPECIFIED",
-                GranteeType::User => "USER",
-                GranteeType::Group => "GROUP",
-                GranteeType::Everyone => "EVERYONE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "GRANTEE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "USER" => Some(Self::User),
-                "GROUP" => Some(Self::Group),
-                "EVERYONE" => Some(Self::Everyone),
-                _ => None,
-            }
-        }
-    }
-    /// Defines the role granted by this permission.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Role {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// Owner can use, update, share and delete the resource.
-        Owner = 1,
-        /// Writer can use, update and share the resource.
-        Writer = 2,
-        /// Reader can use the resource.
-        Reader = 3,
-    }
-    impl Role {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Role::Unspecified => "ROLE_UNSPECIFIED",
-                Role::Owner => "OWNER",
-                Role::Writer => "WRITER",
-                Role::Reader => "READER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
-                "OWNER" => Some(Self::Owner),
-                "WRITER" => Some(Self::Writer),
-                "READER" => Some(Self::Reader),
-                _ => None,
-            }
-        }
-    }
-}
-/// Request to create a `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreatePermissionRequest {
-    /// Required. The parent resource of the `Permission`.
-    /// Format: tunedModels/{tuned_model}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The permission to create.
-    #[prost(message, optional, tag = "2")]
-    pub permission: ::core::option::Option<Permission>,
-}
-/// Request for getting information about a specific `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetPermissionRequest {
-    /// Required. The resource name of the permission.
-    ///
-    /// Format: `tunedModels/{tuned_model}permissions/{permission}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request for listing permissions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPermissionsRequest {
-    /// Required. The parent resource of the permissions.
-    /// Format: tunedModels/{tuned_model}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of `Permission`s to return (per page).
-    /// The service may return fewer permissions.
-    ///
-    /// If unspecified, at most 10 permissions will be returned.
-    /// This method returns at most 1000 permissions per page, even if you pass
-    /// larger page_size.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. A page token, received from a previous `ListPermissions` call.
-    ///
-    /// Provide the `page_token` returned by one request as an argument to the
-    /// next request to retrieve the next page.
-    ///
-    /// When paginating, all other parameters provided to `ListPermissions`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response from `ListPermissions` containing a paginated list of
-/// permissions.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListPermissionsResponse {
-    /// Returned permissions.
-    #[prost(message, repeated, tag = "1")]
-    pub permissions: ::prost::alloc::vec::Vec<Permission>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    ///
-    /// If this field is omitted, there are no more pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request to update the `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdatePermissionRequest {
-    /// Required. The permission to update.
-    ///
-    /// The permission's `name` field is used to identify the permission to update.
-    #[prost(message, optional, tag = "1")]
-    pub permission: ::core::option::Option<Permission>,
-    /// Required. The list of fields to update. Accepted ones:
-    ///   - role (`Permission.role` field)
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Request to delete the `Permission`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeletePermissionRequest {
-    /// Required. The resource name of the permission.
-    /// Format: `tunedModels/{tuned_model}/permissions/{permission}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request to transfer the ownership of the tuned model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransferOwnershipRequest {
-    /// Required. The resource name of the tuned model to transfer ownership .
-    ///
-    /// Format: `tunedModels/my-model-id`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The email address of the user to whom the tuned model is being
-    /// transferred to.
-    #[prost(string, tag = "2")]
-    pub email_address: ::prost::alloc::string::String,
-}
-/// Response from `TransferOwnership`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransferOwnershipResponse {}
-/// Generated client implementations.
-pub mod permission_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Provides methods for managing permissions to PaLM API resources.
-    #[derive(Debug, Clone)]
-    pub struct PermissionServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> PermissionServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> PermissionServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            PermissionServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Create a permission to a specific resource.
-        pub async fn create_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreatePermissionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/CreatePermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "CreatePermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets information about a specific Permission.
-        pub async fn get_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetPermissionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/GetPermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "GetPermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists permissions for the specific resource.
-        pub async fn list_permissions(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListPermissionsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListPermissionsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/ListPermissions",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "ListPermissions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the permission.
-        pub async fn update_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdatePermissionRequest>,
-        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/UpdatePermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "UpdatePermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes the permission.
-        pub async fn delete_permission(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeletePermissionRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/DeletePermission",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "DeletePermission",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Transfers ownership of the tuned model.
-        /// This is the only way to change ownership of the tuned model.
-        /// The current owner will be downgraded to writer role.
-        pub async fn transfer_ownership(
-            &mut self,
-            request: impl tonic::IntoRequest<super::TransferOwnershipRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::TransferOwnershipResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.PermissionService/TransferOwnership",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.PermissionService",
-                        "TransferOwnership",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// Request to generate a text completion response from the model.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1793,239 +1947,120 @@ pub mod text_service_client {
         }
     }
 }
-/// Information about a Generative Language Model.
+/// Request to create a `Permission`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Model {
-    /// Required. The resource name of the `Model`.
-    ///
-    /// Format: `models/{model}` with a `{model}` naming convention of:
-    ///
-    /// * "{base_model_id}-{version}"
-    ///
-    /// Examples:
-    ///
-    /// * `models/chat-bison-001`
+pub struct CreatePermissionRequest {
+    /// Required. The parent resource of the `Permission`.
+    /// Format: tunedModels/{tuned_model}
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The name of the base model, pass this to the generation request.
-    ///
-    /// Examples:
-    ///
-    /// * `chat-bison`
-    #[prost(string, tag = "2")]
-    pub base_model_id: ::prost::alloc::string::String,
-    /// Required. The version number of the model.
-    ///
-    /// This represents the major version
-    #[prost(string, tag = "3")]
-    pub version: ::prost::alloc::string::String,
-    /// The human-readable name of the model. E.g. "Chat Bison".
-    ///
-    /// The name can be up to 128 characters long and can consist of any UTF-8
-    /// characters.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A short description of the model.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Maximum number of input tokens allowed for this model.
-    #[prost(int32, tag = "6")]
-    pub input_token_limit: i32,
-    /// Maximum number of output tokens available for this model.
-    #[prost(int32, tag = "7")]
-    pub output_token_limit: i32,
-    /// The model's supported generation methods.
-    ///
-    /// The method names are defined as Pascal case
-    /// strings, such as `generateMessage` which correspond to API methods.
-    #[prost(string, repeated, tag = "8")]
-    pub supported_generation_methods: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
-    /// produce responses that are more varied, while a value closer to `0.0` will
-    /// typically result in less surprising responses from the model.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "9")]
-    pub temperature: ::core::option::Option<f32>,
-    /// For Nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "10")]
-    pub top_p: ::core::option::Option<f32>,
-    /// For Top-k sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(int32, optional, tag = "11")]
-    pub top_k: ::core::option::Option<i32>,
-}
-/// Request for getting information about a specific Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetModelRequest {
-    /// Required. The resource name of the model.
-    ///
-    /// This name should match a model name returned by the `ListModels` method.
-    ///
-    /// Format: `models/{model}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request for listing all Models.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListModelsRequest {
-    /// The maximum number of `Models` to return (per page).
-    ///
-    /// The service may return fewer models.
-    /// If unspecified, at most 50 models will be returned per page.
-    /// This method returns at most 1000 models per page, even if you pass a larger
-    /// page_size.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A page token, received from a previous `ListModels` call.
-    ///
-    /// Provide the `page_token` returned by one request as an argument to the next
-    /// request to retrieve the next page.
-    ///
-    /// When paginating, all other parameters provided to `ListModels` must match
-    /// the call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response from `ListModel` containing a paginated list of Models.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListModelsResponse {
-    /// The returned Models.
-    #[prost(message, repeated, tag = "1")]
-    pub models: ::prost::alloc::vec::Vec<Model>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    ///
-    /// If this field is omitted, there are no more pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request for getting information about a specific Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetTunedModelRequest {
-    /// Required. The resource name of the model.
-    ///
-    /// Format: `tunedModels/my-model-id`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request for listing TunedModels.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListTunedModelsRequest {
-    /// Optional. The maximum number of `TunedModels` to return (per page).
-    /// The service may return fewer tuned models.
-    ///
-    /// If unspecified, at most 10 tuned models will be returned.
-    /// This method returns at most 1000 models per page, even if you pass a larger
-    /// page_size.
-    #[prost(int32, tag = "1")]
-    pub page_size: i32,
-    /// Optional. A page token, received from a previous `ListTunedModels` call.
-    ///
-    /// Provide the `page_token` returned by one request as an argument to the next
-    /// request to retrieve the next page.
-    ///
-    /// When paginating, all other parameters provided to `ListTunedModels`
-    /// must match the call that provided the page token.
-    #[prost(string, tag = "2")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response from `ListTunedModels` containing a paginated list of Models.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListTunedModelsResponse {
-    /// The returned Models.
-    #[prost(message, repeated, tag = "1")]
-    pub tuned_models: ::prost::alloc::vec::Vec<TunedModel>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    ///
-    /// If this field is omitted, there are no more pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request to create a TunedModel.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateTunedModelRequest {
-    /// Optional. The unique id for the tuned model if specified.
-    /// This value should be up to 40 characters, the first character must be a
-    /// letter, the last could be a letter or a number. The id must match the
-    /// regular expression: [a-z](\[a-z0-9-\]{0,38}\[a-z0-9\])?.
-    #[prost(string, optional, tag = "1")]
-    pub tuned_model_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// Required. The tuned model to create.
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The permission to create.
     #[prost(message, optional, tag = "2")]
-    pub tuned_model: ::core::option::Option<TunedModel>,
+    pub permission: ::core::option::Option<Permission>,
 }
-/// Metadata about the state and progress of creating a tuned model returned from
-/// the long-running operation
+/// Request for getting information about a specific `Permission`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateTunedModelMetadata {
-    /// Name of the tuned model associated with the tuning operation.
-    #[prost(string, tag = "5")]
-    pub tuned_model: ::prost::alloc::string::String,
-    /// The total number of tuning steps.
-    #[prost(int32, tag = "1")]
-    pub total_steps: i32,
-    /// The number of steps completed.
+pub struct GetPermissionRequest {
+    /// Required. The resource name of the permission.
+    ///
+    /// Format: `tunedModels/{tuned_model}permissions/{permission}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request for listing permissions.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListPermissionsRequest {
+    /// Required. The parent resource of the permissions.
+    /// Format: tunedModels/{tuned_model}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of `Permission`s to return (per page).
+    /// The service may return fewer permissions.
+    ///
+    /// If unspecified, at most 10 permissions will be returned.
+    /// This method returns at most 1000 permissions per page, even if you pass
+    /// larger page_size.
     #[prost(int32, tag = "2")]
-    pub completed_steps: i32,
-    /// The completed percentage for the tuning operation.
-    #[prost(float, tag = "3")]
-    pub completed_percent: f32,
-    /// Metrics collected during tuning.
-    #[prost(message, repeated, tag = "4")]
-    pub snapshots: ::prost::alloc::vec::Vec<TuningSnapshot>,
+    pub page_size: i32,
+    /// Optional. A page token, received from a previous `ListPermissions` call.
+    ///
+    /// Provide the `page_token` returned by one request as an argument to the
+    /// next request to retrieve the next page.
+    ///
+    /// When paginating, all other parameters provided to `ListPermissions`
+    /// must match the call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
 }
-/// Request to update a TunedModel.
+/// Response from `ListPermissions` containing a paginated list of
+/// permissions.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateTunedModelRequest {
-    /// Required. The tuned model to update.
+pub struct ListPermissionsResponse {
+    /// Returned permissions.
+    #[prost(message, repeated, tag = "1")]
+    pub permissions: ::prost::alloc::vec::Vec<Permission>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    ///
+    /// If this field is omitted, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request to update the `Permission`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdatePermissionRequest {
+    /// Required. The permission to update.
+    ///
+    /// The permission's `name` field is used to identify the permission to update.
     #[prost(message, optional, tag = "1")]
-    pub tuned_model: ::core::option::Option<TunedModel>,
-    /// Required. The list of fields to update.
+    pub permission: ::core::option::Option<Permission>,
+    /// Required. The list of fields to update. Accepted ones:
+    ///   - role (`Permission.role` field)
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
-/// Request to delete a TunedModel.
+/// Request to delete the `Permission`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteTunedModelRequest {
-    /// Required. The resource name of the model.
-    /// Format: `tunedModels/my-model-id`
+pub struct DeletePermissionRequest {
+    /// Required. The resource name of the permission.
+    /// Format: `tunedModels/{tuned_model}/permissions/{permission}`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// Request to transfer the ownership of the tuned model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransferOwnershipRequest {
+    /// Required. The resource name of the tuned model to transfer ownership .
+    ///
+    /// Format: `tunedModels/my-model-id`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The email address of the user to whom the tuned model is being
+    /// transferred to.
+    #[prost(string, tag = "2")]
+    pub email_address: ::prost::alloc::string::String,
+}
+/// Response from `TransferOwnership`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransferOwnershipResponse {}
 /// Generated client implementations.
-pub mod model_service_client {
+pub mod permission_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// Provides methods for getting metadata information about Generative Models.
+    /// Provides methods for managing permissions to PaLM API resources.
     #[derive(Debug, Clone)]
-    pub struct ModelServiceClient<T> {
+    pub struct PermissionServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> ModelServiceClient<T>
+    impl<T> PermissionServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -2043,7 +2078,7 @@ pub mod model_service_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> ModelServiceClient<InterceptedService<T, F>>
+        ) -> PermissionServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -2057,7 +2092,7 @@ pub mod model_service_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            ModelServiceClient::new(InterceptedService::new(inner, interceptor))
+            PermissionServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -2090,11 +2125,11 @@ pub mod model_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Gets information about a specific Model.
-        pub async fn get_model(
+        /// Create a permission to a specific resource.
+        pub async fn create_permission(
             &mut self,
-            request: impl tonic::IntoRequest<super::GetModelRequest>,
-        ) -> std::result::Result<tonic::Response<super::Model>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::CreatePermissionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2106,24 +2141,52 @@ pub mod model_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/GetModel",
+                "/google.ai.generativelanguage.v1beta3.PermissionService/CreatePermission",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "GetModel",
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "CreatePermission",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists models available through the API.
-        pub async fn list_models(
+        /// Gets information about a specific Permission.
+        pub async fn get_permission(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListModelsRequest>,
+            request: impl tonic::IntoRequest<super::GetPermissionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/GetPermission",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "GetPermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists permissions for the specific resource.
+        pub async fn list_permissions(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListPermissionsRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::ListModelsResponse>,
+            tonic::Response<super::ListPermissionsResponse>,
             tonic::Status,
         > {
             self.inner
@@ -2137,23 +2200,23 @@ pub mod model_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/ListModels",
+                "/google.ai.generativelanguage.v1beta3.PermissionService/ListPermissions",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "ListModels",
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "ListPermissions",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets information about a specific TunedModel.
-        pub async fn get_tuned_model(
+        /// Updates the permission.
+        pub async fn update_permission(
             &mut self,
-            request: impl tonic::IntoRequest<super::GetTunedModelRequest>,
-        ) -> std::result::Result<tonic::Response<super::TunedModel>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::UpdatePermissionRequest>,
+        ) -> std::result::Result<tonic::Response<super::Permission>, tonic::Status> {
             self.inner
                 .ready()
                 .await
@@ -2165,118 +2228,22 @@ pub mod model_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/GetTunedModel",
+                "/google.ai.generativelanguage.v1beta3.PermissionService/UpdatePermission",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "GetTunedModel",
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "UpdatePermission",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists tuned models owned by the user.
-        pub async fn list_tuned_models(
+        /// Deletes the permission.
+        pub async fn delete_permission(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListTunedModelsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListTunedModelsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/ListTunedModels",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "ListTunedModels",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a tuned model.
-        /// Intermediate tuning progress (if any) is accessed through the
-        /// [google.longrunning.Operations] service.
-        ///
-        /// Status and results can be accessed through the Operations service.
-        /// Example:
-        ///   GET /v1/tunedModels/az2mb0bpw6i/operations/000-111-222
-        pub async fn create_tuned_model(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateTunedModelRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/CreateTunedModel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "CreateTunedModel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a tuned model.
-        pub async fn update_tuned_model(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateTunedModelRequest>,
-        ) -> std::result::Result<tonic::Response<super::TunedModel>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/UpdateTunedModel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "UpdateTunedModel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a tuned model.
-        pub async fn delete_tuned_model(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteTunedModelRequest>,
+            request: impl tonic::IntoRequest<super::DeletePermissionRequest>,
         ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
@@ -2289,14 +2256,47 @@ pub mod model_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.ai.generativelanguage.v1beta3.ModelService/DeleteTunedModel",
+                "/google.ai.generativelanguage.v1beta3.PermissionService/DeletePermission",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.ai.generativelanguage.v1beta3.ModelService",
-                        "DeleteTunedModel",
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "DeletePermission",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Transfers ownership of the tuned model.
+        /// This is the only way to change ownership of the tuned model.
+        /// The current owner will be downgraded to writer role.
+        pub async fn transfer_ownership(
+            &mut self,
+            request: impl tonic::IntoRequest<super::TransferOwnershipRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::TransferOwnershipResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.ai.generativelanguage.v1beta3.PermissionService/TransferOwnership",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.ai.generativelanguage.v1beta3.PermissionService",
+                        "TransferOwnership",
                     ),
                 );
             self.inner.unary(req, path, codec).await
