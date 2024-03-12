@@ -1,3 +1,320 @@
+/// Entity representing an account managed by the account manager.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ManagedAccount {
+    /// The name of the account which uniquely identifies the account.
+    /// Format:
+    /// projects/{project}/accountManagers/{account_manager}/accounts/{account}
+    /// When account manager is used for managing UPI Lite transactions,
+    /// `{account}` is the Lite Reference Number (LRN).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The associated bank account information.
+    #[prost(message, optional, tag = "2")]
+    pub account_reference: ::core::option::Option<super::super::v1::AccountReference>,
+    /// Output only. State of the account.
+    #[prost(enumeration = "managed_account::State", tag = "3")]
+    pub state: i32,
+    /// Required. Current balance of the account.
+    #[prost(message, optional, tag = "4")]
+    pub balance: ::core::option::Option<
+        super::super::super::super::super::r#type::Money,
+    >,
+    /// Output only. State of the last reconciliation done on the account.
+    #[prost(enumeration = "managed_account::AccountReconciliationState", tag = "5")]
+    pub last_reconciliation_state: i32,
+    /// Output only. Time at which last reconciliation was done on the account.
+    #[prost(message, optional, tag = "6")]
+    pub last_reconciliation_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time at which the account was created by the account
+    /// manager.
+    #[prost(message, optional, tag = "7")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time at which the account was last updated by the account
+    /// manager.
+    #[prost(message, optional, tag = "8")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Nested message and enum types in `ManagedAccount`.
+pub mod managed_account {
+    /// State of an account.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified state.
+        Unspecified = 0,
+        /// Account is active.
+        Active = 1,
+        /// Account is inactive.
+        Deactivated = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Active => "ACTIVE",
+                State::Deactivated => "DEACTIVATED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ACTIVE" => Some(Self::Active),
+                "DEACTIVATED" => Some(Self::Deactivated),
+                _ => None,
+            }
+        }
+    }
+    /// Reconciliation state of an account.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum AccountReconciliationState {
+        /// Unspecified state.
+        Unspecified = 0,
+        /// Successful reconciliation.
+        Succeeded = 1,
+        /// Reconciliation failed.
+        Failed = 2,
+    }
+    impl AccountReconciliationState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                AccountReconciliationState::Unspecified => {
+                    "ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED"
+                }
+                AccountReconciliationState::Succeeded => "SUCCEEDED",
+                AccountReconciliationState::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
+}
+/// Reconciliation request for an account balance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ReconcileManagedAccountBalanceRequest {
+    /// Required. Account that needs to be reconciled.
+    #[prost(message, optional, tag = "1")]
+    pub account: ::core::option::Option<ManagedAccount>,
+    /// Required. Expected balance amount for the account.
+    #[prost(message, optional, tag = "2")]
+    pub expected_balance: ::core::option::Option<
+        super::super::super::super::super::r#type::Money,
+    >,
+    /// Required. Timestamp to be taken as reference for reconciling the balance
+    /// amount.
+    #[prost(message, optional, tag = "3")]
+    pub reference_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Request for the `BatchReconcileManagedAccountBalance` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchReconcileManagedAccountBalanceRequest {
+    /// Required. The parent resource. The format is
+    /// `projects/{project}/accountManagers/{account_manager}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The request message specifying the accounts to reconcile.
+    /// A maximum of 200 account balances can be reconciled in a batch.
+    #[prost(message, repeated, tag = "2")]
+    pub requests: ::prost::alloc::vec::Vec<ReconcileManagedAccountBalanceRequest>,
+}
+/// Response for the `BatchReconcileManagedAccountBalance` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BatchReconcileManagedAccountBalanceResponse {
+    /// Accounts whose balances were reconciled.
+    #[prost(message, repeated, tag = "1")]
+    pub accounts: ::prost::alloc::vec::Vec<ManagedAccount>,
+}
+/// Request for the `GetManagedAccount` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetManagedAccountRequest {
+    /// Required. The name of the managed account to retrieve.
+    /// Format:
+    /// `projects/{project}/accountManagers/{account_manager}/accounts/{account}`
+    /// When account manager is used for managing UPI Lite transactions, {account}
+    /// should be the Lite Reference Number (LRN).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod managed_accounts_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Reconciles and provide balance information for an account within the account
+    /// manager.
+    #[derive(Debug, Clone)]
+    pub struct ManagedAccountsClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ManagedAccountsClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ManagedAccountsClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ManagedAccountsClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Batch reconcile account balance and return status for each account.
+        pub async fn batch_reconcile_managed_account_balance(
+            &mut self,
+            request: impl tonic::IntoRequest<
+                super::BatchReconcileManagedAccountBalanceRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<super::BatchReconcileManagedAccountBalanceResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/BatchReconcileManagedAccountBalance",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts",
+                        "BatchReconcileManagedAccountBalance",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get information on the account managed by account manager.
+        pub async fn get_managed_account(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetManagedAccountRequest>,
+        ) -> std::result::Result<tonic::Response<super::ManagedAccount>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/GetManagedAccount",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts",
+                        "GetManagedAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// A transaction processed by the account manager.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -740,323 +1057,6 @@ pub mod account_manager_transactions_client {
                     GrpcMethod::new(
                         "google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions",
                         "BatchReconcileAccountManagerTransactions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// Entity representing an account managed by the account manager.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ManagedAccount {
-    /// The name of the account which uniquely identifies the account.
-    /// Format:
-    /// projects/{project}/accountManagers/{account_manager}/accounts/{account}
-    /// When account manager is used for managing UPI Lite transactions,
-    /// `{account}` is the Lite Reference Number (LRN).
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The associated bank account information.
-    #[prost(message, optional, tag = "2")]
-    pub account_reference: ::core::option::Option<super::super::v1::AccountReference>,
-    /// Output only. State of the account.
-    #[prost(enumeration = "managed_account::State", tag = "3")]
-    pub state: i32,
-    /// Required. Current balance of the account.
-    #[prost(message, optional, tag = "4")]
-    pub balance: ::core::option::Option<
-        super::super::super::super::super::r#type::Money,
-    >,
-    /// Output only. State of the last reconciliation done on the account.
-    #[prost(enumeration = "managed_account::AccountReconciliationState", tag = "5")]
-    pub last_reconciliation_state: i32,
-    /// Output only. Time at which last reconciliation was done on the account.
-    #[prost(message, optional, tag = "6")]
-    pub last_reconciliation_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time at which the account was created by the account
-    /// manager.
-    #[prost(message, optional, tag = "7")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time at which the account was last updated by the account
-    /// manager.
-    #[prost(message, optional, tag = "8")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Nested message and enum types in `ManagedAccount`.
-pub mod managed_account {
-    /// State of an account.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified state.
-        Unspecified = 0,
-        /// Account is active.
-        Active = 1,
-        /// Account is inactive.
-        Deactivated = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Active => "ACTIVE",
-                State::Deactivated => "DEACTIVATED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ACTIVE" => Some(Self::Active),
-                "DEACTIVATED" => Some(Self::Deactivated),
-                _ => None,
-            }
-        }
-    }
-    /// Reconciliation state of an account.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum AccountReconciliationState {
-        /// Unspecified state.
-        Unspecified = 0,
-        /// Successful reconciliation.
-        Succeeded = 1,
-        /// Reconciliation failed.
-        Failed = 2,
-    }
-    impl AccountReconciliationState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                AccountReconciliationState::Unspecified => {
-                    "ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED"
-                }
-                AccountReconciliationState::Succeeded => "SUCCEEDED",
-                AccountReconciliationState::Failed => "FAILED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                _ => None,
-            }
-        }
-    }
-}
-/// Reconciliation request for an account balance.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ReconcileManagedAccountBalanceRequest {
-    /// Required. Account that needs to be reconciled.
-    #[prost(message, optional, tag = "1")]
-    pub account: ::core::option::Option<ManagedAccount>,
-    /// Required. Expected balance amount for the account.
-    #[prost(message, optional, tag = "2")]
-    pub expected_balance: ::core::option::Option<
-        super::super::super::super::super::r#type::Money,
-    >,
-    /// Required. Timestamp to be taken as reference for reconciling the balance
-    /// amount.
-    #[prost(message, optional, tag = "3")]
-    pub reference_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Request for the `BatchReconcileManagedAccountBalance` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchReconcileManagedAccountBalanceRequest {
-    /// Required. The parent resource. The format is
-    /// `projects/{project}/accountManagers/{account_manager}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The request message specifying the accounts to reconcile.
-    /// A maximum of 200 account balances can be reconciled in a batch.
-    #[prost(message, repeated, tag = "2")]
-    pub requests: ::prost::alloc::vec::Vec<ReconcileManagedAccountBalanceRequest>,
-}
-/// Response for the `BatchReconcileManagedAccountBalance` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BatchReconcileManagedAccountBalanceResponse {
-    /// Accounts whose balances were reconciled.
-    #[prost(message, repeated, tag = "1")]
-    pub accounts: ::prost::alloc::vec::Vec<ManagedAccount>,
-}
-/// Request for the `GetManagedAccount` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetManagedAccountRequest {
-    /// Required. The name of the managed account to retrieve.
-    /// Format:
-    /// `projects/{project}/accountManagers/{account_manager}/accounts/{account}`
-    /// When account manager is used for managing UPI Lite transactions, {account}
-    /// should be the Lite Reference Number (LRN).
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod managed_accounts_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Reconciles and provide balance information for an account within the account
-    /// manager.
-    #[derive(Debug, Clone)]
-    pub struct ManagedAccountsClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ManagedAccountsClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ManagedAccountsClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ManagedAccountsClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Batch reconcile account balance and return status for each account.
-        pub async fn batch_reconcile_managed_account_balance(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::BatchReconcileManagedAccountBalanceRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::BatchReconcileManagedAccountBalanceResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/BatchReconcileManagedAccountBalance",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts",
-                        "BatchReconcileManagedAccountBalance",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Get information on the account managed by account manager.
-        pub async fn get_managed_account(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetManagedAccountRequest>,
-        ) -> std::result::Result<tonic::Response<super::ManagedAccount>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/GetManagedAccount",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts",
-                        "GetManagedAccount",
                     ),
                 );
             self.inner.unary(req, path, codec).await

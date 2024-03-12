@@ -102,6 +102,39 @@ pub mod consolidation_strategy {
         Legacy(Legacy),
     }
 }
+/// Information about time ranges.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeRange {
+    /// The start of the time range.
+    #[prost(message, optional, tag = "1")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The end of the time range.
+    #[prost(message, optional, tag = "2")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Information about a group.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Group {
+    /// The email address of the group.
+    #[prost(string, tag = "1")]
+    pub email: ::prost::alloc::string::String,
+    /// The title of the group.
+    #[prost(string, tag = "2")]
+    pub title: ::prost::alloc::string::String,
+}
+/// Information about a domain.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Domain {
+    /// The name of the domain, e.g. `google.com`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// An opaque string used to identify this domain.
+    #[prost(string, tag = "3")]
+    pub legacy_id: ::prost::alloc::string::String,
+}
 /// The actor of a Drive activity.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -251,39 +284,6 @@ pub mod system_event {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Administrator {}
-/// Information about time ranges.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeRange {
-    /// The start of the time range.
-    #[prost(message, optional, tag = "1")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The end of the time range.
-    #[prost(message, optional, tag = "2")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Information about a group.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Group {
-    /// The email address of the group.
-    #[prost(string, tag = "1")]
-    pub email: ::prost::alloc::string::String,
-    /// The title of the group.
-    #[prost(string, tag = "2")]
-    pub title: ::prost::alloc::string::String,
-}
-/// Information about a domain.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Domain {
-    /// The name of the domain, e.g. `google.com`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// An opaque string used to identify this domain.
-    #[prost(string, tag = "3")]
-    pub legacy_id: ::prost::alloc::string::String,
-}
 /// Information about the target of activity.
 ///
 /// For more information on how activity history is shared with users, see
