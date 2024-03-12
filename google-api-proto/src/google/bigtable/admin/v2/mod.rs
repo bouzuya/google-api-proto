@@ -537,954 +537,6 @@ pub struct HotTablet {
     #[prost(float, tag = "7")]
     pub node_cpu_usage_percent: f32,
 }
-/// `Type` represents the type of data that is written to, read from, or stored
-/// in Bigtable. It is heavily based on the GoogleSQL standard to help maintain
-/// familiarity and consistency across products and features.
-///
-/// For compatibility with Bigtable's existing untyped APIs, each `Type` includes
-/// an `Encoding` which describes how to convert to/from the underlying data.
-/// This might involve composing a series of steps into an "encoding chain," for
-/// example to convert from INT64 -> STRING -> raw bytes. In most cases, a "link"
-/// in the encoding chain will be based an on existing GoogleSQL conversion
-/// function like `CAST`.
-///
-/// Each link in the encoding chain also defines the following properties:
-///   * Natural sort: Does the encoded value sort consistently with the original
-///     typed value? Note that Bigtable will always sort data based on the raw
-///     encoded value, *not* the decoded type.
-///      - Example: STRING values sort in the same order as their UTF-8 encodings.
-///      - Counterexample: Encoding INT64 to a fixed-width STRING does *not*
-///        preserve sort order when dealing with negative numbers.
-///        INT64(1) > INT64(-1), but STRING("-00001") > STRING("00001).
-///      - The overall encoding chain sorts naturally if *every* link does.
-///   * Self-delimiting: If we concatenate two encoded values, can we always tell
-///     where the first one ends and the second one begins?
-///      - Example: If we encode INT64s to fixed-width STRINGs, the first value
-///        will always contain exactly N digits, possibly preceded by a sign.
-///      - Counterexample: If we concatenate two UTF-8 encoded STRINGs, we have
-///        no way to tell where the first one ends.
-///      - The overall encoding chain is self-delimiting if *any* link is.
-///   * Compatibility: Which other systems have matching encoding schemes? For
-///     example, does this encoding have a GoogleSQL equivalent? HBase? Java?
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Type {
-    /// The kind of type that this represents.
-    #[prost(oneof = "r#type::Kind", tags = "1, 5, 6")]
-    pub kind: ::core::option::Option<r#type::Kind>,
-}
-/// Nested message and enum types in `Type`.
-pub mod r#type {
-    /// Bytes
-    /// Values of type `Bytes` are stored in `Value.bytes_value`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Bytes {
-        /// The encoding to use when converting to/from lower level types.
-        #[prost(message, optional, tag = "1")]
-        pub encoding: ::core::option::Option<bytes::Encoding>,
-    }
-    /// Nested message and enum types in `Bytes`.
-    pub mod bytes {
-        /// Rules used to convert to/from lower level types.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Encoding {
-            /// Which encoding to use.
-            #[prost(oneof = "encoding::Encoding", tags = "1")]
-            pub encoding: ::core::option::Option<encoding::Encoding>,
-        }
-        /// Nested message and enum types in `Encoding`.
-        pub mod encoding {
-            /// Leaves the value "as-is"
-            /// * Natural sort? Yes
-            /// * Self-delimiting? No
-            /// * Compatibility? N/A
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            pub struct Raw {}
-            /// Which encoding to use.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum Encoding {
-                /// Use `Raw` encoding.
-                #[prost(message, tag = "1")]
-                Raw(Raw),
-            }
-        }
-    }
-    /// Int64
-    /// Values of type `Int64` are stored in `Value.int_value`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Int64 {
-        /// The encoding to use when converting to/from lower level types.
-        #[prost(message, optional, tag = "1")]
-        pub encoding: ::core::option::Option<int64::Encoding>,
-    }
-    /// Nested message and enum types in `Int64`.
-    pub mod int64 {
-        /// Rules used to convert to/from lower level types.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Encoding {
-            /// Which encoding to use.
-            #[prost(oneof = "encoding::Encoding", tags = "1")]
-            pub encoding: ::core::option::Option<encoding::Encoding>,
-        }
-        /// Nested message and enum types in `Encoding`.
-        pub mod encoding {
-            /// Encodes the value as an 8-byte big endian twos complement `Bytes`
-            /// value.
-            /// * Natural sort? No (positive values only)
-            /// * Self-delimiting? Yes
-            /// * Compatibility?
-            ///     - BigQuery Federation `BINARY` encoding
-            ///     - HBase `Bytes.toBytes`
-            ///     - Java `ByteBuffer.putLong()` with `ByteOrder.BIG_ENDIAN`
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            pub struct BigEndianBytes {
-                /// The underlying `Bytes` type, which may be able to encode further.
-                #[prost(message, optional, tag = "1")]
-                pub bytes_type: ::core::option::Option<super::super::Bytes>,
-            }
-            /// Which encoding to use.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum Encoding {
-                /// Use `BigEndianBytes` encoding.
-                #[prost(message, tag = "1")]
-                BigEndianBytes(BigEndianBytes),
-            }
-        }
-    }
-    /// A value that combines incremental updates into a summarized value.
-    ///
-    /// Data is never directly written or read using type `Aggregate`. Writes will
-    /// provide either the `input_type` or `state_type`, and reads will always
-    /// return the `state_type` .
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Aggregate {
-        /// Type of the inputs that are accumulated by this `Aggregate`, which must
-        /// specify a full encoding.
-        /// Use `AddInput` mutations to accumulate new inputs.
-        #[prost(message, optional, boxed, tag = "1")]
-        pub input_type: ::core::option::Option<::prost::alloc::boxed::Box<super::Type>>,
-        /// Output only. Type that holds the internal accumulator state for the
-        /// `Aggregate`. This is a function of the `input_type` and `aggregator`
-        /// chosen, and will always specify a full encoding.
-        #[prost(message, optional, boxed, tag = "2")]
-        pub state_type: ::core::option::Option<::prost::alloc::boxed::Box<super::Type>>,
-        /// Which aggregator function to use. The configured types must match.
-        #[prost(oneof = "aggregate::Aggregator", tags = "4")]
-        pub aggregator: ::core::option::Option<aggregate::Aggregator>,
-    }
-    /// Nested message and enum types in `Aggregate`.
-    pub mod aggregate {
-        /// Computes the sum of the input values.
-        /// Allowed input: `Int64`
-        /// State: same as input
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Sum {}
-        /// Which aggregator function to use. The configured types must match.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Aggregator {
-            /// Sum aggregator.
-            #[prost(message, tag = "4")]
-            Sum(Sum),
-        }
-    }
-    /// The kind of type that this represents.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Kind {
-        /// Bytes
-        #[prost(message, tag = "1")]
-        BytesType(Bytes),
-        /// Int64
-        #[prost(message, tag = "5")]
-        Int64Type(Int64),
-        /// Aggregate
-        #[prost(message, tag = "6")]
-        AggregateType(::prost::alloc::boxed::Box<Aggregate>),
-    }
-}
-/// Information about a table restore.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RestoreInfo {
-    /// The type of the restore source.
-    #[prost(enumeration = "RestoreSourceType", tag = "1")]
-    pub source_type: i32,
-    /// Information about the source used to restore the table.
-    #[prost(oneof = "restore_info::SourceInfo", tags = "2")]
-    pub source_info: ::core::option::Option<restore_info::SourceInfo>,
-}
-/// Nested message and enum types in `RestoreInfo`.
-pub mod restore_info {
-    /// Information about the source used to restore the table.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum SourceInfo {
-        /// Information about the backup used to restore the table. The backup
-        /// may no longer exist.
-        #[prost(message, tag = "2")]
-        BackupInfo(super::BackupInfo),
-    }
-}
-/// Change stream configuration.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ChangeStreamConfig {
-    /// How long the change stream should be retained. Change stream data older
-    /// than the retention period will not be returned when reading the change
-    /// stream from the table.
-    /// Values must be at least 1 day and at most 7 days, and will be truncated to
-    /// microsecond granularity.
-    #[prost(message, optional, tag = "1")]
-    pub retention_period: ::core::option::Option<::prost_types::Duration>,
-}
-/// A collection of user data indexed by row, column, and timestamp.
-/// Each table is served using the resources of its parent cluster.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Table {
-    /// The unique name of the table. Values are of the form
-    /// `projects/{project}/instances/{instance}/tables/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`.
-    /// Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Map from cluster ID to per-cluster table state.
-    /// If it could not be determined whether or not the table has data in a
-    /// particular cluster (for example, if its zone is unavailable), then
-    /// there will be an entry for the cluster with UNKNOWN `replication_status`.
-    /// Views: `REPLICATION_VIEW`, `ENCRYPTION_VIEW`, `FULL`
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub cluster_states: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        table::ClusterState,
-    >,
-    /// The column families configured for this table, mapped by column family ID.
-    /// Views: `SCHEMA_VIEW`, `STATS_VIEW`, `FULL`
-    #[prost(btree_map = "string, message", tag = "3")]
-    pub column_families: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ColumnFamily,
-    >,
-    /// Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored
-    /// in this table. Timestamps not matching the granularity will be rejected. If
-    /// unspecified at creation time, the value will be set to `MILLIS`. Views:
-    /// `SCHEMA_VIEW`, `FULL`.
-    #[prost(enumeration = "table::TimestampGranularity", tag = "4")]
-    pub granularity: i32,
-    /// Output only. If this table was restored from another data source (e.g. a
-    /// backup), this field will be populated with information about the restore.
-    #[prost(message, optional, tag = "6")]
-    pub restore_info: ::core::option::Option<RestoreInfo>,
-    /// If specified, enable the change stream on this table.
-    /// Otherwise, the change stream is disabled and the change stream is not
-    /// retained.
-    #[prost(message, optional, tag = "8")]
-    pub change_stream_config: ::core::option::Option<ChangeStreamConfig>,
-    /// Set to true to make the table protected against data loss. i.e. deleting
-    /// the following resources through Admin APIs are prohibited:
-    ///
-    /// * The table.
-    /// * The column families in the table.
-    /// * The instance containing the table.
-    ///
-    /// Note one can still delete the data stored in the table through Data APIs.
-    #[prost(bool, tag = "9")]
-    pub deletion_protection: bool,
-}
-/// Nested message and enum types in `Table`.
-pub mod table {
-    /// The state of a table's data in a particular cluster.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ClusterState {
-        /// Output only. The state of replication for the table in this cluster.
-        #[prost(enumeration = "cluster_state::ReplicationState", tag = "1")]
-        pub replication_state: i32,
-        /// Output only. The encryption information for the table in this cluster.
-        /// If the encryption key protecting this resource is customer managed, then
-        /// its version can be rotated in Cloud Key Management Service (Cloud KMS).
-        /// The primary version of the key and its status will be reflected here when
-        /// changes propagate from Cloud KMS.
-        #[prost(message, repeated, tag = "2")]
-        pub encryption_info: ::prost::alloc::vec::Vec<super::EncryptionInfo>,
-    }
-    /// Nested message and enum types in `ClusterState`.
-    pub mod cluster_state {
-        /// Table replication states.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum ReplicationState {
-            /// The replication state of the table is unknown in this cluster.
-            StateNotKnown = 0,
-            /// The cluster was recently created, and the table must finish copying
-            /// over pre-existing data from other clusters before it can begin
-            /// receiving live replication updates and serving Data API requests.
-            Initializing = 1,
-            /// The table is temporarily unable to serve Data API requests from this
-            /// cluster due to planned internal maintenance.
-            PlannedMaintenance = 2,
-            /// The table is temporarily unable to serve Data API requests from this
-            /// cluster due to unplanned or emergency maintenance.
-            UnplannedMaintenance = 3,
-            /// The table can serve Data API requests from this cluster. Depending on
-            /// replication delay, reads may not immediately reflect the state of the
-            /// table in other clusters.
-            Ready = 4,
-            /// The table is fully created and ready for use after a restore, and is
-            /// being optimized for performance. When optimizations are complete, the
-            /// table will transition to `READY` state.
-            ReadyOptimizing = 5,
-        }
-        impl ReplicationState {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    ReplicationState::StateNotKnown => "STATE_NOT_KNOWN",
-                    ReplicationState::Initializing => "INITIALIZING",
-                    ReplicationState::PlannedMaintenance => "PLANNED_MAINTENANCE",
-                    ReplicationState::UnplannedMaintenance => "UNPLANNED_MAINTENANCE",
-                    ReplicationState::Ready => "READY",
-                    ReplicationState::ReadyOptimizing => "READY_OPTIMIZING",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "STATE_NOT_KNOWN" => Some(Self::StateNotKnown),
-                    "INITIALIZING" => Some(Self::Initializing),
-                    "PLANNED_MAINTENANCE" => Some(Self::PlannedMaintenance),
-                    "UNPLANNED_MAINTENANCE" => Some(Self::UnplannedMaintenance),
-                    "READY" => Some(Self::Ready),
-                    "READY_OPTIMIZING" => Some(Self::ReadyOptimizing),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Possible timestamp granularities to use when keeping multiple versions
-    /// of data in a table.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum TimestampGranularity {
-        /// The user did not specify a granularity. Should not be returned.
-        /// When specified during table creation, MILLIS will be used.
-        Unspecified = 0,
-        /// The table keeps data versioned at a granularity of 1ms.
-        Millis = 1,
-    }
-    impl TimestampGranularity {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                TimestampGranularity::Unspecified => "TIMESTAMP_GRANULARITY_UNSPECIFIED",
-                TimestampGranularity::Millis => "MILLIS",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TIMESTAMP_GRANULARITY_UNSPECIFIED" => Some(Self::Unspecified),
-                "MILLIS" => Some(Self::Millis),
-                _ => None,
-            }
-        }
-    }
-    /// Defines a view over a table's fields.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum View {
-        /// Uses the default view for each method as documented in its request.
-        Unspecified = 0,
-        /// Only populates `name`.
-        NameOnly = 1,
-        /// Only populates `name` and fields related to the table's schema.
-        SchemaView = 2,
-        /// Only populates `name` and fields related to the table's replication
-        /// state.
-        ReplicationView = 3,
-        /// Only populates `name` and fields related to the table's encryption state.
-        EncryptionView = 5,
-        /// Populates all fields.
-        Full = 4,
-    }
-    impl View {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                View::Unspecified => "VIEW_UNSPECIFIED",
-                View::NameOnly => "NAME_ONLY",
-                View::SchemaView => "SCHEMA_VIEW",
-                View::ReplicationView => "REPLICATION_VIEW",
-                View::EncryptionView => "ENCRYPTION_VIEW",
-                View::Full => "FULL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "VIEW_UNSPECIFIED" => Some(Self::Unspecified),
-                "NAME_ONLY" => Some(Self::NameOnly),
-                "SCHEMA_VIEW" => Some(Self::SchemaView),
-                "REPLICATION_VIEW" => Some(Self::ReplicationView),
-                "ENCRYPTION_VIEW" => Some(Self::EncryptionView),
-                "FULL" => Some(Self::Full),
-                _ => None,
-            }
-        }
-    }
-}
-/// AuthorizedViews represent subsets of a particular Cloud Bigtable table. Users
-/// can configure access to each Authorized View independently from the table and
-/// use the existing Data APIs to access the subset of data.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AuthorizedView {
-    /// Identifier. The name of this AuthorizedView.
-    /// Values are of the form
-    /// `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The etag for this AuthorizedView.
-    /// If this is provided on update, it must match the server's etag. The server
-    /// returns ABORTED error on a mismatched etag.
-    #[prost(string, tag = "3")]
-    pub etag: ::prost::alloc::string::String,
-    /// Set to true to make the AuthorizedView protected against deletion.
-    /// The parent Table and containing Instance cannot be deleted if an
-    /// AuthorizedView has this bit set.
-    #[prost(bool, tag = "4")]
-    pub deletion_protection: bool,
-    /// The type of this AuthorizedView.
-    #[prost(oneof = "authorized_view::AuthorizedView", tags = "2")]
-    pub authorized_view: ::core::option::Option<authorized_view::AuthorizedView>,
-}
-/// Nested message and enum types in `AuthorizedView`.
-pub mod authorized_view {
-    /// Subsets of a column family that are included in this AuthorizedView.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FamilySubsets {
-        /// Individual exact column qualifiers to be included in the AuthorizedView.
-        #[prost(bytes = "bytes", repeated, tag = "1")]
-        pub qualifiers: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
-        /// Prefixes for qualifiers to be included in the AuthorizedView. Every
-        /// qualifier starting with one of these prefixes is included in the
-        /// AuthorizedView. To provide access to all qualifiers, include the empty
-        /// string as a prefix
-        /// ("").
-        #[prost(bytes = "bytes", repeated, tag = "2")]
-        pub qualifier_prefixes: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
-    }
-    /// Defines a simple AuthorizedView that is a subset of the underlying Table.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct SubsetView {
-        /// Row prefixes to be included in the AuthorizedView.
-        /// To provide access to all rows, include the empty string as a prefix ("").
-        #[prost(bytes = "bytes", repeated, tag = "1")]
-        pub row_prefixes: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
-        /// Map from column family name to the columns in this family to be included
-        /// in the AuthorizedView.
-        #[prost(btree_map = "string, message", tag = "2")]
-        pub family_subsets: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            FamilySubsets,
-        >,
-    }
-    /// Defines a subset of an AuthorizedView's fields.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ResponseView {
-        /// Uses the default view for each method as documented in the request.
-        Unspecified = 0,
-        /// Only populates `name`.
-        NameOnly = 1,
-        /// Only populates the AuthorizedView's basic metadata. This includes:
-        /// name, deletion_protection, etag.
-        Basic = 2,
-        /// Populates every fields.
-        Full = 3,
-    }
-    impl ResponseView {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ResponseView::Unspecified => "RESPONSE_VIEW_UNSPECIFIED",
-                ResponseView::NameOnly => "NAME_ONLY",
-                ResponseView::Basic => "BASIC",
-                ResponseView::Full => "FULL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "RESPONSE_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
-                "NAME_ONLY" => Some(Self::NameOnly),
-                "BASIC" => Some(Self::Basic),
-                "FULL" => Some(Self::Full),
-                _ => None,
-            }
-        }
-    }
-    /// The type of this AuthorizedView.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum AuthorizedView {
-        /// An AuthorizedView permitting access to an explicit subset of a Table.
-        #[prost(message, tag = "2")]
-        SubsetView(SubsetView),
-    }
-}
-/// A set of columns within a table which share a common configuration.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ColumnFamily {
-    /// Garbage collection rule specified as a protobuf.
-    /// Must serialize to at most 500 bytes.
-    ///
-    /// NOTE: Garbage collection executes opportunistically in the background, and
-    /// so it's possible for reads to return a cell even if it matches the active
-    /// GC expression for its family.
-    #[prost(message, optional, tag = "1")]
-    pub gc_rule: ::core::option::Option<GcRule>,
-    /// The type of data stored in each of this family's cell values, including its
-    /// full encoding. If omitted, the family only serves raw untyped bytes.
-    ///
-    /// For now, only the `Aggregate` type is supported.
-    ///
-    /// `Aggregate` can only be set at family creation and is immutable afterwards.
-    ///
-    ///
-    /// If `value_type` is `Aggregate`, written data must be compatible with:
-    ///   * `value_type.input_type` for `AddInput` mutations
-    #[prost(message, optional, tag = "3")]
-    pub value_type: ::core::option::Option<Type>,
-}
-/// Rule for determining which cells to delete during garbage collection.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcRule {
-    /// Garbage collection rules.
-    #[prost(oneof = "gc_rule::Rule", tags = "1, 2, 3, 4")]
-    pub rule: ::core::option::Option<gc_rule::Rule>,
-}
-/// Nested message and enum types in `GcRule`.
-pub mod gc_rule {
-    /// A GcRule which deletes cells matching all of the given rules.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Intersection {
-        /// Only delete cells which would be deleted by every element of `rules`.
-        #[prost(message, repeated, tag = "1")]
-        pub rules: ::prost::alloc::vec::Vec<super::GcRule>,
-    }
-    /// A GcRule which deletes cells matching any of the given rules.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Union {
-        /// Delete cells which would be deleted by any element of `rules`.
-        #[prost(message, repeated, tag = "1")]
-        pub rules: ::prost::alloc::vec::Vec<super::GcRule>,
-    }
-    /// Garbage collection rules.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Rule {
-        /// Delete all cells in a column except the most recent N.
-        #[prost(int32, tag = "1")]
-        MaxNumVersions(i32),
-        /// Delete cells in a column older than the given age.
-        /// Values must be at least one millisecond, and will be truncated to
-        /// microsecond granularity.
-        #[prost(message, tag = "2")]
-        MaxAge(::prost_types::Duration),
-        /// Delete cells that would be deleted by every nested rule.
-        #[prost(message, tag = "3")]
-        Intersection(Intersection),
-        /// Delete cells that would be deleted by any nested rule.
-        #[prost(message, tag = "4")]
-        Union(Union),
-    }
-}
-/// Encryption information for a given resource.
-/// If this resource is protected with customer managed encryption, the in-use
-/// Cloud Key Management Service (Cloud KMS) key version is specified along with
-/// its status.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EncryptionInfo {
-    /// Output only. The type of encryption used to protect this resource.
-    #[prost(enumeration = "encryption_info::EncryptionType", tag = "3")]
-    pub encryption_type: i32,
-    /// Output only. The status of encrypt/decrypt calls on underlying data for
-    /// this resource. Regardless of status, the existing data is always encrypted
-    /// at rest.
-    #[prost(message, optional, tag = "4")]
-    pub encryption_status: ::core::option::Option<super::super::super::rpc::Status>,
-    /// Output only. The version of the Cloud KMS key specified in the parent
-    /// cluster that is in use for the data underlying this table.
-    #[prost(string, tag = "2")]
-    pub kms_key_version: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `EncryptionInfo`.
-pub mod encryption_info {
-    /// Possible encryption types for a resource.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum EncryptionType {
-        /// Encryption type was not specified, though data at rest remains encrypted.
-        Unspecified = 0,
-        /// The data backing this resource is encrypted at rest with a key that is
-        /// fully managed by Google. No key version or status will be populated.
-        /// This is the default state.
-        GoogleDefaultEncryption = 1,
-        /// The data backing this resource is encrypted at rest with a key that is
-        /// managed by the customer.
-        /// The in-use version of the key and its status are populated for
-        /// CMEK-protected tables.
-        /// CMEK-protected backups are pinned to the key version that was in use at
-        /// the time the backup was taken. This key version is populated but its
-        /// status is not tracked and is reported as `UNKNOWN`.
-        CustomerManagedEncryption = 2,
-    }
-    impl EncryptionType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
-                EncryptionType::GoogleDefaultEncryption => "GOOGLE_DEFAULT_ENCRYPTION",
-                EncryptionType::CustomerManagedEncryption => {
-                    "CUSTOMER_MANAGED_ENCRYPTION"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "GOOGLE_DEFAULT_ENCRYPTION" => Some(Self::GoogleDefaultEncryption),
-                "CUSTOMER_MANAGED_ENCRYPTION" => Some(Self::CustomerManagedEncryption),
-                _ => None,
-            }
-        }
-    }
-}
-/// A snapshot of a table at a particular time. A snapshot can be used as a
-/// checkpoint for data restoration or a data source for a new table.
-///
-/// Note: This is a private alpha release of Cloud Bigtable snapshots. This
-/// feature is not currently available to most Cloud Bigtable customers. This
-/// feature might be changed in backward-incompatible ways and is not recommended
-/// for production use. It is not subject to any SLA or deprecation policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Snapshot {
-    /// The unique name of the snapshot.
-    /// Values are of the form
-    /// `projects/{project}/instances/{instance}/clusters/{cluster}/snapshots/{snapshot}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The source table at the time the snapshot was taken.
-    #[prost(message, optional, tag = "2")]
-    pub source_table: ::core::option::Option<Table>,
-    /// Output only. The size of the data in the source table at the time the
-    /// snapshot was taken. In some cases, this value may be computed
-    /// asynchronously via a background process and a placeholder of 0 will be used
-    /// in the meantime.
-    #[prost(int64, tag = "3")]
-    pub data_size_bytes: i64,
-    /// Output only. The time when the snapshot is created.
-    #[prost(message, optional, tag = "4")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The time when the snapshot will be deleted. The maximum amount of time a
-    /// snapshot can stay active is 365 days. If 'ttl' is not specified,
-    /// the default maximum of 365 days will be used.
-    #[prost(message, optional, tag = "5")]
-    pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The current state of the snapshot.
-    #[prost(enumeration = "snapshot::State", tag = "6")]
-    pub state: i32,
-    /// Description of the snapshot.
-    #[prost(string, tag = "7")]
-    pub description: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Snapshot`.
-pub mod snapshot {
-    /// Possible states of a snapshot.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The state of the snapshot could not be determined.
-        NotKnown = 0,
-        /// The snapshot has been successfully created and can serve all requests.
-        Ready = 1,
-        /// The snapshot is currently being created, and may be destroyed if the
-        /// creation process encounters an error. A snapshot may not be restored to a
-        /// table while it is being created.
-        Creating = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::NotKnown => "STATE_NOT_KNOWN",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_NOT_KNOWN" => Some(Self::NotKnown),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                _ => None,
-            }
-        }
-    }
-}
-/// A backup of a Cloud Bigtable table.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Backup {
-    /// A globally unique identifier for the backup which cannot be
-    /// changed. Values are of the form
-    /// `projects/{project}/instances/{instance}/clusters/{cluster}/
-    ///     backups/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`
-    /// The final segment of the name must be between 1 and 50 characters
-    /// in length.
-    ///
-    /// The backup is stored in the cluster identified by the prefix of the backup
-    /// name of the form
-    /// `projects/{project}/instances/{instance}/clusters/{cluster}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. Name of the table from which this backup was created.
-    /// This needs to be in the same instance as the backup. Values are of the form
-    /// `projects/{project}/instances/{instance}/tables/{source_table}`.
-    #[prost(string, tag = "2")]
-    pub source_table: ::prost::alloc::string::String,
-    /// Output only. Name of the backup from which this backup was copied. If a
-    /// backup is not created by copying a backup, this field will be empty. Values
-    /// are of the form: projects/<project>/instances/<instance>/backups/<backup>.
-    #[prost(string, tag = "10")]
-    pub source_backup: ::prost::alloc::string::String,
-    /// Required. The expiration time of the backup, with microseconds
-    /// granularity that must be at least 6 hours and at most 90 days
-    /// from the time the request is received. Once the `expire_time`
-    /// has passed, Cloud Bigtable will delete the backup and free the
-    /// resources used by the backup.
-    #[prost(message, optional, tag = "3")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. `start_time` is the time that the backup was started
-    /// (i.e. approximately the time the
-    /// [CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup]
-    /// request is received).  The row data in this backup will be no older than
-    /// this timestamp.
-    #[prost(message, optional, tag = "4")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. `end_time` is the time that the backup was finished. The row
-    /// data in the backup will be no newer than this timestamp.
-    #[prost(message, optional, tag = "5")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Size of the backup in bytes.
-    #[prost(int64, tag = "6")]
-    pub size_bytes: i64,
-    /// Output only. The current state of the backup.
-    #[prost(enumeration = "backup::State", tag = "7")]
-    pub state: i32,
-    /// Output only. The encryption information for the backup.
-    #[prost(message, optional, tag = "9")]
-    pub encryption_info: ::core::option::Option<EncryptionInfo>,
-}
-/// Nested message and enum types in `Backup`.
-pub mod backup {
-    /// Indicates the current state of the backup.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Not specified.
-        Unspecified = 0,
-        /// The pending backup is still being created. Operations on the
-        /// backup may fail with `FAILED_PRECONDITION` in this state.
-        Creating = 1,
-        /// The backup is complete and ready for use.
-        Ready = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                _ => None,
-            }
-        }
-    }
-}
-/// Information about a backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackupInfo {
-    /// Output only. Name of the backup.
-    #[prost(string, tag = "1")]
-    pub backup: ::prost::alloc::string::String,
-    /// Output only. The time that the backup was started. Row data in the backup
-    /// will be no older than this timestamp.
-    #[prost(message, optional, tag = "2")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. This time that the backup was finished. Row data in the
-    /// backup will be no newer than this timestamp.
-    #[prost(message, optional, tag = "3")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Name of the table the backup was created from.
-    #[prost(string, tag = "4")]
-    pub source_table: ::prost::alloc::string::String,
-    /// Output only. Name of the backup from which this backup was copied. If a
-    /// backup is not created by copying a backup, this field will be empty. Values
-    /// are of the form: projects/<project>/instances/<instance>/backups/<backup>.
-    #[prost(string, tag = "10")]
-    pub source_backup: ::prost::alloc::string::String,
-}
-/// Indicates the type of the restore source.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum RestoreSourceType {
-    /// No restore associated.
-    Unspecified = 0,
-    /// A backup was used as the source of the restore.
-    Backup = 1,
-}
-impl RestoreSourceType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            RestoreSourceType::Unspecified => "RESTORE_SOURCE_TYPE_UNSPECIFIED",
-            RestoreSourceType::Backup => "BACKUP",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "RESTORE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "BACKUP" => Some(Self::Backup),
-            _ => None,
-        }
-    }
-}
 /// Request message for BigtableInstanceAdmin.CreateInstance.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2713,6 +1765,954 @@ pub mod bigtable_instance_admin_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// `Type` represents the type of data that is written to, read from, or stored
+/// in Bigtable. It is heavily based on the GoogleSQL standard to help maintain
+/// familiarity and consistency across products and features.
+///
+/// For compatibility with Bigtable's existing untyped APIs, each `Type` includes
+/// an `Encoding` which describes how to convert to/from the underlying data.
+/// This might involve composing a series of steps into an "encoding chain," for
+/// example to convert from INT64 -> STRING -> raw bytes. In most cases, a "link"
+/// in the encoding chain will be based an on existing GoogleSQL conversion
+/// function like `CAST`.
+///
+/// Each link in the encoding chain also defines the following properties:
+///   * Natural sort: Does the encoded value sort consistently with the original
+///     typed value? Note that Bigtable will always sort data based on the raw
+///     encoded value, *not* the decoded type.
+///      - Example: STRING values sort in the same order as their UTF-8 encodings.
+///      - Counterexample: Encoding INT64 to a fixed-width STRING does *not*
+///        preserve sort order when dealing with negative numbers.
+///        INT64(1) > INT64(-1), but STRING("-00001") > STRING("00001).
+///      - The overall encoding chain sorts naturally if *every* link does.
+///   * Self-delimiting: If we concatenate two encoded values, can we always tell
+///     where the first one ends and the second one begins?
+///      - Example: If we encode INT64s to fixed-width STRINGs, the first value
+///        will always contain exactly N digits, possibly preceded by a sign.
+///      - Counterexample: If we concatenate two UTF-8 encoded STRINGs, we have
+///        no way to tell where the first one ends.
+///      - The overall encoding chain is self-delimiting if *any* link is.
+///   * Compatibility: Which other systems have matching encoding schemes? For
+///     example, does this encoding have a GoogleSQL equivalent? HBase? Java?
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Type {
+    /// The kind of type that this represents.
+    #[prost(oneof = "r#type::Kind", tags = "1, 5, 6")]
+    pub kind: ::core::option::Option<r#type::Kind>,
+}
+/// Nested message and enum types in `Type`.
+pub mod r#type {
+    /// Bytes
+    /// Values of type `Bytes` are stored in `Value.bytes_value`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Bytes {
+        /// The encoding to use when converting to/from lower level types.
+        #[prost(message, optional, tag = "1")]
+        pub encoding: ::core::option::Option<bytes::Encoding>,
+    }
+    /// Nested message and enum types in `Bytes`.
+    pub mod bytes {
+        /// Rules used to convert to/from lower level types.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Encoding {
+            /// Which encoding to use.
+            #[prost(oneof = "encoding::Encoding", tags = "1")]
+            pub encoding: ::core::option::Option<encoding::Encoding>,
+        }
+        /// Nested message and enum types in `Encoding`.
+        pub mod encoding {
+            /// Leaves the value "as-is"
+            /// * Natural sort? Yes
+            /// * Self-delimiting? No
+            /// * Compatibility? N/A
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct Raw {}
+            /// Which encoding to use.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Encoding {
+                /// Use `Raw` encoding.
+                #[prost(message, tag = "1")]
+                Raw(Raw),
+            }
+        }
+    }
+    /// Int64
+    /// Values of type `Int64` are stored in `Value.int_value`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Int64 {
+        /// The encoding to use when converting to/from lower level types.
+        #[prost(message, optional, tag = "1")]
+        pub encoding: ::core::option::Option<int64::Encoding>,
+    }
+    /// Nested message and enum types in `Int64`.
+    pub mod int64 {
+        /// Rules used to convert to/from lower level types.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Encoding {
+            /// Which encoding to use.
+            #[prost(oneof = "encoding::Encoding", tags = "1")]
+            pub encoding: ::core::option::Option<encoding::Encoding>,
+        }
+        /// Nested message and enum types in `Encoding`.
+        pub mod encoding {
+            /// Encodes the value as an 8-byte big endian twos complement `Bytes`
+            /// value.
+            /// * Natural sort? No (positive values only)
+            /// * Self-delimiting? Yes
+            /// * Compatibility?
+            ///     - BigQuery Federation `BINARY` encoding
+            ///     - HBase `Bytes.toBytes`
+            ///     - Java `ByteBuffer.putLong()` with `ByteOrder.BIG_ENDIAN`
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct BigEndianBytes {
+                /// The underlying `Bytes` type, which may be able to encode further.
+                #[prost(message, optional, tag = "1")]
+                pub bytes_type: ::core::option::Option<super::super::Bytes>,
+            }
+            /// Which encoding to use.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Encoding {
+                /// Use `BigEndianBytes` encoding.
+                #[prost(message, tag = "1")]
+                BigEndianBytes(BigEndianBytes),
+            }
+        }
+    }
+    /// A value that combines incremental updates into a summarized value.
+    ///
+    /// Data is never directly written or read using type `Aggregate`. Writes will
+    /// provide either the `input_type` or `state_type`, and reads will always
+    /// return the `state_type` .
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Aggregate {
+        /// Type of the inputs that are accumulated by this `Aggregate`, which must
+        /// specify a full encoding.
+        /// Use `AddInput` mutations to accumulate new inputs.
+        #[prost(message, optional, boxed, tag = "1")]
+        pub input_type: ::core::option::Option<::prost::alloc::boxed::Box<super::Type>>,
+        /// Output only. Type that holds the internal accumulator state for the
+        /// `Aggregate`. This is a function of the `input_type` and `aggregator`
+        /// chosen, and will always specify a full encoding.
+        #[prost(message, optional, boxed, tag = "2")]
+        pub state_type: ::core::option::Option<::prost::alloc::boxed::Box<super::Type>>,
+        /// Which aggregator function to use. The configured types must match.
+        #[prost(oneof = "aggregate::Aggregator", tags = "4")]
+        pub aggregator: ::core::option::Option<aggregate::Aggregator>,
+    }
+    /// Nested message and enum types in `Aggregate`.
+    pub mod aggregate {
+        /// Computes the sum of the input values.
+        /// Allowed input: `Int64`
+        /// State: same as input
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Sum {}
+        /// Which aggregator function to use. The configured types must match.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Aggregator {
+            /// Sum aggregator.
+            #[prost(message, tag = "4")]
+            Sum(Sum),
+        }
+    }
+    /// The kind of type that this represents.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Kind {
+        /// Bytes
+        #[prost(message, tag = "1")]
+        BytesType(Bytes),
+        /// Int64
+        #[prost(message, tag = "5")]
+        Int64Type(Int64),
+        /// Aggregate
+        #[prost(message, tag = "6")]
+        AggregateType(::prost::alloc::boxed::Box<Aggregate>),
+    }
+}
+/// Information about a table restore.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RestoreInfo {
+    /// The type of the restore source.
+    #[prost(enumeration = "RestoreSourceType", tag = "1")]
+    pub source_type: i32,
+    /// Information about the source used to restore the table.
+    #[prost(oneof = "restore_info::SourceInfo", tags = "2")]
+    pub source_info: ::core::option::Option<restore_info::SourceInfo>,
+}
+/// Nested message and enum types in `RestoreInfo`.
+pub mod restore_info {
+    /// Information about the source used to restore the table.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SourceInfo {
+        /// Information about the backup used to restore the table. The backup
+        /// may no longer exist.
+        #[prost(message, tag = "2")]
+        BackupInfo(super::BackupInfo),
+    }
+}
+/// Change stream configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ChangeStreamConfig {
+    /// How long the change stream should be retained. Change stream data older
+    /// than the retention period will not be returned when reading the change
+    /// stream from the table.
+    /// Values must be at least 1 day and at most 7 days, and will be truncated to
+    /// microsecond granularity.
+    #[prost(message, optional, tag = "1")]
+    pub retention_period: ::core::option::Option<::prost_types::Duration>,
+}
+/// A collection of user data indexed by row, column, and timestamp.
+/// Each table is served using the resources of its parent cluster.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Table {
+    /// The unique name of the table. Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`.
+    /// Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Map from cluster ID to per-cluster table state.
+    /// If it could not be determined whether or not the table has data in a
+    /// particular cluster (for example, if its zone is unavailable), then
+    /// there will be an entry for the cluster with UNKNOWN `replication_status`.
+    /// Views: `REPLICATION_VIEW`, `ENCRYPTION_VIEW`, `FULL`
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub cluster_states: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        table::ClusterState,
+    >,
+    /// The column families configured for this table, mapped by column family ID.
+    /// Views: `SCHEMA_VIEW`, `STATS_VIEW`, `FULL`
+    #[prost(btree_map = "string, message", tag = "3")]
+    pub column_families: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ColumnFamily,
+    >,
+    /// Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored
+    /// in this table. Timestamps not matching the granularity will be rejected. If
+    /// unspecified at creation time, the value will be set to `MILLIS`. Views:
+    /// `SCHEMA_VIEW`, `FULL`.
+    #[prost(enumeration = "table::TimestampGranularity", tag = "4")]
+    pub granularity: i32,
+    /// Output only. If this table was restored from another data source (e.g. a
+    /// backup), this field will be populated with information about the restore.
+    #[prost(message, optional, tag = "6")]
+    pub restore_info: ::core::option::Option<RestoreInfo>,
+    /// If specified, enable the change stream on this table.
+    /// Otherwise, the change stream is disabled and the change stream is not
+    /// retained.
+    #[prost(message, optional, tag = "8")]
+    pub change_stream_config: ::core::option::Option<ChangeStreamConfig>,
+    /// Set to true to make the table protected against data loss. i.e. deleting
+    /// the following resources through Admin APIs are prohibited:
+    ///
+    /// * The table.
+    /// * The column families in the table.
+    /// * The instance containing the table.
+    ///
+    /// Note one can still delete the data stored in the table through Data APIs.
+    #[prost(bool, tag = "9")]
+    pub deletion_protection: bool,
+}
+/// Nested message and enum types in `Table`.
+pub mod table {
+    /// The state of a table's data in a particular cluster.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClusterState {
+        /// Output only. The state of replication for the table in this cluster.
+        #[prost(enumeration = "cluster_state::ReplicationState", tag = "1")]
+        pub replication_state: i32,
+        /// Output only. The encryption information for the table in this cluster.
+        /// If the encryption key protecting this resource is customer managed, then
+        /// its version can be rotated in Cloud Key Management Service (Cloud KMS).
+        /// The primary version of the key and its status will be reflected here when
+        /// changes propagate from Cloud KMS.
+        #[prost(message, repeated, tag = "2")]
+        pub encryption_info: ::prost::alloc::vec::Vec<super::EncryptionInfo>,
+    }
+    /// Nested message and enum types in `ClusterState`.
+    pub mod cluster_state {
+        /// Table replication states.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum ReplicationState {
+            /// The replication state of the table is unknown in this cluster.
+            StateNotKnown = 0,
+            /// The cluster was recently created, and the table must finish copying
+            /// over pre-existing data from other clusters before it can begin
+            /// receiving live replication updates and serving Data API requests.
+            Initializing = 1,
+            /// The table is temporarily unable to serve Data API requests from this
+            /// cluster due to planned internal maintenance.
+            PlannedMaintenance = 2,
+            /// The table is temporarily unable to serve Data API requests from this
+            /// cluster due to unplanned or emergency maintenance.
+            UnplannedMaintenance = 3,
+            /// The table can serve Data API requests from this cluster. Depending on
+            /// replication delay, reads may not immediately reflect the state of the
+            /// table in other clusters.
+            Ready = 4,
+            /// The table is fully created and ready for use after a restore, and is
+            /// being optimized for performance. When optimizations are complete, the
+            /// table will transition to `READY` state.
+            ReadyOptimizing = 5,
+        }
+        impl ReplicationState {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    ReplicationState::StateNotKnown => "STATE_NOT_KNOWN",
+                    ReplicationState::Initializing => "INITIALIZING",
+                    ReplicationState::PlannedMaintenance => "PLANNED_MAINTENANCE",
+                    ReplicationState::UnplannedMaintenance => "UNPLANNED_MAINTENANCE",
+                    ReplicationState::Ready => "READY",
+                    ReplicationState::ReadyOptimizing => "READY_OPTIMIZING",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "STATE_NOT_KNOWN" => Some(Self::StateNotKnown),
+                    "INITIALIZING" => Some(Self::Initializing),
+                    "PLANNED_MAINTENANCE" => Some(Self::PlannedMaintenance),
+                    "UNPLANNED_MAINTENANCE" => Some(Self::UnplannedMaintenance),
+                    "READY" => Some(Self::Ready),
+                    "READY_OPTIMIZING" => Some(Self::ReadyOptimizing),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Possible timestamp granularities to use when keeping multiple versions
+    /// of data in a table.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum TimestampGranularity {
+        /// The user did not specify a granularity. Should not be returned.
+        /// When specified during table creation, MILLIS will be used.
+        Unspecified = 0,
+        /// The table keeps data versioned at a granularity of 1ms.
+        Millis = 1,
+    }
+    impl TimestampGranularity {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                TimestampGranularity::Unspecified => "TIMESTAMP_GRANULARITY_UNSPECIFIED",
+                TimestampGranularity::Millis => "MILLIS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TIMESTAMP_GRANULARITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "MILLIS" => Some(Self::Millis),
+                _ => None,
+            }
+        }
+    }
+    /// Defines a view over a table's fields.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum View {
+        /// Uses the default view for each method as documented in its request.
+        Unspecified = 0,
+        /// Only populates `name`.
+        NameOnly = 1,
+        /// Only populates `name` and fields related to the table's schema.
+        SchemaView = 2,
+        /// Only populates `name` and fields related to the table's replication
+        /// state.
+        ReplicationView = 3,
+        /// Only populates `name` and fields related to the table's encryption state.
+        EncryptionView = 5,
+        /// Populates all fields.
+        Full = 4,
+    }
+    impl View {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                View::Unspecified => "VIEW_UNSPECIFIED",
+                View::NameOnly => "NAME_ONLY",
+                View::SchemaView => "SCHEMA_VIEW",
+                View::ReplicationView => "REPLICATION_VIEW",
+                View::EncryptionView => "ENCRYPTION_VIEW",
+                View::Full => "FULL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+                "NAME_ONLY" => Some(Self::NameOnly),
+                "SCHEMA_VIEW" => Some(Self::SchemaView),
+                "REPLICATION_VIEW" => Some(Self::ReplicationView),
+                "ENCRYPTION_VIEW" => Some(Self::EncryptionView),
+                "FULL" => Some(Self::Full),
+                _ => None,
+            }
+        }
+    }
+}
+/// AuthorizedViews represent subsets of a particular Cloud Bigtable table. Users
+/// can configure access to each Authorized View independently from the table and
+/// use the existing Data APIs to access the subset of data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AuthorizedView {
+    /// Identifier. The name of this AuthorizedView.
+    /// Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The etag for this AuthorizedView.
+    /// If this is provided on update, it must match the server's etag. The server
+    /// returns ABORTED error on a mismatched etag.
+    #[prost(string, tag = "3")]
+    pub etag: ::prost::alloc::string::String,
+    /// Set to true to make the AuthorizedView protected against deletion.
+    /// The parent Table and containing Instance cannot be deleted if an
+    /// AuthorizedView has this bit set.
+    #[prost(bool, tag = "4")]
+    pub deletion_protection: bool,
+    /// The type of this AuthorizedView.
+    #[prost(oneof = "authorized_view::AuthorizedView", tags = "2")]
+    pub authorized_view: ::core::option::Option<authorized_view::AuthorizedView>,
+}
+/// Nested message and enum types in `AuthorizedView`.
+pub mod authorized_view {
+    /// Subsets of a column family that are included in this AuthorizedView.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FamilySubsets {
+        /// Individual exact column qualifiers to be included in the AuthorizedView.
+        #[prost(bytes = "bytes", repeated, tag = "1")]
+        pub qualifiers: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+        /// Prefixes for qualifiers to be included in the AuthorizedView. Every
+        /// qualifier starting with one of these prefixes is included in the
+        /// AuthorizedView. To provide access to all qualifiers, include the empty
+        /// string as a prefix
+        /// ("").
+        #[prost(bytes = "bytes", repeated, tag = "2")]
+        pub qualifier_prefixes: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+    }
+    /// Defines a simple AuthorizedView that is a subset of the underlying Table.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SubsetView {
+        /// Row prefixes to be included in the AuthorizedView.
+        /// To provide access to all rows, include the empty string as a prefix ("").
+        #[prost(bytes = "bytes", repeated, tag = "1")]
+        pub row_prefixes: ::prost::alloc::vec::Vec<::prost::bytes::Bytes>,
+        /// Map from column family name to the columns in this family to be included
+        /// in the AuthorizedView.
+        #[prost(btree_map = "string, message", tag = "2")]
+        pub family_subsets: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            FamilySubsets,
+        >,
+    }
+    /// Defines a subset of an AuthorizedView's fields.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ResponseView {
+        /// Uses the default view for each method as documented in the request.
+        Unspecified = 0,
+        /// Only populates `name`.
+        NameOnly = 1,
+        /// Only populates the AuthorizedView's basic metadata. This includes:
+        /// name, deletion_protection, etag.
+        Basic = 2,
+        /// Populates every fields.
+        Full = 3,
+    }
+    impl ResponseView {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ResponseView::Unspecified => "RESPONSE_VIEW_UNSPECIFIED",
+                ResponseView::NameOnly => "NAME_ONLY",
+                ResponseView::Basic => "BASIC",
+                ResponseView::Full => "FULL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESPONSE_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+                "NAME_ONLY" => Some(Self::NameOnly),
+                "BASIC" => Some(Self::Basic),
+                "FULL" => Some(Self::Full),
+                _ => None,
+            }
+        }
+    }
+    /// The type of this AuthorizedView.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum AuthorizedView {
+        /// An AuthorizedView permitting access to an explicit subset of a Table.
+        #[prost(message, tag = "2")]
+        SubsetView(SubsetView),
+    }
+}
+/// A set of columns within a table which share a common configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ColumnFamily {
+    /// Garbage collection rule specified as a protobuf.
+    /// Must serialize to at most 500 bytes.
+    ///
+    /// NOTE: Garbage collection executes opportunistically in the background, and
+    /// so it's possible for reads to return a cell even if it matches the active
+    /// GC expression for its family.
+    #[prost(message, optional, tag = "1")]
+    pub gc_rule: ::core::option::Option<GcRule>,
+    /// The type of data stored in each of this family's cell values, including its
+    /// full encoding. If omitted, the family only serves raw untyped bytes.
+    ///
+    /// For now, only the `Aggregate` type is supported.
+    ///
+    /// `Aggregate` can only be set at family creation and is immutable afterwards.
+    ///
+    ///
+    /// If `value_type` is `Aggregate`, written data must be compatible with:
+    ///   * `value_type.input_type` for `AddInput` mutations
+    #[prost(message, optional, tag = "3")]
+    pub value_type: ::core::option::Option<Type>,
+}
+/// Rule for determining which cells to delete during garbage collection.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcRule {
+    /// Garbage collection rules.
+    #[prost(oneof = "gc_rule::Rule", tags = "1, 2, 3, 4")]
+    pub rule: ::core::option::Option<gc_rule::Rule>,
+}
+/// Nested message and enum types in `GcRule`.
+pub mod gc_rule {
+    /// A GcRule which deletes cells matching all of the given rules.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Intersection {
+        /// Only delete cells which would be deleted by every element of `rules`.
+        #[prost(message, repeated, tag = "1")]
+        pub rules: ::prost::alloc::vec::Vec<super::GcRule>,
+    }
+    /// A GcRule which deletes cells matching any of the given rules.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Union {
+        /// Delete cells which would be deleted by any element of `rules`.
+        #[prost(message, repeated, tag = "1")]
+        pub rules: ::prost::alloc::vec::Vec<super::GcRule>,
+    }
+    /// Garbage collection rules.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Rule {
+        /// Delete all cells in a column except the most recent N.
+        #[prost(int32, tag = "1")]
+        MaxNumVersions(i32),
+        /// Delete cells in a column older than the given age.
+        /// Values must be at least one millisecond, and will be truncated to
+        /// microsecond granularity.
+        #[prost(message, tag = "2")]
+        MaxAge(::prost_types::Duration),
+        /// Delete cells that would be deleted by every nested rule.
+        #[prost(message, tag = "3")]
+        Intersection(Intersection),
+        /// Delete cells that would be deleted by any nested rule.
+        #[prost(message, tag = "4")]
+        Union(Union),
+    }
+}
+/// Encryption information for a given resource.
+/// If this resource is protected with customer managed encryption, the in-use
+/// Cloud Key Management Service (Cloud KMS) key version is specified along with
+/// its status.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EncryptionInfo {
+    /// Output only. The type of encryption used to protect this resource.
+    #[prost(enumeration = "encryption_info::EncryptionType", tag = "3")]
+    pub encryption_type: i32,
+    /// Output only. The status of encrypt/decrypt calls on underlying data for
+    /// this resource. Regardless of status, the existing data is always encrypted
+    /// at rest.
+    #[prost(message, optional, tag = "4")]
+    pub encryption_status: ::core::option::Option<super::super::super::rpc::Status>,
+    /// Output only. The version of the Cloud KMS key specified in the parent
+    /// cluster that is in use for the data underlying this table.
+    #[prost(string, tag = "2")]
+    pub kms_key_version: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `EncryptionInfo`.
+pub mod encryption_info {
+    /// Possible encryption types for a resource.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum EncryptionType {
+        /// Encryption type was not specified, though data at rest remains encrypted.
+        Unspecified = 0,
+        /// The data backing this resource is encrypted at rest with a key that is
+        /// fully managed by Google. No key version or status will be populated.
+        /// This is the default state.
+        GoogleDefaultEncryption = 1,
+        /// The data backing this resource is encrypted at rest with a key that is
+        /// managed by the customer.
+        /// The in-use version of the key and its status are populated for
+        /// CMEK-protected tables.
+        /// CMEK-protected backups are pinned to the key version that was in use at
+        /// the time the backup was taken. This key version is populated but its
+        /// status is not tracked and is reported as `UNKNOWN`.
+        CustomerManagedEncryption = 2,
+    }
+    impl EncryptionType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
+                EncryptionType::GoogleDefaultEncryption => "GOOGLE_DEFAULT_ENCRYPTION",
+                EncryptionType::CustomerManagedEncryption => {
+                    "CUSTOMER_MANAGED_ENCRYPTION"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "GOOGLE_DEFAULT_ENCRYPTION" => Some(Self::GoogleDefaultEncryption),
+                "CUSTOMER_MANAGED_ENCRYPTION" => Some(Self::CustomerManagedEncryption),
+                _ => None,
+            }
+        }
+    }
+}
+/// A snapshot of a table at a particular time. A snapshot can be used as a
+/// checkpoint for data restoration or a data source for a new table.
+///
+/// Note: This is a private alpha release of Cloud Bigtable snapshots. This
+/// feature is not currently available to most Cloud Bigtable customers. This
+/// feature might be changed in backward-incompatible ways and is not recommended
+/// for production use. It is not subject to any SLA or deprecation policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Snapshot {
+    /// The unique name of the snapshot.
+    /// Values are of the form
+    /// `projects/{project}/instances/{instance}/clusters/{cluster}/snapshots/{snapshot}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The source table at the time the snapshot was taken.
+    #[prost(message, optional, tag = "2")]
+    pub source_table: ::core::option::Option<Table>,
+    /// Output only. The size of the data in the source table at the time the
+    /// snapshot was taken. In some cases, this value may be computed
+    /// asynchronously via a background process and a placeholder of 0 will be used
+    /// in the meantime.
+    #[prost(int64, tag = "3")]
+    pub data_size_bytes: i64,
+    /// Output only. The time when the snapshot is created.
+    #[prost(message, optional, tag = "4")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The time when the snapshot will be deleted. The maximum amount of time a
+    /// snapshot can stay active is 365 days. If 'ttl' is not specified,
+    /// the default maximum of 365 days will be used.
+    #[prost(message, optional, tag = "5")]
+    pub delete_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The current state of the snapshot.
+    #[prost(enumeration = "snapshot::State", tag = "6")]
+    pub state: i32,
+    /// Description of the snapshot.
+    #[prost(string, tag = "7")]
+    pub description: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Snapshot`.
+pub mod snapshot {
+    /// Possible states of a snapshot.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The state of the snapshot could not be determined.
+        NotKnown = 0,
+        /// The snapshot has been successfully created and can serve all requests.
+        Ready = 1,
+        /// The snapshot is currently being created, and may be destroyed if the
+        /// creation process encounters an error. A snapshot may not be restored to a
+        /// table while it is being created.
+        Creating = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::NotKnown => "STATE_NOT_KNOWN",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_NOT_KNOWN" => Some(Self::NotKnown),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                _ => None,
+            }
+        }
+    }
+}
+/// A backup of a Cloud Bigtable table.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Backup {
+    /// A globally unique identifier for the backup which cannot be
+    /// changed. Values are of the form
+    /// `projects/{project}/instances/{instance}/clusters/{cluster}/
+    ///     backups/[_a-zA-Z0-9][-_.a-zA-Z0-9]*`
+    /// The final segment of the name must be between 1 and 50 characters
+    /// in length.
+    ///
+    /// The backup is stored in the cluster identified by the prefix of the backup
+    /// name of the form
+    /// `projects/{project}/instances/{instance}/clusters/{cluster}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Immutable. Name of the table from which this backup was created.
+    /// This needs to be in the same instance as the backup. Values are of the form
+    /// `projects/{project}/instances/{instance}/tables/{source_table}`.
+    #[prost(string, tag = "2")]
+    pub source_table: ::prost::alloc::string::String,
+    /// Output only. Name of the backup from which this backup was copied. If a
+    /// backup is not created by copying a backup, this field will be empty. Values
+    /// are of the form: projects/<project>/instances/<instance>/backups/<backup>.
+    #[prost(string, tag = "10")]
+    pub source_backup: ::prost::alloc::string::String,
+    /// Required. The expiration time of the backup, with microseconds
+    /// granularity that must be at least 6 hours and at most 90 days
+    /// from the time the request is received. Once the `expire_time`
+    /// has passed, Cloud Bigtable will delete the backup and free the
+    /// resources used by the backup.
+    #[prost(message, optional, tag = "3")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. `start_time` is the time that the backup was started
+    /// (i.e. approximately the time the
+    /// [CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup]
+    /// request is received).  The row data in this backup will be no older than
+    /// this timestamp.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. `end_time` is the time that the backup was finished. The row
+    /// data in the backup will be no newer than this timestamp.
+    #[prost(message, optional, tag = "5")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Size of the backup in bytes.
+    #[prost(int64, tag = "6")]
+    pub size_bytes: i64,
+    /// Output only. The current state of the backup.
+    #[prost(enumeration = "backup::State", tag = "7")]
+    pub state: i32,
+    /// Output only. The encryption information for the backup.
+    #[prost(message, optional, tag = "9")]
+    pub encryption_info: ::core::option::Option<EncryptionInfo>,
+}
+/// Nested message and enum types in `Backup`.
+pub mod backup {
+    /// Indicates the current state of the backup.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Not specified.
+        Unspecified = 0,
+        /// The pending backup is still being created. Operations on the
+        /// backup may fail with `FAILED_PRECONDITION` in this state.
+        Creating = 1,
+        /// The backup is complete and ready for use.
+        Ready = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                _ => None,
+            }
+        }
+    }
+}
+/// Information about a backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BackupInfo {
+    /// Output only. Name of the backup.
+    #[prost(string, tag = "1")]
+    pub backup: ::prost::alloc::string::String,
+    /// Output only. The time that the backup was started. Row data in the backup
+    /// will be no older than this timestamp.
+    #[prost(message, optional, tag = "2")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. This time that the backup was finished. Row data in the
+    /// backup will be no newer than this timestamp.
+    #[prost(message, optional, tag = "3")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Name of the table the backup was created from.
+    #[prost(string, tag = "4")]
+    pub source_table: ::prost::alloc::string::String,
+    /// Output only. Name of the backup from which this backup was copied. If a
+    /// backup is not created by copying a backup, this field will be empty. Values
+    /// are of the form: projects/<project>/instances/<instance>/backups/<backup>.
+    #[prost(string, tag = "10")]
+    pub source_backup: ::prost::alloc::string::String,
+}
+/// Indicates the type of the restore source.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RestoreSourceType {
+    /// No restore associated.
+    Unspecified = 0,
+    /// A backup was used as the source of the restore.
+    Backup = 1,
+}
+impl RestoreSourceType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            RestoreSourceType::Unspecified => "RESTORE_SOURCE_TYPE_UNSPECIFIED",
+            RestoreSourceType::Backup => "BACKUP",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "RESTORE_SOURCE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "BACKUP" => Some(Self::Backup),
+            _ => None,
         }
     }
 }

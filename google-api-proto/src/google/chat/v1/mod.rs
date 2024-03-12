@@ -1,245 +1,15 @@
-/// A widget is a UI element that presents text and images.
+/// Information about a deleted message. A message is deleted when `delete_time`
+/// is set.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WidgetMarkup {
-    /// A list of buttons. Buttons is also `oneof data` and only one of these
-    /// fields should be set.
-    #[prost(message, repeated, tag = "6")]
-    pub buttons: ::prost::alloc::vec::Vec<widget_markup::Button>,
-    /// A `WidgetMarkup` can only have one of the following items. You can use
-    /// multiple `WidgetMarkup` fields to display more items.
-    #[prost(oneof = "widget_markup::Data", tags = "1, 2, 3")]
-    pub data: ::core::option::Option<widget_markup::Data>,
+pub struct DeletionMetadata {
+    /// Indicates who deleted the message.
+    #[prost(enumeration = "deletion_metadata::DeletionType", tag = "1")]
+    pub deletion_type: i32,
 }
-/// Nested message and enum types in `WidgetMarkup`.
-pub mod widget_markup {
-    /// A paragraph of text. Formatted text supported. For more information
-    /// about formatting text, see
-    /// [Formatting text in Google Chat
-    /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
-    /// and
-    /// [Formatting
-    /// text in Google Workspace
-    /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TextParagraph {
-        #[prost(string, tag = "1")]
-        pub text: ::prost::alloc::string::String,
-    }
-    /// A button. Can be a text button or an image button.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Button {
-        #[prost(oneof = "button::Type", tags = "1, 2")]
-        pub r#type: ::core::option::Option<button::Type>,
-    }
-    /// Nested message and enum types in `Button`.
-    pub mod button {
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Type {
-            /// A button with text and `onclick` action.
-            #[prost(message, tag = "1")]
-            TextButton(super::TextButton),
-            /// A button with image and `onclick` action.
-            #[prost(message, tag = "2")]
-            ImageButton(super::ImageButton),
-        }
-    }
-    /// A button with text and `onclick` action.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TextButton {
-        /// The text of the button.
-        #[prost(string, tag = "1")]
-        pub text: ::prost::alloc::string::String,
-        /// The `onclick` action of the button.
-        #[prost(message, optional, tag = "2")]
-        pub on_click: ::core::option::Option<OnClick>,
-    }
-    /// A UI element contains a key (label) and a value (content). This
-    /// element can also contain some actions such as `onclick` button.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct KeyValue {
-        /// The text of the top label. Formatted text supported. For more information
-        /// about formatting text, see
-        /// [Formatting text in Google Chat
-        /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
-        /// and
-        /// [Formatting
-        /// text in Google Workspace
-        /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
-        #[prost(string, tag = "3")]
-        pub top_label: ::prost::alloc::string::String,
-        /// The text of the content. Formatted text supported and always required.
-        /// For more information
-        /// about formatting text, see
-        /// [Formatting text in Google Chat
-        /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
-        /// and
-        /// [Formatting
-        /// text in Google Workspace
-        /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
-        #[prost(string, tag = "4")]
-        pub content: ::prost::alloc::string::String,
-        /// If the content should be multiline.
-        #[prost(bool, tag = "9")]
-        pub content_multiline: bool,
-        /// The text of the bottom label. Formatted text supported. For more
-        /// information about formatting text, see [Formatting text in Google Chat
-        /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
-        /// and
-        /// [Formatting
-        /// text in Google Workspace
-        /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
-        #[prost(string, tag = "5")]
-        pub bottom_label: ::prost::alloc::string::String,
-        /// The `onclick` action. Only the top label, bottom label, and content
-        /// region are clickable.
-        #[prost(message, optional, tag = "6")]
-        pub on_click: ::core::option::Option<OnClick>,
-        /// At least one of icons, `top_label` and `bottom_label` must be defined.
-        #[prost(oneof = "key_value::Icons", tags = "1, 2")]
-        pub icons: ::core::option::Option<key_value::Icons>,
-        /// A control widget. You can set either `button` or `switch_widget`,
-        /// but not both.
-        #[prost(oneof = "key_value::Control", tags = "7")]
-        pub control: ::core::option::Option<key_value::Control>,
-    }
-    /// Nested message and enum types in `KeyValue`.
-    pub mod key_value {
-        /// At least one of icons, `top_label` and `bottom_label` must be defined.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Icons {
-            /// An enum value that's replaced by the Chat API with the
-            /// corresponding icon image.
-            #[prost(enumeration = "super::Icon", tag = "1")]
-            Icon(i32),
-            /// The icon specified by a URL.
-            #[prost(string, tag = "2")]
-            IconUrl(::prost::alloc::string::String),
-        }
-        /// A control widget. You can set either `button` or `switch_widget`,
-        /// but not both.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Control {
-            /// A button that can be clicked to trigger an action.
-            #[prost(message, tag = "7")]
-            Button(super::Button),
-        }
-    }
-    /// An image that's specified by a URL and can have an `onclick` action.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Image {
-        /// The URL of the image.
-        #[prost(string, tag = "1")]
-        pub image_url: ::prost::alloc::string::String,
-        /// The `onclick` action.
-        #[prost(message, optional, tag = "2")]
-        pub on_click: ::core::option::Option<OnClick>,
-        /// The aspect ratio of this image (width and height). This field lets you
-        /// reserve the right height for the image while waiting for it to load.
-        /// It's not meant to override the built-in aspect ratio of the image.
-        /// If unset, the server fills it by prefetching the image.
-        #[prost(double, tag = "3")]
-        pub aspect_ratio: f64,
-    }
-    /// An image button with an `onclick` action.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ImageButton {
-        /// The `onclick` action.
-        #[prost(message, optional, tag = "2")]
-        pub on_click: ::core::option::Option<OnClick>,
-        /// The name of this `image_button` that's used for accessibility.
-        /// Default value is provided if this name isn't specified.
-        #[prost(string, tag = "4")]
-        pub name: ::prost::alloc::string::String,
-        /// The icon can be specified by an `Icon` `enum` or a URL.
-        #[prost(oneof = "image_button::Icons", tags = "1, 3")]
-        pub icons: ::core::option::Option<image_button::Icons>,
-    }
-    /// Nested message and enum types in `ImageButton`.
-    pub mod image_button {
-        /// The icon can be specified by an `Icon` `enum` or a URL.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Icons {
-            /// The icon specified by an `enum` that indices to an icon provided by
-            /// Chat API.
-            #[prost(enumeration = "super::Icon", tag = "1")]
-            Icon(i32),
-            /// The icon specified by a URL.
-            #[prost(string, tag = "3")]
-            IconUrl(::prost::alloc::string::String),
-        }
-    }
-    /// An `onclick` action (for example, open a link).
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OnClick {
-        #[prost(oneof = "on_click::Data", tags = "1, 2")]
-        pub data: ::core::option::Option<on_click::Data>,
-    }
-    /// Nested message and enum types in `OnClick`.
-    pub mod on_click {
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Data {
-            /// A form action is triggered by this `onclick` action if specified.
-            #[prost(message, tag = "1")]
-            Action(super::FormAction),
-            /// This `onclick` action triggers an open link action if specified.
-            #[prost(message, tag = "2")]
-            OpenLink(super::OpenLink),
-        }
-    }
-    /// A link that opens a new window.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct OpenLink {
-        /// The URL to open.
-        #[prost(string, tag = "1")]
-        pub url: ::prost::alloc::string::String,
-    }
-    /// A form action describes the behavior when the form is submitted.
-    /// For example, you can invoke Apps Script to handle the form.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FormAction {
-        /// The method name is used to identify which part of the form triggered the
-        /// form submission. This information is echoed back to the Chat app as part
-        /// of the card click event. You can use the same method name for several
-        /// elements that trigger a common behavior.
-        #[prost(string, tag = "1")]
-        pub action_method_name: ::prost::alloc::string::String,
-        /// List of action parameters.
-        #[prost(message, repeated, tag = "2")]
-        pub parameters: ::prost::alloc::vec::Vec<form_action::ActionParameter>,
-    }
-    /// Nested message and enum types in `FormAction`.
-    pub mod form_action {
-        /// List of string parameters to supply when the action method is invoked.
-        /// For example, consider three snooze buttons: snooze now, snooze one day,
-        /// snooze next week. You might use `action method = snooze()`, passing the
-        /// snooze type and snooze time in the list of string parameters.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct ActionParameter {
-            /// The name of the parameter for the action script.
-            #[prost(string, tag = "1")]
-            pub key: ::prost::alloc::string::String,
-            /// The value of the parameter.
-            #[prost(string, tag = "2")]
-            pub value: ::prost::alloc::string::String,
-        }
-    }
-    /// The set of supported icons.
+/// Nested message and enum types in `DeletionMetadata`.
+pub mod deletion_metadata {
+    /// Who deleted the message and how it was deleted.
     #[derive(
         Clone,
         Copy,
@@ -252,146 +22,89 @@ pub mod widget_markup {
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    pub enum Icon {
+    pub enum DeletionType {
+        /// This value is unused.
         Unspecified = 0,
-        Airplane = 1,
-        Bookmark = 26,
-        Bus = 25,
-        Car = 9,
-        Clock = 2,
-        ConfirmationNumberIcon = 12,
-        Dollar = 14,
-        Description = 27,
-        Email = 10,
-        EventPerformer = 20,
-        EventSeat = 21,
-        FlightArrival = 16,
-        FlightDeparture = 15,
-        Hotel = 6,
-        HotelRoomType = 17,
-        Invite = 19,
-        MapPin = 3,
-        Membership = 24,
-        MultiplePeople = 18,
-        Offer = 30,
-        Person = 11,
-        Phone = 13,
-        RestaurantIcon = 7,
-        ShoppingCart = 8,
-        Star = 5,
-        Store = 22,
-        Ticket = 4,
-        Train = 23,
-        VideoCamera = 28,
-        VideoPlay = 29,
+        /// User deleted their own message.
+        Creator = 1,
+        /// The space owner deleted the message.
+        SpaceOwner = 2,
+        /// A Google Workspace admin deleted the message.
+        Admin = 3,
+        /// A Chat app deleted its own message when it expired.
+        AppMessageExpiry = 4,
+        /// A Chat app deleted the message on behalf of the user.
+        CreatorViaApp = 5,
+        /// A Chat app deleted the message on behalf of the space owner.
+        SpaceOwnerViaApp = 6,
     }
-    impl Icon {
+    impl DeletionType {
         /// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Icon::Unspecified => "ICON_UNSPECIFIED",
-                Icon::Airplane => "AIRPLANE",
-                Icon::Bookmark => "BOOKMARK",
-                Icon::Bus => "BUS",
-                Icon::Car => "CAR",
-                Icon::Clock => "CLOCK",
-                Icon::ConfirmationNumberIcon => "CONFIRMATION_NUMBER_ICON",
-                Icon::Dollar => "DOLLAR",
-                Icon::Description => "DESCRIPTION",
-                Icon::Email => "EMAIL",
-                Icon::EventPerformer => "EVENT_PERFORMER",
-                Icon::EventSeat => "EVENT_SEAT",
-                Icon::FlightArrival => "FLIGHT_ARRIVAL",
-                Icon::FlightDeparture => "FLIGHT_DEPARTURE",
-                Icon::Hotel => "HOTEL",
-                Icon::HotelRoomType => "HOTEL_ROOM_TYPE",
-                Icon::Invite => "INVITE",
-                Icon::MapPin => "MAP_PIN",
-                Icon::Membership => "MEMBERSHIP",
-                Icon::MultiplePeople => "MULTIPLE_PEOPLE",
-                Icon::Offer => "OFFER",
-                Icon::Person => "PERSON",
-                Icon::Phone => "PHONE",
-                Icon::RestaurantIcon => "RESTAURANT_ICON",
-                Icon::ShoppingCart => "SHOPPING_CART",
-                Icon::Star => "STAR",
-                Icon::Store => "STORE",
-                Icon::Ticket => "TICKET",
-                Icon::Train => "TRAIN",
-                Icon::VideoCamera => "VIDEO_CAMERA",
-                Icon::VideoPlay => "VIDEO_PLAY",
+                DeletionType::Unspecified => "DELETION_TYPE_UNSPECIFIED",
+                DeletionType::Creator => "CREATOR",
+                DeletionType::SpaceOwner => "SPACE_OWNER",
+                DeletionType::Admin => "ADMIN",
+                DeletionType::AppMessageExpiry => "APP_MESSAGE_EXPIRY",
+                DeletionType::CreatorViaApp => "CREATOR_VIA_APP",
+                DeletionType::SpaceOwnerViaApp => "SPACE_OWNER_VIA_APP",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
-                "ICON_UNSPECIFIED" => Some(Self::Unspecified),
-                "AIRPLANE" => Some(Self::Airplane),
-                "BOOKMARK" => Some(Self::Bookmark),
-                "BUS" => Some(Self::Bus),
-                "CAR" => Some(Self::Car),
-                "CLOCK" => Some(Self::Clock),
-                "CONFIRMATION_NUMBER_ICON" => Some(Self::ConfirmationNumberIcon),
-                "DOLLAR" => Some(Self::Dollar),
-                "DESCRIPTION" => Some(Self::Description),
-                "EMAIL" => Some(Self::Email),
-                "EVENT_PERFORMER" => Some(Self::EventPerformer),
-                "EVENT_SEAT" => Some(Self::EventSeat),
-                "FLIGHT_ARRIVAL" => Some(Self::FlightArrival),
-                "FLIGHT_DEPARTURE" => Some(Self::FlightDeparture),
-                "HOTEL" => Some(Self::Hotel),
-                "HOTEL_ROOM_TYPE" => Some(Self::HotelRoomType),
-                "INVITE" => Some(Self::Invite),
-                "MAP_PIN" => Some(Self::MapPin),
-                "MEMBERSHIP" => Some(Self::Membership),
-                "MULTIPLE_PEOPLE" => Some(Self::MultiplePeople),
-                "OFFER" => Some(Self::Offer),
-                "PERSON" => Some(Self::Person),
-                "PHONE" => Some(Self::Phone),
-                "RESTAURANT_ICON" => Some(Self::RestaurantIcon),
-                "SHOPPING_CART" => Some(Self::ShoppingCart),
-                "STAR" => Some(Self::Star),
-                "STORE" => Some(Self::Store),
-                "TICKET" => Some(Self::Ticket),
-                "TRAIN" => Some(Self::Train),
-                "VIDEO_CAMERA" => Some(Self::VideoCamera),
-                "VIDEO_PLAY" => Some(Self::VideoPlay),
+                "DELETION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATOR" => Some(Self::Creator),
+                "SPACE_OWNER" => Some(Self::SpaceOwner),
+                "ADMIN" => Some(Self::Admin),
+                "APP_MESSAGE_EXPIRY" => Some(Self::AppMessageExpiry),
+                "CREATOR_VIA_APP" => Some(Self::CreatorViaApp),
+                "SPACE_OWNER_VIA_APP" => Some(Self::SpaceOwnerViaApp),
                 _ => None,
             }
         }
     }
-    /// A `WidgetMarkup` can only have one of the following items. You can use
-    /// multiple `WidgetMarkup` fields to display more items.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Data {
-        /// Display a text paragraph in this widget.
-        #[prost(message, tag = "1")]
-        TextParagraph(TextParagraph),
-        /// Display an image in this widget.
-        #[prost(message, tag = "2")]
-        Image(Image),
-        /// Display a key value item in this widget.
-        #[prost(message, tag = "3")]
-        KeyValue(KeyValue),
-    }
 }
-/// A Google Group in Google Chat.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Group {
-    /// Resource name for a Google Group.
+/// The history state for messages and spaces. Specifies how long messages and
+/// conversation threads are kept after creation.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum HistoryState {
+    /// Default value. Do not use.
+    Unspecified = 0,
+    /// History off. [Messages and threads are kept for 24
+    /// hours](<https://support.google.com/chat/answer/7664687>).
+    HistoryOff = 1,
+    /// History on. The organization's [Vault retention
+    /// rules](<https://support.google.com/vault/answer/7657597>) specify for
+    /// how long messages and threads are kept.
+    HistoryOn = 2,
+}
+impl HistoryState {
+    /// String value of the enum field names used in the ProtoBuf definition.
     ///
-    /// Represents a
-    /// [group](<https://cloud.google.com/identity/docs/reference/rest/v1/groups>) in
-    /// Cloud Identity Groups API.
-    ///
-    /// Format: groups/{group}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            HistoryState::Unspecified => "HISTORY_STATE_UNSPECIFIED",
+            HistoryState::HistoryOff => "HISTORY_OFF",
+            HistoryState::HistoryOn => "HISTORY_ON",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "HISTORY_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "HISTORY_OFF" => Some(Self::HistoryOff),
+            "HISTORY_ON" => Some(Self::HistoryOn),
+            _ => None,
+        }
+    }
 }
 /// A user in Google Chat.
 /// When returned as an output from a request, if your Chat app [authenticates as
@@ -482,6 +195,179 @@ pub mod user {
             }
         }
     }
+}
+/// A reaction to a message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Reaction {
+    /// The resource name of the reaction.
+    ///
+    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The user who created the reaction.
+    #[prost(message, optional, tag = "2")]
+    pub user: ::core::option::Option<User>,
+    /// The emoji used in the reaction.
+    #[prost(message, optional, tag = "3")]
+    pub emoji: ::core::option::Option<Emoji>,
+}
+/// An emoji that is used as a reaction to a message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Emoji {
+    #[prost(oneof = "emoji::Content", tags = "1, 2")]
+    pub content: ::core::option::Option<emoji::Content>,
+}
+/// Nested message and enum types in `Emoji`.
+pub mod emoji {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Content {
+        /// A basic emoji represented by a unicode string.
+        #[prost(string, tag = "1")]
+        Unicode(::prost::alloc::string::String),
+        /// Output only. A custom emoji.
+        #[prost(message, tag = "2")]
+        CustomEmoji(super::CustomEmoji),
+    }
+}
+/// Represents a custom emoji.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomEmoji {
+    /// Unique key for the custom emoji resource.
+    #[prost(string, tag = "1")]
+    pub uid: ::prost::alloc::string::String,
+}
+/// The number of people who reacted to a message with a specific emoji.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EmojiReactionSummary {
+    /// Emoji associated with the reactions.
+    #[prost(message, optional, tag = "1")]
+    pub emoji: ::core::option::Option<Emoji>,
+    /// The total number of reactions using the associated emoji.
+    #[prost(int32, optional, tag = "2")]
+    pub reaction_count: ::core::option::Option<i32>,
+}
+/// Creates a reaction to a message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateReactionRequest {
+    /// Required. The message where the reaction is created.
+    ///
+    /// Format: `spaces/{space}/messages/{message}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The reaction to create.
+    #[prost(message, optional, tag = "2")]
+    pub reaction: ::core::option::Option<Reaction>,
+}
+/// Lists reactions to a message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListReactionsRequest {
+    /// Required. The message users reacted to.
+    ///
+    /// Format: `spaces/{space}/messages/{message}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of reactions returned. The service can return
+    /// fewer reactions than this value. If unspecified, the default value is 25.
+    /// The maximum value is 200; values above 200 are changed to 200.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. (If resuming from a previous query.)
+    ///
+    /// A page token received from a previous list reactions call. Provide this
+    /// to retrieve the subsequent page.
+    ///
+    /// When paginating, the filter value should match the call that provided the
+    /// page token. Passing a different value might lead to unexpected results.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. A query filter.
+    ///
+    /// You can filter reactions by
+    /// [emoji](<https://developers.google.com/chat/api/reference/rest/v1/Emoji>)
+    /// (either `emoji.unicode` or `emoji.custom_emoji.uid`) and
+    /// [user](<https://developers.google.com/chat/api/reference/rest/v1/User>)
+    /// (`user.name`).
+    ///
+    /// To filter reactions for multiple emojis or users, join similar fields
+    /// with the `OR` operator, such as `emoji.unicode = "🙂" OR emoji.unicode =
+    /// "👍"` and `user.name = "users/AAAAAA" OR user.name = "users/BBBBBB"`.
+    ///
+    /// To filter reactions by emoji and user, use the `AND` operator, such as
+    /// `emoji.unicode = "🙂" AND user.name = "users/AAAAAA"`.
+    ///
+    /// If your query uses both `AND` and `OR`, group them with parentheses.
+    ///
+    /// For example, the following queries are valid:
+    ///
+    /// ```
+    /// user.name = "users/{user}"
+    /// emoji.unicode = "🙂"
+    /// emoji.custom_emoji.uid = "{uid}"
+    /// emoji.unicode = "🙂" OR emoji.unicode = "👍"
+    /// emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}"
+    /// emoji.unicode = "🙂" AND user.name = "users/{user}"
+    /// (emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}")
+    /// AND user.name = "users/{user}"
+    /// ```
+    ///
+    /// The following queries are invalid:
+    ///
+    /// ```
+    /// emoji.unicode = "🙂" AND emoji.unicode = "👍"
+    /// emoji.unicode = "🙂" AND emoji.custom_emoji.uid = "{uid}"
+    /// emoji.unicode = "🙂" OR user.name = "users/{user}"
+    /// emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}" OR
+    /// user.name = "users/{user}"
+    /// emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}"
+    /// AND user.name = "users/{user}"
+    /// ```
+    ///
+    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
+    /// error.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListReactionsResponse {
+    /// List of reactions in the requested (or first) page.
+    #[prost(message, repeated, tag = "1")]
+    pub reactions: ::prost::alloc::vec::Vec<Reaction>,
+    /// Continuation token to retrieve the next page of results. It's empty
+    /// for the last page of results.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Deletes a reaction to a message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteReactionRequest {
+    /// Required. Name of the reaction to delete.
+    ///
+    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A Google Group in Google Chat.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Group {
+    /// Resource name for a Google Group.
+    ///
+    /// Represents a
+    /// [group](<https://cloud.google.com/identity/docs/reference/rest/v1/groups>) in
+    /// Cloud Identity Groups API.
+    ///
+    /// Format: groups/{group}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
 }
 /// Represents a membership relation in Google Chat, such as whether a user or
 /// Chat app is invited to, part of, or absent from a space.
@@ -797,43 +683,6 @@ pub struct DeleteMembershipRequest {
     /// Format: `spaces/{space}/members/{member}` or `spaces/{space}/members/app`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-}
-/// The history state for messages and spaces. Specifies how long messages and
-/// conversation threads are kept after creation.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum HistoryState {
-    /// Default value. Do not use.
-    Unspecified = 0,
-    /// History off. [Messages and threads are kept for 24
-    /// hours](<https://support.google.com/chat/answer/7664687>).
-    HistoryOff = 1,
-    /// History on. The organization's [Vault retention
-    /// rules](<https://support.google.com/vault/answer/7657597>) specify for
-    /// how long messages and threads are kept.
-    HistoryOn = 2,
-}
-impl HistoryState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            HistoryState::Unspecified => "HISTORY_STATE_UNSPECIFIED",
-            HistoryState::HistoryOff => "HISTORY_OFF",
-            HistoryState::HistoryOn => "HISTORY_ON",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "HISTORY_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "HISTORY_OFF" => Some(Self::HistoryOff),
-            "HISTORY_ON" => Some(Self::HistoryOn),
-            _ => None,
-        }
-    }
 }
 /// A space in Google Chat. Spaces are conversations between two or more users
 /// or 1:1 messages between a user and a Chat app.
@@ -1331,6 +1180,400 @@ pub struct SetUpSpaceRequest {
     #[prost(message, repeated, tag = "4")]
     pub memberships: ::prost::alloc::vec::Vec<Membership>,
 }
+/// A widget is a UI element that presents text and images.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WidgetMarkup {
+    /// A list of buttons. Buttons is also `oneof data` and only one of these
+    /// fields should be set.
+    #[prost(message, repeated, tag = "6")]
+    pub buttons: ::prost::alloc::vec::Vec<widget_markup::Button>,
+    /// A `WidgetMarkup` can only have one of the following items. You can use
+    /// multiple `WidgetMarkup` fields to display more items.
+    #[prost(oneof = "widget_markup::Data", tags = "1, 2, 3")]
+    pub data: ::core::option::Option<widget_markup::Data>,
+}
+/// Nested message and enum types in `WidgetMarkup`.
+pub mod widget_markup {
+    /// A paragraph of text. Formatted text supported. For more information
+    /// about formatting text, see
+    /// [Formatting text in Google Chat
+    /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
+    /// and
+    /// [Formatting
+    /// text in Google Workspace
+    /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TextParagraph {
+        #[prost(string, tag = "1")]
+        pub text: ::prost::alloc::string::String,
+    }
+    /// A button. Can be a text button or an image button.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Button {
+        #[prost(oneof = "button::Type", tags = "1, 2")]
+        pub r#type: ::core::option::Option<button::Type>,
+    }
+    /// Nested message and enum types in `Button`.
+    pub mod button {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Type {
+            /// A button with text and `onclick` action.
+            #[prost(message, tag = "1")]
+            TextButton(super::TextButton),
+            /// A button with image and `onclick` action.
+            #[prost(message, tag = "2")]
+            ImageButton(super::ImageButton),
+        }
+    }
+    /// A button with text and `onclick` action.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TextButton {
+        /// The text of the button.
+        #[prost(string, tag = "1")]
+        pub text: ::prost::alloc::string::String,
+        /// The `onclick` action of the button.
+        #[prost(message, optional, tag = "2")]
+        pub on_click: ::core::option::Option<OnClick>,
+    }
+    /// A UI element contains a key (label) and a value (content). This
+    /// element can also contain some actions such as `onclick` button.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct KeyValue {
+        /// The text of the top label. Formatted text supported. For more information
+        /// about formatting text, see
+        /// [Formatting text in Google Chat
+        /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
+        /// and
+        /// [Formatting
+        /// text in Google Workspace
+        /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
+        #[prost(string, tag = "3")]
+        pub top_label: ::prost::alloc::string::String,
+        /// The text of the content. Formatted text supported and always required.
+        /// For more information
+        /// about formatting text, see
+        /// [Formatting text in Google Chat
+        /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
+        /// and
+        /// [Formatting
+        /// text in Google Workspace
+        /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
+        #[prost(string, tag = "4")]
+        pub content: ::prost::alloc::string::String,
+        /// If the content should be multiline.
+        #[prost(bool, tag = "9")]
+        pub content_multiline: bool,
+        /// The text of the bottom label. Formatted text supported. For more
+        /// information about formatting text, see [Formatting text in Google Chat
+        /// apps](<https://developers.google.com/chat/format-messages#card-formatting>)
+        /// and
+        /// [Formatting
+        /// text in Google Workspace
+        /// Add-ons](<https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting>).
+        #[prost(string, tag = "5")]
+        pub bottom_label: ::prost::alloc::string::String,
+        /// The `onclick` action. Only the top label, bottom label, and content
+        /// region are clickable.
+        #[prost(message, optional, tag = "6")]
+        pub on_click: ::core::option::Option<OnClick>,
+        /// At least one of icons, `top_label` and `bottom_label` must be defined.
+        #[prost(oneof = "key_value::Icons", tags = "1, 2")]
+        pub icons: ::core::option::Option<key_value::Icons>,
+        /// A control widget. You can set either `button` or `switch_widget`,
+        /// but not both.
+        #[prost(oneof = "key_value::Control", tags = "7")]
+        pub control: ::core::option::Option<key_value::Control>,
+    }
+    /// Nested message and enum types in `KeyValue`.
+    pub mod key_value {
+        /// At least one of icons, `top_label` and `bottom_label` must be defined.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Icons {
+            /// An enum value that's replaced by the Chat API with the
+            /// corresponding icon image.
+            #[prost(enumeration = "super::Icon", tag = "1")]
+            Icon(i32),
+            /// The icon specified by a URL.
+            #[prost(string, tag = "2")]
+            IconUrl(::prost::alloc::string::String),
+        }
+        /// A control widget. You can set either `button` or `switch_widget`,
+        /// but not both.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Control {
+            /// A button that can be clicked to trigger an action.
+            #[prost(message, tag = "7")]
+            Button(super::Button),
+        }
+    }
+    /// An image that's specified by a URL and can have an `onclick` action.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Image {
+        /// The URL of the image.
+        #[prost(string, tag = "1")]
+        pub image_url: ::prost::alloc::string::String,
+        /// The `onclick` action.
+        #[prost(message, optional, tag = "2")]
+        pub on_click: ::core::option::Option<OnClick>,
+        /// The aspect ratio of this image (width and height). This field lets you
+        /// reserve the right height for the image while waiting for it to load.
+        /// It's not meant to override the built-in aspect ratio of the image.
+        /// If unset, the server fills it by prefetching the image.
+        #[prost(double, tag = "3")]
+        pub aspect_ratio: f64,
+    }
+    /// An image button with an `onclick` action.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ImageButton {
+        /// The `onclick` action.
+        #[prost(message, optional, tag = "2")]
+        pub on_click: ::core::option::Option<OnClick>,
+        /// The name of this `image_button` that's used for accessibility.
+        /// Default value is provided if this name isn't specified.
+        #[prost(string, tag = "4")]
+        pub name: ::prost::alloc::string::String,
+        /// The icon can be specified by an `Icon` `enum` or a URL.
+        #[prost(oneof = "image_button::Icons", tags = "1, 3")]
+        pub icons: ::core::option::Option<image_button::Icons>,
+    }
+    /// Nested message and enum types in `ImageButton`.
+    pub mod image_button {
+        /// The icon can be specified by an `Icon` `enum` or a URL.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Icons {
+            /// The icon specified by an `enum` that indices to an icon provided by
+            /// Chat API.
+            #[prost(enumeration = "super::Icon", tag = "1")]
+            Icon(i32),
+            /// The icon specified by a URL.
+            #[prost(string, tag = "3")]
+            IconUrl(::prost::alloc::string::String),
+        }
+    }
+    /// An `onclick` action (for example, open a link).
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OnClick {
+        #[prost(oneof = "on_click::Data", tags = "1, 2")]
+        pub data: ::core::option::Option<on_click::Data>,
+    }
+    /// Nested message and enum types in `OnClick`.
+    pub mod on_click {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Data {
+            /// A form action is triggered by this `onclick` action if specified.
+            #[prost(message, tag = "1")]
+            Action(super::FormAction),
+            /// This `onclick` action triggers an open link action if specified.
+            #[prost(message, tag = "2")]
+            OpenLink(super::OpenLink),
+        }
+    }
+    /// A link that opens a new window.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct OpenLink {
+        /// The URL to open.
+        #[prost(string, tag = "1")]
+        pub url: ::prost::alloc::string::String,
+    }
+    /// A form action describes the behavior when the form is submitted.
+    /// For example, you can invoke Apps Script to handle the form.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FormAction {
+        /// The method name is used to identify which part of the form triggered the
+        /// form submission. This information is echoed back to the Chat app as part
+        /// of the card click event. You can use the same method name for several
+        /// elements that trigger a common behavior.
+        #[prost(string, tag = "1")]
+        pub action_method_name: ::prost::alloc::string::String,
+        /// List of action parameters.
+        #[prost(message, repeated, tag = "2")]
+        pub parameters: ::prost::alloc::vec::Vec<form_action::ActionParameter>,
+    }
+    /// Nested message and enum types in `FormAction`.
+    pub mod form_action {
+        /// List of string parameters to supply when the action method is invoked.
+        /// For example, consider three snooze buttons: snooze now, snooze one day,
+        /// snooze next week. You might use `action method = snooze()`, passing the
+        /// snooze type and snooze time in the list of string parameters.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ActionParameter {
+            /// The name of the parameter for the action script.
+            #[prost(string, tag = "1")]
+            pub key: ::prost::alloc::string::String,
+            /// The value of the parameter.
+            #[prost(string, tag = "2")]
+            pub value: ::prost::alloc::string::String,
+        }
+    }
+    /// The set of supported icons.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Icon {
+        Unspecified = 0,
+        Airplane = 1,
+        Bookmark = 26,
+        Bus = 25,
+        Car = 9,
+        Clock = 2,
+        ConfirmationNumberIcon = 12,
+        Dollar = 14,
+        Description = 27,
+        Email = 10,
+        EventPerformer = 20,
+        EventSeat = 21,
+        FlightArrival = 16,
+        FlightDeparture = 15,
+        Hotel = 6,
+        HotelRoomType = 17,
+        Invite = 19,
+        MapPin = 3,
+        Membership = 24,
+        MultiplePeople = 18,
+        Offer = 30,
+        Person = 11,
+        Phone = 13,
+        RestaurantIcon = 7,
+        ShoppingCart = 8,
+        Star = 5,
+        Store = 22,
+        Ticket = 4,
+        Train = 23,
+        VideoCamera = 28,
+        VideoPlay = 29,
+    }
+    impl Icon {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Icon::Unspecified => "ICON_UNSPECIFIED",
+                Icon::Airplane => "AIRPLANE",
+                Icon::Bookmark => "BOOKMARK",
+                Icon::Bus => "BUS",
+                Icon::Car => "CAR",
+                Icon::Clock => "CLOCK",
+                Icon::ConfirmationNumberIcon => "CONFIRMATION_NUMBER_ICON",
+                Icon::Dollar => "DOLLAR",
+                Icon::Description => "DESCRIPTION",
+                Icon::Email => "EMAIL",
+                Icon::EventPerformer => "EVENT_PERFORMER",
+                Icon::EventSeat => "EVENT_SEAT",
+                Icon::FlightArrival => "FLIGHT_ARRIVAL",
+                Icon::FlightDeparture => "FLIGHT_DEPARTURE",
+                Icon::Hotel => "HOTEL",
+                Icon::HotelRoomType => "HOTEL_ROOM_TYPE",
+                Icon::Invite => "INVITE",
+                Icon::MapPin => "MAP_PIN",
+                Icon::Membership => "MEMBERSHIP",
+                Icon::MultiplePeople => "MULTIPLE_PEOPLE",
+                Icon::Offer => "OFFER",
+                Icon::Person => "PERSON",
+                Icon::Phone => "PHONE",
+                Icon::RestaurantIcon => "RESTAURANT_ICON",
+                Icon::ShoppingCart => "SHOPPING_CART",
+                Icon::Star => "STAR",
+                Icon::Store => "STORE",
+                Icon::Ticket => "TICKET",
+                Icon::Train => "TRAIN",
+                Icon::VideoCamera => "VIDEO_CAMERA",
+                Icon::VideoPlay => "VIDEO_PLAY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ICON_UNSPECIFIED" => Some(Self::Unspecified),
+                "AIRPLANE" => Some(Self::Airplane),
+                "BOOKMARK" => Some(Self::Bookmark),
+                "BUS" => Some(Self::Bus),
+                "CAR" => Some(Self::Car),
+                "CLOCK" => Some(Self::Clock),
+                "CONFIRMATION_NUMBER_ICON" => Some(Self::ConfirmationNumberIcon),
+                "DOLLAR" => Some(Self::Dollar),
+                "DESCRIPTION" => Some(Self::Description),
+                "EMAIL" => Some(Self::Email),
+                "EVENT_PERFORMER" => Some(Self::EventPerformer),
+                "EVENT_SEAT" => Some(Self::EventSeat),
+                "FLIGHT_ARRIVAL" => Some(Self::FlightArrival),
+                "FLIGHT_DEPARTURE" => Some(Self::FlightDeparture),
+                "HOTEL" => Some(Self::Hotel),
+                "HOTEL_ROOM_TYPE" => Some(Self::HotelRoomType),
+                "INVITE" => Some(Self::Invite),
+                "MAP_PIN" => Some(Self::MapPin),
+                "MEMBERSHIP" => Some(Self::Membership),
+                "MULTIPLE_PEOPLE" => Some(Self::MultiplePeople),
+                "OFFER" => Some(Self::Offer),
+                "PERSON" => Some(Self::Person),
+                "PHONE" => Some(Self::Phone),
+                "RESTAURANT_ICON" => Some(Self::RestaurantIcon),
+                "SHOPPING_CART" => Some(Self::ShoppingCart),
+                "STAR" => Some(Self::Star),
+                "STORE" => Some(Self::Store),
+                "TICKET" => Some(Self::Ticket),
+                "TRAIN" => Some(Self::Train),
+                "VIDEO_CAMERA" => Some(Self::VideoCamera),
+                "VIDEO_PLAY" => Some(Self::VideoPlay),
+                _ => None,
+            }
+        }
+    }
+    /// A `WidgetMarkup` can only have one of the following items. You can use
+    /// multiple `WidgetMarkup` fields to display more items.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Data {
+        /// Display a text paragraph in this widget.
+        #[prost(message, tag = "1")]
+        TextParagraph(TextParagraph),
+        /// Display an image in this widget.
+        #[prost(message, tag = "2")]
+        Image(Image),
+        /// Display a key value item in this widget.
+        #[prost(message, tag = "3")]
+        KeyValue(KeyValue),
+    }
+}
+/// Represents the status for a request to either invoke or submit a
+/// [dialog](<https://developers.google.com/chat/how-tos/dialogs>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionStatus {
+    /// The status code.
+    #[prost(enumeration = "super::super::rpc::Code", tag = "1")]
+    pub status_code: i32,
+    /// The message to send users about the status of their request.
+    /// If unset, a generic message based on the `status_code` is sent.
+    #[prost(string, tag = "2")]
+    pub user_facing_message: ::prost::alloc::string::String,
+}
 /// The markup for developers to specify the contents of a contextual AddOn.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1458,150 +1701,6 @@ pub mod contextual_add_on_markup {
             pub on_click: ::core::option::Option<super::super::widget_markup::OnClick>,
         }
     }
-}
-/// An attachment in Google Chat.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Attachment {
-    /// Resource name of the attachment, in the form
-    /// `spaces/*/messages/*/attachments/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The original file name for the content, not the full path.
-    #[prost(string, tag = "2")]
-    pub content_name: ::prost::alloc::string::String,
-    /// Output only. The content type (MIME type) of the file.
-    #[prost(string, tag = "3")]
-    pub content_type: ::prost::alloc::string::String,
-    /// Output only. The thumbnail URL which should be used to preview the
-    /// attachment to a human user. Chat apps shouldn't use this URL to download
-    /// attachment content.
-    #[prost(string, tag = "5")]
-    pub thumbnail_uri: ::prost::alloc::string::String,
-    /// Output only. The download URL which should be used to allow a human user to
-    /// download the attachment. Chat apps shouldn't use this URL to download
-    /// attachment content.
-    #[prost(string, tag = "6")]
-    pub download_uri: ::prost::alloc::string::String,
-    /// Output only. The source of the attachment.
-    #[prost(enumeration = "attachment::Source", tag = "9")]
-    pub source: i32,
-    #[prost(oneof = "attachment::DataRef", tags = "4, 7")]
-    pub data_ref: ::core::option::Option<attachment::DataRef>,
-}
-/// Nested message and enum types in `Attachment`.
-pub mod attachment {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Source {
-        Unspecified = 0,
-        DriveFile = 1,
-        UploadedContent = 2,
-    }
-    impl Source {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Source::Unspecified => "SOURCE_UNSPECIFIED",
-                Source::DriveFile => "DRIVE_FILE",
-                Source::UploadedContent => "UPLOADED_CONTENT",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "SOURCE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DRIVE_FILE" => Some(Self::DriveFile),
-                "UPLOADED_CONTENT" => Some(Self::UploadedContent),
-                _ => None,
-            }
-        }
-    }
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum DataRef {
-        /// A reference to the attachment data. This field is used with the media API
-        /// to download the attachment data.
-        #[prost(message, tag = "4")]
-        AttachmentDataRef(super::AttachmentDataRef),
-        /// Output only. A reference to the Google Drive attachment. This field is
-        /// used with the Google Drive API.
-        #[prost(message, tag = "7")]
-        DriveDataRef(super::DriveDataRef),
-    }
-}
-/// A reference to the data of a drive attachment.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DriveDataRef {
-    /// The ID for the drive file. Use with the Drive API.
-    #[prost(string, tag = "2")]
-    pub drive_file_id: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AttachmentDataRef {
-    /// The resource name of the attachment data. This field is used with the media
-    /// API to download the attachment data.
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// Opaque token containing a reference to an uploaded attachment. Treated by
-    /// clients as an opaque string and used to create or update Chat messages with
-    /// attachments.
-    #[prost(string, tag = "2")]
-    pub attachment_upload_token: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetAttachmentRequest {
-    /// Required. Resource name of the attachment, in the form
-    /// `spaces/*/messages/*/attachments/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UploadAttachmentRequest {
-    /// Required. Resource name of the Chat space in which the attachment is
-    /// uploaded. Format "spaces/{space}".
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The filename of the attachment, including the file extension.
-    #[prost(string, tag = "4")]
-    pub filename: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UploadAttachmentResponse {
-    /// Reference to the uploaded attachment.
-    #[prost(message, optional, tag = "1")]
-    pub attachment_data_ref: ::core::option::Option<AttachmentDataRef>,
-}
-/// Represents the status for a request to either invoke or submit a
-/// [dialog](<https://developers.google.com/chat/how-tos/dialogs>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionStatus {
-    /// The status code.
-    #[prost(enumeration = "super::super::rpc::Code", tag = "1")]
-    pub status_code: i32,
-    /// The message to send users about the status of their request.
-    /// If unset, a generic message based on the `status_code` is sent.
-    #[prost(string, tag = "2")]
-    pub user_facing_message: ::prost::alloc::string::String,
 }
 /// Output only. Annotations associated with the plain-text body of the message.
 /// To add basic formatting to a text message, see
@@ -1816,18 +1915,48 @@ impl AnnotationType {
         }
     }
 }
-/// Information about a deleted message. A message is deleted when `delete_time`
-/// is set.
+/// A matched URL in a Chat message. Chat apps can preview matched URLs. For more
+/// information, see [Preview
+/// links](<https://developers.google.com/chat/how-tos/preview-links>).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeletionMetadata {
-    /// Indicates who deleted the message.
-    #[prost(enumeration = "deletion_metadata::DeletionType", tag = "1")]
-    pub deletion_type: i32,
+pub struct MatchedUrl {
+    /// Output only. The URL that was matched.
+    #[prost(string, tag = "2")]
+    pub url: ::prost::alloc::string::String,
 }
-/// Nested message and enum types in `DeletionMetadata`.
-pub mod deletion_metadata {
-    /// Who deleted the message and how it was deleted.
+/// An attachment in Google Chat.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Attachment {
+    /// Resource name of the attachment, in the form
+    /// `spaces/*/messages/*/attachments/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The original file name for the content, not the full path.
+    #[prost(string, tag = "2")]
+    pub content_name: ::prost::alloc::string::String,
+    /// Output only. The content type (MIME type) of the file.
+    #[prost(string, tag = "3")]
+    pub content_type: ::prost::alloc::string::String,
+    /// Output only. The thumbnail URL which should be used to preview the
+    /// attachment to a human user. Chat apps shouldn't use this URL to download
+    /// attachment content.
+    #[prost(string, tag = "5")]
+    pub thumbnail_uri: ::prost::alloc::string::String,
+    /// Output only. The download URL which should be used to allow a human user to
+    /// download the attachment. Chat apps shouldn't use this URL to download
+    /// attachment content.
+    #[prost(string, tag = "6")]
+    pub download_uri: ::prost::alloc::string::String,
+    /// Output only. The source of the attachment.
+    #[prost(enumeration = "attachment::Source", tag = "9")]
+    pub source: i32,
+    #[prost(oneof = "attachment::DataRef", tags = "4, 7")]
+    pub data_ref: ::core::option::Option<attachment::DataRef>,
+}
+/// Nested message and enum types in `Attachment`.
+pub mod attachment {
     #[derive(
         Clone,
         Copy,
@@ -1840,221 +1969,92 @@ pub mod deletion_metadata {
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    pub enum DeletionType {
-        /// This value is unused.
+    pub enum Source {
         Unspecified = 0,
-        /// User deleted their own message.
-        Creator = 1,
-        /// The space owner deleted the message.
-        SpaceOwner = 2,
-        /// A Google Workspace admin deleted the message.
-        Admin = 3,
-        /// A Chat app deleted its own message when it expired.
-        AppMessageExpiry = 4,
-        /// A Chat app deleted the message on behalf of the user.
-        CreatorViaApp = 5,
-        /// A Chat app deleted the message on behalf of the space owner.
-        SpaceOwnerViaApp = 6,
+        DriveFile = 1,
+        UploadedContent = 2,
     }
-    impl DeletionType {
+    impl Source {
         /// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                DeletionType::Unspecified => "DELETION_TYPE_UNSPECIFIED",
-                DeletionType::Creator => "CREATOR",
-                DeletionType::SpaceOwner => "SPACE_OWNER",
-                DeletionType::Admin => "ADMIN",
-                DeletionType::AppMessageExpiry => "APP_MESSAGE_EXPIRY",
-                DeletionType::CreatorViaApp => "CREATOR_VIA_APP",
-                DeletionType::SpaceOwnerViaApp => "SPACE_OWNER_VIA_APP",
+                Source::Unspecified => "SOURCE_UNSPECIFIED",
+                Source::DriveFile => "DRIVE_FILE",
+                Source::UploadedContent => "UPLOADED_CONTENT",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
-                "DELETION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATOR" => Some(Self::Creator),
-                "SPACE_OWNER" => Some(Self::SpaceOwner),
-                "ADMIN" => Some(Self::Admin),
-                "APP_MESSAGE_EXPIRY" => Some(Self::AppMessageExpiry),
-                "CREATOR_VIA_APP" => Some(Self::CreatorViaApp),
-                "SPACE_OWNER_VIA_APP" => Some(Self::SpaceOwnerViaApp),
+                "SOURCE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DRIVE_FILE" => Some(Self::DriveFile),
+                "UPLOADED_CONTENT" => Some(Self::UploadedContent),
                 _ => None,
             }
         }
     }
-}
-/// A matched URL in a Chat message. Chat apps can preview matched URLs. For more
-/// information, see [Preview
-/// links](<https://developers.google.com/chat/how-tos/preview-links>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MatchedUrl {
-    /// Output only. The URL that was matched.
-    #[prost(string, tag = "2")]
-    pub url: ::prost::alloc::string::String,
-}
-/// A reaction to a message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Reaction {
-    /// The resource name of the reaction.
-    ///
-    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The user who created the reaction.
-    #[prost(message, optional, tag = "2")]
-    pub user: ::core::option::Option<User>,
-    /// The emoji used in the reaction.
-    #[prost(message, optional, tag = "3")]
-    pub emoji: ::core::option::Option<Emoji>,
-}
-/// An emoji that is used as a reaction to a message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Emoji {
-    #[prost(oneof = "emoji::Content", tags = "1, 2")]
-    pub content: ::core::option::Option<emoji::Content>,
-}
-/// Nested message and enum types in `Emoji`.
-pub mod emoji {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Content {
-        /// A basic emoji represented by a unicode string.
-        #[prost(string, tag = "1")]
-        Unicode(::prost::alloc::string::String),
-        /// Output only. A custom emoji.
-        #[prost(message, tag = "2")]
-        CustomEmoji(super::CustomEmoji),
+    pub enum DataRef {
+        /// A reference to the attachment data. This field is used with the media API
+        /// to download the attachment data.
+        #[prost(message, tag = "4")]
+        AttachmentDataRef(super::AttachmentDataRef),
+        /// Output only. A reference to the Google Drive attachment. This field is
+        /// used with the Google Drive API.
+        #[prost(message, tag = "7")]
+        DriveDataRef(super::DriveDataRef),
     }
 }
-/// Represents a custom emoji.
+/// A reference to the data of a drive attachment.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomEmoji {
-    /// Unique key for the custom emoji resource.
-    #[prost(string, tag = "1")]
-    pub uid: ::prost::alloc::string::String,
-}
-/// The number of people who reacted to a message with a specific emoji.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EmojiReactionSummary {
-    /// Emoji associated with the reactions.
-    #[prost(message, optional, tag = "1")]
-    pub emoji: ::core::option::Option<Emoji>,
-    /// The total number of reactions using the associated emoji.
-    #[prost(int32, optional, tag = "2")]
-    pub reaction_count: ::core::option::Option<i32>,
-}
-/// Creates a reaction to a message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateReactionRequest {
-    /// Required. The message where the reaction is created.
-    ///
-    /// Format: `spaces/{space}/messages/{message}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The reaction to create.
-    #[prost(message, optional, tag = "2")]
-    pub reaction: ::core::option::Option<Reaction>,
-}
-/// Lists reactions to a message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListReactionsRequest {
-    /// Required. The message users reacted to.
-    ///
-    /// Format: `spaces/{space}/messages/{message}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of reactions returned. The service can return
-    /// fewer reactions than this value. If unspecified, the default value is 25.
-    /// The maximum value is 200; values above 200 are changed to 200.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. (If resuming from a previous query.)
-    ///
-    /// A page token received from a previous list reactions call. Provide this
-    /// to retrieve the subsequent page.
-    ///
-    /// When paginating, the filter value should match the call that provided the
-    /// page token. Passing a different value might lead to unexpected results.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. A query filter.
-    ///
-    /// You can filter reactions by
-    /// [emoji](<https://developers.google.com/chat/api/reference/rest/v1/Emoji>)
-    /// (either `emoji.unicode` or `emoji.custom_emoji.uid`) and
-    /// [user](<https://developers.google.com/chat/api/reference/rest/v1/User>)
-    /// (`user.name`).
-    ///
-    /// To filter reactions for multiple emojis or users, join similar fields
-    /// with the `OR` operator, such as `emoji.unicode = "🙂" OR emoji.unicode =
-    /// "👍"` and `user.name = "users/AAAAAA" OR user.name = "users/BBBBBB"`.
-    ///
-    /// To filter reactions by emoji and user, use the `AND` operator, such as
-    /// `emoji.unicode = "🙂" AND user.name = "users/AAAAAA"`.
-    ///
-    /// If your query uses both `AND` and `OR`, group them with parentheses.
-    ///
-    /// For example, the following queries are valid:
-    ///
-    /// ```
-    /// user.name = "users/{user}"
-    /// emoji.unicode = "🙂"
-    /// emoji.custom_emoji.uid = "{uid}"
-    /// emoji.unicode = "🙂" OR emoji.unicode = "👍"
-    /// emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}"
-    /// emoji.unicode = "🙂" AND user.name = "users/{user}"
-    /// (emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}")
-    /// AND user.name = "users/{user}"
-    /// ```
-    ///
-    /// The following queries are invalid:
-    ///
-    /// ```
-    /// emoji.unicode = "🙂" AND emoji.unicode = "👍"
-    /// emoji.unicode = "🙂" AND emoji.custom_emoji.uid = "{uid}"
-    /// emoji.unicode = "🙂" OR user.name = "users/{user}"
-    /// emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}" OR
-    /// user.name = "users/{user}"
-    /// emoji.unicode = "🙂" OR emoji.custom_emoji.uid = "{uid}"
-    /// AND user.name = "users/{user}"
-    /// ```
-    ///
-    /// Invalid queries are rejected by the server with an `INVALID_ARGUMENT`
-    /// error.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListReactionsResponse {
-    /// List of reactions in the requested (or first) page.
-    #[prost(message, repeated, tag = "1")]
-    pub reactions: ::prost::alloc::vec::Vec<Reaction>,
-    /// Continuation token to retrieve the next page of results. It's empty
-    /// for the last page of results.
+pub struct DriveDataRef {
+    /// The ID for the drive file. Use with the Drive API.
     #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
+    pub drive_file_id: ::prost::alloc::string::String,
 }
-/// Deletes a reaction to a message.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteReactionRequest {
-    /// Required. Name of the reaction to delete.
-    ///
-    /// Format: `spaces/{space}/messages/{message}/reactions/{reaction}`
+pub struct AttachmentDataRef {
+    /// The resource name of the attachment data. This field is used with the media
+    /// API to download the attachment data.
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// Opaque token containing a reference to an uploaded attachment. Treated by
+    /// clients as an opaque string and used to create or update Chat messages with
+    /// attachments.
+    #[prost(string, tag = "2")]
+    pub attachment_upload_token: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetAttachmentRequest {
+    /// Required. Resource name of the attachment, in the form
+    /// `spaces/*/messages/*/attachments/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UploadAttachmentRequest {
+    /// Required. Resource name of the Chat space in which the attachment is
+    /// uploaded. Format "spaces/{space}".
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The filename of the attachment, including the file extension.
+    #[prost(string, tag = "4")]
+    pub filename: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UploadAttachmentResponse {
+    /// Reference to the uploaded attachment.
+    #[prost(message, optional, tag = "1")]
+    pub attachment_data_ref: ::core::option::Option<AttachmentDataRef>,
 }
 /// A [slash command](<https://developers.google.com/chat/how-tos/slash-commands>)
 /// in Google Chat.
