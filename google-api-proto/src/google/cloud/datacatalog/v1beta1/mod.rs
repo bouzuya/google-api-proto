@@ -1,3 +1,73 @@
+/// A result that appears in the response of a search request. Each result
+/// captures details of one entry that matches the search.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchCatalogResult {
+    /// Type of the search result. This field can be used to determine which Get
+    /// method to call to fetch the full resource.
+    #[prost(enumeration = "SearchResultType", tag = "1")]
+    pub search_result_type: i32,
+    /// Sub-type of the search result. This is a dot-delimited description of the
+    /// resource's full type, and is the same as the value callers would provide in
+    /// the "type" search facet.  Examples: `entry.table`, `entry.dataStream`,
+    /// `tagTemplate`.
+    #[prost(string, tag = "2")]
+    pub search_result_subtype: ::prost::alloc::string::String,
+    /// The relative resource name of the resource in URL format.
+    /// Examples:
+    ///
+    ///   * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
+    ///   * `projects/{project_id}/tagTemplates/{tag_template_id}`
+    #[prost(string, tag = "3")]
+    pub relative_resource_name: ::prost::alloc::string::String,
+    /// The full name of the cloud resource the entry belongs to. See:
+    /// <https://cloud.google.com/apis/design/resource_names#full_resource_name.>
+    /// Example:
+    ///
+    ///   * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
+    #[prost(string, tag = "4")]
+    pub linked_resource: ::prost::alloc::string::String,
+    /// Last-modified timestamp of the entry from the managing system.
+    #[prost(message, optional, tag = "7")]
+    pub modify_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The different types of resources that can be returned in search.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum SearchResultType {
+    /// Default unknown type.
+    Unspecified = 0,
+    /// An [Entry][google.cloud.datacatalog.v1beta1.Entry].
+    Entry = 1,
+    /// A [TagTemplate][google.cloud.datacatalog.v1beta1.TagTemplate].
+    TagTemplate = 2,
+    /// An [EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup].
+    EntryGroup = 3,
+}
+impl SearchResultType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            SearchResultType::Unspecified => "SEARCH_RESULT_TYPE_UNSPECIFIED",
+            SearchResultType::Entry => "ENTRY",
+            SearchResultType::TagTemplate => "TAG_TEMPLATE",
+            SearchResultType::EntryGroup => "ENTRY_GROUP",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SEARCH_RESULT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "ENTRY" => Some(Self::Entry),
+            "TAG_TEMPLATE" => Some(Self::TagTemplate),
+            "ENTRY_GROUP" => Some(Self::EntryGroup),
+            _ => None,
+        }
+    }
+}
 /// This enum describes all the possible systems that Data Catalog integrates
 /// with.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -80,6 +150,277 @@ pub struct SystemTimestamps {
     /// Currently only apllicable to BigQuery resources.
     #[prost(message, optional, tag = "3")]
     pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Tags are used to attach custom metadata to Data Catalog resources. Tags
+/// conform to the specifications within their tag template.
+///
+/// See [Data Catalog
+/// IAM](<https://cloud.google.com/data-catalog/docs/concepts/iam>) for information
+/// on the permissions needed to create or view tags.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Tag {
+    /// The resource name of the tag in URL format. Example:
+    ///
+    /// * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+    ///
+    /// where `tag_id` is a system-generated identifier.
+    /// Note that this Tag may not actually be stored in the location in this name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The resource name of the tag template that this tag uses.
+    /// Example:
+    ///
+    /// * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+    ///
+    /// This field cannot be modified after creation.
+    #[prost(string, tag = "2")]
+    pub template: ::prost::alloc::string::String,
+    /// Output only. The display name of the tag template.
+    #[prost(string, tag = "5")]
+    pub template_display_name: ::prost::alloc::string::String,
+    /// Required. This maps the ID of a tag field to the value of and additional
+    /// information about that field. Valid field IDs are defined by the tag's
+    /// template. A tag must have at least 1 field and at most 500 fields.
+    #[prost(btree_map = "string, message", tag = "3")]
+    pub fields: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        TagField,
+    >,
+    /// The scope within the parent resource that this tag is attached to. If not
+    /// provided, the tag is attached to the parent resource itself.
+    /// Deleting the scope from the parent resource will delete all tags attached
+    /// to that scope. These fields cannot be updated after creation.
+    #[prost(oneof = "tag::Scope", tags = "4")]
+    pub scope: ::core::option::Option<tag::Scope>,
+}
+/// Nested message and enum types in `Tag`.
+pub mod tag {
+    /// The scope within the parent resource that this tag is attached to. If not
+    /// provided, the tag is attached to the parent resource itself.
+    /// Deleting the scope from the parent resource will delete all tags attached
+    /// to that scope. These fields cannot be updated after creation.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Scope {
+        /// Resources like Entry can have schemas associated with them. This scope
+        /// allows users to attach tags to an individual column based on that schema.
+        ///
+        /// For attaching a tag to a nested column, use `.` to separate the column
+        /// names. Example:
+        ///
+        /// * `outer_column.inner_column`
+        #[prost(string, tag = "4")]
+        Column(::prost::alloc::string::String),
+    }
+}
+/// Contains the value and supporting information for a field within
+/// a [Tag][google.cloud.datacatalog.v1beta1.Tag].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TagField {
+    /// Output only. The display name of this field.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Output only. The order of this field with respect to other fields in this
+    /// tag. It can be set in
+    /// [Tag][google.cloud.datacatalog.v1beta1.TagTemplateField.order]. For
+    /// example, a higher value can indicate a more important field. The value can
+    /// be negative. Multiple fields can have the same order, and field orders
+    /// within a tag do not have to be sequential.
+    #[prost(int32, tag = "7")]
+    pub order: i32,
+    /// Required. The value of this field.
+    #[prost(oneof = "tag_field::Kind", tags = "2, 3, 4, 5, 6")]
+    pub kind: ::core::option::Option<tag_field::Kind>,
+}
+/// Nested message and enum types in `TagField`.
+pub mod tag_field {
+    /// Holds an enum value.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EnumValue {
+        /// The display name of the enum value.
+        #[prost(string, tag = "1")]
+        pub display_name: ::prost::alloc::string::String,
+    }
+    /// Required. The value of this field.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Kind {
+        /// Holds the value for a tag field with double type.
+        #[prost(double, tag = "2")]
+        DoubleValue(f64),
+        /// Holds the value for a tag field with string type.
+        #[prost(string, tag = "3")]
+        StringValue(::prost::alloc::string::String),
+        /// Holds the value for a tag field with boolean type.
+        #[prost(bool, tag = "4")]
+        BoolValue(bool),
+        /// Holds the value for a tag field with timestamp type.
+        #[prost(message, tag = "5")]
+        TimestampValue(::prost_types::Timestamp),
+        /// Holds the value for a tag field with enum type. This value must be
+        /// one of the allowed values in the definition of this enum.
+        #[prost(message, tag = "6")]
+        EnumValue(EnumValue),
+    }
+}
+/// A tag template defines a tag, which can have one or more typed fields.
+/// The template is used to create and attach the tag to Google Cloud resources.
+/// [Tag template
+/// roles](<https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles>)
+/// provide permissions to create, edit, and use the template. See, for example,
+/// the [TagTemplate
+/// User](<https://cloud.google.com/data-catalog/docs/how-to/template-user>) role,
+/// which includes permission to use the tag template to tag resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TagTemplate {
+    /// The resource name of the tag template in URL format. Example:
+    ///
+    /// * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+    ///
+    /// Note that this TagTemplate and its child resources may not actually be
+    /// stored in the location in this name.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The display name for this template. Defaults to an empty string.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Required. Map of tag template field IDs to the settings for the field.
+    /// This map is an exhaustive list of the allowed fields. This map must contain
+    /// at least one field and at most 500 fields.
+    ///
+    /// The keys to this map are tag template field IDs. Field IDs can contain
+    /// letters (both uppercase and lowercase), numbers (0-9) and underscores (_).
+    /// Field IDs must be at least 1 character long and at most
+    /// 64 characters long. Field IDs must start with a letter or underscore.
+    #[prost(btree_map = "string, message", tag = "3")]
+    pub fields: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        TagTemplateField,
+    >,
+}
+/// The template for an individual field within a tag template.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TagTemplateField {
+    /// Output only. The resource name of the tag template field in URL format.
+    /// Example:
+    ///
+    /// * projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field}
+    ///
+    /// Note that this TagTemplateField may not actually be stored in the location
+    /// in this name.
+    #[prost(string, tag = "6")]
+    pub name: ::prost::alloc::string::String,
+    /// The display name for this field. Defaults to an empty string.
+    #[prost(string, tag = "1")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Required. The type of value this tag field can contain.
+    #[prost(message, optional, tag = "2")]
+    pub r#type: ::core::option::Option<FieldType>,
+    /// Whether this is a required field. Defaults to false.
+    #[prost(bool, tag = "3")]
+    pub is_required: bool,
+    /// The description for this field. Defaults to an empty string.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+    /// The order of this field with respect to other fields in this tag
+    /// template.  A higher value indicates a more important field. The value can
+    /// be negative. Multiple fields can have the same order, and field orders
+    /// within a tag do not have to be sequential.
+    #[prost(int32, tag = "5")]
+    pub order: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FieldType {
+    /// Required.
+    #[prost(oneof = "field_type::TypeDecl", tags = "1, 2")]
+    pub type_decl: ::core::option::Option<field_type::TypeDecl>,
+}
+/// Nested message and enum types in `FieldType`.
+pub mod field_type {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EnumType {
+        #[prost(message, repeated, tag = "1")]
+        pub allowed_values: ::prost::alloc::vec::Vec<enum_type::EnumValue>,
+    }
+    /// Nested message and enum types in `EnumType`.
+    pub mod enum_type {
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct EnumValue {
+            /// Required. The display name of the enum value. Must not be an empty
+            /// string.
+            #[prost(string, tag = "1")]
+            pub display_name: ::prost::alloc::string::String,
+        }
+    }
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PrimitiveType {
+        /// This is the default invalid value for a type.
+        Unspecified = 0,
+        /// A double precision number.
+        Double = 1,
+        /// An UTF-8 string.
+        String = 2,
+        /// A boolean value.
+        Bool = 3,
+        /// A timestamp.
+        Timestamp = 4,
+    }
+    impl PrimitiveType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PrimitiveType::Unspecified => "PRIMITIVE_TYPE_UNSPECIFIED",
+                PrimitiveType::Double => "DOUBLE",
+                PrimitiveType::String => "STRING",
+                PrimitiveType::Bool => "BOOL",
+                PrimitiveType::Timestamp => "TIMESTAMP",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PRIMITIVE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DOUBLE" => Some(Self::Double),
+                "STRING" => Some(Self::String),
+                "BOOL" => Some(Self::Bool),
+                "TIMESTAMP" => Some(Self::Timestamp),
+                _ => None,
+            }
+        }
+    }
+    /// Required.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TypeDecl {
+        /// Represents primitive types - string, bool etc.
+        #[prost(enumeration = "PrimitiveType", tag = "1")]
+        PrimitiveType(i32),
+        /// Represents an enum type.
+        #[prost(message, tag = "2")]
+        EnumType(EnumType),
+    }
 }
 /// A taxonomy is a collection of policy tags that classify data along a common
 /// axis. For instance a data *sensitivity* taxonomy could contain policy tags
@@ -841,317 +1182,6 @@ pub mod policy_tag_manager_client {
         }
     }
 }
-/// Tags are used to attach custom metadata to Data Catalog resources. Tags
-/// conform to the specifications within their tag template.
-///
-/// See [Data Catalog
-/// IAM](<https://cloud.google.com/data-catalog/docs/concepts/iam>) for information
-/// on the permissions needed to create or view tags.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Tag {
-    /// The resource name of the tag in URL format. Example:
-    ///
-    /// * projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
-    ///
-    /// where `tag_id` is a system-generated identifier.
-    /// Note that this Tag may not actually be stored in the location in this name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The resource name of the tag template that this tag uses.
-    /// Example:
-    ///
-    /// * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
-    ///
-    /// This field cannot be modified after creation.
-    #[prost(string, tag = "2")]
-    pub template: ::prost::alloc::string::String,
-    /// Output only. The display name of the tag template.
-    #[prost(string, tag = "5")]
-    pub template_display_name: ::prost::alloc::string::String,
-    /// Required. This maps the ID of a tag field to the value of and additional
-    /// information about that field. Valid field IDs are defined by the tag's
-    /// template. A tag must have at least 1 field and at most 500 fields.
-    #[prost(btree_map = "string, message", tag = "3")]
-    pub fields: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        TagField,
-    >,
-    /// The scope within the parent resource that this tag is attached to. If not
-    /// provided, the tag is attached to the parent resource itself.
-    /// Deleting the scope from the parent resource will delete all tags attached
-    /// to that scope. These fields cannot be updated after creation.
-    #[prost(oneof = "tag::Scope", tags = "4")]
-    pub scope: ::core::option::Option<tag::Scope>,
-}
-/// Nested message and enum types in `Tag`.
-pub mod tag {
-    /// The scope within the parent resource that this tag is attached to. If not
-    /// provided, the tag is attached to the parent resource itself.
-    /// Deleting the scope from the parent resource will delete all tags attached
-    /// to that scope. These fields cannot be updated after creation.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Scope {
-        /// Resources like Entry can have schemas associated with them. This scope
-        /// allows users to attach tags to an individual column based on that schema.
-        ///
-        /// For attaching a tag to a nested column, use `.` to separate the column
-        /// names. Example:
-        ///
-        /// * `outer_column.inner_column`
-        #[prost(string, tag = "4")]
-        Column(::prost::alloc::string::String),
-    }
-}
-/// Contains the value and supporting information for a field within
-/// a [Tag][google.cloud.datacatalog.v1beta1.Tag].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TagField {
-    /// Output only. The display name of this field.
-    #[prost(string, tag = "1")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Output only. The order of this field with respect to other fields in this
-    /// tag. It can be set in
-    /// [Tag][google.cloud.datacatalog.v1beta1.TagTemplateField.order]. For
-    /// example, a higher value can indicate a more important field. The value can
-    /// be negative. Multiple fields can have the same order, and field orders
-    /// within a tag do not have to be sequential.
-    #[prost(int32, tag = "7")]
-    pub order: i32,
-    /// Required. The value of this field.
-    #[prost(oneof = "tag_field::Kind", tags = "2, 3, 4, 5, 6")]
-    pub kind: ::core::option::Option<tag_field::Kind>,
-}
-/// Nested message and enum types in `TagField`.
-pub mod tag_field {
-    /// Holds an enum value.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EnumValue {
-        /// The display name of the enum value.
-        #[prost(string, tag = "1")]
-        pub display_name: ::prost::alloc::string::String,
-    }
-    /// Required. The value of this field.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Kind {
-        /// Holds the value for a tag field with double type.
-        #[prost(double, tag = "2")]
-        DoubleValue(f64),
-        /// Holds the value for a tag field with string type.
-        #[prost(string, tag = "3")]
-        StringValue(::prost::alloc::string::String),
-        /// Holds the value for a tag field with boolean type.
-        #[prost(bool, tag = "4")]
-        BoolValue(bool),
-        /// Holds the value for a tag field with timestamp type.
-        #[prost(message, tag = "5")]
-        TimestampValue(::prost_types::Timestamp),
-        /// Holds the value for a tag field with enum type. This value must be
-        /// one of the allowed values in the definition of this enum.
-        #[prost(message, tag = "6")]
-        EnumValue(EnumValue),
-    }
-}
-/// A tag template defines a tag, which can have one or more typed fields.
-/// The template is used to create and attach the tag to Google Cloud resources.
-/// [Tag template
-/// roles](<https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles>)
-/// provide permissions to create, edit, and use the template. See, for example,
-/// the [TagTemplate
-/// User](<https://cloud.google.com/data-catalog/docs/how-to/template-user>) role,
-/// which includes permission to use the tag template to tag resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TagTemplate {
-    /// The resource name of the tag template in URL format. Example:
-    ///
-    /// * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
-    ///
-    /// Note that this TagTemplate and its child resources may not actually be
-    /// stored in the location in this name.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The display name for this template. Defaults to an empty string.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Required. Map of tag template field IDs to the settings for the field.
-    /// This map is an exhaustive list of the allowed fields. This map must contain
-    /// at least one field and at most 500 fields.
-    ///
-    /// The keys to this map are tag template field IDs. Field IDs can contain
-    /// letters (both uppercase and lowercase), numbers (0-9) and underscores (_).
-    /// Field IDs must be at least 1 character long and at most
-    /// 64 characters long. Field IDs must start with a letter or underscore.
-    #[prost(btree_map = "string, message", tag = "3")]
-    pub fields: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        TagTemplateField,
-    >,
-}
-/// The template for an individual field within a tag template.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TagTemplateField {
-    /// Output only. The resource name of the tag template field in URL format.
-    /// Example:
-    ///
-    /// * projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field}
-    ///
-    /// Note that this TagTemplateField may not actually be stored in the location
-    /// in this name.
-    #[prost(string, tag = "6")]
-    pub name: ::prost::alloc::string::String,
-    /// The display name for this field. Defaults to an empty string.
-    #[prost(string, tag = "1")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Required. The type of value this tag field can contain.
-    #[prost(message, optional, tag = "2")]
-    pub r#type: ::core::option::Option<FieldType>,
-    /// Whether this is a required field. Defaults to false.
-    #[prost(bool, tag = "3")]
-    pub is_required: bool,
-    /// The description for this field. Defaults to an empty string.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// The order of this field with respect to other fields in this tag
-    /// template.  A higher value indicates a more important field. The value can
-    /// be negative. Multiple fields can have the same order, and field orders
-    /// within a tag do not have to be sequential.
-    #[prost(int32, tag = "5")]
-    pub order: i32,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FieldType {
-    /// Required.
-    #[prost(oneof = "field_type::TypeDecl", tags = "1, 2")]
-    pub type_decl: ::core::option::Option<field_type::TypeDecl>,
-}
-/// Nested message and enum types in `FieldType`.
-pub mod field_type {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct EnumType {
-        #[prost(message, repeated, tag = "1")]
-        pub allowed_values: ::prost::alloc::vec::Vec<enum_type::EnumValue>,
-    }
-    /// Nested message and enum types in `EnumType`.
-    pub mod enum_type {
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct EnumValue {
-            /// Required. The display name of the enum value. Must not be an empty
-            /// string.
-            #[prost(string, tag = "1")]
-            pub display_name: ::prost::alloc::string::String,
-        }
-    }
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PrimitiveType {
-        /// This is the default invalid value for a type.
-        Unspecified = 0,
-        /// A double precision number.
-        Double = 1,
-        /// An UTF-8 string.
-        String = 2,
-        /// A boolean value.
-        Bool = 3,
-        /// A timestamp.
-        Timestamp = 4,
-    }
-    impl PrimitiveType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PrimitiveType::Unspecified => "PRIMITIVE_TYPE_UNSPECIFIED",
-                PrimitiveType::Double => "DOUBLE",
-                PrimitiveType::String => "STRING",
-                PrimitiveType::Bool => "BOOL",
-                PrimitiveType::Timestamp => "TIMESTAMP",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PRIMITIVE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DOUBLE" => Some(Self::Double),
-                "STRING" => Some(Self::String),
-                "BOOL" => Some(Self::Bool),
-                "TIMESTAMP" => Some(Self::Timestamp),
-                _ => None,
-            }
-        }
-    }
-    /// Required.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum TypeDecl {
-        /// Represents primitive types - string, bool etc.
-        #[prost(enumeration = "PrimitiveType", tag = "1")]
-        PrimitiveType(i32),
-        /// Represents an enum type.
-        #[prost(message, tag = "2")]
-        EnumType(EnumType),
-    }
-}
-/// Detailed counts on the entry's usage.
-/// Caveats:
-/// - Only BigQuery tables have usage stats
-/// - The usage stats only include BigQuery query jobs
-/// - The usage stats might be underestimated, e.g. wildcard table references
-/// are not yet counted in usage computation
-/// <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageStats {
-    /// The number of times that the underlying entry was successfully used.
-    #[prost(float, tag = "1")]
-    pub total_completions: f32,
-    /// The number of times that the underlying entry was attempted to be used
-    /// but failed.
-    #[prost(float, tag = "2")]
-    pub total_failures: f32,
-    /// The number of times that the underlying entry was attempted to be used
-    /// but was cancelled by the user.
-    #[prost(float, tag = "3")]
-    pub total_cancellations: f32,
-    /// Total time spent (in milliseconds) during uses the resulted in completions.
-    #[prost(float, tag = "4")]
-    pub total_execution_time_for_completions_millis: f32,
-}
-/// The set of all usage signals that we store in Data Catalog.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UsageSignal {
-    /// The timestamp of the end of the usage statistics duration.
-    #[prost(message, optional, tag = "1")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Usage statistics over each of the pre-defined time ranges, supported
-    /// strings for time ranges are {"24H", "7D", "30D"}.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub usage_within_time_range: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        UsageStats,
-    >,
-}
 /// Message capturing a taxonomy and its policy tag hierarchy as a nested proto.
 /// Used for taxonomy import/export and mutation.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1421,75 +1451,58 @@ pub mod policy_tag_manager_serialization_client {
         }
     }
 }
-/// A result that appears in the response of a search request. Each result
-/// captures details of one entry that matches the search.
+/// Describes a Cloud Storage fileset entry.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchCatalogResult {
-    /// Type of the search result. This field can be used to determine which Get
-    /// method to call to fetch the full resource.
-    #[prost(enumeration = "SearchResultType", tag = "1")]
-    pub search_result_type: i32,
-    /// Sub-type of the search result. This is a dot-delimited description of the
-    /// resource's full type, and is the same as the value callers would provide in
-    /// the "type" search facet.  Examples: `entry.table`, `entry.dataStream`,
-    /// `tagTemplate`.
-    #[prost(string, tag = "2")]
-    pub search_result_subtype: ::prost::alloc::string::String,
-    /// The relative resource name of the resource in URL format.
-    /// Examples:
+pub struct GcsFilesetSpec {
+    /// Required. Patterns to identify a set of files in Google Cloud Storage.
+    /// See [Cloud Storage
+    /// documentation](<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>)
+    /// for more information. Note that bucket wildcards are currently not
+    /// supported.
     ///
-    ///   * `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
-    ///   * `projects/{project_id}/tagTemplates/{tag_template_id}`
-    #[prost(string, tag = "3")]
-    pub relative_resource_name: ::prost::alloc::string::String,
-    /// The full name of the cloud resource the entry belongs to. See:
-    /// <https://cloud.google.com/apis/design/resource_names#full_resource_name.>
-    /// Example:
+    /// Examples of valid file_patterns:
     ///
-    ///   * `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
-    #[prost(string, tag = "4")]
-    pub linked_resource: ::prost::alloc::string::String,
-    /// Last-modified timestamp of the entry from the managing system.
-    #[prost(message, optional, tag = "7")]
-    pub modify_time: ::core::option::Option<::prost_types::Timestamp>,
+    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
+    ///                               directory.
+    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
+    ///                                spanning all subdirectories.
+    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
+    ///                               `bucket_name`
+    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
+    ///                                `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
+    ///                                     vowel character followed by `.txt` in
+    ///                                     `bucket_name`
+    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
+    ///                                   or `m` followed by `.txt` in `bucket_name`
+    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
+    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
+    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+    ///
+    /// You can combine wildcards to provide more powerful matches, for example:
+    ///
+    ///   * `gs://bucket_name/\[a-m\]??.j*g`
+    #[prost(string, repeated, tag = "1")]
+    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Output only. Sample files contained in this fileset, not all files
+    /// contained in this fileset are represented here.
+    #[prost(message, repeated, tag = "2")]
+    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
 }
-/// The different types of resources that can be returned in search.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum SearchResultType {
-    /// Default unknown type.
-    Unspecified = 0,
-    /// An [Entry][google.cloud.datacatalog.v1beta1.Entry].
-    Entry = 1,
-    /// A [TagTemplate][google.cloud.datacatalog.v1beta1.TagTemplate].
-    TagTemplate = 2,
-    /// An [EntryGroup][google.cloud.datacatalog.v1beta1.EntryGroup].
-    EntryGroup = 3,
-}
-impl SearchResultType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            SearchResultType::Unspecified => "SEARCH_RESULT_TYPE_UNSPECIFIED",
-            SearchResultType::Entry => "ENTRY",
-            SearchResultType::TagTemplate => "TAG_TEMPLATE",
-            SearchResultType::EntryGroup => "ENTRY_GROUP",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SEARCH_RESULT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "ENTRY" => Some(Self::Entry),
-            "TAG_TEMPLATE" => Some(Self::TagTemplate),
-            "ENTRY_GROUP" => Some(Self::EntryGroup),
-            _ => None,
-        }
-    }
+/// Specifications of a single file in Cloud Storage.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcsFileSpec {
+    /// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
+    #[prost(string, tag = "1")]
+    pub file_path: ::prost::alloc::string::String,
+    /// Output only. Timestamps about the Cloud Storage file.
+    #[prost(message, optional, tag = "2")]
+    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
+    /// Output only. The size of the file, in bytes.
+    #[prost(int64, tag = "4")]
+    pub size_bytes: i64,
 }
 /// Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1629,58 +1642,45 @@ impl TableSourceType {
         }
     }
 }
-/// Describes a Cloud Storage fileset entry.
+/// Detailed counts on the entry's usage.
+/// Caveats:
+/// - Only BigQuery tables have usage stats
+/// - The usage stats only include BigQuery query jobs
+/// - The usage stats might be underestimated, e.g. wildcard table references
+/// are not yet counted in usage computation
+/// <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFilesetSpec {
-    /// Required. Patterns to identify a set of files in Google Cloud Storage.
-    /// See [Cloud Storage
-    /// documentation](<https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames>)
-    /// for more information. Note that bucket wildcards are currently not
-    /// supported.
-    ///
-    /// Examples of valid file_patterns:
-    ///
-    ///   * `gs://bucket_name/dir/*`: matches all files within `bucket_name/dir`
-    ///                               directory.
-    ///   * `gs://bucket_name/dir/**`: matches all files in `bucket_name/dir`
-    ///                                spanning all subdirectories.
-    ///   * `gs://bucket_name/file*`: matches files prefixed by `file` in
-    ///                               `bucket_name`
-    ///   * `gs://bucket_name/??.txt`: matches files with two characters followed by
-    ///                                `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/\[aeiou\].txt`: matches files that contain a single
-    ///                                     vowel character followed by `.txt` in
-    ///                                     `bucket_name`
-    ///   * `gs://bucket_name/\[a-m\].txt`: matches files that contain `a`, `b`, ...
-    ///                                   or `m` followed by `.txt` in `bucket_name`
-    ///   * `gs://bucket_name/a/*/b`: matches all files in `bucket_name` that match
-    ///                               `a/*/b` pattern, such as `a/c/b`, `a/d/b`
-    ///   * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
-    ///
-    /// You can combine wildcards to provide more powerful matches, for example:
-    ///
-    ///   * `gs://bucket_name/\[a-m\]??.j*g`
-    #[prost(string, repeated, tag = "1")]
-    pub file_patterns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Output only. Sample files contained in this fileset, not all files
-    /// contained in this fileset are represented here.
-    #[prost(message, repeated, tag = "2")]
-    pub sample_gcs_file_specs: ::prost::alloc::vec::Vec<GcsFileSpec>,
+pub struct UsageStats {
+    /// The number of times that the underlying entry was successfully used.
+    #[prost(float, tag = "1")]
+    pub total_completions: f32,
+    /// The number of times that the underlying entry was attempted to be used
+    /// but failed.
+    #[prost(float, tag = "2")]
+    pub total_failures: f32,
+    /// The number of times that the underlying entry was attempted to be used
+    /// but was cancelled by the user.
+    #[prost(float, tag = "3")]
+    pub total_cancellations: f32,
+    /// Total time spent (in milliseconds) during uses the resulted in completions.
+    #[prost(float, tag = "4")]
+    pub total_execution_time_for_completions_millis: f32,
 }
-/// Specifications of a single file in Cloud Storage.
+/// The set of all usage signals that we store in Data Catalog.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GcsFileSpec {
-    /// Required. The full file path. Example: `gs://bucket_name/a/b.txt`.
-    #[prost(string, tag = "1")]
-    pub file_path: ::prost::alloc::string::String,
-    /// Output only. Timestamps about the Cloud Storage file.
-    #[prost(message, optional, tag = "2")]
-    pub gcs_timestamps: ::core::option::Option<SystemTimestamps>,
-    /// Output only. The size of the file, in bytes.
-    #[prost(int64, tag = "4")]
-    pub size_bytes: i64,
+pub struct UsageSignal {
+    /// The timestamp of the end of the usage statistics duration.
+    #[prost(message, optional, tag = "1")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Usage statistics over each of the pre-defined time ranges, supported
+    /// strings for time ranges are {"24H", "7D", "30D"}.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub usage_within_time_range: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        UsageStats,
+    >,
 }
 /// Request message for
 /// [SearchCatalog][google.cloud.datacatalog.v1beta1.DataCatalog.SearchCatalog].
