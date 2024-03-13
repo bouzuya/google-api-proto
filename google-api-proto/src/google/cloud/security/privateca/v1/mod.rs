@@ -935,6 +935,23 @@ pub struct CertificateTemplate {
     /// in the format `projects/*/locations/*/certificateTemplates/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+    /// Optional. The maximum lifetime allowed for issued
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate] that use
+    /// this template. If the issuing
+    /// [CaPool][google.cloud.security.privateca.v1.CaPool]'s
+    /// [IssuancePolicy][google.cloud.security.privateca.v1.CaPool.IssuancePolicy]
+    /// specifies a
+    /// [maximum_lifetime][google.cloud.security.privateca.v1.CaPool.IssuancePolicy.maximum_lifetime]
+    /// the minimum of the two durations will be the maximum lifetime for issued
+    /// [Certificates][google.cloud.security.privateca.v1.Certificate]. Note that
+    /// if the issuing
+    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
+    /// expires before a
+    /// [Certificate][google.cloud.security.privateca.v1.Certificate]'s requested
+    /// maximum_lifetime, the effective lifetime will be explicitly truncated
+    ///   to match it.
+    #[prost(message, optional, tag = "9")]
+    pub maximum_lifetime: ::core::option::Option<::prost_types::Duration>,
     /// Optional. A set of X.509 values that will be applied to all issued
     /// certificates that use this template. If the certificate request includes
     /// conflicting values for the same properties, they will be overwritten by the
@@ -1244,6 +1261,12 @@ pub struct CertificateConfig {
     /// CSR.
     #[prost(message, optional, tag = "3")]
     pub public_key: ::core::option::Option<PublicKey>,
+    /// Optional. When specified this provides a custom SKI to be used in the
+    /// certificate. This should only be used to maintain a SKI of an existing CA
+    /// originally created outside CAS, which was not generated using method (1)
+    /// described in RFC 5280 section 4.2.1.2.
+    #[prost(message, optional, tag = "4")]
+    pub subject_key_id: ::core::option::Option<certificate_config::KeyId>,
 }
 /// Nested message and enum types in `CertificateConfig`.
 pub mod certificate_config {
@@ -1252,13 +1275,23 @@ pub mod certificate_config {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct SubjectConfig {
-        /// Required. Contains distinguished name fields such as the common name,
+        /// Optional. Contains distinguished name fields such as the common name,
         /// location and organization.
         #[prost(message, optional, tag = "1")]
         pub subject: ::core::option::Option<super::Subject>,
         /// Optional. The subject alternative name fields.
         #[prost(message, optional, tag = "2")]
         pub subject_alt_name: ::core::option::Option<super::SubjectAltNames>,
+    }
+    /// A KeyId identifies a specific public key, usually by hashing the public
+    /// key.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct KeyId {
+        /// Required. The value of this KeyId encoded in lowercase hexadecimal. This
+        /// is most likely the 160 bit SHA-1 hash of the public key.
+        #[prost(string, tag = "1")]
+        pub key_id: ::prost::alloc::string::String,
     }
 }
 /// A
@@ -2425,10 +2458,9 @@ pub struct FetchCaCertsRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FetchCaCertsResponse {
-    /// The PEM encoded CA certificate chains of all
-    /// [ACTIVE][CertificateAuthority.State.ACTIVE]
-    /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
-    /// resources in this [CaPool][google.cloud.security.privateca.v1.CaPool].
+    /// The PEM encoded CA certificate chains of all Certificate Authorities in
+    /// this [CaPool][google.cloud.security.privateca.v1.CaPool] in the ENABLED,
+    /// DISABLED, or STAGED states.
     #[prost(message, repeated, tag = "1")]
     pub ca_certs: ::prost::alloc::vec::Vec<fetch_ca_certs_response::CertChain>,
 }
@@ -3492,9 +3524,8 @@ pub mod certificate_authority_service_client {
         }
         /// FetchCaCerts returns the current trust anchor for the
         /// [CaPool][google.cloud.security.privateca.v1.CaPool]. This will include CA
-        /// certificate chains for all ACTIVE
-        /// [CertificateAuthority][google.cloud.security.privateca.v1.CertificateAuthority]
-        /// resources in the [CaPool][google.cloud.security.privateca.v1.CaPool].
+        /// certificate chains for all Certificate Authorities in the ENABLED,
+        /// DISABLED, or STAGED states.
         pub async fn fetch_ca_certs(
             &mut self,
             request: impl tonic::IntoRequest<super::FetchCaCertsRequest>,
