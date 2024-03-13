@@ -224,6 +224,28 @@ pub mod custom_constraint {
         }
     }
 }
+/// Message for Org Policy Canned Constraint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OrgPolicyConstraint {
+    /// Required. Org Policy Canned Constraint id.
+    #[prost(string, tag = "1")]
+    pub canned_constraint_id: ::prost::alloc::string::String,
+    /// Required. Org PolicySpec rules.
+    #[prost(message, repeated, tag = "2")]
+    pub policy_rules: ::prost::alloc::vec::Vec<PolicyRule>,
+}
+/// Message for Org Policy Custom Constraint.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OrgPolicyConstraintCustom {
+    /// Required. Org Policy Custom Constraint.
+    #[prost(message, optional, tag = "1")]
+    pub custom_constraint: ::core::option::Option<CustomConstraint>,
+    /// Required. Org Policyspec rules.
+    #[prost(message, repeated, tag = "2")]
+    pub policy_rules: ::prost::alloc::vec::Vec<PolicyRule>,
+}
 /// Defines the properties in a custom module configuration for Security
 /// Health Analytics. Use the custom module configuration to create custom
 /// detectors that generate custom findings for resources that you specify.
@@ -347,28 +369,6 @@ pub mod custom_config {
             }
         }
     }
-}
-/// Message for Org Policy Canned Constraint.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OrgPolicyConstraint {
-    /// Required. Org Policy Canned Constraint id.
-    #[prost(string, tag = "1")]
-    pub canned_constraint_id: ::prost::alloc::string::String,
-    /// Required. Org PolicySpec rules.
-    #[prost(message, repeated, tag = "2")]
-    pub policy_rules: ::prost::alloc::vec::Vec<PolicyRule>,
-}
-/// Message for Org Policy Custom Constraint.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OrgPolicyConstraintCustom {
-    /// Required. Org Policy Custom Constraint.
-    #[prost(message, optional, tag = "1")]
-    pub custom_constraint: ::core::option::Option<CustomConstraint>,
-    /// Required. Org Policyspec rules.
-    #[prost(message, repeated, tag = "2")]
-    pub policy_rules: ::prost::alloc::vec::Vec<PolicyRule>,
 }
 /// Message for Security Health Analytics built-in detector.
 #[allow(clippy::derive_partial_eq_without_eq)]

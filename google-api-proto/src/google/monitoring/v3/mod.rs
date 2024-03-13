@@ -1,3 +1,2371 @@
+/// A `Service` is a discrete, autonomous, and network-accessible unit, designed
+/// to solve an individual concern
+/// ([Wikipedia](<https://en.wikipedia.org/wiki/Service-orientation>)). In
+/// Cloud Monitoring, a `Service` acts as the root resource under which
+/// operational aspects of the service are accessible.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Service {
+    /// Resource name for this Service. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Name used for UI elements listing this Service.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Configuration for how to query telemetry on a Service.
+    #[prost(message, optional, tag = "13")]
+    pub telemetry: ::core::option::Option<service::Telemetry>,
+    /// Labels which have been used to annotate the service. Label keys must start
+    /// with a letter. Label keys and values may contain lowercase letters,
+    /// numbers, underscores, and dashes. Label keys and values have a maximum
+    /// length of 63 characters, and must be less than 128 bytes in size. Up to 64
+    /// label entries may be stored. For labels which do not have a semantic value,
+    /// the empty string may be supplied for the label value.
+    #[prost(btree_map = "string, string", tag = "14")]
+    pub user_labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// REQUIRED. Service-identifying atoms specifying the underlying service.
+    #[prost(oneof = "service::Identifier", tags = "6, 7, 8, 9, 10, 11")]
+    pub identifier: ::core::option::Option<service::Identifier>,
+}
+/// Nested message and enum types in `Service`.
+pub mod service {
+    /// Custom view of service telemetry. Currently a place-holder pending final
+    /// design.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Custom {}
+    /// App Engine service. Learn more at <https://cloud.google.com/appengine.>
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AppEngine {
+        /// The ID of the App Engine module underlying this service. Corresponds to
+        /// the `module_id` resource label in the `gae_app` monitored resource:
+        /// <https://cloud.google.com/monitoring/api/resources#tag_gae_app>
+        #[prost(string, tag = "1")]
+        pub module_id: ::prost::alloc::string::String,
+    }
+    /// Cloud Endpoints service. Learn more at <https://cloud.google.com/endpoints.>
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CloudEndpoints {
+        /// The name of the Cloud Endpoints service underlying this service.
+        /// Corresponds to the `service` resource label in the `api` monitored
+        /// resource: <https://cloud.google.com/monitoring/api/resources#tag_api>
+        #[prost(string, tag = "1")]
+        pub service: ::prost::alloc::string::String,
+    }
+    /// Istio service scoped to a single Kubernetes cluster. Learn more at
+    /// <https://istio.io.> Clusters running OSS Istio will have their services
+    /// ingested as this type.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ClusterIstio {
+        /// The location of the Kubernetes cluster in which this Istio service is
+        /// defined. Corresponds to the `location` resource label in `k8s_cluster`
+        /// resources.
+        #[prost(string, tag = "1")]
+        pub location: ::prost::alloc::string::String,
+        /// The name of the Kubernetes cluster in which this Istio service is
+        /// defined. Corresponds to the `cluster_name` resource label in
+        /// `k8s_cluster` resources.
+        #[prost(string, tag = "2")]
+        pub cluster_name: ::prost::alloc::string::String,
+        /// The namespace of the Istio service underlying this service. Corresponds
+        /// to the `destination_service_namespace` metric label in Istio metrics.
+        #[prost(string, tag = "3")]
+        pub service_namespace: ::prost::alloc::string::String,
+        /// The name of the Istio service underlying this service. Corresponds to the
+        /// `destination_service_name` metric label in Istio metrics.
+        #[prost(string, tag = "4")]
+        pub service_name: ::prost::alloc::string::String,
+    }
+    /// Istio service scoped to an Istio mesh. Anthos clusters running ASM < 1.6.8
+    /// will have their services ingested as this type.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MeshIstio {
+        /// Identifier for the mesh in which this Istio service is defined.
+        /// Corresponds to the `mesh_uid` metric label in Istio metrics.
+        #[prost(string, tag = "1")]
+        pub mesh_uid: ::prost::alloc::string::String,
+        /// The namespace of the Istio service underlying this service. Corresponds
+        /// to the `destination_service_namespace` metric label in Istio metrics.
+        #[prost(string, tag = "3")]
+        pub service_namespace: ::prost::alloc::string::String,
+        /// The name of the Istio service underlying this service. Corresponds to the
+        /// `destination_service_name` metric label in Istio metrics.
+        #[prost(string, tag = "4")]
+        pub service_name: ::prost::alloc::string::String,
+    }
+    /// Canonical service scoped to an Istio mesh. Anthos clusters running ASM >=
+    /// 1.6.8 will have their services ingested as this type.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IstioCanonicalService {
+        /// Identifier for the Istio mesh in which this canonical service is defined.
+        /// Corresponds to the `mesh_uid` metric label in
+        /// [Istio metrics](<https://cloud.google.com/monitoring/api/metrics_istio>).
+        #[prost(string, tag = "1")]
+        pub mesh_uid: ::prost::alloc::string::String,
+        /// The namespace of the canonical service underlying this service.
+        /// Corresponds to the `destination_canonical_service_namespace` metric
+        /// label in [Istio
+        /// metrics](<https://cloud.google.com/monitoring/api/metrics_istio>).
+        #[prost(string, tag = "3")]
+        pub canonical_service_namespace: ::prost::alloc::string::String,
+        /// The name of the canonical service underlying this service.
+        /// Corresponds to the `destination_canonical_service_name` metric label in
+        /// label in [Istio
+        /// metrics](<https://cloud.google.com/monitoring/api/metrics_istio>).
+        #[prost(string, tag = "4")]
+        pub canonical_service: ::prost::alloc::string::String,
+    }
+    /// Configuration for how to query telemetry on a Service.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Telemetry {
+        /// The full name of the resource that defines this service. Formatted as
+        /// described in <https://cloud.google.com/apis/design/resource_names.>
+        #[prost(string, tag = "1")]
+        pub resource_name: ::prost::alloc::string::String,
+    }
+    /// REQUIRED. Service-identifying atoms specifying the underlying service.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Identifier {
+        /// Custom service type.
+        #[prost(message, tag = "6")]
+        Custom(Custom),
+        /// Type used for App Engine services.
+        #[prost(message, tag = "7")]
+        AppEngine(AppEngine),
+        /// Type used for Cloud Endpoints services.
+        #[prost(message, tag = "8")]
+        CloudEndpoints(CloudEndpoints),
+        /// Type used for Istio services that live in a Kubernetes cluster.
+        #[prost(message, tag = "9")]
+        ClusterIstio(ClusterIstio),
+        /// Type used for Istio services scoped to an Istio mesh.
+        #[prost(message, tag = "10")]
+        MeshIstio(MeshIstio),
+        /// Type used for canonical services scoped to an Istio mesh.
+        /// Metrics for Istio are
+        /// [documented here](<https://istio.io/latest/docs/reference/config/metrics/>)
+        #[prost(message, tag = "11")]
+        IstioCanonicalService(IstioCanonicalService),
+    }
+}
+/// A Service-Level Objective (SLO) describes a level of desired good service. It
+/// consists of a service-level indicator (SLI), a performance goal, and a period
+/// over which the objective is to be evaluated against that goal. The SLO can
+/// use SLIs defined in a number of different manners. Typical SLOs might include
+/// "99% of requests in each rolling week have latency below 200 milliseconds" or
+/// "99.5% of requests in each calendar month return successfully."
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ServiceLevelObjective {
+    /// Resource name for this `ServiceLevelObjective`. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Name used for UI elements listing this SLO.
+    #[prost(string, tag = "11")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The definition of good service, used to measure and calculate the quality
+    /// of the `Service`'s performance with respect to a single aspect of service
+    /// quality.
+    #[prost(message, optional, tag = "3")]
+    pub service_level_indicator: ::core::option::Option<ServiceLevelIndicator>,
+    /// The fraction of service that must be good in order for this objective to be
+    /// met. `0 < goal <= 0.999`.
+    #[prost(double, tag = "4")]
+    pub goal: f64,
+    /// Labels which have been used to annotate the service-level objective. Label
+    /// keys must start with a letter. Label keys and values may contain lowercase
+    /// letters, numbers, underscores, and dashes. Label keys and values have a
+    /// maximum length of 63 characters, and must be less than 128 bytes in size.
+    /// Up to 64 label entries may be stored. For labels which do not have a
+    /// semantic value, the empty string may be supplied for the label value.
+    #[prost(btree_map = "string, string", tag = "12")]
+    pub user_labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// The time period over which the objective will be evaluated.
+    #[prost(oneof = "service_level_objective::Period", tags = "5, 6")]
+    pub period: ::core::option::Option<service_level_objective::Period>,
+}
+/// Nested message and enum types in `ServiceLevelObjective`.
+pub mod service_level_objective {
+    /// `ServiceLevelObjective.View` determines what form of
+    /// `ServiceLevelObjective` is returned from `GetServiceLevelObjective`,
+    /// `ListServiceLevelObjectives`, and `ListServiceLevelObjectiveVersions` RPCs.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum View {
+        /// Same as FULL.
+        Unspecified = 0,
+        /// Return the embedded `ServiceLevelIndicator` in the form in which it was
+        /// defined. If it was defined using a `BasicSli`, return that `BasicSli`.
+        Full = 2,
+        /// For `ServiceLevelIndicator`s using `BasicSli` articulation, instead
+        /// return the `ServiceLevelIndicator` with its mode of computation fully
+        /// spelled out as a `RequestBasedSli`. For `ServiceLevelIndicator`s using
+        /// `RequestBasedSli` or `WindowsBasedSli`, return the
+        /// `ServiceLevelIndicator` as it was provided.
+        Explicit = 1,
+    }
+    impl View {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                View::Unspecified => "VIEW_UNSPECIFIED",
+                View::Full => "FULL",
+                View::Explicit => "EXPLICIT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+                "FULL" => Some(Self::Full),
+                "EXPLICIT" => Some(Self::Explicit),
+                _ => None,
+            }
+        }
+    }
+    /// The time period over which the objective will be evaluated.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Period {
+        /// A rolling time period, semantically "in the past `<rolling_period>`".
+        /// Must be an integer multiple of 1 day no larger than 30 days.
+        #[prost(message, tag = "5")]
+        RollingPeriod(::prost_types::Duration),
+        /// A calendar period, semantically "since the start of the current
+        /// `<calendar_period>`". At this time, only `DAY`, `WEEK`, `FORTNIGHT`, and
+        /// `MONTH` are supported.
+        #[prost(enumeration = "super::super::super::r#type::CalendarPeriod", tag = "6")]
+        CalendarPeriod(i32),
+    }
+}
+/// A Service-Level Indicator (SLI) describes the "performance" of a service. For
+/// some services, the SLI is well-defined. In such cases, the SLI can be
+/// described easily by referencing the well-known SLI and providing the needed
+/// parameters. Alternatively, a "custom" SLI can be defined with a query to the
+/// underlying metric store. An SLI is defined to be `good_service /
+/// total_service` over any queried time interval. The value of performance
+/// always falls into the range `0 <= performance <= 1`. A custom SLI describes
+/// how to compute this ratio, whether this is by dividing values from a pair of
+/// time series, cutting a `Distribution` into good and bad counts, or counting
+/// time windows in which the service complies with a criterion. For separation
+/// of concerns, a single Service-Level Indicator measures performance for only
+/// one aspect of service quality, such as fraction of successful queries or
+/// fast-enough queries.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ServiceLevelIndicator {
+    /// Service level indicators can be grouped by whether the "unit" of service
+    /// being measured is based on counts of good requests or on counts of good
+    /// time windows
+    #[prost(oneof = "service_level_indicator::Type", tags = "4, 1, 2")]
+    pub r#type: ::core::option::Option<service_level_indicator::Type>,
+}
+/// Nested message and enum types in `ServiceLevelIndicator`.
+pub mod service_level_indicator {
+    /// Service level indicators can be grouped by whether the "unit" of service
+    /// being measured is based on counts of good requests or on counts of good
+    /// time windows
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Type {
+        /// Basic SLI on a well-known service type.
+        #[prost(message, tag = "4")]
+        BasicSli(super::BasicSli),
+        /// Request-based SLIs
+        #[prost(message, tag = "1")]
+        RequestBased(super::RequestBasedSli),
+        /// Windows-based SLIs
+        #[prost(message, tag = "2")]
+        WindowsBased(super::WindowsBasedSli),
+    }
+}
+/// An SLI measuring performance on a well-known service type. Performance will
+/// be computed on the basis of pre-defined metrics. The type of the
+/// `service_resource` determines the metrics to use and the
+/// `service_resource.labels` and `metric_labels` are used to construct a
+/// monitoring filter to filter that metric down to just the data relevant to
+/// this service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BasicSli {
+    /// OPTIONAL: The set of RPCs to which this SLI is relevant. Telemetry from
+    /// other methods will not be used to calculate performance for this SLI. If
+    /// omitted, this SLI applies to all the Service's methods. For service types
+    /// that don't support breaking down by method, setting this field will result
+    /// in an error.
+    #[prost(string, repeated, tag = "7")]
+    pub method: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// OPTIONAL: The set of locations to which this SLI is relevant. Telemetry
+    /// from other locations will not be used to calculate performance for this
+    /// SLI. If omitted, this SLI applies to all locations in which the Service has
+    /// activity. For service types that don't support breaking down by location,
+    /// setting this field will result in an error.
+    #[prost(string, repeated, tag = "8")]
+    pub location: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// OPTIONAL: The set of API versions to which this SLI is relevant. Telemetry
+    /// from other API versions will not be used to calculate performance for this
+    /// SLI. If omitted, this SLI applies to all API versions. For service types
+    /// that don't support breaking down by version, setting this field will result
+    /// in an error.
+    #[prost(string, repeated, tag = "9")]
+    pub version: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// This SLI can be evaluated on the basis of availability or latency.
+    #[prost(oneof = "basic_sli::SliCriteria", tags = "2, 3")]
+    pub sli_criteria: ::core::option::Option<basic_sli::SliCriteria>,
+}
+/// Nested message and enum types in `BasicSli`.
+pub mod basic_sli {
+    /// Future parameters for the availability SLI.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AvailabilityCriteria {}
+    /// Parameters for a latency threshold SLI.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct LatencyCriteria {
+        /// Good service is defined to be the count of requests made to this service
+        /// that return in no more than `threshold`.
+        #[prost(message, optional, tag = "3")]
+        pub threshold: ::core::option::Option<::prost_types::Duration>,
+    }
+    /// This SLI can be evaluated on the basis of availability or latency.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SliCriteria {
+        /// Good service is defined to be the count of requests made to this service
+        /// that return successfully.
+        #[prost(message, tag = "2")]
+        Availability(AvailabilityCriteria),
+        /// Good service is defined to be the count of requests made to this service
+        /// that are fast enough with respect to `latency.threshold`.
+        #[prost(message, tag = "3")]
+        Latency(LatencyCriteria),
+    }
+}
+/// Range of numerical values within `min` and `max`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Range {
+    /// Range minimum.
+    #[prost(double, tag = "1")]
+    pub min: f64,
+    /// Range maximum.
+    #[prost(double, tag = "2")]
+    pub max: f64,
+}
+/// Service Level Indicators for which atomic units of service are counted
+/// directly.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RequestBasedSli {
+    /// The means to compute a ratio of `good_service` to `total_service`.
+    #[prost(oneof = "request_based_sli::Method", tags = "1, 3")]
+    pub method: ::core::option::Option<request_based_sli::Method>,
+}
+/// Nested message and enum types in `RequestBasedSli`.
+pub mod request_based_sli {
+    /// The means to compute a ratio of `good_service` to `total_service`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Method {
+        /// `good_total_ratio` is used when the ratio of `good_service` to
+        /// `total_service` is computed from two `TimeSeries`.
+        #[prost(message, tag = "1")]
+        GoodTotalRatio(super::TimeSeriesRatio),
+        /// `distribution_cut` is used when `good_service` is a count of values
+        /// aggregated in a `Distribution` that fall into a good range. The
+        /// `total_service` is the total count of all values aggregated in the
+        /// `Distribution`.
+        #[prost(message, tag = "3")]
+        DistributionCut(super::DistributionCut),
+    }
+}
+/// A `TimeSeriesRatio` specifies two `TimeSeries` to use for computing the
+/// `good_service / total_service` ratio. The specified `TimeSeries` must have
+/// `ValueType = DOUBLE` or `ValueType = INT64` and must have `MetricKind =
+/// DELTA` or `MetricKind = CUMULATIVE`. The `TimeSeriesRatio` must specify
+/// exactly two of good, bad, and total, and the relationship `good_service +
+/// bad_service = total_service` will be assumed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeSeriesRatio {
+    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
+    /// specifying a `TimeSeries` quantifying good service provided. Must have
+    /// `ValueType = DOUBLE` or `ValueType = INT64` and must have `MetricKind =
+    /// DELTA` or `MetricKind = CUMULATIVE`.
+    #[prost(string, tag = "4")]
+    pub good_service_filter: ::prost::alloc::string::String,
+    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
+    /// specifying a `TimeSeries` quantifying bad service, either demanded service
+    /// that was not provided or demanded service that was of inadequate quality.
+    /// Must have `ValueType = DOUBLE` or `ValueType = INT64` and must have
+    /// `MetricKind = DELTA` or `MetricKind = CUMULATIVE`.
+    #[prost(string, tag = "5")]
+    pub bad_service_filter: ::prost::alloc::string::String,
+    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
+    /// specifying a `TimeSeries` quantifying total demanded service. Must have
+    /// `ValueType = DOUBLE` or `ValueType = INT64` and must have `MetricKind =
+    /// DELTA` or `MetricKind = CUMULATIVE`.
+    #[prost(string, tag = "6")]
+    pub total_service_filter: ::prost::alloc::string::String,
+}
+/// A `DistributionCut` defines a `TimeSeries` and thresholds used for measuring
+/// good service and total service. The `TimeSeries` must have `ValueType =
+/// DISTRIBUTION` and `MetricKind = DELTA` or `MetricKind = CUMULATIVE`. The
+/// computed `good_service` will be the estimated count of values in the
+/// `Distribution` that fall within the specified `min` and `max`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DistributionCut {
+    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
+    /// specifying a `TimeSeries` aggregating values. Must have `ValueType =
+    /// DISTRIBUTION` and `MetricKind = DELTA` or `MetricKind = CUMULATIVE`.
+    #[prost(string, tag = "4")]
+    pub distribution_filter: ::prost::alloc::string::String,
+    /// Range of values considered "good." For a one-sided range, set one bound to
+    /// an infinite value.
+    #[prost(message, optional, tag = "5")]
+    pub range: ::core::option::Option<Range>,
+}
+/// A `WindowsBasedSli` defines `good_service` as the count of time windows for
+/// which the provided service was of good quality. Criteria for determining
+/// if service was good are embedded in the `window_criterion`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WindowsBasedSli {
+    /// Duration over which window quality is evaluated. Must be an integer
+    /// fraction of a day and at least `60s`.
+    #[prost(message, optional, tag = "4")]
+    pub window_period: ::core::option::Option<::prost_types::Duration>,
+    /// The criterion to use for evaluating window goodness.
+    #[prost(oneof = "windows_based_sli::WindowCriterion", tags = "5, 2, 6, 7")]
+    pub window_criterion: ::core::option::Option<windows_based_sli::WindowCriterion>,
+}
+/// Nested message and enum types in `WindowsBasedSli`.
+pub mod windows_based_sli {
+    /// A `PerformanceThreshold` is used when each window is good when that window
+    /// has a sufficiently high `performance`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PerformanceThreshold {
+        /// If window `performance >= threshold`, the window is counted as good.
+        #[prost(double, tag = "2")]
+        pub threshold: f64,
+        /// The means, either a request-based SLI or a basic SLI, by which to compute
+        /// performance over a window.
+        #[prost(oneof = "performance_threshold::Type", tags = "1, 3")]
+        pub r#type: ::core::option::Option<performance_threshold::Type>,
+    }
+    /// Nested message and enum types in `PerformanceThreshold`.
+    pub mod performance_threshold {
+        /// The means, either a request-based SLI or a basic SLI, by which to compute
+        /// performance over a window.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Type {
+            /// `RequestBasedSli` to evaluate to judge window quality.
+            #[prost(message, tag = "1")]
+            Performance(super::super::RequestBasedSli),
+            /// `BasicSli` to evaluate to judge window quality.
+            #[prost(message, tag = "3")]
+            BasicSliPerformance(super::super::BasicSli),
+        }
+    }
+    /// A `MetricRange` is used when each window is good when the value x of a
+    /// single `TimeSeries` satisfies `range.min <= x <= range.max`. The provided
+    /// `TimeSeries` must have `ValueType = INT64` or `ValueType = DOUBLE` and
+    /// `MetricKind = GAUGE`.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MetricRange {
+        /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
+        /// specifying the `TimeSeries` to use for evaluating window quality.
+        #[prost(string, tag = "1")]
+        pub time_series: ::prost::alloc::string::String,
+        /// Range of values considered "good." For a one-sided range, set one bound
+        /// to an infinite value.
+        #[prost(message, optional, tag = "4")]
+        pub range: ::core::option::Option<super::Range>,
+    }
+    /// The criterion to use for evaluating window goodness.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum WindowCriterion {
+        /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
+        /// specifying a `TimeSeries` with `ValueType = BOOL`. The window is good if
+        /// any `true` values appear in the window.
+        #[prost(string, tag = "5")]
+        GoodBadMetricFilter(::prost::alloc::string::String),
+        /// A window is good if its `performance` is high enough.
+        #[prost(message, tag = "2")]
+        GoodTotalRatioThreshold(PerformanceThreshold),
+        /// A window is good if the metric's value is in a good range, averaged
+        /// across returned streams.
+        #[prost(message, tag = "6")]
+        MetricMeanInRange(MetricRange),
+        /// A window is good if the metric's value is in a good range, summed across
+        /// returned streams.
+        #[prost(message, tag = "7")]
+        MetricSumInRange(MetricRange),
+    }
+}
+/// The `CreateService` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateServiceRequest {
+    /// Required. Resource [name](<https://cloud.google.com/monitoring/api/v3#project_name>) of
+    /// the parent workspace. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The Service id to use for this Service. If omitted, an id will be
+    /// generated instead. Must match the pattern `\[a-z0-9\-\]+`
+    #[prost(string, tag = "3")]
+    pub service_id: ::prost::alloc::string::String,
+    /// Required. The `Service` to create.
+    #[prost(message, optional, tag = "2")]
+    pub service: ::core::option::Option<Service>,
+}
+/// The `GetService` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetServiceRequest {
+    /// Required. Resource name of the `Service`. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The `ListServices` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListServicesRequest {
+    /// Required. Resource name of the parent containing the listed services, either a
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) or a
+    /// Monitoring Workspace. The formats are:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    ///      workspaces/\[HOST_PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// A filter specifying what `Service`s to return. The filter currently
+    /// supports the following fields:
+    ///
+    ///      - `identifier_case`
+    ///      - `app_engine.module_id`
+    ///      - `cloud_endpoints.service` (reserved for future use)
+    ///      - `mesh_istio.mesh_uid`
+    ///      - `mesh_istio.service_namespace`
+    ///      - `mesh_istio.service_name`
+    ///      - `cluster_istio.location` (deprecated)
+    ///      - `cluster_istio.cluster_name` (deprecated)
+    ///      - `cluster_istio.service_namespace` (deprecated)
+    ///      - `cluster_istio.service_name` (deprecated)
+    ///
+    /// `identifier_case` refers to which option in the identifier oneof is
+    /// populated. For example, the filter `identifier_case = "CUSTOM"` would match
+    /// all services with a value for the `custom` field. Valid options are
+    /// "CUSTOM", "APP_ENGINE", "MESH_ISTIO", plus "CLUSTER_ISTIO" (deprecated)
+    /// and "CLOUD_ENDPOINTS" (reserved for future use).
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// A non-negative number that is the maximum number of results to return.
+    /// When 0, use default page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `nextPageToken` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return additional results from the previous method call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// The `ListServices` response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListServicesResponse {
+    /// The `Service`s matching the specified filter.
+    #[prost(message, repeated, tag = "1")]
+    pub services: ::prost::alloc::vec::Vec<Service>,
+    /// If there are more results than have been returned, then this field is set
+    /// to a non-empty value.  To see the additional results,
+    /// use that value as `page_token` in the next call to this method.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The `UpdateService` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateServiceRequest {
+    /// Required. The `Service` to draw updates from.
+    /// The given `name` specifies the resource to update.
+    #[prost(message, optional, tag = "1")]
+    pub service: ::core::option::Option<Service>,
+    /// A set of field paths defining which fields to use for the update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// The `DeleteService` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteServiceRequest {
+    /// Required. Resource name of the `Service` to delete. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The `CreateServiceLevelObjective` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateServiceLevelObjectiveRequest {
+    /// Required. Resource name of the parent `Service`. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The ServiceLevelObjective id to use for this
+    /// ServiceLevelObjective. If omitted, an id will be generated instead. Must
+    /// match the pattern `\[a-z0-9\-\]+`
+    #[prost(string, tag = "3")]
+    pub service_level_objective_id: ::prost::alloc::string::String,
+    /// Required. The `ServiceLevelObjective` to create.
+    /// The provided `name` will be respected if no `ServiceLevelObjective` exists
+    /// with this name.
+    #[prost(message, optional, tag = "2")]
+    pub service_level_objective: ::core::option::Option<ServiceLevelObjective>,
+}
+/// The `GetServiceLevelObjective` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetServiceLevelObjectiveRequest {
+    /// Required. Resource name of the `ServiceLevelObjective` to get. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// View of the `ServiceLevelObjective` to return. If `DEFAULT`, return the
+    /// `ServiceLevelObjective` as originally defined. If `EXPLICIT` and the
+    /// `ServiceLevelObjective` is defined in terms of a `BasicSli`, replace the
+    /// `BasicSli` with a `RequestBasedSli` spelling out how the SLI is computed.
+    #[prost(enumeration = "service_level_objective::View", tag = "2")]
+    pub view: i32,
+}
+/// The `ListServiceLevelObjectives` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListServiceLevelObjectivesRequest {
+    /// Required. Resource name of the parent containing the listed SLOs, either a
+    /// project or a Monitoring Workspace. The formats are:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
+    ///      workspaces/\[HOST_PROJECT_ID_OR_NUMBER\]/services/-
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// A filter specifying what `ServiceLevelObjective`s to return.
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// A non-negative number that is the maximum number of results to return.
+    /// When 0, use default page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `nextPageToken` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return additional results from the previous method call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// View of the `ServiceLevelObjective`s to return. If `DEFAULT`, return each
+    /// `ServiceLevelObjective` as originally defined. If `EXPLICIT` and the
+    /// `ServiceLevelObjective` is defined in terms of a `BasicSli`, replace the
+    /// `BasicSli` with a `RequestBasedSli` spelling out how the SLI is computed.
+    #[prost(enumeration = "service_level_objective::View", tag = "5")]
+    pub view: i32,
+}
+/// The `ListServiceLevelObjectives` response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListServiceLevelObjectivesResponse {
+    /// The `ServiceLevelObjective`s matching the specified filter.
+    #[prost(message, repeated, tag = "1")]
+    pub service_level_objectives: ::prost::alloc::vec::Vec<ServiceLevelObjective>,
+    /// If there are more results than have been returned, then this field is set
+    /// to a non-empty value.  To see the additional results,
+    /// use that value as `page_token` in the next call to this method.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The `UpdateServiceLevelObjective` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateServiceLevelObjectiveRequest {
+    /// Required. The `ServiceLevelObjective` to draw updates from.
+    /// The given `name` specifies the resource to update.
+    #[prost(message, optional, tag = "1")]
+    pub service_level_objective: ::core::option::Option<ServiceLevelObjective>,
+    /// A set of field paths defining which fields to use for the update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// The `DeleteServiceLevelObjective` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteServiceLevelObjectiveRequest {
+    /// Required. Resource name of the `ServiceLevelObjective` to delete. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod service_monitoring_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The Cloud Monitoring Service-Oriented Monitoring API has endpoints for
+    /// managing and querying aspects of a workspace's services. These include the
+    /// `Service`'s monitored resources, its Service-Level Objectives, and a taxonomy
+    /// of categorized Health Metrics.
+    #[derive(Debug, Clone)]
+    pub struct ServiceMonitoringServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ServiceMonitoringServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ServiceMonitoringServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ServiceMonitoringServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Create a `Service`.
+        pub async fn create_service(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateServiceRequest>,
+        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/CreateService",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "CreateService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get the named `Service`.
+        pub async fn get_service(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetServiceRequest>,
+        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/GetService",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "GetService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// List `Service`s for this workspace.
+        pub async fn list_services(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListServicesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListServicesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/ListServices",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "ListServices",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Update this `Service`.
+        pub async fn update_service(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateServiceRequest>,
+        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/UpdateService",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "UpdateService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Soft delete this `Service`.
+        pub async fn delete_service(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteServiceRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/DeleteService",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "DeleteService",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Create a `ServiceLevelObjective` for the given `Service`.
+        pub async fn create_service_level_objective(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateServiceLevelObjectiveRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ServiceLevelObjective>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/CreateServiceLevelObjective",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "CreateServiceLevelObjective",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get a `ServiceLevelObjective` by name.
+        pub async fn get_service_level_objective(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetServiceLevelObjectiveRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ServiceLevelObjective>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/GetServiceLevelObjective",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "GetServiceLevelObjective",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// List the `ServiceLevelObjective`s for the given `Service`.
+        pub async fn list_service_level_objectives(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListServiceLevelObjectivesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListServiceLevelObjectivesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/ListServiceLevelObjectives",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "ListServiceLevelObjectives",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Update the given `ServiceLevelObjective`.
+        pub async fn update_service_level_objective(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateServiceLevelObjectiveRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ServiceLevelObjective>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/UpdateServiceLevelObjective",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "UpdateServiceLevelObjective",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Delete the given `ServiceLevelObjective`.
+        pub async fn delete_service_level_objective(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteServiceLevelObjectiveRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.ServiceMonitoringService/DeleteServiceLevelObjective",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.ServiceMonitoringService",
+                        "DeleteServiceLevelObjective",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// A single strongly-typed value.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TypedValue {
+    /// The typed value field.
+    #[prost(oneof = "typed_value::Value", tags = "1, 2, 3, 4, 5")]
+    pub value: ::core::option::Option<typed_value::Value>,
+}
+/// Nested message and enum types in `TypedValue`.
+pub mod typed_value {
+    /// The typed value field.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// A Boolean value: `true` or `false`.
+        #[prost(bool, tag = "1")]
+        BoolValue(bool),
+        /// A 64-bit integer. Its range is approximately &plusmn;9.2x10<sup>18</sup>.
+        #[prost(int64, tag = "2")]
+        Int64Value(i64),
+        /// A 64-bit double-precision floating-point number. Its magnitude
+        /// is approximately &plusmn;10<sup>&plusmn;300</sup> and it has 16
+        /// significant digits of precision.
+        #[prost(double, tag = "3")]
+        DoubleValue(f64),
+        /// A variable-length string value.
+        #[prost(string, tag = "4")]
+        StringValue(::prost::alloc::string::String),
+        /// A distribution value.
+        #[prost(message, tag = "5")]
+        DistributionValue(super::super::super::api::Distribution),
+    }
+}
+/// A closed time interval. It extends from the start time to the end time, and includes both: `\[startTime, endTime\]`. Valid time intervals depend on the [`MetricKind`](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>) of the metric value. The end time must not be earlier than the start time. When writing data points, the start time must not be more than 25 hours in the past and the end time must not be more than five minutes in the future.
+///
+/// * For `GAUGE` metrics, the `startTime` value is technically optional; if
+///    no value is specified, the start time defaults to the value of the
+///    end time, and the interval represents a single point in time. If both
+///    start and end times are specified, they must be identical. Such an
+///    interval is valid only for `GAUGE` metrics, which are point-in-time
+///    measurements. The end time of a new interval must be at least a
+///    millisecond after the end time of the previous interval.
+///
+/// * For `DELTA` metrics, the start time and end time must specify a
+///    non-zero interval, with subsequent points specifying contiguous and
+///    non-overlapping intervals. For `DELTA` metrics, the start time of
+///    the next interval must be at least a millisecond after the end time
+///    of the previous interval.
+///
+/// * For `CUMULATIVE` metrics, the start time and end time must specify a
+///    non-zero interval, with subsequent points specifying the same
+///    start time and increasing end times, until an event resets the
+///    cumulative value to zero and sets a new start time for the following
+///    points. The new start time must be at least a millisecond after the
+///    end time of the previous interval.
+///
+/// * The start time of a new interval must be at least a millisecond after the
+///    end time of the previous interval because intervals are closed. If the
+///    start time of a new interval is the same as the end time of the previous
+///    interval, then data written at the new start time could overwrite data
+///    written at the previous end time.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeInterval {
+    /// Required. The end of the time interval.
+    #[prost(message, optional, tag = "2")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. The beginning of the time interval.  The default value
+    /// for the start time is the end time. The start time must not be
+    /// later than the end time.
+    #[prost(message, optional, tag = "1")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Describes how to combine multiple time series to provide a different view of
+/// the data.  Aggregation of time series is done in two steps. First, each time
+/// series in the set is _aligned_ to the same time interval boundaries, then the
+/// set of time series is optionally _reduced_ in number.
+///
+/// Alignment consists of applying the `per_series_aligner` operation
+/// to each time series after its data has been divided into regular
+/// `alignment_period` time intervals. This process takes _all_ of the data
+/// points in an alignment period, applies a mathematical transformation such as
+/// averaging, minimum, maximum, delta, etc., and converts them into a single
+/// data point per period.
+///
+/// Reduction is when the aligned and transformed time series can optionally be
+/// combined, reducing the number of time series through similar mathematical
+/// transformations. Reduction involves applying a `cross_series_reducer` to
+/// all the time series, optionally sorting the time series into subsets with
+/// `group_by_fields`, and applying the reducer to each subset.
+///
+/// The raw time series data can contain a huge amount of information from
+/// multiple sources. Alignment and reduction transforms this mass of data into
+/// a more manageable and representative collection of data, for example "the
+/// 95% latency across the average of all tasks in a cluster". This
+/// representative data can be more easily graphed and comprehended, and the
+/// individual time series data is still available for later drilldown. For more
+/// details, see [Filtering and
+/// aggregation](<https://cloud.google.com/monitoring/api/v3/aggregation>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Aggregation {
+    /// The `alignment_period` specifies a time interval, in seconds, that is used
+    /// to divide the data in all the
+    /// [time series][google.monitoring.v3.TimeSeries] into consistent blocks of
+    /// time. This will be done before the per-series aligner can be applied to
+    /// the data.
+    ///
+    /// The value must be at least 60 seconds. If a per-series
+    /// aligner other than `ALIGN_NONE` is specified, this field is required or an
+    /// error is returned. If no per-series aligner is specified, or the aligner
+    /// `ALIGN_NONE` is specified, then this field is ignored.
+    ///
+    /// The maximum value of the `alignment_period` is 104 weeks (2 years) for
+    /// charts, and 90,000 seconds (25 hours) for alerting policies.
+    #[prost(message, optional, tag = "1")]
+    pub alignment_period: ::core::option::Option<::prost_types::Duration>,
+    /// An `Aligner` describes how to bring the data points in a single
+    /// time series into temporal alignment. Except for `ALIGN_NONE`, all
+    /// alignments cause all the data points in an `alignment_period` to be
+    /// mathematically grouped together, resulting in a single data point for
+    /// each `alignment_period` with end timestamp at the end of the period.
+    ///
+    /// Not all alignment operations may be applied to all time series. The valid
+    /// choices depend on the `metric_kind` and `value_type` of the original time
+    /// series. Alignment can change the `metric_kind` or the `value_type` of
+    /// the time series.
+    ///
+    /// Time series data must be aligned in order to perform cross-time
+    /// series reduction. If `cross_series_reducer` is specified, then
+    /// `per_series_aligner` must be specified and not equal to `ALIGN_NONE`
+    /// and `alignment_period` must be specified; otherwise, an error is
+    /// returned.
+    #[prost(enumeration = "aggregation::Aligner", tag = "2")]
+    pub per_series_aligner: i32,
+    /// The reduction operation to be used to combine time series into a single
+    /// time series, where the value of each data point in the resulting series is
+    /// a function of all the already aligned values in the input time series.
+    ///
+    /// Not all reducer operations can be applied to all time series. The valid
+    /// choices depend on the `metric_kind` and the `value_type` of the original
+    /// time series. Reduction can yield a time series with a different
+    /// `metric_kind` or `value_type` than the input time series.
+    ///
+    /// Time series data must first be aligned (see `per_series_aligner`) in order
+    /// to perform cross-time series reduction. If `cross_series_reducer` is
+    /// specified, then `per_series_aligner` must be specified, and must not be
+    /// `ALIGN_NONE`. An `alignment_period` must also be specified; otherwise, an
+    /// error is returned.
+    #[prost(enumeration = "aggregation::Reducer", tag = "4")]
+    pub cross_series_reducer: i32,
+    /// The set of fields to preserve when `cross_series_reducer` is
+    /// specified. The `group_by_fields` determine how the time series are
+    /// partitioned into subsets prior to applying the aggregation
+    /// operation. Each subset contains time series that have the same
+    /// value for each of the grouping fields. Each individual time
+    /// series is a member of exactly one subset. The
+    /// `cross_series_reducer` is applied to each subset of time series.
+    /// It is not possible to reduce across different resource types, so
+    /// this field implicitly contains `resource.type`.  Fields not
+    /// specified in `group_by_fields` are aggregated away.  If
+    /// `group_by_fields` is not specified and all the time series have
+    /// the same resource type, then the time series are aggregated into
+    /// a single output time series. If `cross_series_reducer` is not
+    /// defined, this field is ignored.
+    #[prost(string, repeated, tag = "5")]
+    pub group_by_fields: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `Aggregation`.
+pub mod aggregation {
+    /// The `Aligner` specifies the operation that will be applied to the data
+    /// points in each alignment period in a time series. Except for
+    /// `ALIGN_NONE`, which specifies that no operation be applied, each alignment
+    /// operation replaces the set of data values in each alignment period with
+    /// a single value: the result of applying the operation to the data values.
+    /// An aligned time series has a single data value at the end of each
+    /// `alignment_period`.
+    ///
+    /// An alignment operation can change the data type of the values, too. For
+    /// example, if you apply a counting operation to boolean values, the data
+    /// `value_type` in the original time series is `BOOLEAN`, but the `value_type`
+    /// in the aligned result is `INT64`.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Aligner {
+        /// No alignment. Raw data is returned. Not valid if cross-series reduction
+        /// is requested. The `value_type` of the result is the same as the
+        /// `value_type` of the input.
+        AlignNone = 0,
+        /// Align and convert to
+        /// [DELTA][google.api.MetricDescriptor.MetricKind.DELTA].
+        /// The output is `delta = y1 - y0`.
+        ///
+        /// This alignment is valid for
+        /// [CUMULATIVE][google.api.MetricDescriptor.MetricKind.CUMULATIVE] and
+        /// `DELTA` metrics. If the selected alignment period results in periods
+        /// with no data, then the aligned value for such a period is created by
+        /// interpolation. The `value_type`  of the aligned result is the same as
+        /// the `value_type` of the input.
+        AlignDelta = 1,
+        /// Align and convert to a rate. The result is computed as
+        /// `rate = (y1 - y0)/(t1 - t0)`, or "delta over time".
+        /// Think of this aligner as providing the slope of the line that passes
+        /// through the value at the start and at the end of the `alignment_period`.
+        ///
+        /// This aligner is valid for `CUMULATIVE`
+        /// and `DELTA` metrics with numeric values. If the selected alignment
+        /// period results in periods with no data, then the aligned value for
+        /// such a period is created by interpolation. The output is a `GAUGE`
+        /// metric with `value_type` `DOUBLE`.
+        ///
+        /// If, by "rate", you mean "percentage change", see the
+        /// `ALIGN_PERCENT_CHANGE` aligner instead.
+        AlignRate = 2,
+        /// Align by interpolating between adjacent points around the alignment
+        /// period boundary. This aligner is valid for `GAUGE` metrics with
+        /// numeric values. The `value_type` of the aligned result is the same as the
+        /// `value_type` of the input.
+        AlignInterpolate = 3,
+        /// Align by moving the most recent data point before the end of the
+        /// alignment period to the boundary at the end of the alignment
+        /// period. This aligner is valid for `GAUGE` metrics. The `value_type` of
+        /// the aligned result is the same as the `value_type` of the input.
+        AlignNextOlder = 4,
+        /// Align the time series by returning the minimum value in each alignment
+        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
+        /// numeric values. The `value_type` of the aligned result is the same as
+        /// the `value_type` of the input.
+        AlignMin = 10,
+        /// Align the time series by returning the maximum value in each alignment
+        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
+        /// numeric values. The `value_type` of the aligned result is the same as
+        /// the `value_type` of the input.
+        AlignMax = 11,
+        /// Align the time series by returning the mean value in each alignment
+        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
+        /// numeric values. The `value_type` of the aligned result is `DOUBLE`.
+        AlignMean = 12,
+        /// Align the time series by returning the number of values in each alignment
+        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
+        /// numeric or Boolean values. The `value_type` of the aligned result is
+        /// `INT64`.
+        AlignCount = 13,
+        /// Align the time series by returning the sum of the values in each
+        /// alignment period. This aligner is valid for `GAUGE` and `DELTA`
+        /// metrics with numeric and distribution values. The `value_type` of the
+        /// aligned result is the same as the `value_type` of the input.
+        AlignSum = 14,
+        /// Align the time series by returning the standard deviation of the values
+        /// in each alignment period. This aligner is valid for `GAUGE` and
+        /// `DELTA` metrics with numeric values. The `value_type` of the output is
+        /// `DOUBLE`.
+        AlignStddev = 15,
+        /// Align the time series by returning the number of `True` values in
+        /// each alignment period. This aligner is valid for `GAUGE` metrics with
+        /// Boolean values. The `value_type` of the output is `INT64`.
+        AlignCountTrue = 16,
+        /// Align the time series by returning the number of `False` values in
+        /// each alignment period. This aligner is valid for `GAUGE` metrics with
+        /// Boolean values. The `value_type` of the output is `INT64`.
+        AlignCountFalse = 24,
+        /// Align the time series by returning the ratio of the number of `True`
+        /// values to the total number of values in each alignment period. This
+        /// aligner is valid for `GAUGE` metrics with Boolean values. The output
+        /// value is in the range \[0.0, 1.0\] and has `value_type` `DOUBLE`.
+        AlignFractionTrue = 17,
+        /// Align the time series by using [percentile
+        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
+        /// data point in each alignment period is the 99th percentile of all data
+        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
+        /// metrics with distribution values. The output is a `GAUGE` metric with
+        /// `value_type` `DOUBLE`.
+        AlignPercentile99 = 18,
+        /// Align the time series by using [percentile
+        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
+        /// data point in each alignment period is the 95th percentile of all data
+        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
+        /// metrics with distribution values. The output is a `GAUGE` metric with
+        /// `value_type` `DOUBLE`.
+        AlignPercentile95 = 19,
+        /// Align the time series by using [percentile
+        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
+        /// data point in each alignment period is the 50th percentile of all data
+        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
+        /// metrics with distribution values. The output is a `GAUGE` metric with
+        /// `value_type` `DOUBLE`.
+        AlignPercentile50 = 20,
+        /// Align the time series by using [percentile
+        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
+        /// data point in each alignment period is the 5th percentile of all data
+        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
+        /// metrics with distribution values. The output is a `GAUGE` metric with
+        /// `value_type` `DOUBLE`.
+        AlignPercentile05 = 21,
+        /// Align and convert to a percentage change. This aligner is valid for
+        /// `GAUGE` and `DELTA` metrics with numeric values. This alignment returns
+        /// `((current - previous)/previous) * 100`, where the value of `previous` is
+        /// determined based on the `alignment_period`.
+        ///
+        /// If the values of `current` and `previous` are both 0, then the returned
+        /// value is 0. If only `previous` is 0, the returned value is infinity.
+        ///
+        /// A 10-minute moving mean is computed at each point of the alignment period
+        /// prior to the above calculation to smooth the metric and prevent false
+        /// positives from very short-lived spikes. The moving mean is only
+        /// applicable for data whose values are `>= 0`. Any values `< 0` are
+        /// treated as a missing datapoint, and are ignored. While `DELTA`
+        /// metrics are accepted by this alignment, special care should be taken that
+        /// the values for the metric will always be positive. The output is a
+        /// `GAUGE` metric with `value_type` `DOUBLE`.
+        AlignPercentChange = 23,
+    }
+    impl Aligner {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Aligner::AlignNone => "ALIGN_NONE",
+                Aligner::AlignDelta => "ALIGN_DELTA",
+                Aligner::AlignRate => "ALIGN_RATE",
+                Aligner::AlignInterpolate => "ALIGN_INTERPOLATE",
+                Aligner::AlignNextOlder => "ALIGN_NEXT_OLDER",
+                Aligner::AlignMin => "ALIGN_MIN",
+                Aligner::AlignMax => "ALIGN_MAX",
+                Aligner::AlignMean => "ALIGN_MEAN",
+                Aligner::AlignCount => "ALIGN_COUNT",
+                Aligner::AlignSum => "ALIGN_SUM",
+                Aligner::AlignStddev => "ALIGN_STDDEV",
+                Aligner::AlignCountTrue => "ALIGN_COUNT_TRUE",
+                Aligner::AlignCountFalse => "ALIGN_COUNT_FALSE",
+                Aligner::AlignFractionTrue => "ALIGN_FRACTION_TRUE",
+                Aligner::AlignPercentile99 => "ALIGN_PERCENTILE_99",
+                Aligner::AlignPercentile95 => "ALIGN_PERCENTILE_95",
+                Aligner::AlignPercentile50 => "ALIGN_PERCENTILE_50",
+                Aligner::AlignPercentile05 => "ALIGN_PERCENTILE_05",
+                Aligner::AlignPercentChange => "ALIGN_PERCENT_CHANGE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ALIGN_NONE" => Some(Self::AlignNone),
+                "ALIGN_DELTA" => Some(Self::AlignDelta),
+                "ALIGN_RATE" => Some(Self::AlignRate),
+                "ALIGN_INTERPOLATE" => Some(Self::AlignInterpolate),
+                "ALIGN_NEXT_OLDER" => Some(Self::AlignNextOlder),
+                "ALIGN_MIN" => Some(Self::AlignMin),
+                "ALIGN_MAX" => Some(Self::AlignMax),
+                "ALIGN_MEAN" => Some(Self::AlignMean),
+                "ALIGN_COUNT" => Some(Self::AlignCount),
+                "ALIGN_SUM" => Some(Self::AlignSum),
+                "ALIGN_STDDEV" => Some(Self::AlignStddev),
+                "ALIGN_COUNT_TRUE" => Some(Self::AlignCountTrue),
+                "ALIGN_COUNT_FALSE" => Some(Self::AlignCountFalse),
+                "ALIGN_FRACTION_TRUE" => Some(Self::AlignFractionTrue),
+                "ALIGN_PERCENTILE_99" => Some(Self::AlignPercentile99),
+                "ALIGN_PERCENTILE_95" => Some(Self::AlignPercentile95),
+                "ALIGN_PERCENTILE_50" => Some(Self::AlignPercentile50),
+                "ALIGN_PERCENTILE_05" => Some(Self::AlignPercentile05),
+                "ALIGN_PERCENT_CHANGE" => Some(Self::AlignPercentChange),
+                _ => None,
+            }
+        }
+    }
+    /// A Reducer operation describes how to aggregate data points from multiple
+    /// time series into a single time series, where the value of each data point
+    /// in the resulting series is a function of all the already aligned values in
+    /// the input time series.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Reducer {
+        /// No cross-time series reduction. The output of the `Aligner` is
+        /// returned.
+        ReduceNone = 0,
+        /// Reduce by computing the mean value across time series for each
+        /// alignment period. This reducer is valid for
+        /// [DELTA][google.api.MetricDescriptor.MetricKind.DELTA] and
+        /// [GAUGE][google.api.MetricDescriptor.MetricKind.GAUGE] metrics with
+        /// numeric or distribution values. The `value_type` of the output is
+        /// [DOUBLE][google.api.MetricDescriptor.ValueType.DOUBLE].
+        ReduceMean = 1,
+        /// Reduce by computing the minimum value across time series for each
+        /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
+        /// with numeric values. The `value_type` of the output is the same as the
+        /// `value_type` of the input.
+        ReduceMin = 2,
+        /// Reduce by computing the maximum value across time series for each
+        /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
+        /// with numeric values. The `value_type` of the output is the same as the
+        /// `value_type` of the input.
+        ReduceMax = 3,
+        /// Reduce by computing the sum across time series for each
+        /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
+        /// with numeric and distribution values. The `value_type` of the output is
+        /// the same as the `value_type` of the input.
+        ReduceSum = 4,
+        /// Reduce by computing the standard deviation across time series
+        /// for each alignment period. This reducer is valid for `DELTA` and
+        /// `GAUGE` metrics with numeric or distribution values. The `value_type`
+        /// of the output is `DOUBLE`.
+        ReduceStddev = 5,
+        /// Reduce by computing the number of data points across time series
+        /// for each alignment period. This reducer is valid for `DELTA` and
+        /// `GAUGE` metrics of numeric, Boolean, distribution, and string
+        /// `value_type`. The `value_type` of the output is `INT64`.
+        ReduceCount = 6,
+        /// Reduce by computing the number of `True`-valued data points across time
+        /// series for each alignment period. This reducer is valid for `DELTA` and
+        /// `GAUGE` metrics of Boolean `value_type`. The `value_type` of the output
+        /// is `INT64`.
+        ReduceCountTrue = 7,
+        /// Reduce by computing the number of `False`-valued data points across time
+        /// series for each alignment period. This reducer is valid for `DELTA` and
+        /// `GAUGE` metrics of Boolean `value_type`. The `value_type` of the output
+        /// is `INT64`.
+        ReduceCountFalse = 15,
+        /// Reduce by computing the ratio of the number of `True`-valued data points
+        /// to the total number of data points for each alignment period. This
+        /// reducer is valid for `DELTA` and `GAUGE` metrics of Boolean `value_type`.
+        /// The output value is in the range \[0.0, 1.0\] and has `value_type`
+        /// `DOUBLE`.
+        ReduceFractionTrue = 8,
+        /// Reduce by computing the [99th
+        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
+        /// across time series for each alignment period. This reducer is valid for
+        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
+        /// of the output is `DOUBLE`.
+        ReducePercentile99 = 9,
+        /// Reduce by computing the [95th
+        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
+        /// across time series for each alignment period. This reducer is valid for
+        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
+        /// of the output is `DOUBLE`.
+        ReducePercentile95 = 10,
+        /// Reduce by computing the [50th
+        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
+        /// across time series for each alignment period. This reducer is valid for
+        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
+        /// of the output is `DOUBLE`.
+        ReducePercentile50 = 11,
+        /// Reduce by computing the [5th
+        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
+        /// across time series for each alignment period. This reducer is valid for
+        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
+        /// of the output is `DOUBLE`.
+        ReducePercentile05 = 12,
+    }
+    impl Reducer {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Reducer::ReduceNone => "REDUCE_NONE",
+                Reducer::ReduceMean => "REDUCE_MEAN",
+                Reducer::ReduceMin => "REDUCE_MIN",
+                Reducer::ReduceMax => "REDUCE_MAX",
+                Reducer::ReduceSum => "REDUCE_SUM",
+                Reducer::ReduceStddev => "REDUCE_STDDEV",
+                Reducer::ReduceCount => "REDUCE_COUNT",
+                Reducer::ReduceCountTrue => "REDUCE_COUNT_TRUE",
+                Reducer::ReduceCountFalse => "REDUCE_COUNT_FALSE",
+                Reducer::ReduceFractionTrue => "REDUCE_FRACTION_TRUE",
+                Reducer::ReducePercentile99 => "REDUCE_PERCENTILE_99",
+                Reducer::ReducePercentile95 => "REDUCE_PERCENTILE_95",
+                Reducer::ReducePercentile50 => "REDUCE_PERCENTILE_50",
+                Reducer::ReducePercentile05 => "REDUCE_PERCENTILE_05",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "REDUCE_NONE" => Some(Self::ReduceNone),
+                "REDUCE_MEAN" => Some(Self::ReduceMean),
+                "REDUCE_MIN" => Some(Self::ReduceMin),
+                "REDUCE_MAX" => Some(Self::ReduceMax),
+                "REDUCE_SUM" => Some(Self::ReduceSum),
+                "REDUCE_STDDEV" => Some(Self::ReduceStddev),
+                "REDUCE_COUNT" => Some(Self::ReduceCount),
+                "REDUCE_COUNT_TRUE" => Some(Self::ReduceCountTrue),
+                "REDUCE_COUNT_FALSE" => Some(Self::ReduceCountFalse),
+                "REDUCE_FRACTION_TRUE" => Some(Self::ReduceFractionTrue),
+                "REDUCE_PERCENTILE_99" => Some(Self::ReducePercentile99),
+                "REDUCE_PERCENTILE_95" => Some(Self::ReducePercentile95),
+                "REDUCE_PERCENTILE_50" => Some(Self::ReducePercentile50),
+                "REDUCE_PERCENTILE_05" => Some(Self::ReducePercentile05),
+                _ => None,
+            }
+        }
+    }
+}
+/// Specifies an ordering relationship on two arguments, called `left` and
+/// `right`.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ComparisonType {
+    /// No ordering relationship is specified.
+    ComparisonUnspecified = 0,
+    /// True if the left argument is greater than the right argument.
+    ComparisonGt = 1,
+    /// True if the left argument is greater than or equal to the right argument.
+    ComparisonGe = 2,
+    /// True if the left argument is less than the right argument.
+    ComparisonLt = 3,
+    /// True if the left argument is less than or equal to the right argument.
+    ComparisonLe = 4,
+    /// True if the left argument is equal to the right argument.
+    ComparisonEq = 5,
+    /// True if the left argument is not equal to the right argument.
+    ComparisonNe = 6,
+}
+impl ComparisonType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ComparisonType::ComparisonUnspecified => "COMPARISON_UNSPECIFIED",
+            ComparisonType::ComparisonGt => "COMPARISON_GT",
+            ComparisonType::ComparisonGe => "COMPARISON_GE",
+            ComparisonType::ComparisonLt => "COMPARISON_LT",
+            ComparisonType::ComparisonLe => "COMPARISON_LE",
+            ComparisonType::ComparisonEq => "COMPARISON_EQ",
+            ComparisonType::ComparisonNe => "COMPARISON_NE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "COMPARISON_UNSPECIFIED" => Some(Self::ComparisonUnspecified),
+            "COMPARISON_GT" => Some(Self::ComparisonGt),
+            "COMPARISON_GE" => Some(Self::ComparisonGe),
+            "COMPARISON_LT" => Some(Self::ComparisonLt),
+            "COMPARISON_LE" => Some(Self::ComparisonLe),
+            "COMPARISON_EQ" => Some(Self::ComparisonEq),
+            "COMPARISON_NE" => Some(Self::ComparisonNe),
+            _ => None,
+        }
+    }
+}
+/// The tier of service for a Workspace. Please see the
+/// [service tiers
+/// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>) for more
+/// details.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ServiceTier {
+    /// An invalid sentinel value, used to indicate that a tier has not
+    /// been provided explicitly.
+    Unspecified = 0,
+    /// The Stackdriver Basic tier, a free tier of service that provides basic
+    /// features, a moderate allotment of logs, and access to built-in metrics.
+    /// A number of features are not available in this tier. For more details,
+    /// see [the service tiers
+    /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>).
+    Basic = 1,
+    /// The Stackdriver Premium tier, a higher, more expensive tier of service
+    /// that provides access to all Stackdriver features, lets you use Stackdriver
+    /// with AWS accounts, and has a larger allotments for logs and metrics. For
+    /// more details, see [the service tiers
+    /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>).
+    Premium = 2,
+}
+impl ServiceTier {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ServiceTier::Unspecified => "SERVICE_TIER_UNSPECIFIED",
+            ServiceTier::Basic => "SERVICE_TIER_BASIC",
+            ServiceTier::Premium => "SERVICE_TIER_PREMIUM",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SERVICE_TIER_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVICE_TIER_BASIC" => Some(Self::Basic),
+            "SERVICE_TIER_PREMIUM" => Some(Self::Premium),
+            _ => None,
+        }
+    }
+}
+/// A single data point in a time series.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Point {
+    /// The time interval to which the data point applies.  For `GAUGE` metrics,
+    /// the start time is optional, but if it is supplied, it must equal the
+    /// end time.  For `DELTA` metrics, the start
+    /// and end time should specify a non-zero interval, with subsequent points
+    /// specifying contiguous and non-overlapping intervals.  For `CUMULATIVE`
+    /// metrics, the start and end time should specify a non-zero interval, with
+    /// subsequent points specifying the same start time and increasing end times,
+    /// until an event resets the cumulative value to zero and sets a new start
+    /// time for the following points.
+    #[prost(message, optional, tag = "1")]
+    pub interval: ::core::option::Option<TimeInterval>,
+    /// The value of the data point.
+    #[prost(message, optional, tag = "2")]
+    pub value: ::core::option::Option<TypedValue>,
+}
+/// A collection of data points that describes the time-varying values
+/// of a metric. A time series is identified by a combination of a
+/// fully-specified monitored resource and a fully-specified metric.
+/// This type is used for both listing and creating time series.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeSeries {
+    /// The associated metric. A fully-specified metric used to identify the time
+    /// series.
+    #[prost(message, optional, tag = "1")]
+    pub metric: ::core::option::Option<super::super::api::Metric>,
+    /// The associated monitored resource.  Custom metrics can use only certain
+    /// monitored resource types in their time series data. For more information,
+    /// see [Monitored resources for custom
+    /// metrics](<https://cloud.google.com/monitoring/custom-metrics/creating-metrics#custom-metric-resources>).
+    #[prost(message, optional, tag = "2")]
+    pub resource: ::core::option::Option<super::super::api::MonitoredResource>,
+    /// Output only. The associated monitored resource metadata. When reading a
+    /// time series, this field will include metadata labels that are explicitly
+    /// named in the reduction. When creating a time series, this field is ignored.
+    #[prost(message, optional, tag = "7")]
+    pub metadata: ::core::option::Option<super::super::api::MonitoredResourceMetadata>,
+    /// The metric kind of the time series. When listing time series, this metric
+    /// kind might be different from the metric kind of the associated metric if
+    /// this time series is an alignment or reduction of other time series.
+    ///
+    /// When creating a time series, this field is optional. If present, it must be
+    /// the same as the metric kind of the associated metric. If the associated
+    /// metric's descriptor must be auto-created, then this field specifies the
+    /// metric kind of the new descriptor and must be either `GAUGE` (the default)
+    /// or `CUMULATIVE`.
+    #[prost(enumeration = "super::super::api::metric_descriptor::MetricKind", tag = "3")]
+    pub metric_kind: i32,
+    /// The value type of the time series. When listing time series, this value
+    /// type might be different from the value type of the associated metric if
+    /// this time series is an alignment or reduction of other time series.
+    ///
+    /// When creating a time series, this field is optional. If present, it must be
+    /// the same as the type of the data in the `points` field.
+    #[prost(enumeration = "super::super::api::metric_descriptor::ValueType", tag = "4")]
+    pub value_type: i32,
+    /// The data points of this time series. When listing time series, points are
+    /// returned in reverse time order.
+    ///
+    /// When creating a time series, this field must contain exactly one point and
+    /// the point's type must be the same as the value type of the associated
+    /// metric. If the associated metric's descriptor must be auto-created, then
+    /// the value type of the descriptor is determined by the point's type, which
+    /// must be `BOOL`, `INT64`, `DOUBLE`, or `DISTRIBUTION`.
+    #[prost(message, repeated, tag = "5")]
+    pub points: ::prost::alloc::vec::Vec<Point>,
+    /// The units in which the metric value is reported. It is only applicable
+    /// if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit`
+    /// defines the representation of the stored metric values.
+    #[prost(string, tag = "8")]
+    pub unit: ::prost::alloc::string::String,
+}
+/// A descriptor for the labels and points in a time series.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeSeriesDescriptor {
+    /// Descriptors for the labels.
+    #[prost(message, repeated, tag = "1")]
+    pub label_descriptors: ::prost::alloc::vec::Vec<super::super::api::LabelDescriptor>,
+    /// Descriptors for the point data value columns.
+    #[prost(message, repeated, tag = "5")]
+    pub point_descriptors: ::prost::alloc::vec::Vec<
+        time_series_descriptor::ValueDescriptor,
+    >,
+}
+/// Nested message and enum types in `TimeSeriesDescriptor`.
+pub mod time_series_descriptor {
+    /// A descriptor for the value columns in a data point.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ValueDescriptor {
+        /// The value key.
+        #[prost(string, tag = "1")]
+        pub key: ::prost::alloc::string::String,
+        /// The value type.
+        #[prost(
+            enumeration = "super::super::super::api::metric_descriptor::ValueType",
+            tag = "2"
+        )]
+        pub value_type: i32,
+        /// The value stream kind.
+        #[prost(
+            enumeration = "super::super::super::api::metric_descriptor::MetricKind",
+            tag = "3"
+        )]
+        pub metric_kind: i32,
+        /// The unit in which `time_series` point values are reported. `unit`
+        /// follows the UCUM format for units as seen in
+        /// <https://unitsofmeasure.org/ucum.html.>
+        /// `unit` is only valid if `value_type` is INTEGER, DOUBLE, DISTRIBUTION.
+        #[prost(string, tag = "4")]
+        pub unit: ::prost::alloc::string::String,
+    }
+}
+/// Represents the values of a time series associated with a
+/// TimeSeriesDescriptor.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TimeSeriesData {
+    /// The values of the labels in the time series identifier, given in the same
+    /// order as the `label_descriptors` field of the TimeSeriesDescriptor
+    /// associated with this object. Each value must have a value of the type
+    /// given in the corresponding entry of `label_descriptors`.
+    #[prost(message, repeated, tag = "1")]
+    pub label_values: ::prost::alloc::vec::Vec<LabelValue>,
+    /// The points in the time series.
+    #[prost(message, repeated, tag = "2")]
+    pub point_data: ::prost::alloc::vec::Vec<time_series_data::PointData>,
+}
+/// Nested message and enum types in `TimeSeriesData`.
+pub mod time_series_data {
+    /// A point's value columns and time interval. Each point has one or more
+    /// point values corresponding to the entries in `point_descriptors` field in
+    /// the TimeSeriesDescriptor associated with this object.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PointData {
+        /// The values that make up the point.
+        #[prost(message, repeated, tag = "1")]
+        pub values: ::prost::alloc::vec::Vec<super::TypedValue>,
+        /// The time interval associated with the point.
+        #[prost(message, optional, tag = "2")]
+        pub time_interval: ::core::option::Option<super::TimeInterval>,
+    }
+}
+/// A label value.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LabelValue {
+    /// The label value can be a bool, int64, or string.
+    #[prost(oneof = "label_value::Value", tags = "1, 2, 3")]
+    pub value: ::core::option::Option<label_value::Value>,
+}
+/// Nested message and enum types in `LabelValue`.
+pub mod label_value {
+    /// The label value can be a bool, int64, or string.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Value {
+        /// A bool label value.
+        #[prost(bool, tag = "1")]
+        BoolValue(bool),
+        /// An int64 label value.
+        #[prost(int64, tag = "2")]
+        Int64Value(i64),
+        /// A string label value.
+        #[prost(string, tag = "3")]
+        StringValue(::prost::alloc::string::String),
+    }
+}
+/// An error associated with a query in the time series query language format.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryError {
+    /// The location of the time series query language text that this error applies
+    /// to.
+    #[prost(message, optional, tag = "1")]
+    pub locator: ::core::option::Option<TextLocator>,
+    /// The error message.
+    #[prost(string, tag = "2")]
+    pub message: ::prost::alloc::string::String,
+}
+/// A locator for text. Indicates a particular part of the text of a request or
+/// of an object referenced in the request.
+///
+/// For example, suppose the request field `text` contains:
+///
+///    text: "The quick brown fox jumps over the lazy dog."
+///
+/// Then the locator:
+///
+///    source: "text"
+///    start_position {
+///      line: 1
+///      column: 17
+///    }
+///    end_position {
+///      line: 1
+///      column: 19
+///    }
+///
+/// refers to the part of the text: "fox".
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextLocator {
+    /// The source of the text. The source may be a field in the request, in which
+    /// case its format is the format of the
+    /// google.rpc.BadRequest.FieldViolation.field field in
+    /// <https://cloud.google.com/apis/design/errors#error_details.> It may also be
+    /// be a source other than the request field (e.g. a macro definition
+    /// referenced in the text of the query), in which case this is the name of
+    /// the source (e.g. the macro name).
+    #[prost(string, tag = "1")]
+    pub source: ::prost::alloc::string::String,
+    /// The position of the first byte within the text.
+    #[prost(message, optional, tag = "2")]
+    pub start_position: ::core::option::Option<text_locator::Position>,
+    /// The position of the last byte within the text.
+    #[prost(message, optional, tag = "3")]
+    pub end_position: ::core::option::Option<text_locator::Position>,
+    /// If `source`, `start_position`, and `end_position` describe a call on
+    /// some object (e.g. a macro in the time series query language text) and a
+    /// location is to be designated in that object's text, `nested_locator`
+    /// identifies the location within that object.
+    #[prost(message, optional, boxed, tag = "4")]
+    pub nested_locator: ::core::option::Option<::prost::alloc::boxed::Box<TextLocator>>,
+    /// When `nested_locator` is set, this field gives the reason for the nesting.
+    /// Usually, the reason is a macro invocation. In that case, the macro name
+    /// (including the leading '@') signals the location of the macro call
+    /// in the text and a macro argument name (including the leading '$') signals
+    /// the location of the macro argument inside the macro body that got
+    /// substituted away.
+    #[prost(string, tag = "5")]
+    pub nesting_reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `TextLocator`.
+pub mod text_locator {
+    /// The position of a byte within the text.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Position {
+        /// The line, starting with 1, where the byte is positioned.
+        #[prost(int32, tag = "1")]
+        pub line: i32,
+        /// The column within the line, starting with 1, where the byte is
+        /// positioned. This is a byte index even though the text is UTF-8.
+        #[prost(int32, tag = "2")]
+        pub column: i32,
+    }
+}
+/// A `Snooze` will prevent any alerts from being opened, and close any that
+/// are already open. The `Snooze` will work on alerts that match the
+/// criteria defined in the `Snooze`. The `Snooze` will be active from
+/// `interval.start_time` through `interval.end_time`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Snooze {
+    /// Required. The name of the `Snooze`. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
+    ///
+    /// The ID of the `Snooze` will be generated by the system.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. This defines the criteria for applying the `Snooze`. See
+    /// `Criteria` for more information.
+    #[prost(message, optional, tag = "3")]
+    pub criteria: ::core::option::Option<snooze::Criteria>,
+    /// Required. The `Snooze` will be active from `interval.start_time` through
+    /// `interval.end_time`.
+    /// `interval.start_time` cannot be in the past. There is a 15 second clock
+    /// skew to account for the time it takes for a request to reach the API from
+    /// the UI.
+    #[prost(message, optional, tag = "4")]
+    pub interval: ::core::option::Option<TimeInterval>,
+    /// Required. A display name for the `Snooze`. This can be, at most, 512
+    /// unicode characters.
+    #[prost(string, tag = "5")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Snooze`.
+pub mod snooze {
+    /// Criteria specific to the `AlertPolicy`s that this `Snooze` applies to. The
+    /// `Snooze` will suppress alerts that come from one of the `AlertPolicy`s
+    /// whose names are supplied.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Criteria {
+        /// The specific `AlertPolicy` names for the alert that should be snoozed.
+        /// The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/alertPolicies/\[POLICY_ID\]
+        ///
+        /// There is a limit of 16 policies per snooze. This limit is checked during
+        /// snooze creation.
+        #[prost(string, repeated, tag = "1")]
+        pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+}
+/// The message definition for creating a `Snooze`. Users must provide the body
+/// of the `Snooze` to be created but must omit the `Snooze` field, `name`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateSnoozeRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
+    /// a `Snooze` should be created. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The `Snooze` to create. Omit the `name` field, as it will be
+    /// filled in by the API.
+    #[prost(message, optional, tag = "2")]
+    pub snooze: ::core::option::Option<Snooze>,
+}
+/// The message definition for listing `Snooze`s associated with the given
+/// `parent`, satisfying the optional `filter`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSnoozesRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
+    /// `Snooze`s should be listed. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Optional filter to restrict results to the given criteria. The
+    /// following fields are supported.
+    ///
+    ///    * `interval.start_time`
+    ///    * `interval.end_time`
+    ///
+    /// For example:
+    ///
+    ///      ```
+    ///      interval.start_time > "2022-03-11T00:00:00-08:00" AND
+    ///          interval.end_time < "2022-03-12T00:00:00-08:00"
+    ///      ```
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. The maximum number of results to return for a single query. The
+    /// server may further constrain the maximum number of results returned in a
+    /// single page. The value should be in the range \[1, 1000\]. If the value given
+    /// is outside this range, the server will decide the number of results to be
+    /// returned.
+    #[prost(int32, tag = "4")]
+    pub page_size: i32,
+    /// Optional. The `next_page_token` from a previous call to
+    /// `ListSnoozesRequest` to get the next page of results.
+    #[prost(string, tag = "5")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// The results of a successful `ListSnoozes` call, containing the matching
+/// `Snooze`s.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSnoozesResponse {
+    /// `Snooze`s matching this list call.
+    #[prost(message, repeated, tag = "1")]
+    pub snoozes: ::prost::alloc::vec::Vec<Snooze>,
+    /// Page token for repeated calls to `ListSnoozes`, to fetch additional pages
+    /// of results. If this is empty or missing, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The message definition for retrieving a `Snooze`. Users must specify the
+/// field, `name`, which identifies the `Snooze`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSnoozeRequest {
+    /// Required. The ID of the `Snooze` to retrieve. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The message definition for updating a `Snooze`. The field, `snooze.name`
+/// identifies the `Snooze` to be updated. The remainder of `snooze` gives the
+/// content the `Snooze` in question will be assigned.
+///
+/// What fields can be updated depends on the start time and end time of the
+/// `Snooze`.
+///
+///    * end time is in the past: These `Snooze`s are considered
+///      read-only and cannot be updated.
+///    * start time is in the past and end time is in the future: `display_name`
+///      and `interval.end_time` can be updated.
+///    * start time is in the future: `display_name`, `interval.start_time` and
+///      `interval.end_time` can be updated.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSnoozeRequest {
+    /// Required. The `Snooze` to update. Must have the name field present.
+    #[prost(message, optional, tag = "1")]
+    pub snooze: ::core::option::Option<Snooze>,
+    /// Required. The fields to update.
+    ///
+    /// For each field listed in `update_mask`:
+    ///
+    ///    * If the `Snooze` object supplied in the `UpdateSnoozeRequest` has a
+    ///      value for that field, the value of the field in the existing `Snooze`
+    ///      will be set to the value of the field in the supplied `Snooze`.
+    ///    * If the field does not have a value in the supplied `Snooze`, the field
+    ///      in the existing `Snooze` is set to its default value.
+    ///
+    /// Fields not listed retain their existing value.
+    ///
+    /// The following are the field names that are accepted in `update_mask`:
+    ///
+    ///    * `display_name`
+    ///    * `interval.start_time`
+    ///    * `interval.end_time`
+    ///
+    /// That said, the start time and end time of the `Snooze` determines which
+    /// fields can legally be updated. Before attempting an update, users should
+    /// consult the documentation for `UpdateSnoozeRequest`, which talks about
+    /// which fields can be updated.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Generated client implementations.
+pub mod snooze_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The SnoozeService API is used to temporarily prevent an alert policy from
+    /// generating alerts. A Snooze is a description of the criteria under which one
+    /// or more alert policies should not fire alerts for the specified duration.
+    #[derive(Debug, Clone)]
+    pub struct SnoozeServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SnoozeServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SnoozeServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SnoozeServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a `Snooze` that will prevent alerts, which match the provided
+        /// criteria, from being opened. The `Snooze` applies for a specific time
+        /// interval.
+        pub async fn create_snooze(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateSnoozeRequest>,
+        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/CreateSnooze",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "CreateSnooze"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists the `Snooze`s associated with a project. Can optionally pass in
+        /// `filter`, which specifies predicates to match `Snooze`s.
+        pub async fn list_snoozes(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListSnoozesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListSnoozesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/ListSnoozes",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "ListSnoozes"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a `Snooze` by `name`.
+        pub async fn get_snooze(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetSnoozeRequest>,
+        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/GetSnooze",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "GetSnooze"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a `Snooze`, identified by its `name`, with the parameters in the
+        /// given `Snooze` object.
+        pub async fn update_snooze(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateSnoozeRequest>,
+        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/UpdateSnooze",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "UpdateSnooze"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The context of a span. This is attached to an
+/// [Exemplar][google.api.Distribution.Exemplar]
+/// in [Distribution][google.api.Distribution] values during aggregation.
+///
+/// It contains the name of a span with format:
+///
+///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SpanContext {
+    /// The resource name of the span. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
+    ///
+    /// `\[TRACE_ID\]` is a unique identifier for a trace within a project;
+    /// it is a 32-character hexadecimal encoding of a 16-byte array.
+    ///
+    /// `\[SPAN_ID\]` is a unique identifier for a span within a trace; it
+    /// is a 16-character hexadecimal encoding of an 8-byte array.
+    #[prost(string, tag = "1")]
+    pub span_name: ::prost::alloc::string::String,
+}
 /// An internal checker allows Uptime checks to run on private/internal GCP
 /// resources.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1290,869 +3658,6 @@ pub mod uptime_check_service_client {
         }
     }
 }
-/// A single strongly-typed value.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TypedValue {
-    /// The typed value field.
-    #[prost(oneof = "typed_value::Value", tags = "1, 2, 3, 4, 5")]
-    pub value: ::core::option::Option<typed_value::Value>,
-}
-/// Nested message and enum types in `TypedValue`.
-pub mod typed_value {
-    /// The typed value field.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// A Boolean value: `true` or `false`.
-        #[prost(bool, tag = "1")]
-        BoolValue(bool),
-        /// A 64-bit integer. Its range is approximately &plusmn;9.2x10<sup>18</sup>.
-        #[prost(int64, tag = "2")]
-        Int64Value(i64),
-        /// A 64-bit double-precision floating-point number. Its magnitude
-        /// is approximately &plusmn;10<sup>&plusmn;300</sup> and it has 16
-        /// significant digits of precision.
-        #[prost(double, tag = "3")]
-        DoubleValue(f64),
-        /// A variable-length string value.
-        #[prost(string, tag = "4")]
-        StringValue(::prost::alloc::string::String),
-        /// A distribution value.
-        #[prost(message, tag = "5")]
-        DistributionValue(super::super::super::api::Distribution),
-    }
-}
-/// A closed time interval. It extends from the start time to the end time, and includes both: `\[startTime, endTime\]`. Valid time intervals depend on the [`MetricKind`](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>) of the metric value. The end time must not be earlier than the start time. When writing data points, the start time must not be more than 25 hours in the past and the end time must not be more than five minutes in the future.
-///
-/// * For `GAUGE` metrics, the `startTime` value is technically optional; if
-///    no value is specified, the start time defaults to the value of the
-///    end time, and the interval represents a single point in time. If both
-///    start and end times are specified, they must be identical. Such an
-///    interval is valid only for `GAUGE` metrics, which are point-in-time
-///    measurements. The end time of a new interval must be at least a
-///    millisecond after the end time of the previous interval.
-///
-/// * For `DELTA` metrics, the start time and end time must specify a
-///    non-zero interval, with subsequent points specifying contiguous and
-///    non-overlapping intervals. For `DELTA` metrics, the start time of
-///    the next interval must be at least a millisecond after the end time
-///    of the previous interval.
-///
-/// * For `CUMULATIVE` metrics, the start time and end time must specify a
-///    non-zero interval, with subsequent points specifying the same
-///    start time and increasing end times, until an event resets the
-///    cumulative value to zero and sets a new start time for the following
-///    points. The new start time must be at least a millisecond after the
-///    end time of the previous interval.
-///
-/// * The start time of a new interval must be at least a millisecond after the
-///    end time of the previous interval because intervals are closed. If the
-///    start time of a new interval is the same as the end time of the previous
-///    interval, then data written at the new start time could overwrite data
-///    written at the previous end time.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeInterval {
-    /// Required. The end of the time interval.
-    #[prost(message, optional, tag = "2")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. The beginning of the time interval.  The default value
-    /// for the start time is the end time. The start time must not be
-    /// later than the end time.
-    #[prost(message, optional, tag = "1")]
-    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Describes how to combine multiple time series to provide a different view of
-/// the data.  Aggregation of time series is done in two steps. First, each time
-/// series in the set is _aligned_ to the same time interval boundaries, then the
-/// set of time series is optionally _reduced_ in number.
-///
-/// Alignment consists of applying the `per_series_aligner` operation
-/// to each time series after its data has been divided into regular
-/// `alignment_period` time intervals. This process takes _all_ of the data
-/// points in an alignment period, applies a mathematical transformation such as
-/// averaging, minimum, maximum, delta, etc., and converts them into a single
-/// data point per period.
-///
-/// Reduction is when the aligned and transformed time series can optionally be
-/// combined, reducing the number of time series through similar mathematical
-/// transformations. Reduction involves applying a `cross_series_reducer` to
-/// all the time series, optionally sorting the time series into subsets with
-/// `group_by_fields`, and applying the reducer to each subset.
-///
-/// The raw time series data can contain a huge amount of information from
-/// multiple sources. Alignment and reduction transforms this mass of data into
-/// a more manageable and representative collection of data, for example "the
-/// 95% latency across the average of all tasks in a cluster". This
-/// representative data can be more easily graphed and comprehended, and the
-/// individual time series data is still available for later drilldown. For more
-/// details, see [Filtering and
-/// aggregation](<https://cloud.google.com/monitoring/api/v3/aggregation>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Aggregation {
-    /// The `alignment_period` specifies a time interval, in seconds, that is used
-    /// to divide the data in all the
-    /// [time series][google.monitoring.v3.TimeSeries] into consistent blocks of
-    /// time. This will be done before the per-series aligner can be applied to
-    /// the data.
-    ///
-    /// The value must be at least 60 seconds. If a per-series
-    /// aligner other than `ALIGN_NONE` is specified, this field is required or an
-    /// error is returned. If no per-series aligner is specified, or the aligner
-    /// `ALIGN_NONE` is specified, then this field is ignored.
-    ///
-    /// The maximum value of the `alignment_period` is 104 weeks (2 years) for
-    /// charts, and 90,000 seconds (25 hours) for alerting policies.
-    #[prost(message, optional, tag = "1")]
-    pub alignment_period: ::core::option::Option<::prost_types::Duration>,
-    /// An `Aligner` describes how to bring the data points in a single
-    /// time series into temporal alignment. Except for `ALIGN_NONE`, all
-    /// alignments cause all the data points in an `alignment_period` to be
-    /// mathematically grouped together, resulting in a single data point for
-    /// each `alignment_period` with end timestamp at the end of the period.
-    ///
-    /// Not all alignment operations may be applied to all time series. The valid
-    /// choices depend on the `metric_kind` and `value_type` of the original time
-    /// series. Alignment can change the `metric_kind` or the `value_type` of
-    /// the time series.
-    ///
-    /// Time series data must be aligned in order to perform cross-time
-    /// series reduction. If `cross_series_reducer` is specified, then
-    /// `per_series_aligner` must be specified and not equal to `ALIGN_NONE`
-    /// and `alignment_period` must be specified; otherwise, an error is
-    /// returned.
-    #[prost(enumeration = "aggregation::Aligner", tag = "2")]
-    pub per_series_aligner: i32,
-    /// The reduction operation to be used to combine time series into a single
-    /// time series, where the value of each data point in the resulting series is
-    /// a function of all the already aligned values in the input time series.
-    ///
-    /// Not all reducer operations can be applied to all time series. The valid
-    /// choices depend on the `metric_kind` and the `value_type` of the original
-    /// time series. Reduction can yield a time series with a different
-    /// `metric_kind` or `value_type` than the input time series.
-    ///
-    /// Time series data must first be aligned (see `per_series_aligner`) in order
-    /// to perform cross-time series reduction. If `cross_series_reducer` is
-    /// specified, then `per_series_aligner` must be specified, and must not be
-    /// `ALIGN_NONE`. An `alignment_period` must also be specified; otherwise, an
-    /// error is returned.
-    #[prost(enumeration = "aggregation::Reducer", tag = "4")]
-    pub cross_series_reducer: i32,
-    /// The set of fields to preserve when `cross_series_reducer` is
-    /// specified. The `group_by_fields` determine how the time series are
-    /// partitioned into subsets prior to applying the aggregation
-    /// operation. Each subset contains time series that have the same
-    /// value for each of the grouping fields. Each individual time
-    /// series is a member of exactly one subset. The
-    /// `cross_series_reducer` is applied to each subset of time series.
-    /// It is not possible to reduce across different resource types, so
-    /// this field implicitly contains `resource.type`.  Fields not
-    /// specified in `group_by_fields` are aggregated away.  If
-    /// `group_by_fields` is not specified and all the time series have
-    /// the same resource type, then the time series are aggregated into
-    /// a single output time series. If `cross_series_reducer` is not
-    /// defined, this field is ignored.
-    #[prost(string, repeated, tag = "5")]
-    pub group_by_fields: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `Aggregation`.
-pub mod aggregation {
-    /// The `Aligner` specifies the operation that will be applied to the data
-    /// points in each alignment period in a time series. Except for
-    /// `ALIGN_NONE`, which specifies that no operation be applied, each alignment
-    /// operation replaces the set of data values in each alignment period with
-    /// a single value: the result of applying the operation to the data values.
-    /// An aligned time series has a single data value at the end of each
-    /// `alignment_period`.
-    ///
-    /// An alignment operation can change the data type of the values, too. For
-    /// example, if you apply a counting operation to boolean values, the data
-    /// `value_type` in the original time series is `BOOLEAN`, but the `value_type`
-    /// in the aligned result is `INT64`.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Aligner {
-        /// No alignment. Raw data is returned. Not valid if cross-series reduction
-        /// is requested. The `value_type` of the result is the same as the
-        /// `value_type` of the input.
-        AlignNone = 0,
-        /// Align and convert to
-        /// [DELTA][google.api.MetricDescriptor.MetricKind.DELTA].
-        /// The output is `delta = y1 - y0`.
-        ///
-        /// This alignment is valid for
-        /// [CUMULATIVE][google.api.MetricDescriptor.MetricKind.CUMULATIVE] and
-        /// `DELTA` metrics. If the selected alignment period results in periods
-        /// with no data, then the aligned value for such a period is created by
-        /// interpolation. The `value_type`  of the aligned result is the same as
-        /// the `value_type` of the input.
-        AlignDelta = 1,
-        /// Align and convert to a rate. The result is computed as
-        /// `rate = (y1 - y0)/(t1 - t0)`, or "delta over time".
-        /// Think of this aligner as providing the slope of the line that passes
-        /// through the value at the start and at the end of the `alignment_period`.
-        ///
-        /// This aligner is valid for `CUMULATIVE`
-        /// and `DELTA` metrics with numeric values. If the selected alignment
-        /// period results in periods with no data, then the aligned value for
-        /// such a period is created by interpolation. The output is a `GAUGE`
-        /// metric with `value_type` `DOUBLE`.
-        ///
-        /// If, by "rate", you mean "percentage change", see the
-        /// `ALIGN_PERCENT_CHANGE` aligner instead.
-        AlignRate = 2,
-        /// Align by interpolating between adjacent points around the alignment
-        /// period boundary. This aligner is valid for `GAUGE` metrics with
-        /// numeric values. The `value_type` of the aligned result is the same as the
-        /// `value_type` of the input.
-        AlignInterpolate = 3,
-        /// Align by moving the most recent data point before the end of the
-        /// alignment period to the boundary at the end of the alignment
-        /// period. This aligner is valid for `GAUGE` metrics. The `value_type` of
-        /// the aligned result is the same as the `value_type` of the input.
-        AlignNextOlder = 4,
-        /// Align the time series by returning the minimum value in each alignment
-        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
-        /// numeric values. The `value_type` of the aligned result is the same as
-        /// the `value_type` of the input.
-        AlignMin = 10,
-        /// Align the time series by returning the maximum value in each alignment
-        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
-        /// numeric values. The `value_type` of the aligned result is the same as
-        /// the `value_type` of the input.
-        AlignMax = 11,
-        /// Align the time series by returning the mean value in each alignment
-        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
-        /// numeric values. The `value_type` of the aligned result is `DOUBLE`.
-        AlignMean = 12,
-        /// Align the time series by returning the number of values in each alignment
-        /// period. This aligner is valid for `GAUGE` and `DELTA` metrics with
-        /// numeric or Boolean values. The `value_type` of the aligned result is
-        /// `INT64`.
-        AlignCount = 13,
-        /// Align the time series by returning the sum of the values in each
-        /// alignment period. This aligner is valid for `GAUGE` and `DELTA`
-        /// metrics with numeric and distribution values. The `value_type` of the
-        /// aligned result is the same as the `value_type` of the input.
-        AlignSum = 14,
-        /// Align the time series by returning the standard deviation of the values
-        /// in each alignment period. This aligner is valid for `GAUGE` and
-        /// `DELTA` metrics with numeric values. The `value_type` of the output is
-        /// `DOUBLE`.
-        AlignStddev = 15,
-        /// Align the time series by returning the number of `True` values in
-        /// each alignment period. This aligner is valid for `GAUGE` metrics with
-        /// Boolean values. The `value_type` of the output is `INT64`.
-        AlignCountTrue = 16,
-        /// Align the time series by returning the number of `False` values in
-        /// each alignment period. This aligner is valid for `GAUGE` metrics with
-        /// Boolean values. The `value_type` of the output is `INT64`.
-        AlignCountFalse = 24,
-        /// Align the time series by returning the ratio of the number of `True`
-        /// values to the total number of values in each alignment period. This
-        /// aligner is valid for `GAUGE` metrics with Boolean values. The output
-        /// value is in the range \[0.0, 1.0\] and has `value_type` `DOUBLE`.
-        AlignFractionTrue = 17,
-        /// Align the time series by using [percentile
-        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
-        /// data point in each alignment period is the 99th percentile of all data
-        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
-        /// metrics with distribution values. The output is a `GAUGE` metric with
-        /// `value_type` `DOUBLE`.
-        AlignPercentile99 = 18,
-        /// Align the time series by using [percentile
-        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
-        /// data point in each alignment period is the 95th percentile of all data
-        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
-        /// metrics with distribution values. The output is a `GAUGE` metric with
-        /// `value_type` `DOUBLE`.
-        AlignPercentile95 = 19,
-        /// Align the time series by using [percentile
-        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
-        /// data point in each alignment period is the 50th percentile of all data
-        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
-        /// metrics with distribution values. The output is a `GAUGE` metric with
-        /// `value_type` `DOUBLE`.
-        AlignPercentile50 = 20,
-        /// Align the time series by using [percentile
-        /// aggregation](<https://en.wikipedia.org/wiki/Percentile>). The resulting
-        /// data point in each alignment period is the 5th percentile of all data
-        /// points in the period. This aligner is valid for `GAUGE` and `DELTA`
-        /// metrics with distribution values. The output is a `GAUGE` metric with
-        /// `value_type` `DOUBLE`.
-        AlignPercentile05 = 21,
-        /// Align and convert to a percentage change. This aligner is valid for
-        /// `GAUGE` and `DELTA` metrics with numeric values. This alignment returns
-        /// `((current - previous)/previous) * 100`, where the value of `previous` is
-        /// determined based on the `alignment_period`.
-        ///
-        /// If the values of `current` and `previous` are both 0, then the returned
-        /// value is 0. If only `previous` is 0, the returned value is infinity.
-        ///
-        /// A 10-minute moving mean is computed at each point of the alignment period
-        /// prior to the above calculation to smooth the metric and prevent false
-        /// positives from very short-lived spikes. The moving mean is only
-        /// applicable for data whose values are `>= 0`. Any values `< 0` are
-        /// treated as a missing datapoint, and are ignored. While `DELTA`
-        /// metrics are accepted by this alignment, special care should be taken that
-        /// the values for the metric will always be positive. The output is a
-        /// `GAUGE` metric with `value_type` `DOUBLE`.
-        AlignPercentChange = 23,
-    }
-    impl Aligner {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Aligner::AlignNone => "ALIGN_NONE",
-                Aligner::AlignDelta => "ALIGN_DELTA",
-                Aligner::AlignRate => "ALIGN_RATE",
-                Aligner::AlignInterpolate => "ALIGN_INTERPOLATE",
-                Aligner::AlignNextOlder => "ALIGN_NEXT_OLDER",
-                Aligner::AlignMin => "ALIGN_MIN",
-                Aligner::AlignMax => "ALIGN_MAX",
-                Aligner::AlignMean => "ALIGN_MEAN",
-                Aligner::AlignCount => "ALIGN_COUNT",
-                Aligner::AlignSum => "ALIGN_SUM",
-                Aligner::AlignStddev => "ALIGN_STDDEV",
-                Aligner::AlignCountTrue => "ALIGN_COUNT_TRUE",
-                Aligner::AlignCountFalse => "ALIGN_COUNT_FALSE",
-                Aligner::AlignFractionTrue => "ALIGN_FRACTION_TRUE",
-                Aligner::AlignPercentile99 => "ALIGN_PERCENTILE_99",
-                Aligner::AlignPercentile95 => "ALIGN_PERCENTILE_95",
-                Aligner::AlignPercentile50 => "ALIGN_PERCENTILE_50",
-                Aligner::AlignPercentile05 => "ALIGN_PERCENTILE_05",
-                Aligner::AlignPercentChange => "ALIGN_PERCENT_CHANGE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ALIGN_NONE" => Some(Self::AlignNone),
-                "ALIGN_DELTA" => Some(Self::AlignDelta),
-                "ALIGN_RATE" => Some(Self::AlignRate),
-                "ALIGN_INTERPOLATE" => Some(Self::AlignInterpolate),
-                "ALIGN_NEXT_OLDER" => Some(Self::AlignNextOlder),
-                "ALIGN_MIN" => Some(Self::AlignMin),
-                "ALIGN_MAX" => Some(Self::AlignMax),
-                "ALIGN_MEAN" => Some(Self::AlignMean),
-                "ALIGN_COUNT" => Some(Self::AlignCount),
-                "ALIGN_SUM" => Some(Self::AlignSum),
-                "ALIGN_STDDEV" => Some(Self::AlignStddev),
-                "ALIGN_COUNT_TRUE" => Some(Self::AlignCountTrue),
-                "ALIGN_COUNT_FALSE" => Some(Self::AlignCountFalse),
-                "ALIGN_FRACTION_TRUE" => Some(Self::AlignFractionTrue),
-                "ALIGN_PERCENTILE_99" => Some(Self::AlignPercentile99),
-                "ALIGN_PERCENTILE_95" => Some(Self::AlignPercentile95),
-                "ALIGN_PERCENTILE_50" => Some(Self::AlignPercentile50),
-                "ALIGN_PERCENTILE_05" => Some(Self::AlignPercentile05),
-                "ALIGN_PERCENT_CHANGE" => Some(Self::AlignPercentChange),
-                _ => None,
-            }
-        }
-    }
-    /// A Reducer operation describes how to aggregate data points from multiple
-    /// time series into a single time series, where the value of each data point
-    /// in the resulting series is a function of all the already aligned values in
-    /// the input time series.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Reducer {
-        /// No cross-time series reduction. The output of the `Aligner` is
-        /// returned.
-        ReduceNone = 0,
-        /// Reduce by computing the mean value across time series for each
-        /// alignment period. This reducer is valid for
-        /// [DELTA][google.api.MetricDescriptor.MetricKind.DELTA] and
-        /// [GAUGE][google.api.MetricDescriptor.MetricKind.GAUGE] metrics with
-        /// numeric or distribution values. The `value_type` of the output is
-        /// [DOUBLE][google.api.MetricDescriptor.ValueType.DOUBLE].
-        ReduceMean = 1,
-        /// Reduce by computing the minimum value across time series for each
-        /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
-        /// with numeric values. The `value_type` of the output is the same as the
-        /// `value_type` of the input.
-        ReduceMin = 2,
-        /// Reduce by computing the maximum value across time series for each
-        /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
-        /// with numeric values. The `value_type` of the output is the same as the
-        /// `value_type` of the input.
-        ReduceMax = 3,
-        /// Reduce by computing the sum across time series for each
-        /// alignment period. This reducer is valid for `DELTA` and `GAUGE` metrics
-        /// with numeric and distribution values. The `value_type` of the output is
-        /// the same as the `value_type` of the input.
-        ReduceSum = 4,
-        /// Reduce by computing the standard deviation across time series
-        /// for each alignment period. This reducer is valid for `DELTA` and
-        /// `GAUGE` metrics with numeric or distribution values. The `value_type`
-        /// of the output is `DOUBLE`.
-        ReduceStddev = 5,
-        /// Reduce by computing the number of data points across time series
-        /// for each alignment period. This reducer is valid for `DELTA` and
-        /// `GAUGE` metrics of numeric, Boolean, distribution, and string
-        /// `value_type`. The `value_type` of the output is `INT64`.
-        ReduceCount = 6,
-        /// Reduce by computing the number of `True`-valued data points across time
-        /// series for each alignment period. This reducer is valid for `DELTA` and
-        /// `GAUGE` metrics of Boolean `value_type`. The `value_type` of the output
-        /// is `INT64`.
-        ReduceCountTrue = 7,
-        /// Reduce by computing the number of `False`-valued data points across time
-        /// series for each alignment period. This reducer is valid for `DELTA` and
-        /// `GAUGE` metrics of Boolean `value_type`. The `value_type` of the output
-        /// is `INT64`.
-        ReduceCountFalse = 15,
-        /// Reduce by computing the ratio of the number of `True`-valued data points
-        /// to the total number of data points for each alignment period. This
-        /// reducer is valid for `DELTA` and `GAUGE` metrics of Boolean `value_type`.
-        /// The output value is in the range \[0.0, 1.0\] and has `value_type`
-        /// `DOUBLE`.
-        ReduceFractionTrue = 8,
-        /// Reduce by computing the [99th
-        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
-        /// across time series for each alignment period. This reducer is valid for
-        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
-        /// of the output is `DOUBLE`.
-        ReducePercentile99 = 9,
-        /// Reduce by computing the [95th
-        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
-        /// across time series for each alignment period. This reducer is valid for
-        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
-        /// of the output is `DOUBLE`.
-        ReducePercentile95 = 10,
-        /// Reduce by computing the [50th
-        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
-        /// across time series for each alignment period. This reducer is valid for
-        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
-        /// of the output is `DOUBLE`.
-        ReducePercentile50 = 11,
-        /// Reduce by computing the [5th
-        /// percentile](<https://en.wikipedia.org/wiki/Percentile>) of data points
-        /// across time series for each alignment period. This reducer is valid for
-        /// `GAUGE` and `DELTA` metrics of numeric and distribution type. The value
-        /// of the output is `DOUBLE`.
-        ReducePercentile05 = 12,
-    }
-    impl Reducer {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Reducer::ReduceNone => "REDUCE_NONE",
-                Reducer::ReduceMean => "REDUCE_MEAN",
-                Reducer::ReduceMin => "REDUCE_MIN",
-                Reducer::ReduceMax => "REDUCE_MAX",
-                Reducer::ReduceSum => "REDUCE_SUM",
-                Reducer::ReduceStddev => "REDUCE_STDDEV",
-                Reducer::ReduceCount => "REDUCE_COUNT",
-                Reducer::ReduceCountTrue => "REDUCE_COUNT_TRUE",
-                Reducer::ReduceCountFalse => "REDUCE_COUNT_FALSE",
-                Reducer::ReduceFractionTrue => "REDUCE_FRACTION_TRUE",
-                Reducer::ReducePercentile99 => "REDUCE_PERCENTILE_99",
-                Reducer::ReducePercentile95 => "REDUCE_PERCENTILE_95",
-                Reducer::ReducePercentile50 => "REDUCE_PERCENTILE_50",
-                Reducer::ReducePercentile05 => "REDUCE_PERCENTILE_05",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "REDUCE_NONE" => Some(Self::ReduceNone),
-                "REDUCE_MEAN" => Some(Self::ReduceMean),
-                "REDUCE_MIN" => Some(Self::ReduceMin),
-                "REDUCE_MAX" => Some(Self::ReduceMax),
-                "REDUCE_SUM" => Some(Self::ReduceSum),
-                "REDUCE_STDDEV" => Some(Self::ReduceStddev),
-                "REDUCE_COUNT" => Some(Self::ReduceCount),
-                "REDUCE_COUNT_TRUE" => Some(Self::ReduceCountTrue),
-                "REDUCE_COUNT_FALSE" => Some(Self::ReduceCountFalse),
-                "REDUCE_FRACTION_TRUE" => Some(Self::ReduceFractionTrue),
-                "REDUCE_PERCENTILE_99" => Some(Self::ReducePercentile99),
-                "REDUCE_PERCENTILE_95" => Some(Self::ReducePercentile95),
-                "REDUCE_PERCENTILE_50" => Some(Self::ReducePercentile50),
-                "REDUCE_PERCENTILE_05" => Some(Self::ReducePercentile05),
-                _ => None,
-            }
-        }
-    }
-}
-/// Specifies an ordering relationship on two arguments, called `left` and
-/// `right`.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ComparisonType {
-    /// No ordering relationship is specified.
-    ComparisonUnspecified = 0,
-    /// True if the left argument is greater than the right argument.
-    ComparisonGt = 1,
-    /// True if the left argument is greater than or equal to the right argument.
-    ComparisonGe = 2,
-    /// True if the left argument is less than the right argument.
-    ComparisonLt = 3,
-    /// True if the left argument is less than or equal to the right argument.
-    ComparisonLe = 4,
-    /// True if the left argument is equal to the right argument.
-    ComparisonEq = 5,
-    /// True if the left argument is not equal to the right argument.
-    ComparisonNe = 6,
-}
-impl ComparisonType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ComparisonType::ComparisonUnspecified => "COMPARISON_UNSPECIFIED",
-            ComparisonType::ComparisonGt => "COMPARISON_GT",
-            ComparisonType::ComparisonGe => "COMPARISON_GE",
-            ComparisonType::ComparisonLt => "COMPARISON_LT",
-            ComparisonType::ComparisonLe => "COMPARISON_LE",
-            ComparisonType::ComparisonEq => "COMPARISON_EQ",
-            ComparisonType::ComparisonNe => "COMPARISON_NE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "COMPARISON_UNSPECIFIED" => Some(Self::ComparisonUnspecified),
-            "COMPARISON_GT" => Some(Self::ComparisonGt),
-            "COMPARISON_GE" => Some(Self::ComparisonGe),
-            "COMPARISON_LT" => Some(Self::ComparisonLt),
-            "COMPARISON_LE" => Some(Self::ComparisonLe),
-            "COMPARISON_EQ" => Some(Self::ComparisonEq),
-            "COMPARISON_NE" => Some(Self::ComparisonNe),
-            _ => None,
-        }
-    }
-}
-/// The tier of service for a Workspace. Please see the
-/// [service tiers
-/// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>) for more
-/// details.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ServiceTier {
-    /// An invalid sentinel value, used to indicate that a tier has not
-    /// been provided explicitly.
-    Unspecified = 0,
-    /// The Stackdriver Basic tier, a free tier of service that provides basic
-    /// features, a moderate allotment of logs, and access to built-in metrics.
-    /// A number of features are not available in this tier. For more details,
-    /// see [the service tiers
-    /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>).
-    Basic = 1,
-    /// The Stackdriver Premium tier, a higher, more expensive tier of service
-    /// that provides access to all Stackdriver features, lets you use Stackdriver
-    /// with AWS accounts, and has a larger allotments for logs and metrics. For
-    /// more details, see [the service tiers
-    /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>).
-    Premium = 2,
-}
-impl ServiceTier {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ServiceTier::Unspecified => "SERVICE_TIER_UNSPECIFIED",
-            ServiceTier::Basic => "SERVICE_TIER_BASIC",
-            ServiceTier::Premium => "SERVICE_TIER_PREMIUM",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SERVICE_TIER_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVICE_TIER_BASIC" => Some(Self::Basic),
-            "SERVICE_TIER_PREMIUM" => Some(Self::Premium),
-            _ => None,
-        }
-    }
-}
-/// A single data point in a time series.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Point {
-    /// The time interval to which the data point applies.  For `GAUGE` metrics,
-    /// the start time is optional, but if it is supplied, it must equal the
-    /// end time.  For `DELTA` metrics, the start
-    /// and end time should specify a non-zero interval, with subsequent points
-    /// specifying contiguous and non-overlapping intervals.  For `CUMULATIVE`
-    /// metrics, the start and end time should specify a non-zero interval, with
-    /// subsequent points specifying the same start time and increasing end times,
-    /// until an event resets the cumulative value to zero and sets a new start
-    /// time for the following points.
-    #[prost(message, optional, tag = "1")]
-    pub interval: ::core::option::Option<TimeInterval>,
-    /// The value of the data point.
-    #[prost(message, optional, tag = "2")]
-    pub value: ::core::option::Option<TypedValue>,
-}
-/// A collection of data points that describes the time-varying values
-/// of a metric. A time series is identified by a combination of a
-/// fully-specified monitored resource and a fully-specified metric.
-/// This type is used for both listing and creating time series.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeSeries {
-    /// The associated metric. A fully-specified metric used to identify the time
-    /// series.
-    #[prost(message, optional, tag = "1")]
-    pub metric: ::core::option::Option<super::super::api::Metric>,
-    /// The associated monitored resource.  Custom metrics can use only certain
-    /// monitored resource types in their time series data. For more information,
-    /// see [Monitored resources for custom
-    /// metrics](<https://cloud.google.com/monitoring/custom-metrics/creating-metrics#custom-metric-resources>).
-    #[prost(message, optional, tag = "2")]
-    pub resource: ::core::option::Option<super::super::api::MonitoredResource>,
-    /// Output only. The associated monitored resource metadata. When reading a
-    /// time series, this field will include metadata labels that are explicitly
-    /// named in the reduction. When creating a time series, this field is ignored.
-    #[prost(message, optional, tag = "7")]
-    pub metadata: ::core::option::Option<super::super::api::MonitoredResourceMetadata>,
-    /// The metric kind of the time series. When listing time series, this metric
-    /// kind might be different from the metric kind of the associated metric if
-    /// this time series is an alignment or reduction of other time series.
-    ///
-    /// When creating a time series, this field is optional. If present, it must be
-    /// the same as the metric kind of the associated metric. If the associated
-    /// metric's descriptor must be auto-created, then this field specifies the
-    /// metric kind of the new descriptor and must be either `GAUGE` (the default)
-    /// or `CUMULATIVE`.
-    #[prost(enumeration = "super::super::api::metric_descriptor::MetricKind", tag = "3")]
-    pub metric_kind: i32,
-    /// The value type of the time series. When listing time series, this value
-    /// type might be different from the value type of the associated metric if
-    /// this time series is an alignment or reduction of other time series.
-    ///
-    /// When creating a time series, this field is optional. If present, it must be
-    /// the same as the type of the data in the `points` field.
-    #[prost(enumeration = "super::super::api::metric_descriptor::ValueType", tag = "4")]
-    pub value_type: i32,
-    /// The data points of this time series. When listing time series, points are
-    /// returned in reverse time order.
-    ///
-    /// When creating a time series, this field must contain exactly one point and
-    /// the point's type must be the same as the value type of the associated
-    /// metric. If the associated metric's descriptor must be auto-created, then
-    /// the value type of the descriptor is determined by the point's type, which
-    /// must be `BOOL`, `INT64`, `DOUBLE`, or `DISTRIBUTION`.
-    #[prost(message, repeated, tag = "5")]
-    pub points: ::prost::alloc::vec::Vec<Point>,
-    /// The units in which the metric value is reported. It is only applicable
-    /// if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit`
-    /// defines the representation of the stored metric values.
-    #[prost(string, tag = "8")]
-    pub unit: ::prost::alloc::string::String,
-}
-/// A descriptor for the labels and points in a time series.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeSeriesDescriptor {
-    /// Descriptors for the labels.
-    #[prost(message, repeated, tag = "1")]
-    pub label_descriptors: ::prost::alloc::vec::Vec<super::super::api::LabelDescriptor>,
-    /// Descriptors for the point data value columns.
-    #[prost(message, repeated, tag = "5")]
-    pub point_descriptors: ::prost::alloc::vec::Vec<
-        time_series_descriptor::ValueDescriptor,
-    >,
-}
-/// Nested message and enum types in `TimeSeriesDescriptor`.
-pub mod time_series_descriptor {
-    /// A descriptor for the value columns in a data point.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ValueDescriptor {
-        /// The value key.
-        #[prost(string, tag = "1")]
-        pub key: ::prost::alloc::string::String,
-        /// The value type.
-        #[prost(
-            enumeration = "super::super::super::api::metric_descriptor::ValueType",
-            tag = "2"
-        )]
-        pub value_type: i32,
-        /// The value stream kind.
-        #[prost(
-            enumeration = "super::super::super::api::metric_descriptor::MetricKind",
-            tag = "3"
-        )]
-        pub metric_kind: i32,
-        /// The unit in which `time_series` point values are reported. `unit`
-        /// follows the UCUM format for units as seen in
-        /// <https://unitsofmeasure.org/ucum.html.>
-        /// `unit` is only valid if `value_type` is INTEGER, DOUBLE, DISTRIBUTION.
-        #[prost(string, tag = "4")]
-        pub unit: ::prost::alloc::string::String,
-    }
-}
-/// Represents the values of a time series associated with a
-/// TimeSeriesDescriptor.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeSeriesData {
-    /// The values of the labels in the time series identifier, given in the same
-    /// order as the `label_descriptors` field of the TimeSeriesDescriptor
-    /// associated with this object. Each value must have a value of the type
-    /// given in the corresponding entry of `label_descriptors`.
-    #[prost(message, repeated, tag = "1")]
-    pub label_values: ::prost::alloc::vec::Vec<LabelValue>,
-    /// The points in the time series.
-    #[prost(message, repeated, tag = "2")]
-    pub point_data: ::prost::alloc::vec::Vec<time_series_data::PointData>,
-}
-/// Nested message and enum types in `TimeSeriesData`.
-pub mod time_series_data {
-    /// A point's value columns and time interval. Each point has one or more
-    /// point values corresponding to the entries in `point_descriptors` field in
-    /// the TimeSeriesDescriptor associated with this object.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PointData {
-        /// The values that make up the point.
-        #[prost(message, repeated, tag = "1")]
-        pub values: ::prost::alloc::vec::Vec<super::TypedValue>,
-        /// The time interval associated with the point.
-        #[prost(message, optional, tag = "2")]
-        pub time_interval: ::core::option::Option<super::TimeInterval>,
-    }
-}
-/// A label value.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LabelValue {
-    /// The label value can be a bool, int64, or string.
-    #[prost(oneof = "label_value::Value", tags = "1, 2, 3")]
-    pub value: ::core::option::Option<label_value::Value>,
-}
-/// Nested message and enum types in `LabelValue`.
-pub mod label_value {
-    /// The label value can be a bool, int64, or string.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Value {
-        /// A bool label value.
-        #[prost(bool, tag = "1")]
-        BoolValue(bool),
-        /// An int64 label value.
-        #[prost(int64, tag = "2")]
-        Int64Value(i64),
-        /// A string label value.
-        #[prost(string, tag = "3")]
-        StringValue(::prost::alloc::string::String),
-    }
-}
-/// An error associated with a query in the time series query language format.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct QueryError {
-    /// The location of the time series query language text that this error applies
-    /// to.
-    #[prost(message, optional, tag = "1")]
-    pub locator: ::core::option::Option<TextLocator>,
-    /// The error message.
-    #[prost(string, tag = "2")]
-    pub message: ::prost::alloc::string::String,
-}
-/// A locator for text. Indicates a particular part of the text of a request or
-/// of an object referenced in the request.
-///
-/// For example, suppose the request field `text` contains:
-///
-///    text: "The quick brown fox jumps over the lazy dog."
-///
-/// Then the locator:
-///
-///    source: "text"
-///    start_position {
-///      line: 1
-///      column: 17
-///    }
-///    end_position {
-///      line: 1
-///      column: 19
-///    }
-///
-/// refers to the part of the text: "fox".
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextLocator {
-    /// The source of the text. The source may be a field in the request, in which
-    /// case its format is the format of the
-    /// google.rpc.BadRequest.FieldViolation.field field in
-    /// <https://cloud.google.com/apis/design/errors#error_details.> It may also be
-    /// be a source other than the request field (e.g. a macro definition
-    /// referenced in the text of the query), in which case this is the name of
-    /// the source (e.g. the macro name).
-    #[prost(string, tag = "1")]
-    pub source: ::prost::alloc::string::String,
-    /// The position of the first byte within the text.
-    #[prost(message, optional, tag = "2")]
-    pub start_position: ::core::option::Option<text_locator::Position>,
-    /// The position of the last byte within the text.
-    #[prost(message, optional, tag = "3")]
-    pub end_position: ::core::option::Option<text_locator::Position>,
-    /// If `source`, `start_position`, and `end_position` describe a call on
-    /// some object (e.g. a macro in the time series query language text) and a
-    /// location is to be designated in that object's text, `nested_locator`
-    /// identifies the location within that object.
-    #[prost(message, optional, boxed, tag = "4")]
-    pub nested_locator: ::core::option::Option<::prost::alloc::boxed::Box<TextLocator>>,
-    /// When `nested_locator` is set, this field gives the reason for the nesting.
-    /// Usually, the reason is a macro invocation. In that case, the macro name
-    /// (including the leading '@') signals the location of the macro call
-    /// in the text and a macro argument name (including the leading '$') signals
-    /// the location of the macro argument inside the macro body that got
-    /// substituted away.
-    #[prost(string, tag = "5")]
-    pub nesting_reason: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `TextLocator`.
-pub mod text_locator {
-    /// The position of a byte within the text.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Position {
-        /// The line, starting with 1, where the byte is positioned.
-        #[prost(int32, tag = "1")]
-        pub line: i32,
-        /// The column within the line, starting with 1, where the byte is
-        /// positioned. This is a byte index even though the text is UTF-8.
-        #[prost(int32, tag = "2")]
-        pub column: i32,
-    }
-}
 /// The `ListMonitoredResourceDescriptors` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3029,89 +4534,6 @@ pub struct MutationRecord {
     #[prost(string, tag = "2")]
     pub mutated_by: ::prost::alloc::string::String,
 }
-/// A set of (label, value) pairs that were removed from a Distribution
-/// time series during aggregation and then added as an attachment to a
-/// Distribution.Exemplar.
-///
-/// The full label set for the exemplars is constructed by using the dropped
-/// pairs in combination with the label values that remain on the aggregated
-/// Distribution time series. The constructed full label set can be used to
-/// identify the specific entity, such as the instance or job, which might be
-/// contributing to a long-tail. However, with dropped labels, the storage
-/// requirements are reduced because only the aggregated distribution values for
-/// a large group of time series are stored.
-///
-/// Note that there are no guarantees on ordering of the labels from
-/// exemplar-to-exemplar and from distribution-to-distribution in the same
-/// stream, and there may be duplicates.  It is up to clients to resolve any
-/// ambiguities.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DroppedLabels {
-    /// Map from label to its value, for all labels dropped in any aggregation.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub label: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// The description of a dynamic collection of monitored resources. Each group
-/// has a filter that is matched against monitored resources and their associated
-/// metadata. If a group's filter matches an available monitored resource, then
-/// that resource is a member of that group.  Groups can contain any number of
-/// monitored resources, and each monitored resource can be a member of any
-/// number of groups.
-///
-/// Groups can be nested in parent-child hierarchies. The `parentName` field
-/// identifies an optional parent for each group.  If a group has a parent, then
-/// the only monitored resources available to be matched by the group's filter
-/// are the resources contained in the parent group.  In other words, a group
-/// contains the monitored resources that match its filter and the filters of all
-/// the group's ancestors.  A group without a parent can contain any monitored
-/// resource.
-///
-/// For example, consider an infrastructure running a set of instances with two
-/// user-defined tags: `"environment"` and `"role"`. A parent group has a filter,
-/// `environment="production"`.  A child of that parent group has a filter,
-/// `role="transcoder"`.  The parent group contains all instances in the
-/// production environment, regardless of their roles.  The child group contains
-/// instances that have the transcoder role *and* are in the production
-/// environment.
-///
-/// The monitored resources contained in a group can change at any moment,
-/// depending on what resources exist and what filters are associated with the
-/// group and its ancestors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Group {
-    /// Output only. The name of this group. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    ///
-    /// When creating a group, this field is ignored and a new name is created
-    /// consisting of the project specified in the call to `CreateGroup`
-    /// and a unique `\[GROUP_ID\]` that is generated automatically.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// A user-assigned name for this group, used only for display purposes.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The name of the group's parent, if it has one. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    ///
-    /// For groups with no parent, `parent_name` is the empty string, `""`.
-    #[prost(string, tag = "3")]
-    pub parent_name: ::prost::alloc::string::String,
-    /// The filter used to determine which monitored resources belong to this
-    /// group.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-    /// If true, the members of this group are considered to be a cluster.
-    /// The system can perform additional analysis on groups that are clusters.
-    #[prost(bool, tag = "6")]
-    pub is_cluster: bool,
-}
 /// A description of a notification channel. The descriptor includes
 /// the properties of the channel and the set of labels or fields that
 /// must be specified to configure channels of a given type.
@@ -3981,594 +5403,489 @@ pub mod notification_channel_service_client {
         }
     }
 }
-/// A `Service` is a discrete, autonomous, and network-accessible unit, designed
-/// to solve an individual concern
-/// ([Wikipedia](<https://en.wikipedia.org/wiki/Service-orientation>)). In
-/// Cloud Monitoring, a `Service` acts as the root resource under which
-/// operational aspects of the service are accessible.
+/// The description of a dynamic collection of monitored resources. Each group
+/// has a filter that is matched against monitored resources and their associated
+/// metadata. If a group's filter matches an available monitored resource, then
+/// that resource is a member of that group.  Groups can contain any number of
+/// monitored resources, and each monitored resource can be a member of any
+/// number of groups.
+///
+/// Groups can be nested in parent-child hierarchies. The `parentName` field
+/// identifies an optional parent for each group.  If a group has a parent, then
+/// the only monitored resources available to be matched by the group's filter
+/// are the resources contained in the parent group.  In other words, a group
+/// contains the monitored resources that match its filter and the filters of all
+/// the group's ancestors.  A group without a parent can contain any monitored
+/// resource.
+///
+/// For example, consider an infrastructure running a set of instances with two
+/// user-defined tags: `"environment"` and `"role"`. A parent group has a filter,
+/// `environment="production"`.  A child of that parent group has a filter,
+/// `role="transcoder"`.  The parent group contains all instances in the
+/// production environment, regardless of their roles.  The child group contains
+/// instances that have the transcoder role *and* are in the production
+/// environment.
+///
+/// The monitored resources contained in a group can change at any moment,
+/// depending on what resources exist and what filters are associated with the
+/// group and its ancestors.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Service {
-    /// Resource name for this Service. The format is:
+pub struct Group {
+    /// Output only. The name of this group. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    ///
+    /// When creating a group, this field is ignored and a new name is created
+    /// consisting of the project specified in the call to `CreateGroup`
+    /// and a unique `\[GROUP_ID\]` that is generated automatically.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Name used for UI elements listing this Service.
+    /// A user-assigned name for this group, used only for display purposes.
     #[prost(string, tag = "2")]
     pub display_name: ::prost::alloc::string::String,
-    /// Configuration for how to query telemetry on a Service.
-    #[prost(message, optional, tag = "13")]
-    pub telemetry: ::core::option::Option<service::Telemetry>,
-    /// Labels which have been used to annotate the service. Label keys must start
-    /// with a letter. Label keys and values may contain lowercase letters,
-    /// numbers, underscores, and dashes. Label keys and values have a maximum
-    /// length of 63 characters, and must be less than 128 bytes in size. Up to 64
-    /// label entries may be stored. For labels which do not have a semantic value,
-    /// the empty string may be supplied for the label value.
-    #[prost(btree_map = "string, string", tag = "14")]
-    pub user_labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// REQUIRED. Service-identifying atoms specifying the underlying service.
-    #[prost(oneof = "service::Identifier", tags = "6, 7, 8, 9, 10, 11")]
-    pub identifier: ::core::option::Option<service::Identifier>,
-}
-/// Nested message and enum types in `Service`.
-pub mod service {
-    /// Custom view of service telemetry. Currently a place-holder pending final
-    /// design.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Custom {}
-    /// App Engine service. Learn more at <https://cloud.google.com/appengine.>
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AppEngine {
-        /// The ID of the App Engine module underlying this service. Corresponds to
-        /// the `module_id` resource label in the `gae_app` monitored resource:
-        /// <https://cloud.google.com/monitoring/api/resources#tag_gae_app>
-        #[prost(string, tag = "1")]
-        pub module_id: ::prost::alloc::string::String,
-    }
-    /// Cloud Endpoints service. Learn more at <https://cloud.google.com/endpoints.>
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct CloudEndpoints {
-        /// The name of the Cloud Endpoints service underlying this service.
-        /// Corresponds to the `service` resource label in the `api` monitored
-        /// resource: <https://cloud.google.com/monitoring/api/resources#tag_api>
-        #[prost(string, tag = "1")]
-        pub service: ::prost::alloc::string::String,
-    }
-    /// Istio service scoped to a single Kubernetes cluster. Learn more at
-    /// <https://istio.io.> Clusters running OSS Istio will have their services
-    /// ingested as this type.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ClusterIstio {
-        /// The location of the Kubernetes cluster in which this Istio service is
-        /// defined. Corresponds to the `location` resource label in `k8s_cluster`
-        /// resources.
-        #[prost(string, tag = "1")]
-        pub location: ::prost::alloc::string::String,
-        /// The name of the Kubernetes cluster in which this Istio service is
-        /// defined. Corresponds to the `cluster_name` resource label in
-        /// `k8s_cluster` resources.
-        #[prost(string, tag = "2")]
-        pub cluster_name: ::prost::alloc::string::String,
-        /// The namespace of the Istio service underlying this service. Corresponds
-        /// to the `destination_service_namespace` metric label in Istio metrics.
-        #[prost(string, tag = "3")]
-        pub service_namespace: ::prost::alloc::string::String,
-        /// The name of the Istio service underlying this service. Corresponds to the
-        /// `destination_service_name` metric label in Istio metrics.
-        #[prost(string, tag = "4")]
-        pub service_name: ::prost::alloc::string::String,
-    }
-    /// Istio service scoped to an Istio mesh. Anthos clusters running ASM < 1.6.8
-    /// will have their services ingested as this type.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MeshIstio {
-        /// Identifier for the mesh in which this Istio service is defined.
-        /// Corresponds to the `mesh_uid` metric label in Istio metrics.
-        #[prost(string, tag = "1")]
-        pub mesh_uid: ::prost::alloc::string::String,
-        /// The namespace of the Istio service underlying this service. Corresponds
-        /// to the `destination_service_namespace` metric label in Istio metrics.
-        #[prost(string, tag = "3")]
-        pub service_namespace: ::prost::alloc::string::String,
-        /// The name of the Istio service underlying this service. Corresponds to the
-        /// `destination_service_name` metric label in Istio metrics.
-        #[prost(string, tag = "4")]
-        pub service_name: ::prost::alloc::string::String,
-    }
-    /// Canonical service scoped to an Istio mesh. Anthos clusters running ASM >=
-    /// 1.6.8 will have their services ingested as this type.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct IstioCanonicalService {
-        /// Identifier for the Istio mesh in which this canonical service is defined.
-        /// Corresponds to the `mesh_uid` metric label in
-        /// [Istio metrics](<https://cloud.google.com/monitoring/api/metrics_istio>).
-        #[prost(string, tag = "1")]
-        pub mesh_uid: ::prost::alloc::string::String,
-        /// The namespace of the canonical service underlying this service.
-        /// Corresponds to the `destination_canonical_service_namespace` metric
-        /// label in [Istio
-        /// metrics](<https://cloud.google.com/monitoring/api/metrics_istio>).
-        #[prost(string, tag = "3")]
-        pub canonical_service_namespace: ::prost::alloc::string::String,
-        /// The name of the canonical service underlying this service.
-        /// Corresponds to the `destination_canonical_service_name` metric label in
-        /// label in [Istio
-        /// metrics](<https://cloud.google.com/monitoring/api/metrics_istio>).
-        #[prost(string, tag = "4")]
-        pub canonical_service: ::prost::alloc::string::String,
-    }
-    /// Configuration for how to query telemetry on a Service.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Telemetry {
-        /// The full name of the resource that defines this service. Formatted as
-        /// described in <https://cloud.google.com/apis/design/resource_names.>
-        #[prost(string, tag = "1")]
-        pub resource_name: ::prost::alloc::string::String,
-    }
-    /// REQUIRED. Service-identifying atoms specifying the underlying service.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Identifier {
-        /// Custom service type.
-        #[prost(message, tag = "6")]
-        Custom(Custom),
-        /// Type used for App Engine services.
-        #[prost(message, tag = "7")]
-        AppEngine(AppEngine),
-        /// Type used for Cloud Endpoints services.
-        #[prost(message, tag = "8")]
-        CloudEndpoints(CloudEndpoints),
-        /// Type used for Istio services that live in a Kubernetes cluster.
-        #[prost(message, tag = "9")]
-        ClusterIstio(ClusterIstio),
-        /// Type used for Istio services scoped to an Istio mesh.
-        #[prost(message, tag = "10")]
-        MeshIstio(MeshIstio),
-        /// Type used for canonical services scoped to an Istio mesh.
-        /// Metrics for Istio are
-        /// [documented here](<https://istio.io/latest/docs/reference/config/metrics/>)
-        #[prost(message, tag = "11")]
-        IstioCanonicalService(IstioCanonicalService),
-    }
-}
-/// A Service-Level Objective (SLO) describes a level of desired good service. It
-/// consists of a service-level indicator (SLI), a performance goal, and a period
-/// over which the objective is to be evaluated against that goal. The SLO can
-/// use SLIs defined in a number of different manners. Typical SLOs might include
-/// "99% of requests in each rolling week have latency below 200 milliseconds" or
-/// "99.5% of requests in each calendar month return successfully."
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServiceLevelObjective {
-    /// Resource name for this `ServiceLevelObjective`. The format is:
+    /// The name of the group's parent, if it has one. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Name used for UI elements listing this SLO.
-    #[prost(string, tag = "11")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The definition of good service, used to measure and calculate the quality
-    /// of the `Service`'s performance with respect to a single aspect of service
-    /// quality.
-    #[prost(message, optional, tag = "3")]
-    pub service_level_indicator: ::core::option::Option<ServiceLevelIndicator>,
-    /// The fraction of service that must be good in order for this objective to be
-    /// met. `0 < goal <= 0.999`.
-    #[prost(double, tag = "4")]
-    pub goal: f64,
-    /// Labels which have been used to annotate the service-level objective. Label
-    /// keys must start with a letter. Label keys and values may contain lowercase
-    /// letters, numbers, underscores, and dashes. Label keys and values have a
-    /// maximum length of 63 characters, and must be less than 128 bytes in size.
-    /// Up to 64 label entries may be stored. For labels which do not have a
-    /// semantic value, the empty string may be supplied for the label value.
-    #[prost(btree_map = "string, string", tag = "12")]
-    pub user_labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// The time period over which the objective will be evaluated.
-    #[prost(oneof = "service_level_objective::Period", tags = "5, 6")]
-    pub period: ::core::option::Option<service_level_objective::Period>,
-}
-/// Nested message and enum types in `ServiceLevelObjective`.
-pub mod service_level_objective {
-    /// `ServiceLevelObjective.View` determines what form of
-    /// `ServiceLevelObjective` is returned from `GetServiceLevelObjective`,
-    /// `ListServiceLevelObjectives`, and `ListServiceLevelObjectiveVersions` RPCs.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum View {
-        /// Same as FULL.
-        Unspecified = 0,
-        /// Return the embedded `ServiceLevelIndicator` in the form in which it was
-        /// defined. If it was defined using a `BasicSli`, return that `BasicSli`.
-        Full = 2,
-        /// For `ServiceLevelIndicator`s using `BasicSli` articulation, instead
-        /// return the `ServiceLevelIndicator` with its mode of computation fully
-        /// spelled out as a `RequestBasedSli`. For `ServiceLevelIndicator`s using
-        /// `RequestBasedSli` or `WindowsBasedSli`, return the
-        /// `ServiceLevelIndicator` as it was provided.
-        Explicit = 1,
-    }
-    impl View {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                View::Unspecified => "VIEW_UNSPECIFIED",
-                View::Full => "FULL",
-                View::Explicit => "EXPLICIT",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "VIEW_UNSPECIFIED" => Some(Self::Unspecified),
-                "FULL" => Some(Self::Full),
-                "EXPLICIT" => Some(Self::Explicit),
-                _ => None,
-            }
-        }
-    }
-    /// The time period over which the objective will be evaluated.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Period {
-        /// A rolling time period, semantically "in the past `<rolling_period>`".
-        /// Must be an integer multiple of 1 day no larger than 30 days.
-        #[prost(message, tag = "5")]
-        RollingPeriod(::prost_types::Duration),
-        /// A calendar period, semantically "since the start of the current
-        /// `<calendar_period>`". At this time, only `DAY`, `WEEK`, `FORTNIGHT`, and
-        /// `MONTH` are supported.
-        #[prost(enumeration = "super::super::super::r#type::CalendarPeriod", tag = "6")]
-        CalendarPeriod(i32),
-    }
-}
-/// A Service-Level Indicator (SLI) describes the "performance" of a service. For
-/// some services, the SLI is well-defined. In such cases, the SLI can be
-/// described easily by referencing the well-known SLI and providing the needed
-/// parameters. Alternatively, a "custom" SLI can be defined with a query to the
-/// underlying metric store. An SLI is defined to be `good_service /
-/// total_service` over any queried time interval. The value of performance
-/// always falls into the range `0 <= performance <= 1`. A custom SLI describes
-/// how to compute this ratio, whether this is by dividing values from a pair of
-/// time series, cutting a `Distribution` into good and bad counts, or counting
-/// time windows in which the service complies with a criterion. For separation
-/// of concerns, a single Service-Level Indicator measures performance for only
-/// one aspect of service quality, such as fraction of successful queries or
-/// fast-enough queries.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServiceLevelIndicator {
-    /// Service level indicators can be grouped by whether the "unit" of service
-    /// being measured is based on counts of good requests or on counts of good
-    /// time windows
-    #[prost(oneof = "service_level_indicator::Type", tags = "4, 1, 2")]
-    pub r#type: ::core::option::Option<service_level_indicator::Type>,
-}
-/// Nested message and enum types in `ServiceLevelIndicator`.
-pub mod service_level_indicator {
-    /// Service level indicators can be grouped by whether the "unit" of service
-    /// being measured is based on counts of good requests or on counts of good
-    /// time windows
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Type {
-        /// Basic SLI on a well-known service type.
-        #[prost(message, tag = "4")]
-        BasicSli(super::BasicSli),
-        /// Request-based SLIs
-        #[prost(message, tag = "1")]
-        RequestBased(super::RequestBasedSli),
-        /// Windows-based SLIs
-        #[prost(message, tag = "2")]
-        WindowsBased(super::WindowsBasedSli),
-    }
-}
-/// An SLI measuring performance on a well-known service type. Performance will
-/// be computed on the basis of pre-defined metrics. The type of the
-/// `service_resource` determines the metrics to use and the
-/// `service_resource.labels` and `metric_labels` are used to construct a
-/// monitoring filter to filter that metric down to just the data relevant to
-/// this service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BasicSli {
-    /// OPTIONAL: The set of RPCs to which this SLI is relevant. Telemetry from
-    /// other methods will not be used to calculate performance for this SLI. If
-    /// omitted, this SLI applies to all the Service's methods. For service types
-    /// that don't support breaking down by method, setting this field will result
-    /// in an error.
-    #[prost(string, repeated, tag = "7")]
-    pub method: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// OPTIONAL: The set of locations to which this SLI is relevant. Telemetry
-    /// from other locations will not be used to calculate performance for this
-    /// SLI. If omitted, this SLI applies to all locations in which the Service has
-    /// activity. For service types that don't support breaking down by location,
-    /// setting this field will result in an error.
-    #[prost(string, repeated, tag = "8")]
-    pub location: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// OPTIONAL: The set of API versions to which this SLI is relevant. Telemetry
-    /// from other API versions will not be used to calculate performance for this
-    /// SLI. If omitted, this SLI applies to all API versions. For service types
-    /// that don't support breaking down by version, setting this field will result
-    /// in an error.
-    #[prost(string, repeated, tag = "9")]
-    pub version: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// This SLI can be evaluated on the basis of availability or latency.
-    #[prost(oneof = "basic_sli::SliCriteria", tags = "2, 3")]
-    pub sli_criteria: ::core::option::Option<basic_sli::SliCriteria>,
-}
-/// Nested message and enum types in `BasicSli`.
-pub mod basic_sli {
-    /// Future parameters for the availability SLI.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct AvailabilityCriteria {}
-    /// Parameters for a latency threshold SLI.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct LatencyCriteria {
-        /// Good service is defined to be the count of requests made to this service
-        /// that return in no more than `threshold`.
-        #[prost(message, optional, tag = "3")]
-        pub threshold: ::core::option::Option<::prost_types::Duration>,
-    }
-    /// This SLI can be evaluated on the basis of availability or latency.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum SliCriteria {
-        /// Good service is defined to be the count of requests made to this service
-        /// that return successfully.
-        #[prost(message, tag = "2")]
-        Availability(AvailabilityCriteria),
-        /// Good service is defined to be the count of requests made to this service
-        /// that are fast enough with respect to `latency.threshold`.
-        #[prost(message, tag = "3")]
-        Latency(LatencyCriteria),
-    }
-}
-/// Range of numerical values within `min` and `max`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Range {
-    /// Range minimum.
-    #[prost(double, tag = "1")]
-    pub min: f64,
-    /// Range maximum.
-    #[prost(double, tag = "2")]
-    pub max: f64,
-}
-/// Service Level Indicators for which atomic units of service are counted
-/// directly.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RequestBasedSli {
-    /// The means to compute a ratio of `good_service` to `total_service`.
-    #[prost(oneof = "request_based_sli::Method", tags = "1, 3")]
-    pub method: ::core::option::Option<request_based_sli::Method>,
-}
-/// Nested message and enum types in `RequestBasedSli`.
-pub mod request_based_sli {
-    /// The means to compute a ratio of `good_service` to `total_service`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Method {
-        /// `good_total_ratio` is used when the ratio of `good_service` to
-        /// `total_service` is computed from two `TimeSeries`.
-        #[prost(message, tag = "1")]
-        GoodTotalRatio(super::TimeSeriesRatio),
-        /// `distribution_cut` is used when `good_service` is a count of values
-        /// aggregated in a `Distribution` that fall into a good range. The
-        /// `total_service` is the total count of all values aggregated in the
-        /// `Distribution`.
-        #[prost(message, tag = "3")]
-        DistributionCut(super::DistributionCut),
-    }
-}
-/// A `TimeSeriesRatio` specifies two `TimeSeries` to use for computing the
-/// `good_service / total_service` ratio. The specified `TimeSeries` must have
-/// `ValueType = DOUBLE` or `ValueType = INT64` and must have `MetricKind =
-/// DELTA` or `MetricKind = CUMULATIVE`. The `TimeSeriesRatio` must specify
-/// exactly two of good, bad, and total, and the relationship `good_service +
-/// bad_service = total_service` will be assumed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TimeSeriesRatio {
-    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-    /// specifying a `TimeSeries` quantifying good service provided. Must have
-    /// `ValueType = DOUBLE` or `ValueType = INT64` and must have `MetricKind =
-    /// DELTA` or `MetricKind = CUMULATIVE`.
-    #[prost(string, tag = "4")]
-    pub good_service_filter: ::prost::alloc::string::String,
-    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-    /// specifying a `TimeSeries` quantifying bad service, either demanded service
-    /// that was not provided or demanded service that was of inadequate quality.
-    /// Must have `ValueType = DOUBLE` or `ValueType = INT64` and must have
-    /// `MetricKind = DELTA` or `MetricKind = CUMULATIVE`.
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    ///
+    /// For groups with no parent, `parent_name` is the empty string, `""`.
+    #[prost(string, tag = "3")]
+    pub parent_name: ::prost::alloc::string::String,
+    /// The filter used to determine which monitored resources belong to this
+    /// group.
     #[prost(string, tag = "5")]
-    pub bad_service_filter: ::prost::alloc::string::String,
-    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-    /// specifying a `TimeSeries` quantifying total demanded service. Must have
-    /// `ValueType = DOUBLE` or `ValueType = INT64` and must have `MetricKind =
-    /// DELTA` or `MetricKind = CUMULATIVE`.
+    pub filter: ::prost::alloc::string::String,
+    /// If true, the members of this group are considered to be a cluster.
+    /// The system can perform additional analysis on groups that are clusters.
+    #[prost(bool, tag = "6")]
+    pub is_cluster: bool,
+}
+/// The `ListGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupsRequest {
+    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>)
+    /// whose groups are to be listed. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "7")]
+    pub name: ::prost::alloc::string::String,
+    /// A positive number that is the maximum number of results to return.
+    #[prost(int32, tag = "5")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `next_page_token` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return additional results from the previous method call.
     #[prost(string, tag = "6")]
-    pub total_service_filter: ::prost::alloc::string::String,
+    pub page_token: ::prost::alloc::string::String,
+    /// An optional filter consisting of a single group name.  The filters limit
+    /// the groups returned based on their parent-child relationship with the
+    /// specified group. If no filter is specified, all groups are returned.
+    #[prost(oneof = "list_groups_request::Filter", tags = "2, 3, 4")]
+    pub filter: ::core::option::Option<list_groups_request::Filter>,
 }
-/// A `DistributionCut` defines a `TimeSeries` and thresholds used for measuring
-/// good service and total service. The `TimeSeries` must have `ValueType =
-/// DISTRIBUTION` and `MetricKind = DELTA` or `MetricKind = CUMULATIVE`. The
-/// computed `good_service` will be the estimated count of values in the
-/// `Distribution` that fall within the specified `min` and `max`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DistributionCut {
-    /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-    /// specifying a `TimeSeries` aggregating values. Must have `ValueType =
-    /// DISTRIBUTION` and `MetricKind = DELTA` or `MetricKind = CUMULATIVE`.
-    #[prost(string, tag = "4")]
-    pub distribution_filter: ::prost::alloc::string::String,
-    /// Range of values considered "good." For a one-sided range, set one bound to
-    /// an infinite value.
-    #[prost(message, optional, tag = "5")]
-    pub range: ::core::option::Option<Range>,
-}
-/// A `WindowsBasedSli` defines `good_service` as the count of time windows for
-/// which the provided service was of good quality. Criteria for determining
-/// if service was good are embedded in the `window_criterion`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WindowsBasedSli {
-    /// Duration over which window quality is evaluated. Must be an integer
-    /// fraction of a day and at least `60s`.
-    #[prost(message, optional, tag = "4")]
-    pub window_period: ::core::option::Option<::prost_types::Duration>,
-    /// The criterion to use for evaluating window goodness.
-    #[prost(oneof = "windows_based_sli::WindowCriterion", tags = "5, 2, 6, 7")]
-    pub window_criterion: ::core::option::Option<windows_based_sli::WindowCriterion>,
-}
-/// Nested message and enum types in `WindowsBasedSli`.
-pub mod windows_based_sli {
-    /// A `PerformanceThreshold` is used when each window is good when that window
-    /// has a sufficiently high `performance`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PerformanceThreshold {
-        /// If window `performance >= threshold`, the window is counted as good.
-        #[prost(double, tag = "2")]
-        pub threshold: f64,
-        /// The means, either a request-based SLI or a basic SLI, by which to compute
-        /// performance over a window.
-        #[prost(oneof = "performance_threshold::Type", tags = "1, 3")]
-        pub r#type: ::core::option::Option<performance_threshold::Type>,
-    }
-    /// Nested message and enum types in `PerformanceThreshold`.
-    pub mod performance_threshold {
-        /// The means, either a request-based SLI or a basic SLI, by which to compute
-        /// performance over a window.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Type {
-            /// `RequestBasedSli` to evaluate to judge window quality.
-            #[prost(message, tag = "1")]
-            Performance(super::super::RequestBasedSli),
-            /// `BasicSli` to evaluate to judge window quality.
-            #[prost(message, tag = "3")]
-            BasicSliPerformance(super::super::BasicSli),
-        }
-    }
-    /// A `MetricRange` is used when each window is good when the value x of a
-    /// single `TimeSeries` satisfies `range.min <= x <= range.max`. The provided
-    /// `TimeSeries` must have `ValueType = INT64` or `ValueType = DOUBLE` and
-    /// `MetricKind = GAUGE`.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MetricRange {
-        /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-        /// specifying the `TimeSeries` to use for evaluating window quality.
-        #[prost(string, tag = "1")]
-        pub time_series: ::prost::alloc::string::String,
-        /// Range of values considered "good." For a one-sided range, set one bound
-        /// to an infinite value.
-        #[prost(message, optional, tag = "4")]
-        pub range: ::core::option::Option<super::Range>,
-    }
-    /// The criterion to use for evaluating window goodness.
+/// Nested message and enum types in `ListGroupsRequest`.
+pub mod list_groups_request {
+    /// An optional filter consisting of a single group name.  The filters limit
+    /// the groups returned based on their parent-child relationship with the
+    /// specified group. If no filter is specified, all groups are returned.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum WindowCriterion {
-        /// A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-        /// specifying a `TimeSeries` with `ValueType = BOOL`. The window is good if
-        /// any `true` values appear in the window.
-        #[prost(string, tag = "5")]
-        GoodBadMetricFilter(::prost::alloc::string::String),
-        /// A window is good if its `performance` is high enough.
-        #[prost(message, tag = "2")]
-        GoodTotalRatioThreshold(PerformanceThreshold),
-        /// A window is good if the metric's value is in a good range, averaged
-        /// across returned streams.
-        #[prost(message, tag = "6")]
-        MetricMeanInRange(MetricRange),
-        /// A window is good if the metric's value is in a good range, summed across
-        /// returned streams.
-        #[prost(message, tag = "7")]
-        MetricSumInRange(MetricRange),
+    pub enum Filter {
+        /// A group name. The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+        ///
+        /// Returns groups whose `parent_name` field contains the group
+        /// name.  If no groups have this parent, the results are empty.
+        #[prost(string, tag = "2")]
+        ChildrenOfGroup(::prost::alloc::string::String),
+        /// A group name. The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+        ///
+        /// Returns groups that are ancestors of the specified group.
+        /// The groups are returned in order, starting with the immediate parent and
+        /// ending with the most distant ancestor.  If the specified group has no
+        /// immediate parent, the results are empty.
+        #[prost(string, tag = "3")]
+        AncestorsOfGroup(::prost::alloc::string::String),
+        /// A group name. The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+        ///
+        /// Returns the descendants of the specified group.  This is a superset of
+        /// the results returned by the `children_of_group` filter, and includes
+        /// children-of-children, and so forth.
+        #[prost(string, tag = "4")]
+        DescendantsOfGroup(::prost::alloc::string::String),
     }
 }
-/// A `Snooze` will prevent any alerts from being opened, and close any that
-/// are already open. The `Snooze` will work on alerts that match the
-/// criteria defined in the `Snooze`. The `Snooze` will be active from
-/// `interval.start_time` through `interval.end_time`.
+/// The `ListGroups` response.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Snooze {
-    /// Required. The name of the `Snooze`. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
-    ///
-    /// The ID of the `Snooze` will be generated by the system.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. This defines the criteria for applying the `Snooze`. See
-    /// `Criteria` for more information.
-    #[prost(message, optional, tag = "3")]
-    pub criteria: ::core::option::Option<snooze::Criteria>,
-    /// Required. The `Snooze` will be active from `interval.start_time` through
-    /// `interval.end_time`.
-    /// `interval.start_time` cannot be in the past. There is a 15 second clock
-    /// skew to account for the time it takes for a request to reach the API from
-    /// the UI.
-    #[prost(message, optional, tag = "4")]
-    pub interval: ::core::option::Option<TimeInterval>,
-    /// Required. A display name for the `Snooze`. This can be, at most, 512
-    /// unicode characters.
-    #[prost(string, tag = "5")]
-    pub display_name: ::prost::alloc::string::String,
+pub struct ListGroupsResponse {
+    /// The groups that match the specified filters.
+    #[prost(message, repeated, tag = "1")]
+    pub group: ::prost::alloc::vec::Vec<Group>,
+    /// If there are more results than have been returned, then this field is set
+    /// to a non-empty value.  To see the additional results,
+    /// use that value as `page_token` in the next call to this method.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
 }
-/// Nested message and enum types in `Snooze`.
-pub mod snooze {
-    /// Criteria specific to the `AlertPolicy`s that this `Snooze` applies to. The
-    /// `Snooze` will suppress alerts that come from one of the `AlertPolicy`s
-    /// whose names are supplied.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Criteria {
-        /// The specific `AlertPolicy` names for the alert that should be snoozed.
-        /// The format is:
+/// The `GetGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetGroupRequest {
+    /// Required. The group to retrieve. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The `CreateGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateGroupRequest {
+    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in
+    /// which to create the group. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "4")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. A group definition. It is an error to define the `name` field because
+    /// the system assigns the name.
+    #[prost(message, optional, tag = "2")]
+    pub group: ::core::option::Option<Group>,
+    /// If true, validate this request but do not create the group.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// The `UpdateGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateGroupRequest {
+    /// Required. The new definition of the group.  All fields of the existing group,
+    /// excepting `name`, are replaced with the corresponding fields of this group.
+    #[prost(message, optional, tag = "2")]
+    pub group: ::core::option::Option<Group>,
+    /// If true, validate this request but do not update the existing group.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// The `DeleteGroup` request. The default behavior is to be able to delete a
+/// single group without any descendants.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteGroupRequest {
+    /// Required. The group to delete. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// If this field is true, then the request means to delete a group with all
+    /// its descendants. Otherwise, the request means to delete a group only when
+    /// it has no descendants. The default value is false.
+    #[prost(bool, tag = "4")]
+    pub recursive: bool,
+}
+/// The `ListGroupMembers` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupMembersRequest {
+    /// Required. The group whose members are listed. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    #[prost(string, tag = "7")]
+    pub name: ::prost::alloc::string::String,
+    /// A positive number that is the maximum number of results to return.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `next_page_token` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return additional results from the previous method call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// An optional [list
+    /// filter](<https://cloud.google.com/monitoring/api/learn_more#filtering>)
+    /// describing the members to be returned.  The filter may reference the type,
+    /// labels, and metadata of monitored resources that comprise the group. For
+    /// example, to return only resources representing Compute Engine VM instances,
+    /// use this filter:
+    ///
+    ///      `resource.type = "gce_instance"`
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+    /// An optional time interval for which results should be returned. Only
+    /// members that were part of the group during the specified interval are
+    /// included in the response.  If no interval is provided then the group
+    /// membership over the last minute is returned.
+    #[prost(message, optional, tag = "6")]
+    pub interval: ::core::option::Option<TimeInterval>,
+}
+/// The `ListGroupMembers` response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupMembersResponse {
+    /// A set of monitored resources in the group.
+    #[prost(message, repeated, tag = "1")]
+    pub members: ::prost::alloc::vec::Vec<super::super::api::MonitoredResource>,
+    /// If there are more results than have been returned, then this field is
+    /// set to a non-empty value.  To see the additional results, use that value as
+    /// `page_token` in the next call to this method.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// The total number of elements matching this request.
+    #[prost(int32, tag = "3")]
+    pub total_size: i32,
+}
+/// Generated client implementations.
+pub mod group_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The Group API lets you inspect and manage your
+    /// [groups](#google.monitoring.v3.Group).
+    ///
+    /// A group is a named filter that is used to identify
+    /// a collection of monitored resources. Groups are typically used to
+    /// mirror the physical and/or logical topology of the environment.
+    /// Because group membership is computed dynamically, monitored
+    /// resources that are started in the future are automatically placed
+    /// in matching groups. By using a group to name monitored resources in,
+    /// for example, an alert policy, the target of that alert policy is
+    /// updated automatically as monitored resources are added and removed
+    /// from the infrastructure.
+    #[derive(Debug, Clone)]
+    pub struct GroupServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> GroupServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> GroupServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            GroupServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
         ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/alertPolicies/\[POLICY_ID\]
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
         ///
-        /// There is a limit of 16 policies per snooze. This limit is checked during
-        /// snooze creation.
-        #[prost(string, repeated, tag = "1")]
-        pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Lists the existing groups.
+        pub async fn list_groups(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListGroupsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListGroupsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/ListGroups",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "ListGroups"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a single group.
+        pub async fn get_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/GetGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "GetGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new group.
+        pub async fn create_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/CreateGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "CreateGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates an existing group.
+        /// You can change any group attributes except `name`.
+        pub async fn update_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/UpdateGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "UpdateGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes an existing group.
+        pub async fn delete_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteGroupRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/DeleteGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "DeleteGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists the monitored resources that are members of a group.
+        pub async fn list_group_members(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListGroupMembersRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListGroupMembersResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/ListGroupMembers",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.GroupService",
+                        "ListGroupMembers",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
     }
 }
 /// A description of the conditions under which some aspect of your system is
@@ -5358,6 +6675,32 @@ pub mod alert_policy {
         }
     }
 }
+/// A set of (label, value) pairs that were removed from a Distribution
+/// time series during aggregation and then added as an attachment to a
+/// Distribution.Exemplar.
+///
+/// The full label set for the exemplars is constructed by using the dropped
+/// pairs in combination with the label values that remain on the aggregated
+/// Distribution time series. The constructed full label set can be used to
+/// identify the specific entity, such as the instance or job, which might be
+/// contributing to a long-tail. However, with dropped labels, the storage
+/// requirements are reduced because only the aggregated distribution values for
+/// a large group of time series are stored.
+///
+/// Note that there are no guarantees on ordering of the labels from
+/// exemplar-to-exemplar and from distribution-to-distribution in the same
+/// stream, and there may be duplicates.  It is up to clients to resolve any
+/// ambiguities.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DroppedLabels {
+    /// Map from label to its value, for all labels dropped in any aggregation.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub label: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
 /// The protocol for the `CreateAlertPolicy` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -5734,1349 +7077,6 @@ pub mod alert_policy_service_client {
                     GrpcMethod::new(
                         "google.monitoring.v3.AlertPolicyService",
                         "UpdateAlertPolicy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// The context of a span. This is attached to an
-/// [Exemplar][google.api.Distribution.Exemplar]
-/// in [Distribution][google.api.Distribution] values during aggregation.
-///
-/// It contains the name of a span with format:
-///
-///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SpanContext {
-    /// The resource name of the span. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
-    ///
-    /// `\[TRACE_ID\]` is a unique identifier for a trace within a project;
-    /// it is a 32-character hexadecimal encoding of a 16-byte array.
-    ///
-    /// `\[SPAN_ID\]` is a unique identifier for a span within a trace; it
-    /// is a 16-character hexadecimal encoding of an 8-byte array.
-    #[prost(string, tag = "1")]
-    pub span_name: ::prost::alloc::string::String,
-}
-/// The `ListGroup` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupsRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>)
-    /// whose groups are to be listed. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "7")]
-    pub name: ::prost::alloc::string::String,
-    /// A positive number that is the maximum number of results to return.
-    #[prost(int32, tag = "5")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `next_page_token` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return additional results from the previous method call.
-    #[prost(string, tag = "6")]
-    pub page_token: ::prost::alloc::string::String,
-    /// An optional filter consisting of a single group name.  The filters limit
-    /// the groups returned based on their parent-child relationship with the
-    /// specified group. If no filter is specified, all groups are returned.
-    #[prost(oneof = "list_groups_request::Filter", tags = "2, 3, 4")]
-    pub filter: ::core::option::Option<list_groups_request::Filter>,
-}
-/// Nested message and enum types in `ListGroupsRequest`.
-pub mod list_groups_request {
-    /// An optional filter consisting of a single group name.  The filters limit
-    /// the groups returned based on their parent-child relationship with the
-    /// specified group. If no filter is specified, all groups are returned.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Filter {
-        /// A group name. The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-        ///
-        /// Returns groups whose `parent_name` field contains the group
-        /// name.  If no groups have this parent, the results are empty.
-        #[prost(string, tag = "2")]
-        ChildrenOfGroup(::prost::alloc::string::String),
-        /// A group name. The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-        ///
-        /// Returns groups that are ancestors of the specified group.
-        /// The groups are returned in order, starting with the immediate parent and
-        /// ending with the most distant ancestor.  If the specified group has no
-        /// immediate parent, the results are empty.
-        #[prost(string, tag = "3")]
-        AncestorsOfGroup(::prost::alloc::string::String),
-        /// A group name. The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-        ///
-        /// Returns the descendants of the specified group.  This is a superset of
-        /// the results returned by the `children_of_group` filter, and includes
-        /// children-of-children, and so forth.
-        #[prost(string, tag = "4")]
-        DescendantsOfGroup(::prost::alloc::string::String),
-    }
-}
-/// The `ListGroups` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupsResponse {
-    /// The groups that match the specified filters.
-    #[prost(message, repeated, tag = "1")]
-    pub group: ::prost::alloc::vec::Vec<Group>,
-    /// If there are more results than have been returned, then this field is set
-    /// to a non-empty value.  To see the additional results,
-    /// use that value as `page_token` in the next call to this method.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The `GetGroup` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetGroupRequest {
-    /// Required. The group to retrieve. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The `CreateGroup` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateGroupRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in
-    /// which to create the group. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "4")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. A group definition. It is an error to define the `name` field because
-    /// the system assigns the name.
-    #[prost(message, optional, tag = "2")]
-    pub group: ::core::option::Option<Group>,
-    /// If true, validate this request but do not create the group.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// The `UpdateGroup` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateGroupRequest {
-    /// Required. The new definition of the group.  All fields of the existing group,
-    /// excepting `name`, are replaced with the corresponding fields of this group.
-    #[prost(message, optional, tag = "2")]
-    pub group: ::core::option::Option<Group>,
-    /// If true, validate this request but do not update the existing group.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// The `DeleteGroup` request. The default behavior is to be able to delete a
-/// single group without any descendants.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteGroupRequest {
-    /// Required. The group to delete. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// If this field is true, then the request means to delete a group with all
-    /// its descendants. Otherwise, the request means to delete a group only when
-    /// it has no descendants. The default value is false.
-    #[prost(bool, tag = "4")]
-    pub recursive: bool,
-}
-/// The `ListGroupMembers` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupMembersRequest {
-    /// Required. The group whose members are listed. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    #[prost(string, tag = "7")]
-    pub name: ::prost::alloc::string::String,
-    /// A positive number that is the maximum number of results to return.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `next_page_token` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return additional results from the previous method call.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// An optional [list
-    /// filter](<https://cloud.google.com/monitoring/api/learn_more#filtering>)
-    /// describing the members to be returned.  The filter may reference the type,
-    /// labels, and metadata of monitored resources that comprise the group. For
-    /// example, to return only resources representing Compute Engine VM instances,
-    /// use this filter:
-    ///
-    ///      `resource.type = "gce_instance"`
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-    /// An optional time interval for which results should be returned. Only
-    /// members that were part of the group during the specified interval are
-    /// included in the response.  If no interval is provided then the group
-    /// membership over the last minute is returned.
-    #[prost(message, optional, tag = "6")]
-    pub interval: ::core::option::Option<TimeInterval>,
-}
-/// The `ListGroupMembers` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupMembersResponse {
-    /// A set of monitored resources in the group.
-    #[prost(message, repeated, tag = "1")]
-    pub members: ::prost::alloc::vec::Vec<super::super::api::MonitoredResource>,
-    /// If there are more results than have been returned, then this field is
-    /// set to a non-empty value.  To see the additional results, use that value as
-    /// `page_token` in the next call to this method.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// The total number of elements matching this request.
-    #[prost(int32, tag = "3")]
-    pub total_size: i32,
-}
-/// Generated client implementations.
-pub mod group_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The Group API lets you inspect and manage your
-    /// [groups](#google.monitoring.v3.Group).
-    ///
-    /// A group is a named filter that is used to identify
-    /// a collection of monitored resources. Groups are typically used to
-    /// mirror the physical and/or logical topology of the environment.
-    /// Because group membership is computed dynamically, monitored
-    /// resources that are started in the future are automatically placed
-    /// in matching groups. By using a group to name monitored resources in,
-    /// for example, an alert policy, the target of that alert policy is
-    /// updated automatically as monitored resources are added and removed
-    /// from the infrastructure.
-    #[derive(Debug, Clone)]
-    pub struct GroupServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> GroupServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> GroupServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            GroupServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Lists the existing groups.
-        pub async fn list_groups(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListGroupsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListGroupsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/ListGroups",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "ListGroups"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a single group.
-        pub async fn get_group(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/GetGroup",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "GetGroup"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new group.
-        pub async fn create_group(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/CreateGroup",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "CreateGroup"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates an existing group.
-        /// You can change any group attributes except `name`.
-        pub async fn update_group(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/UpdateGroup",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "UpdateGroup"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes an existing group.
-        pub async fn delete_group(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteGroupRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/DeleteGroup",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "DeleteGroup"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists the monitored resources that are members of a group.
-        pub async fn list_group_members(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListGroupMembersRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListGroupMembersResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/ListGroupMembers",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.GroupService",
-                        "ListGroupMembers",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// The message definition for creating a `Snooze`. Users must provide the body
-/// of the `Snooze` to be created but must omit the `Snooze` field, `name`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateSnoozeRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
-    /// a `Snooze` should be created. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The `Snooze` to create. Omit the `name` field, as it will be
-    /// filled in by the API.
-    #[prost(message, optional, tag = "2")]
-    pub snooze: ::core::option::Option<Snooze>,
-}
-/// The message definition for listing `Snooze`s associated with the given
-/// `parent`, satisfying the optional `filter`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnoozesRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
-    /// `Snooze`s should be listed. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Optional filter to restrict results to the given criteria. The
-    /// following fields are supported.
-    ///
-    ///    * `interval.start_time`
-    ///    * `interval.end_time`
-    ///
-    /// For example:
-    ///
-    ///      ```
-    ///      interval.start_time > "2022-03-11T00:00:00-08:00" AND
-    ///          interval.end_time < "2022-03-12T00:00:00-08:00"
-    ///      ```
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. The maximum number of results to return for a single query. The
-    /// server may further constrain the maximum number of results returned in a
-    /// single page. The value should be in the range \[1, 1000\]. If the value given
-    /// is outside this range, the server will decide the number of results to be
-    /// returned.
-    #[prost(int32, tag = "4")]
-    pub page_size: i32,
-    /// Optional. The `next_page_token` from a previous call to
-    /// `ListSnoozesRequest` to get the next page of results.
-    #[prost(string, tag = "5")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The results of a successful `ListSnoozes` call, containing the matching
-/// `Snooze`s.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnoozesResponse {
-    /// `Snooze`s matching this list call.
-    #[prost(message, repeated, tag = "1")]
-    pub snoozes: ::prost::alloc::vec::Vec<Snooze>,
-    /// Page token for repeated calls to `ListSnoozes`, to fetch additional pages
-    /// of results. If this is empty or missing, there are no more pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The message definition for retrieving a `Snooze`. Users must specify the
-/// field, `name`, which identifies the `Snooze`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetSnoozeRequest {
-    /// Required. The ID of the `Snooze` to retrieve. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The message definition for updating a `Snooze`. The field, `snooze.name`
-/// identifies the `Snooze` to be updated. The remainder of `snooze` gives the
-/// content the `Snooze` in question will be assigned.
-///
-/// What fields can be updated depends on the start time and end time of the
-/// `Snooze`.
-///
-///    * end time is in the past: These `Snooze`s are considered
-///      read-only and cannot be updated.
-///    * start time is in the past and end time is in the future: `display_name`
-///      and `interval.end_time` can be updated.
-///    * start time is in the future: `display_name`, `interval.start_time` and
-///      `interval.end_time` can be updated.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateSnoozeRequest {
-    /// Required. The `Snooze` to update. Must have the name field present.
-    #[prost(message, optional, tag = "1")]
-    pub snooze: ::core::option::Option<Snooze>,
-    /// Required. The fields to update.
-    ///
-    /// For each field listed in `update_mask`:
-    ///
-    ///    * If the `Snooze` object supplied in the `UpdateSnoozeRequest` has a
-    ///      value for that field, the value of the field in the existing `Snooze`
-    ///      will be set to the value of the field in the supplied `Snooze`.
-    ///    * If the field does not have a value in the supplied `Snooze`, the field
-    ///      in the existing `Snooze` is set to its default value.
-    ///
-    /// Fields not listed retain their existing value.
-    ///
-    /// The following are the field names that are accepted in `update_mask`:
-    ///
-    ///    * `display_name`
-    ///    * `interval.start_time`
-    ///    * `interval.end_time`
-    ///
-    /// That said, the start time and end time of the `Snooze` determines which
-    /// fields can legally be updated. Before attempting an update, users should
-    /// consult the documentation for `UpdateSnoozeRequest`, which talks about
-    /// which fields can be updated.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// Generated client implementations.
-pub mod snooze_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The SnoozeService API is used to temporarily prevent an alert policy from
-    /// generating alerts. A Snooze is a description of the criteria under which one
-    /// or more alert policies should not fire alerts for the specified duration.
-    #[derive(Debug, Clone)]
-    pub struct SnoozeServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> SnoozeServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> SnoozeServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            SnoozeServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Creates a `Snooze` that will prevent alerts, which match the provided
-        /// criteria, from being opened. The `Snooze` applies for a specific time
-        /// interval.
-        pub async fn create_snooze(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateSnoozeRequest>,
-        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/CreateSnooze",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "CreateSnooze"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists the `Snooze`s associated with a project. Can optionally pass in
-        /// `filter`, which specifies predicates to match `Snooze`s.
-        pub async fn list_snoozes(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListSnoozesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListSnoozesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/ListSnoozes",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "ListSnoozes"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Retrieves a `Snooze` by `name`.
-        pub async fn get_snooze(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetSnoozeRequest>,
-        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/GetSnooze",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "GetSnooze"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a `Snooze`, identified by its `name`, with the parameters in the
-        /// given `Snooze` object.
-        pub async fn update_snooze(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateSnoozeRequest>,
-        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/UpdateSnooze",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "UpdateSnooze"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// The `CreateService` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateServiceRequest {
-    /// Required. Resource [name](<https://cloud.google.com/monitoring/api/v3#project_name>) of
-    /// the parent workspace. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The Service id to use for this Service. If omitted, an id will be
-    /// generated instead. Must match the pattern `\[a-z0-9\-\]+`
-    #[prost(string, tag = "3")]
-    pub service_id: ::prost::alloc::string::String,
-    /// Required. The `Service` to create.
-    #[prost(message, optional, tag = "2")]
-    pub service: ::core::option::Option<Service>,
-}
-/// The `GetService` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetServiceRequest {
-    /// Required. Resource name of the `Service`. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The `ListServices` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServicesRequest {
-    /// Required. Resource name of the parent containing the listed services, either a
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) or a
-    /// Monitoring Workspace. The formats are:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    ///      workspaces/\[HOST_PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// A filter specifying what `Service`s to return. The filter currently
-    /// supports the following fields:
-    ///
-    ///      - `identifier_case`
-    ///      - `app_engine.module_id`
-    ///      - `cloud_endpoints.service` (reserved for future use)
-    ///      - `mesh_istio.mesh_uid`
-    ///      - `mesh_istio.service_namespace`
-    ///      - `mesh_istio.service_name`
-    ///      - `cluster_istio.location` (deprecated)
-    ///      - `cluster_istio.cluster_name` (deprecated)
-    ///      - `cluster_istio.service_namespace` (deprecated)
-    ///      - `cluster_istio.service_name` (deprecated)
-    ///
-    /// `identifier_case` refers to which option in the identifier oneof is
-    /// populated. For example, the filter `identifier_case = "CUSTOM"` would match
-    /// all services with a value for the `custom` field. Valid options are
-    /// "CUSTOM", "APP_ENGINE", "MESH_ISTIO", plus "CLUSTER_ISTIO" (deprecated)
-    /// and "CLOUD_ENDPOINTS" (reserved for future use).
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// A non-negative number that is the maximum number of results to return.
-    /// When 0, use default page size.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `nextPageToken` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return additional results from the previous method call.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The `ListServices` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServicesResponse {
-    /// The `Service`s matching the specified filter.
-    #[prost(message, repeated, tag = "1")]
-    pub services: ::prost::alloc::vec::Vec<Service>,
-    /// If there are more results than have been returned, then this field is set
-    /// to a non-empty value.  To see the additional results,
-    /// use that value as `page_token` in the next call to this method.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The `UpdateService` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateServiceRequest {
-    /// Required. The `Service` to draw updates from.
-    /// The given `name` specifies the resource to update.
-    #[prost(message, optional, tag = "1")]
-    pub service: ::core::option::Option<Service>,
-    /// A set of field paths defining which fields to use for the update.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// The `DeleteService` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteServiceRequest {
-    /// Required. Resource name of the `Service` to delete. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The `CreateServiceLevelObjective` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateServiceLevelObjectiveRequest {
-    /// Required. Resource name of the parent `Service`. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The ServiceLevelObjective id to use for this
-    /// ServiceLevelObjective. If omitted, an id will be generated instead. Must
-    /// match the pattern `\[a-z0-9\-\]+`
-    #[prost(string, tag = "3")]
-    pub service_level_objective_id: ::prost::alloc::string::String,
-    /// Required. The `ServiceLevelObjective` to create.
-    /// The provided `name` will be respected if no `ServiceLevelObjective` exists
-    /// with this name.
-    #[prost(message, optional, tag = "2")]
-    pub service_level_objective: ::core::option::Option<ServiceLevelObjective>,
-}
-/// The `GetServiceLevelObjective` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetServiceLevelObjectiveRequest {
-    /// Required. Resource name of the `ServiceLevelObjective` to get. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// View of the `ServiceLevelObjective` to return. If `DEFAULT`, return the
-    /// `ServiceLevelObjective` as originally defined. If `EXPLICIT` and the
-    /// `ServiceLevelObjective` is defined in terms of a `BasicSli`, replace the
-    /// `BasicSli` with a `RequestBasedSli` spelling out how the SLI is computed.
-    #[prost(enumeration = "service_level_objective::View", tag = "2")]
-    pub view: i32,
-}
-/// The `ListServiceLevelObjectives` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServiceLevelObjectivesRequest {
-    /// Required. Resource name of the parent containing the listed SLOs, either a
-    /// project or a Monitoring Workspace. The formats are:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
-    ///      workspaces/\[HOST_PROJECT_ID_OR_NUMBER\]/services/-
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// A filter specifying what `ServiceLevelObjective`s to return.
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// A non-negative number that is the maximum number of results to return.
-    /// When 0, use default page size.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `nextPageToken` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return additional results from the previous method call.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// View of the `ServiceLevelObjective`s to return. If `DEFAULT`, return each
-    /// `ServiceLevelObjective` as originally defined. If `EXPLICIT` and the
-    /// `ServiceLevelObjective` is defined in terms of a `BasicSli`, replace the
-    /// `BasicSli` with a `RequestBasedSli` spelling out how the SLI is computed.
-    #[prost(enumeration = "service_level_objective::View", tag = "5")]
-    pub view: i32,
-}
-/// The `ListServiceLevelObjectives` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServiceLevelObjectivesResponse {
-    /// The `ServiceLevelObjective`s matching the specified filter.
-    #[prost(message, repeated, tag = "1")]
-    pub service_level_objectives: ::prost::alloc::vec::Vec<ServiceLevelObjective>,
-    /// If there are more results than have been returned, then this field is set
-    /// to a non-empty value.  To see the additional results,
-    /// use that value as `page_token` in the next call to this method.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The `UpdateServiceLevelObjective` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateServiceLevelObjectiveRequest {
-    /// Required. The `ServiceLevelObjective` to draw updates from.
-    /// The given `name` specifies the resource to update.
-    #[prost(message, optional, tag = "1")]
-    pub service_level_objective: ::core::option::Option<ServiceLevelObjective>,
-    /// A set of field paths defining which fields to use for the update.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-}
-/// The `DeleteServiceLevelObjective` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteServiceLevelObjectiveRequest {
-    /// Required. Resource name of the `ServiceLevelObjective` to delete. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod service_monitoring_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The Cloud Monitoring Service-Oriented Monitoring API has endpoints for
-    /// managing and querying aspects of a workspace's services. These include the
-    /// `Service`'s monitored resources, its Service-Level Objectives, and a taxonomy
-    /// of categorized Health Metrics.
-    #[derive(Debug, Clone)]
-    pub struct ServiceMonitoringServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ServiceMonitoringServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ServiceMonitoringServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ServiceMonitoringServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Create a `Service`.
-        pub async fn create_service(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateServiceRequest>,
-        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/CreateService",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "CreateService",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Get the named `Service`.
-        pub async fn get_service(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetServiceRequest>,
-        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/GetService",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "GetService",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// List `Service`s for this workspace.
-        pub async fn list_services(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListServicesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListServicesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/ListServices",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "ListServices",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Update this `Service`.
-        pub async fn update_service(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateServiceRequest>,
-        ) -> std::result::Result<tonic::Response<super::Service>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/UpdateService",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "UpdateService",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Soft delete this `Service`.
-        pub async fn delete_service(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteServiceRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/DeleteService",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "DeleteService",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Create a `ServiceLevelObjective` for the given `Service`.
-        pub async fn create_service_level_objective(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateServiceLevelObjectiveRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ServiceLevelObjective>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/CreateServiceLevelObjective",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "CreateServiceLevelObjective",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Get a `ServiceLevelObjective` by name.
-        pub async fn get_service_level_objective(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetServiceLevelObjectiveRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ServiceLevelObjective>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/GetServiceLevelObjective",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "GetServiceLevelObjective",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// List the `ServiceLevelObjective`s for the given `Service`.
-        pub async fn list_service_level_objectives(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListServiceLevelObjectivesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListServiceLevelObjectivesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/ListServiceLevelObjectives",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "ListServiceLevelObjectives",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Update the given `ServiceLevelObjective`.
-        pub async fn update_service_level_objective(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateServiceLevelObjectiveRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ServiceLevelObjective>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/UpdateServiceLevelObjective",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "UpdateServiceLevelObjective",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Delete the given `ServiceLevelObjective`.
-        pub async fn delete_service_level_objective(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteServiceLevelObjectiveRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.ServiceMonitoringService/DeleteServiceLevelObjective",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.ServiceMonitoringService",
-                        "DeleteServiceLevelObjective",
                     ),
                 );
             self.inner.unary(req, path, codec).await

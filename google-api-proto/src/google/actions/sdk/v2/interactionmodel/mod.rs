@@ -2,6 +2,30 @@
 pub mod prompt;
 #[cfg(any(feature = "google-actions-sdk-v2-interactionmodel-type"))]
 pub mod r#type;
+/// Entity sets describe the pre-defined set of entities that the values of
+/// built-in intent parameters can come from. Entity sets can be referenced from
+/// entity_set in built-in intent parameters.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EntitySet {
+    /// Required. The list of entities this entity set supports.
+    #[prost(message, repeated, tag = "1")]
+    pub entities: ::prost::alloc::vec::Vec<entity_set::Entity>,
+}
+/// Nested message and enum types in `EntitySet`.
+pub mod entity_set {
+    /// An entity a built-in intent parameter value can come from.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Entity {
+        /// Required. The ID of the entity.
+        /// For a list of built-in-intent parameters and their supported entities,
+        /// see
+        /// <https://developers.google.com/assistant/conversational/build/built-in-intents>
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+    }
+}
 /// Defines a handler to be executed after an event. Examples of events are
 /// intent and condition based events in a scene.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -335,28 +359,4 @@ pub struct Scene {
     /// invalidated, the scene invalidated or other changes to scene state.
     #[prost(message, optional, tag = "5")]
     pub on_slot_updated: ::core::option::Option<EventHandler>,
-}
-/// Entity sets describe the pre-defined set of entities that the values of
-/// built-in intent parameters can come from. Entity sets can be referenced from
-/// entity_set in built-in intent parameters.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EntitySet {
-    /// Required. The list of entities this entity set supports.
-    #[prost(message, repeated, tag = "1")]
-    pub entities: ::prost::alloc::vec::Vec<entity_set::Entity>,
-}
-/// Nested message and enum types in `EntitySet`.
-pub mod entity_set {
-    /// An entity a built-in intent parameter value can come from.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Entity {
-        /// Required. The ID of the entity.
-        /// For a list of built-in-intent parameters and their supported entities,
-        /// see
-        /// <https://developers.google.com/assistant/conversational/build/built-in-intents>
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-    }
 }

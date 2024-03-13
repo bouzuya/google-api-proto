@@ -1,54 +1,3 @@
-/// A log entry for a DICOM import long-running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImportDicomLogEntry {
-    /// The source file, in the format `gs://{bucket-id}/{path/to/file}`.
-    #[prost(string, tag = "1")]
-    pub source: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "2")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a DICOM export long-running operation.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExportDicomLogEntry {
-    /// The DICOM resource being exported.
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "2")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a DICOM store Pub/Sub notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DicomNotificationLogEntry {
-    /// The DICOM resource being created.
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The Pub/Sub topic that the notification is published on.
-    #[prost(string, tag = "2")]
-    pub pubsub_topic: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "3")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
-/// A log entry for a DICOM streaming export notification.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DicomStreamLogEntry {
-    /// The DICOM resource being exported.
-    #[prost(string, tag = "1")]
-    pub resource_name: ::prost::alloc::string::String,
-    /// The destination in BigQuery, in the format
-    /// `bq://{projectId}.{bqDatasetId}.{bqTableId}`.
-    #[prost(string, tag = "2")]
-    pub destination: ::prost::alloc::string::String,
-    /// The error code and message.
-    #[prost(message, optional, tag = "3")]
-    pub error: ::core::option::Option<super::super::super::rpc::Status>,
-}
 /// A log entry for a HL7v2 import long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -195,6 +144,57 @@ pub struct FhirDeidentifyStreamToStoreLogEntry {
     pub resource_name: ::prost::alloc::string::String,
     /// The destination FHIR store name. (for example,
     /// `projects/{projectId}/locations/{locationId}/datasets/{datasetId}/fhirStores/{fhirStoreId}`).
+    #[prost(string, tag = "2")]
+    pub destination: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "3")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a DICOM import long-running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportDicomLogEntry {
+    /// The source file, in the format `gs://{bucket-id}/{path/to/file}`.
+    #[prost(string, tag = "1")]
+    pub source: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "2")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a DICOM export long-running operation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExportDicomLogEntry {
+    /// The DICOM resource being exported.
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "2")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a DICOM store Pub/Sub notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DicomNotificationLogEntry {
+    /// The DICOM resource being created.
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The Pub/Sub topic that the notification is published on.
+    #[prost(string, tag = "2")]
+    pub pubsub_topic: ::prost::alloc::string::String,
+    /// The error code and message.
+    #[prost(message, optional, tag = "3")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// A log entry for a DICOM streaming export notification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DicomStreamLogEntry {
+    /// The DICOM resource being exported.
+    #[prost(string, tag = "1")]
+    pub resource_name: ::prost::alloc::string::String,
+    /// The destination in BigQuery, in the format
+    /// `bq://{projectId}.{bqDatasetId}.{bqTableId}`.
     #[prost(string, tag = "2")]
     pub destination: ::prost::alloc::string::String,
     /// The error code and message.
