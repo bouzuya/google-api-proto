@@ -1,14 +1,3 @@
-/// Configuration detail of coordinate, it used for UI
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Coordinate {
-    /// Required. X axis of the coordinate
-    #[prost(int32, tag = "1")]
-    pub x: i32,
-    /// Required. Y axis of the coordinate
-    #[prost(int32, tag = "2")]
-    pub y: i32,
-}
 /// The type of the parameter.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -100,6 +89,17 @@ pub struct EventParameter {
     /// True if this parameter should be masked in the logs
     #[prost(bool, tag = "3")]
     pub masked: bool,
+}
+/// Configuration detail of coordinate, it used for UI
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Coordinate {
+    /// Required. X axis of the coordinate
+    #[prost(int32, tag = "1")]
+    pub x: i32,
+    /// Required. Y axis of the coordinate
+    #[prost(int32, tag = "2")]
+    pub y: i32,
 }
 /// Options for how to validate json schemas.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
