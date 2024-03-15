@@ -480,6 +480,7 @@ pub mod cloud;
         feature = "google-search-partnerdataingestion-logging-v1",
         feature = "google-shopping-css-v1",
         feature = "google-shopping-merchant-inventories-v1beta",
+        feature = "google-shopping-merchant-quota-v1beta",
         feature = "google-shopping-merchant-reports-v1beta",
         feature = "google-shopping-type",
         feature = "google-spanner-admin-database-v1",
