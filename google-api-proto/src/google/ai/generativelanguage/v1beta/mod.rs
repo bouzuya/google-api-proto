@@ -161,24 +161,45 @@ pub struct TuningTask {
     #[prost(message, optional, tag = "5")]
     pub hyperparameters: ::core::option::Option<Hyperparameters>,
 }
-/// Hyperparameters controlling the tuning process.
+/// Hyperparameters controlling the tuning process. Read more at
+/// <https://ai.google.dev/docs/model_tuning_guidance>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Hyperparameters {
     /// Immutable. The number of training epochs. An epoch is one pass through the
-    /// training data. If not set, a default of 10 will be used.
+    /// training data. If not set, a default of 5 will be used.
     #[prost(int32, optional, tag = "14")]
     pub epoch_count: ::core::option::Option<i32>,
     /// Immutable. The batch size hyperparameter for tuning.
-    /// If not set, a default of 16 or 64 will be used based on the number of
+    /// If not set, a default of 4 or 16 will be used based on the number of
     /// training examples.
     #[prost(int32, optional, tag = "15")]
     pub batch_size: ::core::option::Option<i32>,
-    /// Immutable. The learning rate hyperparameter for tuning.
-    /// If not set, a default of 0.0002 or 0.002 will be calculated based on the
-    /// number of training examples.
-    #[prost(float, optional, tag = "16")]
-    pub learning_rate: ::core::option::Option<f32>,
+    /// Options for specifying learning rate during tuning.
+    #[prost(oneof = "hyperparameters::LearningRateOption", tags = "16, 17")]
+    pub learning_rate_option: ::core::option::Option<
+        hyperparameters::LearningRateOption,
+    >,
+}
+/// Nested message and enum types in `Hyperparameters`.
+pub mod hyperparameters {
+    /// Options for specifying learning rate during tuning.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum LearningRateOption {
+        /// Optional. Immutable. The learning rate hyperparameter for tuning.
+        /// If not set, a default of 0.001 or 0.0002 will be calculated based on the
+        /// number of training examples.
+        #[prost(float, tag = "16")]
+        LearningRate(f32),
+        /// Optional. Immutable. The learning rate multiplier is used to calculate a
+        /// final learning_rate based on the default (recommended) value. Actual
+        /// learning rate := learning_rate_multiplier * default learning rate Default
+        /// learning rate is dependent on base model and dataset size. If not set, a
+        /// default of 1.0 will be used.
+        #[prost(float, tag = "17")]
+        LearningRateMultiplier(f32),
+    }
 }
 /// Dataset for training or validation.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1171,9 +1192,9 @@ pub enum HarmCategory {
     Unspecified = 0,
     /// Negative or harmful comments targeting identity and/or protected attribute.
     Derogatory = 1,
-    /// Content that is rude, disrepspectful, or profane.
+    /// Content that is rude, disrespectful, or profane.
     Toxicity = 2,
-    /// Describes scenarios depictng violence against an individual or group, or
+    /// Describes scenarios depicting violence against an individual or group, or
     /// general descriptions of gore.
     Violence = 3,
     /// Contains references to sexual acts or other lewd content.
@@ -3289,18 +3310,16 @@ pub struct GenerationConfig {
     pub stop_sequences: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// Optional. The maximum number of tokens to include in a candidate.
     ///
-    /// If unset, this will default to output_token_limit specified in the `Model`
-    /// specification.
+    /// Note: The default value varies by model, see the `Model.output_token_limit`
+    /// attribute of the `Model` returned from the `getModel` function.
     #[prost(int32, optional, tag = "4")]
     pub max_output_tokens: ::core::option::Option<i32>,
     /// Optional. Controls the randomness of the output.
-    /// Note: The default value varies by model, see the `Model.temperature`
-    /// attribute of the `Model` returned the `getModel` function.
     ///
-    /// Values can range from \[0.0,1.0\],
-    /// inclusive. A value closer to 1.0 will produce responses that are more
-    /// varied and creative, while a value closer to 0.0 will typically result in
-    /// more straightforward responses from the model.
+    /// Note: The default value varies by model, see the `Model.temperature`
+    /// attribute of the `Model` returned from the `getModel` function.
+    ///
+    /// Values can range from [0.0, infinity).
     #[prost(float, optional, tag = "5")]
     pub temperature: ::core::option::Option<f32>,
     /// Optional. The maximum cumulative probability of tokens to consider when
@@ -3314,7 +3333,7 @@ pub struct GenerationConfig {
     /// of tokens based on the cumulative probability.
     ///
     /// Note: The default value varies by model, see the `Model.top_p`
-    /// attribute of the `Model` returned the `getModel` function.
+    /// attribute of the `Model` returned from the `getModel` function.
     #[prost(float, optional, tag = "6")]
     pub top_p: ::core::option::Option<f32>,
     /// Optional. The maximum number of tokens to consider when sampling.
@@ -3322,10 +3341,9 @@ pub struct GenerationConfig {
     /// The model uses combined Top-k and nucleus sampling.
     ///
     /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// Defaults to 40.
     ///
     /// Note: The default value varies by model, see the `Model.top_k`
-    /// attribute of the `Model` returned the `getModel` function.
+    /// attribute of the `Model` returned from the `getModel` function.
     #[prost(int32, optional, tag = "7")]
     pub top_k: ::core::option::Option<i32>,
 }
@@ -3624,7 +3642,9 @@ pub struct GenerateAnswerRequest {
     /// overrides the default settings for each `SafetyCategory` specified in the
     /// safety_settings. If there is no `SafetySetting` for a given
     /// `SafetyCategory` provided in the list, the API will use the default safety
-    /// setting for that category.
+    /// setting for that category. Harm categories HARM_CATEGORY_HATE_SPEECH,
+    /// HARM_CATEGORY_SEXUALLY_EXPLICIT, HARM_CATEGORY_DANGEROUS_CONTENT,
+    /// HARM_CATEGORY_HARASSMENT are supported.
     #[prost(message, repeated, tag = "3")]
     pub safety_settings: ::prost::alloc::vec::Vec<SafetySetting>,
     /// Optional. Controls the randomness of the output.

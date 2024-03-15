@@ -95,6 +95,59 @@ pub struct LatLng {
     #[prost(double, tag = "2")]
     pub longitude: f64,
 }
+/// Represents a day of the week.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum DayOfWeek {
+    /// The day of the week is unspecified.
+    Unspecified = 0,
+    /// Monday
+    Monday = 1,
+    /// Tuesday
+    Tuesday = 2,
+    /// Wednesday
+    Wednesday = 3,
+    /// Thursday
+    Thursday = 4,
+    /// Friday
+    Friday = 5,
+    /// Saturday
+    Saturday = 6,
+    /// Sunday
+    Sunday = 7,
+}
+impl DayOfWeek {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DayOfWeek::Unspecified => "DAY_OF_WEEK_UNSPECIFIED",
+            DayOfWeek::Monday => "MONDAY",
+            DayOfWeek::Tuesday => "TUESDAY",
+            DayOfWeek::Wednesday => "WEDNESDAY",
+            DayOfWeek::Thursday => "THURSDAY",
+            DayOfWeek::Friday => "FRIDAY",
+            DayOfWeek::Saturday => "SATURDAY",
+            DayOfWeek::Sunday => "SUNDAY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "DAY_OF_WEEK_UNSPECIFIED" => Some(Self::Unspecified),
+            "MONDAY" => Some(Self::Monday),
+            "TUESDAY" => Some(Self::Tuesday),
+            "WEDNESDAY" => Some(Self::Wednesday),
+            "THURSDAY" => Some(Self::Thursday),
+            "FRIDAY" => Some(Self::Friday),
+            "SATURDAY" => Some(Self::Saturday),
+            "SUNDAY" => Some(Self::Sunday),
+            _ => None,
+        }
+    }
+}
 /// Represents a time interval, encoded as a Timestamp start (inclusive) and a
 /// Timestamp end (exclusive).
 ///
@@ -423,59 +476,6 @@ pub struct Decimal {
     /// gRPC) if the service receives a value outside of the supported range.
     #[prost(string, tag = "1")]
     pub value: ::prost::alloc::string::String,
-}
-/// Represents a day of the week.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum DayOfWeek {
-    /// The day of the week is unspecified.
-    Unspecified = 0,
-    /// Monday
-    Monday = 1,
-    /// Tuesday
-    Tuesday = 2,
-    /// Wednesday
-    Wednesday = 3,
-    /// Thursday
-    Thursday = 4,
-    /// Friday
-    Friday = 5,
-    /// Saturday
-    Saturday = 6,
-    /// Sunday
-    Sunday = 7,
-}
-impl DayOfWeek {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            DayOfWeek::Unspecified => "DAY_OF_WEEK_UNSPECIFIED",
-            DayOfWeek::Monday => "MONDAY",
-            DayOfWeek::Tuesday => "TUESDAY",
-            DayOfWeek::Wednesday => "WEDNESDAY",
-            DayOfWeek::Thursday => "THURSDAY",
-            DayOfWeek::Friday => "FRIDAY",
-            DayOfWeek::Saturday => "SATURDAY",
-            DayOfWeek::Sunday => "SUNDAY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "DAY_OF_WEEK_UNSPECIFIED" => Some(Self::Unspecified),
-            "MONDAY" => Some(Self::Monday),
-            "TUESDAY" => Some(Self::Tuesday),
-            "WEDNESDAY" => Some(Self::Wednesday),
-            "THURSDAY" => Some(Self::Thursday),
-            "FRIDAY" => Some(Self::Friday),
-            "SATURDAY" => Some(Self::Saturday),
-            "SUNDAY" => Some(Self::Sunday),
-            _ => None,
-        }
-    }
 }
 /// Represents a time of day. The date and time zone are either not significant
 /// or are specified elsewhere. An API may choose to allow leap seconds. Related
