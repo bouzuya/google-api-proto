@@ -1645,7 +1645,7 @@ pub struct Annotation {
     #[prost(int32, tag = "3")]
     pub length: i32,
     /// Additional metadata about the annotation.
-    #[prost(oneof = "annotation::Metadata", tags = "4, 5")]
+    #[prost(oneof = "annotation::Metadata", tags = "4, 5, 6")]
     pub metadata: ::core::option::Option<annotation::Metadata>,
 }
 /// Nested message and enum types in `Annotation`.
@@ -1660,6 +1660,9 @@ pub mod annotation {
         /// The metadata for a slash command.
         #[prost(message, tag = "5")]
         SlashCommand(super::SlashCommandMetadata),
+        /// The metadata for a rich link.
+        #[prost(message, tag = "6")]
+        RichLinkMetadata(super::RichLinkMetadata),
     }
 }
 /// Annotation metadata for user mentions (@).
@@ -1783,6 +1786,83 @@ pub mod slash_command_metadata {
         }
     }
 }
+/// A rich link to a resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RichLinkMetadata {
+    /// The URI of this link.
+    #[prost(string, tag = "1")]
+    pub uri: ::prost::alloc::string::String,
+    /// The rich link type.
+    #[prost(enumeration = "rich_link_metadata::RichLinkType", tag = "2")]
+    pub rich_link_type: i32,
+    /// Data for the linked resource.
+    #[prost(oneof = "rich_link_metadata::Data", tags = "3")]
+    pub data: ::core::option::Option<rich_link_metadata::Data>,
+}
+/// Nested message and enum types in `RichLinkMetadata`.
+pub mod rich_link_metadata {
+    /// The rich link type. More types might be added in the future.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum RichLinkType {
+        /// Default value for the enum. Don't use.
+        Unspecified = 0,
+        /// A Google Drive rich link type.
+        DriveFile = 1,
+    }
+    impl RichLinkType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                RichLinkType::Unspecified => "RICH_LINK_TYPE_UNSPECIFIED",
+                RichLinkType::DriveFile => "DRIVE_FILE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RICH_LINK_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DRIVE_FILE" => Some(Self::DriveFile),
+                _ => None,
+            }
+        }
+    }
+    /// Data for the linked resource.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Data {
+        /// Data for a drive link.
+        #[prost(message, tag = "3")]
+        DriveLinkData(super::DriveLinkData),
+    }
+}
+/// Data for Google Drive links.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DriveLinkData {
+    /// A
+    /// [DriveDataRef](<https://developers.google.com/chat/api/reference/rest/v1/spaces.messages.attachments#drivedataref>)
+    /// which references a Google Drive file.
+    #[prost(message, optional, tag = "1")]
+    pub drive_data_ref: ::core::option::Option<DriveDataRef>,
+    /// The mime type of the linked Google Drive resource.
+    #[prost(string, tag = "2")]
+    pub mime_type: ::prost::alloc::string::String,
+}
 /// Type of the annotation.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -1793,6 +1873,8 @@ pub enum AnnotationType {
     UserMention = 1,
     /// A slash command is invoked.
     SlashCommand = 2,
+    /// A rich link annotation.
+    RichLink = 3,
 }
 impl AnnotationType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -1804,6 +1886,7 @@ impl AnnotationType {
             AnnotationType::Unspecified => "ANNOTATION_TYPE_UNSPECIFIED",
             AnnotationType::UserMention => "USER_MENTION",
             AnnotationType::SlashCommand => "SLASH_COMMAND",
+            AnnotationType::RichLink => "RICH_LINK",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1812,6 +1895,7 @@ impl AnnotationType {
             "ANNOTATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
             "USER_MENTION" => Some(Self::UserMention),
             "SLASH_COMMAND" => Some(Self::SlashCommand),
+            "RICH_LINK" => Some(Self::RichLink),
             _ => None,
         }
     }
