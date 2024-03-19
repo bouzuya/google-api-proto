@@ -1906,8 +1906,8 @@ pub struct StoragePool {
     /// Optional. Flag indicating if the pool is NFS LDAP enabled or not.
     #[prost(bool, tag = "14")]
     pub ldap_enabled: bool,
-    /// Optional. This field is currently not implemented. Currently values
-    /// provided in this field will be ignored.
+    /// Optional. This field is not implemented. The values provided in this field
+    /// are ignored.
     #[prost(string, tag = "15")]
     pub psa_range: ::prost::alloc::string::String,
     /// Output only. Specifies the current pool encryption key source.
@@ -2105,8 +2105,8 @@ pub struct Volume {
     /// Required. Share name of the volume
     #[prost(string, tag = "5")]
     pub share_name: ::prost::alloc::string::String,
-    /// Output only. This field is currently not implemented. Currently values
-    /// provided in this field will be ignored.
+    /// Output only. This field is not implemented. The values provided in this
+    /// field are ignored.
     #[prost(string, tag = "6")]
     pub psa_range: ::prost::alloc::string::String,
     /// Required. StoragePool name of the volume
@@ -2615,7 +2615,7 @@ pub enum SecurityStyle {
     Unspecified = 0,
     /// SecurityStyle uses NTFS
     Ntfs = 1,
-    /// SecurityStyle uses NTFS
+    /// SecurityStyle uses UNIX
     Unix = 2,
 }
 impl SecurityStyle {
