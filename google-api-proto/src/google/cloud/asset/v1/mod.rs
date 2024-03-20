@@ -321,7 +321,7 @@ pub struct RelatedAsset {
     pub relationship_type: ::prost::alloc::string::String,
 }
 /// The key and value for a
-/// [tag](<https://cloud.google.com/resource-manager/docs/tags/tags-overview>),
+/// [tag](<https://cloud.google.com/resource-manager/docs/tags/tags-overview>).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Tag {
@@ -919,7 +919,7 @@ pub struct IamPolicyAnalysisState {
     #[prost(string, tag = "2")]
     pub cause: ::prost::alloc::string::String,
 }
-/// The Condition evaluation.
+/// The condition evaluation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ConditionEvaluation {
@@ -951,7 +951,7 @@ pub mod condition_evaluation {
         False = 2,
         /// The evaluation result is `conditional` when the condition expression
         /// contains variables that are either missing input values or have not been
-        /// supported by Analyzer yet.
+        /// supported by Policy Analyzer yet.
         Conditional = 3,
     }
     impl EvaluationValue {
@@ -2123,10 +2123,10 @@ pub struct IamPolicyAnalysisQuery {
     /// folder number (such as "folders/123"), a project ID (such as
     /// "projects/my-project-id"), or a project number (such as "projects/12345").
     ///
-    /// To know how to get organization id, visit [here
+    /// To know how to get organization ID, visit [here
     /// ](<https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id>).
     ///
-    /// To know how to get folder or project id, visit [here
+    /// To know how to get folder or project ID, visit [here
     /// ](<https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects>).
     #[prost(string, tag = "1")]
     pub scope: ::prost::alloc::string::String,
@@ -3138,10 +3138,10 @@ pub struct BatchGetEffectiveIamPoliciesRequest {
     /// folder number (such as "folders/123"), a project ID (such as
     /// "projects/my-project-id"), or a project number (such as "projects/12345").
     ///
-    /// To know how to get organization id, visit [here
+    /// To know how to get organization ID, visit [here
     /// ](<https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id>).
     ///
-    /// To know how to get folder or project id, visit [here
+    /// To know how to get folder or project ID, visit [here
     /// ](<https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects>).
     #[prost(string, tag = "1")]
     pub scope: ::prost::alloc::string::String,
@@ -3284,14 +3284,18 @@ pub mod analyzer_org_policy {
         pub condition: ::core::option::Option<super::super::super::super::r#type::Expr>,
         /// The condition evaluation result for this rule.
         /// Only populated if it meets all the following criteria:
-        /// * there is a
+        ///
+        /// * There is a
         /// [condition][google.cloud.asset.v1.AnalyzerOrgPolicy.Rule.condition]
-        /// defined for this rule
-        /// * this rule is within a consolidated_policy
-        /// * the consolidated_policy is within
-        ///    [AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer]
+        /// defined for this rule.
+        /// * This rule is within
+        ///    [AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.consolidated_policy][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer.consolidated_policy],
         ///    or
-        ///    [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource]
+        ///    [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.consolidated_policy][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.consolidated_policy]
+        ///    when the
+        ///    [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset]
+        ///    has
+        ///    [AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.governed_resource][google.cloud.asset.v1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset.governed_resource].
         #[prost(message, optional, tag = "8")]
         pub condition_evaluation: ::core::option::Option<super::ConditionEvaluation>,
         #[prost(oneof = "rule::Kind", tags = "3, 4, 5, 6")]
@@ -3313,8 +3317,8 @@ pub mod analyzer_org_policy {
         #[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         pub enum Kind {
-            /// List of values to be used for this PolicyRule. This field can be set
-            /// only in Policies for list constraints.
+            /// List of values to be used for this policy rule. This field can be set
+            /// only in policies for list constraints.
             #[prost(message, tag = "3")]
             Values(StringValues),
             /// Setting this to true means that all values are allowed. This field can
