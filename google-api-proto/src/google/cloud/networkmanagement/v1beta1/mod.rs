@@ -80,10 +80,8 @@ pub mod step {
         /// Initial state: packet originating from the internet.
         /// The endpoint information is populated.
         StartFromInternet = 2,
-        /// Initial state: packet originating from a Google service. Some Google
-        /// services, such as health check probers or Identity Aware Proxy use
-        /// special routes, outside VPC routing configuration to reach Compute Engine
-        /// Instances.
+        /// Initial state: packet originating from a Google service.
+        /// The google_service information is populated.
         StartFromGoogleService = 27,
         /// Initial state: packet originating from a VPC or on-premises network
         /// with internal source IP.
@@ -773,7 +771,7 @@ pub mod google_service_info {
     )]
     #[repr(i32)]
     pub enum GoogleServiceType {
-        /// Unspecified Google Service. Includes most of Google APIs and services.
+        /// Unspecified Google Service.
         Unspecified = 0,
         /// Identity aware proxy.
         /// <https://cloud.google.com/iap/docs/using-tcp-forwarding>
@@ -788,6 +786,14 @@ pub mod google_service_info {
         /// <https://cloud.google.com/dns/docs/zones/forwarding-zones#firewall-rules>
         /// <https://cloud.google.com/dns/docs/policies#firewall-rules>
         CloudDns = 3,
+        /// private.googleapis.com and restricted.googleapis.com
+        GoogleApi = 4,
+        /// Google API via Private Service Connect.
+        /// <https://cloud.google.com/vpc/docs/configure-private-service-connect-apis>
+        GoogleApiPsc = 5,
+        /// Google API via VPC Service Controls.
+        /// <https://cloud.google.com/vpc/docs/configure-private-service-connect-apis>
+        GoogleApiVpcSc = 6,
     }
     impl GoogleServiceType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -802,6 +808,9 @@ pub mod google_service_info {
                     "GFE_PROXY_OR_HEALTH_CHECK_PROBER"
                 }
                 GoogleServiceType::CloudDns => "CLOUD_DNS",
+                GoogleServiceType::GoogleApi => "GOOGLE_API",
+                GoogleServiceType::GoogleApiPsc => "GOOGLE_API_PSC",
+                GoogleServiceType::GoogleApiVpcSc => "GOOGLE_API_VPC_SC",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -813,6 +822,9 @@ pub mod google_service_info {
                     Some(Self::GfeProxyOrHealthCheckProber)
                 }
                 "CLOUD_DNS" => Some(Self::CloudDns),
+                "GOOGLE_API" => Some(Self::GoogleApi),
+                "GOOGLE_API_PSC" => Some(Self::GoogleApiPsc),
+                "GOOGLE_API_VPC_SC" => Some(Self::GoogleApiVpcSc),
                 _ => None,
             }
         }
