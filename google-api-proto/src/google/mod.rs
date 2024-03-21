@@ -11,6 +11,7 @@
 pub mod actions;
 #[cfg(
     any(
+        feature = "google-ads-admanager-v1",
         feature = "google-ads-admob-v1",
         feature = "google-ads-googleads-v14-common",
         feature = "google-ads-googleads-v14-enums",

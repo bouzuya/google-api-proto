@@ -10,6 +10,7 @@ pub mod cloud;
         feature = "google-actions-sdk-v2-interactionmodel-prompt",
         feature = "google-actions-sdk-v2-interactionmodel-type",
         feature = "google-actions-type",
+        feature = "google-ads-admanager-v1",
         feature = "google-ads-admob-v1",
         feature = "google-ads-googleads-v14-common",
         feature = "google-ads-googleads-v14-enums",

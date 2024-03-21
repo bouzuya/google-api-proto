@@ -32,6 +32,7 @@ google-actions-sdk-v2-interactionmodel = ["google-actions-sdk-v2", "google-actio
 google-actions-sdk-v2-interactionmodel-prompt = ["google-actions-sdk-v2", "google-actions-sdk-v2-interactionmodel", "google-api"]
 google-actions-sdk-v2-interactionmodel-type = ["google-actions-sdk-v2", "google-actions-sdk-v2-interactionmodel", "google-api"]
 google-actions-type = ["google-type"]
+google-ads-admanager-v1 = ["google-api", "google-longrunning", "google-type"]
 google-ads-admob-v1 = ["google-api", "google-type"]
 google-ads-googleads-v14-common = ["google-ads-googleads-v14-enums", "google-api"]
 google-ads-googleads-v14-enums = []

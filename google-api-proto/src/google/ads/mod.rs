@@ -1,3 +1,5 @@
+#[cfg(any(feature = "google-ads-admanager-v1"))]
+pub mod admanager;
 #[cfg(any(feature = "google-ads-admob-v1"))]
 pub mod admob;
 #[cfg(
