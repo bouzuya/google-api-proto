@@ -196,9 +196,9 @@ pub struct QuotaPreference {
     /// `projects/123/locations/global/quotaPreferences/my-config-for-us-east1`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// The dimensions that this quota preference applies to. The key of the map
-    /// entry is the name of a dimension, such as "region", "zone", "network_id",
-    /// and the value of the map entry is the dimension value.
+    /// Immutable. The dimensions that this quota preference applies to. The key of
+    /// the map entry is the name of a dimension, such as "region", "zone",
+    /// "network_id", and the value of the map entry is the dimension value.
     ///
     /// If a dimension is missing from the map of dimensions, the quota preference
     /// applies to all the dimension values except for those that have other quota
@@ -275,9 +275,9 @@ pub struct QuotaConfig {
     /// quota decrease requests do not have a trace id.
     #[prost(string, tag = "4")]
     pub trace_id: ::prost::alloc::string::String,
-    /// The annotations map for clients to store small amounts of arbitrary data.
-    /// Do not put PII or other sensitive information here.
-    /// See <https://google.aip.dev/128#annotations>
+    /// Optional. The annotations map for clients to store small amounts of
+    /// arbitrary data. Do not put PII or other sensitive information here. See
+    /// <https://google.aip.dev/128#annotations>
     #[prost(btree_map = "string, string", tag = "5")]
     pub annotations: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
