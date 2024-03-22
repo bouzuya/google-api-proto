@@ -14488,6 +14488,82 @@ pub struct GoogleSearchRetrieval {
     #[prost(bool, tag = "1")]
     pub disable_attribution: bool,
 }
+/// Tool config. This config is shared for all tools provided in the request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolConfig {
+    /// Function calling config.
+    #[prost(message, optional, tag = "1")]
+    pub function_calling_config: ::core::option::Option<FunctionCallingConfig>,
+}
+/// Function calling config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FunctionCallingConfig {
+    /// Function calling mode.
+    #[prost(enumeration = "function_calling_config::Mode", tag = "1")]
+    pub mode: i32,
+    /// Function names to call. Only set when the Mode is ANY. Function names
+    /// should match \[FunctionDeclaration.name\]. With mode set to ANY, model will
+    /// predict a function call from the set of function names provided.
+    #[prost(string, repeated, tag = "2")]
+    pub allowed_function_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `FunctionCallingConfig`.
+pub mod function_calling_config {
+    /// Function calling mode.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Mode {
+        /// Unspecified function calling mode. This value should not be used.
+        Unspecified = 0,
+        /// Default model behavior, model decides to predict either a function call
+        /// or a natural language repspose.
+        Auto = 1,
+        /// Model is constrained to always predicting a function call only.
+        /// If "allowed_function_names" are set, the predicted function call will be
+        /// limited to any one of "allowed_function_names", else the predicted
+        /// function call will be any one of the provided "function_declarations".
+        Any = 2,
+        /// Model will not predict any function call. Model behavior is same as when
+        /// not passing any function declarations.
+        None = 3,
+    }
+    impl Mode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Mode::Unspecified => "MODE_UNSPECIFIED",
+                Mode::Auto => "AUTO",
+                Mode::Any => "ANY",
+                Mode::None => "NONE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "AUTO" => Some(Self::Auto),
+                "ANY" => Some(Self::Any),
+                "NONE" => Some(Self::None),
+                _ => None,
+            }
+        }
+    }
+}
 /// The base structured datatype containing multi-part content of a message.
 ///
 /// A `Content` includes a `role` field designating the producer of the `Content`
@@ -15519,6 +15595,9 @@ pub struct GenerateContentRequest {
     /// knowledge and scope of the model.
     #[prost(message, repeated, tag = "6")]
     pub tools: ::prost::alloc::vec::Vec<Tool>,
+    /// Tool config. This config is shared for all tools provided in the request.
+    #[prost(message, optional, tag = "7")]
+    pub tool_config: ::core::option::Option<ToolConfig>,
     /// Optional. Per request settings for blocking unsafe content.
     /// Enforced on GenerateContentResponse.candidates.
     #[prost(message, repeated, tag = "3")]

@@ -386,7 +386,7 @@ pub struct AppProfile {
     #[prost(oneof = "app_profile::RoutingPolicy", tags = "5, 6")]
     pub routing_policy: ::core::option::Option<app_profile::RoutingPolicy>,
     /// Options for isolating this app profile's traffic from other use cases.
-    #[prost(oneof = "app_profile::Isolation", tags = "7, 11")]
+    #[prost(oneof = "app_profile::Isolation", tags = "7, 11, 10")]
     pub isolation: ::core::option::Option<app_profile::Isolation>,
 }
 /// Nested message and enum types in `AppProfile`.
@@ -427,6 +427,76 @@ pub mod app_profile {
         /// The priority of requests sent using this app profile.
         #[prost(enumeration = "Priority", tag = "1")]
         pub priority: i32,
+    }
+    /// Data Boost is a serverless compute capability that lets you run
+    /// high-throughput read jobs on your Bigtable data, without impacting the
+    /// performance of the clusters that handle your application traffic.
+    /// Currently, Data Boost exclusively supports read-only use-cases with
+    /// single-cluster routing.
+    ///
+    /// Data Boost reads are only guaranteed to see the results of writes that
+    /// were written at least 30 minutes ago. This means newly written values may
+    /// not become visible for up to 30m, and also means that old values may
+    /// remain visible for up to 30m after being deleted or overwritten. To
+    /// mitigate the staleness of the data, users may either wait 30m, or use
+    /// CheckConsistency.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DataBoostIsolationReadOnly {
+        /// The Compute Billing Owner for this Data Boost App Profile.
+        #[prost(
+            enumeration = "data_boost_isolation_read_only::ComputeBillingOwner",
+            optional,
+            tag = "1"
+        )]
+        pub compute_billing_owner: ::core::option::Option<i32>,
+    }
+    /// Nested message and enum types in `DataBoostIsolationReadOnly`.
+    pub mod data_boost_isolation_read_only {
+        /// Compute Billing Owner specifies how usage should be accounted when using
+        /// Data Boost. Compute Billing Owner also configures which Cloud Project is
+        /// charged for relevant quota.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum ComputeBillingOwner {
+            /// Unspecified value.
+            Unspecified = 0,
+            /// The host Cloud Project containing the targeted Bigtable Instance /
+            /// Table pays for compute.
+            HostPays = 1,
+        }
+        impl ComputeBillingOwner {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    ComputeBillingOwner::Unspecified => {
+                        "COMPUTE_BILLING_OWNER_UNSPECIFIED"
+                    }
+                    ComputeBillingOwner::HostPays => "HOST_PAYS",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "COMPUTE_BILLING_OWNER_UNSPECIFIED" => Some(Self::Unspecified),
+                    "HOST_PAYS" => Some(Self::HostPays),
+                    _ => None,
+                }
+            }
+        }
     }
     /// Possible priorities for an app profile. Note that higher priority writes
     /// can sometimes queue behind lower priority writes to the same tablet, as
@@ -500,6 +570,10 @@ pub mod app_profile {
         /// other use cases.
         #[prost(message, tag = "11")]
         StandardIsolation(StandardIsolation),
+        /// Specifies that this app profile is intended for read-only usage via the
+        /// Data Boost feature.
+        #[prost(message, tag = "10")]
+        DataBoostIsolationReadOnly(DataBoostIsolationReadOnly),
     }
 }
 /// A tablet is a defined by a start and end key and is explained in
@@ -3134,7 +3208,40 @@ pub struct CheckConsistencyRequest {
     /// Required. The token created using GenerateConsistencyToken for the Table.
     #[prost(string, tag = "2")]
     pub consistency_token: ::prost::alloc::string::String,
+    /// Which type of read needs to consistently observe which type of write?
+    /// Default: `standard_read_remote_writes`
+    #[prost(oneof = "check_consistency_request::Mode", tags = "3, 4")]
+    pub mode: ::core::option::Option<check_consistency_request::Mode>,
 }
+/// Nested message and enum types in `CheckConsistencyRequest`.
+pub mod check_consistency_request {
+    /// Which type of read needs to consistently observe which type of write?
+    /// Default: `standard_read_remote_writes`
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Mode {
+        /// Checks that reads using an app profile with `StandardIsolation` can
+        /// see all writes committed before the token was created, even if the
+        /// read and write target different clusters.
+        #[prost(message, tag = "3")]
+        StandardReadRemoteWrites(super::StandardReadRemoteWrites),
+        /// Checks that reads using an app profile with `DataBoostIsolationReadOnly`
+        /// can see all writes committed before the token was created, but only if
+        /// the read and write target the same cluster.
+        #[prost(message, tag = "4")]
+        DataBoostReadLocalWrites(super::DataBoostReadLocalWrites),
+    }
+}
+/// Checks that all writes before the consistency token was generated are
+/// replicated in every cluster and readable.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StandardReadRemoteWrites {}
+/// Checks that all writes before the consistency token was generated in the same
+/// cluster are readable by Databoost.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataBoostReadLocalWrites {}
 /// Response message for
 /// [google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency][google.bigtable.admin.v2.BigtableTableAdmin.CheckConsistency]
 #[allow(clippy::derive_partial_eq_without_eq)]

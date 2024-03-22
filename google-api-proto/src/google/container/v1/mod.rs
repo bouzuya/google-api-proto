@@ -413,6 +413,11 @@ pub struct NodeConfig {
     /// List of secondary boot disks attached to the nodes.
     #[prost(message, repeated, tag = "48")]
     pub secondary_boot_disks: ::prost::alloc::vec::Vec<SecondaryBootDisk>,
+    /// Secondary boot disk update strategy.
+    #[prost(message, optional, tag = "50")]
+    pub secondary_boot_disk_update_strategy: ::core::option::Option<
+        SecondaryBootDiskUpdateStrategy,
+    >,
 }
 /// Specifies options for controlling advanced machine features.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2396,6 +2401,9 @@ pub struct ClusterUpdate {
     /// Desired Beta APIs to be enabled for cluster.
     #[prost(message, optional, tag = "131")]
     pub desired_k8s_beta_apis: ::core::option::Option<K8sBetaApiConfig>,
+    /// Enable/Disable Multi-Networking for the cluster
+    #[prost(bool, optional, tag = "135")]
+    pub desired_enable_multi_networking: ::core::option::Option<bool>,
     /// The desired resource manager tags that apply to all auto-provisioned node
     /// pools in autopilot clusters and node auto-provisioning enabled clusters.
     #[prost(message, optional, tag = "136")]
@@ -6845,6 +6853,11 @@ pub mod secondary_boot_disk {
         }
     }
 }
+/// SecondaryBootDiskUpdateStrategy is a placeholder which will be extended
+/// in the future to define different options for updating secondary boot disks.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SecondaryBootDiskUpdateStrategy {}
 /// PrivateIPv6GoogleAccess controls whether and how the pods can communicate
 /// with Google Services through gRPC over IPv6.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]

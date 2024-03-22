@@ -249,6 +249,13 @@ pub struct StructuredQuery {
     /// * The value must be greater than or equal to zero if specified.
     #[prost(message, optional, tag = "5")]
     pub limit: ::core::option::Option<i32>,
+    /// Optional. A potential Nearest Neighbors Search.
+    ///
+    /// Applies after all other filters and ordering.
+    ///
+    /// Finds the closest vector embeddings to the given query vector.
+    #[prost(message, optional, tag = "9")]
+    pub find_nearest: ::core::option::Option<structured_query::FindNearest>,
 }
 /// Nested message and enum types in `StructuredQuery`.
 pub mod structured_query {
@@ -604,6 +611,86 @@ pub mod structured_query {
         /// of the document, use `\['__name__'\]`.
         #[prost(message, repeated, tag = "2")]
         pub fields: ::prost::alloc::vec::Vec<FieldReference>,
+    }
+    /// Nearest Neighbors search config.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FindNearest {
+        /// Required. An indexed vector field to search upon. Only documents which
+        /// contain vectors whose dimensionality match the query_vector can be
+        /// returned.
+        #[prost(message, optional, tag = "1")]
+        pub vector_field: ::core::option::Option<FieldReference>,
+        /// Required. The query vector that we are searching on. Must be a vector of
+        /// no more than 2048 dimensions.
+        #[prost(message, optional, tag = "2")]
+        pub query_vector: ::core::option::Option<super::Value>,
+        /// Required. The Distance Measure to use, required.
+        #[prost(enumeration = "find_nearest::DistanceMeasure", tag = "3")]
+        pub distance_measure: i32,
+        /// Required. The number of nearest neighbors to return. Must be a positive
+        /// integer of no more than 1000.
+        #[prost(message, optional, tag = "4")]
+        pub limit: ::core::option::Option<i32>,
+    }
+    /// Nested message and enum types in `FindNearest`.
+    pub mod find_nearest {
+        /// The distance measure to use when comparing vectors.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum DistanceMeasure {
+            /// Should not be set.
+            Unspecified = 0,
+            /// Measures the EUCLIDEAN distance between the vectors. See
+            /// [Euclidean](<https://en.wikipedia.org/wiki/Euclidean_distance>) to learn
+            /// more
+            Euclidean = 1,
+            /// Compares vectors based on the angle between them, which allows you to
+            /// measure similarity that isn't based on the vectors magnitude.
+            /// We recommend using DOT_PRODUCT with unit normalized vectors instead of
+            /// COSINE distance, which is mathematically equivalent with better
+            /// performance. See [Cosine
+            /// Similarity](<https://en.wikipedia.org/wiki/Cosine_similarity>) to learn
+            /// more.
+            Cosine = 2,
+            /// Similar to cosine but is affected by the magnitude of the vectors. See
+            /// [Dot Product](<https://en.wikipedia.org/wiki/Dot_product>) to learn more.
+            DotProduct = 3,
+        }
+        impl DistanceMeasure {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    DistanceMeasure::Unspecified => "DISTANCE_MEASURE_UNSPECIFIED",
+                    DistanceMeasure::Euclidean => "EUCLIDEAN",
+                    DistanceMeasure::Cosine => "COSINE",
+                    DistanceMeasure::DotProduct => "DOT_PRODUCT",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "DISTANCE_MEASURE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "EUCLIDEAN" => Some(Self::Euclidean),
+                    "COSINE" => Some(Self::Cosine),
+                    "DOT_PRODUCT" => Some(Self::DotProduct),
+                    _ => None,
+                }
+            }
+        }
     }
     /// A sort direction.
     #[derive(
