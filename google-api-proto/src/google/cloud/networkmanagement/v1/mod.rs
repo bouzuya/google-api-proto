@@ -274,7 +274,8 @@ pub mod step {
         /// Display information of the final state "drop" and reason.
         #[prost(message, tag = "15")]
         Drop(super::DropInfo),
-        /// Display information of the load balancers.
+        /// Display information of the load balancers. Deprecated in favor of the
+        /// `load_balancer_backend_info` field, not used in new tests.
         #[prost(message, tag = "16")]
         LoadBalancer(super::LoadBalancerInfo),
         /// Display information of a Google Cloud network.
@@ -863,7 +864,10 @@ pub struct LoadBalancerInfo {
     /// Type of the load balancer.
     #[prost(enumeration = "load_balancer_info::LoadBalancerType", tag = "1")]
     pub load_balancer_type: i32,
-    /// URI of the health check for the load balancer.
+    /// URI of the health check for the load balancer. Deprecated and no longer
+    /// populated as different load balancer backends might have different health
+    /// checks.
+    #[deprecated]
     #[prost(string, tag = "2")]
     pub health_check_uri: ::prost::alloc::string::String,
     /// Information for the loadbalancer backends.
@@ -2667,9 +2671,6 @@ pub struct ConnectivityTest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Endpoint {
     /// The IP address of the endpoint, which can be an external or internal IP.
-    /// An IPv6 address is only allowed when the test's destination is a
-    /// [global load balancer
-    /// VIP](<https://cloud.google.com/load-balancing/docs/load-balancing-overview>).
     #[prost(string, tag = "1")]
     pub ip_address: ::prost::alloc::string::String,
     /// The IP protocol port of the endpoint.
