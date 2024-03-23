@@ -5976,6 +5976,11 @@ pub struct FetchFeatureValuesRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FetchFeatureValuesResponse {
+    /// The data key associated with this response.
+    /// Will only be populated for
+    /// [FeatureOnlineStoreService.StreamingFetchFeatureValues][] RPCs.
+    #[prost(message, optional, tag = "4")]
+    pub data_key: ::core::option::Option<FeatureViewDataKey>,
     #[prost(oneof = "fetch_feature_values_response::Format", tags = "3, 2")]
     pub format: ::core::option::Option<fetch_feature_values_response::Format>,
 }
@@ -19713,7 +19718,13 @@ pub struct FeatureOnlineStore {
     /// Output only. State of the featureOnlineStore.
     #[prost(enumeration = "feature_online_store::State", tag = "7")]
     pub state: i32,
-    #[prost(oneof = "feature_online_store::StorageType", tags = "8")]
+    /// Optional. The dedicated serving endpoint for this FeatureOnlineStore, which
+    /// is different from common Vertex service endpoint.
+    #[prost(message, optional, tag = "10")]
+    pub dedicated_serving_endpoint: ::core::option::Option<
+        feature_online_store::DedicatedServingEndpoint,
+    >,
+    #[prost(oneof = "feature_online_store::StorageType", tags = "8, 12")]
     pub storage_type: ::core::option::Option<feature_online_store::StorageType>,
 }
 /// Nested message and enum types in `FeatureOnlineStore`.
@@ -19747,6 +19758,21 @@ pub mod feature_online_store {
             #[prost(int32, tag = "3")]
             pub cpu_utilization_target: i32,
         }
+    }
+    /// Optimized storage type
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Optimized {}
+    /// The dedicated serving endpoint for this FeatureOnlineStore. Only need to
+    /// set when you choose Optimized storage type. Public endpoint is provisioned
+    /// by default.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DedicatedServingEndpoint {
+        /// Output only. This field will be populated with the domain name to use for
+        /// this FeatureOnlineStore
+        #[prost(string, tag = "2")]
+        pub public_endpoint_domain_name: ::prost::alloc::string::String,
     }
     /// Possible states a featureOnlineStore can have.
     #[derive(
@@ -19804,6 +19830,13 @@ pub mod feature_online_store {
         /// FeatureOnlineStore.
         #[prost(message, tag = "8")]
         Bigtable(Bigtable),
+        /// Contains settings for the Optimized store that will be created
+        /// to serve featureValues for all FeatureViews under this
+        /// FeatureOnlineStore. When choose Optimized storage type, need to set
+        /// [PrivateServiceConnectConfig.enable_private_service_connect][google.cloud.aiplatform.v1.PrivateServiceConnectConfig.enable_private_service_connect]
+        /// to use private endpoint. Otherwise will use public endpoint by default.
+        #[prost(message, tag = "12")]
+        Optimized(Optimized),
     }
 }
 /// FeatureView is representation of values that the FeatureOnlineStore will
@@ -19846,6 +19879,12 @@ pub struct FeatureView {
     /// FeatureView are made ready for online serving.
     #[prost(message, optional, tag = "7")]
     pub sync_config: ::core::option::Option<feature_view::SyncConfig>,
+    /// Optional. Configuration for index preparation for vector search. It
+    /// contains the required configurations to create an index from source data,
+    /// so that approximate nearest neighbor (a.k.a ANN) algorithms search can be
+    /// performed during online serving.
+    #[prost(message, optional, tag = "15")]
+    pub index_config: ::core::option::Option<feature_view::IndexConfig>,
     #[prost(oneof = "feature_view::Source", tags = "6, 9")]
     pub source: ::core::option::Option<feature_view::Source>,
 }
@@ -19874,6 +19913,129 @@ pub mod feature_view {
         /// "TZ=America/New_York 1 * * * *".
         #[prost(string, tag = "1")]
         pub cron: ::prost::alloc::string::String,
+    }
+    /// Configuration for vector indexing.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct IndexConfig {
+        /// Optional. Column of embedding. This column contains the source data to
+        /// create index for vector search. embedding_column must be set when using
+        /// vector search.
+        #[prost(string, tag = "1")]
+        pub embedding_column: ::prost::alloc::string::String,
+        /// Optional. Columns of features that're used to filter vector search
+        /// results.
+        #[prost(string, repeated, tag = "2")]
+        pub filter_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Optional. Column of crowding. This column contains crowding attribute
+        /// which is a constraint on a neighbor list produced by
+        /// [FeatureOnlineStoreService.SearchNearestEntities][google.cloud.aiplatform.v1.FeatureOnlineStoreService.SearchNearestEntities]
+        /// to diversify search results. If
+        /// [NearestNeighborQuery.per_crowding_attribute_neighbor_count][google.cloud.aiplatform.v1.NearestNeighborQuery.per_crowding_attribute_neighbor_count]
+        /// is set to K in
+        /// [SearchNearestEntitiesRequest][google.cloud.aiplatform.v1.SearchNearestEntitiesRequest],
+        /// it's guaranteed that no more than K entities of the same crowding
+        /// attribute are returned in the response.
+        #[prost(string, tag = "3")]
+        pub crowding_column: ::prost::alloc::string::String,
+        /// Optional. The number of dimensions of the input embedding.
+        #[prost(int32, optional, tag = "4")]
+        pub embedding_dimension: ::core::option::Option<i32>,
+        /// Optional. The distance measure used in nearest neighbor search.
+        #[prost(enumeration = "index_config::DistanceMeasureType", tag = "5")]
+        pub distance_measure_type: i32,
+        /// The configuration with regard to the algorithms used for efficient
+        /// search.
+        #[prost(oneof = "index_config::AlgorithmConfig", tags = "6, 7")]
+        pub algorithm_config: ::core::option::Option<index_config::AlgorithmConfig>,
+    }
+    /// Nested message and enum types in `IndexConfig`.
+    pub mod index_config {
+        /// Configuration options for using brute force search.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct BruteForceConfig {}
+        /// Configuration options for the tree-AH algorithm.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct TreeAhConfig {
+            /// Optional. Number of embeddings on each leaf node. The default value is
+            /// 1000 if not set.
+            #[prost(int64, optional, tag = "1")]
+            pub leaf_node_embedding_count: ::core::option::Option<i64>,
+        }
+        /// The distance measure used in nearest neighbor search.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum DistanceMeasureType {
+            /// Should not be set.
+            Unspecified = 0,
+            /// Euclidean (L_2) Distance.
+            SquaredL2Distance = 1,
+            /// Cosine Distance. Defined as 1 - cosine similarity.
+            ///
+            /// We strongly suggest using DOT_PRODUCT_DISTANCE + UNIT_L2_NORM instead
+            /// of COSINE distance. Our algorithms have been more optimized for
+            /// DOT_PRODUCT distance which, when combined with UNIT_L2_NORM, is
+            /// mathematically equivalent to COSINE distance and results in the same
+            /// ranking.
+            CosineDistance = 2,
+            /// Dot Product Distance. Defined as a negative of the dot product.
+            DotProductDistance = 3,
+        }
+        impl DistanceMeasureType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    DistanceMeasureType::Unspecified => {
+                        "DISTANCE_MEASURE_TYPE_UNSPECIFIED"
+                    }
+                    DistanceMeasureType::SquaredL2Distance => "SQUARED_L2_DISTANCE",
+                    DistanceMeasureType::CosineDistance => "COSINE_DISTANCE",
+                    DistanceMeasureType::DotProductDistance => "DOT_PRODUCT_DISTANCE",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "DISTANCE_MEASURE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "SQUARED_L2_DISTANCE" => Some(Self::SquaredL2Distance),
+                    "COSINE_DISTANCE" => Some(Self::CosineDistance),
+                    "DOT_PRODUCT_DISTANCE" => Some(Self::DotProductDistance),
+                    _ => None,
+                }
+            }
+        }
+        /// The configuration with regard to the algorithms used for efficient
+        /// search.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum AlgorithmConfig {
+            /// Optional. Configuration options for the tree-AH algorithm (Shallow tree
+            /// + Asymmetric Hashing). Please refer to this paper for more details:
+            /// <https://arxiv.org/abs/1908.10396>
+            #[prost(message, tag = "6")]
+            TreeAhConfig(TreeAhConfig),
+            /// Optional. Configuration options for using brute force search, which
+            /// simply implements the standard linear search in the database for each
+            /// query. It is primarily meant for benchmarking and to generate the
+            /// ground truth for approximate search.
+            #[prost(message, tag = "7")]
+            BruteForceConfig(BruteForceConfig),
+        }
     }
     /// A Feature Registry source for features that need to be synced to Online
     /// Store.

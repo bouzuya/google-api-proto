@@ -2246,6 +2246,8 @@ pub mod waf_settings {
         Ca = 1,
         /// Fastly
         Fastly = 3,
+        /// Cloudflare
+        Cloudflare = 4,
     }
     impl WafService {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2257,6 +2259,7 @@ pub mod waf_settings {
                 WafService::Unspecified => "WAF_SERVICE_UNSPECIFIED",
                 WafService::Ca => "CA",
                 WafService::Fastly => "FASTLY",
+                WafService::Cloudflare => "CLOUDFLARE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2265,6 +2268,7 @@ pub mod waf_settings {
                 "WAF_SERVICE_UNSPECIFIED" => Some(Self::Unspecified),
                 "CA" => Some(Self::Ca),
                 "FASTLY" => Some(Self::Fastly),
+                "CLOUDFLARE" => Some(Self::Cloudflare),
                 _ => None,
             }
         }
