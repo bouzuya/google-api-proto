@@ -505,11 +505,41 @@ pub mod index {
         #[prost(string, tag = "1")]
         pub field_path: ::prost::alloc::string::String,
         /// How the field value is indexed.
-        #[prost(oneof = "index_field::ValueMode", tags = "2, 3")]
+        #[prost(oneof = "index_field::ValueMode", tags = "2, 3, 4")]
         pub value_mode: ::core::option::Option<index_field::ValueMode>,
     }
     /// Nested message and enum types in `IndexField`.
     pub mod index_field {
+        /// The index configuration to support vector search operations
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct VectorConfig {
+            /// Required. The vector dimension this configuration applies to.
+            ///
+            /// The resulting index will only include vectors of this dimension, and
+            /// can be used for vector search with the same dimension.
+            #[prost(int32, tag = "1")]
+            pub dimension: i32,
+            /// The type of index used.
+            #[prost(oneof = "vector_config::Type", tags = "2")]
+            pub r#type: ::core::option::Option<vector_config::Type>,
+        }
+        /// Nested message and enum types in `VectorConfig`.
+        pub mod vector_config {
+            /// An index that stores vectors in a flat data structure, and supports
+            /// exhaustive search.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct FlatIndex {}
+            /// The type of index used.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Type {
+                /// Indicates the vector index is a flat index.
+                #[prost(message, tag = "2")]
+                Flat(FlatIndex),
+            }
+        }
         /// The supported orderings.
         #[derive(
             Clone,
@@ -603,6 +633,10 @@ pub mod index {
             /// Indicates that this field supports operations on `array_value`s.
             #[prost(enumeration = "ArrayConfig", tag = "3")]
             ArrayConfig(i32),
+            /// Indicates that this field supports nearest neighbors and distance
+            /// operations on vector.
+            #[prost(message, tag = "4")]
+            VectorConfig(VectorConfig),
         }
     }
     /// Query Scope defines the scope at which a query is run. This is specified on
