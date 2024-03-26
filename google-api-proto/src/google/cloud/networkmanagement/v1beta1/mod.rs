@@ -26,6 +26,11 @@ pub struct Trace {
     /// and avoid reordering or sorting them.
     #[prost(message, repeated, tag = "2")]
     pub steps: ::prost::alloc::vec::Vec<Step>,
+    /// ID of trace. For forward traces, this ID is unique for each trace. For
+    /// return traces, it matches ID of associated forward trace. A single forward
+    /// trace can be associated with none, one or more than one return trace.
+    #[prost(int32, tag = "4")]
+    pub forward_trace_id: i32,
 }
 /// A simulated forwarding path is composed of multiple steps.
 /// Each step has a well-defined state and an associated configuration.
@@ -103,6 +108,13 @@ pub mod step {
         /// Initial state: packet originating from a Cloud Run revision.
         /// A CloudRunRevisionInfo is populated with starting revision information.
         StartFromCloudRunRevision = 26,
+        /// Initial state: packet originating from a Storage Bucket. Used only for
+        /// return traces.
+        /// The storage_bucket information is populated.
+        StartFromStorageBucket = 29,
+        /// Initial state: packet originating from a published service that uses
+        /// Private Service Connect. Used only for return traces.
+        StartFromPscPublishedService = 30,
         /// Config checking state: verify ingress firewall rule.
         ApplyIngressFirewallRule = 4,
         /// Config checking state: verify egress firewall rule.
@@ -119,8 +131,12 @@ pub mod step {
         /// Forwarding state: arriving at a Compute Engine instance.
         ArriveAtInstance = 9,
         /// Forwarding state: arriving at a Compute Engine internal load balancer.
+        /// Deprecated in favor of the `ANALYZE_LOAD_BALANCER_BACKEND` state, not
+        /// used in new tests.
         ArriveAtInternalLoadBalancer = 10,
         /// Forwarding state: arriving at a Compute Engine external load balancer.
+        /// Deprecated in favor of the `ANALYZE_LOAD_BALANCER_BACKEND` state, not
+        /// used in new tests.
         ArriveAtExternalLoadBalancer = 11,
         /// Forwarding state: arriving at a Cloud VPN gateway.
         ArriveAtVpnGateway = 12,
@@ -163,6 +179,8 @@ pub mod step {
                 State::StartFromCloudFunction => "START_FROM_CLOUD_FUNCTION",
                 State::StartFromAppEngineVersion => "START_FROM_APP_ENGINE_VERSION",
                 State::StartFromCloudRunRevision => "START_FROM_CLOUD_RUN_REVISION",
+                State::StartFromStorageBucket => "START_FROM_STORAGE_BUCKET",
+                State::StartFromPscPublishedService => "START_FROM_PSC_PUBLISHED_SERVICE",
                 State::ApplyIngressFirewallRule => "APPLY_INGRESS_FIREWALL_RULE",
                 State::ApplyEgressFirewallRule => "APPLY_EGRESS_FIREWALL_RULE",
                 State::ApplyRoute => "APPLY_ROUTE",
@@ -197,6 +215,10 @@ pub mod step {
                 "START_FROM_CLOUD_FUNCTION" => Some(Self::StartFromCloudFunction),
                 "START_FROM_APP_ENGINE_VERSION" => Some(Self::StartFromAppEngineVersion),
                 "START_FROM_CLOUD_RUN_REVISION" => Some(Self::StartFromCloudRunRevision),
+                "START_FROM_STORAGE_BUCKET" => Some(Self::StartFromStorageBucket),
+                "START_FROM_PSC_PUBLISHED_SERVICE" => {
+                    Some(Self::StartFromPscPublishedService)
+                }
                 "APPLY_INGRESS_FIREWALL_RULE" => Some(Self::ApplyIngressFirewallRule),
                 "APPLY_EGRESS_FIREWALL_RULE" => Some(Self::ApplyEgressFirewallRule),
                 "APPLY_ROUTE" => Some(Self::ApplyRoute),
@@ -440,6 +462,11 @@ pub mod firewall_info {
         /// For details, see [Regional network firewall
         /// policies](<https://cloud.google.com/firewall/docs/regional-firewall-policies>).
         NetworkRegionalFirewallPolicyRule = 6,
+        /// Tracking state for response traffic created when request traffic goes
+        /// through allow firewall rule.
+        /// For details, see [firewall rules
+        /// specifications](<https://cloud.google.com/firewall/docs/firewalls#specifications>)
+        TrackingState = 101,
     }
     impl FirewallRuleType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -463,6 +490,7 @@ pub mod firewall_info {
                 FirewallRuleType::NetworkRegionalFirewallPolicyRule => {
                     "NETWORK_REGIONAL_FIREWALL_POLICY_RULE"
                 }
+                FirewallRuleType::TrackingState => "TRACKING_STATE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -481,6 +509,7 @@ pub mod firewall_info {
                 "NETWORK_REGIONAL_FIREWALL_POLICY_RULE" => {
                     Some(Self::NetworkRegionalFirewallPolicyRule)
                 }
+                "TRACKING_STATE" => Some(Self::TrackingState),
                 _ => None,
             }
         }
@@ -2665,6 +2694,10 @@ pub struct ConnectivityTest {
     /// existing test.
     #[prost(message, optional, tag = "14")]
     pub probing_details: ::core::option::Option<ProbingDetails>,
+    /// Whether the test should skip firewall checking.
+    /// If not provided, we assume false.
+    #[prost(bool, tag = "17")]
+    pub bypass_firewall_checks: bool,
 }
 /// Source or destination of the Connectivity Test.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2919,7 +2952,9 @@ pub mod reachability_details {
         /// The source and destination endpoints do not uniquely identify
         /// the test location in the network, and the reachability result contains
         /// multiple traces. For some traces, a packet could be delivered, and for
-        /// others, it would not be.
+        /// others, it would not be. This result is also assigned to
+        /// configuration analysis of return path if on its own it should be
+        /// REACHABLE, but configuration analysis of forward path is AMBIGUOUS.
         Ambiguous = 4,
         /// The configuration analysis did not complete. Possible reasons are:
         ///

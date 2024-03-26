@@ -25008,6 +25008,1463 @@ pub mod user_action_reference {
         DataLabelingJob(::prost::alloc::string::String),
     }
 }
+/// Request message for EvaluationService.EvaluateInstances.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EvaluateInstancesRequest {
+    /// Required. The resource name of the Location to evaluate the instances.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub location: ::prost::alloc::string::String,
+    /// Instances and specs for evaluation
+    #[prost(
+        oneof = "evaluate_instances_request::MetricInputs",
+        tags = "2, 3, 4, 5, 6, 8, 9, 12, 13, 7, 23, 14, 15, 10, 24, 16, 17, 18, 11, 19, 20, 21, 22"
+    )]
+    pub metric_inputs: ::core::option::Option<evaluate_instances_request::MetricInputs>,
+}
+/// Nested message and enum types in `EvaluateInstancesRequest`.
+pub mod evaluate_instances_request {
+    /// Instances and specs for evaluation
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum MetricInputs {
+        /// Auto metric instances.
+        /// Instances and metric spec for exact match metric.
+        #[prost(message, tag = "2")]
+        ExactMatchInput(super::ExactMatchInput),
+        /// Instances and metric spec for bleu metric.
+        #[prost(message, tag = "3")]
+        BleuInput(super::BleuInput),
+        /// Instances and metric spec for rouge metric.
+        #[prost(message, tag = "4")]
+        RougeInput(super::RougeInput),
+        /// LLM-based metric instance.
+        /// General text generation metrics, applicable to other categories.
+        /// Input for fluency metric.
+        #[prost(message, tag = "5")]
+        FluencyInput(super::FluencyInput),
+        /// Input for coherence metric.
+        #[prost(message, tag = "6")]
+        CoherenceInput(super::CoherenceInput),
+        /// Input for safety metric.
+        #[prost(message, tag = "8")]
+        SafetyInput(super::SafetyInput),
+        /// Input for groundedness metric.
+        #[prost(message, tag = "9")]
+        GroundednessInput(super::GroundednessInput),
+        /// Input for fulfillment metric.
+        #[prost(message, tag = "12")]
+        FulfillmentInput(super::FulfillmentInput),
+        /// Input for response recall metric.
+        #[prost(message, tag = "13")]
+        ResponseRecallInput(super::ResponseRecallInput),
+        /// Input for summarization quality metric.
+        #[prost(message, tag = "7")]
+        SummarizationQualityInput(super::SummarizationQualityInput),
+        /// Input for pairwise summarization quality metric.
+        #[prost(message, tag = "23")]
+        PairwiseSummarizationQualityInput(super::PairwiseSummarizationQualityInput),
+        /// Input for summarization helpfulness metric.
+        #[prost(message, tag = "14")]
+        SummarizationHelpfulnessInput(super::SummarizationHelpfulnessInput),
+        /// Input for summarization verbosity metric.
+        #[prost(message, tag = "15")]
+        SummarizationVerbosityInput(super::SummarizationVerbosityInput),
+        /// Input for question answering quality metric.
+        #[prost(message, tag = "10")]
+        QuestionAnsweringQualityInput(super::QuestionAnsweringQualityInput),
+        /// Input for pairwise question answering quality metric.
+        #[prost(message, tag = "24")]
+        PairwiseQuestionAnsweringQualityInput(
+            super::PairwiseQuestionAnsweringQualityInput,
+        ),
+        /// Input for question answering relevance metric.
+        #[prost(message, tag = "16")]
+        QuestionAnsweringRelevanceInput(super::QuestionAnsweringRelevanceInput),
+        /// Input for question answering helpfulness
+        /// metric.
+        #[prost(message, tag = "17")]
+        QuestionAnsweringHelpfulnessInput(super::QuestionAnsweringHelpfulnessInput),
+        /// Input for question answering correctness
+        /// metric.
+        #[prost(message, tag = "18")]
+        QuestionAnsweringCorrectnessInput(super::QuestionAnsweringCorrectnessInput),
+        /// Input for rag context recall metric.
+        #[prost(message, tag = "11")]
+        RagContextRecallInput(super::RagContextRecallInput),
+        /// Tool call metric instances.
+        /// Input for tool call valid metric.
+        #[prost(message, tag = "19")]
+        ToolCallValidInput(super::ToolCallValidInput),
+        /// Input for tool name match metric.
+        #[prost(message, tag = "20")]
+        ToolNameMatchInput(super::ToolNameMatchInput),
+        /// Input for tool parameter key match metric.
+        #[prost(message, tag = "21")]
+        ToolParameterKeyMatchInput(super::ToolParameterKeyMatchInput),
+        /// Input for tool parameter key value match metric.
+        #[prost(message, tag = "22")]
+        ToolParameterKvMatchInput(super::ToolParameterKvMatchInput),
+    }
+}
+/// Response message for EvaluationService.EvaluateInstances.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EvaluateInstancesResponse {
+    /// Evaluation results will be served in the same order as presented in
+    /// EvaluationRequest.instances.
+    #[prost(
+        oneof = "evaluate_instances_response::EvaluationResults",
+        tags = "1, 2, 3, 4, 5, 7, 8, 11, 12, 6, 22, 13, 14, 9, 23, 15, 16, 17, 10, 18, 19, 20, 21"
+    )]
+    pub evaluation_results: ::core::option::Option<
+        evaluate_instances_response::EvaluationResults,
+    >,
+}
+/// Nested message and enum types in `EvaluateInstancesResponse`.
+pub mod evaluate_instances_response {
+    /// Evaluation results will be served in the same order as presented in
+    /// EvaluationRequest.instances.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum EvaluationResults {
+        /// Auto metric evaluation results.
+        /// Results for exact match metric.
+        #[prost(message, tag = "1")]
+        ExactMatchResults(super::ExactMatchResults),
+        /// Results for bleu metric.
+        #[prost(message, tag = "2")]
+        BleuResults(super::BleuResults),
+        /// Results for rouge metric.
+        #[prost(message, tag = "3")]
+        RougeResults(super::RougeResults),
+        /// LLM-based metric evaluation result.
+        /// General text generation metrics, applicable to other categories.
+        /// Result for fluency metric.
+        #[prost(message, tag = "4")]
+        FluencyResult(super::FluencyResult),
+        /// Result for coherence metric.
+        #[prost(message, tag = "5")]
+        CoherenceResult(super::CoherenceResult),
+        /// Result for safety metric.
+        #[prost(message, tag = "7")]
+        SafetyResult(super::SafetyResult),
+        /// Result for groundedness metric.
+        #[prost(message, tag = "8")]
+        GroundednessResult(super::GroundednessResult),
+        /// Result for fulfillment metric.
+        #[prost(message, tag = "11")]
+        FulfillmentResult(super::FulfillmentResult),
+        /// Result for response recall metric.
+        #[prost(message, tag = "12")]
+        ResponseRecallResult(super::ResponseRecallResult),
+        /// Summarization only metrics.
+        /// Result for summarization quality metric.
+        #[prost(message, tag = "6")]
+        SummarizationQualityResult(super::SummarizationQualityResult),
+        /// Result for pairwise summarization quality metric.
+        #[prost(message, tag = "22")]
+        PairwiseSummarizationQualityResult(super::PairwiseSummarizationQualityResult),
+        /// Result for summarization helpfulness metric.
+        #[prost(message, tag = "13")]
+        SummarizationHelpfulnessResult(super::SummarizationHelpfulnessResult),
+        /// Result for summarization verbosity metric.
+        #[prost(message, tag = "14")]
+        SummarizationVerbosityResult(super::SummarizationVerbosityResult),
+        /// Question answering only metrics.
+        /// Result for question answering quality metric.
+        #[prost(message, tag = "9")]
+        QuestionAnsweringQualityResult(super::QuestionAnsweringQualityResult),
+        /// Result for pairwise question answering quality metric.
+        #[prost(message, tag = "23")]
+        PairwiseQuestionAnsweringQualityResult(
+            super::PairwiseQuestionAnsweringQualityResult,
+        ),
+        /// Result for question answering relevance metric.
+        #[prost(message, tag = "15")]
+        QuestionAnsweringRelevanceResult(super::QuestionAnsweringRelevanceResult),
+        /// Result for question answering helpfulness metric.
+        #[prost(message, tag = "16")]
+        QuestionAnsweringHelpfulnessResult(super::QuestionAnsweringHelpfulnessResult),
+        /// Result for question answering correctness metric.
+        #[prost(message, tag = "17")]
+        QuestionAnsweringCorrectnessResult(super::QuestionAnsweringCorrectnessResult),
+        /// RAG only metrics.
+        /// Result for context recall metric.
+        #[prost(message, tag = "10")]
+        RagContextRecallResult(super::RagContextRecallResult),
+        /// Tool call metrics.
+        ///   Results for tool call valid metric.
+        #[prost(message, tag = "18")]
+        ToolCallValidResults(super::ToolCallValidResults),
+        /// Results for tool name match metric.
+        #[prost(message, tag = "19")]
+        ToolNameMatchResults(super::ToolNameMatchResults),
+        /// Results for tool parameter key match  metric.
+        #[prost(message, tag = "20")]
+        ToolParameterKeyMatchResults(super::ToolParameterKeyMatchResults),
+        /// Results for tool parameter key value match metric.
+        #[prost(message, tag = "21")]
+        ToolParameterKvMatchResults(super::ToolParameterKvMatchResults),
+    }
+}
+/// Input for exact match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExactMatchInput {
+    /// Required. Spec for exact match metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<ExactMatchSpec>,
+    /// Required. Repeated exact match instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<ExactMatchInstance>,
+}
+/// Spec for exact match instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExactMatchInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for exact match metric - returns 1 if prediction and reference exactly
+/// matches, otherwise 0.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExactMatchSpec {}
+/// Results for exact match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExactMatchResults {
+    /// Output only. Exact match metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub exact_match_metric_values: ::prost::alloc::vec::Vec<ExactMatchMetricValue>,
+}
+/// Exact match metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExactMatchMetricValue {
+    /// Output only. Exact match score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Input for bleu metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BleuInput {
+    /// Required. Spec for bleu score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<BleuSpec>,
+    /// Required. Repeated bleu instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<BleuInstance>,
+}
+/// Spec for bleu instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BleuInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for bleu score metric - calculates the precision of n-grams in the
+/// prediction as compared to reference - returns a score ranging between 0 to 1.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BleuSpec {}
+/// Results for bleu metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BleuResults {
+    /// Output only. Bleu metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub bleu_metric_values: ::prost::alloc::vec::Vec<BleuMetricValue>,
+}
+/// Bleu metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BleuMetricValue {
+    /// Output only. Bleu score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Input for rouge metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RougeInput {
+    /// Required. Spec for rouge score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<RougeSpec>,
+    /// Required. Repeated rouge instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<RougeInstance>,
+}
+/// Spec for rouge instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RougeInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for rouge score metric - calculates the recall of n-grams in prediction
+/// as compared to reference - returns a score ranging between 0 and 1.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RougeSpec {
+    /// Optional. Supported rouge types are rougen\[1-9\], rougeL and rougeLsum.
+    #[prost(string, tag = "1")]
+    pub rouge_type: ::prost::alloc::string::String,
+    /// Optional. Whether to use stemmer to compute rouge score.
+    #[prost(bool, tag = "2")]
+    pub use_stemmer: bool,
+    /// Optional. Whether to split summaries while using rougeLsum.
+    #[prost(bool, tag = "3")]
+    pub split_summaries: bool,
+}
+/// Results for rouge metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RougeResults {
+    /// Output only. Rouge metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub rouge_metric_values: ::prost::alloc::vec::Vec<RougeMetricValue>,
+}
+/// Rouge metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RougeMetricValue {
+    /// Output only. Rouge score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Input for coherence metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CoherenceInput {
+    /// Required. Spec for coherence score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<CoherenceSpec>,
+    /// Required. Coherence instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<CoherenceInstance>,
+}
+/// Spec for coherence instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CoherenceInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for coherence score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CoherenceSpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "1")]
+    pub version: i32,
+}
+/// Spec for coherence result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CoherenceResult {
+    /// Output only. Coherence score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for coherence score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for coherence score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for fluency metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FluencyInput {
+    /// Required. Spec for fluency score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<FluencySpec>,
+    /// Required. Fluency instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<FluencyInstance>,
+}
+/// Spec for fluency instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FluencyInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for fluency score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FluencySpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "1")]
+    pub version: i32,
+}
+/// Spec for fluency result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FluencyResult {
+    /// Output only. Fluency score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for fluency score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for fluency score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for safety metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetyInput {
+    /// Required. Spec for safety metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<SafetySpec>,
+    /// Required. Safety instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<SafetyInstance>,
+}
+/// Spec for safety instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetyInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for safety metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetySpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "1")]
+    pub version: i32,
+}
+/// Spec for safety result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetyResult {
+    /// Output only. Safety score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for safety score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for safety score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for groundedness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GroundednessInput {
+    /// Required. Spec for groundedness metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<GroundednessSpec>,
+    /// Required. Groundedness instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<GroundednessInstance>,
+}
+/// Spec for groundedness instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GroundednessInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Background information provided in context used to compare
+    /// against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for groundedness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GroundednessSpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "1")]
+    pub version: i32,
+}
+/// Spec for groundedness result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GroundednessResult {
+    /// Output only. Groundedness score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for groundedness score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for groundedness score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for fulfillment metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FulfillmentInput {
+    /// Required. Spec for fulfillment score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<FulfillmentSpec>,
+    /// Required. Fulfillment instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<FulfillmentInstance>,
+}
+/// Spec for fulfillment instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FulfillmentInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Inference instruction prompt to compare prediction with.
+    #[prost(string, optional, tag = "2")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for fulfillment metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FulfillmentSpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "1")]
+    pub version: i32,
+}
+/// Spec for fulfillment result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FulfillmentResult {
+    /// Output only. Fulfillment score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for fulfillment score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for fulfillment score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for response recall metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseRecallInput {
+    /// Required. Spec for response recall score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<ResponseRecallSpec>,
+    /// Required. Response recall instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<ResponseRecallInstance>,
+}
+/// Spec for response recall instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseRecallInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for response recall metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseRecallSpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "1")]
+    pub version: i32,
+}
+/// Spec for response recall result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResponseRecallResult {
+    /// Output only. ResponseRecall score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for response recall score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for fulfillment score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for summarization quality metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationQualityInput {
+    /// Required. Spec for summarization quality score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<SummarizationQualitySpec>,
+    /// Required. Summarization quality instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<SummarizationQualityInstance>,
+}
+/// Spec for summarization quality instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationQualityInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Text to be summarized.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Summarization prompt for LLM.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for summarization quality score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationQualitySpec {
+    /// Optional. Whether to use instance.reference to compute summarization
+    /// quality.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for summarization quality result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationQualityResult {
+    /// Output only. Summarization Quality score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for summarization quality score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for summarization quality score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for pairwise summarization quality metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseSummarizationQualityInput {
+    /// Required. Spec for pairwise summarization quality score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<PairwiseSummarizationQualitySpec>,
+    /// Required. Pairwise summarization quality instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<PairwiseSummarizationQualityInstance>,
+}
+/// Spec for pairwise summarization quality instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseSummarizationQualityInstance {
+    /// Required. Output of the candidate model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Output of the baseline model.
+    #[prost(string, optional, tag = "2")]
+    pub baseline_prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "3")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Text to be summarized.
+    #[prost(string, optional, tag = "4")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Summarization prompt for LLM.
+    #[prost(string, optional, tag = "5")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for pairwise summarization quality score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseSummarizationQualitySpec {
+    /// Optional. Whether to use instance.reference to compute pairwise
+    /// summarization quality.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for pairwise summarization quality result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseSummarizationQualityResult {
+    /// Output only. Pairwise summarization prediction choice.
+    #[prost(enumeration = "PairwiseChoice", tag = "1")]
+    pub pairwise_choice: i32,
+    /// Output only. Explanation for summarization quality score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for summarization quality score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for summarization helpfulness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationHelpfulnessInput {
+    /// Required. Spec for summarization helpfulness score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<SummarizationHelpfulnessSpec>,
+    /// Required. Summarization helpfulness instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<SummarizationHelpfulnessInstance>,
+}
+/// Spec for summarization helpfulness instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationHelpfulnessInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Text to be summarized.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Summarization prompt for LLM.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for summarization helpfulness score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationHelpfulnessSpec {
+    /// Optional. Whether to use instance.reference to compute summarization
+    /// helpfulness.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for summarization helpfulness result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationHelpfulnessResult {
+    /// Output only. Summarization Helpfulness score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for summarization helpfulness score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for summarization helpfulness score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for summarization verbosity metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationVerbosityInput {
+    /// Required. Spec for summarization verbosity score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<SummarizationVerbositySpec>,
+    /// Required. Summarization verbosity instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<SummarizationVerbosityInstance>,
+}
+/// Spec for summarization verbosity instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationVerbosityInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Text to be summarized.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Summarization prompt for LLM.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for summarization verbosity score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationVerbositySpec {
+    /// Optional. Whether to use instance.reference to compute summarization
+    /// verbosity.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for summarization verbosity result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SummarizationVerbosityResult {
+    /// Output only. Summarization Verbosity score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for summarization verbosity score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for summarization verbosity score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for question answering quality metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringQualityInput {
+    /// Required. Spec for question answering quality score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<QuestionAnsweringQualitySpec>,
+    /// Required. Question answering quality instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<QuestionAnsweringQualityInstance>,
+}
+/// Spec for question answering quality instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringQualityInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Text to answer the question.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Question Answering prompt for LLM.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for question answering quality score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringQualitySpec {
+    /// Optional. Whether to use instance.reference to compute question answering
+    /// quality.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for question answering quality result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringQualityResult {
+    /// Output only. Question Answering Quality score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for question answering quality score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for question answering quality score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for pairwise question answering quality metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseQuestionAnsweringQualityInput {
+    /// Required. Spec for pairwise question answering quality score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<PairwiseQuestionAnsweringQualitySpec>,
+    /// Required. Pairwise question answering quality instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<PairwiseQuestionAnsweringQualityInstance>,
+}
+/// Spec for pairwise question answering quality instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseQuestionAnsweringQualityInstance {
+    /// Required. Output of the candidate model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Output of the baseline model.
+    #[prost(string, optional, tag = "2")]
+    pub baseline_prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "3")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Text to answer the question.
+    #[prost(string, optional, tag = "4")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Question Answering prompt for LLM.
+    #[prost(string, optional, tag = "5")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for pairwise question answering quality score metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseQuestionAnsweringQualitySpec {
+    /// Optional. Whether to use instance.reference to compute question answering
+    /// quality.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for pairwise question answering quality result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PairwiseQuestionAnsweringQualityResult {
+    /// Output only. Pairwise question answering prediction choice.
+    #[prost(enumeration = "PairwiseChoice", tag = "1")]
+    pub pairwise_choice: i32,
+    /// Output only. Explanation for question answering quality score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for question answering quality score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for question answering relevance metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringRelevanceInput {
+    /// Required. Spec for question answering relevance score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<QuestionAnsweringRelevanceSpec>,
+    /// Required. Question answering relevance instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<QuestionAnsweringRelevanceInstance>,
+}
+/// Spec for question answering relevance instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringRelevanceInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Text provided as context to answer the question.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The question asked and other instruction in the inference prompt.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for question answering relevance metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringRelevanceSpec {
+    /// Optional. Whether to use instance.reference to compute question answering
+    /// relevance.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for question answering relevance result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringRelevanceResult {
+    /// Output only. Question Answering Relevance score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for question answering relevance score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for question answering relevance score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for question answering helpfulness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringHelpfulnessInput {
+    /// Required. Spec for question answering helpfulness score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<QuestionAnsweringHelpfulnessSpec>,
+    /// Required. Question answering helpfulness instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<QuestionAnsweringHelpfulnessInstance>,
+}
+/// Spec for question answering helpfulness instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringHelpfulnessInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Text provided as context to answer the question.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The question asked and other instruction in the inference prompt.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for question answering helpfulness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringHelpfulnessSpec {
+    /// Optional. Whether to use instance.reference to compute question answering
+    /// helpfulness.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for question answering helpfulness result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringHelpfulnessResult {
+    /// Output only. Question Answering Helpfulness score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for question answering helpfulness score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for question answering helpfulness score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for question answering correctness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringCorrectnessInput {
+    /// Required. Spec for question answering correctness score metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<QuestionAnsweringCorrectnessSpec>,
+    /// Required. Question answering correctness instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<QuestionAnsweringCorrectnessInstance>,
+}
+/// Spec for question answering correctness instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringCorrectnessInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Text provided as context to answer the question.
+    #[prost(string, optional, tag = "3")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The question asked and other instruction in the inference prompt.
+    #[prost(string, optional, tag = "4")]
+    pub instruction: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for question answering correctness metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringCorrectnessSpec {
+    /// Optional. Whether to use instance.reference to compute question answering
+    /// correctness.
+    #[prost(bool, tag = "1")]
+    pub use_reference: bool,
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for question answering correctness result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuestionAnsweringCorrectnessResult {
+    /// Output only. Question Answering Correctness score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for question answering correctness score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for question answering correctness score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for rag context recall metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RagContextRecallInput {
+    /// Required. Spec for rag context recall metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<RagContextRecallSpec>,
+    /// Required. Rag context recall instance.
+    #[prost(message, optional, tag = "2")]
+    pub instance: ::core::option::Option<RagContextRecallInstance>,
+}
+/// Spec for rag context recall instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RagContextRecallInstance {
+    /// Required. Ground truth used to compare against the context.
+    #[prost(string, optional, tag = "1")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Retrieved facts from RAG pipeline as context to be evaluated.
+    #[prost(string, optional, tag = "2")]
+    pub context: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Spec for rag context recall metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RagContextRecallSpec {
+    /// Optional. Which version to use for evaluation.
+    #[prost(int32, tag = "2")]
+    pub version: i32,
+}
+/// Spec for rag context recall result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RagContextRecallResult {
+    /// Output only. RagContextRecall score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+    /// Output only. Explanation for rag context recall score.
+    #[prost(string, tag = "2")]
+    pub explanation: ::prost::alloc::string::String,
+    /// Output only. Confidence for rag context recall score.
+    #[prost(float, optional, tag = "3")]
+    pub confidence: ::core::option::Option<f32>,
+}
+/// Input for tool call valid metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolCallValidInput {
+    /// Required. Spec for tool call valid metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<ToolCallValidSpec>,
+    /// Required. Repeated tool call valid instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<ToolCallValidInstance>,
+}
+/// Spec for tool call valid metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolCallValidSpec {}
+/// Spec for tool call valid instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolCallValidInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Results for tool call valid metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolCallValidResults {
+    /// Output only. Tool call valid metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub tool_call_valid_metric_values: ::prost::alloc::vec::Vec<
+        ToolCallValidMetricValue,
+    >,
+}
+/// Tool call valid metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolCallValidMetricValue {
+    /// Output only. Tool call valid score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Input for tool name match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolNameMatchInput {
+    /// Required. Spec for tool name match metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<ToolNameMatchSpec>,
+    /// Required. Repeated tool name match instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<ToolNameMatchInstance>,
+}
+/// Spec for tool name match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolNameMatchSpec {}
+/// Spec for tool name match instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolNameMatchInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Results for tool name match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolNameMatchResults {
+    /// Output only. Tool name match metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub tool_name_match_metric_values: ::prost::alloc::vec::Vec<
+        ToolNameMatchMetricValue,
+    >,
+}
+/// Tool name match metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolNameMatchMetricValue {
+    /// Output only. Tool name match score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Input for tool parameter key match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKeyMatchInput {
+    /// Required. Spec for tool parameter key match metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<ToolParameterKeyMatchSpec>,
+    /// Required. Repeated tool parameter key match instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<ToolParameterKeyMatchInstance>,
+}
+/// Spec for tool parameter key match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKeyMatchSpec {}
+/// Spec for tool parameter key match instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKeyMatchInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Results for tool parameter key match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKeyMatchResults {
+    /// Output only. Tool parameter key match metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub tool_parameter_key_match_metric_values: ::prost::alloc::vec::Vec<
+        ToolParameterKeyMatchMetricValue,
+    >,
+}
+/// Tool parameter key match metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKeyMatchMetricValue {
+    /// Output only. Tool parameter key match score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Input for tool parameter key value match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKvMatchInput {
+    /// Required. Spec for tool parameter key value match metric.
+    #[prost(message, optional, tag = "1")]
+    pub metric_spec: ::core::option::Option<ToolParameterKvMatchSpec>,
+    /// Required. Repeated tool parameter key value match instances.
+    #[prost(message, repeated, tag = "2")]
+    pub instances: ::prost::alloc::vec::Vec<ToolParameterKvMatchInstance>,
+}
+/// Spec for tool parameter key value match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKvMatchSpec {
+    /// Optional. Whether to use STRCIT string match on parameter values.
+    #[prost(bool, tag = "1")]
+    pub use_strict_string_match: bool,
+}
+/// Spec for tool parameter key value match instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKvMatchInstance {
+    /// Required. Output of the evaluated model.
+    #[prost(string, optional, tag = "1")]
+    pub prediction: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. Ground truth used to compare against the prediction.
+    #[prost(string, optional, tag = "2")]
+    pub reference: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Results for tool parameter key value match metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKvMatchResults {
+    /// Output only. Tool parameter key value match metric values.
+    #[prost(message, repeated, tag = "1")]
+    pub tool_parameter_kv_match_metric_values: ::prost::alloc::vec::Vec<
+        ToolParameterKvMatchMetricValue,
+    >,
+}
+/// Tool parameter key value match metric value for an instance.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ToolParameterKvMatchMetricValue {
+    /// Output only. Tool parameter key value match score.
+    #[prost(float, optional, tag = "1")]
+    pub score: ::core::option::Option<f32>,
+}
+/// Pairwise prediction autorater preference.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum PairwiseChoice {
+    /// Unspecified prediction choice.
+    Unspecified = 0,
+    /// Baseline prediction wins
+    Baseline = 1,
+    /// Candidate prediction wins
+    Candidate = 2,
+    /// Winner cannot be determined
+    Tie = 3,
+}
+impl PairwiseChoice {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            PairwiseChoice::Unspecified => "PAIRWISE_CHOICE_UNSPECIFIED",
+            PairwiseChoice::Baseline => "BASELINE",
+            PairwiseChoice::Candidate => "CANDIDATE",
+            PairwiseChoice::Tie => "TIE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PAIRWISE_CHOICE_UNSPECIFIED" => Some(Self::Unspecified),
+            "BASELINE" => Some(Self::Baseline),
+            "CANDIDATE" => Some(Self::Candidate),
+            "TIE" => Some(Self::Tie),
+            _ => None,
+        }
+    }
+}
+/// Generated client implementations.
+pub mod evaluation_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Vertex AI Online Evaluation Service.
+    #[derive(Debug, Clone)]
+    pub struct EvaluationServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> EvaluationServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> EvaluationServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            EvaluationServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Evaluates instances based on a given metric.
+        pub async fn evaluate_instances(
+            &mut self,
+            request: impl tonic::IntoRequest<super::EvaluateInstancesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::EvaluateInstancesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.EvaluationService/EvaluateInstances",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.EvaluationService",
+                        "EvaluateInstances",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// Vertex AI Feature Group.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
