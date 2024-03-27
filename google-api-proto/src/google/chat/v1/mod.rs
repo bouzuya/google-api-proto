@@ -2334,6 +2334,71 @@ pub struct Message {
     /// Output only. GIF images that are attached to the message.
     #[prost(message, repeated, tag = "42")]
     pub attached_gifs: ::prost::alloc::vec::Vec<AttachedGif>,
+    /// One or more interactive widgets that appear at the bottom of a message.
+    /// You can add accessory widgets to messages that contain text, cards, or both
+    /// text and cards. Not supported for messages that contain dialogs.
+    ///
+    /// Creating a message with accessory widgets requires [app
+    /// authentication]
+    /// (<https://developers.google.com/chat/api/guides/auth/service-accounts>).
+    ///
+    /// The following example shows a Chat app that uses accessory widgets (thumbs
+    /// up and thumbs down buttons) in a text message:
+    ///
+    /// ![Example accessory widgets
+    /// message](<https://developers.google.com/chat/images/message-accessory-widgets-reference.png>)
+    ///
+    /// The JSON for this example message is the following:
+    ///
+    /// ```
+    /// {
+    ///    "text": "Rate your experience with this Chat app.",
+    ///    "accessoryWidgets": [
+    ///      {
+    ///        "buttonList": {
+    ///          "buttons": [
+    ///            {
+    ///              "icon": {
+    ///                "material_icon": {
+    ///                  "name": "thumb_up"
+    ///                }
+    ///              },
+    ///              "color": {
+    ///                "red": 0,
+    ///                "blue": 255,
+    ///                "green": 0
+    ///              },
+    ///              "onClick": {
+    ///                "action": {
+    ///                  "function": "doUpvote",
+    ///                }
+    ///              }
+    ///            },
+    ///            {
+    ///              "icon": {
+    ///                "material_icon": {
+    ///                  "name": "thumb_down"
+    ///                }
+    ///              },
+    ///              "color": {
+    ///                "red": 0,
+    ///                "blue": 255,
+    ///                "green": 0
+    ///              },
+    ///              "onClick": {
+    ///                "action": {
+    ///                  "function": "doDownvote",
+    ///                }
+    ///              }
+    ///            }
+    ///          ]
+    ///        }
+    ///      }
+    ///    ]
+    /// }
+    /// ```
+    #[prost(message, repeated, tag = "44")]
+    pub accessory_widgets: ::prost::alloc::vec::Vec<AccessoryWidget>,
 }
 /// A GIF image that's specified by a URL.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2501,6 +2566,23 @@ pub mod action_response {
         }
     }
 }
+/// A borderless widget attached to the bottom of an app's message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AccessoryWidget {
+    #[prost(oneof = "accessory_widget::Action", tags = "1")]
+    pub action: ::core::option::Option<accessory_widget::Action>,
+}
+/// Nested message and enum types in `AccessoryWidget`.
+pub mod accessory_widget {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Action {
+        /// A list of buttons that are displayed under the message.
+        #[prost(message, tag = "1")]
+        ButtonList(super::super::super::apps::card::v1::ButtonList),
+    }
+}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetMessageRequest {
@@ -2559,7 +2641,7 @@ pub struct UpdateMessageRequest {
     /// - `cards_v2`  (Requires [app
     /// authentication](/chat/api/guides/auth/service-accounts).)
     ///
-    /// - Developer Preview: `accessory_widgets`  (Requires [app
+    /// - `accessory_widgets`  (Requires [app
     /// authentication](/chat/api/guides/auth/service-accounts).)
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
