@@ -61,15 +61,9 @@ pub struct QuotaInfo {
     /// on the total number of concurrent operations in flight at any given time.
     #[prost(bool, tag = "15")]
     pub is_concurrent: bool,
-    /// URI to the page where the user can request more quotas for the cloud
-    /// service, such as
-    /// <https://docs.google.com/spreadsheet/viewform?formkey=abc123&entry_0={email}&entry_1={id}.>
-    /// Google Developers Console UI replace {email} with the current
-    /// user's e-mail, {id} with the current project number, or organization ID
-    /// with "organizations/" prefix. For example,
-    /// <https://docs.google.com/spreadsheet/viewform?formkey=abc123&entry_0=johndoe@gmail.com&entry_1=25463754,>
-    /// or
-    /// <https://docs.google.com/spreadsheet/viewform?formkey=abc123&entry_0=johndoe@gmail.com&entry_1=organizations/26474422.>
+    /// URI to the page where users can request more quota for the cloud
+    /// service—for example,
+    /// <https://console.cloud.google.com/iam-admin/quotas.>
     #[prost(string, tag = "17")]
     pub service_request_quota_uri: ::prost::alloc::string::String,
 }
@@ -244,11 +238,14 @@ pub struct QuotaPreference {
     /// The reason / justification for this quota preference.
     #[prost(string, tag = "11")]
     pub justification: ::prost::alloc::string::String,
-    /// Required. Input only. An email address that can be used for quota related
+    /// Input only. An email address that can be used for quota related
     /// communication between the Google Cloud and the user in case the Google
     /// Cloud needs further information to make a decision on whether the user
     /// preferred quota can be granted.
     ///
+    /// The email address is optional for decrease quota preferences. In another
+    /// word, QuotaConfig.preferred_value is smaller than the
+    /// QuotaDetails.reset_value. It is required for increase quota preferences.
     /// The Google account for the email address must have quota update permission
     /// for the project, folder or organization this quota preference is for.
     #[prost(string, tag = "12")]
