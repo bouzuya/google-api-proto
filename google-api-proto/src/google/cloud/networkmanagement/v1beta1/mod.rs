@@ -462,6 +462,11 @@ pub mod firewall_info {
         /// For details, see [Regional network firewall
         /// policies](<https://cloud.google.com/firewall/docs/regional-firewall-policies>).
         NetworkRegionalFirewallPolicyRule = 6,
+        /// Firewall policy rule containing attributes not yet supported in
+        /// Connectivity tests. Firewall analysis is skipped if such a rule can
+        /// potentially be matched. Please see the [list of unsupported
+        /// configurations](<https://cloud.google.com/network-intelligence-center/docs/connectivity-tests/concepts/overview#unsupported-configs>).
+        UnsupportedFirewallPolicyRule = 100,
         /// Tracking state for response traffic created when request traffic goes
         /// through allow firewall rule.
         /// For details, see [firewall rules
@@ -490,6 +495,9 @@ pub mod firewall_info {
                 FirewallRuleType::NetworkRegionalFirewallPolicyRule => {
                     "NETWORK_REGIONAL_FIREWALL_POLICY_RULE"
                 }
+                FirewallRuleType::UnsupportedFirewallPolicyRule => {
+                    "UNSUPPORTED_FIREWALL_POLICY_RULE"
+                }
                 FirewallRuleType::TrackingState => "TRACKING_STATE",
             }
         }
@@ -508,6 +516,9 @@ pub mod firewall_info {
                 "NETWORK_FIREWALL_POLICY_RULE" => Some(Self::NetworkFirewallPolicyRule),
                 "NETWORK_REGIONAL_FIREWALL_POLICY_RULE" => {
                     Some(Self::NetworkRegionalFirewallPolicyRule)
+                }
+                "UNSUPPORTED_FIREWALL_POLICY_RULE" => {
+                    Some(Self::UnsupportedFirewallPolicyRule)
                 }
                 "TRACKING_STATE" => Some(Self::TrackingState),
                 _ => None,

@@ -759,6 +759,9 @@ pub struct FeatureFlags {
     /// durations to retry requests with.
     #[prost(bool, tag = "7")]
     pub retry_info: bool,
+    /// Notify the server that the client has client side metrics enabled.
+    #[prost(bool, tag = "8")]
+    pub client_side_metrics_enabled: bool,
 }
 /// ReadIterationStats captures information about the iteration of rows or cells
 /// over the course of a read, e.g. how many results were scanned in a read
