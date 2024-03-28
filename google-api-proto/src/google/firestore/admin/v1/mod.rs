@@ -1189,15 +1189,15 @@ pub mod backup_schedule {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Recurrence {
-        /// For a schedule that runs daily at a specified time.
+        /// For a schedule that runs daily.
         #[prost(message, tag = "7")]
         DailyRecurrence(super::DailyRecurrence),
-        /// For a schedule that runs weekly on a specific day and time.
+        /// For a schedule that runs weekly on a specific day.
         #[prost(message, tag = "8")]
         WeeklyRecurrence(super::WeeklyRecurrence),
     }
 }
-/// Represent a recurring schedule that runs at a specific time every day.
+/// Represents a recurring schedule that runs at a specific time every day.
 ///
 /// The time zone is UTC.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1527,7 +1527,7 @@ pub struct ListBackupSchedulesResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteBackupScheduleRequest {
-    /// Required. The name of backup schedule.
+    /// Required. The name of the backup schedule.
     ///
     /// Format
     /// `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
