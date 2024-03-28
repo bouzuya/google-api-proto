@@ -392,7 +392,7 @@ pub struct FirewallInfo {
     /// Possible values: INGRESS, EGRESS
     #[prost(string, tag = "3")]
     pub direction: ::prost::alloc::string::String,
-    /// Possible values: ALLOW, DENY
+    /// Possible values: ALLOW, DENY, APPLY_SECURITY_PROFILE_GROUP
     #[prost(string, tag = "4")]
     pub action: ::prost::alloc::string::String,
     /// The priority of the firewall rule.
