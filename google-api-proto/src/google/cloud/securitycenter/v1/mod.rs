@@ -1820,6 +1820,25 @@ pub mod mitre_attack {
         }
     }
 }
+/// Represents a Jupyter notebook IPYNB file, such as a [Colab Enterprise
+/// notebook](<https://cloud.google.com/colab/docs/introduction>) file, that is
+/// associated with a finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Notebook {
+    /// The name of the notebook.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The source notebook service, for example, "Colab Enterprise".
+    #[prost(string, tag = "2")]
+    pub service: ::prost::alloc::string::String,
+    /// The user ID of the latest author to modify the notebook.
+    #[prost(string, tag = "3")]
+    pub last_author: ::prost::alloc::string::String,
+    /// The most recent time the notebook was updated.
+    #[prost(message, optional, tag = "4")]
+    pub notebook_update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
 /// Represents an operating system process.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2754,6 +2773,9 @@ pub struct Finding {
     /// The load balancers associated with the finding.
     #[prost(message, repeated, tag = "58")]
     pub load_balancers: ::prost::alloc::vec::Vec<LoadBalancer>,
+    /// Notebook associated with the finding.
+    #[prost(message, optional, tag = "63")]
+    pub notebook: ::core::option::Option<Notebook>,
 }
 /// Nested message and enum types in `Finding`.
 pub mod finding {
