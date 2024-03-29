@@ -328,6 +328,9 @@ pub struct Tag {
     /// TagKey namespaced name, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
     #[prost(string, optional, tag = "1")]
     pub tag_key: ::core::option::Option<::prost::alloc::string::String>,
+    /// TagKey ID, in the format of tagKeys/{TAG_KEY_ID}.
+    #[prost(string, optional, tag = "2")]
+    pub tag_key_id: ::core::option::Option<::prost::alloc::string::String>,
     /// TagValue namespaced name, in the format of
     /// {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
     #[prost(string, optional, tag = "3")]
@@ -672,6 +675,7 @@ pub struct ResourceSearchResult {
     ///      - `tagKeys:"123456789/env*"`
     ///      - `tagKeys="123456789/env"`
     ///      - `tagKeys:"env"`
+    ///      - `tagKeyIds="tagKeys/123"`
     ///      - `tagValues:"env"`
     ///      - `tagValues:"env/prod"`
     ///      - `tagValues:"123456789/env/prod*"`
@@ -693,6 +697,7 @@ pub struct ResourceSearchResult {
     ///      - `effectiveTagKeys:"123456789/env*"`
     ///      - `effectiveTagKeys="123456789/env"`
     ///      - `effectiveTagKeys:"env"`
+    ///      - `effectiveTagKeyIds="tagKeys/123"`
     ///      - `effectiveTagValues:"env"`
     ///      - `effectiveTagValues:"env/prod"`
     ///      - `effectiveTagValues:"123456789/env/prod*"`
