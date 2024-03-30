@@ -874,6 +874,8 @@ pub struct Table {
     /// Note one can still delete the data stored in the table through Data APIs.
     #[prost(bool, tag = "9")]
     pub deletion_protection: bool,
+    #[prost(oneof = "table::AutomatedBackupConfig", tags = "13")]
+    pub automated_backup_config: ::core::option::Option<table::AutomatedBackupConfig>,
 }
 /// Nested message and enum types in `Table`.
 pub mod table {
@@ -957,6 +959,19 @@ pub mod table {
                 }
             }
         }
+    }
+    /// Defines an automated backup policy for a table
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AutomatedBackupPolicy {
+        /// Required. How long the automated backups should be retained. The only
+        /// supported value at this time is 3 days.
+        #[prost(message, optional, tag = "1")]
+        pub retention_period: ::core::option::Option<::prost_types::Duration>,
+        /// Required. How frequently automated backups should occur. The only
+        /// supported value at this time is 24 hours.
+        #[prost(message, optional, tag = "2")]
+        pub frequency: ::core::option::Option<::prost_types::Duration>,
     }
     /// Possible timestamp granularities to use when keeping multiple versions
     /// of data in a table.
@@ -1054,6 +1069,14 @@ pub mod table {
                 _ => None,
             }
         }
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum AutomatedBackupConfig {
+        /// If specified, automated backups are enabled for this table.
+        /// Otherwise, automated backups are disabled.
+        #[prost(message, tag = "13")]
+        AutomatedBackupPolicy(AutomatedBackupPolicy),
     }
 }
 /// AuthorizedViews represent subsets of a particular Cloud Bigtable table. Users
