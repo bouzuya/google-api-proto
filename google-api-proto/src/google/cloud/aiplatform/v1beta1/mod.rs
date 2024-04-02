@@ -27250,6 +27250,11 @@ pub mod persistent_resource {
         /// The ERROR state indicates the persistent resource may be unusable.
         /// Details can be found in the `error` field.
         Error = 5,
+        /// The REBOOTING state indicates the persistent resource is being rebooted
+        /// (PR is not available right now but is expected to be ready again later).
+        Rebooting = 6,
+        /// The UPDATING state indicates the persistent resource is being updated.
+        Updating = 7,
     }
     impl State {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -27263,6 +27268,8 @@ pub mod persistent_resource {
                 State::Running => "RUNNING",
                 State::Stopping => "STOPPING",
                 State::Error => "ERROR",
+                State::Rebooting => "REBOOTING",
+                State::Updating => "UPDATING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -27273,6 +27280,8 @@ pub mod persistent_resource {
                 "RUNNING" => Some(Self::Running),
                 "STOPPING" => Some(Self::Stopping),
                 "ERROR" => Some(Self::Error),
+                "REBOOTING" => Some(Self::Rebooting),
+                "UPDATING" => Some(Self::Updating),
                 _ => None,
             }
         }
@@ -27409,18 +27418,17 @@ pub struct ServiceAccountSpec {
     /// Agent](<https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents>).
     #[prost(bool, tag = "1")]
     pub enable_custom_service_account: bool,
-    /// Optional. Default service account that this PersistentResource's workloads
-    /// run as. The workloads include:
+    /// Optional. Required when all below conditions are met
+    ///   * `enable_custom_service_account` is true;
+    ///   * any runtime is specified via `ResourceRuntimeSpec` on creation time,
+    ///     for example, Ray
     ///
-    ///   * Any runtime specified via `ResourceRuntimeSpec` on creation time,
-    ///     for example, Ray.
-    ///   * Jobs submitted to PersistentResource, if no other service account
-    ///     specified in the job specs.
+    /// The users must have `iam.serviceAccounts.actAs` permission on this service
+    /// account and then the specified runtime containers will run as it.
     ///
-    /// Only works when custom service account is enabled and users have the
-    /// `iam.serviceAccounts.actAs` permission on this service account.
-    ///
-    /// Required if any containers are specified in `ResourceRuntimeSpec`.
+    /// Do not set this field if you want to submit jobs using custom service
+    /// account to this PersistentResource after creation, but only specify the
+    /// `service_account` inside the job.
     #[prost(string, tag = "2")]
     pub service_account: ::prost::alloc::string::String,
 }
@@ -37764,6 +37772,17 @@ pub struct UpdatePersistentResourceOperationMetadata {
     #[prost(string, tag = "2")]
     pub progress_message: ::prost::alloc::string::String,
 }
+/// Details of operations that perform reboot PersistentResource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RebootPersistentResourceOperationMetadata {
+    /// Operation metadata for PersistentResource.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+    /// Progress Message for Reboot LRO
+    #[prost(string, tag = "2")]
+    pub progress_message: ::prost::alloc::string::String,
+}
 /// Request message for
 /// [PersistentResourceService.GetPersistentResource][google.cloud.aiplatform.v1beta1.PersistentResourceService.GetPersistentResource].
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -37833,6 +37852,17 @@ pub struct UpdatePersistentResourceRequest {
     /// the update method.
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Request message for
+/// [PersistentResourceService.RebootPersistentResource][google.cloud.aiplatform.v1beta1.PersistentResourceService.RebootPersistentResource].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RebootPersistentResourceRequest {
+    /// Required. The name of the PersistentResource resource.
+    /// Format:
+    /// `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
 }
 /// Generated client implementations.
 pub mod persistent_resource_service_client {
@@ -38062,6 +38092,37 @@ pub mod persistent_resource_service_client {
                     GrpcMethod::new(
                         "google.cloud.aiplatform.v1beta1.PersistentResourceService",
                         "UpdatePersistentResource",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Reboots a PersistentResource.
+        pub async fn reboot_persistent_resource(
+            &mut self,
+            request: impl tonic::IntoRequest<super::RebootPersistentResourceRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.PersistentResourceService/RebootPersistentResource",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.PersistentResourceService",
+                        "RebootPersistentResource",
                     ),
                 );
             self.inner.unary(req, path, codec).await

@@ -480,6 +480,8 @@ pub struct TaskSpec {
     pub compute_resource: ::core::option::Option<ComputeResource>,
     /// Maximum duration the task should run.
     /// The task will be killed and marked as FAILED if over this limit.
+    /// The valid value range for max_run_duration in seconds is [0,
+    /// 315576000000.999999999],
     #[prost(message, optional, tag = "4")]
     pub max_run_duration: ::core::option::Option<::prost_types::Duration>,
     /// Maximum number of retries on failures.
@@ -1671,6 +1673,8 @@ pub struct Notification {
     pub pubsub_topic: ::prost::alloc::string::String,
 }
 /// The Resource Allowance description for Cloud Batch.
+/// Only one Resource Allowance is supported now under a specific location and
+/// project.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ResourceAllowance {
@@ -1754,10 +1758,13 @@ pub mod usage_resource_allowance_spec {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Limit {
         /// Required. Limit value of a UsageResourceAllowance within its one
-        /// duration. Default is 0. For example, you can set `limit` as 10000.0 with
-        /// duration of the current month by setting `calendar_period` field as
-        /// monthly. That means in your current month, 10000.0 is the cour hour
-        /// limitation that your resources are allowed to consume.
+        /// duration.
+        ///
+        /// Limit cannot be a negative value. Default is 0.
+        /// For example, you can set `limit` as 10000.0 with duration of the current
+        /// month by setting `calendar_period` field as monthly. That means in your
+        /// current month, 10000.0 is the core hour limitation that your resources
+        /// are allowed to consume.
         #[prost(double, optional, tag = "2")]
         pub limit: ::core::option::Option<f64>,
         #[prost(oneof = "limit::Duration", tags = "1")]
