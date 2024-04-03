@@ -1388,6 +1388,26 @@ pub struct ExistenceFilter {
     #[prost(message, optional, tag = "3")]
     pub unchanged_names: ::core::option::Option<BloomFilter>,
 }
+/// The result of a single bucket from a Firestore aggregation query.
+///
+/// The keys of `aggregate_fields` are the same for all results in an aggregation
+/// query, unlike document queries which can have different fields present for
+/// each result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AggregationResult {
+    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
+    ///
+    /// The key is the
+    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
+    /// assigned to the aggregation function on input and the size of this map
+    /// equals the number of aggregation functions in the query.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        Value,
+    >,
+}
 /// Explain options for the query.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1455,26 +1475,6 @@ pub struct ExecutionStats {
     ///   }
     #[prost(message, optional, tag = "5")]
     pub debug_stats: ::core::option::Option<::prost_types::Struct>,
-}
-/// The result of a single bucket from a Firestore aggregation query.
-///
-/// The keys of `aggregate_fields` are the same for all results in an aggregation
-/// query, unlike document queries which can have different fields present for
-/// each result.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AggregationResult {
-    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
-    ///
-    /// The key is the
-    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
-    /// assigned to the aggregation function on input and the size of this map
-    /// equals the number of aggregation functions in the query.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        Value,
-    >,
 }
 /// The request for
 /// [Firestore.GetDocument][google.firestore.v1.Firestore.GetDocument].

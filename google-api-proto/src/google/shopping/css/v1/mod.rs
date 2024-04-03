@@ -329,6 +329,348 @@ pub mod css_product_status {
         >,
     }
 }
+/// The request message for the `ListChildAccounts` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListChildAccountsRequest {
+    /// Required. The parent account. Must be a CSS group or domain.
+    /// Format: accounts/{account}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// If set, only the MC accounts with the given label ID will be returned.
+    #[prost(int64, optional, tag = "2")]
+    pub label_id: ::core::option::Option<i64>,
+    /// If set, only the MC accounts with the given name (case sensitive) will be
+    /// returned.
+    #[prost(string, optional, tag = "3")]
+    pub full_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. The maximum number of accounts to return. The service may return
+    /// fewer than this value. If unspecified, at most 50 accounts will be
+    /// returned. The maximum value is 1000; values above 1000 will be coerced to
+    /// 1000.
+    #[prost(int32, tag = "4")]
+    pub page_size: i32,
+    /// Optional. A page token, received from a previous `ListChildAccounts` call.
+    /// Provide this to retrieve the subsequent page.
+    ///
+    /// When paginating, all other parameters provided to `ListChildAccounts` must
+    /// match the call that provided the page token.
+    #[prost(string, tag = "5")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for the `ListChildAccounts` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListChildAccountsResponse {
+    /// The CSS/MC accounts returned for the specified CSS parent account.
+    #[prost(message, repeated, tag = "1")]
+    pub accounts: ::prost::alloc::vec::Vec<Account>,
+    /// A token, which can be sent as `page_token` to retrieve the next page.
+    /// If this field is omitted, there are no subsequent pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The request message for the `GetAccount` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetAccountRequest {
+    /// Required. The name of the managed CSS/MC account.
+    /// Format: accounts/{account}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Only required when retrieving MC account information.
+    /// The CSS domain that is the parent resource of the MC account.
+    /// Format: accounts/{account}
+    #[prost(string, optional, tag = "2")]
+    pub parent: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// The request message for the `UpdateLabels` method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateAccountLabelsRequest {
+    /// Required. The label resource name.
+    /// Format: accounts/{account}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The list of label IDs to overwrite the existing account label IDs.
+    /// If the list is empty, all currently assigned label IDs will be deleted.
+    #[prost(int64, repeated, tag = "2")]
+    pub label_ids: ::prost::alloc::vec::Vec<i64>,
+    /// Optional. Only required when updating MC account labels.
+    /// The CSS domain that is the parent resource of the MC account.
+    /// Format: accounts/{account}
+    #[prost(string, optional, tag = "3")]
+    pub parent: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Information about CSS/MC account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Account {
+    /// The label resource name.
+    /// Format: accounts/{account}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Immutable. The CSS/MC account's full name.
+    #[prost(string, tag = "2")]
+    pub full_name: ::prost::alloc::string::String,
+    /// The CSS/MC account's short display name.
+    #[prost(string, optional, tag = "3")]
+    pub display_name: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. Immutable. The CSS/MC account's homepage.
+    #[prost(string, optional, tag = "4")]
+    pub homepage_uri: ::core::option::Option<::prost::alloc::string::String>,
+    /// The CSS/MC account's parent resource. CSS group for CSS domains; CSS
+    /// domain for MC accounts. Returned only if the user has access to the
+    /// parent account.
+    #[prost(string, optional, tag = "5")]
+    pub parent: ::core::option::Option<::prost::alloc::string::String>,
+    /// Manually created label IDs assigned to the CSS/MC account by a CSS parent
+    /// account.
+    #[prost(int64, repeated, tag = "6")]
+    pub label_ids: ::prost::alloc::vec::Vec<i64>,
+    /// Automatically created label IDs assigned to the MC account by
+    /// CSS Center.
+    #[prost(int64, repeated, tag = "7")]
+    pub automatic_label_ids: ::prost::alloc::vec::Vec<i64>,
+    /// Output only. The type of this account.
+    #[prost(enumeration = "account::AccountType", tag = "8")]
+    pub account_type: i32,
+}
+/// Nested message and enum types in `Account`.
+pub mod account {
+    /// The account type.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum AccountType {
+        /// Unknown account type.
+        Unspecified = 0,
+        /// CSS group account.
+        CssGroup = 1,
+        /// CSS domain account.
+        CssDomain = 2,
+        /// MC Primary CSS MCA account.
+        McPrimaryCssMca = 3,
+        /// MC CSS MCA account.
+        McCssMca = 4,
+        /// MC Marketplace MCA account.
+        McMarketplaceMca = 5,
+        /// MC Other MCA account.
+        McOtherMca = 6,
+        /// MC Standalone account.
+        McStandalone = 7,
+        /// MC MCA sub-account.
+        McMcaSubaccount = 8,
+    }
+    impl AccountType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                AccountType::Unspecified => "ACCOUNT_TYPE_UNSPECIFIED",
+                AccountType::CssGroup => "CSS_GROUP",
+                AccountType::CssDomain => "CSS_DOMAIN",
+                AccountType::McPrimaryCssMca => "MC_PRIMARY_CSS_MCA",
+                AccountType::McCssMca => "MC_CSS_MCA",
+                AccountType::McMarketplaceMca => "MC_MARKETPLACE_MCA",
+                AccountType::McOtherMca => "MC_OTHER_MCA",
+                AccountType::McStandalone => "MC_STANDALONE",
+                AccountType::McMcaSubaccount => "MC_MCA_SUBACCOUNT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ACCOUNT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CSS_GROUP" => Some(Self::CssGroup),
+                "CSS_DOMAIN" => Some(Self::CssDomain),
+                "MC_PRIMARY_CSS_MCA" => Some(Self::McPrimaryCssMca),
+                "MC_CSS_MCA" => Some(Self::McCssMca),
+                "MC_MARKETPLACE_MCA" => Some(Self::McMarketplaceMca),
+                "MC_OTHER_MCA" => Some(Self::McOtherMca),
+                "MC_STANDALONE" => Some(Self::McStandalone),
+                "MC_MCA_SUBACCOUNT" => Some(Self::McMcaSubaccount),
+                _ => None,
+            }
+        }
+    }
+}
+/// Generated client implementations.
+pub mod accounts_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service for managing CSS/MC account information.
+    #[derive(Debug, Clone)]
+    pub struct AccountsServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> AccountsServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> AccountsServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            AccountsServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Lists all the accounts under the specified CSS account ID, and
+        /// optionally filters by label ID and account name.
+        pub async fn list_child_accounts(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListChildAccountsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListChildAccountsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.shopping.css.v1.AccountsService/ListChildAccounts",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.shopping.css.v1.AccountsService",
+                        "ListChildAccounts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a single CSS/MC account by ID.
+        pub async fn get_account(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetAccountRequest>,
+        ) -> std::result::Result<tonic::Response<super::Account>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.shopping.css.v1.AccountsService/GetAccount",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.shopping.css.v1.AccountsService",
+                        "GetAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates labels assigned to CSS/MC accounts by a CSS domain.
+        pub async fn update_labels(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateAccountLabelsRequest>,
+        ) -> std::result::Result<tonic::Response<super::Account>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.shopping.css.v1.AccountsService/UpdateLabels",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.shopping.css.v1.AccountsService",
+                        "UpdateLabels",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// The request message for the `GetCssProduct` method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -874,348 +1216,6 @@ pub mod account_labels_service_client {
                     GrpcMethod::new(
                         "google.shopping.css.v1.AccountLabelsService",
                         "DeleteAccountLabel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// The request message for the `ListChildAccounts` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListChildAccountsRequest {
-    /// Required. The parent account. Must be a CSS group or domain.
-    /// Format: accounts/{account}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// If set, only the MC accounts with the given label ID will be returned.
-    #[prost(int64, optional, tag = "2")]
-    pub label_id: ::core::option::Option<i64>,
-    /// If set, only the MC accounts with the given name (case sensitive) will be
-    /// returned.
-    #[prost(string, optional, tag = "3")]
-    pub full_name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Optional. The maximum number of accounts to return. The service may return
-    /// fewer than this value. If unspecified, at most 50 accounts will be
-    /// returned. The maximum value is 1000; values above 1000 will be coerced to
-    /// 1000.
-    #[prost(int32, tag = "4")]
-    pub page_size: i32,
-    /// Optional. A page token, received from a previous `ListChildAccounts` call.
-    /// Provide this to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `ListChildAccounts` must
-    /// match the call that provided the page token.
-    #[prost(string, tag = "5")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response message for the `ListChildAccounts` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListChildAccountsResponse {
-    /// The CSS/MC accounts returned for the specified CSS parent account.
-    #[prost(message, repeated, tag = "1")]
-    pub accounts: ::prost::alloc::vec::Vec<Account>,
-    /// A token, which can be sent as `page_token` to retrieve the next page.
-    /// If this field is omitted, there are no subsequent pages.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The request message for the `GetAccount` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetAccountRequest {
-    /// Required. The name of the managed CSS/MC account.
-    /// Format: accounts/{account}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Only required when retrieving MC account information.
-    /// The CSS domain that is the parent resource of the MC account.
-    /// Format: accounts/{account}
-    #[prost(string, optional, tag = "2")]
-    pub parent: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// The request message for the `UpdateLabels` method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateAccountLabelsRequest {
-    /// Required. The label resource name.
-    /// Format: accounts/{account}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The list of label IDs to overwrite the existing account label IDs.
-    /// If the list is empty, all currently assigned label IDs will be deleted.
-    #[prost(int64, repeated, tag = "2")]
-    pub label_ids: ::prost::alloc::vec::Vec<i64>,
-    /// Optional. Only required when updating MC account labels.
-    /// The CSS domain that is the parent resource of the MC account.
-    /// Format: accounts/{account}
-    #[prost(string, optional, tag = "3")]
-    pub parent: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Information about CSS/MC account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Account {
-    /// The label resource name.
-    /// Format: accounts/{account}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Immutable. The CSS/MC account's full name.
-    #[prost(string, tag = "2")]
-    pub full_name: ::prost::alloc::string::String,
-    /// The CSS/MC account's short display name.
-    #[prost(string, optional, tag = "3")]
-    pub display_name: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. Immutable. The CSS/MC account's homepage.
-    #[prost(string, optional, tag = "4")]
-    pub homepage_uri: ::core::option::Option<::prost::alloc::string::String>,
-    /// The CSS/MC account's parent resource. CSS group for CSS domains; CSS
-    /// domain for MC accounts. Returned only if the user has access to the
-    /// parent account.
-    #[prost(string, optional, tag = "5")]
-    pub parent: ::core::option::Option<::prost::alloc::string::String>,
-    /// Manually created label IDs assigned to the CSS/MC account by a CSS parent
-    /// account.
-    #[prost(int64, repeated, tag = "6")]
-    pub label_ids: ::prost::alloc::vec::Vec<i64>,
-    /// Automatically created label IDs assigned to the MC account by
-    /// CSS Center.
-    #[prost(int64, repeated, tag = "7")]
-    pub automatic_label_ids: ::prost::alloc::vec::Vec<i64>,
-    /// Output only. The type of this account.
-    #[prost(enumeration = "account::AccountType", tag = "8")]
-    pub account_type: i32,
-}
-/// Nested message and enum types in `Account`.
-pub mod account {
-    /// The account type.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum AccountType {
-        /// Unknown account type.
-        Unspecified = 0,
-        /// CSS group account.
-        CssGroup = 1,
-        /// CSS domain account.
-        CssDomain = 2,
-        /// MC Primary CSS MCA account.
-        McPrimaryCssMca = 3,
-        /// MC CSS MCA account.
-        McCssMca = 4,
-        /// MC Marketplace MCA account.
-        McMarketplaceMca = 5,
-        /// MC Other MCA account.
-        McOtherMca = 6,
-        /// MC Standalone account.
-        McStandalone = 7,
-        /// MC MCA sub-account.
-        McMcaSubaccount = 8,
-    }
-    impl AccountType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                AccountType::Unspecified => "ACCOUNT_TYPE_UNSPECIFIED",
-                AccountType::CssGroup => "CSS_GROUP",
-                AccountType::CssDomain => "CSS_DOMAIN",
-                AccountType::McPrimaryCssMca => "MC_PRIMARY_CSS_MCA",
-                AccountType::McCssMca => "MC_CSS_MCA",
-                AccountType::McMarketplaceMca => "MC_MARKETPLACE_MCA",
-                AccountType::McOtherMca => "MC_OTHER_MCA",
-                AccountType::McStandalone => "MC_STANDALONE",
-                AccountType::McMcaSubaccount => "MC_MCA_SUBACCOUNT",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ACCOUNT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CSS_GROUP" => Some(Self::CssGroup),
-                "CSS_DOMAIN" => Some(Self::CssDomain),
-                "MC_PRIMARY_CSS_MCA" => Some(Self::McPrimaryCssMca),
-                "MC_CSS_MCA" => Some(Self::McCssMca),
-                "MC_MARKETPLACE_MCA" => Some(Self::McMarketplaceMca),
-                "MC_OTHER_MCA" => Some(Self::McOtherMca),
-                "MC_STANDALONE" => Some(Self::McStandalone),
-                "MC_MCA_SUBACCOUNT" => Some(Self::McMcaSubaccount),
-                _ => None,
-            }
-        }
-    }
-}
-/// Generated client implementations.
-pub mod accounts_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service for managing CSS/MC account information.
-    #[derive(Debug, Clone)]
-    pub struct AccountsServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> AccountsServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> AccountsServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            AccountsServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Lists all the accounts under the specified CSS account ID, and
-        /// optionally filters by label ID and account name.
-        pub async fn list_child_accounts(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListChildAccountsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListChildAccountsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.shopping.css.v1.AccountsService/ListChildAccounts",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.shopping.css.v1.AccountsService",
-                        "ListChildAccounts",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Retrieves a single CSS/MC account by ID.
-        pub async fn get_account(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetAccountRequest>,
-        ) -> std::result::Result<tonic::Response<super::Account>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.shopping.css.v1.AccountsService/GetAccount",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.shopping.css.v1.AccountsService",
-                        "GetAccount",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates labels assigned to CSS/MC accounts by a CSS domain.
-        pub async fn update_labels(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateAccountLabelsRequest>,
-        ) -> std::result::Result<tonic::Response<super::Account>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.shopping.css.v1.AccountsService/UpdateLabels",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.shopping.css.v1.AccountsService",
-                        "UpdateLabels",
                     ),
                 );
             self.inner.unary(req, path, codec).await

@@ -1,1295 +1,3 @@
-/// An internal checker allows Uptime checks to run on private/internal GCP
-/// resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct InternalChecker {
-    /// A unique resource name for this InternalChecker. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/internalCheckers/\[INTERNAL_CHECKER_ID\]
-    ///
-    /// `\[PROJECT_ID_OR_NUMBER\]` is the Cloud Monitoring Metrics Scope project for
-    /// the Uptime check config associated with the internal checker.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The checker's human-readable name. The display name
-    /// should be unique within a Cloud Monitoring Metrics Scope in order to make
-    /// it easier to identify; however, uniqueness is not enforced.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The [GCP VPC network](<https://cloud.google.com/vpc/docs/vpc>) where the
-    /// internal resource lives (ex: "default").
-    #[prost(string, tag = "3")]
-    pub network: ::prost::alloc::string::String,
-    /// The GCP zone the Uptime check should egress from. Only respected for
-    /// internal Uptime checks, where internal_network is specified.
-    #[prost(string, tag = "4")]
-    pub gcp_zone: ::prost::alloc::string::String,
-    /// The GCP project ID where the internal checker lives. Not necessary
-    /// the same as the Metrics Scope project.
-    #[prost(string, tag = "6")]
-    pub peer_project_id: ::prost::alloc::string::String,
-    /// The current operational state of the internal checker.
-    #[prost(enumeration = "internal_checker::State", tag = "7")]
-    pub state: i32,
-}
-/// Nested message and enum types in `InternalChecker`.
-pub mod internal_checker {
-    /// Operational states for an internal checker.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// An internal checker should never be in the unspecified state.
-        Unspecified = 0,
-        /// The checker is being created, provisioned, and configured. A checker in
-        /// this state can be returned by `ListInternalCheckers` or
-        /// `GetInternalChecker`, as well as by examining the [long running
-        /// Operation](<https://cloud.google.com/apis/design/design_patterns#long_running_operations>)
-        /// that created it.
-        Creating = 1,
-        /// The checker is running and available for use. A checker in this state
-        /// can be returned by `ListInternalCheckers` or `GetInternalChecker` as
-        /// well as by examining the [long running
-        /// Operation](<https://cloud.google.com/apis/design/design_patterns#long_running_operations>)
-        /// that created it.
-        /// If a checker is being torn down, it is neither visible nor usable, so
-        /// there is no "deleting" or "down" state.
-        Running = 2,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Running => "RUNNING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "RUNNING" => Some(Self::Running),
-                _ => None,
-            }
-        }
-    }
-}
-/// This message configures which resources and services to monitor for
-/// availability.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UptimeCheckConfig {
-    /// A unique resource name for this Uptime check configuration. The format is:
-    ///
-    ///       projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
-    ///
-    /// `\[PROJECT_ID_OR_NUMBER\]` is the Workspace host project associated with the
-    /// Uptime check.
-    ///
-    /// This field should be omitted when creating the Uptime check configuration;
-    /// on create, the resource name is assigned by the server and included in the
-    /// response.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// A human-friendly name for the Uptime check configuration. The display name
-    /// should be unique within a Cloud Monitoring Workspace in order to make it
-    /// easier to identify; however, uniqueness is not enforced. Required.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// How often, in seconds, the Uptime check is performed.
-    /// Currently, the only supported values are `60s` (1 minute), `300s`
-    /// (5 minutes), `600s` (10 minutes), and `900s` (15 minutes). Optional,
-    /// defaults to `60s`.
-    #[prost(message, optional, tag = "7")]
-    pub period: ::core::option::Option<::prost_types::Duration>,
-    /// The maximum amount of time to wait for the request to complete (must be
-    /// between 1 and 60 seconds). Required.
-    #[prost(message, optional, tag = "8")]
-    pub timeout: ::core::option::Option<::prost_types::Duration>,
-    /// The content that is expected to appear in the data returned by the target
-    /// server against which the check is run.  Currently, only the first entry
-    /// in the `content_matchers` list is supported, and additional entries will
-    /// be ignored. This field is optional and should only be specified if a
-    /// content match is required as part of the/ Uptime check.
-    #[prost(message, repeated, tag = "9")]
-    pub content_matchers: ::prost::alloc::vec::Vec<uptime_check_config::ContentMatcher>,
-    /// The type of checkers to use to execute the Uptime check.
-    #[prost(enumeration = "uptime_check_config::CheckerType", tag = "17")]
-    pub checker_type: i32,
-    /// The list of regions from which the check will be run.
-    /// Some regions contain one location, and others contain more than one.
-    /// If this field is specified, enough regions must be provided to include a
-    /// minimum of 3 locations.  Not specifying this field will result in Uptime
-    /// checks running from all available regions.
-    #[prost(enumeration = "UptimeCheckRegion", repeated, tag = "10")]
-    pub selected_regions: ::prost::alloc::vec::Vec<i32>,
-    /// If this is `true`, then checks are made only from the 'internal_checkers'.
-    /// If it is `false`, then checks are made only from the 'selected_regions'.
-    /// It is an error to provide 'selected_regions' when is_internal is `true`,
-    /// or to provide 'internal_checkers' when is_internal is `false`.
-    #[deprecated]
-    #[prost(bool, tag = "15")]
-    pub is_internal: bool,
-    /// The internal checkers that this check will egress from. If `is_internal` is
-    /// `true` and this list is empty, the check will egress from all the
-    /// InternalCheckers configured for the project that owns this
-    /// `UptimeCheckConfig`.
-    #[deprecated]
-    #[prost(message, repeated, tag = "14")]
-    pub internal_checkers: ::prost::alloc::vec::Vec<InternalChecker>,
-    /// User-supplied key/value data to be used for organizing and
-    /// identifying the `UptimeCheckConfig` objects.
-    ///
-    /// The field can contain up to 64 entries. Each key and value is limited to
-    /// 63 Unicode characters or 128 bytes, whichever is smaller. Labels and
-    /// values can contain only lowercase letters, numerals, underscores, and
-    /// dashes. Keys must begin with a letter.
-    #[prost(btree_map = "string, string", tag = "20")]
-    pub user_labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// The resource the check is checking. Required.
-    #[prost(oneof = "uptime_check_config::Resource", tags = "3, 4")]
-    pub resource: ::core::option::Option<uptime_check_config::Resource>,
-    /// The type of Uptime check request.
-    #[prost(oneof = "uptime_check_config::CheckRequestType", tags = "5, 6")]
-    pub check_request_type: ::core::option::Option<
-        uptime_check_config::CheckRequestType,
-    >,
-}
-/// Nested message and enum types in `UptimeCheckConfig`.
-pub mod uptime_check_config {
-    /// The resource submessage for group checks. It can be used instead of a
-    /// monitored resource, when multiple resources are being monitored.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ResourceGroup {
-        /// The group of resources being monitored. Should be only the `\[GROUP_ID\]`,
-        /// and not the full-path
-        /// `projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]`.
-        #[prost(string, tag = "1")]
-        pub group_id: ::prost::alloc::string::String,
-        /// The resource type of the group members.
-        #[prost(enumeration = "super::GroupResourceType", tag = "2")]
-        pub resource_type: i32,
-    }
-    /// Information involved in sending ICMP pings alongside public HTTP/TCP
-    /// checks. For HTTP, the pings are performed for each part of the redirect
-    /// chain.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct PingConfig {
-        /// Number of ICMP pings. A maximum of 3 ICMP pings is currently supported.
-        #[prost(int32, tag = "1")]
-        pub pings_count: i32,
-    }
-    /// Information involved in an HTTP/HTTPS Uptime check request.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct HttpCheck {
-        /// The HTTP request method to use for the check. If set to
-        /// `METHOD_UNSPECIFIED` then `request_method` defaults to `GET`.
-        #[prost(enumeration = "http_check::RequestMethod", tag = "8")]
-        pub request_method: i32,
-        /// If `true`, use HTTPS instead of HTTP to run the check.
-        #[prost(bool, tag = "1")]
-        pub use_ssl: bool,
-        /// Optional (defaults to "/"). The path to the page against which to run
-        /// the check. Will be combined with the `host` (specified within the
-        /// `monitored_resource`) and `port` to construct the full URL. If the
-        /// provided path does not begin with "/", a "/" will be prepended
-        /// automatically.
-        #[prost(string, tag = "2")]
-        pub path: ::prost::alloc::string::String,
-        /// Optional (defaults to 80 when `use_ssl` is `false`, and 443 when
-        /// `use_ssl` is `true`). The TCP port on the HTTP server against which to
-        /// run the check. Will be combined with host (specified within the
-        /// `monitored_resource`) and `path` to construct the full URL.
-        #[prost(int32, tag = "3")]
-        pub port: i32,
-        /// The authentication information. Optional when creating an HTTP check;
-        /// defaults to empty.
-        #[prost(message, optional, tag = "4")]
-        pub auth_info: ::core::option::Option<http_check::BasicAuthentication>,
-        /// Boolean specifying whether to encrypt the header information.
-        /// Encryption should be specified for any headers related to authentication
-        /// that you do not wish to be seen when retrieving the configuration. The
-        /// server will be responsible for encrypting the headers.
-        /// On Get/List calls, if `mask_headers` is set to `true` then the headers
-        /// will be obscured with `******.`
-        #[prost(bool, tag = "5")]
-        pub mask_headers: bool,
-        /// The list of headers to send as part of the Uptime check request.
-        /// If two headers have the same key and different values, they should
-        /// be entered as a single header, with the value being a comma-separated
-        /// list of all the desired values as described at
-        /// <https://www.w3.org/Protocols/rfc2616/rfc2616.txt> (page 31).
-        /// Entering two separate headers with the same key in a Create call will
-        /// cause the first to be overwritten by the second.
-        /// The maximum number of headers allowed is 100.
-        #[prost(btree_map = "string, string", tag = "6")]
-        pub headers: ::prost::alloc::collections::BTreeMap<
-            ::prost::alloc::string::String,
-            ::prost::alloc::string::String,
-        >,
-        /// The content type header to use for the check. The following
-        /// configurations result in errors:
-        /// 1. Content type is specified in both the `headers` field and the
-        /// `content_type` field.
-        /// 2. Request method is `GET` and `content_type` is not `TYPE_UNSPECIFIED`
-        /// 3. Request method is `POST` and `content_type` is `TYPE_UNSPECIFIED`.
-        /// 4. Request method is `POST` and a "Content-Type" header is provided via
-        /// `headers` field. The `content_type` field should be used instead.
-        #[prost(enumeration = "http_check::ContentType", tag = "9")]
-        pub content_type: i32,
-        /// A user provided content type header to use for the check. The invalid
-        /// configurations outlined in the `content_type` field apply to
-        /// `custom_content_type`, as well as the following:
-        /// 1. `content_type` is `URL_ENCODED` and `custom_content_type` is set.
-        /// 2. `content_type` is `USER_PROVIDED` and `custom_content_type` is not
-        /// set.
-        #[prost(string, tag = "13")]
-        pub custom_content_type: ::prost::alloc::string::String,
-        /// Boolean specifying whether to include SSL certificate validation as a
-        /// part of the Uptime check. Only applies to checks where
-        /// `monitored_resource` is set to `uptime_url`. If `use_ssl` is `false`,
-        /// setting `validate_ssl` to `true` has no effect.
-        #[prost(bool, tag = "7")]
-        pub validate_ssl: bool,
-        /// The request body associated with the HTTP POST request. If `content_type`
-        /// is `URL_ENCODED`, the body passed in must be URL-encoded. Users can
-        /// provide a `Content-Length` header via the `headers` field or the API will
-        /// do so. If the `request_method` is `GET` and `body` is not empty, the API
-        /// will return an error. The maximum byte size is 1 megabyte.
-        ///
-        /// Note: If client libraries aren't used (which performs the conversion
-        /// automatically) base64 encode your `body` data since the field is of
-        /// `bytes` type.
-        #[prost(bytes = "bytes", tag = "10")]
-        pub body: ::prost::bytes::Bytes,
-        /// If present, the check will only pass if the HTTP response status code is
-        /// in this set of status codes. If empty, the HTTP status code will only
-        /// pass if the HTTP status code is 200-299.
-        #[prost(message, repeated, tag = "11")]
-        pub accepted_response_status_codes: ::prost::alloc::vec::Vec<
-            http_check::ResponseStatusCode,
-        >,
-        /// Contains information needed to add pings to an HTTP check.
-        #[prost(message, optional, tag = "12")]
-        pub ping_config: ::core::option::Option<PingConfig>,
-    }
-    /// Nested message and enum types in `HttpCheck`.
-    pub mod http_check {
-        /// The authentication parameters to provide to the specified resource or
-        /// URL that requires a username and password. Currently, only
-        /// [Basic HTTP authentication](<https://tools.ietf.org/html/rfc7617>) is
-        /// supported in Uptime checks.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct BasicAuthentication {
-            /// The username to use when authenticating with the HTTP server.
-            #[prost(string, tag = "1")]
-            pub username: ::prost::alloc::string::String,
-            /// The password to use when authenticating with the HTTP server.
-            #[prost(string, tag = "2")]
-            pub password: ::prost::alloc::string::String,
-        }
-        /// A status to accept. Either a status code class like "2xx", or an integer
-        /// status code like "200".
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct ResponseStatusCode {
-            /// Either a specific value or a class of status codes.
-            #[prost(oneof = "response_status_code::StatusCode", tags = "1, 2")]
-            pub status_code: ::core::option::Option<response_status_code::StatusCode>,
-        }
-        /// Nested message and enum types in `ResponseStatusCode`.
-        pub mod response_status_code {
-            /// An HTTP status code class.
-            #[derive(
-                Clone,
-                Copy,
-                Debug,
-                PartialEq,
-                Eq,
-                Hash,
-                PartialOrd,
-                Ord,
-                ::prost::Enumeration
-            )]
-            #[repr(i32)]
-            pub enum StatusClass {
-                /// Default value that matches no status codes.
-                Unspecified = 0,
-                /// The class of status codes between 100 and 199.
-                StatusClass1xx = 100,
-                /// The class of status codes between 200 and 299.
-                StatusClass2xx = 200,
-                /// The class of status codes between 300 and 399.
-                StatusClass3xx = 300,
-                /// The class of status codes between 400 and 499.
-                StatusClass4xx = 400,
-                /// The class of status codes between 500 and 599.
-                StatusClass5xx = 500,
-                /// The class of all status codes.
-                Any = 1000,
-            }
-            impl StatusClass {
-                /// String value of the enum field names used in the ProtoBuf definition.
-                ///
-                /// The values are not transformed in any way and thus are considered stable
-                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                pub fn as_str_name(&self) -> &'static str {
-                    match self {
-                        StatusClass::Unspecified => "STATUS_CLASS_UNSPECIFIED",
-                        StatusClass::StatusClass1xx => "STATUS_CLASS_1XX",
-                        StatusClass::StatusClass2xx => "STATUS_CLASS_2XX",
-                        StatusClass::StatusClass3xx => "STATUS_CLASS_3XX",
-                        StatusClass::StatusClass4xx => "STATUS_CLASS_4XX",
-                        StatusClass::StatusClass5xx => "STATUS_CLASS_5XX",
-                        StatusClass::Any => "STATUS_CLASS_ANY",
-                    }
-                }
-                /// Creates an enum from field names used in the ProtoBuf definition.
-                pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                    match value {
-                        "STATUS_CLASS_UNSPECIFIED" => Some(Self::Unspecified),
-                        "STATUS_CLASS_1XX" => Some(Self::StatusClass1xx),
-                        "STATUS_CLASS_2XX" => Some(Self::StatusClass2xx),
-                        "STATUS_CLASS_3XX" => Some(Self::StatusClass3xx),
-                        "STATUS_CLASS_4XX" => Some(Self::StatusClass4xx),
-                        "STATUS_CLASS_5XX" => Some(Self::StatusClass5xx),
-                        "STATUS_CLASS_ANY" => Some(Self::Any),
-                        _ => None,
-                    }
-                }
-            }
-            /// Either a specific value or a class of status codes.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Oneof)]
-            pub enum StatusCode {
-                /// A status code to accept.
-                #[prost(int32, tag = "1")]
-                StatusValue(i32),
-                /// A class of status codes to accept.
-                #[prost(enumeration = "StatusClass", tag = "2")]
-                StatusClass(i32),
-            }
-        }
-        /// The HTTP request method options.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum RequestMethod {
-            /// No request method specified.
-            MethodUnspecified = 0,
-            /// GET request.
-            Get = 1,
-            /// POST request.
-            Post = 2,
-        }
-        impl RequestMethod {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    RequestMethod::MethodUnspecified => "METHOD_UNSPECIFIED",
-                    RequestMethod::Get => "GET",
-                    RequestMethod::Post => "POST",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "METHOD_UNSPECIFIED" => Some(Self::MethodUnspecified),
-                    "GET" => Some(Self::Get),
-                    "POST" => Some(Self::Post),
-                    _ => None,
-                }
-            }
-        }
-        /// Header options corresponding to the content type of a HTTP request body.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum ContentType {
-            /// No content type specified.
-            TypeUnspecified = 0,
-            /// `body` is in URL-encoded form. Equivalent to setting the `Content-Type`
-            /// to `application/x-www-form-urlencoded` in the HTTP request.
-            UrlEncoded = 1,
-            /// `body` is in `custom_content_type` form. Equivalent to setting the
-            /// `Content-Type` to the contents of `custom_content_type` in the HTTP
-            /// request.
-            UserProvided = 2,
-        }
-        impl ContentType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    ContentType::TypeUnspecified => "TYPE_UNSPECIFIED",
-                    ContentType::UrlEncoded => "URL_ENCODED",
-                    ContentType::UserProvided => "USER_PROVIDED",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "TYPE_UNSPECIFIED" => Some(Self::TypeUnspecified),
-                    "URL_ENCODED" => Some(Self::UrlEncoded),
-                    "USER_PROVIDED" => Some(Self::UserProvided),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Information required for a TCP Uptime check request.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TcpCheck {
-        /// The TCP port on the server against which to run the check. Will be
-        /// combined with host (specified within the `monitored_resource`) to
-        /// construct the full URL. Required.
-        #[prost(int32, tag = "1")]
-        pub port: i32,
-        /// Contains information needed to add pings to a TCP check.
-        #[prost(message, optional, tag = "2")]
-        pub ping_config: ::core::option::Option<PingConfig>,
-    }
-    /// Optional. Used to perform content matching. This allows matching based on
-    /// substrings and regular expressions, together with their negations. Only the
-    /// first 4&nbsp;MB of an HTTP or HTTPS check's response (and the first
-    /// 1&nbsp;MB of a TCP check's response) are examined for purposes of content
-    /// matching.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ContentMatcher {
-        /// String, regex or JSON content to match. Maximum 1024 bytes. An empty
-        /// `content` string indicates no content matching is to be performed.
-        #[prost(string, tag = "1")]
-        pub content: ::prost::alloc::string::String,
-        /// The type of content matcher that will be applied to the server output,
-        /// compared to the `content` string when the check is run.
-        #[prost(enumeration = "content_matcher::ContentMatcherOption", tag = "2")]
-        pub matcher: i32,
-        /// Certain `ContentMatcherOption` types require additional information.
-        /// `MATCHES_JSON_PATH` or `NOT_MATCHES_JSON_PATH` require a
-        /// `JsonPathMatcher`; not used for other options.
-        #[prost(oneof = "content_matcher::AdditionalMatcherInfo", tags = "3")]
-        pub additional_matcher_info: ::core::option::Option<
-            content_matcher::AdditionalMatcherInfo,
-        >,
-    }
-    /// Nested message and enum types in `ContentMatcher`.
-    pub mod content_matcher {
-        /// Information needed to perform a JSONPath content match.
-        /// Used for `ContentMatcherOption::MATCHES_JSON_PATH` and
-        /// `ContentMatcherOption::NOT_MATCHES_JSON_PATH`.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct JsonPathMatcher {
-            /// JSONPath within the response output pointing to the expected
-            /// `ContentMatcher::content` to match against.
-            #[prost(string, tag = "1")]
-            pub json_path: ::prost::alloc::string::String,
-            /// The type of JSONPath match that will be applied to the JSON output
-            /// (`ContentMatcher.content`)
-            #[prost(enumeration = "json_path_matcher::JsonPathMatcherOption", tag = "2")]
-            pub json_matcher: i32,
-        }
-        /// Nested message and enum types in `JsonPathMatcher`.
-        pub mod json_path_matcher {
-            /// Options to perform JSONPath content matching.
-            #[derive(
-                Clone,
-                Copy,
-                Debug,
-                PartialEq,
-                Eq,
-                Hash,
-                PartialOrd,
-                Ord,
-                ::prost::Enumeration
-            )]
-            #[repr(i32)]
-            pub enum JsonPathMatcherOption {
-                /// No JSONPath matcher type specified (not valid).
-                Unspecified = 0,
-                /// Selects 'exact string' matching. The match succeeds if the content at
-                /// the `json_path` within the output is exactly the same as the
-                /// `content` string.
-                ExactMatch = 1,
-                /// Selects regular-expression matching. The match succeeds if the
-                /// content at the `json_path` within the output matches the regular
-                /// expression specified in the `content` string.
-                RegexMatch = 2,
-            }
-            impl JsonPathMatcherOption {
-                /// String value of the enum field names used in the ProtoBuf definition.
-                ///
-                /// The values are not transformed in any way and thus are considered stable
-                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                pub fn as_str_name(&self) -> &'static str {
-                    match self {
-                        JsonPathMatcherOption::Unspecified => {
-                            "JSON_PATH_MATCHER_OPTION_UNSPECIFIED"
-                        }
-                        JsonPathMatcherOption::ExactMatch => "EXACT_MATCH",
-                        JsonPathMatcherOption::RegexMatch => "REGEX_MATCH",
-                    }
-                }
-                /// Creates an enum from field names used in the ProtoBuf definition.
-                pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                    match value {
-                        "JSON_PATH_MATCHER_OPTION_UNSPECIFIED" => Some(Self::Unspecified),
-                        "EXACT_MATCH" => Some(Self::ExactMatch),
-                        "REGEX_MATCH" => Some(Self::RegexMatch),
-                        _ => None,
-                    }
-                }
-            }
-        }
-        /// Options to perform content matching.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum ContentMatcherOption {
-            /// No content matcher type specified (maintained for backward
-            /// compatibility, but deprecated for future use).
-            /// Treated as `CONTAINS_STRING`.
-            Unspecified = 0,
-            /// Selects substring matching. The match succeeds if the output contains
-            /// the `content` string.  This is the default value for checks without
-            /// a `matcher` option, or where the value of `matcher` is
-            /// `CONTENT_MATCHER_OPTION_UNSPECIFIED`.
-            ContainsString = 1,
-            /// Selects negation of substring matching. The match succeeds if the
-            /// output does _NOT_ contain the `content` string.
-            NotContainsString = 2,
-            /// Selects regular-expression matching. The match succeeds if the output
-            /// matches the regular expression specified in the `content` string.
-            /// Regex matching is only supported for HTTP/HTTPS checks.
-            MatchesRegex = 3,
-            /// Selects negation of regular-expression matching. The match succeeds if
-            /// the output does _NOT_ match the regular expression specified in the
-            /// `content` string. Regex matching is only supported for HTTP/HTTPS
-            /// checks.
-            NotMatchesRegex = 4,
-            /// Selects JSONPath matching. See `JsonPathMatcher` for details on when
-            /// the match succeeds. JSONPath matching is only supported for HTTP/HTTPS
-            /// checks.
-            MatchesJsonPath = 5,
-            /// Selects JSONPath matching. See `JsonPathMatcher` for details on when
-            /// the match succeeds. Succeeds when output does _NOT_ match as specified.
-            /// JSONPath is only supported for HTTP/HTTPS checks.
-            NotMatchesJsonPath = 6,
-        }
-        impl ContentMatcherOption {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    ContentMatcherOption::Unspecified => {
-                        "CONTENT_MATCHER_OPTION_UNSPECIFIED"
-                    }
-                    ContentMatcherOption::ContainsString => "CONTAINS_STRING",
-                    ContentMatcherOption::NotContainsString => "NOT_CONTAINS_STRING",
-                    ContentMatcherOption::MatchesRegex => "MATCHES_REGEX",
-                    ContentMatcherOption::NotMatchesRegex => "NOT_MATCHES_REGEX",
-                    ContentMatcherOption::MatchesJsonPath => "MATCHES_JSON_PATH",
-                    ContentMatcherOption::NotMatchesJsonPath => "NOT_MATCHES_JSON_PATH",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "CONTENT_MATCHER_OPTION_UNSPECIFIED" => Some(Self::Unspecified),
-                    "CONTAINS_STRING" => Some(Self::ContainsString),
-                    "NOT_CONTAINS_STRING" => Some(Self::NotContainsString),
-                    "MATCHES_REGEX" => Some(Self::MatchesRegex),
-                    "NOT_MATCHES_REGEX" => Some(Self::NotMatchesRegex),
-                    "MATCHES_JSON_PATH" => Some(Self::MatchesJsonPath),
-                    "NOT_MATCHES_JSON_PATH" => Some(Self::NotMatchesJsonPath),
-                    _ => None,
-                }
-            }
-        }
-        /// Certain `ContentMatcherOption` types require additional information.
-        /// `MATCHES_JSON_PATH` or `NOT_MATCHES_JSON_PATH` require a
-        /// `JsonPathMatcher`; not used for other options.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum AdditionalMatcherInfo {
-            /// Matcher information for `MATCHES_JSON_PATH` and `NOT_MATCHES_JSON_PATH`
-            #[prost(message, tag = "3")]
-            JsonPathMatcher(JsonPathMatcher),
-        }
-    }
-    /// What kind of checkers are available to be used by the check.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum CheckerType {
-        /// The default checker type. Currently converted to `STATIC_IP_CHECKERS`
-        /// on creation, the default conversion behavior may change in the future.
-        Unspecified = 0,
-        /// `STATIC_IP_CHECKERS` are used for uptime checks that perform egress
-        /// across the public internet. `STATIC_IP_CHECKERS` use the static IP
-        /// addresses returned by `ListUptimeCheckIps`.
-        StaticIpCheckers = 1,
-        /// `VPC_CHECKERS` are used for uptime checks that perform egress using
-        /// Service Directory and private network access. When using `VPC_CHECKERS`,
-        /// the monitored resource type must be `servicedirectory_service`.
-        VpcCheckers = 3,
-    }
-    impl CheckerType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                CheckerType::Unspecified => "CHECKER_TYPE_UNSPECIFIED",
-                CheckerType::StaticIpCheckers => "STATIC_IP_CHECKERS",
-                CheckerType::VpcCheckers => "VPC_CHECKERS",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CHECKER_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "STATIC_IP_CHECKERS" => Some(Self::StaticIpCheckers),
-                "VPC_CHECKERS" => Some(Self::VpcCheckers),
-                _ => None,
-            }
-        }
-    }
-    /// The resource the check is checking. Required.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Resource {
-        /// The [monitored
-        /// resource](<https://cloud.google.com/monitoring/api/resources>) associated
-        /// with the configuration.
-        /// The following monitored resource types are valid for this field:
-        ///    `uptime_url`,
-        ///    `gce_instance`,
-        ///    `gae_app`,
-        ///    `aws_ec2_instance`,
-        ///    `aws_elb_load_balancer`
-        ///    `k8s_service`
-        ///    `servicedirectory_service`
-        ///    `cloud_run_revision`
-        #[prost(message, tag = "3")]
-        MonitoredResource(super::super::super::api::MonitoredResource),
-        /// The group resource associated with the configuration.
-        #[prost(message, tag = "4")]
-        ResourceGroup(ResourceGroup),
-    }
-    /// The type of Uptime check request.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum CheckRequestType {
-        /// Contains information needed to make an HTTP or HTTPS check.
-        #[prost(message, tag = "5")]
-        HttpCheck(HttpCheck),
-        /// Contains information needed to make a TCP check.
-        #[prost(message, tag = "6")]
-        TcpCheck(TcpCheck),
-    }
-}
-/// Contains the region, location, and list of IP
-/// addresses where checkers in the location run from.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UptimeCheckIp {
-    /// A broad region category in which the IP address is located.
-    #[prost(enumeration = "UptimeCheckRegion", tag = "1")]
-    pub region: i32,
-    /// A more specific location within the region that typically encodes
-    /// a particular city/town/metro (and its containing state/province or country)
-    /// within the broader umbrella region category.
-    #[prost(string, tag = "2")]
-    pub location: ::prost::alloc::string::String,
-    /// The IP address from which the Uptime check originates. This is a fully
-    /// specified IP address (not an IP address range). Most IP addresses, as of
-    /// this publication, are in IPv4 format; however, one should not rely on the
-    /// IP addresses being in IPv4 format indefinitely, and should support
-    /// interpreting this field in either IPv4 or IPv6 format.
-    #[prost(string, tag = "3")]
-    pub ip_address: ::prost::alloc::string::String,
-}
-/// The regions from which an Uptime check can be run.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum UptimeCheckRegion {
-    /// Default value if no region is specified. Will result in Uptime checks
-    /// running from all regions.
-    RegionUnspecified = 0,
-    /// Allows checks to run from locations within the United States of America.
-    Usa = 1,
-    /// Allows checks to run from locations within the continent of Europe.
-    Europe = 2,
-    /// Allows checks to run from locations within the continent of South
-    /// America.
-    SouthAmerica = 3,
-    /// Allows checks to run from locations within the Asia Pacific area (ex:
-    /// Singapore).
-    AsiaPacific = 4,
-    /// Allows checks to run from locations within the western United States of
-    /// America
-    UsaOregon = 5,
-    /// Allows checks to run from locations within the central United States of
-    /// America
-    UsaIowa = 6,
-    /// Allows checks to run from locations within the eastern United States of
-    /// America
-    UsaVirginia = 7,
-}
-impl UptimeCheckRegion {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            UptimeCheckRegion::RegionUnspecified => "REGION_UNSPECIFIED",
-            UptimeCheckRegion::Usa => "USA",
-            UptimeCheckRegion::Europe => "EUROPE",
-            UptimeCheckRegion::SouthAmerica => "SOUTH_AMERICA",
-            UptimeCheckRegion::AsiaPacific => "ASIA_PACIFIC",
-            UptimeCheckRegion::UsaOregon => "USA_OREGON",
-            UptimeCheckRegion::UsaIowa => "USA_IOWA",
-            UptimeCheckRegion::UsaVirginia => "USA_VIRGINIA",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "REGION_UNSPECIFIED" => Some(Self::RegionUnspecified),
-            "USA" => Some(Self::Usa),
-            "EUROPE" => Some(Self::Europe),
-            "SOUTH_AMERICA" => Some(Self::SouthAmerica),
-            "ASIA_PACIFIC" => Some(Self::AsiaPacific),
-            "USA_OREGON" => Some(Self::UsaOregon),
-            "USA_IOWA" => Some(Self::UsaIowa),
-            "USA_VIRGINIA" => Some(Self::UsaVirginia),
-            _ => None,
-        }
-    }
-}
-/// The supported resource types that can be used as values of
-/// `group_resource.resource_type`.
-/// `INSTANCE` includes `gce_instance` and `aws_ec2_instance` resource types.
-/// The resource types `gae_app` and `uptime_url` are not valid here because
-/// group checks on App Engine modules and URLs are not allowed.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum GroupResourceType {
-    /// Default value (not valid).
-    ResourceTypeUnspecified = 0,
-    /// A group of instances from Google Cloud Platform (GCP) or
-    /// Amazon Web Services (AWS).
-    Instance = 1,
-    /// A group of Amazon ELB load balancers.
-    AwsElbLoadBalancer = 2,
-}
-impl GroupResourceType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            GroupResourceType::ResourceTypeUnspecified => "RESOURCE_TYPE_UNSPECIFIED",
-            GroupResourceType::Instance => "INSTANCE",
-            GroupResourceType::AwsElbLoadBalancer => "AWS_ELB_LOAD_BALANCER",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "RESOURCE_TYPE_UNSPECIFIED" => Some(Self::ResourceTypeUnspecified),
-            "INSTANCE" => Some(Self::Instance),
-            "AWS_ELB_LOAD_BALANCER" => Some(Self::AwsElbLoadBalancer),
-            _ => None,
-        }
-    }
-}
-/// The protocol for the `ListUptimeCheckConfigs` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListUptimeCheckConfigsRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
-    /// Uptime check configurations are listed. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// If provided, this field specifies the criteria that must be met by
-    /// uptime checks to be included in the response.
-    ///
-    /// For more details, see [Filtering
-    /// syntax](<https://cloud.google.com/monitoring/api/v3/sorting-and-filtering#filter_syntax>).
-    #[prost(string, tag = "2")]
-    pub filter: ::prost::alloc::string::String,
-    /// The maximum number of results to return in a single response. The server
-    /// may further constrain the maximum number of results returned in a single
-    /// page. If the page_size is <=0, the server will decide the number of results
-    /// to be returned.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `nextPageToken` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return more results from the previous method call.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The protocol for the `ListUptimeCheckConfigs` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListUptimeCheckConfigsResponse {
-    /// The returned Uptime check configurations.
-    #[prost(message, repeated, tag = "1")]
-    pub uptime_check_configs: ::prost::alloc::vec::Vec<UptimeCheckConfig>,
-    /// This field represents the pagination token to retrieve the next page of
-    /// results. If the value is empty, it means no further results for the
-    /// request. To retrieve the next page of results, the value of the
-    /// next_page_token is passed to the subsequent List method call (in the
-    /// request message's page_token field).
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// The total number of Uptime check configurations for the project,
-    /// irrespective of any pagination.
-    #[prost(int32, tag = "3")]
-    pub total_size: i32,
-}
-/// The protocol for the `GetUptimeCheckConfig` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetUptimeCheckConfigRequest {
-    /// Required. The Uptime check configuration to retrieve. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The protocol for the `CreateUptimeCheckConfig` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateUptimeCheckConfigRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
-    /// to create the Uptime check. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The new Uptime check configuration.
-    #[prost(message, optional, tag = "2")]
-    pub uptime_check_config: ::core::option::Option<UptimeCheckConfig>,
-}
-/// The protocol for the `UpdateUptimeCheckConfig` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateUptimeCheckConfigRequest {
-    /// Optional. If present, only the listed fields in the current Uptime check
-    /// configuration are updated with values from the new configuration. If this
-    /// field is empty, then the current configuration is completely replaced with
-    /// the new configuration.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. If an `updateMask` has been specified, this field gives
-    /// the values for the set of fields mentioned in the `updateMask`. If an
-    /// `updateMask` has not been given, this Uptime check configuration replaces
-    /// the current configuration. If a field is mentioned in `updateMask` but
-    /// the corresponding field is omitted in this partial Uptime check
-    /// configuration, it has the effect of deleting/clearing the field from the
-    /// configuration on the server.
-    ///
-    /// The following fields can be updated: `display_name`,
-    /// `http_check`, `tcp_check`, `timeout`, `content_matchers`, and
-    /// `selected_regions`.
-    #[prost(message, optional, tag = "3")]
-    pub uptime_check_config: ::core::option::Option<UptimeCheckConfig>,
-}
-/// The protocol for the `DeleteUptimeCheckConfig` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteUptimeCheckConfigRequest {
-    /// Required. The Uptime check configuration to delete. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The protocol for the `ListUptimeCheckIps` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListUptimeCheckIpsRequest {
-    /// The maximum number of results to return in a single response. The server
-    /// may further constrain the maximum number of results returned in a single
-    /// page. If the page_size is <=0, the server will decide the number of results
-    /// to be returned.
-    /// NOTE: this field is not yet implemented
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `nextPageToken` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return more results from the previous method call.
-    /// NOTE: this field is not yet implemented
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The protocol for the `ListUptimeCheckIps` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListUptimeCheckIpsResponse {
-    /// The returned list of IP addresses (including region and location) that the
-    /// checkers run from.
-    #[prost(message, repeated, tag = "1")]
-    pub uptime_check_ips: ::prost::alloc::vec::Vec<UptimeCheckIp>,
-    /// This field represents the pagination token to retrieve the next page of
-    /// results. If the value is empty, it means no further results for the
-    /// request. To retrieve the next page of results, the value of the
-    /// next_page_token is passed to the subsequent List method call (in the
-    /// request message's page_token field).
-    /// NOTE: this field is not yet implemented
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod uptime_check_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The UptimeCheckService API is used to manage (list, create, delete, edit)
-    /// Uptime check configurations in the Cloud Monitoring product. An Uptime
-    /// check is a piece of configuration that determines which resources and
-    /// services to monitor for availability. These configurations can also be
-    /// configured interactively by navigating to the [Cloud console]
-    /// (https://console.cloud.google.com), selecting the appropriate project,
-    /// clicking on "Monitoring" on the left-hand side to navigate to Cloud
-    /// Monitoring, and then clicking on "Uptime".
-    #[derive(Debug, Clone)]
-    pub struct UptimeCheckServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> UptimeCheckServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> UptimeCheckServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            UptimeCheckServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Lists the existing valid Uptime check configurations for the project
-        /// (leaving out any invalid configurations).
-        pub async fn list_uptime_check_configs(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListUptimeCheckConfigsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListUptimeCheckConfigsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.UptimeCheckService/ListUptimeCheckConfigs",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.UptimeCheckService",
-                        "ListUptimeCheckConfigs",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a single Uptime check configuration.
-        pub async fn get_uptime_check_config(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetUptimeCheckConfigRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::UptimeCheckConfig>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.UptimeCheckService/GetUptimeCheckConfig",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.UptimeCheckService",
-                        "GetUptimeCheckConfig",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new Uptime check configuration.
-        pub async fn create_uptime_check_config(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateUptimeCheckConfigRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::UptimeCheckConfig>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.UptimeCheckService/CreateUptimeCheckConfig",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.UptimeCheckService",
-                        "CreateUptimeCheckConfig",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates an Uptime check configuration. You can either replace the entire
-        /// configuration with a new one or replace only certain fields in the current
-        /// configuration by specifying the fields to be updated via `updateMask`.
-        /// Returns the updated configuration.
-        pub async fn update_uptime_check_config(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateUptimeCheckConfigRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::UptimeCheckConfig>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.UptimeCheckService/UpdateUptimeCheckConfig",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.UptimeCheckService",
-                        "UpdateUptimeCheckConfig",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes an Uptime check configuration. Note that this method will fail
-        /// if the Uptime check configuration is referenced by an alert policy or
-        /// other dependent configs that would be rendered invalid by the deletion.
-        pub async fn delete_uptime_check_config(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteUptimeCheckConfigRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.UptimeCheckService/DeleteUptimeCheckConfig",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.UptimeCheckService",
-                        "DeleteUptimeCheckConfig",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Returns the list of IP addresses that checkers run from
-        pub async fn list_uptime_check_ips(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListUptimeCheckIpsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListUptimeCheckIpsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.UptimeCheckService/ListUptimeCheckIps",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.UptimeCheckService",
-                        "ListUptimeCheckIps",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// A single strongly-typed value.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3029,89 +1737,6 @@ pub struct MutationRecord {
     #[prost(string, tag = "2")]
     pub mutated_by: ::prost::alloc::string::String,
 }
-/// A set of (label, value) pairs that were removed from a Distribution
-/// time series during aggregation and then added as an attachment to a
-/// Distribution.Exemplar.
-///
-/// The full label set for the exemplars is constructed by using the dropped
-/// pairs in combination with the label values that remain on the aggregated
-/// Distribution time series. The constructed full label set can be used to
-/// identify the specific entity, such as the instance or job, which might be
-/// contributing to a long-tail. However, with dropped labels, the storage
-/// requirements are reduced because only the aggregated distribution values for
-/// a large group of time series are stored.
-///
-/// Note that there are no guarantees on ordering of the labels from
-/// exemplar-to-exemplar and from distribution-to-distribution in the same
-/// stream, and there may be duplicates.  It is up to clients to resolve any
-/// ambiguities.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DroppedLabels {
-    /// Map from label to its value, for all labels dropped in any aggregation.
-    #[prost(btree_map = "string, string", tag = "1")]
-    pub label: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// The description of a dynamic collection of monitored resources. Each group
-/// has a filter that is matched against monitored resources and their associated
-/// metadata. If a group's filter matches an available monitored resource, then
-/// that resource is a member of that group.  Groups can contain any number of
-/// monitored resources, and each monitored resource can be a member of any
-/// number of groups.
-///
-/// Groups can be nested in parent-child hierarchies. The `parentName` field
-/// identifies an optional parent for each group.  If a group has a parent, then
-/// the only monitored resources available to be matched by the group's filter
-/// are the resources contained in the parent group.  In other words, a group
-/// contains the monitored resources that match its filter and the filters of all
-/// the group's ancestors.  A group without a parent can contain any monitored
-/// resource.
-///
-/// For example, consider an infrastructure running a set of instances with two
-/// user-defined tags: `"environment"` and `"role"`. A parent group has a filter,
-/// `environment="production"`.  A child of that parent group has a filter,
-/// `role="transcoder"`.  The parent group contains all instances in the
-/// production environment, regardless of their roles.  The child group contains
-/// instances that have the transcoder role *and* are in the production
-/// environment.
-///
-/// The monitored resources contained in a group can change at any moment,
-/// depending on what resources exist and what filters are associated with the
-/// group and its ancestors.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Group {
-    /// Output only. The name of this group. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    ///
-    /// When creating a group, this field is ignored and a new name is created
-    /// consisting of the project specified in the call to `CreateGroup`
-    /// and a unique `\[GROUP_ID\]` that is generated automatically.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// A user-assigned name for this group, used only for display purposes.
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The name of the group's parent, if it has one. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    ///
-    /// For groups with no parent, `parent_name` is the empty string, `""`.
-    #[prost(string, tag = "3")]
-    pub parent_name: ::prost::alloc::string::String,
-    /// The filter used to determine which monitored resources belong to this
-    /// group.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-    /// If true, the members of this group are considered to be a cluster.
-    /// The system can perform additional analysis on groups that are clusters.
-    #[prost(bool, tag = "6")]
-    pub is_cluster: bool,
-}
 /// A description of a notification channel. The descriptor includes
 /// the properties of the channel and the set of labels or fields that
 /// must be specified to configure channels of a given type.
@@ -3304,682 +1929,27 @@ pub mod notification_channel {
         }
     }
 }
-/// The `ListNotificationChannelDescriptors` request.
+/// The context of a span. This is attached to an
+/// [Exemplar][google.api.Distribution.Exemplar]
+/// in [Distribution][google.api.Distribution] values during aggregation.
+///
+/// It contains the name of a span with format:
+///
+///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListNotificationChannelDescriptorsRequest {
-    /// Required. The REST resource name of the parent from which to retrieve
-    /// the notification channel descriptors. The expected syntax is:
+pub struct SpanContext {
+    /// The resource name of the span. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
     ///
-    /// Note that this
-    /// [names](<https://cloud.google.com/monitoring/api/v3#project_name>) the parent
-    /// container in which to look for the descriptors; to retrieve a single
-    /// descriptor by name, use the
-    /// [GetNotificationChannelDescriptor][google.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
-    /// operation, instead.
-    #[prost(string, tag = "4")]
-    pub name: ::prost::alloc::string::String,
-    /// The maximum number of results to return in a single response. If
-    /// not set to a positive number, a reasonable value will be chosen by the
-    /// service.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// If non-empty, `page_token` must contain a value returned as the
-    /// `next_page_token` in a previous response to request the next set
-    /// of results.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The `ListNotificationChannelDescriptors` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListNotificationChannelDescriptorsResponse {
-    /// The monitored resource descriptors supported for the specified
-    /// project, optionally filtered.
-    #[prost(message, repeated, tag = "1")]
-    pub channel_descriptors: ::prost::alloc::vec::Vec<NotificationChannelDescriptor>,
-    /// If not empty, indicates that there may be more results that match
-    /// the request. Use the value in the `page_token` field in a
-    /// subsequent request to fetch the next set of results. If empty,
-    /// all results have been returned.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// The `GetNotificationChannelDescriptor` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetNotificationChannelDescriptorRequest {
-    /// Required. The channel type for which to execute the request. The format is:
+    /// `\[TRACE_ID\]` is a unique identifier for a trace within a project;
+    /// it is a 32-character hexadecimal encoding of a 16-byte array.
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/notificationChannelDescriptors/\[CHANNEL_TYPE\]
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The `CreateNotificationChannel` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateNotificationChannelRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
-    /// to execute the request. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    ///
-    /// This names the container into which the channel will be
-    /// written, this does not name the newly created channel. The resulting
-    /// channel's name will have a normalized version of this field as a prefix,
-    /// but will add `/notificationChannels/\[CHANNEL_ID\]` to identify the channel.
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The definition of the `NotificationChannel` to create.
-    #[prost(message, optional, tag = "2")]
-    pub notification_channel: ::core::option::Option<NotificationChannel>,
-}
-/// The `ListNotificationChannels` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListNotificationChannelsRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
-    /// to execute the request. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    ///
-    /// This names the container
-    /// in which to look for the notification channels; it does not name a
-    /// specific channel. To query a specific channel by REST resource name, use
-    /// the
-    /// [`GetNotificationChannel`][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
-    /// operation.
-    #[prost(string, tag = "5")]
-    pub name: ::prost::alloc::string::String,
-    /// If provided, this field specifies the criteria that must be met by
-    /// notification channels to be included in the response.
-    ///
-    /// For more details, see [sorting and
-    /// filtering](<https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>).
-    #[prost(string, tag = "6")]
-    pub filter: ::prost::alloc::string::String,
-    /// A comma-separated list of fields by which to sort the result. Supports
-    /// the same set of fields as in `filter`. Entries can be prefixed with
-    /// a minus sign to sort in descending rather than ascending order.
-    ///
-    /// For more details, see [sorting and
-    /// filtering](<https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>).
-    #[prost(string, tag = "7")]
-    pub order_by: ::prost::alloc::string::String,
-    /// The maximum number of results to return in a single response. If
-    /// not set to a positive number, a reasonable value will be chosen by the
-    /// service.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// If non-empty, `page_token` must contain a value returned as the
-    /// `next_page_token` in a previous response to request the next set
-    /// of results.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The `ListNotificationChannels` response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListNotificationChannelsResponse {
-    /// The notification channels defined for the specified project.
-    #[prost(message, repeated, tag = "3")]
-    pub notification_channels: ::prost::alloc::vec::Vec<NotificationChannel>,
-    /// If not empty, indicates that there may be more results that match
-    /// the request. Use the value in the `page_token` field in a
-    /// subsequent request to fetch the next set of results. If empty,
-    /// all results have been returned.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// The total number of notification channels in all pages. This number is only
-    /// an estimate, and may change in subsequent pages. <https://aip.dev/158>
-    #[prost(int32, tag = "4")]
-    pub total_size: i32,
-}
-/// The `GetNotificationChannel` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetNotificationChannelRequest {
-    /// Required. The channel for which to execute the request. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/notificationChannels/\[CHANNEL_ID\]
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The `UpdateNotificationChannel` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateNotificationChannelRequest {
-    /// The fields to update.
-    #[prost(message, optional, tag = "2")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. A description of the changes to be applied to the specified
-    /// notification channel. The description must provide a definition for
-    /// fields to be updated; the names of these fields should also be
-    /// included in the `update_mask`.
-    #[prost(message, optional, tag = "3")]
-    pub notification_channel: ::core::option::Option<NotificationChannel>,
-}
-/// The `DeleteNotificationChannel` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteNotificationChannelRequest {
-    /// Required. The channel for which to execute the request. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/notificationChannels/\[CHANNEL_ID\]
-    #[prost(string, tag = "3")]
-    pub name: ::prost::alloc::string::String,
-    /// If true, the notification channel will be deleted regardless of its
-    /// use in alert policies (the policies will be updated to remove the
-    /// channel). If false, channels that are still referenced by an existing
-    /// alerting policy will fail to be deleted in a delete operation.
-    #[prost(bool, tag = "5")]
-    pub force: bool,
-}
-/// The `SendNotificationChannelVerificationCode` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SendNotificationChannelVerificationCodeRequest {
-    /// Required. The notification channel to which to send a verification code.
+    /// `\[SPAN_ID\]` is a unique identifier for a span within a trace; it
+    /// is a 16-character hexadecimal encoding of an 8-byte array.
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// The `GetNotificationChannelVerificationCode` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetNotificationChannelVerificationCodeRequest {
-    /// Required. The notification channel for which a verification code is to be
-    /// generated and retrieved. This must name a channel that is already verified;
-    /// if the specified channel is not verified, the request will fail.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The desired expiration time. If specified, the API will guarantee that
-    /// the returned code will not be valid after the specified timestamp;
-    /// however, the API cannot guarantee that the returned code will be
-    /// valid for at least as long as the requested time (the API puts an upper
-    /// bound on the amount of time for which a code may be valid). If omitted,
-    /// a default expiration will be used, which may be less than the max
-    /// permissible expiration (so specifying an expiration may extend the
-    /// code's lifetime over omitting an expiration, even though the API does
-    /// impose an upper limit on the maximum expiration that is permitted).
-    #[prost(message, optional, tag = "2")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// The `GetNotificationChannelVerificationCode` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetNotificationChannelVerificationCodeResponse {
-    /// The verification code, which may be used to verify other channels
-    /// that have an equivalent identity (i.e. other channels of the same
-    /// type with the same fingerprint such as other email channels with
-    /// the same email address or other sms channels with the same number).
-    #[prost(string, tag = "1")]
-    pub code: ::prost::alloc::string::String,
-    /// The expiration time associated with the code that was returned. If
-    /// an expiration was provided in the request, this is the minimum of the
-    /// requested expiration in the request and the max permitted expiration.
-    #[prost(message, optional, tag = "2")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// The `VerifyNotificationChannel` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VerifyNotificationChannelRequest {
-    /// Required. The notification channel to verify.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The verification code that was delivered to the channel as
-    /// a result of invoking the `SendNotificationChannelVerificationCode` API
-    /// method or that was retrieved from a verified channel via
-    /// `GetNotificationChannelVerificationCode`. For example, one might have
-    /// "G-123456" or "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only
-    /// guaranteed that the code is valid UTF-8; one should not
-    /// make any assumptions regarding the structure or format of the code).
-    #[prost(string, tag = "2")]
-    pub code: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod notification_channel_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// The Notification Channel API provides access to configuration that
-    /// controls how messages related to incidents are sent.
-    #[derive(Debug, Clone)]
-    pub struct NotificationChannelServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> NotificationChannelServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> NotificationChannelServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            NotificationChannelServiceClient::new(
-                InterceptedService::new(inner, interceptor),
-            )
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Lists the descriptors for supported channel types. The use of descriptors
-        /// makes it possible for new channel types to be dynamically added.
-        pub async fn list_notification_channel_descriptors(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::ListNotificationChannelDescriptorsRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::ListNotificationChannelDescriptorsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/ListNotificationChannelDescriptors",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "ListNotificationChannelDescriptors",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a single channel descriptor. The descriptor indicates which fields
-        /// are expected / permitted for a notification channel of the given type.
-        pub async fn get_notification_channel_descriptor(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::GetNotificationChannelDescriptorRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::NotificationChannelDescriptor>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannelDescriptor",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "GetNotificationChannelDescriptor",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists the notification channels that have been created for the project.
-        /// To list the types of notification channels that are supported, use
-        /// the `ListNotificationChannelDescriptors` method.
-        pub async fn list_notification_channels(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListNotificationChannelsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListNotificationChannelsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/ListNotificationChannels",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "ListNotificationChannels",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets a single notification channel. The channel includes the relevant
-        /// configuration details with which the channel was created. However, the
-        /// response may truncate or omit passwords, API keys, or other private key
-        /// matter and thus the response may not be 100% identical to the information
-        /// that was supplied in the call to the create method.
-        pub async fn get_notification_channel(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetNotificationChannelRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::NotificationChannel>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "GetNotificationChannel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new notification channel, representing a single notification
-        /// endpoint such as an email address, SMS number, or PagerDuty service.
-        ///
-        /// Design your application to single-thread API calls that modify the state of
-        /// notification channels in a single project. This includes calls to
-        /// CreateNotificationChannel, DeleteNotificationChannel and
-        /// UpdateNotificationChannel.
-        pub async fn create_notification_channel(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateNotificationChannelRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::NotificationChannel>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/CreateNotificationChannel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "CreateNotificationChannel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a notification channel. Fields not specified in the field mask
-        /// remain unchanged.
-        ///
-        /// Design your application to single-thread API calls that modify the state of
-        /// notification channels in a single project. This includes calls to
-        /// CreateNotificationChannel, DeleteNotificationChannel and
-        /// UpdateNotificationChannel.
-        pub async fn update_notification_channel(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateNotificationChannelRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::NotificationChannel>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/UpdateNotificationChannel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "UpdateNotificationChannel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a notification channel.
-        ///
-        /// Design your application to single-thread API calls that modify the state of
-        /// notification channels in a single project. This includes calls to
-        /// CreateNotificationChannel, DeleteNotificationChannel and
-        /// UpdateNotificationChannel.
-        pub async fn delete_notification_channel(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteNotificationChannelRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/DeleteNotificationChannel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "DeleteNotificationChannel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Causes a verification code to be delivered to the channel. The code
-        /// can then be supplied in `VerifyNotificationChannel` to verify the channel.
-        pub async fn send_notification_channel_verification_code(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::SendNotificationChannelVerificationCodeRequest,
-            >,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/SendNotificationChannelVerificationCode",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "SendNotificationChannelVerificationCode",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Requests a verification code for an already verified channel that can then
-        /// be used in a call to VerifyNotificationChannel() on a different channel
-        /// with an equivalent identity in the same or in a different project. This
-        /// makes it possible to copy a channel between projects without requiring
-        /// manual reverification of the channel. If the channel is not in the
-        /// verified state, this method will fail (in other words, this may only be
-        /// used if the SendNotificationChannelVerificationCode and
-        /// VerifyNotificationChannel paths have already been used to put the given
-        /// channel into the verified state).
-        ///
-        /// There is no guarantee that the verification codes returned by this method
-        /// will be of a similar structure or form as the ones that are delivered
-        /// to the channel via SendNotificationChannelVerificationCode; while
-        /// VerifyNotificationChannel() will recognize both the codes delivered via
-        /// SendNotificationChannelVerificationCode() and returned from
-        /// GetNotificationChannelVerificationCode(), it is typically the case that
-        /// the verification codes delivered via
-        /// SendNotificationChannelVerificationCode() will be shorter and also
-        /// have a shorter expiration (e.g. codes such as "G-123456") whereas
-        /// GetVerificationCode() will typically return a much longer, websafe base
-        /// 64 encoded string that has a longer expiration time.
-        pub async fn get_notification_channel_verification_code(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::GetNotificationChannelVerificationCodeRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::GetNotificationChannelVerificationCodeResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannelVerificationCode",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "GetNotificationChannelVerificationCode",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Verifies a `NotificationChannel` by proving receipt of the code
-        /// delivered to the channel as a result of calling
-        /// `SendNotificationChannelVerificationCode`.
-        pub async fn verify_notification_channel(
-            &mut self,
-            request: impl tonic::IntoRequest<super::VerifyNotificationChannelRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::NotificationChannel>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.NotificationChannelService/VerifyNotificationChannel",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.monitoring.v3.NotificationChannelService",
-                        "VerifyNotificationChannel",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
+    pub span_name: ::prost::alloc::string::String,
 }
 /// A `Service` is a discrete, autonomous, and network-accessible unit, designed
 /// to solve an individual concern
@@ -4520,55 +2490,6 @@ pub mod windows_based_sli {
         /// returned streams.
         #[prost(message, tag = "7")]
         MetricSumInRange(MetricRange),
-    }
-}
-/// A `Snooze` will prevent any alerts from being opened, and close any that
-/// are already open. The `Snooze` will work on alerts that match the
-/// criteria defined in the `Snooze`. The `Snooze` will be active from
-/// `interval.start_time` through `interval.end_time`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Snooze {
-    /// Required. The name of the `Snooze`. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
-    ///
-    /// The ID of the `Snooze` will be generated by the system.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. This defines the criteria for applying the `Snooze`. See
-    /// `Criteria` for more information.
-    #[prost(message, optional, tag = "3")]
-    pub criteria: ::core::option::Option<snooze::Criteria>,
-    /// Required. The `Snooze` will be active from `interval.start_time` through
-    /// `interval.end_time`.
-    /// `interval.start_time` cannot be in the past. There is a 15 second clock
-    /// skew to account for the time it takes for a request to reach the API from
-    /// the UI.
-    #[prost(message, optional, tag = "4")]
-    pub interval: ::core::option::Option<TimeInterval>,
-    /// Required. A display name for the `Snooze`. This can be, at most, 512
-    /// unicode characters.
-    #[prost(string, tag = "5")]
-    pub display_name: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Snooze`.
-pub mod snooze {
-    /// Criteria specific to the `AlertPolicy`s that this `Snooze` applies to. The
-    /// `Snooze` will suppress alerts that come from one of the `AlertPolicy`s
-    /// whose names are supplied.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Criteria {
-        /// The specific `AlertPolicy` names for the alert that should be snoozed.
-        /// The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/alertPolicies/\[POLICY_ID\]
-        ///
-        /// There is a limit of 16 policies per snooze. This limit is checked during
-        /// snooze creation.
-        #[prost(string, repeated, tag = "1")]
-        pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     }
 }
 /// A description of the conditions under which some aspect of your system is
@@ -5740,230 +3661,255 @@ pub mod alert_policy_service_client {
         }
     }
 }
-/// The context of a span. This is attached to an
-/// [Exemplar][google.api.Distribution.Exemplar]
-/// in [Distribution][google.api.Distribution] values during aggregation.
-///
-/// It contains the name of a span with format:
-///
-///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
+/// The `ListNotificationChannelDescriptors` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SpanContext {
-    /// The resource name of the span. The format is:
-    ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/traces/\[TRACE_ID\]/spans/\[SPAN_ID\]
-    ///
-    /// `\[TRACE_ID\]` is a unique identifier for a trace within a project;
-    /// it is a 32-character hexadecimal encoding of a 16-byte array.
-    ///
-    /// `\[SPAN_ID\]` is a unique identifier for a span within a trace; it
-    /// is a 16-character hexadecimal encoding of an 8-byte array.
-    #[prost(string, tag = "1")]
-    pub span_name: ::prost::alloc::string::String,
-}
-/// The `ListGroup` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupsRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>)
-    /// whose groups are to be listed. The format is:
+pub struct ListNotificationChannelDescriptorsRequest {
+    /// Required. The REST resource name of the parent from which to retrieve
+    /// the notification channel descriptors. The expected syntax is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "7")]
+    ///
+    /// Note that this
+    /// [names](<https://cloud.google.com/monitoring/api/v3#project_name>) the parent
+    /// container in which to look for the descriptors; to retrieve a single
+    /// descriptor by name, use the
+    /// [GetNotificationChannelDescriptor][google.monitoring.v3.NotificationChannelService.GetNotificationChannelDescriptor]
+    /// operation, instead.
+    #[prost(string, tag = "4")]
     pub name: ::prost::alloc::string::String,
-    /// A positive number that is the maximum number of results to return.
-    #[prost(int32, tag = "5")]
+    /// The maximum number of results to return in a single response. If
+    /// not set to a positive number, a reasonable value will be chosen by the
+    /// service.
+    #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// If this field is not empty then it must contain the `next_page_token` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return additional results from the previous method call.
-    #[prost(string, tag = "6")]
+    /// If non-empty, `page_token` must contain a value returned as the
+    /// `next_page_token` in a previous response to request the next set
+    /// of results.
+    #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
-    /// An optional filter consisting of a single group name.  The filters limit
-    /// the groups returned based on their parent-child relationship with the
-    /// specified group. If no filter is specified, all groups are returned.
-    #[prost(oneof = "list_groups_request::Filter", tags = "2, 3, 4")]
-    pub filter: ::core::option::Option<list_groups_request::Filter>,
 }
-/// Nested message and enum types in `ListGroupsRequest`.
-pub mod list_groups_request {
-    /// An optional filter consisting of a single group name.  The filters limit
-    /// the groups returned based on their parent-child relationship with the
-    /// specified group. If no filter is specified, all groups are returned.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Filter {
-        /// A group name. The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-        ///
-        /// Returns groups whose `parent_name` field contains the group
-        /// name.  If no groups have this parent, the results are empty.
-        #[prost(string, tag = "2")]
-        ChildrenOfGroup(::prost::alloc::string::String),
-        /// A group name. The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-        ///
-        /// Returns groups that are ancestors of the specified group.
-        /// The groups are returned in order, starting with the immediate parent and
-        /// ending with the most distant ancestor.  If the specified group has no
-        /// immediate parent, the results are empty.
-        #[prost(string, tag = "3")]
-        AncestorsOfGroup(::prost::alloc::string::String),
-        /// A group name. The format is:
-        ///
-        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-        ///
-        /// Returns the descendants of the specified group.  This is a superset of
-        /// the results returned by the `children_of_group` filter, and includes
-        /// children-of-children, and so forth.
-        #[prost(string, tag = "4")]
-        DescendantsOfGroup(::prost::alloc::string::String),
-    }
-}
-/// The `ListGroups` response.
+/// The `ListNotificationChannelDescriptors` response.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupsResponse {
-    /// The groups that match the specified filters.
+pub struct ListNotificationChannelDescriptorsResponse {
+    /// The monitored resource descriptors supported for the specified
+    /// project, optionally filtered.
     #[prost(message, repeated, tag = "1")]
-    pub group: ::prost::alloc::vec::Vec<Group>,
-    /// If there are more results than have been returned, then this field is set
-    /// to a non-empty value.  To see the additional results,
-    /// use that value as `page_token` in the next call to this method.
+    pub channel_descriptors: ::prost::alloc::vec::Vec<NotificationChannelDescriptor>,
+    /// If not empty, indicates that there may be more results that match
+    /// the request. Use the value in the `page_token` field in a
+    /// subsequent request to fetch the next set of results. If empty,
+    /// all results have been returned.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// The `GetGroup` request.
+/// The `GetNotificationChannelDescriptor` response.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetGroupRequest {
-    /// Required. The group to retrieve. The format is:
+pub struct GetNotificationChannelDescriptorRequest {
+    /// Required. The channel type for which to execute the request. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/notificationChannelDescriptors/\[CHANNEL_TYPE\]
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
 }
-/// The `CreateGroup` request.
+/// The `CreateNotificationChannel` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateGroupRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in
-    /// which to create the group. The format is:
+pub struct CreateNotificationChannelRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    #[prost(string, tag = "4")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. A group definition. It is an error to define the `name` field because
-    /// the system assigns the name.
-    #[prost(message, optional, tag = "2")]
-    pub group: ::core::option::Option<Group>,
-    /// If true, validate this request but do not create the group.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// The `UpdateGroup` request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateGroupRequest {
-    /// Required. The new definition of the group.  All fields of the existing group,
-    /// excepting `name`, are replaced with the corresponding fields of this group.
-    #[prost(message, optional, tag = "2")]
-    pub group: ::core::option::Option<Group>,
-    /// If true, validate this request but do not update the existing group.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// The `DeleteGroup` request. The default behavior is to be able to delete a
-/// single group without any descendants.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteGroupRequest {
-    /// Required. The group to delete. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    /// This names the container into which the channel will be
+    /// written, this does not name the newly created channel. The resulting
+    /// channel's name will have a normalized version of this field as a prefix,
+    /// but will add `/notificationChannels/\[CHANNEL_ID\]` to identify the channel.
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
-    /// If this field is true, then the request means to delete a group with all
-    /// its descendants. Otherwise, the request means to delete a group only when
-    /// it has no descendants. The default value is false.
-    #[prost(bool, tag = "4")]
-    pub recursive: bool,
+    /// Required. The definition of the `NotificationChannel` to create.
+    #[prost(message, optional, tag = "2")]
+    pub notification_channel: ::core::option::Option<NotificationChannel>,
 }
-/// The `ListGroupMembers` request.
+/// The `ListNotificationChannels` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupMembersRequest {
-    /// Required. The group whose members are listed. The format is:
+pub struct ListNotificationChannelsRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
-    #[prost(string, tag = "7")]
-    pub name: ::prost::alloc::string::String,
-    /// A positive number that is the maximum number of results to return.
-    #[prost(int32, tag = "3")]
-    pub page_size: i32,
-    /// If this field is not empty then it must contain the `next_page_token` value
-    /// returned by a previous call to this method.  Using this field causes the
-    /// method to return additional results from the previous method call.
-    #[prost(string, tag = "4")]
-    pub page_token: ::prost::alloc::string::String,
-    /// An optional [list
-    /// filter](<https://cloud.google.com/monitoring/api/learn_more#filtering>)
-    /// describing the members to be returned.  The filter may reference the type,
-    /// labels, and metadata of monitored resources that comprise the group. For
-    /// example, to return only resources representing Compute Engine VM instances,
-    /// use this filter:
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///
-    ///      `resource.type = "gce_instance"`
+    /// This names the container
+    /// in which to look for the notification channels; it does not name a
+    /// specific channel. To query a specific channel by REST resource name, use
+    /// the
+    /// [`GetNotificationChannel`][google.monitoring.v3.NotificationChannelService.GetNotificationChannel]
+    /// operation.
     #[prost(string, tag = "5")]
+    pub name: ::prost::alloc::string::String,
+    /// If provided, this field specifies the criteria that must be met by
+    /// notification channels to be included in the response.
+    ///
+    /// For more details, see [sorting and
+    /// filtering](<https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>).
+    #[prost(string, tag = "6")]
     pub filter: ::prost::alloc::string::String,
-    /// An optional time interval for which results should be returned. Only
-    /// members that were part of the group during the specified interval are
-    /// included in the response.  If no interval is provided then the group
-    /// membership over the last minute is returned.
-    #[prost(message, optional, tag = "6")]
-    pub interval: ::core::option::Option<TimeInterval>,
+    /// A comma-separated list of fields by which to sort the result. Supports
+    /// the same set of fields as in `filter`. Entries can be prefixed with
+    /// a minus sign to sort in descending rather than ascending order.
+    ///
+    /// For more details, see [sorting and
+    /// filtering](<https://cloud.google.com/monitoring/api/v3/sorting-and-filtering>).
+    #[prost(string, tag = "7")]
+    pub order_by: ::prost::alloc::string::String,
+    /// The maximum number of results to return in a single response. If
+    /// not set to a positive number, a reasonable value will be chosen by the
+    /// service.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// If non-empty, `page_token` must contain a value returned as the
+    /// `next_page_token` in a previous response to request the next set
+    /// of results.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
 }
-/// The `ListGroupMembers` response.
+/// The `ListNotificationChannels` response.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGroupMembersResponse {
-    /// A set of monitored resources in the group.
-    #[prost(message, repeated, tag = "1")]
-    pub members: ::prost::alloc::vec::Vec<super::super::api::MonitoredResource>,
-    /// If there are more results than have been returned, then this field is
-    /// set to a non-empty value.  To see the additional results, use that value as
-    /// `page_token` in the next call to this method.
+pub struct ListNotificationChannelsResponse {
+    /// The notification channels defined for the specified project.
+    #[prost(message, repeated, tag = "3")]
+    pub notification_channels: ::prost::alloc::vec::Vec<NotificationChannel>,
+    /// If not empty, indicates that there may be more results that match
+    /// the request. Use the value in the `page_token` field in a
+    /// subsequent request to fetch the next set of results. If empty,
+    /// all results have been returned.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
-    /// The total number of elements matching this request.
-    #[prost(int32, tag = "3")]
+    /// The total number of notification channels in all pages. This number is only
+    /// an estimate, and may change in subsequent pages. <https://aip.dev/158>
+    #[prost(int32, tag = "4")]
     pub total_size: i32,
 }
+/// The `GetNotificationChannel` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetNotificationChannelRequest {
+    /// Required. The channel for which to execute the request. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/notificationChannels/\[CHANNEL_ID\]
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The `UpdateNotificationChannel` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateNotificationChannelRequest {
+    /// The fields to update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. A description of the changes to be applied to the specified
+    /// notification channel. The description must provide a definition for
+    /// fields to be updated; the names of these fields should also be
+    /// included in the `update_mask`.
+    #[prost(message, optional, tag = "3")]
+    pub notification_channel: ::core::option::Option<NotificationChannel>,
+}
+/// The `DeleteNotificationChannel` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteNotificationChannelRequest {
+    /// Required. The channel for which to execute the request. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/notificationChannels/\[CHANNEL_ID\]
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// If true, the notification channel will be deleted regardless of its
+    /// use in alert policies (the policies will be updated to remove the
+    /// channel). If false, channels that are still referenced by an existing
+    /// alerting policy will fail to be deleted in a delete operation.
+    #[prost(bool, tag = "5")]
+    pub force: bool,
+}
+/// The `SendNotificationChannelVerificationCode` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SendNotificationChannelVerificationCodeRequest {
+    /// Required. The notification channel to which to send a verification code.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The `GetNotificationChannelVerificationCode` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetNotificationChannelVerificationCodeRequest {
+    /// Required. The notification channel for which a verification code is to be
+    /// generated and retrieved. This must name a channel that is already verified;
+    /// if the specified channel is not verified, the request will fail.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The desired expiration time. If specified, the API will guarantee that
+    /// the returned code will not be valid after the specified timestamp;
+    /// however, the API cannot guarantee that the returned code will be
+    /// valid for at least as long as the requested time (the API puts an upper
+    /// bound on the amount of time for which a code may be valid). If omitted,
+    /// a default expiration will be used, which may be less than the max
+    /// permissible expiration (so specifying an expiration may extend the
+    /// code's lifetime over omitting an expiration, even though the API does
+    /// impose an upper limit on the maximum expiration that is permitted).
+    #[prost(message, optional, tag = "2")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The `GetNotificationChannelVerificationCode` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetNotificationChannelVerificationCodeResponse {
+    /// The verification code, which may be used to verify other channels
+    /// that have an equivalent identity (i.e. other channels of the same
+    /// type with the same fingerprint such as other email channels with
+    /// the same email address or other sms channels with the same number).
+    #[prost(string, tag = "1")]
+    pub code: ::prost::alloc::string::String,
+    /// The expiration time associated with the code that was returned. If
+    /// an expiration was provided in the request, this is the minimum of the
+    /// requested expiration in the request and the max permitted expiration.
+    #[prost(message, optional, tag = "2")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// The `VerifyNotificationChannel` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VerifyNotificationChannelRequest {
+    /// Required. The notification channel to verify.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The verification code that was delivered to the channel as
+    /// a result of invoking the `SendNotificationChannelVerificationCode` API
+    /// method or that was retrieved from a verified channel via
+    /// `GetNotificationChannelVerificationCode`. For example, one might have
+    /// "G-123456" or "TKNZGhhd2EyN3I1MnRnMjRv" (in general, one is only
+    /// guaranteed that the code is valid UTF-8; one should not
+    /// make any assumptions regarding the structure or format of the code).
+    #[prost(string, tag = "2")]
+    pub code: ::prost::alloc::string::String,
+}
 /// Generated client implementations.
-pub mod group_service_client {
+pub mod notification_channel_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// The Group API lets you inspect and manage your
-    /// [groups](#google.monitoring.v3.Group).
-    ///
-    /// A group is a named filter that is used to identify
-    /// a collection of monitored resources. Groups are typically used to
-    /// mirror the physical and/or logical topology of the environment.
-    /// Because group membership is computed dynamically, monitored
-    /// resources that are started in the future are automatically placed
-    /// in matching groups. By using a group to name monitored resources in,
-    /// for example, an alert policy, the target of that alert policy is
-    /// updated automatically as monitored resources are added and removed
-    /// from the infrastructure.
+    /// The Notification Channel API provides access to configuration that
+    /// controls how messages related to incidents are sent.
     #[derive(Debug, Clone)]
-    pub struct GroupServiceClient<T> {
+    pub struct NotificationChannelServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> GroupServiceClient<T>
+    impl<T> NotificationChannelServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -5981,7 +3927,7 @@ pub mod group_service_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> GroupServiceClient<InterceptedService<T, F>>
+        ) -> NotificationChannelServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -5995,7 +3941,9 @@ pub mod group_service_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            GroupServiceClient::new(InterceptedService::new(inner, interceptor))
+            NotificationChannelServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
         }
         /// Compress requests with the given encoding.
         ///
@@ -6028,12 +3976,15 @@ pub mod group_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Lists the existing groups.
-        pub async fn list_groups(
+        /// Lists the descriptors for supported channel types. The use of descriptors
+        /// makes it possible for new channel types to be dynamically added.
+        pub async fn list_notification_channel_descriptors(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListGroupsRequest>,
+            request: impl tonic::IntoRequest<
+                super::ListNotificationChannelDescriptorsRequest,
+            >,
         ) -> std::result::Result<
-            tonic::Response<super::ListGroupsResponse>,
+            tonic::Response<super::ListNotificationChannelDescriptorsResponse>,
             tonic::Status,
         > {
             self.inner
@@ -6047,20 +3998,29 @@ pub mod group_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/ListGroups",
+                "/google.monitoring.v3.NotificationChannelService/ListNotificationChannelDescriptors",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "ListGroups"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "ListNotificationChannelDescriptors",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets a single group.
-        pub async fn get_group(
+        /// Gets a single channel descriptor. The descriptor indicates which fields
+        /// are expected / permitted for a notification channel of the given type.
+        pub async fn get_notification_channel_descriptor(
             &mut self,
-            request: impl tonic::IntoRequest<super::GetGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            request: impl tonic::IntoRequest<
+                super::GetNotificationChannelDescriptorRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<super::NotificationChannelDescriptor>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -6072,20 +4032,28 @@ pub mod group_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/GetGroup",
+                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannelDescriptor",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "GetGroup"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "GetNotificationChannelDescriptor",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Creates a new group.
-        pub async fn create_group(
+        /// Lists the notification channels that have been created for the project.
+        /// To list the types of notification channels that are supported, use
+        /// the `ListNotificationChannelDescriptors` method.
+        pub async fn list_notification_channels(
             &mut self,
-            request: impl tonic::IntoRequest<super::CreateGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::ListNotificationChannelsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListNotificationChannelsResponse>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -6097,21 +4065,30 @@ pub mod group_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/CreateGroup",
+                "/google.monitoring.v3.NotificationChannelService/ListNotificationChannels",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "CreateGroup"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "ListNotificationChannels",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Updates an existing group.
-        /// You can change any group attributes except `name`.
-        pub async fn update_group(
+        /// Gets a single notification channel. The channel includes the relevant
+        /// configuration details with which the channel was created. However, the
+        /// response may truncate or omit passwords, API keys, or other private key
+        /// matter and thus the response may not be 100% identical to the information
+        /// that was supplied in the call to the create method.
+        pub async fn get_notification_channel(
             &mut self,
-            request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
-        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::GetNotificationChannelRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::NotificationChannel>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -6123,19 +4100,101 @@ pub mod group_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/UpdateGroup",
+                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannel",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "UpdateGroup"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "GetNotificationChannel",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Deletes an existing group.
-        pub async fn delete_group(
+        /// Creates a new notification channel, representing a single notification
+        /// endpoint such as an email address, SMS number, or PagerDuty service.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// notification channels in a single project. This includes calls to
+        /// CreateNotificationChannel, DeleteNotificationChannel and
+        /// UpdateNotificationChannel.
+        pub async fn create_notification_channel(
             &mut self,
-            request: impl tonic::IntoRequest<super::DeleteGroupRequest>,
+            request: impl tonic::IntoRequest<super::CreateNotificationChannelRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::NotificationChannel>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.NotificationChannelService/CreateNotificationChannel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "CreateNotificationChannel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a notification channel. Fields not specified in the field mask
+        /// remain unchanged.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// notification channels in a single project. This includes calls to
+        /// CreateNotificationChannel, DeleteNotificationChannel and
+        /// UpdateNotificationChannel.
+        pub async fn update_notification_channel(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateNotificationChannelRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::NotificationChannel>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.NotificationChannelService/UpdateNotificationChannel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "UpdateNotificationChannel",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a notification channel.
+        ///
+        /// Design your application to single-thread API calls that modify the state of
+        /// notification channels in a single project. This includes calls to
+        /// CreateNotificationChannel, DeleteNotificationChannel and
+        /// UpdateNotificationChannel.
+        pub async fn delete_notification_channel(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteNotificationChannelRequest>,
         ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
             self.inner
                 .ready()
@@ -6148,21 +4207,77 @@ pub mod group_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/DeleteGroup",
+                "/google.monitoring.v3.NotificationChannelService/DeleteNotificationChannel",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.GroupService", "DeleteGroup"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "DeleteNotificationChannel",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists the monitored resources that are members of a group.
-        pub async fn list_group_members(
+        /// Causes a verification code to be delivered to the channel. The code
+        /// can then be supplied in `VerifyNotificationChannel` to verify the channel.
+        pub async fn send_notification_channel_verification_code(
             &mut self,
-            request: impl tonic::IntoRequest<super::ListGroupMembersRequest>,
+            request: impl tonic::IntoRequest<
+                super::SendNotificationChannelVerificationCodeRequest,
+            >,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.NotificationChannelService/SendNotificationChannelVerificationCode",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "SendNotificationChannelVerificationCode",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Requests a verification code for an already verified channel that can then
+        /// be used in a call to VerifyNotificationChannel() on a different channel
+        /// with an equivalent identity in the same or in a different project. This
+        /// makes it possible to copy a channel between projects without requiring
+        /// manual reverification of the channel. If the channel is not in the
+        /// verified state, this method will fail (in other words, this may only be
+        /// used if the SendNotificationChannelVerificationCode and
+        /// VerifyNotificationChannel paths have already been used to put the given
+        /// channel into the verified state).
+        ///
+        /// There is no guarantee that the verification codes returned by this method
+        /// will be of a similar structure or form as the ones that are delivered
+        /// to the channel via SendNotificationChannelVerificationCode; while
+        /// VerifyNotificationChannel() will recognize both the codes delivered via
+        /// SendNotificationChannelVerificationCode() and returned from
+        /// GetNotificationChannelVerificationCode(), it is typically the case that
+        /// the verification codes delivered via
+        /// SendNotificationChannelVerificationCode() will be shorter and also
+        /// have a shorter expiration (e.g. codes such as "G-123456") whereas
+        /// GetVerificationCode() will typically return a much longer, websafe base
+        /// 64 encoded string that has a longer expiration time.
+        pub async fn get_notification_channel_verification_code(
+            &mut self,
+            request: impl tonic::IntoRequest<
+                super::GetNotificationChannelVerificationCodeRequest,
+            >,
         ) -> std::result::Result<
-            tonic::Response<super::ListGroupMembersResponse>,
+            tonic::Response<super::GetNotificationChannelVerificationCodeResponse>,
             tonic::Status,
         > {
             self.inner
@@ -6176,156 +4291,1090 @@ pub mod group_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.GroupService/ListGroupMembers",
+                "/google.monitoring.v3.NotificationChannelService/GetNotificationChannelVerificationCode",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        "google.monitoring.v3.GroupService",
-                        "ListGroupMembers",
+                        "google.monitoring.v3.NotificationChannelService",
+                        "GetNotificationChannelVerificationCode",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Verifies a `NotificationChannel` by proving receipt of the code
+        /// delivered to the channel as a result of calling
+        /// `SendNotificationChannelVerificationCode`.
+        pub async fn verify_notification_channel(
+            &mut self,
+            request: impl tonic::IntoRequest<super::VerifyNotificationChannelRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::NotificationChannel>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.NotificationChannelService/VerifyNotificationChannel",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.NotificationChannelService",
+                        "VerifyNotificationChannel",
                     ),
                 );
             self.inner.unary(req, path, codec).await
         }
     }
 }
-/// The message definition for creating a `Snooze`. Users must provide the body
-/// of the `Snooze` to be created but must omit the `Snooze` field, `name`.
+/// An internal checker allows Uptime checks to run on private/internal GCP
+/// resources.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateSnoozeRequest {
-    /// Required. The
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
-    /// a `Snooze` should be created. The format is:
+pub struct InternalChecker {
+    /// A unique resource name for this InternalChecker. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/internalCheckers/\[INTERNAL_CHECKER_ID\]
+    ///
+    /// `\[PROJECT_ID_OR_NUMBER\]` is the Cloud Monitoring Metrics Scope project for
+    /// the Uptime check config associated with the internal checker.
     #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The `Snooze` to create. Omit the `name` field, as it will be
-    /// filled in by the API.
-    #[prost(message, optional, tag = "2")]
-    pub snooze: ::core::option::Option<Snooze>,
+    pub name: ::prost::alloc::string::String,
+    /// The checker's human-readable name. The display name
+    /// should be unique within a Cloud Monitoring Metrics Scope in order to make
+    /// it easier to identify; however, uniqueness is not enforced.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The [GCP VPC network](<https://cloud.google.com/vpc/docs/vpc>) where the
+    /// internal resource lives (ex: "default").
+    #[prost(string, tag = "3")]
+    pub network: ::prost::alloc::string::String,
+    /// The GCP zone the Uptime check should egress from. Only respected for
+    /// internal Uptime checks, where internal_network is specified.
+    #[prost(string, tag = "4")]
+    pub gcp_zone: ::prost::alloc::string::String,
+    /// The GCP project ID where the internal checker lives. Not necessary
+    /// the same as the Metrics Scope project.
+    #[prost(string, tag = "6")]
+    pub peer_project_id: ::prost::alloc::string::String,
+    /// The current operational state of the internal checker.
+    #[prost(enumeration = "internal_checker::State", tag = "7")]
+    pub state: i32,
 }
-/// The message definition for listing `Snooze`s associated with the given
-/// `parent`, satisfying the optional `filter`.
+/// Nested message and enum types in `InternalChecker`.
+pub mod internal_checker {
+    /// Operational states for an internal checker.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// An internal checker should never be in the unspecified state.
+        Unspecified = 0,
+        /// The checker is being created, provisioned, and configured. A checker in
+        /// this state can be returned by `ListInternalCheckers` or
+        /// `GetInternalChecker`, as well as by examining the [long running
+        /// Operation](<https://cloud.google.com/apis/design/design_patterns#long_running_operations>)
+        /// that created it.
+        Creating = 1,
+        /// The checker is running and available for use. A checker in this state
+        /// can be returned by `ListInternalCheckers` or `GetInternalChecker` as
+        /// well as by examining the [long running
+        /// Operation](<https://cloud.google.com/apis/design/design_patterns#long_running_operations>)
+        /// that created it.
+        /// If a checker is being torn down, it is neither visible nor usable, so
+        /// there is no "deleting" or "down" state.
+        Running = 2,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Running => "RUNNING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "RUNNING" => Some(Self::Running),
+                _ => None,
+            }
+        }
+    }
+}
+/// This message configures which resources and services to monitor for
+/// availability.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnoozesRequest {
+pub struct UptimeCheckConfig {
+    /// A unique resource name for this Uptime check configuration. The format is:
+    ///
+    ///       projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
+    ///
+    /// `\[PROJECT_ID_OR_NUMBER\]` is the Workspace host project associated with the
+    /// Uptime check.
+    ///
+    /// This field should be omitted when creating the Uptime check configuration;
+    /// on create, the resource name is assigned by the server and included in the
+    /// response.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// A human-friendly name for the Uptime check configuration. The display name
+    /// should be unique within a Cloud Monitoring Workspace in order to make it
+    /// easier to identify; however, uniqueness is not enforced. Required.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// How often, in seconds, the Uptime check is performed.
+    /// Currently, the only supported values are `60s` (1 minute), `300s`
+    /// (5 minutes), `600s` (10 minutes), and `900s` (15 minutes). Optional,
+    /// defaults to `60s`.
+    #[prost(message, optional, tag = "7")]
+    pub period: ::core::option::Option<::prost_types::Duration>,
+    /// The maximum amount of time to wait for the request to complete (must be
+    /// between 1 and 60 seconds). Required.
+    #[prost(message, optional, tag = "8")]
+    pub timeout: ::core::option::Option<::prost_types::Duration>,
+    /// The content that is expected to appear in the data returned by the target
+    /// server against which the check is run.  Currently, only the first entry
+    /// in the `content_matchers` list is supported, and additional entries will
+    /// be ignored. This field is optional and should only be specified if a
+    /// content match is required as part of the/ Uptime check.
+    #[prost(message, repeated, tag = "9")]
+    pub content_matchers: ::prost::alloc::vec::Vec<uptime_check_config::ContentMatcher>,
+    /// The type of checkers to use to execute the Uptime check.
+    #[prost(enumeration = "uptime_check_config::CheckerType", tag = "17")]
+    pub checker_type: i32,
+    /// The list of regions from which the check will be run.
+    /// Some regions contain one location, and others contain more than one.
+    /// If this field is specified, enough regions must be provided to include a
+    /// minimum of 3 locations.  Not specifying this field will result in Uptime
+    /// checks running from all available regions.
+    #[prost(enumeration = "UptimeCheckRegion", repeated, tag = "10")]
+    pub selected_regions: ::prost::alloc::vec::Vec<i32>,
+    /// If this is `true`, then checks are made only from the 'internal_checkers'.
+    /// If it is `false`, then checks are made only from the 'selected_regions'.
+    /// It is an error to provide 'selected_regions' when is_internal is `true`,
+    /// or to provide 'internal_checkers' when is_internal is `false`.
+    #[deprecated]
+    #[prost(bool, tag = "15")]
+    pub is_internal: bool,
+    /// The internal checkers that this check will egress from. If `is_internal` is
+    /// `true` and this list is empty, the check will egress from all the
+    /// InternalCheckers configured for the project that owns this
+    /// `UptimeCheckConfig`.
+    #[deprecated]
+    #[prost(message, repeated, tag = "14")]
+    pub internal_checkers: ::prost::alloc::vec::Vec<InternalChecker>,
+    /// User-supplied key/value data to be used for organizing and
+    /// identifying the `UptimeCheckConfig` objects.
+    ///
+    /// The field can contain up to 64 entries. Each key and value is limited to
+    /// 63 Unicode characters or 128 bytes, whichever is smaller. Labels and
+    /// values can contain only lowercase letters, numerals, underscores, and
+    /// dashes. Keys must begin with a letter.
+    #[prost(btree_map = "string, string", tag = "20")]
+    pub user_labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// The resource the check is checking. Required.
+    #[prost(oneof = "uptime_check_config::Resource", tags = "3, 4")]
+    pub resource: ::core::option::Option<uptime_check_config::Resource>,
+    /// The type of Uptime check request.
+    #[prost(oneof = "uptime_check_config::CheckRequestType", tags = "5, 6")]
+    pub check_request_type: ::core::option::Option<
+        uptime_check_config::CheckRequestType,
+    >,
+}
+/// Nested message and enum types in `UptimeCheckConfig`.
+pub mod uptime_check_config {
+    /// The resource submessage for group checks. It can be used instead of a
+    /// monitored resource, when multiple resources are being monitored.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ResourceGroup {
+        /// The group of resources being monitored. Should be only the `\[GROUP_ID\]`,
+        /// and not the full-path
+        /// `projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]`.
+        #[prost(string, tag = "1")]
+        pub group_id: ::prost::alloc::string::String,
+        /// The resource type of the group members.
+        #[prost(enumeration = "super::GroupResourceType", tag = "2")]
+        pub resource_type: i32,
+    }
+    /// Information involved in sending ICMP pings alongside public HTTP/TCP
+    /// checks. For HTTP, the pings are performed for each part of the redirect
+    /// chain.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PingConfig {
+        /// Number of ICMP pings. A maximum of 3 ICMP pings is currently supported.
+        #[prost(int32, tag = "1")]
+        pub pings_count: i32,
+    }
+    /// Information involved in an HTTP/HTTPS Uptime check request.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct HttpCheck {
+        /// The HTTP request method to use for the check. If set to
+        /// `METHOD_UNSPECIFIED` then `request_method` defaults to `GET`.
+        #[prost(enumeration = "http_check::RequestMethod", tag = "8")]
+        pub request_method: i32,
+        /// If `true`, use HTTPS instead of HTTP to run the check.
+        #[prost(bool, tag = "1")]
+        pub use_ssl: bool,
+        /// Optional (defaults to "/"). The path to the page against which to run
+        /// the check. Will be combined with the `host` (specified within the
+        /// `monitored_resource`) and `port` to construct the full URL. If the
+        /// provided path does not begin with "/", a "/" will be prepended
+        /// automatically.
+        #[prost(string, tag = "2")]
+        pub path: ::prost::alloc::string::String,
+        /// Optional (defaults to 80 when `use_ssl` is `false`, and 443 when
+        /// `use_ssl` is `true`). The TCP port on the HTTP server against which to
+        /// run the check. Will be combined with host (specified within the
+        /// `monitored_resource`) and `path` to construct the full URL.
+        #[prost(int32, tag = "3")]
+        pub port: i32,
+        /// The authentication information. Optional when creating an HTTP check;
+        /// defaults to empty.
+        #[prost(message, optional, tag = "4")]
+        pub auth_info: ::core::option::Option<http_check::BasicAuthentication>,
+        /// Boolean specifying whether to encrypt the header information.
+        /// Encryption should be specified for any headers related to authentication
+        /// that you do not wish to be seen when retrieving the configuration. The
+        /// server will be responsible for encrypting the headers.
+        /// On Get/List calls, if `mask_headers` is set to `true` then the headers
+        /// will be obscured with `******.`
+        #[prost(bool, tag = "5")]
+        pub mask_headers: bool,
+        /// The list of headers to send as part of the Uptime check request.
+        /// If two headers have the same key and different values, they should
+        /// be entered as a single header, with the value being a comma-separated
+        /// list of all the desired values as described at
+        /// <https://www.w3.org/Protocols/rfc2616/rfc2616.txt> (page 31).
+        /// Entering two separate headers with the same key in a Create call will
+        /// cause the first to be overwritten by the second.
+        /// The maximum number of headers allowed is 100.
+        #[prost(btree_map = "string, string", tag = "6")]
+        pub headers: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            ::prost::alloc::string::String,
+        >,
+        /// The content type header to use for the check. The following
+        /// configurations result in errors:
+        /// 1. Content type is specified in both the `headers` field and the
+        /// `content_type` field.
+        /// 2. Request method is `GET` and `content_type` is not `TYPE_UNSPECIFIED`
+        /// 3. Request method is `POST` and `content_type` is `TYPE_UNSPECIFIED`.
+        /// 4. Request method is `POST` and a "Content-Type" header is provided via
+        /// `headers` field. The `content_type` field should be used instead.
+        #[prost(enumeration = "http_check::ContentType", tag = "9")]
+        pub content_type: i32,
+        /// A user provided content type header to use for the check. The invalid
+        /// configurations outlined in the `content_type` field apply to
+        /// `custom_content_type`, as well as the following:
+        /// 1. `content_type` is `URL_ENCODED` and `custom_content_type` is set.
+        /// 2. `content_type` is `USER_PROVIDED` and `custom_content_type` is not
+        /// set.
+        #[prost(string, tag = "13")]
+        pub custom_content_type: ::prost::alloc::string::String,
+        /// Boolean specifying whether to include SSL certificate validation as a
+        /// part of the Uptime check. Only applies to checks where
+        /// `monitored_resource` is set to `uptime_url`. If `use_ssl` is `false`,
+        /// setting `validate_ssl` to `true` has no effect.
+        #[prost(bool, tag = "7")]
+        pub validate_ssl: bool,
+        /// The request body associated with the HTTP POST request. If `content_type`
+        /// is `URL_ENCODED`, the body passed in must be URL-encoded. Users can
+        /// provide a `Content-Length` header via the `headers` field or the API will
+        /// do so. If the `request_method` is `GET` and `body` is not empty, the API
+        /// will return an error. The maximum byte size is 1 megabyte.
+        ///
+        /// Note: If client libraries aren't used (which performs the conversion
+        /// automatically) base64 encode your `body` data since the field is of
+        /// `bytes` type.
+        #[prost(bytes = "bytes", tag = "10")]
+        pub body: ::prost::bytes::Bytes,
+        /// If present, the check will only pass if the HTTP response status code is
+        /// in this set of status codes. If empty, the HTTP status code will only
+        /// pass if the HTTP status code is 200-299.
+        #[prost(message, repeated, tag = "11")]
+        pub accepted_response_status_codes: ::prost::alloc::vec::Vec<
+            http_check::ResponseStatusCode,
+        >,
+        /// Contains information needed to add pings to an HTTP check.
+        #[prost(message, optional, tag = "12")]
+        pub ping_config: ::core::option::Option<PingConfig>,
+    }
+    /// Nested message and enum types in `HttpCheck`.
+    pub mod http_check {
+        /// The authentication parameters to provide to the specified resource or
+        /// URL that requires a username and password. Currently, only
+        /// [Basic HTTP authentication](<https://tools.ietf.org/html/rfc7617>) is
+        /// supported in Uptime checks.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct BasicAuthentication {
+            /// The username to use when authenticating with the HTTP server.
+            #[prost(string, tag = "1")]
+            pub username: ::prost::alloc::string::String,
+            /// The password to use when authenticating with the HTTP server.
+            #[prost(string, tag = "2")]
+            pub password: ::prost::alloc::string::String,
+        }
+        /// A status to accept. Either a status code class like "2xx", or an integer
+        /// status code like "200".
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ResponseStatusCode {
+            /// Either a specific value or a class of status codes.
+            #[prost(oneof = "response_status_code::StatusCode", tags = "1, 2")]
+            pub status_code: ::core::option::Option<response_status_code::StatusCode>,
+        }
+        /// Nested message and enum types in `ResponseStatusCode`.
+        pub mod response_status_code {
+            /// An HTTP status code class.
+            #[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            pub enum StatusClass {
+                /// Default value that matches no status codes.
+                Unspecified = 0,
+                /// The class of status codes between 100 and 199.
+                StatusClass1xx = 100,
+                /// The class of status codes between 200 and 299.
+                StatusClass2xx = 200,
+                /// The class of status codes between 300 and 399.
+                StatusClass3xx = 300,
+                /// The class of status codes between 400 and 499.
+                StatusClass4xx = 400,
+                /// The class of status codes between 500 and 599.
+                StatusClass5xx = 500,
+                /// The class of all status codes.
+                Any = 1000,
+            }
+            impl StatusClass {
+                /// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                pub fn as_str_name(&self) -> &'static str {
+                    match self {
+                        StatusClass::Unspecified => "STATUS_CLASS_UNSPECIFIED",
+                        StatusClass::StatusClass1xx => "STATUS_CLASS_1XX",
+                        StatusClass::StatusClass2xx => "STATUS_CLASS_2XX",
+                        StatusClass::StatusClass3xx => "STATUS_CLASS_3XX",
+                        StatusClass::StatusClass4xx => "STATUS_CLASS_4XX",
+                        StatusClass::StatusClass5xx => "STATUS_CLASS_5XX",
+                        StatusClass::Any => "STATUS_CLASS_ANY",
+                    }
+                }
+                /// Creates an enum from field names used in the ProtoBuf definition.
+                pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                    match value {
+                        "STATUS_CLASS_UNSPECIFIED" => Some(Self::Unspecified),
+                        "STATUS_CLASS_1XX" => Some(Self::StatusClass1xx),
+                        "STATUS_CLASS_2XX" => Some(Self::StatusClass2xx),
+                        "STATUS_CLASS_3XX" => Some(Self::StatusClass3xx),
+                        "STATUS_CLASS_4XX" => Some(Self::StatusClass4xx),
+                        "STATUS_CLASS_5XX" => Some(Self::StatusClass5xx),
+                        "STATUS_CLASS_ANY" => Some(Self::Any),
+                        _ => None,
+                    }
+                }
+            }
+            /// Either a specific value or a class of status codes.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum StatusCode {
+                /// A status code to accept.
+                #[prost(int32, tag = "1")]
+                StatusValue(i32),
+                /// A class of status codes to accept.
+                #[prost(enumeration = "StatusClass", tag = "2")]
+                StatusClass(i32),
+            }
+        }
+        /// The HTTP request method options.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum RequestMethod {
+            /// No request method specified.
+            MethodUnspecified = 0,
+            /// GET request.
+            Get = 1,
+            /// POST request.
+            Post = 2,
+        }
+        impl RequestMethod {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    RequestMethod::MethodUnspecified => "METHOD_UNSPECIFIED",
+                    RequestMethod::Get => "GET",
+                    RequestMethod::Post => "POST",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "METHOD_UNSPECIFIED" => Some(Self::MethodUnspecified),
+                    "GET" => Some(Self::Get),
+                    "POST" => Some(Self::Post),
+                    _ => None,
+                }
+            }
+        }
+        /// Header options corresponding to the content type of a HTTP request body.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum ContentType {
+            /// No content type specified.
+            TypeUnspecified = 0,
+            /// `body` is in URL-encoded form. Equivalent to setting the `Content-Type`
+            /// to `application/x-www-form-urlencoded` in the HTTP request.
+            UrlEncoded = 1,
+            /// `body` is in `custom_content_type` form. Equivalent to setting the
+            /// `Content-Type` to the contents of `custom_content_type` in the HTTP
+            /// request.
+            UserProvided = 2,
+        }
+        impl ContentType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    ContentType::TypeUnspecified => "TYPE_UNSPECIFIED",
+                    ContentType::UrlEncoded => "URL_ENCODED",
+                    ContentType::UserProvided => "USER_PROVIDED",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "TYPE_UNSPECIFIED" => Some(Self::TypeUnspecified),
+                    "URL_ENCODED" => Some(Self::UrlEncoded),
+                    "USER_PROVIDED" => Some(Self::UserProvided),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Information required for a TCP Uptime check request.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TcpCheck {
+        /// The TCP port on the server against which to run the check. Will be
+        /// combined with host (specified within the `monitored_resource`) to
+        /// construct the full URL. Required.
+        #[prost(int32, tag = "1")]
+        pub port: i32,
+        /// Contains information needed to add pings to a TCP check.
+        #[prost(message, optional, tag = "2")]
+        pub ping_config: ::core::option::Option<PingConfig>,
+    }
+    /// Optional. Used to perform content matching. This allows matching based on
+    /// substrings and regular expressions, together with their negations. Only the
+    /// first 4&nbsp;MB of an HTTP or HTTPS check's response (and the first
+    /// 1&nbsp;MB of a TCP check's response) are examined for purposes of content
+    /// matching.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ContentMatcher {
+        /// String, regex or JSON content to match. Maximum 1024 bytes. An empty
+        /// `content` string indicates no content matching is to be performed.
+        #[prost(string, tag = "1")]
+        pub content: ::prost::alloc::string::String,
+        /// The type of content matcher that will be applied to the server output,
+        /// compared to the `content` string when the check is run.
+        #[prost(enumeration = "content_matcher::ContentMatcherOption", tag = "2")]
+        pub matcher: i32,
+        /// Certain `ContentMatcherOption` types require additional information.
+        /// `MATCHES_JSON_PATH` or `NOT_MATCHES_JSON_PATH` require a
+        /// `JsonPathMatcher`; not used for other options.
+        #[prost(oneof = "content_matcher::AdditionalMatcherInfo", tags = "3")]
+        pub additional_matcher_info: ::core::option::Option<
+            content_matcher::AdditionalMatcherInfo,
+        >,
+    }
+    /// Nested message and enum types in `ContentMatcher`.
+    pub mod content_matcher {
+        /// Information needed to perform a JSONPath content match.
+        /// Used for `ContentMatcherOption::MATCHES_JSON_PATH` and
+        /// `ContentMatcherOption::NOT_MATCHES_JSON_PATH`.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct JsonPathMatcher {
+            /// JSONPath within the response output pointing to the expected
+            /// `ContentMatcher::content` to match against.
+            #[prost(string, tag = "1")]
+            pub json_path: ::prost::alloc::string::String,
+            /// The type of JSONPath match that will be applied to the JSON output
+            /// (`ContentMatcher.content`)
+            #[prost(enumeration = "json_path_matcher::JsonPathMatcherOption", tag = "2")]
+            pub json_matcher: i32,
+        }
+        /// Nested message and enum types in `JsonPathMatcher`.
+        pub mod json_path_matcher {
+            /// Options to perform JSONPath content matching.
+            #[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            pub enum JsonPathMatcherOption {
+                /// No JSONPath matcher type specified (not valid).
+                Unspecified = 0,
+                /// Selects 'exact string' matching. The match succeeds if the content at
+                /// the `json_path` within the output is exactly the same as the
+                /// `content` string.
+                ExactMatch = 1,
+                /// Selects regular-expression matching. The match succeeds if the
+                /// content at the `json_path` within the output matches the regular
+                /// expression specified in the `content` string.
+                RegexMatch = 2,
+            }
+            impl JsonPathMatcherOption {
+                /// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                pub fn as_str_name(&self) -> &'static str {
+                    match self {
+                        JsonPathMatcherOption::Unspecified => {
+                            "JSON_PATH_MATCHER_OPTION_UNSPECIFIED"
+                        }
+                        JsonPathMatcherOption::ExactMatch => "EXACT_MATCH",
+                        JsonPathMatcherOption::RegexMatch => "REGEX_MATCH",
+                    }
+                }
+                /// Creates an enum from field names used in the ProtoBuf definition.
+                pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                    match value {
+                        "JSON_PATH_MATCHER_OPTION_UNSPECIFIED" => Some(Self::Unspecified),
+                        "EXACT_MATCH" => Some(Self::ExactMatch),
+                        "REGEX_MATCH" => Some(Self::RegexMatch),
+                        _ => None,
+                    }
+                }
+            }
+        }
+        /// Options to perform content matching.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum ContentMatcherOption {
+            /// No content matcher type specified (maintained for backward
+            /// compatibility, but deprecated for future use).
+            /// Treated as `CONTAINS_STRING`.
+            Unspecified = 0,
+            /// Selects substring matching. The match succeeds if the output contains
+            /// the `content` string.  This is the default value for checks without
+            /// a `matcher` option, or where the value of `matcher` is
+            /// `CONTENT_MATCHER_OPTION_UNSPECIFIED`.
+            ContainsString = 1,
+            /// Selects negation of substring matching. The match succeeds if the
+            /// output does _NOT_ contain the `content` string.
+            NotContainsString = 2,
+            /// Selects regular-expression matching. The match succeeds if the output
+            /// matches the regular expression specified in the `content` string.
+            /// Regex matching is only supported for HTTP/HTTPS checks.
+            MatchesRegex = 3,
+            /// Selects negation of regular-expression matching. The match succeeds if
+            /// the output does _NOT_ match the regular expression specified in the
+            /// `content` string. Regex matching is only supported for HTTP/HTTPS
+            /// checks.
+            NotMatchesRegex = 4,
+            /// Selects JSONPath matching. See `JsonPathMatcher` for details on when
+            /// the match succeeds. JSONPath matching is only supported for HTTP/HTTPS
+            /// checks.
+            MatchesJsonPath = 5,
+            /// Selects JSONPath matching. See `JsonPathMatcher` for details on when
+            /// the match succeeds. Succeeds when output does _NOT_ match as specified.
+            /// JSONPath is only supported for HTTP/HTTPS checks.
+            NotMatchesJsonPath = 6,
+        }
+        impl ContentMatcherOption {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    ContentMatcherOption::Unspecified => {
+                        "CONTENT_MATCHER_OPTION_UNSPECIFIED"
+                    }
+                    ContentMatcherOption::ContainsString => "CONTAINS_STRING",
+                    ContentMatcherOption::NotContainsString => "NOT_CONTAINS_STRING",
+                    ContentMatcherOption::MatchesRegex => "MATCHES_REGEX",
+                    ContentMatcherOption::NotMatchesRegex => "NOT_MATCHES_REGEX",
+                    ContentMatcherOption::MatchesJsonPath => "MATCHES_JSON_PATH",
+                    ContentMatcherOption::NotMatchesJsonPath => "NOT_MATCHES_JSON_PATH",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "CONTENT_MATCHER_OPTION_UNSPECIFIED" => Some(Self::Unspecified),
+                    "CONTAINS_STRING" => Some(Self::ContainsString),
+                    "NOT_CONTAINS_STRING" => Some(Self::NotContainsString),
+                    "MATCHES_REGEX" => Some(Self::MatchesRegex),
+                    "NOT_MATCHES_REGEX" => Some(Self::NotMatchesRegex),
+                    "MATCHES_JSON_PATH" => Some(Self::MatchesJsonPath),
+                    "NOT_MATCHES_JSON_PATH" => Some(Self::NotMatchesJsonPath),
+                    _ => None,
+                }
+            }
+        }
+        /// Certain `ContentMatcherOption` types require additional information.
+        /// `MATCHES_JSON_PATH` or `NOT_MATCHES_JSON_PATH` require a
+        /// `JsonPathMatcher`; not used for other options.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum AdditionalMatcherInfo {
+            /// Matcher information for `MATCHES_JSON_PATH` and `NOT_MATCHES_JSON_PATH`
+            #[prost(message, tag = "3")]
+            JsonPathMatcher(JsonPathMatcher),
+        }
+    }
+    /// What kind of checkers are available to be used by the check.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum CheckerType {
+        /// The default checker type. Currently converted to `STATIC_IP_CHECKERS`
+        /// on creation, the default conversion behavior may change in the future.
+        Unspecified = 0,
+        /// `STATIC_IP_CHECKERS` are used for uptime checks that perform egress
+        /// across the public internet. `STATIC_IP_CHECKERS` use the static IP
+        /// addresses returned by `ListUptimeCheckIps`.
+        StaticIpCheckers = 1,
+        /// `VPC_CHECKERS` are used for uptime checks that perform egress using
+        /// Service Directory and private network access. When using `VPC_CHECKERS`,
+        /// the monitored resource type must be `servicedirectory_service`.
+        VpcCheckers = 3,
+    }
+    impl CheckerType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                CheckerType::Unspecified => "CHECKER_TYPE_UNSPECIFIED",
+                CheckerType::StaticIpCheckers => "STATIC_IP_CHECKERS",
+                CheckerType::VpcCheckers => "VPC_CHECKERS",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CHECKER_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STATIC_IP_CHECKERS" => Some(Self::StaticIpCheckers),
+                "VPC_CHECKERS" => Some(Self::VpcCheckers),
+                _ => None,
+            }
+        }
+    }
+    /// The resource the check is checking. Required.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Resource {
+        /// The [monitored
+        /// resource](<https://cloud.google.com/monitoring/api/resources>) associated
+        /// with the configuration.
+        /// The following monitored resource types are valid for this field:
+        ///    `uptime_url`,
+        ///    `gce_instance`,
+        ///    `gae_app`,
+        ///    `aws_ec2_instance`,
+        ///    `aws_elb_load_balancer`
+        ///    `k8s_service`
+        ///    `servicedirectory_service`
+        ///    `cloud_run_revision`
+        #[prost(message, tag = "3")]
+        MonitoredResource(super::super::super::api::MonitoredResource),
+        /// The group resource associated with the configuration.
+        #[prost(message, tag = "4")]
+        ResourceGroup(ResourceGroup),
+    }
+    /// The type of Uptime check request.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum CheckRequestType {
+        /// Contains information needed to make an HTTP or HTTPS check.
+        #[prost(message, tag = "5")]
+        HttpCheck(HttpCheck),
+        /// Contains information needed to make a TCP check.
+        #[prost(message, tag = "6")]
+        TcpCheck(TcpCheck),
+    }
+}
+/// Contains the region, location, and list of IP
+/// addresses where checkers in the location run from.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UptimeCheckIp {
+    /// A broad region category in which the IP address is located.
+    #[prost(enumeration = "UptimeCheckRegion", tag = "1")]
+    pub region: i32,
+    /// A more specific location within the region that typically encodes
+    /// a particular city/town/metro (and its containing state/province or country)
+    /// within the broader umbrella region category.
+    #[prost(string, tag = "2")]
+    pub location: ::prost::alloc::string::String,
+    /// The IP address from which the Uptime check originates. This is a fully
+    /// specified IP address (not an IP address range). Most IP addresses, as of
+    /// this publication, are in IPv4 format; however, one should not rely on the
+    /// IP addresses being in IPv4 format indefinitely, and should support
+    /// interpreting this field in either IPv4 or IPv6 format.
+    #[prost(string, tag = "3")]
+    pub ip_address: ::prost::alloc::string::String,
+}
+/// The regions from which an Uptime check can be run.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum UptimeCheckRegion {
+    /// Default value if no region is specified. Will result in Uptime checks
+    /// running from all regions.
+    RegionUnspecified = 0,
+    /// Allows checks to run from locations within the United States of America.
+    Usa = 1,
+    /// Allows checks to run from locations within the continent of Europe.
+    Europe = 2,
+    /// Allows checks to run from locations within the continent of South
+    /// America.
+    SouthAmerica = 3,
+    /// Allows checks to run from locations within the Asia Pacific area (ex:
+    /// Singapore).
+    AsiaPacific = 4,
+    /// Allows checks to run from locations within the western United States of
+    /// America
+    UsaOregon = 5,
+    /// Allows checks to run from locations within the central United States of
+    /// America
+    UsaIowa = 6,
+    /// Allows checks to run from locations within the eastern United States of
+    /// America
+    UsaVirginia = 7,
+}
+impl UptimeCheckRegion {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            UptimeCheckRegion::RegionUnspecified => "REGION_UNSPECIFIED",
+            UptimeCheckRegion::Usa => "USA",
+            UptimeCheckRegion::Europe => "EUROPE",
+            UptimeCheckRegion::SouthAmerica => "SOUTH_AMERICA",
+            UptimeCheckRegion::AsiaPacific => "ASIA_PACIFIC",
+            UptimeCheckRegion::UsaOregon => "USA_OREGON",
+            UptimeCheckRegion::UsaIowa => "USA_IOWA",
+            UptimeCheckRegion::UsaVirginia => "USA_VIRGINIA",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "REGION_UNSPECIFIED" => Some(Self::RegionUnspecified),
+            "USA" => Some(Self::Usa),
+            "EUROPE" => Some(Self::Europe),
+            "SOUTH_AMERICA" => Some(Self::SouthAmerica),
+            "ASIA_PACIFIC" => Some(Self::AsiaPacific),
+            "USA_OREGON" => Some(Self::UsaOregon),
+            "USA_IOWA" => Some(Self::UsaIowa),
+            "USA_VIRGINIA" => Some(Self::UsaVirginia),
+            _ => None,
+        }
+    }
+}
+/// The supported resource types that can be used as values of
+/// `group_resource.resource_type`.
+/// `INSTANCE` includes `gce_instance` and `aws_ec2_instance` resource types.
+/// The resource types `gae_app` and `uptime_url` are not valid here because
+/// group checks on App Engine modules and URLs are not allowed.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum GroupResourceType {
+    /// Default value (not valid).
+    ResourceTypeUnspecified = 0,
+    /// A group of instances from Google Cloud Platform (GCP) or
+    /// Amazon Web Services (AWS).
+    Instance = 1,
+    /// A group of Amazon ELB load balancers.
+    AwsElbLoadBalancer = 2,
+}
+impl GroupResourceType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            GroupResourceType::ResourceTypeUnspecified => "RESOURCE_TYPE_UNSPECIFIED",
+            GroupResourceType::Instance => "INSTANCE",
+            GroupResourceType::AwsElbLoadBalancer => "AWS_ELB_LOAD_BALANCER",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "RESOURCE_TYPE_UNSPECIFIED" => Some(Self::ResourceTypeUnspecified),
+            "INSTANCE" => Some(Self::Instance),
+            "AWS_ELB_LOAD_BALANCER" => Some(Self::AwsElbLoadBalancer),
+            _ => None,
+        }
+    }
+}
+/// The protocol for the `ListUptimeCheckConfigs` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListUptimeCheckConfigsRequest {
     /// Required. The
     /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
-    /// `Snooze`s should be listed. The format is:
+    /// Uptime check configurations are listed. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Optional. Optional filter to restrict results to the given criteria. The
-    /// following fields are supported.
+    /// If provided, this field specifies the criteria that must be met by
+    /// uptime checks to be included in the response.
     ///
-    ///    * `interval.start_time`
-    ///    * `interval.end_time`
-    ///
-    /// For example:
-    ///
-    ///      ```
-    ///      interval.start_time > "2022-03-11T00:00:00-08:00" AND
-    ///          interval.end_time < "2022-03-12T00:00:00-08:00"
-    ///      ```
+    /// For more details, see [Filtering
+    /// syntax](<https://cloud.google.com/monitoring/api/v3/sorting-and-filtering#filter_syntax>).
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
-    /// Optional. The maximum number of results to return for a single query. The
-    /// server may further constrain the maximum number of results returned in a
-    /// single page. The value should be in the range \[1, 1000\]. If the value given
-    /// is outside this range, the server will decide the number of results to be
-    /// returned.
-    #[prost(int32, tag = "4")]
+    /// The maximum number of results to return in a single response. The server
+    /// may further constrain the maximum number of results returned in a single
+    /// page. If the page_size is <=0, the server will decide the number of results
+    /// to be returned.
+    #[prost(int32, tag = "3")]
     pub page_size: i32,
-    /// Optional. The `next_page_token` from a previous call to
-    /// `ListSnoozesRequest` to get the next page of results.
-    #[prost(string, tag = "5")]
+    /// If this field is not empty then it must contain the `nextPageToken` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return more results from the previous method call.
+    #[prost(string, tag = "4")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// The results of a successful `ListSnoozes` call, containing the matching
-/// `Snooze`s.
+/// The protocol for the `ListUptimeCheckConfigs` response.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnoozesResponse {
-    /// `Snooze`s matching this list call.
+pub struct ListUptimeCheckConfigsResponse {
+    /// The returned Uptime check configurations.
     #[prost(message, repeated, tag = "1")]
-    pub snoozes: ::prost::alloc::vec::Vec<Snooze>,
-    /// Page token for repeated calls to `ListSnoozes`, to fetch additional pages
-    /// of results. If this is empty or missing, there are no more pages.
+    pub uptime_check_configs: ::prost::alloc::vec::Vec<UptimeCheckConfig>,
+    /// This field represents the pagination token to retrieve the next page of
+    /// results. If the value is empty, it means no further results for the
+    /// request. To retrieve the next page of results, the value of the
+    /// next_page_token is passed to the subsequent List method call (in the
+    /// request message's page_token field).
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
+    /// The total number of Uptime check configurations for the project,
+    /// irrespective of any pagination.
+    #[prost(int32, tag = "3")]
+    pub total_size: i32,
 }
-/// The message definition for retrieving a `Snooze`. Users must specify the
-/// field, `name`, which identifies the `Snooze`.
+/// The protocol for the `GetUptimeCheckConfig` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetSnoozeRequest {
-    /// Required. The ID of the `Snooze` to retrieve. The format is:
+pub struct GetUptimeCheckConfigRequest {
+    /// Required. The Uptime check configuration to retrieve. The format is:
     ///
-    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// The message definition for updating a `Snooze`. The field, `snooze.name`
-/// identifies the `Snooze` to be updated. The remainder of `snooze` gives the
-/// content the `Snooze` in question will be assigned.
-///
-/// What fields can be updated depends on the start time and end time of the
-/// `Snooze`.
-///
-///    * end time is in the past: These `Snooze`s are considered
-///      read-only and cannot be updated.
-///    * start time is in the past and end time is in the future: `display_name`
-///      and `interval.end_time` can be updated.
-///    * start time is in the future: `display_name`, `interval.start_time` and
-///      `interval.end_time` can be updated.
+/// The protocol for the `CreateUptimeCheckConfig` request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateSnoozeRequest {
-    /// Required. The `Snooze` to update. Must have the name field present.
-    #[prost(message, optional, tag = "1")]
-    pub snooze: ::core::option::Option<Snooze>,
-    /// Required. The fields to update.
+pub struct CreateUptimeCheckConfigRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
+    /// to create the Uptime check. The format is:
     ///
-    /// For each field listed in `update_mask`:
-    ///
-    ///    * If the `Snooze` object supplied in the `UpdateSnoozeRequest` has a
-    ///      value for that field, the value of the field in the existing `Snooze`
-    ///      will be set to the value of the field in the supplied `Snooze`.
-    ///    * If the field does not have a value in the supplied `Snooze`, the field
-    ///      in the existing `Snooze` is set to its default value.
-    ///
-    /// Fields not listed retain their existing value.
-    ///
-    /// The following are the field names that are accepted in `update_mask`:
-    ///
-    ///    * `display_name`
-    ///    * `interval.start_time`
-    ///    * `interval.end_time`
-    ///
-    /// That said, the start time and end time of the `Snooze` determines which
-    /// fields can legally be updated. Before attempting an update, users should
-    /// consult the documentation for `UpdateSnoozeRequest`, which talks about
-    /// which fields can be updated.
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The new Uptime check configuration.
+    #[prost(message, optional, tag = "2")]
+    pub uptime_check_config: ::core::option::Option<UptimeCheckConfig>,
+}
+/// The protocol for the `UpdateUptimeCheckConfig` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateUptimeCheckConfigRequest {
+    /// Optional. If present, only the listed fields in the current Uptime check
+    /// configuration are updated with values from the new configuration. If this
+    /// field is empty, then the current configuration is completely replaced with
+    /// the new configuration.
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. If an `updateMask` has been specified, this field gives
+    /// the values for the set of fields mentioned in the `updateMask`. If an
+    /// `updateMask` has not been given, this Uptime check configuration replaces
+    /// the current configuration. If a field is mentioned in `updateMask` but
+    /// the corresponding field is omitted in this partial Uptime check
+    /// configuration, it has the effect of deleting/clearing the field from the
+    /// configuration on the server.
+    ///
+    /// The following fields can be updated: `display_name`,
+    /// `http_check`, `tcp_check`, `timeout`, `content_matchers`, and
+    /// `selected_regions`.
+    #[prost(message, optional, tag = "3")]
+    pub uptime_check_config: ::core::option::Option<UptimeCheckConfig>,
+}
+/// The protocol for the `DeleteUptimeCheckConfig` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteUptimeCheckConfigRequest {
+    /// Required. The Uptime check configuration to delete. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The protocol for the `ListUptimeCheckIps` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListUptimeCheckIpsRequest {
+    /// The maximum number of results to return in a single response. The server
+    /// may further constrain the maximum number of results returned in a single
+    /// page. If the page_size is <=0, the server will decide the number of results
+    /// to be returned.
+    /// NOTE: this field is not yet implemented
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `nextPageToken` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return more results from the previous method call.
+    /// NOTE: this field is not yet implemented
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// The protocol for the `ListUptimeCheckIps` response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListUptimeCheckIpsResponse {
+    /// The returned list of IP addresses (including region and location) that the
+    /// checkers run from.
+    #[prost(message, repeated, tag = "1")]
+    pub uptime_check_ips: ::prost::alloc::vec::Vec<UptimeCheckIp>,
+    /// This field represents the pagination token to retrieve the next page of
+    /// results. If the value is empty, it means no further results for the
+    /// request. To retrieve the next page of results, the value of the
+    /// next_page_token is passed to the subsequent List method call (in the
+    /// request message's page_token field).
+    /// NOTE: this field is not yet implemented
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
 }
 /// Generated client implementations.
-pub mod snooze_service_client {
+pub mod uptime_check_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// The SnoozeService API is used to temporarily prevent an alert policy from
-    /// generating alerts. A Snooze is a description of the criteria under which one
-    /// or more alert policies should not fire alerts for the specified duration.
+    /// The UptimeCheckService API is used to manage (list, create, delete, edit)
+    /// Uptime check configurations in the Cloud Monitoring product. An Uptime
+    /// check is a piece of configuration that determines which resources and
+    /// services to monitor for availability. These configurations can also be
+    /// configured interactively by navigating to the [Cloud console]
+    /// (https://console.cloud.google.com), selecting the appropriate project,
+    /// clicking on "Monitoring" on the left-hand side to navigate to Cloud
+    /// Monitoring, and then clicking on "Uptime".
     #[derive(Debug, Clone)]
-    pub struct SnoozeServiceClient<T> {
+    pub struct UptimeCheckServiceClient<T> {
         inner: tonic::client::Grpc<T>,
     }
-    impl<T> SnoozeServiceClient<T>
+    impl<T> UptimeCheckServiceClient<T>
     where
         T: tonic::client::GrpcService<tonic::body::BoxBody>,
         T::Error: Into<StdError>,
@@ -6343,7 +5392,7 @@ pub mod snooze_service_client {
         pub fn with_interceptor<F>(
             inner: T,
             interceptor: F,
-        ) -> SnoozeServiceClient<InterceptedService<T, F>>
+        ) -> UptimeCheckServiceClient<InterceptedService<T, F>>
         where
             F: tonic::service::Interceptor,
             T::ResponseBody: Default,
@@ -6357,7 +5406,7 @@ pub mod snooze_service_client {
                 http::Request<tonic::body::BoxBody>,
             >>::Error: Into<StdError> + Send + Sync,
         {
-            SnoozeServiceClient::new(InterceptedService::new(inner, interceptor))
+            UptimeCheckServiceClient::new(InterceptedService::new(inner, interceptor))
         }
         /// Compress requests with the given encoding.
         ///
@@ -6390,40 +5439,13 @@ pub mod snooze_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Creates a `Snooze` that will prevent alerts, which match the provided
-        /// criteria, from being opened. The `Snooze` applies for a specific time
-        /// interval.
-        pub async fn create_snooze(
+        /// Lists the existing valid Uptime check configurations for the project
+        /// (leaving out any invalid configurations).
+        pub async fn list_uptime_check_configs(
             &mut self,
-            request: impl tonic::IntoRequest<super::CreateSnoozeRequest>,
-        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/CreateSnooze",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "CreateSnooze"),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists the `Snooze`s associated with a project. Can optionally pass in
-        /// `filter`, which specifies predicates to match `Snooze`s.
-        pub async fn list_snoozes(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListSnoozesRequest>,
+            request: impl tonic::IntoRequest<super::ListUptimeCheckConfigsRequest>,
         ) -> std::result::Result<
-            tonic::Response<super::ListSnoozesResponse>,
+            tonic::Response<super::ListUptimeCheckConfigsResponse>,
             tonic::Status,
         > {
             self.inner
@@ -6437,20 +5459,26 @@ pub mod snooze_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/ListSnoozes",
+                "/google.monitoring.v3.UptimeCheckService/ListUptimeCheckConfigs",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "ListSnoozes"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.UptimeCheckService",
+                        "ListUptimeCheckConfigs",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Retrieves a `Snooze` by `name`.
-        pub async fn get_snooze(
+        /// Gets a single Uptime check configuration.
+        pub async fn get_uptime_check_config(
             &mut self,
-            request: impl tonic::IntoRequest<super::GetSnoozeRequest>,
-        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::GetUptimeCheckConfigRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::UptimeCheckConfig>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -6462,21 +5490,26 @@ pub mod snooze_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/GetSnooze",
+                "/google.monitoring.v3.UptimeCheckService/GetUptimeCheckConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "GetSnooze"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.UptimeCheckService",
+                        "GetUptimeCheckConfig",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Updates a `Snooze`, identified by its `name`, with the parameters in the
-        /// given `Snooze` object.
-        pub async fn update_snooze(
+        /// Creates a new Uptime check configuration.
+        pub async fn create_uptime_check_config(
             &mut self,
-            request: impl tonic::IntoRequest<super::UpdateSnoozeRequest>,
-        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            request: impl tonic::IntoRequest<super::CreateUptimeCheckConfigRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::UptimeCheckConfig>,
+            tonic::Status,
+        > {
             self.inner
                 .ready()
                 .await
@@ -6488,12 +5521,110 @@ pub mod snooze_service_client {
                 })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
-                "/google.monitoring.v3.SnoozeService/UpdateSnooze",
+                "/google.monitoring.v3.UptimeCheckService/CreateUptimeCheckConfig",
             );
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "UpdateSnooze"),
+                    GrpcMethod::new(
+                        "google.monitoring.v3.UptimeCheckService",
+                        "CreateUptimeCheckConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates an Uptime check configuration. You can either replace the entire
+        /// configuration with a new one or replace only certain fields in the current
+        /// configuration by specifying the fields to be updated via `updateMask`.
+        /// Returns the updated configuration.
+        pub async fn update_uptime_check_config(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateUptimeCheckConfigRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::UptimeCheckConfig>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.UptimeCheckService/UpdateUptimeCheckConfig",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.UptimeCheckService",
+                        "UpdateUptimeCheckConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes an Uptime check configuration. Note that this method will fail
+        /// if the Uptime check configuration is referenced by an alert policy or
+        /// other dependent configs that would be rendered invalid by the deletion.
+        pub async fn delete_uptime_check_config(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteUptimeCheckConfigRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.UptimeCheckService/DeleteUptimeCheckConfig",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.UptimeCheckService",
+                        "DeleteUptimeCheckConfig",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns the list of IP addresses that checkers run from
+        pub async fn list_uptime_check_ips(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListUptimeCheckIpsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListUptimeCheckIpsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.UptimeCheckService/ListUptimeCheckIps",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.UptimeCheckService",
+                        "ListUptimeCheckIps",
+                    ),
                 );
             self.inner.unary(req, path, codec).await
         }
@@ -7082,4 +6213,873 @@ pub mod service_monitoring_service_client {
             self.inner.unary(req, path, codec).await
         }
     }
+}
+/// A `Snooze` will prevent any alerts from being opened, and close any that
+/// are already open. The `Snooze` will work on alerts that match the
+/// criteria defined in the `Snooze`. The `Snooze` will be active from
+/// `interval.start_time` through `interval.end_time`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Snooze {
+    /// Required. The name of the `Snooze`. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
+    ///
+    /// The ID of the `Snooze` will be generated by the system.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. This defines the criteria for applying the `Snooze`. See
+    /// `Criteria` for more information.
+    #[prost(message, optional, tag = "3")]
+    pub criteria: ::core::option::Option<snooze::Criteria>,
+    /// Required. The `Snooze` will be active from `interval.start_time` through
+    /// `interval.end_time`.
+    /// `interval.start_time` cannot be in the past. There is a 15 second clock
+    /// skew to account for the time it takes for a request to reach the API from
+    /// the UI.
+    #[prost(message, optional, tag = "4")]
+    pub interval: ::core::option::Option<TimeInterval>,
+    /// Required. A display name for the `Snooze`. This can be, at most, 512
+    /// unicode characters.
+    #[prost(string, tag = "5")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Snooze`.
+pub mod snooze {
+    /// Criteria specific to the `AlertPolicy`s that this `Snooze` applies to. The
+    /// `Snooze` will suppress alerts that come from one of the `AlertPolicy`s
+    /// whose names are supplied.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Criteria {
+        /// The specific `AlertPolicy` names for the alert that should be snoozed.
+        /// The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/alertPolicies/\[POLICY_ID\]
+        ///
+        /// There is a limit of 16 policies per snooze. This limit is checked during
+        /// snooze creation.
+        #[prost(string, repeated, tag = "1")]
+        pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+}
+/// The message definition for creating a `Snooze`. Users must provide the body
+/// of the `Snooze` to be created but must omit the `Snooze` field, `name`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateSnoozeRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
+    /// a `Snooze` should be created. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The `Snooze` to create. Omit the `name` field, as it will be
+    /// filled in by the API.
+    #[prost(message, optional, tag = "2")]
+    pub snooze: ::core::option::Option<Snooze>,
+}
+/// The message definition for listing `Snooze`s associated with the given
+/// `parent`, satisfying the optional `filter`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSnoozesRequest {
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
+    /// `Snooze`s should be listed. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Optional filter to restrict results to the given criteria. The
+    /// following fields are supported.
+    ///
+    ///    * `interval.start_time`
+    ///    * `interval.end_time`
+    ///
+    /// For example:
+    ///
+    ///      ```
+    ///      interval.start_time > "2022-03-11T00:00:00-08:00" AND
+    ///          interval.end_time < "2022-03-12T00:00:00-08:00"
+    ///      ```
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. The maximum number of results to return for a single query. The
+    /// server may further constrain the maximum number of results returned in a
+    /// single page. The value should be in the range \[1, 1000\]. If the value given
+    /// is outside this range, the server will decide the number of results to be
+    /// returned.
+    #[prost(int32, tag = "4")]
+    pub page_size: i32,
+    /// Optional. The `next_page_token` from a previous call to
+    /// `ListSnoozesRequest` to get the next page of results.
+    #[prost(string, tag = "5")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// The results of a successful `ListSnoozes` call, containing the matching
+/// `Snooze`s.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListSnoozesResponse {
+    /// `Snooze`s matching this list call.
+    #[prost(message, repeated, tag = "1")]
+    pub snoozes: ::prost::alloc::vec::Vec<Snooze>,
+    /// Page token for repeated calls to `ListSnoozes`, to fetch additional pages
+    /// of results. If this is empty or missing, there are no more pages.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The message definition for retrieving a `Snooze`. Users must specify the
+/// field, `name`, which identifies the `Snooze`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSnoozeRequest {
+    /// Required. The ID of the `Snooze` to retrieve. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/snoozes/\[SNOOZE_ID\]
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The message definition for updating a `Snooze`. The field, `snooze.name`
+/// identifies the `Snooze` to be updated. The remainder of `snooze` gives the
+/// content the `Snooze` in question will be assigned.
+///
+/// What fields can be updated depends on the start time and end time of the
+/// `Snooze`.
+///
+///    * end time is in the past: These `Snooze`s are considered
+///      read-only and cannot be updated.
+///    * start time is in the past and end time is in the future: `display_name`
+///      and `interval.end_time` can be updated.
+///    * start time is in the future: `display_name`, `interval.start_time` and
+///      `interval.end_time` can be updated.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSnoozeRequest {
+    /// Required. The `Snooze` to update. Must have the name field present.
+    #[prost(message, optional, tag = "1")]
+    pub snooze: ::core::option::Option<Snooze>,
+    /// Required. The fields to update.
+    ///
+    /// For each field listed in `update_mask`:
+    ///
+    ///    * If the `Snooze` object supplied in the `UpdateSnoozeRequest` has a
+    ///      value for that field, the value of the field in the existing `Snooze`
+    ///      will be set to the value of the field in the supplied `Snooze`.
+    ///    * If the field does not have a value in the supplied `Snooze`, the field
+    ///      in the existing `Snooze` is set to its default value.
+    ///
+    /// Fields not listed retain their existing value.
+    ///
+    /// The following are the field names that are accepted in `update_mask`:
+    ///
+    ///    * `display_name`
+    ///    * `interval.start_time`
+    ///    * `interval.end_time`
+    ///
+    /// That said, the start time and end time of the `Snooze` determines which
+    /// fields can legally be updated. Before attempting an update, users should
+    /// consult the documentation for `UpdateSnoozeRequest`, which talks about
+    /// which fields can be updated.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Generated client implementations.
+pub mod snooze_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The SnoozeService API is used to temporarily prevent an alert policy from
+    /// generating alerts. A Snooze is a description of the criteria under which one
+    /// or more alert policies should not fire alerts for the specified duration.
+    #[derive(Debug, Clone)]
+    pub struct SnoozeServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> SnoozeServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> SnoozeServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            SnoozeServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a `Snooze` that will prevent alerts, which match the provided
+        /// criteria, from being opened. The `Snooze` applies for a specific time
+        /// interval.
+        pub async fn create_snooze(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateSnoozeRequest>,
+        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/CreateSnooze",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "CreateSnooze"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists the `Snooze`s associated with a project. Can optionally pass in
+        /// `filter`, which specifies predicates to match `Snooze`s.
+        pub async fn list_snoozes(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListSnoozesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListSnoozesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/ListSnoozes",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "ListSnoozes"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a `Snooze` by `name`.
+        pub async fn get_snooze(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetSnoozeRequest>,
+        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/GetSnooze",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "GetSnooze"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a `Snooze`, identified by its `name`, with the parameters in the
+        /// given `Snooze` object.
+        pub async fn update_snooze(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateSnoozeRequest>,
+        ) -> std::result::Result<tonic::Response<super::Snooze>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.SnoozeService/UpdateSnooze",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.SnoozeService", "UpdateSnooze"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The description of a dynamic collection of monitored resources. Each group
+/// has a filter that is matched against monitored resources and their associated
+/// metadata. If a group's filter matches an available monitored resource, then
+/// that resource is a member of that group.  Groups can contain any number of
+/// monitored resources, and each monitored resource can be a member of any
+/// number of groups.
+///
+/// Groups can be nested in parent-child hierarchies. The `parentName` field
+/// identifies an optional parent for each group.  If a group has a parent, then
+/// the only monitored resources available to be matched by the group's filter
+/// are the resources contained in the parent group.  In other words, a group
+/// contains the monitored resources that match its filter and the filters of all
+/// the group's ancestors.  A group without a parent can contain any monitored
+/// resource.
+///
+/// For example, consider an infrastructure running a set of instances with two
+/// user-defined tags: `"environment"` and `"role"`. A parent group has a filter,
+/// `environment="production"`.  A child of that parent group has a filter,
+/// `role="transcoder"`.  The parent group contains all instances in the
+/// production environment, regardless of their roles.  The child group contains
+/// instances that have the transcoder role *and* are in the production
+/// environment.
+///
+/// The monitored resources contained in a group can change at any moment,
+/// depending on what resources exist and what filters are associated with the
+/// group and its ancestors.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Group {
+    /// Output only. The name of this group. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    ///
+    /// When creating a group, this field is ignored and a new name is created
+    /// consisting of the project specified in the call to `CreateGroup`
+    /// and a unique `\[GROUP_ID\]` that is generated automatically.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// A user-assigned name for this group, used only for display purposes.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The name of the group's parent, if it has one. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    ///
+    /// For groups with no parent, `parent_name` is the empty string, `""`.
+    #[prost(string, tag = "3")]
+    pub parent_name: ::prost::alloc::string::String,
+    /// The filter used to determine which monitored resources belong to this
+    /// group.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+    /// If true, the members of this group are considered to be a cluster.
+    /// The system can perform additional analysis on groups that are clusters.
+    #[prost(bool, tag = "6")]
+    pub is_cluster: bool,
+}
+/// The `ListGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupsRequest {
+    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>)
+    /// whose groups are to be listed. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "7")]
+    pub name: ::prost::alloc::string::String,
+    /// A positive number that is the maximum number of results to return.
+    #[prost(int32, tag = "5")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `next_page_token` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return additional results from the previous method call.
+    #[prost(string, tag = "6")]
+    pub page_token: ::prost::alloc::string::String,
+    /// An optional filter consisting of a single group name.  The filters limit
+    /// the groups returned based on their parent-child relationship with the
+    /// specified group. If no filter is specified, all groups are returned.
+    #[prost(oneof = "list_groups_request::Filter", tags = "2, 3, 4")]
+    pub filter: ::core::option::Option<list_groups_request::Filter>,
+}
+/// Nested message and enum types in `ListGroupsRequest`.
+pub mod list_groups_request {
+    /// An optional filter consisting of a single group name.  The filters limit
+    /// the groups returned based on their parent-child relationship with the
+    /// specified group. If no filter is specified, all groups are returned.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Filter {
+        /// A group name. The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+        ///
+        /// Returns groups whose `parent_name` field contains the group
+        /// name.  If no groups have this parent, the results are empty.
+        #[prost(string, tag = "2")]
+        ChildrenOfGroup(::prost::alloc::string::String),
+        /// A group name. The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+        ///
+        /// Returns groups that are ancestors of the specified group.
+        /// The groups are returned in order, starting with the immediate parent and
+        /// ending with the most distant ancestor.  If the specified group has no
+        /// immediate parent, the results are empty.
+        #[prost(string, tag = "3")]
+        AncestorsOfGroup(::prost::alloc::string::String),
+        /// A group name. The format is:
+        ///
+        ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+        ///
+        /// Returns the descendants of the specified group.  This is a superset of
+        /// the results returned by the `children_of_group` filter, and includes
+        /// children-of-children, and so forth.
+        #[prost(string, tag = "4")]
+        DescendantsOfGroup(::prost::alloc::string::String),
+    }
+}
+/// The `ListGroups` response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupsResponse {
+    /// The groups that match the specified filters.
+    #[prost(message, repeated, tag = "1")]
+    pub group: ::prost::alloc::vec::Vec<Group>,
+    /// If there are more results than have been returned, then this field is set
+    /// to a non-empty value.  To see the additional results,
+    /// use that value as `page_token` in the next call to this method.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// The `GetGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetGroupRequest {
+    /// Required. The group to retrieve. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The `CreateGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateGroupRequest {
+    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in
+    /// which to create the group. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]
+    #[prost(string, tag = "4")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. A group definition. It is an error to define the `name` field because
+    /// the system assigns the name.
+    #[prost(message, optional, tag = "2")]
+    pub group: ::core::option::Option<Group>,
+    /// If true, validate this request but do not create the group.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// The `UpdateGroup` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateGroupRequest {
+    /// Required. The new definition of the group.  All fields of the existing group,
+    /// excepting `name`, are replaced with the corresponding fields of this group.
+    #[prost(message, optional, tag = "2")]
+    pub group: ::core::option::Option<Group>,
+    /// If true, validate this request but do not update the existing group.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// The `DeleteGroup` request. The default behavior is to be able to delete a
+/// single group without any descendants.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteGroupRequest {
+    /// Required. The group to delete. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    #[prost(string, tag = "3")]
+    pub name: ::prost::alloc::string::String,
+    /// If this field is true, then the request means to delete a group with all
+    /// its descendants. Otherwise, the request means to delete a group only when
+    /// it has no descendants. The default value is false.
+    #[prost(bool, tag = "4")]
+    pub recursive: bool,
+}
+/// The `ListGroupMembers` request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupMembersRequest {
+    /// Required. The group whose members are listed. The format is:
+    ///
+    ///      projects/\[PROJECT_ID_OR_NUMBER\]/groups/\[GROUP_ID\]
+    #[prost(string, tag = "7")]
+    pub name: ::prost::alloc::string::String,
+    /// A positive number that is the maximum number of results to return.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// If this field is not empty then it must contain the `next_page_token` value
+    /// returned by a previous call to this method.  Using this field causes the
+    /// method to return additional results from the previous method call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// An optional [list
+    /// filter](<https://cloud.google.com/monitoring/api/learn_more#filtering>)
+    /// describing the members to be returned.  The filter may reference the type,
+    /// labels, and metadata of monitored resources that comprise the group. For
+    /// example, to return only resources representing Compute Engine VM instances,
+    /// use this filter:
+    ///
+    ///      `resource.type = "gce_instance"`
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+    /// An optional time interval for which results should be returned. Only
+    /// members that were part of the group during the specified interval are
+    /// included in the response.  If no interval is provided then the group
+    /// membership over the last minute is returned.
+    #[prost(message, optional, tag = "6")]
+    pub interval: ::core::option::Option<TimeInterval>,
+}
+/// The `ListGroupMembers` response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGroupMembersResponse {
+    /// A set of monitored resources in the group.
+    #[prost(message, repeated, tag = "1")]
+    pub members: ::prost::alloc::vec::Vec<super::super::api::MonitoredResource>,
+    /// If there are more results than have been returned, then this field is
+    /// set to a non-empty value.  To see the additional results, use that value as
+    /// `page_token` in the next call to this method.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// The total number of elements matching this request.
+    #[prost(int32, tag = "3")]
+    pub total_size: i32,
+}
+/// Generated client implementations.
+pub mod group_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// The Group API lets you inspect and manage your
+    /// [groups](#google.monitoring.v3.Group).
+    ///
+    /// A group is a named filter that is used to identify
+    /// a collection of monitored resources. Groups are typically used to
+    /// mirror the physical and/or logical topology of the environment.
+    /// Because group membership is computed dynamically, monitored
+    /// resources that are started in the future are automatically placed
+    /// in matching groups. By using a group to name monitored resources in,
+    /// for example, an alert policy, the target of that alert policy is
+    /// updated automatically as monitored resources are added and removed
+    /// from the infrastructure.
+    #[derive(Debug, Clone)]
+    pub struct GroupServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> GroupServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> GroupServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            GroupServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Lists the existing groups.
+        pub async fn list_groups(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListGroupsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListGroupsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/ListGroups",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "ListGroups"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a single group.
+        pub async fn get_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/GetGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "GetGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new group.
+        pub async fn create_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/CreateGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "CreateGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates an existing group.
+        /// You can change any group attributes except `name`.
+        pub async fn update_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateGroupRequest>,
+        ) -> std::result::Result<tonic::Response<super::Group>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/UpdateGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "UpdateGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes an existing group.
+        pub async fn delete_group(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteGroupRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/DeleteGroup",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.monitoring.v3.GroupService", "DeleteGroup"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists the monitored resources that are members of a group.
+        pub async fn list_group_members(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListGroupMembersRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListGroupMembersResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.monitoring.v3.GroupService/ListGroupMembers",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.monitoring.v3.GroupService",
+                        "ListGroupMembers",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// A set of (label, value) pairs that were removed from a Distribution
+/// time series during aggregation and then added as an attachment to a
+/// Distribution.Exemplar.
+///
+/// The full label set for the exemplars is constructed by using the dropped
+/// pairs in combination with the label values that remain on the aggregated
+/// Distribution time series. The constructed full label set can be used to
+/// identify the specific entity, such as the instance or job, which might be
+/// contributing to a long-tail. However, with dropped labels, the storage
+/// requirements are reduced because only the aggregated distribution values for
+/// a large group of time series are stored.
+///
+/// Note that there are no guarantees on ordering of the labels from
+/// exemplar-to-exemplar and from distribution-to-distribution in the same
+/// stream, and there may be duplicates.  It is up to clients to resolve any
+/// ambiguities.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DroppedLabels {
+    /// Map from label to its value, for all labels dropped in any aggregation.
+    #[prost(btree_map = "string, string", tag = "1")]
+    pub label: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }

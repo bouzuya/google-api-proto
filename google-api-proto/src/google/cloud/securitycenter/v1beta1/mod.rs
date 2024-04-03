@@ -26,6 +26,35 @@ pub struct SecurityMarks {
         ::prost::alloc::string::String,
     >,
 }
+/// Security Command Center finding source. A finding source
+/// is an entity or a mechanism that can produce a finding. A source is like a
+/// container of findings that come from the same scanner, logger, monitor, etc.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Source {
+    /// The relative resource name of this source. See:
+    /// <https://cloud.google.com/apis/design/resource_names#relative_resource_name>
+    /// Example:
+    /// "organizations/{organization_id}/sources/{source_id}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The source's display name.
+    /// A source's display name must be unique amongst its siblings, for example,
+    /// two sources with the same parent can't share the same display name.
+    /// The display name must have a length between 1 and 64 characters
+    /// (inclusive).
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The description of the source (max of 1024 characters).
+    /// Example:
+    /// "Web Security Scanner is a web security scanner for common
+    /// vulnerabilities in App Engine applications. It can automatically
+    /// scan and detect four common vulnerabilities, including cross-site-scripting
+    /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
+    /// outdated/insecure libraries."
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+}
 /// Security Command Center representation of a Google Cloud
 /// resource.
 ///
@@ -306,35 +335,6 @@ pub mod organization_settings {
             }
         }
     }
-}
-/// Security Command Center finding source. A finding source
-/// is an entity or a mechanism that can produce a finding. A source is like a
-/// container of findings that come from the same scanner, logger, monitor, etc.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Source {
-    /// The relative resource name of this source. See:
-    /// <https://cloud.google.com/apis/design/resource_names#relative_resource_name>
-    /// Example:
-    /// "organizations/{organization_id}/sources/{source_id}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The source's display name.
-    /// A source's display name must be unique amongst its siblings, for example,
-    /// two sources with the same parent can't share the same display name.
-    /// The display name must have a length between 1 and 64 characters
-    /// (inclusive).
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The description of the source (max of 1024 characters).
-    /// Example:
-    /// "Web Security Scanner is a web security scanner for common
-    /// vulnerabilities in App Engine applications. It can automatically
-    /// scan and detect four common vulnerabilities, including cross-site-scripting
-    /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
-    /// outdated/insecure libraries."
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
 }
 /// Request message for creating a finding.
 #[allow(clippy::derive_partial_eq_without_eq)]

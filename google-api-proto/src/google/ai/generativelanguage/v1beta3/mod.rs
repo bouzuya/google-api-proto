@@ -1,3 +1,350 @@
+/// Information about a Generative Language Model.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Model {
+    /// Required. The resource name of the `Model`.
+    ///
+    /// Format: `models/{model}` with a `{model}` naming convention of:
+    ///
+    /// * "{base_model_id}-{version}"
+    ///
+    /// Examples:
+    ///
+    /// * `models/chat-bison-001`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. The name of the base model, pass this to the generation request.
+    ///
+    /// Examples:
+    ///
+    /// * `chat-bison`
+    #[prost(string, tag = "2")]
+    pub base_model_id: ::prost::alloc::string::String,
+    /// Required. The version number of the model.
+    ///
+    /// This represents the major version
+    #[prost(string, tag = "3")]
+    pub version: ::prost::alloc::string::String,
+    /// The human-readable name of the model. E.g. "Chat Bison".
+    ///
+    /// The name can be up to 128 characters long and can consist of any UTF-8
+    /// characters.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+    /// A short description of the model.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Maximum number of input tokens allowed for this model.
+    #[prost(int32, tag = "6")]
+    pub input_token_limit: i32,
+    /// Maximum number of output tokens available for this model.
+    #[prost(int32, tag = "7")]
+    pub output_token_limit: i32,
+    /// The model's supported generation methods.
+    ///
+    /// The method names are defined as Pascal case
+    /// strings, such as `generateMessage` which correspond to API methods.
+    #[prost(string, repeated, tag = "8")]
+    pub supported_generation_methods: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
+    /// Controls the randomness of the output.
+    ///
+    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
+    /// produce responses that are more varied, while a value closer to `0.0` will
+    /// typically result in less surprising responses from the model.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "9")]
+    pub temperature: ::core::option::Option<f32>,
+    /// For Nucleus sampling.
+    ///
+    /// Nucleus sampling considers the smallest set of tokens whose probability
+    /// sum is at least `top_p`.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(float, optional, tag = "10")]
+    pub top_p: ::core::option::Option<f32>,
+    /// For Top-k sampling.
+    ///
+    /// Top-k sampling considers the set of `top_k` most probable tokens.
+    /// This value specifies default to be used by the backend while making the
+    /// call to the model.
+    #[prost(int32, optional, tag = "11")]
+    pub top_k: ::core::option::Option<i32>,
+}
+/// Content filtering metadata associated with processing a single request.
+///
+/// ContentFilter contains a reason and an optional supporting string. The reason
+/// may be unspecified.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContentFilter {
+    /// The reason content was blocked during request processing.
+    #[prost(enumeration = "content_filter::BlockedReason", tag = "1")]
+    pub reason: i32,
+    /// A string that describes the filtering behavior in more detail.
+    #[prost(string, optional, tag = "2")]
+    pub message: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `ContentFilter`.
+pub mod content_filter {
+    /// A list of reasons why content may have been blocked.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum BlockedReason {
+        /// A blocked reason was not specified.
+        Unspecified = 0,
+        /// Content was blocked by safety settings.
+        Safety = 1,
+        /// Content was blocked, but the reason is uncategorized.
+        Other = 2,
+    }
+    impl BlockedReason {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                BlockedReason::Unspecified => "BLOCKED_REASON_UNSPECIFIED",
+                BlockedReason::Safety => "SAFETY",
+                BlockedReason::Other => "OTHER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "BLOCKED_REASON_UNSPECIFIED" => Some(Self::Unspecified),
+                "SAFETY" => Some(Self::Safety),
+                "OTHER" => Some(Self::Other),
+                _ => None,
+            }
+        }
+    }
+}
+/// Safety feedback for an entire request.
+///
+/// This field is populated if content in the input and/or response is blocked
+/// due to safety settings. SafetyFeedback may not exist for every HarmCategory.
+/// Each SafetyFeedback will return the safety settings used by the request as
+/// well as the lowest HarmProbability that should be allowed in order to return
+/// a result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetyFeedback {
+    /// Safety rating evaluated from content.
+    #[prost(message, optional, tag = "1")]
+    pub rating: ::core::option::Option<SafetyRating>,
+    /// Safety settings applied to the request.
+    #[prost(message, optional, tag = "2")]
+    pub setting: ::core::option::Option<SafetySetting>,
+}
+/// Safety rating for a piece of content.
+///
+/// The safety rating contains the category of harm and the
+/// harm probability level in that category for a piece of content.
+/// Content is classified for safety across a number of
+/// harm categories and the probability of the harm classification is included
+/// here.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetyRating {
+    /// Required. The category for this rating.
+    #[prost(enumeration = "HarmCategory", tag = "3")]
+    pub category: i32,
+    /// Required. The probability of harm for this content.
+    #[prost(enumeration = "safety_rating::HarmProbability", tag = "4")]
+    pub probability: i32,
+}
+/// Nested message and enum types in `SafetyRating`.
+pub mod safety_rating {
+    /// The probability that a piece of content is harmful.
+    ///
+    /// The classification system gives the probability of the content being
+    /// unsafe. This does not indicate the severity of harm for a piece of content.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum HarmProbability {
+        /// Probability is unspecified.
+        Unspecified = 0,
+        /// Content has a negligible chance of being unsafe.
+        Negligible = 1,
+        /// Content has a low chance of being unsafe.
+        Low = 2,
+        /// Content has a medium chance of being unsafe.
+        Medium = 3,
+        /// Content has a high chance of being unsafe.
+        High = 4,
+    }
+    impl HarmProbability {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                HarmProbability::Unspecified => "HARM_PROBABILITY_UNSPECIFIED",
+                HarmProbability::Negligible => "NEGLIGIBLE",
+                HarmProbability::Low => "LOW",
+                HarmProbability::Medium => "MEDIUM",
+                HarmProbability::High => "HIGH",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "HARM_PROBABILITY_UNSPECIFIED" => Some(Self::Unspecified),
+                "NEGLIGIBLE" => Some(Self::Negligible),
+                "LOW" => Some(Self::Low),
+                "MEDIUM" => Some(Self::Medium),
+                "HIGH" => Some(Self::High),
+                _ => None,
+            }
+        }
+    }
+}
+/// Safety setting, affecting the safety-blocking behavior.
+///
+/// Passing a safety setting for a category changes the allowed proability that
+/// content is blocked.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SafetySetting {
+    /// Required. The category for this setting.
+    #[prost(enumeration = "HarmCategory", tag = "3")]
+    pub category: i32,
+    /// Required. Controls the probability threshold at which harm is blocked.
+    #[prost(enumeration = "safety_setting::HarmBlockThreshold", tag = "4")]
+    pub threshold: i32,
+}
+/// Nested message and enum types in `SafetySetting`.
+pub mod safety_setting {
+    /// Block at and beyond a specified harm probability.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum HarmBlockThreshold {
+        /// Threshold is unspecified.
+        Unspecified = 0,
+        /// Content with NEGLIGIBLE will be allowed.
+        BlockLowAndAbove = 1,
+        /// Content with NEGLIGIBLE and LOW will be allowed.
+        BlockMediumAndAbove = 2,
+        /// Content with NEGLIGIBLE, LOW, and MEDIUM will be allowed.
+        BlockOnlyHigh = 3,
+        /// All content will be allowed.
+        BlockNone = 4,
+    }
+    impl HarmBlockThreshold {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                HarmBlockThreshold::Unspecified => "HARM_BLOCK_THRESHOLD_UNSPECIFIED",
+                HarmBlockThreshold::BlockLowAndAbove => "BLOCK_LOW_AND_ABOVE",
+                HarmBlockThreshold::BlockMediumAndAbove => "BLOCK_MEDIUM_AND_ABOVE",
+                HarmBlockThreshold::BlockOnlyHigh => "BLOCK_ONLY_HIGH",
+                HarmBlockThreshold::BlockNone => "BLOCK_NONE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "HARM_BLOCK_THRESHOLD_UNSPECIFIED" => Some(Self::Unspecified),
+                "BLOCK_LOW_AND_ABOVE" => Some(Self::BlockLowAndAbove),
+                "BLOCK_MEDIUM_AND_ABOVE" => Some(Self::BlockMediumAndAbove),
+                "BLOCK_ONLY_HIGH" => Some(Self::BlockOnlyHigh),
+                "BLOCK_NONE" => Some(Self::BlockNone),
+                _ => None,
+            }
+        }
+    }
+}
+/// The category of a rating.
+///
+/// These categories cover various kinds of harms that developers
+/// may wish to adjust.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum HarmCategory {
+    /// Category is unspecified.
+    Unspecified = 0,
+    /// Negative or harmful comments targeting identity and/or protected attribute.
+    Derogatory = 1,
+    /// Content that is rude, disrepspectful, or profane.
+    Toxicity = 2,
+    /// Describes scenarios depictng violence against an individual or group, or
+    /// general descriptions of gore.
+    Violence = 3,
+    /// Contains references to sexual acts or other lewd content.
+    Sexual = 4,
+    /// Promotes unchecked medical advice.
+    Medical = 5,
+    /// Dangerous content that promotes, facilitates, or encourages harmful acts.
+    Dangerous = 6,
+}
+impl HarmCategory {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            HarmCategory::Unspecified => "HARM_CATEGORY_UNSPECIFIED",
+            HarmCategory::Derogatory => "HARM_CATEGORY_DEROGATORY",
+            HarmCategory::Toxicity => "HARM_CATEGORY_TOXICITY",
+            HarmCategory::Violence => "HARM_CATEGORY_VIOLENCE",
+            HarmCategory::Sexual => "HARM_CATEGORY_SEXUAL",
+            HarmCategory::Medical => "HARM_CATEGORY_MEDICAL",
+            HarmCategory::Dangerous => "HARM_CATEGORY_DANGEROUS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "HARM_CATEGORY_UNSPECIFIED" => Some(Self::Unspecified),
+            "HARM_CATEGORY_DEROGATORY" => Some(Self::Derogatory),
+            "HARM_CATEGORY_TOXICITY" => Some(Self::Toxicity),
+            "HARM_CATEGORY_VIOLENCE" => Some(Self::Violence),
+            "HARM_CATEGORY_SEXUAL" => Some(Self::Sexual),
+            "HARM_CATEGORY_MEDICAL" => Some(Self::Medical),
+            "HARM_CATEGORY_DANGEROUS" => Some(Self::Dangerous),
+            _ => None,
+        }
+    }
+}
 /// A fine-tuned model created using ModelService.CreateTunedModel.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -246,81 +593,6 @@ pub struct TuningSnapshot {
     /// Output only. The timestamp when this metric was computed.
     #[prost(message, optional, tag = "4")]
     pub compute_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Information about a Generative Language Model.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Model {
-    /// Required. The resource name of the `Model`.
-    ///
-    /// Format: `models/{model}` with a `{model}` naming convention of:
-    ///
-    /// * "{base_model_id}-{version}"
-    ///
-    /// Examples:
-    ///
-    /// * `models/chat-bison-001`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. The name of the base model, pass this to the generation request.
-    ///
-    /// Examples:
-    ///
-    /// * `chat-bison`
-    #[prost(string, tag = "2")]
-    pub base_model_id: ::prost::alloc::string::String,
-    /// Required. The version number of the model.
-    ///
-    /// This represents the major version
-    #[prost(string, tag = "3")]
-    pub version: ::prost::alloc::string::String,
-    /// The human-readable name of the model. E.g. "Chat Bison".
-    ///
-    /// The name can be up to 128 characters long and can consist of any UTF-8
-    /// characters.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-    /// A short description of the model.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Maximum number of input tokens allowed for this model.
-    #[prost(int32, tag = "6")]
-    pub input_token_limit: i32,
-    /// Maximum number of output tokens available for this model.
-    #[prost(int32, tag = "7")]
-    pub output_token_limit: i32,
-    /// The model's supported generation methods.
-    ///
-    /// The method names are defined as Pascal case
-    /// strings, such as `generateMessage` which correspond to API methods.
-    #[prost(string, repeated, tag = "8")]
-    pub supported_generation_methods: ::prost::alloc::vec::Vec<
-        ::prost::alloc::string::String,
-    >,
-    /// Controls the randomness of the output.
-    ///
-    /// Values can range over `\[0.0,1.0\]`, inclusive. A value closer to `1.0` will
-    /// produce responses that are more varied, while a value closer to `0.0` will
-    /// typically result in less surprising responses from the model.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "9")]
-    pub temperature: ::core::option::Option<f32>,
-    /// For Nucleus sampling.
-    ///
-    /// Nucleus sampling considers the smallest set of tokens whose probability
-    /// sum is at least `top_p`.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(float, optional, tag = "10")]
-    pub top_p: ::core::option::Option<f32>,
-    /// For Top-k sampling.
-    ///
-    /// Top-k sampling considers the set of `top_k` most probable tokens.
-    /// This value specifies default to be used by the backend while making the
-    /// call to the model.
-    #[prost(int32, optional, tag = "11")]
-    pub top_k: ::core::option::Option<i32>,
 }
 /// Request for getting information about a specific Model.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -757,137 +1029,6 @@ pub mod model_service_client {
         }
     }
 }
-/// Permission resource grants user, group or the rest of the world access to the
-/// PaLM API resource (e.g. a tuned model, file).
-///
-/// A role is a collection of permitted operations that allows users to perform
-/// specific actions on PaLM API resources. To make them available to users,
-/// groups, or service accounts, you assign roles. When you assign a role, you
-/// grant permissions that the role contains.
-///
-/// There are three concentric roles. Each role is a superset of the previous
-/// role's permitted operations:
-///   - reader can use the resource (e.g. tuned model) for inference
-///   - writer has reader's permissions and additionally can edit and share
-///   - owner has writer's permissions and additionally can delete
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Permission {
-    /// Output only. The permission name. A unique name will be generated on
-    /// create. Example: tunedModels/{tuned_model}permssions/{permission} Output
-    /// only.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. The type of the grantee.
-    #[prost(enumeration = "permission::GranteeType", optional, tag = "2")]
-    pub grantee_type: ::core::option::Option<i32>,
-    /// Optional. Immutable. The email address of the user of group which this
-    /// permission refers. Field is not set when permission's grantee type is
-    /// EVERYONE.
-    #[prost(string, optional, tag = "3")]
-    pub email_address: ::core::option::Option<::prost::alloc::string::String>,
-    /// Required. The role granted by this permission.
-    #[prost(enumeration = "permission::Role", optional, tag = "4")]
-    pub role: ::core::option::Option<i32>,
-}
-/// Nested message and enum types in `Permission`.
-pub mod permission {
-    /// Defines types of the grantee of this permission.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum GranteeType {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// Represents a user. When set, you must provide email_address for the user.
-        User = 1,
-        /// Represents a group. When set, you must provide email_address for the
-        /// group.
-        Group = 2,
-        /// Represents access to everyone. No extra information is required.
-        Everyone = 3,
-    }
-    impl GranteeType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                GranteeType::Unspecified => "GRANTEE_TYPE_UNSPECIFIED",
-                GranteeType::User => "USER",
-                GranteeType::Group => "GROUP",
-                GranteeType::Everyone => "EVERYONE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "GRANTEE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "USER" => Some(Self::User),
-                "GROUP" => Some(Self::Group),
-                "EVERYONE" => Some(Self::Everyone),
-                _ => None,
-            }
-        }
-    }
-    /// Defines the role granted by this permission.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Role {
-        /// The default value. This value is unused.
-        Unspecified = 0,
-        /// Owner can use, update, share and delete the resource.
-        Owner = 1,
-        /// Writer can use, update and share the resource.
-        Writer = 2,
-        /// Reader can use the resource.
-        Reader = 3,
-    }
-    impl Role {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Role::Unspecified => "ROLE_UNSPECIFIED",
-                Role::Owner => "OWNER",
-                Role::Writer => "WRITER",
-                Role::Reader => "READER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
-                "OWNER" => Some(Self::Owner),
-                "WRITER" => Some(Self::Writer),
-                "READER" => Some(Self::Reader),
-                _ => None,
-            }
-        }
-    }
-}
 /// A collection of source attributions for a piece of content.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -918,278 +1059,6 @@ pub struct CitationSource {
     /// License info is required for code citations.
     #[prost(string, optional, tag = "4")]
     pub license: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Content filtering metadata associated with processing a single request.
-///
-/// ContentFilter contains a reason and an optional supporting string. The reason
-/// may be unspecified.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContentFilter {
-    /// The reason content was blocked during request processing.
-    #[prost(enumeration = "content_filter::BlockedReason", tag = "1")]
-    pub reason: i32,
-    /// A string that describes the filtering behavior in more detail.
-    #[prost(string, optional, tag = "2")]
-    pub message: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `ContentFilter`.
-pub mod content_filter {
-    /// A list of reasons why content may have been blocked.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum BlockedReason {
-        /// A blocked reason was not specified.
-        Unspecified = 0,
-        /// Content was blocked by safety settings.
-        Safety = 1,
-        /// Content was blocked, but the reason is uncategorized.
-        Other = 2,
-    }
-    impl BlockedReason {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                BlockedReason::Unspecified => "BLOCKED_REASON_UNSPECIFIED",
-                BlockedReason::Safety => "SAFETY",
-                BlockedReason::Other => "OTHER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "BLOCKED_REASON_UNSPECIFIED" => Some(Self::Unspecified),
-                "SAFETY" => Some(Self::Safety),
-                "OTHER" => Some(Self::Other),
-                _ => None,
-            }
-        }
-    }
-}
-/// Safety feedback for an entire request.
-///
-/// This field is populated if content in the input and/or response is blocked
-/// due to safety settings. SafetyFeedback may not exist for every HarmCategory.
-/// Each SafetyFeedback will return the safety settings used by the request as
-/// well as the lowest HarmProbability that should be allowed in order to return
-/// a result.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SafetyFeedback {
-    /// Safety rating evaluated from content.
-    #[prost(message, optional, tag = "1")]
-    pub rating: ::core::option::Option<SafetyRating>,
-    /// Safety settings applied to the request.
-    #[prost(message, optional, tag = "2")]
-    pub setting: ::core::option::Option<SafetySetting>,
-}
-/// Safety rating for a piece of content.
-///
-/// The safety rating contains the category of harm and the
-/// harm probability level in that category for a piece of content.
-/// Content is classified for safety across a number of
-/// harm categories and the probability of the harm classification is included
-/// here.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SafetyRating {
-    /// Required. The category for this rating.
-    #[prost(enumeration = "HarmCategory", tag = "3")]
-    pub category: i32,
-    /// Required. The probability of harm for this content.
-    #[prost(enumeration = "safety_rating::HarmProbability", tag = "4")]
-    pub probability: i32,
-}
-/// Nested message and enum types in `SafetyRating`.
-pub mod safety_rating {
-    /// The probability that a piece of content is harmful.
-    ///
-    /// The classification system gives the probability of the content being
-    /// unsafe. This does not indicate the severity of harm for a piece of content.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum HarmProbability {
-        /// Probability is unspecified.
-        Unspecified = 0,
-        /// Content has a negligible chance of being unsafe.
-        Negligible = 1,
-        /// Content has a low chance of being unsafe.
-        Low = 2,
-        /// Content has a medium chance of being unsafe.
-        Medium = 3,
-        /// Content has a high chance of being unsafe.
-        High = 4,
-    }
-    impl HarmProbability {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                HarmProbability::Unspecified => "HARM_PROBABILITY_UNSPECIFIED",
-                HarmProbability::Negligible => "NEGLIGIBLE",
-                HarmProbability::Low => "LOW",
-                HarmProbability::Medium => "MEDIUM",
-                HarmProbability::High => "HIGH",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "HARM_PROBABILITY_UNSPECIFIED" => Some(Self::Unspecified),
-                "NEGLIGIBLE" => Some(Self::Negligible),
-                "LOW" => Some(Self::Low),
-                "MEDIUM" => Some(Self::Medium),
-                "HIGH" => Some(Self::High),
-                _ => None,
-            }
-        }
-    }
-}
-/// Safety setting, affecting the safety-blocking behavior.
-///
-/// Passing a safety setting for a category changes the allowed proability that
-/// content is blocked.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SafetySetting {
-    /// Required. The category for this setting.
-    #[prost(enumeration = "HarmCategory", tag = "3")]
-    pub category: i32,
-    /// Required. Controls the probability threshold at which harm is blocked.
-    #[prost(enumeration = "safety_setting::HarmBlockThreshold", tag = "4")]
-    pub threshold: i32,
-}
-/// Nested message and enum types in `SafetySetting`.
-pub mod safety_setting {
-    /// Block at and beyond a specified harm probability.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum HarmBlockThreshold {
-        /// Threshold is unspecified.
-        Unspecified = 0,
-        /// Content with NEGLIGIBLE will be allowed.
-        BlockLowAndAbove = 1,
-        /// Content with NEGLIGIBLE and LOW will be allowed.
-        BlockMediumAndAbove = 2,
-        /// Content with NEGLIGIBLE, LOW, and MEDIUM will be allowed.
-        BlockOnlyHigh = 3,
-        /// All content will be allowed.
-        BlockNone = 4,
-    }
-    impl HarmBlockThreshold {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                HarmBlockThreshold::Unspecified => "HARM_BLOCK_THRESHOLD_UNSPECIFIED",
-                HarmBlockThreshold::BlockLowAndAbove => "BLOCK_LOW_AND_ABOVE",
-                HarmBlockThreshold::BlockMediumAndAbove => "BLOCK_MEDIUM_AND_ABOVE",
-                HarmBlockThreshold::BlockOnlyHigh => "BLOCK_ONLY_HIGH",
-                HarmBlockThreshold::BlockNone => "BLOCK_NONE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "HARM_BLOCK_THRESHOLD_UNSPECIFIED" => Some(Self::Unspecified),
-                "BLOCK_LOW_AND_ABOVE" => Some(Self::BlockLowAndAbove),
-                "BLOCK_MEDIUM_AND_ABOVE" => Some(Self::BlockMediumAndAbove),
-                "BLOCK_ONLY_HIGH" => Some(Self::BlockOnlyHigh),
-                "BLOCK_NONE" => Some(Self::BlockNone),
-                _ => None,
-            }
-        }
-    }
-}
-/// The category of a rating.
-///
-/// These categories cover various kinds of harms that developers
-/// may wish to adjust.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum HarmCategory {
-    /// Category is unspecified.
-    Unspecified = 0,
-    /// Negative or harmful comments targeting identity and/or protected attribute.
-    Derogatory = 1,
-    /// Content that is rude, disrepspectful, or profane.
-    Toxicity = 2,
-    /// Describes scenarios depictng violence against an individual or group, or
-    /// general descriptions of gore.
-    Violence = 3,
-    /// Contains references to sexual acts or other lewd content.
-    Sexual = 4,
-    /// Promotes unchecked medical advice.
-    Medical = 5,
-    /// Dangerous content that promotes, facilitates, or encourages harmful acts.
-    Dangerous = 6,
-}
-impl HarmCategory {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            HarmCategory::Unspecified => "HARM_CATEGORY_UNSPECIFIED",
-            HarmCategory::Derogatory => "HARM_CATEGORY_DEROGATORY",
-            HarmCategory::Toxicity => "HARM_CATEGORY_TOXICITY",
-            HarmCategory::Violence => "HARM_CATEGORY_VIOLENCE",
-            HarmCategory::Sexual => "HARM_CATEGORY_SEXUAL",
-            HarmCategory::Medical => "HARM_CATEGORY_MEDICAL",
-            HarmCategory::Dangerous => "HARM_CATEGORY_DANGEROUS",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "HARM_CATEGORY_UNSPECIFIED" => Some(Self::Unspecified),
-            "HARM_CATEGORY_DEROGATORY" => Some(Self::Derogatory),
-            "HARM_CATEGORY_TOXICITY" => Some(Self::Toxicity),
-            "HARM_CATEGORY_VIOLENCE" => Some(Self::Violence),
-            "HARM_CATEGORY_SEXUAL" => Some(Self::Sexual),
-            "HARM_CATEGORY_MEDICAL" => Some(Self::Medical),
-            "HARM_CATEGORY_DANGEROUS" => Some(Self::Dangerous),
-            _ => None,
-        }
-    }
 }
 /// Request to generate a message response from the model.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1521,6 +1390,137 @@ pub mod discuss_service_client {
                     ),
                 );
             self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Permission resource grants user, group or the rest of the world access to the
+/// PaLM API resource (e.g. a tuned model, file).
+///
+/// A role is a collection of permitted operations that allows users to perform
+/// specific actions on PaLM API resources. To make them available to users,
+/// groups, or service accounts, you assign roles. When you assign a role, you
+/// grant permissions that the role contains.
+///
+/// There are three concentric roles. Each role is a superset of the previous
+/// role's permitted operations:
+///   - reader can use the resource (e.g. tuned model) for inference
+///   - writer has reader's permissions and additionally can edit and share
+///   - owner has writer's permissions and additionally can delete
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Permission {
+    /// Output only. The permission name. A unique name will be generated on
+    /// create. Example: tunedModels/{tuned_model}permssions/{permission} Output
+    /// only.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Immutable. The type of the grantee.
+    #[prost(enumeration = "permission::GranteeType", optional, tag = "2")]
+    pub grantee_type: ::core::option::Option<i32>,
+    /// Optional. Immutable. The email address of the user of group which this
+    /// permission refers. Field is not set when permission's grantee type is
+    /// EVERYONE.
+    #[prost(string, optional, tag = "3")]
+    pub email_address: ::core::option::Option<::prost::alloc::string::String>,
+    /// Required. The role granted by this permission.
+    #[prost(enumeration = "permission::Role", optional, tag = "4")]
+    pub role: ::core::option::Option<i32>,
+}
+/// Nested message and enum types in `Permission`.
+pub mod permission {
+    /// Defines types of the grantee of this permission.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum GranteeType {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// Represents a user. When set, you must provide email_address for the user.
+        User = 1,
+        /// Represents a group. When set, you must provide email_address for the
+        /// group.
+        Group = 2,
+        /// Represents access to everyone. No extra information is required.
+        Everyone = 3,
+    }
+    impl GranteeType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                GranteeType::Unspecified => "GRANTEE_TYPE_UNSPECIFIED",
+                GranteeType::User => "USER",
+                GranteeType::Group => "GROUP",
+                GranteeType::Everyone => "EVERYONE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "GRANTEE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "USER" => Some(Self::User),
+                "GROUP" => Some(Self::Group),
+                "EVERYONE" => Some(Self::Everyone),
+                _ => None,
+            }
+        }
+    }
+    /// Defines the role granted by this permission.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Role {
+        /// The default value. This value is unused.
+        Unspecified = 0,
+        /// Owner can use, update, share and delete the resource.
+        Owner = 1,
+        /// Writer can use, update and share the resource.
+        Writer = 2,
+        /// Reader can use the resource.
+        Reader = 3,
+    }
+    impl Role {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Role::Unspecified => "ROLE_UNSPECIFIED",
+                Role::Owner => "OWNER",
+                Role::Writer => "WRITER",
+                Role::Reader => "READER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ROLE_UNSPECIFIED" => Some(Self::Unspecified),
+                "OWNER" => Some(Self::Owner),
+                "WRITER" => Some(Self::Writer),
+                "READER" => Some(Self::Reader),
+                _ => None,
+            }
         }
     }
 }

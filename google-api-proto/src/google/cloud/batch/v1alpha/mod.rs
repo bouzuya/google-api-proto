@@ -1,3 +1,15 @@
+/// Notification on resource state change.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Notification {
+    /// Required. The Pub/Sub topic where notifications like the resource allowance
+    /// state changes will be published. The topic must exist in the same project
+    /// as the job and billings will be charged to this project. If not specified,
+    /// no Pub/Sub messages will be sent. Topic format:
+    /// `projects/{project}/topics/{topic}`.
+    #[prost(string, tag = "1")]
+    pub pubsub_topic: ::prost::alloc::string::String,
+}
 /// Volume describes a volume and parameters for it to be mounted to a VM.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1659,18 +1671,6 @@ pub struct ServiceAccount {
     /// addition to the cloud-platform API scope that will be added by default.
     #[prost(string, repeated, tag = "2")]
     pub scopes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Notification on resource state change.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Notification {
-    /// Required. The Pub/Sub topic where notifications like the resource allowance
-    /// state changes will be published. The topic must exist in the same project
-    /// as the job and billings will be charged to this project. If not specified,
-    /// no Pub/Sub messages will be sent. Topic format:
-    /// `projects/{project}/topics/{topic}`.
-    #[prost(string, tag = "1")]
-    pub pubsub_topic: ::prost::alloc::string::String,
 }
 /// The Resource Allowance description for Cloud Batch.
 /// Only one Resource Allowance is supported now under a specific location and
