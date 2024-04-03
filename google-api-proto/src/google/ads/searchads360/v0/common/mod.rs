@@ -12,50 +12,89 @@ pub struct AssetUsage {
     )]
     pub served_asset_field_type: i32,
 }
-/// Settings for the targeting-related features, at the campaign and ad group
-/// levels. For more details about the targeting setting, visit
-/// <https://support.google.com/google-ads/answer/7365594>
+/// A Search Ads 360 text ad.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetingSetting {
-    /// The per-targeting-dimension setting to restrict the reach of your campaign
-    /// or ad group.
-    #[prost(message, repeated, tag = "1")]
-    pub target_restrictions: ::prost::alloc::vec::Vec<TargetRestriction>,
-}
-/// The list of per-targeting-dimension targeting settings.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetRestriction {
-    /// The targeting dimension that these settings apply to.
-    #[prost(
-        enumeration = "super::enums::targeting_dimension_enum::TargetingDimension",
-        tag = "1"
-    )]
-    pub targeting_dimension: i32,
-    /// Indicates whether to restrict your ads to show only for the criteria you
-    /// have selected for this targeting_dimension, or to target all values for
-    /// this targeting_dimension and show ads based on your targeting in other
-    /// TargetingDimensions. A value of `true` means that these criteria will only
-    /// apply bid modifiers, and not affect targeting. A value of `false` means
-    /// that these criteria will restrict targeting as well as applying bid
-    /// modifiers.
-    #[prost(bool, optional, tag = "3")]
-    pub bid_only: ::core::option::Option<bool>,
-}
-/// A type of label displaying text on a colored background.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextLabel {
-    /// Background color of the label in RGB format. This string must match the
-    /// regular expression '^\#(\[a-fA-F0-9\]{6}|\[a-fA-F0-9\]{3})$'.
-    /// Note: The background color may not be visible for manager accounts.
+pub struct SearchAds360TextAdInfo {
+    /// The headline of the ad.
+    #[prost(string, optional, tag = "1")]
+    pub headline: ::core::option::Option<::prost::alloc::string::String>,
+    /// The first line of the ad's description.
+    #[prost(string, optional, tag = "2")]
+    pub description1: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second line of the ad's description.
     #[prost(string, optional, tag = "3")]
-    pub background_color: ::core::option::Option<::prost::alloc::string::String>,
-    /// A short description of the label. The length must be no more than 200
-    /// characters.
+    pub description2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The displayed URL of the ad.
     #[prost(string, optional, tag = "4")]
-    pub description: ::core::option::Option<::prost::alloc::string::String>,
+    pub display_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// The displayed mobile URL of the ad.
+    #[prost(string, optional, tag = "5")]
+    pub display_mobile_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "6")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
+}
+/// A Search Ads 360 expanded text ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ExpandedTextAdInfo {
+    /// The headline of the ad.
+    #[prost(string, optional, tag = "1")]
+    pub headline: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second headline of the ad.
+    #[prost(string, optional, tag = "2")]
+    pub headline2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The third headline of the ad.
+    #[prost(string, optional, tag = "3")]
+    pub headline3: ::core::option::Option<::prost::alloc::string::String>,
+    /// The first line of the ad's description.
+    #[prost(string, optional, tag = "4")]
+    pub description1: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second line of the ad's description.
+    #[prost(string, optional, tag = "5")]
+    pub description2: ::core::option::Option<::prost::alloc::string::String>,
+    /// Text appended to the auto-generated visible URL with a delimiter.
+    #[prost(string, optional, tag = "6")]
+    pub path1: ::core::option::Option<::prost::alloc::string::String>,
+    /// Text appended to path1 with a delimiter.
+    #[prost(string, optional, tag = "7")]
+    pub path2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "8")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
+}
+/// An expanded dynamic search ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ExpandedDynamicSearchAdInfo {
+    /// The first line of the ad's description.
+    #[prost(string, optional, tag = "1")]
+    pub description1: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second line of the ad's description.
+    #[prost(string, optional, tag = "2")]
+    pub description2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "3")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
+}
+/// A Search Ads 360 product ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ProductAdInfo {}
+/// A Search Ads 360 responsive search ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ResponsiveSearchAdInfo {
+    /// Text appended to the auto-generated visible URL with a delimiter.
+    #[prost(string, optional, tag = "1")]
+    pub path1: ::core::option::Option<::prost::alloc::string::String>,
+    /// Text appended to path1 with a delimiter.
+    #[prost(string, optional, tag = "2")]
+    pub path2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "3")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
 }
 /// An automated bidding strategy that raises bids for clicks
 /// that seem more likely to lead to a conversion and lowers
@@ -247,89 +286,62 @@ pub struct PercentCpc {
     #[prost(bool, optional, tag = "4")]
     pub enhanced_cpc_enabled: ::core::option::Option<bool>,
 }
-/// A Search Ads 360 text ad.
+/// A mapping that can be used by custom parameter tags in a
+/// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360TextAdInfo {
-    /// The headline of the ad.
-    #[prost(string, optional, tag = "1")]
-    pub headline: ::core::option::Option<::prost::alloc::string::String>,
-    /// The first line of the ad's description.
-    #[prost(string, optional, tag = "2")]
-    pub description1: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second line of the ad's description.
+pub struct CustomParameter {
+    /// The key matching the parameter tag name.
     #[prost(string, optional, tag = "3")]
-    pub description2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The displayed URL of the ad.
+    pub key: ::core::option::Option<::prost::alloc::string::String>,
+    /// The value to be substituted.
     #[prost(string, optional, tag = "4")]
-    pub display_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// The displayed mobile URL of the ad.
-    #[prost(string, optional, tag = "5")]
-    pub display_mobile_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "6")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
+    pub value: ::core::option::Option<::prost::alloc::string::String>,
 }
-/// A Search Ads 360 expanded text ad.
+/// A rule specifying the maximum number of times an ad (or some set of ads) can
+/// be shown to a user over a particular time period.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ExpandedTextAdInfo {
-    /// The headline of the ad.
-    #[prost(string, optional, tag = "1")]
-    pub headline: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second headline of the ad.
-    #[prost(string, optional, tag = "2")]
-    pub headline2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The third headline of the ad.
-    #[prost(string, optional, tag = "3")]
-    pub headline3: ::core::option::Option<::prost::alloc::string::String>,
-    /// The first line of the ad's description.
-    #[prost(string, optional, tag = "4")]
-    pub description1: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second line of the ad's description.
-    #[prost(string, optional, tag = "5")]
-    pub description2: ::core::option::Option<::prost::alloc::string::String>,
-    /// Text appended to the auto-generated visible URL with a delimiter.
-    #[prost(string, optional, tag = "6")]
-    pub path1: ::core::option::Option<::prost::alloc::string::String>,
-    /// Text appended to path1 with a delimiter.
-    #[prost(string, optional, tag = "7")]
-    pub path2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "8")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
+pub struct FrequencyCapEntry {}
+/// Settings for Real-Time Bidding, a feature only available for campaigns
+/// targeting the Ad Exchange network.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RealTimeBiddingSetting {
+    /// Whether the campaign is opted in to real-time bidding.
+    #[prost(bool, optional, tag = "2")]
+    pub opt_in: ::core::option::Option<bool>,
 }
-/// An expanded dynamic search ad.
+/// Settings for the targeting-related features, at the campaign and ad group
+/// levels. For more details about the targeting setting, visit
+/// <https://support.google.com/google-ads/answer/7365594>
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ExpandedDynamicSearchAdInfo {
-    /// The first line of the ad's description.
-    #[prost(string, optional, tag = "1")]
-    pub description1: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second line of the ad's description.
-    #[prost(string, optional, tag = "2")]
-    pub description2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "3")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
+pub struct TargetingSetting {
+    /// The per-targeting-dimension setting to restrict the reach of your campaign
+    /// or ad group.
+    #[prost(message, repeated, tag = "1")]
+    pub target_restrictions: ::prost::alloc::vec::Vec<TargetRestriction>,
 }
-/// A Search Ads 360 product ad.
+/// The list of per-targeting-dimension targeting settings.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ProductAdInfo {}
-/// A Search Ads 360 responsive search ad.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ResponsiveSearchAdInfo {
-    /// Text appended to the auto-generated visible URL with a delimiter.
-    #[prost(string, optional, tag = "1")]
-    pub path1: ::core::option::Option<::prost::alloc::string::String>,
-    /// Text appended to path1 with a delimiter.
-    #[prost(string, optional, tag = "2")]
-    pub path2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "3")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
+pub struct TargetRestriction {
+    /// The targeting dimension that these settings apply to.
+    #[prost(
+        enumeration = "super::enums::targeting_dimension_enum::TargetingDimension",
+        tag = "1"
+    )]
+    pub targeting_dimension: i32,
+    /// Indicates whether to restrict your ads to show only for the criteria you
+    /// have selected for this targeting_dimension, or to target all values for
+    /// this targeting_dimension and show ads based on your targeting in other
+    /// TargetingDimensions. A value of `true` means that these criteria will only
+    /// apply bid modifiers, and not affect targeting. A value of `false` means
+    /// that these criteria will restrict targeting as well as applying bid
+    /// modifiers.
+    #[prost(bool, optional, tag = "3")]
+    pub bid_only: ::core::option::Option<bool>,
 }
 /// A keyword criterion.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -531,32 +543,6 @@ pub struct AudienceInfo {
     /// The Audience resource name.
     #[prost(string, tag = "1")]
     pub audience: ::prost::alloc::string::String,
-}
-/// A mapping that can be used by custom parameter tags in a
-/// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomParameter {
-    /// The key matching the parameter tag name.
-    #[prost(string, optional, tag = "3")]
-    pub key: ::core::option::Option<::prost::alloc::string::String>,
-    /// The value to be substituted.
-    #[prost(string, optional, tag = "4")]
-    pub value: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A rule specifying the maximum number of times an ad (or some set of ads) can
-/// be shown to a user over a particular time period.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FrequencyCapEntry {}
-/// Settings for Real-Time Bidding, a feature only available for campaigns
-/// targeting the Ad Exchange network.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RealTimeBiddingSetting {
-    /// Whether the campaign is opted in to real-time bidding.
-    #[prost(bool, optional, tag = "2")]
-    pub opt_in: ::core::option::Option<bool>,
 }
 /// A YouTube asset.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -807,6 +793,20 @@ pub struct BusinessProfileLocation {
     /// linked Business Profile account.
     #[prost(int64, tag = "3")]
     pub listing_id: i64,
+}
+/// A type of label displaying text on a colored background.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextLabel {
+    /// Background color of the label in RGB format. This string must match the
+    /// regular expression '^\#(\[a-fA-F0-9\]{6}|\[a-fA-F0-9\]{3})$'.
+    /// Note: The background color may not be visible for manager accounts.
+    #[prost(string, optional, tag = "3")]
+    pub background_color: ::core::option::Option<::prost::alloc::string::String>,
+    /// A short description of the label. The length must be no more than 200
+    /// characters.
+    #[prost(string, optional, tag = "4")]
+    pub description: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// A generic data container.
 #[allow(clippy::derive_partial_eq_without_eq)]

@@ -1,102 +1,10 @@
-/// A NetApp BackupVault.
+/// ListSnapshotsRequest lists snapshots.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackupVault {
-    /// Identifier. The resource name of the backup vault.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The backup vault state.
-    #[prost(enumeration = "backup_vault::State", tag = "2")]
-    pub state: i32,
-    /// Output only. Create time of the backup vault.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Description of the backup vault.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// Resource labels to represent user provided metadata.
-    #[prost(btree_map = "string, string", tag = "5")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Nested message and enum types in `BackupVault`.
-pub mod backup_vault {
-    /// The Backup Vault States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// State not set.
-        Unspecified = 0,
-        /// BackupVault is being created.
-        Creating = 1,
-        /// BackupVault is available for use.
-        Ready = 2,
-        /// BackupVault is being deleted.
-        Deleting = 3,
-        /// BackupVault is not valid and cannot be used.
-        Error = 4,
-        /// BackupVault is being updated.
-        Updating = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-                State::Updating => "UPDATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                "UPDATING" => Some(Self::Updating),
-                _ => None,
-            }
-        }
-    }
-}
-/// GetBackupVaultRequest gets the state of a backupVault.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetBackupVaultRequest {
-    /// Required. The backupVault resource name, in the format
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ListBackupVaultsRequest lists backupVaults.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBackupVaultsRequest {
-    /// Required. The location for which to retrieve backupVault information,
+pub struct ListSnapshotsRequest {
+    /// Required. The volume for which to retrieve snapshot information,
     /// in the format
-    /// `projects/{project_id}/locations/{location}`.
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// The maximum number of items to return.
@@ -113,13 +21,13 @@ pub struct ListBackupVaultsRequest {
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
 }
-/// ListBackupVaultsResponse is the result of ListBackupVaultsRequest.
+/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBackupVaultsResponse {
-    /// A list of backupVaults in the project for the specified location.
+pub struct ListSnapshotsResponse {
+    /// A list of snapshots in the project for the specified volume.
     #[prost(message, repeated, tag = "1")]
-    pub backup_vaults: ::prost::alloc::vec::Vec<BackupVault>,
+    pub snapshots: ::prost::alloc::vec::Vec<Snapshot>,
     /// The token you can use to retrieve the next page of results. Not returned
     /// if there are no more results in the list.
     #[prost(string, tag = "2")]
@@ -128,273 +36,88 @@ pub struct ListBackupVaultsResponse {
     #[prost(string, repeated, tag = "3")]
     pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// CreateBackupVaultRequest creates a backup vault.
+/// GetSnapshotRequest gets the state of a snapshot.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateBackupVaultRequest {
-    /// Required. The location to create the backup vaults, in the format
-    /// `projects/{project_id}/locations/{location}`
+pub struct GetSnapshotRequest {
+    /// Required. The snapshot resource name, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateSnapshotRequest creates a snapshot.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateSnapshotRequest {
+    /// Required. The NetApp volume to create the snapshots of, in the format
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. The ID to use for the backupVault.
-    /// The ID must be unique within the specified location.
-    /// The max supported length is 63 characters.
+    /// Required. A snapshot resource
+    #[prost(message, optional, tag = "2")]
+    pub snapshot: ::core::option::Option<Snapshot>,
+    /// Required. ID of the snapshot to create.
     /// This value must start with a lowercase letter followed by up to 62
     /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    /// Values that do not match this pattern will trigger an INVALID_ARGUMENT
-    /// error.
-    #[prost(string, tag = "2")]
-    pub backup_vault_id: ::prost::alloc::string::String,
-    /// Required. A backupVault resource
-    #[prost(message, optional, tag = "3")]
-    pub backup_vault: ::core::option::Option<BackupVault>,
-}
-/// DeleteBackupVaultRequest deletes a backupVault.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteBackupVaultRequest {
-    /// Required. The backupVault resource name, in the format
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// UpdateBackupVaultRequest updates description and/or labels for a backupVault.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateBackupVaultRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Backup resource to be updated.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The backupVault being updated
-    #[prost(message, optional, tag = "2")]
-    pub backup_vault: ::core::option::Option<BackupVault>,
-}
-/// The service level of a storage pool and its volumes.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum ServiceLevel {
-    /// Unspecified service level.
-    Unspecified = 0,
-    /// Premium service level.
-    Premium = 1,
-    /// Extreme service level.
-    Extreme = 2,
-    /// Standard service level.
-    Standard = 3,
-}
-impl ServiceLevel {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            ServiceLevel::Unspecified => "SERVICE_LEVEL_UNSPECIFIED",
-            ServiceLevel::Premium => "PREMIUM",
-            ServiceLevel::Extreme => "EXTREME",
-            ServiceLevel::Standard => "STANDARD",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "SERVICE_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
-            "PREMIUM" => Some(Self::Premium),
-            "EXTREME" => Some(Self::Extreme),
-            "STANDARD" => Some(Self::Standard),
-            _ => None,
-        }
-    }
-}
-/// The volume encryption key source.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum EncryptionType {
-    /// The source of the encryption key is not specified.
-    Unspecified = 0,
-    /// Google managed encryption key.
-    ServiceManaged = 1,
-    /// Customer managed encryption key, which is stored in KMS.
-    CloudKms = 2,
-}
-impl EncryptionType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
-            EncryptionType::ServiceManaged => "SERVICE_MANAGED",
-            EncryptionType::CloudKms => "CLOUD_KMS",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "SERVICE_MANAGED" => Some(Self::ServiceManaged),
-            "CLOUD_KMS" => Some(Self::CloudKms),
-            _ => None,
-        }
-    }
-}
-/// GetStoragePoolRequest gets a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetStoragePoolRequest {
-    /// Required. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ListStoragePoolsRequest lists Storage Pools.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsRequest {
-    /// Required. Parent value
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
     #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Sort results. Supported values are "name", "name desc" or ""
-    /// (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// Optional. List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
+    pub snapshot_id: ::prost::alloc::string::String,
 }
-/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
+/// DeleteSnapshotRequest deletes a snapshot.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListStoragePoolsResponse {
-    /// The list of StoragePools
-    #[prost(message, repeated, tag = "1")]
-    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// CreateStoragePoolRequest creates a Storage Pool.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateStoragePoolRequest {
-    /// Required. Value for parent.
+pub struct DeleteSnapshotRequest {
+    /// Required. The snapshot resource name, in the format
+    /// `projects/*/locations/*/volumes/*/snapshots/{snapshot_id}`
     #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting storage pool
-    /// If auto-generating Id server-side, remove this field and
-    /// id from the method_signature of Create RPC
-    #[prost(string, tag = "2")]
-    pub storage_pool_id: ::prost::alloc::string::String,
-    /// Required. The required parameters to create a new storage pool.
-    #[prost(message, optional, tag = "3")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
+    pub name: ::prost::alloc::string::String,
 }
-/// UpdateStoragePoolRequest updates a Storage Pool.
+/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateStoragePoolRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// StoragePool resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
+pub struct UpdateSnapshotRequest {
+    /// Required. Mask of fields to update.  At least one path must be supplied in
+    /// this field.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The pool being updated
+    /// Required. A snapshot resource
     #[prost(message, optional, tag = "2")]
-    pub storage_pool: ::core::option::Option<StoragePool>,
+    pub snapshot: ::core::option::Option<Snapshot>,
 }
-/// DeleteStoragePoolRequest deletes a Storage Pool.
+/// Snapshot is a point-in-time version of a Volume's content.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteStoragePoolRequest {
-    /// Required. Name of the storage pool
+pub struct Snapshot {
+    /// Identifier. The resource name of the snapshot.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-}
-/// StoragePool is a container for volumes with a service level and capacity.
-/// Volumes can be created in a pool of sufficient available capacity.
-/// StoragePool capacity is what you are billed for.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct StoragePool {
-    /// Identifier. Name of the storage pool
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Service level of the storage pool
-    #[prost(enumeration = "ServiceLevel", tag = "2")]
-    pub service_level: i32,
-    /// Required. Capacity in GIB of the pool
-    #[prost(int64, tag = "3")]
-    pub capacity_gib: i64,
-    /// Output only. Allocated size of all volumes in GIB in the storage pool
-    #[prost(int64, tag = "4")]
-    pub volume_capacity_gib: i64,
-    /// Output only. Volume count of the storage pool
-    #[prost(int32, tag = "5")]
-    pub volume_count: i32,
-    /// Output only. State of the storage pool
-    #[prost(enumeration = "storage_pool::State", tag = "6")]
+    /// Output only. The snapshot state.
+    #[prost(enumeration = "snapshot::State", tag = "2")]
     pub state: i32,
     /// Output only. State details of the storage pool
-    #[prost(string, tag = "7")]
+    #[prost(string, tag = "3")]
     pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the storage pool
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Description of the storage pool
-    #[prost(string, tag = "9")]
+    /// A description of the snapshot with 2048 characters or less.
+    /// Requests with longer descriptions will be rejected.
+    #[prost(string, tag = "4")]
     pub description: ::prost::alloc::string::String,
-    /// Optional. Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "10")]
+    /// Output only. Current storage usage for the snapshot in bytes.
+    #[prost(double, tag = "5")]
+    pub used_bytes: f64,
+    /// Output only. The time when the snapshot was created.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Resource labels to represent user provided metadata.
+    #[prost(btree_map = "string, string", tag = "7")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Required. VPC Network name.
-    /// Format: projects/{project}/global/networks/{network}
-    #[prost(string, tag = "11")]
-    pub network: ::prost::alloc::string::String,
-    /// Optional. Specifies the Active Directory to be used for creating a SMB
-    /// volume.
-    #[prost(string, tag = "12")]
-    pub active_directory: ::prost::alloc::string::String,
-    /// Optional. Specifies the KMS config to be used for volume encryption.
-    #[prost(string, tag = "13")]
-    pub kms_config: ::prost::alloc::string::String,
-    /// Optional. Flag indicating if the pool is NFS LDAP enabled or not.
-    #[prost(bool, tag = "14")]
-    pub ldap_enabled: bool,
-    /// Optional. This field is not implemented. The values provided in this field
-    /// are ignored.
-    #[prost(string, tag = "15")]
-    pub psa_range: ::prost::alloc::string::String,
-    /// Output only. Specifies the current pool encryption key source.
-    #[prost(enumeration = "EncryptionType", tag = "16")]
-    pub encryption_type: i32,
-    /// Deprecated. Used to allow SO pool to access AD or DNS server from other
-    /// regions.
-    #[deprecated]
-    #[prost(bool, optional, tag = "17")]
-    pub global_access_allowed: ::core::option::Option<bool>,
 }
-/// Nested message and enum types in `StoragePool`.
-pub mod storage_pool {
-    /// The Storage Pool States
+/// Nested message and enum types in `Snapshot`.
+pub mod snapshot {
+    /// The Snapshot States
     #[derive(
         Clone,
         Copy,
@@ -408,22 +131,20 @@ pub mod storage_pool {
     )]
     #[repr(i32)]
     pub enum State {
-        /// Unspecified Storage Pool State
+        /// Unspecified Snapshot State
         Unspecified = 0,
-        /// Storage Pool State is Ready
+        /// Snapshot State is Ready
         Ready = 1,
-        /// Storage Pool State is Creating
+        /// Snapshot State is Creating
         Creating = 2,
-        /// Storage Pool State is Deleting
+        /// Snapshot State is Deleting
         Deleting = 3,
-        /// Storage Pool State is Updating
+        /// Snapshot State is Updating
         Updating = 4,
-        /// Storage Pool State is Restoring
-        Restoring = 5,
-        /// Storage Pool State is Disabled
-        Disabled = 6,
-        /// Storage Pool State is Error
-        Error = 7,
+        /// Snapshot State is Disabled
+        Disabled = 5,
+        /// Snapshot State is Error
+        Error = 6,
     }
     impl State {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -437,7 +158,6 @@ pub mod storage_pool {
                 State::Creating => "CREATING",
                 State::Deleting => "DELETING",
                 State::Updating => "UPDATING",
-                State::Restoring => "RESTORING",
                 State::Disabled => "DISABLED",
                 State::Error => "ERROR",
             }
@@ -450,201 +170,12 @@ pub mod storage_pool {
                 "CREATING" => Some(Self::Creating),
                 "DELETING" => Some(Self::Deleting),
                 "UPDATING" => Some(Self::Updating),
-                "RESTORING" => Some(Self::Restoring),
                 "DISABLED" => Some(Self::Disabled),
                 "ERROR" => Some(Self::Error),
                 _ => None,
             }
         }
     }
-}
-/// Backup Policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackupPolicy {
-    /// Identifier. The resource name of the backup policy.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Number of daily backups to keep. Note that the minimum daily backup limit
-    /// is 2.
-    #[prost(int32, optional, tag = "2")]
-    pub daily_backup_limit: ::core::option::Option<i32>,
-    /// Number of weekly backups to keep. Note that the sum of daily, weekly and
-    /// monthly backups should be greater than 1.
-    #[prost(int32, optional, tag = "3")]
-    pub weekly_backup_limit: ::core::option::Option<i32>,
-    /// Number of monthly backups to keep. Note that the sum of daily, weekly and
-    /// monthly backups should be greater than 1.
-    #[prost(int32, optional, tag = "4")]
-    pub monthly_backup_limit: ::core::option::Option<i32>,
-    /// Description of the backup policy.
-    #[prost(string, optional, tag = "5")]
-    pub description: ::core::option::Option<::prost::alloc::string::String>,
-    /// If enabled, make backups automatically according to the schedules.
-    /// This will be applied to all volumes that have this policy attached and
-    /// enforced on volume level. If not specified, default is true.
-    #[prost(bool, optional, tag = "6")]
-    pub enabled: ::core::option::Option<bool>,
-    /// Output only. The total number of volumes assigned by this backup policy.
-    #[prost(int32, optional, tag = "7")]
-    pub assigned_volume_count: ::core::option::Option<i32>,
-    /// Output only. The time when the backup policy was created.
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Resource labels to represent user provided metadata.
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The backup policy state.
-    #[prost(enumeration = "backup_policy::State", tag = "10")]
-    pub state: i32,
-}
-/// Nested message and enum types in `BackupPolicy`.
-pub mod backup_policy {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// State not set.
-        Unspecified = 0,
-        /// BackupPolicy is being created.
-        Creating = 1,
-        /// BackupPolicy is available for use.
-        Ready = 2,
-        /// BackupPolicy is being deleted.
-        Deleting = 3,
-        /// BackupPolicy is not valid and cannot be used.
-        Error = 4,
-        /// BackupPolicy is being updated.
-        Updating = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-                State::Updating => "UPDATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                "UPDATING" => Some(Self::Updating),
-                _ => None,
-            }
-        }
-    }
-}
-/// CreateBackupPolicyRequest creates a backupPolicy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateBackupPolicyRequest {
-    /// Required. The location to create the backup policies of, in the format
-    /// `projects/{project_id}/locations/{location}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. A backupPolicy resource
-    #[prost(message, optional, tag = "2")]
-    pub backup_policy: ::core::option::Option<BackupPolicy>,
-    /// Required. The ID to use for the backup policy.
-    /// The ID must be unique within the specified location.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    #[prost(string, tag = "3")]
-    pub backup_policy_id: ::prost::alloc::string::String,
-}
-/// GetBackupPolicyRequest gets the state of a backupPolicy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetBackupPolicyRequest {
-    /// Required. The backupPolicy resource name, in the format
-    /// `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ListBackupPoliciesRequest for requesting multiple backup policies.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBackupPoliciesRequest {
-    /// Required. Parent value for ListBackupPoliciesRequest
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Requested page size. Server may return fewer items than requested.
-    /// If unspecified, the server will pick an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Filtering results
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Hint for how to order the results
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// ListBackupPoliciesResponse contains all the backup policies requested.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBackupPoliciesResponse {
-    /// The list of backup policies.
-    #[prost(message, repeated, tag = "1")]
-    pub backup_policies: ::prost::alloc::vec::Vec<BackupPolicy>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// UpdateBackupPolicyRequest for updating a backup policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateBackupPolicyRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Backup Policy resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The backup policy being updated
-    #[prost(message, optional, tag = "2")]
-    pub backup_policy: ::core::option::Option<BackupPolicy>,
-}
-/// DeleteBackupPolicyRequest deletes a backup policy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteBackupPolicyRequest {
-    /// Required. The backup policy resource name, in the format
-    /// `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
 }
 /// ListActiveDirectoriesRequest for requesting multiple active directories.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -863,6 +394,867 @@ pub mod active_directory {
                 "IN_USE" => Some(Self::InUse),
                 "DELETING" => Some(Self::Deleting),
                 "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
+}
+/// A NetApp Backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Backup {
+    /// Identifier. The resource name of the backup.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The backup state.
+    #[prost(enumeration = "backup::State", tag = "2")]
+    pub state: i32,
+    /// A description of the backup with 2048 characters or less.
+    /// Requests with longer descriptions will be rejected.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. Size of the file system when the backup was created. When
+    /// creating a new volume from the backup, the volume capacity will have to be
+    /// at least as big.
+    #[prost(int64, tag = "4")]
+    pub volume_usage_bytes: i64,
+    /// Output only. Type of backup, manually created or created by a backup
+    /// policy.
+    #[prost(enumeration = "backup::Type", tag = "5")]
+    pub backup_type: i32,
+    /// Volume full name of this backup belongs to.
+    /// Format:
+    /// `projects/{projects_id}/locations/{location}/volumes/{volume_id}`
+    #[prost(string, tag = "6")]
+    pub source_volume: ::prost::alloc::string::String,
+    /// If specified, backup will be created from the given snapshot.
+    /// If not specified, there will be a new snapshot taken to initiate the backup
+    /// creation. Format:
+    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
+    #[prost(string, optional, tag = "7")]
+    pub source_snapshot: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The time when the backup was created.
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Resource labels to represent user provided metadata.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Total size of all backups in a chain in bytes = baseline
+    /// backup size + sum(incremental backup size)
+    #[prost(int64, tag = "10")]
+    pub chain_storage_bytes: i64,
+}
+/// Nested message and enum types in `Backup`.
+pub mod backup {
+    /// The Backup States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// State not set.
+        Unspecified = 0,
+        /// Backup is being created. While in this state, the snapshot for the backup
+        /// point-in-time may not have been created yet, and so the point-in-time may
+        /// not have been fixed.
+        Creating = 1,
+        /// Backup is being uploaded. While in this state, none of the writes to the
+        /// volume will be included in the backup.
+        Uploading = 2,
+        /// Backup is available for use.
+        Ready = 3,
+        /// Backup is being deleted.
+        Deleting = 4,
+        /// Backup is not valid and cannot be used for creating new volumes or
+        /// restoring existing volumes.
+        Error = 5,
+        /// Backup is being updated.
+        Updating = 6,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Uploading => "UPLOADING",
+                State::Ready => "READY",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+                State::Updating => "UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "UPLOADING" => Some(Self::Uploading),
+                "READY" => Some(Self::Ready),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                "UPDATING" => Some(Self::Updating),
+                _ => None,
+            }
+        }
+    }
+    /// Backup types.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// Unspecified backup type.
+        Unspecified = 0,
+        /// Manual backup type.
+        Manual = 1,
+        /// Scheduled backup type.
+        Scheduled = 2,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::Manual => "MANUAL",
+                Type::Scheduled => "SCHEDULED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "MANUAL" => Some(Self::Manual),
+                "SCHEDULED" => Some(Self::Scheduled),
+                _ => None,
+            }
+        }
+    }
+}
+/// ListBackupsRequest lists backups.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBackupsRequest {
+    /// Required. The backupVault for which to retrieve backup information,
+    /// in the format
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`.
+    /// To retrieve backup information for all locations, use "-" for the
+    /// `{location}` value.
+    /// To retrieve backup information for all backupVaults, use "-" for the
+    /// `{backup_vault_id}` value.
+    /// To retrieve backup information for a volume, use "-" for the
+    /// `{backup_vault_id}` value and specify volume full name with the filter.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return. The service may return fewer
+    /// than this value. The maximum value
+    /// is 1000; values above 1000 will be coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// The standard list filter.
+    /// If specified, backups will be returned based on the attribute name that
+    /// matches the filter expression. If empty, then no backups are filtered out.
+    /// See <https://google.aip.dev/160>
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListBackupsResponse is the result of ListBackupsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBackupsResponse {
+    /// A list of backups in the project.
+    #[prost(message, repeated, tag = "1")]
+    pub backups: ::prost::alloc::vec::Vec<Backup>,
+    /// The token you can use to retrieve the next page of results. Not returned
+    /// if there are no more results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// GetBackupRequest gets the state of a backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetBackupRequest {
+    /// Required. The backup resource name, in the format
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// CreateBackupRequest creates a backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateBackupRequest {
+    /// Required. The NetApp backupVault to create the backups of, in the format
+    /// `projects/*/locations/*/backupVaults/{backup_vault_id}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The ID to use for the backup.
+    /// The ID must be unique within the specified backupVault.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    /// Values that do not match this pattern will trigger an INVALID_ARGUMENT
+    /// error.
+    #[prost(string, tag = "2")]
+    pub backup_id: ::prost::alloc::string::String,
+    /// Required. A backup resource
+    #[prost(message, optional, tag = "3")]
+    pub backup: ::core::option::Option<Backup>,
+}
+/// DeleteBackupRequest deletes a backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteBackupRequest {
+    /// Required. The backup resource name, in the format
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// UpdateBackupRequest updates description and/or labels for a backup.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateBackupRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Backup resource to be updated.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The backup being updated
+    #[prost(message, optional, tag = "2")]
+    pub backup: ::core::option::Option<Backup>,
+}
+/// Backup Policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BackupPolicy {
+    /// Identifier. The resource name of the backup policy.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Number of daily backups to keep. Note that the minimum daily backup limit
+    /// is 2.
+    #[prost(int32, optional, tag = "2")]
+    pub daily_backup_limit: ::core::option::Option<i32>,
+    /// Number of weekly backups to keep. Note that the sum of daily, weekly and
+    /// monthly backups should be greater than 1.
+    #[prost(int32, optional, tag = "3")]
+    pub weekly_backup_limit: ::core::option::Option<i32>,
+    /// Number of monthly backups to keep. Note that the sum of daily, weekly and
+    /// monthly backups should be greater than 1.
+    #[prost(int32, optional, tag = "4")]
+    pub monthly_backup_limit: ::core::option::Option<i32>,
+    /// Description of the backup policy.
+    #[prost(string, optional, tag = "5")]
+    pub description: ::core::option::Option<::prost::alloc::string::String>,
+    /// If enabled, make backups automatically according to the schedules.
+    /// This will be applied to all volumes that have this policy attached and
+    /// enforced on volume level. If not specified, default is true.
+    #[prost(bool, optional, tag = "6")]
+    pub enabled: ::core::option::Option<bool>,
+    /// Output only. The total number of volumes assigned by this backup policy.
+    #[prost(int32, optional, tag = "7")]
+    pub assigned_volume_count: ::core::option::Option<i32>,
+    /// Output only. The time when the backup policy was created.
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Resource labels to represent user provided metadata.
+    #[prost(btree_map = "string, string", tag = "9")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The backup policy state.
+    #[prost(enumeration = "backup_policy::State", tag = "10")]
+    pub state: i32,
+}
+/// Nested message and enum types in `BackupPolicy`.
+pub mod backup_policy {
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// State not set.
+        Unspecified = 0,
+        /// BackupPolicy is being created.
+        Creating = 1,
+        /// BackupPolicy is available for use.
+        Ready = 2,
+        /// BackupPolicy is being deleted.
+        Deleting = 3,
+        /// BackupPolicy is not valid and cannot be used.
+        Error = 4,
+        /// BackupPolicy is being updated.
+        Updating = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+                State::Updating => "UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                "UPDATING" => Some(Self::Updating),
+                _ => None,
+            }
+        }
+    }
+}
+/// CreateBackupPolicyRequest creates a backupPolicy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateBackupPolicyRequest {
+    /// Required. The location to create the backup policies of, in the format
+    /// `projects/{project_id}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. A backupPolicy resource
+    #[prost(message, optional, tag = "2")]
+    pub backup_policy: ::core::option::Option<BackupPolicy>,
+    /// Required. The ID to use for the backup policy.
+    /// The ID must be unique within the specified location.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    #[prost(string, tag = "3")]
+    pub backup_policy_id: ::prost::alloc::string::String,
+}
+/// GetBackupPolicyRequest gets the state of a backupPolicy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetBackupPolicyRequest {
+    /// Required. The backupPolicy resource name, in the format
+    /// `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ListBackupPoliciesRequest for requesting multiple backup policies.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBackupPoliciesRequest {
+    /// Required. Parent value for ListBackupPoliciesRequest
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Requested page size. Server may return fewer items than requested.
+    /// If unspecified, the server will pick an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Filtering results
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Hint for how to order the results
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// ListBackupPoliciesResponse contains all the backup policies requested.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBackupPoliciesResponse {
+    /// The list of backup policies.
+    #[prost(message, repeated, tag = "1")]
+    pub backup_policies: ::prost::alloc::vec::Vec<BackupPolicy>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// UpdateBackupPolicyRequest for updating a backup policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateBackupPolicyRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Backup Policy resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The backup policy being updated
+    #[prost(message, optional, tag = "2")]
+    pub backup_policy: ::core::option::Option<BackupPolicy>,
+}
+/// DeleteBackupPolicyRequest deletes a backup policy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteBackupPolicyRequest {
+    /// Required. The backup policy resource name, in the format
+    /// `projects/{project_id}/locations/{location}/backupPolicies/{backup_policy_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// A NetApp BackupVault.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BackupVault {
+    /// Identifier. The resource name of the backup vault.
+    /// Format:
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The backup vault state.
+    #[prost(enumeration = "backup_vault::State", tag = "2")]
+    pub state: i32,
+    /// Output only. Create time of the backup vault.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Description of the backup vault.
+    #[prost(string, tag = "4")]
+    pub description: ::prost::alloc::string::String,
+    /// Resource labels to represent user provided metadata.
+    #[prost(btree_map = "string, string", tag = "5")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Nested message and enum types in `BackupVault`.
+pub mod backup_vault {
+    /// The Backup Vault States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// State not set.
+        Unspecified = 0,
+        /// BackupVault is being created.
+        Creating = 1,
+        /// BackupVault is available for use.
+        Ready = 2,
+        /// BackupVault is being deleted.
+        Deleting = 3,
+        /// BackupVault is not valid and cannot be used.
+        Error = 4,
+        /// BackupVault is being updated.
+        Updating = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::Deleting => "DELETING",
+                State::Error => "ERROR",
+                State::Updating => "UPDATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "DELETING" => Some(Self::Deleting),
+                "ERROR" => Some(Self::Error),
+                "UPDATING" => Some(Self::Updating),
+                _ => None,
+            }
+        }
+    }
+}
+/// GetBackupVaultRequest gets the state of a backupVault.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetBackupVaultRequest {
+    /// Required. The backupVault resource name, in the format
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ListBackupVaultsRequest lists backupVaults.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBackupVaultsRequest {
+    /// Required. The location for which to retrieve backupVault information,
+    /// in the format
+    /// `projects/{project_id}/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListBackupVaultsResponse is the result of ListBackupVaultsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListBackupVaultsResponse {
+    /// A list of backupVaults in the project for the specified location.
+    #[prost(message, repeated, tag = "1")]
+    pub backup_vaults: ::prost::alloc::vec::Vec<BackupVault>,
+    /// The token you can use to retrieve the next page of results. Not returned
+    /// if there are no more results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// CreateBackupVaultRequest creates a backup vault.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateBackupVaultRequest {
+    /// Required. The location to create the backup vaults, in the format
+    /// `projects/{project_id}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The ID to use for the backupVault.
+    /// The ID must be unique within the specified location.
+    /// The max supported length is 63 characters.
+    /// This value must start with a lowercase letter followed by up to 62
+    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
+    /// Values that do not match this pattern will trigger an INVALID_ARGUMENT
+    /// error.
+    #[prost(string, tag = "2")]
+    pub backup_vault_id: ::prost::alloc::string::String,
+    /// Required. A backupVault resource
+    #[prost(message, optional, tag = "3")]
+    pub backup_vault: ::core::option::Option<BackupVault>,
+}
+/// DeleteBackupVaultRequest deletes a backupVault.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteBackupVaultRequest {
+    /// Required. The backupVault resource name, in the format
+    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// UpdateBackupVaultRequest updates description and/or labels for a backupVault.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateBackupVaultRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// Backup resource to be updated.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The backupVault being updated
+    #[prost(message, optional, tag = "2")]
+    pub backup_vault: ::core::option::Option<BackupVault>,
+}
+/// GetKmsConfigRequest gets a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetKmsConfigRequest {
+    /// Required. Name of the KmsConfig
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ListKmsConfigsRequest lists KMS Configs.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListKmsConfigsRequest {
+    /// Required. Parent value
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListKmsConfigsResponse {
+    /// The list of KmsConfigs
+    #[prost(message, repeated, tag = "1")]
+    pub kms_configs: ::prost::alloc::vec::Vec<KmsConfig>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// CreateKmsConfigRequest creates a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateKmsConfigRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting KmsConfig
+    /// If auto-generating Id server-side, remove this field and
+    /// id from the method_signature of Create RPC
+    #[prost(string, tag = "2")]
+    pub kms_config_id: ::prost::alloc::string::String,
+    /// Required. The required parameters to create a new KmsConfig.
+    #[prost(message, optional, tag = "3")]
+    pub kms_config: ::core::option::Option<KmsConfig>,
+}
+/// UpdateKmsConfigRequest updates a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateKmsConfigRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// KmsConfig resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The KmsConfig being updated
+    #[prost(message, optional, tag = "2")]
+    pub kms_config: ::core::option::Option<KmsConfig>,
+}
+/// DeleteKmsConfigRequest deletes a KMS Config.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteKmsConfigRequest {
+    /// Required. Name of the KmsConfig.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EncryptVolumesRequest {
+    /// Required. Name of the KmsConfig.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// VerifyKmsConfigRequest specifies the KMS config to be validated.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VerifyKmsConfigRequest {
+    /// Required. Name of the KMS Config to be verified.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// VerifyKmsConfigResponse contains the information if the config is correctly
+/// and error message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VerifyKmsConfigResponse {
+    /// Output only. If the customer key configured correctly to the encrypt
+    /// volume.
+    #[prost(bool, tag = "1")]
+    pub healthy: bool,
+    /// Output only. Error message if config is not healthy.
+    #[prost(string, tag = "2")]
+    pub health_error: ::prost::alloc::string::String,
+    /// Output only. Instructions for the customers to provide the access to the
+    /// encryption key.
+    #[prost(string, tag = "3")]
+    pub instructions: ::prost::alloc::string::String,
+}
+/// KmsConfig is the customer managed encryption key(CMEK) configuration.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KmsConfig {
+    /// Identifier. Name of the KmsConfig.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Customer managed crypto key resource full name. Format:
+    /// projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
+    #[prost(string, tag = "2")]
+    pub crypto_key_name: ::prost::alloc::string::String,
+    /// Output only. State of the KmsConfig.
+    #[prost(enumeration = "kms_config::State", tag = "3")]
+    pub state: i32,
+    /// Output only. State details of the KmsConfig.
+    #[prost(string, tag = "4")]
+    pub state_details: ::prost::alloc::string::String,
+    /// Output only. Create time of the KmsConfig.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Description of the KmsConfig.
+    #[prost(string, tag = "6")]
+    pub description: ::prost::alloc::string::String,
+    /// Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. Instructions to provide the access to the customer provided
+    /// encryption key.
+    #[prost(string, tag = "8")]
+    pub instructions: ::prost::alloc::string::String,
+    /// Output only. The Service account which will have access to the customer
+    /// provided encryption key.
+    #[prost(string, tag = "9")]
+    pub service_account: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `KmsConfig`.
+pub mod kms_config {
+    /// The KmsConfig States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified KmsConfig State
+        Unspecified = 0,
+        /// KmsConfig State is Ready
+        Ready = 1,
+        /// KmsConfig State is Creating
+        Creating = 2,
+        /// KmsConfig State is Deleting
+        Deleting = 3,
+        /// KmsConfig State is Updating
+        Updating = 4,
+        /// KmsConfig State is In Use.
+        InUse = 5,
+        /// KmsConfig State is Error
+        Error = 6,
+        /// KmsConfig State is Pending to verify crypto key access.
+        KeyCheckPending = 7,
+        /// KmsConfig State is Not accessbile by the SDE service account to the
+        /// crypto key.
+        KeyNotReachable = 8,
+        /// KmsConfig State is Disabling.
+        Disabling = 9,
+        /// KmsConfig State is Disabled.
+        Disabled = 10,
+        /// KmsConfig State is Migrating.
+        /// The existing volumes are migrating from SMEK to CMEK.
+        Migrating = 11,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+                State::InUse => "IN_USE",
+                State::Error => "ERROR",
+                State::KeyCheckPending => "KEY_CHECK_PENDING",
+                State::KeyNotReachable => "KEY_NOT_REACHABLE",
+                State::Disabling => "DISABLING",
+                State::Disabled => "DISABLED",
+                State::Migrating => "MIGRATING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                "IN_USE" => Some(Self::InUse),
+                "ERROR" => Some(Self::Error),
+                "KEY_CHECK_PENDING" => Some(Self::KeyCheckPending),
+                "KEY_NOT_REACHABLE" => Some(Self::KeyNotReachable),
+                "DISABLING" => Some(Self::Disabling),
+                "DISABLED" => Some(Self::Disabled),
+                "MIGRATING" => Some(Self::Migrating),
                 _ => None,
             }
         }
@@ -1307,6 +1699,291 @@ pub struct ReverseReplicationDirectionRequest {
     /// projects/{project_id}/locations/{location}/volumes/{volume_id}/replications/{replication_id}.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+}
+/// The service level of a storage pool and its volumes.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ServiceLevel {
+    /// Unspecified service level.
+    Unspecified = 0,
+    /// Premium service level.
+    Premium = 1,
+    /// Extreme service level.
+    Extreme = 2,
+    /// Standard service level.
+    Standard = 3,
+}
+impl ServiceLevel {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ServiceLevel::Unspecified => "SERVICE_LEVEL_UNSPECIFIED",
+            ServiceLevel::Premium => "PREMIUM",
+            ServiceLevel::Extreme => "EXTREME",
+            ServiceLevel::Standard => "STANDARD",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SERVICE_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
+            "PREMIUM" => Some(Self::Premium),
+            "EXTREME" => Some(Self::Extreme),
+            "STANDARD" => Some(Self::Standard),
+            _ => None,
+        }
+    }
+}
+/// The volume encryption key source.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum EncryptionType {
+    /// The source of the encryption key is not specified.
+    Unspecified = 0,
+    /// Google managed encryption key.
+    ServiceManaged = 1,
+    /// Customer managed encryption key, which is stored in KMS.
+    CloudKms = 2,
+}
+impl EncryptionType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            EncryptionType::Unspecified => "ENCRYPTION_TYPE_UNSPECIFIED",
+            EncryptionType::ServiceManaged => "SERVICE_MANAGED",
+            EncryptionType::CloudKms => "CLOUD_KMS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ENCRYPTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "SERVICE_MANAGED" => Some(Self::ServiceManaged),
+            "CLOUD_KMS" => Some(Self::CloudKms),
+            _ => None,
+        }
+    }
+}
+/// GetStoragePoolRequest gets a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetStoragePoolRequest {
+    /// Required. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ListStoragePoolsRequest lists Storage Pools.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListStoragePoolsRequest {
+    /// Required. Parent value
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The maximum number of items to return.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. The next_page_token value to use if there are additional
+    /// results to retrieve for this list request.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Sort results. Supported values are "name", "name desc" or ""
+    /// (unsorted).
+    #[prost(string, tag = "4")]
+    pub order_by: ::prost::alloc::string::String,
+    /// Optional. List filter.
+    #[prost(string, tag = "5")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// ListStoragePoolsResponse is the response to a ListStoragePoolsRequest.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListStoragePoolsResponse {
+    /// The list of StoragePools
+    #[prost(message, repeated, tag = "1")]
+    pub storage_pools: ::prost::alloc::vec::Vec<StoragePool>,
+    /// A token identifying a page of results the server should return.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// CreateStoragePoolRequest creates a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateStoragePoolRequest {
+    /// Required. Value for parent.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Id of the requesting storage pool
+    /// If auto-generating Id server-side, remove this field and
+    /// id from the method_signature of Create RPC
+    #[prost(string, tag = "2")]
+    pub storage_pool_id: ::prost::alloc::string::String,
+    /// Required. The required parameters to create a new storage pool.
+    #[prost(message, optional, tag = "3")]
+    pub storage_pool: ::core::option::Option<StoragePool>,
+}
+/// UpdateStoragePoolRequest updates a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateStoragePoolRequest {
+    /// Required. Field mask is used to specify the fields to be overwritten in the
+    /// StoragePool resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. The pool being updated
+    #[prost(message, optional, tag = "2")]
+    pub storage_pool: ::core::option::Option<StoragePool>,
+}
+/// DeleteStoragePoolRequest deletes a Storage Pool.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteStoragePoolRequest {
+    /// Required. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// StoragePool is a container for volumes with a service level and capacity.
+/// Volumes can be created in a pool of sufficient available capacity.
+/// StoragePool capacity is what you are billed for.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StoragePool {
+    /// Identifier. Name of the storage pool
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Service level of the storage pool
+    #[prost(enumeration = "ServiceLevel", tag = "2")]
+    pub service_level: i32,
+    /// Required. Capacity in GIB of the pool
+    #[prost(int64, tag = "3")]
+    pub capacity_gib: i64,
+    /// Output only. Allocated size of all volumes in GIB in the storage pool
+    #[prost(int64, tag = "4")]
+    pub volume_capacity_gib: i64,
+    /// Output only. Volume count of the storage pool
+    #[prost(int32, tag = "5")]
+    pub volume_count: i32,
+    /// Output only. State of the storage pool
+    #[prost(enumeration = "storage_pool::State", tag = "6")]
+    pub state: i32,
+    /// Output only. State details of the storage pool
+    #[prost(string, tag = "7")]
+    pub state_details: ::prost::alloc::string::String,
+    /// Output only. Create time of the storage pool
+    #[prost(message, optional, tag = "8")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Description of the storage pool
+    #[prost(string, tag = "9")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. Labels as key value pairs
+    #[prost(btree_map = "string, string", tag = "10")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. VPC Network name.
+    /// Format: projects/{project}/global/networks/{network}
+    #[prost(string, tag = "11")]
+    pub network: ::prost::alloc::string::String,
+    /// Optional. Specifies the Active Directory to be used for creating a SMB
+    /// volume.
+    #[prost(string, tag = "12")]
+    pub active_directory: ::prost::alloc::string::String,
+    /// Optional. Specifies the KMS config to be used for volume encryption.
+    #[prost(string, tag = "13")]
+    pub kms_config: ::prost::alloc::string::String,
+    /// Optional. Flag indicating if the pool is NFS LDAP enabled or not.
+    #[prost(bool, tag = "14")]
+    pub ldap_enabled: bool,
+    /// Optional. This field is not implemented. The values provided in this field
+    /// are ignored.
+    #[prost(string, tag = "15")]
+    pub psa_range: ::prost::alloc::string::String,
+    /// Output only. Specifies the current pool encryption key source.
+    #[prost(enumeration = "EncryptionType", tag = "16")]
+    pub encryption_type: i32,
+    /// Deprecated. Used to allow SO pool to access AD or DNS server from other
+    /// regions.
+    #[deprecated]
+    #[prost(bool, optional, tag = "17")]
+    pub global_access_allowed: ::core::option::Option<bool>,
+}
+/// Nested message and enum types in `StoragePool`.
+pub mod storage_pool {
+    /// The Storage Pool States
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// Unspecified Storage Pool State
+        Unspecified = 0,
+        /// Storage Pool State is Ready
+        Ready = 1,
+        /// Storage Pool State is Creating
+        Creating = 2,
+        /// Storage Pool State is Deleting
+        Deleting = 3,
+        /// Storage Pool State is Updating
+        Updating = 4,
+        /// Storage Pool State is Restoring
+        Restoring = 5,
+        /// Storage Pool State is Disabled
+        Disabled = 6,
+        /// Storage Pool State is Error
+        Error = 7,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Ready => "READY",
+                State::Creating => "CREATING",
+                State::Deleting => "DELETING",
+                State::Updating => "UPDATING",
+                State::Restoring => "RESTORING",
+                State::Disabled => "DISABLED",
+                State::Error => "ERROR",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY" => Some(Self::Ready),
+                "CREATING" => Some(Self::Creating),
+                "DELETING" => Some(Self::Deleting),
+                "UPDATING" => Some(Self::Updating),
+                "RESTORING" => Some(Self::Restoring),
+                "DISABLED" => Some(Self::Disabled),
+                "ERROR" => Some(Self::Error),
+                _ => None,
+            }
+        }
+    }
 }
 /// Message for requesting list of Volumes
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1989,683 +2666,6 @@ impl RestrictedAction {
             "RESTRICTED_ACTION_UNSPECIFIED" => Some(Self::Unspecified),
             "DELETE" => Some(Self::Delete),
             _ => None,
-        }
-    }
-}
-/// A NetApp Backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Backup {
-    /// Identifier. The resource name of the backup.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The backup state.
-    #[prost(enumeration = "backup::State", tag = "2")]
-    pub state: i32,
-    /// A description of the backup with 2048 characters or less.
-    /// Requests with longer descriptions will be rejected.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Size of the file system when the backup was created. When
-    /// creating a new volume from the backup, the volume capacity will have to be
-    /// at least as big.
-    #[prost(int64, tag = "4")]
-    pub volume_usage_bytes: i64,
-    /// Output only. Type of backup, manually created or created by a backup
-    /// policy.
-    #[prost(enumeration = "backup::Type", tag = "5")]
-    pub backup_type: i32,
-    /// Volume full name of this backup belongs to.
-    /// Format:
-    /// `projects/{projects_id}/locations/{location}/volumes/{volume_id}`
-    #[prost(string, tag = "6")]
-    pub source_volume: ::prost::alloc::string::String,
-    /// If specified, backup will be created from the given snapshot.
-    /// If not specified, there will be a new snapshot taken to initiate the backup
-    /// creation. Format:
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
-    #[prost(string, optional, tag = "7")]
-    pub source_snapshot: ::core::option::Option<::prost::alloc::string::String>,
-    /// Output only. The time when the backup was created.
-    #[prost(message, optional, tag = "8")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Resource labels to represent user provided metadata.
-    #[prost(btree_map = "string, string", tag = "9")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Total size of all backups in a chain in bytes = baseline
-    /// backup size + sum(incremental backup size)
-    #[prost(int64, tag = "10")]
-    pub chain_storage_bytes: i64,
-}
-/// Nested message and enum types in `Backup`.
-pub mod backup {
-    /// The Backup States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// State not set.
-        Unspecified = 0,
-        /// Backup is being created. While in this state, the snapshot for the backup
-        /// point-in-time may not have been created yet, and so the point-in-time may
-        /// not have been fixed.
-        Creating = 1,
-        /// Backup is being uploaded. While in this state, none of the writes to the
-        /// volume will be included in the backup.
-        Uploading = 2,
-        /// Backup is available for use.
-        Ready = 3,
-        /// Backup is being deleted.
-        Deleting = 4,
-        /// Backup is not valid and cannot be used for creating new volumes or
-        /// restoring existing volumes.
-        Error = 5,
-        /// Backup is being updated.
-        Updating = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Uploading => "UPLOADING",
-                State::Ready => "READY",
-                State::Deleting => "DELETING",
-                State::Error => "ERROR",
-                State::Updating => "UPDATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "UPLOADING" => Some(Self::Uploading),
-                "READY" => Some(Self::Ready),
-                "DELETING" => Some(Self::Deleting),
-                "ERROR" => Some(Self::Error),
-                "UPDATING" => Some(Self::Updating),
-                _ => None,
-            }
-        }
-    }
-    /// Backup types.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Type {
-        /// Unspecified backup type.
-        Unspecified = 0,
-        /// Manual backup type.
-        Manual = 1,
-        /// Scheduled backup type.
-        Scheduled = 2,
-    }
-    impl Type {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Type::Unspecified => "TYPE_UNSPECIFIED",
-                Type::Manual => "MANUAL",
-                Type::Scheduled => "SCHEDULED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "MANUAL" => Some(Self::Manual),
-                "SCHEDULED" => Some(Self::Scheduled),
-                _ => None,
-            }
-        }
-    }
-}
-/// ListBackupsRequest lists backups.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBackupsRequest {
-    /// Required. The backupVault for which to retrieve backup information,
-    /// in the format
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`.
-    /// To retrieve backup information for all locations, use "-" for the
-    /// `{location}` value.
-    /// To retrieve backup information for all backupVaults, use "-" for the
-    /// `{backup_vault_id}` value.
-    /// To retrieve backup information for a volume, use "-" for the
-    /// `{backup_vault_id}` value and specify volume full name with the filter.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return. The service may return fewer
-    /// than this value. The maximum value
-    /// is 1000; values above 1000 will be coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// The standard list filter.
-    /// If specified, backups will be returned based on the attribute name that
-    /// matches the filter expression. If empty, then no backups are filtered out.
-    /// See <https://google.aip.dev/160>
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListBackupsResponse is the result of ListBackupsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListBackupsResponse {
-    /// A list of backups in the project.
-    #[prost(message, repeated, tag = "1")]
-    pub backups: ::prost::alloc::vec::Vec<Backup>,
-    /// The token you can use to retrieve the next page of results. Not returned
-    /// if there are no more results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetBackupRequest gets the state of a backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetBackupRequest {
-    /// Required. The backup resource name, in the format
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateBackupRequest creates a backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateBackupRequest {
-    /// Required. The NetApp backupVault to create the backups of, in the format
-    /// `projects/*/locations/*/backupVaults/{backup_vault_id}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The ID to use for the backup.
-    /// The ID must be unique within the specified backupVault.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    /// Values that do not match this pattern will trigger an INVALID_ARGUMENT
-    /// error.
-    #[prost(string, tag = "2")]
-    pub backup_id: ::prost::alloc::string::String,
-    /// Required. A backup resource
-    #[prost(message, optional, tag = "3")]
-    pub backup: ::core::option::Option<Backup>,
-}
-/// DeleteBackupRequest deletes a backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteBackupRequest {
-    /// Required. The backup resource name, in the format
-    /// `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// UpdateBackupRequest updates description and/or labels for a backup.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateBackupRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// Backup resource to be updated.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The backup being updated
-    #[prost(message, optional, tag = "2")]
-    pub backup: ::core::option::Option<Backup>,
-}
-/// ListSnapshotsRequest lists snapshots.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnapshotsRequest {
-    /// Required. The volume for which to retrieve snapshot information,
-    /// in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListSnapshotsResponse {
-    /// A list of snapshots in the project for the specified volume.
-    #[prost(message, repeated, tag = "1")]
-    pub snapshots: ::prost::alloc::vec::Vec<Snapshot>,
-    /// The token you can use to retrieve the next page of results. Not returned
-    /// if there are no more results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// GetSnapshotRequest gets the state of a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetSnapshotRequest {
-    /// Required. The snapshot resource name, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// CreateSnapshotRequest creates a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateSnapshotRequest {
-    /// Required. The NetApp volume to create the snapshots of, in the format
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}`
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. A snapshot resource
-    #[prost(message, optional, tag = "2")]
-    pub snapshot: ::core::option::Option<Snapshot>,
-    /// Required. ID of the snapshot to create.
-    /// This value must start with a lowercase letter followed by up to 62
-    /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    #[prost(string, tag = "3")]
-    pub snapshot_id: ::prost::alloc::string::String,
-}
-/// DeleteSnapshotRequest deletes a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteSnapshotRequest {
-    /// Required. The snapshot resource name, in the format
-    /// `projects/*/locations/*/volumes/*/snapshots/{snapshot_id}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateSnapshotRequest {
-    /// Required. Mask of fields to update.  At least one path must be supplied in
-    /// this field.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. A snapshot resource
-    #[prost(message, optional, tag = "2")]
-    pub snapshot: ::core::option::Option<Snapshot>,
-}
-/// Snapshot is a point-in-time version of a Volume's content.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Snapshot {
-    /// Identifier. The resource name of the snapshot.
-    /// Format:
-    /// `projects/{project_id}/locations/{location}/volumes/{volume_id}/snapshots/{snapshot_id}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The snapshot state.
-    #[prost(enumeration = "snapshot::State", tag = "2")]
-    pub state: i32,
-    /// Output only. State details of the storage pool
-    #[prost(string, tag = "3")]
-    pub state_details: ::prost::alloc::string::String,
-    /// A description of the snapshot with 2048 characters or less.
-    /// Requests with longer descriptions will be rejected.
-    #[prost(string, tag = "4")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. Current storage usage for the snapshot in bytes.
-    #[prost(double, tag = "5")]
-    pub used_bytes: f64,
-    /// Output only. The time when the snapshot was created.
-    #[prost(message, optional, tag = "6")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Resource labels to represent user provided metadata.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Nested message and enum types in `Snapshot`.
-pub mod snapshot {
-    /// The Snapshot States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified Snapshot State
-        Unspecified = 0,
-        /// Snapshot State is Ready
-        Ready = 1,
-        /// Snapshot State is Creating
-        Creating = 2,
-        /// Snapshot State is Deleting
-        Deleting = 3,
-        /// Snapshot State is Updating
-        Updating = 4,
-        /// Snapshot State is Disabled
-        Disabled = 5,
-        /// Snapshot State is Error
-        Error = 6,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-                State::Disabled => "DISABLED",
-                State::Error => "ERROR",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                "DISABLED" => Some(Self::Disabled),
-                "ERROR" => Some(Self::Error),
-                _ => None,
-            }
-        }
-    }
-}
-/// GetKmsConfigRequest gets a KMS Config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetKmsConfigRequest {
-    /// Required. Name of the KmsConfig
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ListKmsConfigsRequest lists KMS Configs.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListKmsConfigsRequest {
-    /// Required. Parent value
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// The maximum number of items to return.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The next_page_token value to use if there are additional
-    /// results to retrieve for this list request.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Sort results. Supported values are "name", "name desc" or "" (unsorted).
-    #[prost(string, tag = "4")]
-    pub order_by: ::prost::alloc::string::String,
-    /// List filter.
-    #[prost(string, tag = "5")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListKmsConfigsResponse {
-    /// The list of KmsConfigs
-    #[prost(message, repeated, tag = "1")]
-    pub kms_configs: ::prost::alloc::vec::Vec<KmsConfig>,
-    /// A token identifying a page of results the server should return.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// CreateKmsConfigRequest creates a KMS Config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateKmsConfigRequest {
-    /// Required. Value for parent.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Id of the requesting KmsConfig
-    /// If auto-generating Id server-side, remove this field and
-    /// id from the method_signature of Create RPC
-    #[prost(string, tag = "2")]
-    pub kms_config_id: ::prost::alloc::string::String,
-    /// Required. The required parameters to create a new KmsConfig.
-    #[prost(message, optional, tag = "3")]
-    pub kms_config: ::core::option::Option<KmsConfig>,
-}
-/// UpdateKmsConfigRequest updates a KMS Config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateKmsConfigRequest {
-    /// Required. Field mask is used to specify the fields to be overwritten in the
-    /// KmsConfig resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. The KmsConfig being updated
-    #[prost(message, optional, tag = "2")]
-    pub kms_config: ::core::option::Option<KmsConfig>,
-}
-/// DeleteKmsConfigRequest deletes a KMS Config.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteKmsConfigRequest {
-    /// Required. Name of the KmsConfig.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// EncryptVolumesRequest specifies the KMS config to encrypt existing volumes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EncryptVolumesRequest {
-    /// Required. Name of the KmsConfig.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// VerifyKmsConfigRequest specifies the KMS config to be validated.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VerifyKmsConfigRequest {
-    /// Required. Name of the KMS Config to be verified.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// VerifyKmsConfigResponse contains the information if the config is correctly
-/// and error message.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct VerifyKmsConfigResponse {
-    /// Output only. If the customer key configured correctly to the encrypt
-    /// volume.
-    #[prost(bool, tag = "1")]
-    pub healthy: bool,
-    /// Output only. Error message if config is not healthy.
-    #[prost(string, tag = "2")]
-    pub health_error: ::prost::alloc::string::String,
-    /// Output only. Instructions for the customers to provide the access to the
-    /// encryption key.
-    #[prost(string, tag = "3")]
-    pub instructions: ::prost::alloc::string::String,
-}
-/// KmsConfig is the customer managed encryption key(CMEK) configuration.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KmsConfig {
-    /// Identifier. Name of the KmsConfig.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Customer managed crypto key resource full name. Format:
-    /// projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
-    #[prost(string, tag = "2")]
-    pub crypto_key_name: ::prost::alloc::string::String,
-    /// Output only. State of the KmsConfig.
-    #[prost(enumeration = "kms_config::State", tag = "3")]
-    pub state: i32,
-    /// Output only. State details of the KmsConfig.
-    #[prost(string, tag = "4")]
-    pub state_details: ::prost::alloc::string::String,
-    /// Output only. Create time of the KmsConfig.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Description of the KmsConfig.
-    #[prost(string, tag = "6")]
-    pub description: ::prost::alloc::string::String,
-    /// Labels as key value pairs
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. Instructions to provide the access to the customer provided
-    /// encryption key.
-    #[prost(string, tag = "8")]
-    pub instructions: ::prost::alloc::string::String,
-    /// Output only. The Service account which will have access to the customer
-    /// provided encryption key.
-    #[prost(string, tag = "9")]
-    pub service_account: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `KmsConfig`.
-pub mod kms_config {
-    /// The KmsConfig States
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// Unspecified KmsConfig State
-        Unspecified = 0,
-        /// KmsConfig State is Ready
-        Ready = 1,
-        /// KmsConfig State is Creating
-        Creating = 2,
-        /// KmsConfig State is Deleting
-        Deleting = 3,
-        /// KmsConfig State is Updating
-        Updating = 4,
-        /// KmsConfig State is In Use.
-        InUse = 5,
-        /// KmsConfig State is Error
-        Error = 6,
-        /// KmsConfig State is Pending to verify crypto key access.
-        KeyCheckPending = 7,
-        /// KmsConfig State is Not accessbile by the SDE service account to the
-        /// crypto key.
-        KeyNotReachable = 8,
-        /// KmsConfig State is Disabling.
-        Disabling = 9,
-        /// KmsConfig State is Disabled.
-        Disabled = 10,
-        /// KmsConfig State is Migrating.
-        /// The existing volumes are migrating from SMEK to CMEK.
-        Migrating = 11,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Ready => "READY",
-                State::Creating => "CREATING",
-                State::Deleting => "DELETING",
-                State::Updating => "UPDATING",
-                State::InUse => "IN_USE",
-                State::Error => "ERROR",
-                State::KeyCheckPending => "KEY_CHECK_PENDING",
-                State::KeyNotReachable => "KEY_NOT_REACHABLE",
-                State::Disabling => "DISABLING",
-                State::Disabled => "DISABLED",
-                State::Migrating => "MIGRATING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "READY" => Some(Self::Ready),
-                "CREATING" => Some(Self::Creating),
-                "DELETING" => Some(Self::Deleting),
-                "UPDATING" => Some(Self::Updating),
-                "IN_USE" => Some(Self::InUse),
-                "ERROR" => Some(Self::Error),
-                "KEY_CHECK_PENDING" => Some(Self::KeyCheckPending),
-                "KEY_NOT_REACHABLE" => Some(Self::KeyNotReachable),
-                "DISABLING" => Some(Self::Disabling),
-                "DISABLED" => Some(Self::Disabled),
-                "MIGRATING" => Some(Self::Migrating),
-                _ => None,
-            }
         }
     }
 }

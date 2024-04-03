@@ -1,44 +1,3 @@
-/// Indicates the status of the integration.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum IntegrationState {
-    /// Default.
-    Unspecified = 0,
-    /// Draft.
-    Draft = 1,
-    /// Active.
-    Active = 2,
-    /// Archived.
-    Archived = 3,
-    /// Snapshot.
-    Snapshot = 4,
-}
-impl IntegrationState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            IntegrationState::Unspecified => "INTEGRATION_STATE_UNSPECIFIED",
-            IntegrationState::Draft => "DRAFT",
-            IntegrationState::Active => "ACTIVE",
-            IntegrationState::Archived => "ARCHIVED",
-            IntegrationState::Snapshot => "SNAPSHOT",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "INTEGRATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "DRAFT" => Some(Self::Draft),
-            "ACTIVE" => Some(Self::Active),
-            "ARCHIVED" => Some(Self::Archived),
-            "SNAPSHOT" => Some(Self::Snapshot),
-            _ => None,
-        }
-    }
-}
 /// The type of the parameter.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -130,43 +89,6 @@ pub struct EventParameter {
     /// True if this parameter should be masked in the logs
     #[prost(bool, tag = "3")]
     pub masked: bool,
-}
-/// Enum Product.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum Product {
-    /// Default value.
-    Unspecified = 0,
-    /// Integration Platform.
-    Ip = 1,
-    /// Apigee.
-    Apigee = 2,
-    /// Security Command Center.
-    Security = 3,
-}
-impl Product {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Product::Unspecified => "PRODUCT_UNSPECIFIED",
-            Product::Ip => "IP",
-            Product::Apigee => "APIGEE",
-            Product::Security => "SECURITY",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
-            "IP" => Some(Self::Ip),
-            "APIGEE" => Some(Self::Apigee),
-            "SECURITY" => Some(Self::Security),
-            _ => None,
-        }
-    }
 }
 /// Configuration detail of coordinate, it used for UI
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -714,6 +636,47 @@ pub mod cloud_logging_details {
         }
     }
 }
+/// Indicates the status of the integration.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum IntegrationState {
+    /// Default.
+    Unspecified = 0,
+    /// Draft.
+    Draft = 1,
+    /// Active.
+    Active = 2,
+    /// Archived.
+    Archived = 3,
+    /// Snapshot.
+    Snapshot = 4,
+}
+impl IntegrationState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            IntegrationState::Unspecified => "INTEGRATION_STATE_UNSPECIFIED",
+            IntegrationState::Draft => "DRAFT",
+            IntegrationState::Active => "ACTIVE",
+            IntegrationState::Archived => "ARCHIVED",
+            IntegrationState::Snapshot => "SNAPSHOT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "INTEGRATION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "DRAFT" => Some(Self::Draft),
+            "ACTIVE" => Some(Self::Active),
+            "ARCHIVED" => Some(Self::Archived),
+            "SNAPSHOT" => Some(Self::Snapshot),
+            _ => None,
+        }
+    }
+}
 /// Log entry to log execution info for the monitored resource
 /// `integrations.googleapis.com/IntegrationVersion`.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1178,6 +1141,43 @@ impl ExecutionType {
             "EXECUTION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
             "INTEGRATION_VERSION" => Some(Self::IntegrationVersion),
             "TEST_CASE" => Some(Self::TestCase),
+            _ => None,
+        }
+    }
+}
+/// Enum Product.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Product {
+    /// Default value.
+    Unspecified = 0,
+    /// Integration Platform.
+    Ip = 1,
+    /// Apigee.
+    Apigee = 2,
+    /// Security Command Center.
+    Security = 3,
+}
+impl Product {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Product::Unspecified => "PRODUCT_UNSPECIFIED",
+            Product::Ip => "IP",
+            Product::Apigee => "APIGEE",
+            Product::Security => "SECURITY",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PRODUCT_UNSPECIFIED" => Some(Self::Unspecified),
+            "IP" => Some(Self::Ip),
+            "APIGEE" => Some(Self::Apigee),
+            "SECURITY" => Some(Self::Security),
             _ => None,
         }
     }

@@ -1,156 +1,3 @@
-/// Represents an access event.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Access {
-    /// Associated email, such as "foo@google.com".
-    ///
-    /// The email address of the authenticated user or a service account acting on
-    /// behalf of a third party principal making the request. For third party
-    /// identity callers, the `principal_subject` field is populated instead of
-    /// this field. For privacy reasons, the principal email address is sometimes
-    /// redacted. For more information, see [Caller identities in audit
-    /// logs](<https://cloud.google.com/logging/docs/audit#user-id>).
-    #[prost(string, tag = "1")]
-    pub principal_email: ::prost::alloc::string::String,
-    /// Caller's IP address, such as "1.1.1.1".
-    #[prost(string, tag = "2")]
-    pub caller_ip: ::prost::alloc::string::String,
-    /// The caller IP's geolocation, which identifies where the call came from.
-    #[prost(message, optional, tag = "3")]
-    pub caller_ip_geo: ::core::option::Option<Geolocation>,
-    /// Type of user agent associated with the finding. For example, an operating
-    /// system shell or an embedded or standalone application.
-    #[prost(string, tag = "4")]
-    pub user_agent_family: ::prost::alloc::string::String,
-    /// The caller's user agent string associated with the finding.
-    #[prost(string, tag = "12")]
-    pub user_agent: ::prost::alloc::string::String,
-    /// This is the API service that the service account made a call to, e.g.
-    /// "iam.googleapis.com"
-    #[prost(string, tag = "5")]
-    pub service_name: ::prost::alloc::string::String,
-    /// The method that the service account called, e.g. "SetIamPolicy".
-    #[prost(string, tag = "6")]
-    pub method_name: ::prost::alloc::string::String,
-    /// A string that represents the principal_subject that is associated with the
-    /// identity. Unlike `principal_email`, `principal_subject` supports principals
-    /// that aren't associated with email addresses, such as third party
-    /// principals. For most identities, the format is
-    /// `principal://iam.googleapis.com/{identity pool name}/subject/{subject}`.
-    /// Some GKE identities, such as GKE_WORKLOAD, FREEFORM, and GKE_HUB_WORKLOAD,
-    /// still use the legacy format `serviceAccount:{identity pool
-    /// name}\[{subject}\]`.
-    #[prost(string, tag = "7")]
-    pub principal_subject: ::prost::alloc::string::String,
-    /// The name of the service account key that was used to create or exchange
-    /// credentials when authenticating the service account that made the request.
-    /// This is a scheme-less URI full resource name. For example:
-    ///
-    /// "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}".
-    ///
-    #[prost(string, tag = "8")]
-    pub service_account_key_name: ::prost::alloc::string::String,
-    /// The identity delegation history of an authenticated service account that
-    /// made the request. The `serviceAccountDelegationInfo\[\]` object contains
-    /// information about the real authorities that try to access Google Cloud
-    /// resources by delegating on a service account. When multiple authorities are
-    /// present, they are guaranteed to be sorted based on the original ordering of
-    /// the identity delegation events.
-    #[prost(message, repeated, tag = "9")]
-    pub service_account_delegation_info: ::prost::alloc::vec::Vec<
-        ServiceAccountDelegationInfo,
-    >,
-    /// A string that represents a username. The username provided depends on the
-    /// type of the finding and is likely not an IAM principal. For example, this
-    /// can be a system username if the finding is related to a virtual machine, or
-    /// it can be an application login username.
-    #[prost(string, tag = "11")]
-    pub user_name: ::prost::alloc::string::String,
-}
-/// Identity delegation history of an authenticated service account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServiceAccountDelegationInfo {
-    /// The email address of a Google account.
-    #[prost(string, tag = "1")]
-    pub principal_email: ::prost::alloc::string::String,
-    /// A string representing the principal_subject associated with the identity.
-    /// As compared to `principal_email`, supports principals that aren't
-    /// associated with email addresses, such as third party principals. For most
-    /// identities, the format will be `principal://iam.googleapis.com/{identity
-    /// pool name}/subjects/{subject}` except for some GKE identities
-    /// (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy
-    /// format `serviceAccount:{identity pool name}\[{subject}\]`
-    #[prost(string, tag = "2")]
-    pub principal_subject: ::prost::alloc::string::String,
-}
-/// Represents a geographical location for a given access.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Geolocation {
-    /// A CLDR.
-    #[prost(string, tag = "1")]
-    pub region_code: ::prost::alloc::string::String,
-}
-/// The [data profile](<https://cloud.google.com/dlp/docs/data-profiles>)
-/// associated with the finding.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CloudDlpDataProfile {
-    /// Name of the data profile, for example,
-    /// `projects/123/locations/europe/tableProfiles/8383929`.
-    #[prost(string, tag = "1")]
-    pub data_profile: ::prost::alloc::string::String,
-    /// The resource hierarchy level at which the data profile was generated.
-    #[prost(enumeration = "cloud_dlp_data_profile::ParentType", tag = "2")]
-    pub parent_type: i32,
-}
-/// Nested message and enum types in `CloudDlpDataProfile`.
-pub mod cloud_dlp_data_profile {
-    /// Parents for configurations that produce data profile findings.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ParentType {
-        /// Unspecified parent type.
-        Unspecified = 0,
-        /// Organization-level configurations.
-        Organization = 1,
-        /// Project-level configurations.
-        Project = 2,
-    }
-    impl ParentType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ParentType::Unspecified => "PARENT_TYPE_UNSPECIFIED",
-                ParentType::Organization => "ORGANIZATION",
-                ParentType::Project => "PROJECT",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PARENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ORGANIZATION" => Some(Self::Organization),
-                "PROJECT" => Some(Self::Project),
-                _ => None,
-            }
-        }
-    }
-}
 /// Defines the properties in a custom module configuration for Security
 /// Health Analytics. Use the custom module configuration to create custom
 /// detectors that generate custom findings for resources that you specify.
@@ -274,336 +121,6 @@ pub mod custom_config {
         }
     }
 }
-/// An EffectiveSecurityHealthAnalyticsCustomModule is the representation of
-/// a Security Health Analytics custom module at a specified level of the
-/// resource hierarchy: organization, folder, or project. If a custom module is
-/// inherited from a parent organization or folder, the value of the
-/// `enablementState` property in EffectiveSecurityHealthAnalyticsCustomModule is
-/// set to the value that is effective in the parent, instead of  `INHERITED`.
-/// For example, if the module is enabled in a parent organization or folder, the
-/// effective enablement_state for the module in all child folders or projects is
-/// also `enabled`. EffectiveSecurityHealthAnalyticsCustomModule is read-only.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EffectiveSecurityHealthAnalyticsCustomModule {
-    /// Output only. The resource name of the custom module.
-    /// Its format is
-    /// "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
-    /// or
-    /// "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
-    /// or
-    /// "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The user-specified configuration for the module.
-    #[prost(message, optional, tag = "2")]
-    pub custom_config: ::core::option::Option<CustomConfig>,
-    /// Output only. The effective state of enablement for the module at the given
-    /// level of the hierarchy.
-    #[prost(
-        enumeration = "effective_security_health_analytics_custom_module::EnablementState",
-        tag = "3"
-    )]
-    pub enablement_state: i32,
-    /// Output only. The display name for the custom module. The name must be
-    /// between 1 and 128 characters, start with a lowercase letter, and contain
-    /// alphanumeric characters or underscores only.
-    #[prost(string, tag = "4")]
-    pub display_name: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `EffectiveSecurityHealthAnalyticsCustomModule`.
-pub mod effective_security_health_analytics_custom_module {
-    /// The enablement state of the module.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum EnablementState {
-        /// Unspecified enablement state.
-        Unspecified = 0,
-        /// The module is enabled at the given level.
-        Enabled = 1,
-        /// The module is disabled at the given level.
-        Disabled = 2,
-    }
-    impl EnablementState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                EnablementState::Unspecified => "ENABLEMENT_STATE_UNSPECIFIED",
-                EnablementState::Enabled => "ENABLED",
-                EnablementState::Disabled => "DISABLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ENABLEMENT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ENABLED" => Some(Self::Enabled),
-                "DISABLED" => Some(Self::Disabled),
-                _ => None,
-            }
-        }
-    }
-}
-/// Represents an application associated with a finding.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Application {
-    /// The base URI that identifies the network location of the application in
-    /// which the vulnerability was detected. For example, `<http://example.com`.>
-    #[prost(string, tag = "1")]
-    pub base_uri: ::prost::alloc::string::String,
-    /// The full URI with payload that can be used to reproduce the
-    /// vulnerability. For example, `<http://example.com?p=aMmYgI6H`.>
-    #[prost(string, tag = "2")]
-    pub full_uri: ::prost::alloc::string::String,
-}
-/// Information related to Google Cloud Backup and DR Service findings.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackupDisasterRecovery {
-    /// The name of a Backup and DR template which comprises one or more backup
-    /// policies. See the [Backup and DR
-    /// documentation](<https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#temp>)
-    /// for more information. For example, `snap-ov`.
-    #[prost(string, tag = "1")]
-    pub backup_template: ::prost::alloc::string::String,
-    /// The names of Backup and DR policies that are associated with a template
-    /// and that define when to run a backup, how frequently to run a backup, and
-    /// how long to retain the backup image. For example, `onvaults`.
-    #[prost(string, repeated, tag = "2")]
-    pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The name of a Backup and DR host, which is managed by the backup and
-    /// recovery appliance and known to the management console. The host can be of
-    /// type Generic (for example, Compute Engine, SQL Server, Oracle DB, SMB file
-    /// system, etc.), vCenter, or an ESX server. See the [Backup and DR
-    /// documentation on
-    /// hosts](<https://cloud.google.com/backup-disaster-recovery/docs/configuration/manage-hosts-and-their-applications>)
-    /// for more information. For example, `centos7-01`.
-    #[prost(string, tag = "3")]
-    pub host: ::prost::alloc::string::String,
-    /// The names of Backup and DR applications. An application is a VM, database,
-    /// or file system on a managed host monitored by a backup and recovery
-    /// appliance. For example, `centos7-01-vol00`, `centos7-01-vol01`,
-    /// `centos7-01-vol02`.
-    #[prost(string, repeated, tag = "4")]
-    pub applications: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The name of the Backup and DR storage pool that the backup and recovery
-    /// appliance is storing data in. The storage pool could be of type Cloud,
-    /// Primary, Snapshot, or OnVault. See the [Backup and DR documentation on
-    /// storage
-    /// pools](<https://cloud.google.com/backup-disaster-recovery/docs/concepts/storage-pools>).
-    /// For example, `DiskPoolOne`.
-    #[prost(string, tag = "5")]
-    pub storage_pool: ::prost::alloc::string::String,
-    /// The names of Backup and DR advanced policy options of a policy applying to
-    /// an application. See the [Backup and DR documentation on policy
-    /// options](<https://cloud.google.com/backup-disaster-recovery/docs/create-plan/policy-settings>).
-    /// For example, `skipofflineappsincongrp, nounmap`.
-    #[prost(string, repeated, tag = "6")]
-    pub policy_options: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The name of the Backup and DR resource profile that specifies the storage
-    /// media for backups of application and VM data. See the [Backup and DR
-    /// documentation on
-    /// profiles](<https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#profile>).
-    /// For example, `GCP`.
-    #[prost(string, tag = "7")]
-    pub profile: ::prost::alloc::string::String,
-    /// The name of the Backup and DR appliance that captures, moves, and manages
-    /// the lifecycle of backup data. For example, `backup-server-57137`.
-    #[prost(string, tag = "8")]
-    pub appliance: ::prost::alloc::string::String,
-    /// The backup type of the Backup and DR image.
-    /// For example, `Snapshot`, `Remote Snapshot`, `OnVault`.
-    #[prost(string, tag = "9")]
-    pub backup_type: ::prost::alloc::string::String,
-    /// The timestamp at which the Backup and DR backup was created.
-    #[prost(message, optional, tag = "10")]
-    pub backup_create_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Details about the Cloud Data Loss Prevention (Cloud DLP) [inspection
-/// job](<https://cloud.google.com/dlp/docs/concepts-job-triggers>) that produced
-/// the finding.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CloudDlpInspection {
-    /// Name of the inspection job, for example,
-    /// `projects/123/locations/europe/dlpJobs/i-8383929`.
-    #[prost(string, tag = "1")]
-    pub inspect_job: ::prost::alloc::string::String,
-    /// The type of information (or
-    /// *[infoType](<https://cloud.google.com/dlp/docs/infotypes-reference>)*) found,
-    /// for example, `EMAIL_ADDRESS` or `STREET_ADDRESS`.
-    #[prost(string, tag = "2")]
-    pub info_type: ::prost::alloc::string::String,
-    /// The number of times Cloud DLP found this infoType within this job
-    /// and resource.
-    #[prost(int64, tag = "3")]
-    pub info_type_count: i64,
-    /// Whether Cloud DLP scanned the complete resource or a sampled subset.
-    #[prost(bool, tag = "4")]
-    pub full_scan: bool,
-}
-/// Contains compliance information about a security standard indicating unmet
-/// recommendations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Compliance {
-    /// Industry-wide compliance standards or benchmarks, such as CIS, PCI, and
-    /// OWASP.
-    #[prost(string, tag = "1")]
-    pub standard: ::prost::alloc::string::String,
-    /// Version of the standard or benchmark, for example, 1.1
-    #[prost(string, tag = "2")]
-    pub version: ::prost::alloc::string::String,
-    /// Policies within the standard or benchmark, for example, A.12.4.1
-    #[prost(string, repeated, tag = "3")]
-    pub ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Contains information about the IP connection associated with the finding.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Connection {
-    /// Destination IP address. Not present for sockets that are listening and not
-    /// connected.
-    #[prost(string, tag = "1")]
-    pub destination_ip: ::prost::alloc::string::String,
-    /// Destination port. Not present for sockets that are listening and not
-    /// connected.
-    #[prost(int32, tag = "2")]
-    pub destination_port: i32,
-    /// Source IP address.
-    #[prost(string, tag = "3")]
-    pub source_ip: ::prost::alloc::string::String,
-    /// Source port.
-    #[prost(int32, tag = "4")]
-    pub source_port: i32,
-    /// IANA Internet Protocol Number such as TCP(6) and UDP(17).
-    #[prost(enumeration = "connection::Protocol", tag = "5")]
-    pub protocol: i32,
-}
-/// Nested message and enum types in `Connection`.
-pub mod connection {
-    /// IANA Internet Protocol Number such as TCP(6) and UDP(17).
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum Protocol {
-        /// Unspecified protocol (not HOPOPT).
-        Unspecified = 0,
-        /// Internet Control Message Protocol.
-        Icmp = 1,
-        /// Transmission Control Protocol.
-        Tcp = 6,
-        /// User Datagram Protocol.
-        Udp = 17,
-        /// Generic Routing Encapsulation.
-        Gre = 47,
-        /// Encap Security Payload.
-        Esp = 50,
-    }
-    impl Protocol {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                Protocol::Unspecified => "PROTOCOL_UNSPECIFIED",
-                Protocol::Icmp => "ICMP",
-                Protocol::Tcp => "TCP",
-                Protocol::Udp => "UDP",
-                Protocol::Gre => "GRE",
-                Protocol::Esp => "ESP",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "PROTOCOL_UNSPECIFIED" => Some(Self::Unspecified),
-                "ICMP" => Some(Self::Icmp),
-                "TCP" => Some(Self::Tcp),
-                "UDP" => Some(Self::Udp),
-                "GRE" => Some(Self::Gre),
-                "ESP" => Some(Self::Esp),
-                _ => None,
-            }
-        }
-    }
-}
-/// Details about specific contacts
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContactDetails {
-    /// A list of contacts
-    #[prost(message, repeated, tag = "1")]
-    pub contacts: ::prost::alloc::vec::Vec<Contact>,
-}
-/// The email address of a contact.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Contact {
-    /// An email address. For example, "`person123@company.com`".
-    #[prost(string, tag = "1")]
-    pub email: ::prost::alloc::string::String,
-}
-/// Represents a generic name-value label. A label has separate name and value
-/// fields to support filtering with the `contains()` function. For more
-/// information, see [Filtering on array-type
-/// fields](<https://cloud.google.com/security-command-center/docs/how-to-api-list-findings#array-contains-filtering>).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Label {
-    /// Name of the label.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Value that corresponds to the label's name.
-    #[prost(string, tag = "2")]
-    pub value: ::prost::alloc::string::String,
-}
-/// Container associated with the finding.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Container {
-    /// Name of the container.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Container image URI provided when configuring a pod or container. This
-    /// string can identify a container image version using mutable tags.
-    #[prost(string, tag = "2")]
-    pub uri: ::prost::alloc::string::String,
-    /// Optional container image ID, if provided by the container runtime. Uniquely
-    /// identifies the container image launched using a container image digest.
-    #[prost(string, tag = "3")]
-    pub image_id: ::prost::alloc::string::String,
-    /// Container labels, as provided by the container runtime.
-    #[prost(message, repeated, tag = "4")]
-    pub labels: ::prost::alloc::vec::Vec<Label>,
-    /// The time that the container was created.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-}
 /// Represents database access information, such as queries. A database may be a
 /// sub-resource of an instance (as in the case of Cloud SQL instances or Cloud
 /// Spanner instances), or the database instance itself. Some database resources
@@ -644,182 +161,22 @@ pub struct Database {
     #[prost(string, tag = "6")]
     pub version: ::prost::alloc::string::String,
 }
-/// Exfiltration represents a data exfiltration attempt from one or more sources
-/// to one or more targets. The `sources` attribute lists the sources of the
-/// exfiltrated data. The `targets` attribute lists the destinations the data was
-/// copied to.
+/// The [data profile](<https://cloud.google.com/dlp/docs/data-profiles>)
+/// associated with the finding.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Exfiltration {
-    /// If there are multiple sources, then the data is considered "joined" between
-    /// them. For instance, BigQuery can join multiple tables, and each
-    /// table would be considered a source.
-    #[prost(message, repeated, tag = "1")]
-    pub sources: ::prost::alloc::vec::Vec<ExfilResource>,
-    /// If there are multiple targets, each target would get a complete copy of the
-    /// "joined" source data.
-    #[prost(message, repeated, tag = "2")]
-    pub targets: ::prost::alloc::vec::Vec<ExfilResource>,
-    /// Total exfiltrated bytes processed for the entire job.
-    #[prost(int64, tag = "3")]
-    pub total_exfiltrated_bytes: i64,
-}
-/// Resource where data was exfiltrated from or exfiltrated to.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExfilResource {
-    /// The resource's [full resource
-    /// name](<https://cloud.google.com/apis/design/resource_names#full_resource_name>).
+pub struct CloudDlpDataProfile {
+    /// Name of the data profile, for example,
+    /// `projects/123/locations/europe/tableProfiles/8383929`.
     #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Subcomponents of the asset that was exfiltrated, like URIs used during
-    /// exfiltration, table names, databases, and filenames. For example, multiple
-    /// tables might have been exfiltrated from the same Cloud SQL instance, or
-    /// multiple files might have been exfiltrated from the same Cloud Storage
-    /// bucket.
-    #[prost(string, repeated, tag = "2")]
-    pub components: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub data_profile: ::prost::alloc::string::String,
+    /// The resource hierarchy level at which the data profile was generated.
+    #[prost(enumeration = "cloud_dlp_data_profile::ParentType", tag = "2")]
+    pub parent_type: i32,
 }
-/// Representation of third party SIEM/SOAR fields within SCC.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExternalSystem {
-    /// Full resource name of the external system, for example:
-    /// "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
-    /// "folders/1234/sources/5678/findings/123456/externalSystems/jira",
-    /// "projects/1234/sources/5678/findings/123456/externalSystems/jira"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// References primary/secondary etc assignees in the external system.
-    #[prost(string, repeated, tag = "2")]
-    pub assignees: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The identifier that's used to track the finding's corresponding case in the
-    /// external system.
-    #[prost(string, tag = "3")]
-    pub external_uid: ::prost::alloc::string::String,
-    /// The most recent status of the finding's corresponding case, as reported by
-    /// the external system.
-    #[prost(string, tag = "4")]
-    pub status: ::prost::alloc::string::String,
-    /// The time when the case was last updated, as reported by the external
-    /// system.
-    #[prost(message, optional, tag = "5")]
-    pub external_system_update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The link to the finding's corresponding case in the external system.
-    #[prost(string, tag = "6")]
-    pub case_uri: ::prost::alloc::string::String,
-    /// The priority of the finding's corresponding case in the external system.
-    #[prost(string, tag = "7")]
-    pub case_priority: ::prost::alloc::string::String,
-    /// The SLA of the finding's corresponding case in the external system.
-    #[prost(message, optional, tag = "9")]
-    pub case_sla: ::core::option::Option<::prost_types::Timestamp>,
-    /// The time when the case was created, as reported by the external system.
-    #[prost(message, optional, tag = "10")]
-    pub case_create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The time when the case was closed, as reported by the external system.
-    #[prost(message, optional, tag = "11")]
-    pub case_close_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Information about the ticket, if any, that is being used to track the
-    /// resolution of the issue that is identified by this finding.
-    #[prost(message, optional, tag = "8")]
-    pub ticket_info: ::core::option::Option<external_system::TicketInfo>,
-}
-/// Nested message and enum types in `ExternalSystem`.
-pub mod external_system {
-    /// Information about the ticket, if any, that is being used to track the
-    /// resolution of the issue that is identified by this finding.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct TicketInfo {
-        /// The identifier of the ticket in the ticket system.
-        #[prost(string, tag = "1")]
-        pub id: ::prost::alloc::string::String,
-        /// The assignee of the ticket in the ticket system.
-        #[prost(string, tag = "2")]
-        pub assignee: ::prost::alloc::string::String,
-        /// The description of the ticket in the ticket system.
-        #[prost(string, tag = "3")]
-        pub description: ::prost::alloc::string::String,
-        /// The link to the ticket in the ticket system.
-        #[prost(string, tag = "4")]
-        pub uri: ::prost::alloc::string::String,
-        /// The latest status of the ticket, as reported by the ticket system.
-        #[prost(string, tag = "5")]
-        pub status: ::prost::alloc::string::String,
-        /// The time when the ticket was last updated, as reported by the ticket
-        /// system.
-        #[prost(message, optional, tag = "6")]
-        pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    }
-}
-/// File information about the related binary/library used by an executable, or
-/// the script used by a script interpreter
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct File {
-    /// Absolute path of the file as a JSON encoded string.
-    #[prost(string, tag = "1")]
-    pub path: ::prost::alloc::string::String,
-    /// Size of the file in bytes.
-    #[prost(int64, tag = "2")]
-    pub size: i64,
-    /// SHA256 hash of the first hashed_size bytes of the file encoded as a
-    /// hex string.  If hashed_size == size, sha256 represents the SHA256 hash
-    /// of the entire file.
-    #[prost(string, tag = "3")]
-    pub sha256: ::prost::alloc::string::String,
-    /// The length in bytes of the file prefix that was hashed.  If
-    /// hashed_size == size, any hashes reported represent the entire
-    /// file.
-    #[prost(int64, tag = "4")]
-    pub hashed_size: i64,
-    /// True when the hash covers only a prefix of the file.
-    #[prost(bool, tag = "5")]
-    pub partially_hashed: bool,
-    /// Prefix of the file contents as a JSON-encoded string.
-    #[prost(string, tag = "6")]
-    pub contents: ::prost::alloc::string::String,
-    /// Path of the file in terms of underlying disk/partition identifiers.
-    #[prost(message, optional, tag = "7")]
-    pub disk_path: ::core::option::Option<file::DiskPath>,
-}
-/// Nested message and enum types in `File`.
-pub mod file {
-    /// Path of the file in terms of underlying disk/partition identifiers.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct DiskPath {
-        /// UUID of the partition (format
-        /// <https://wiki.archlinux.org/title/persistent_block_device_naming#by-uuid>)
-        #[prost(string, tag = "1")]
-        pub partition_uuid: ::prost::alloc::string::String,
-        /// Relative path of the file in the partition as a JSON encoded string.
-        /// Example: /home/user1/executable_file.sh
-        #[prost(string, tag = "2")]
-        pub relative_path: ::prost::alloc::string::String,
-    }
-}
-/// Represents a particular IAM binding, which captures a member's role addition,
-/// removal, or state.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct IamBinding {
-    /// The action that was performed on a Binding.
-    #[prost(enumeration = "iam_binding::Action", tag = "1")]
-    pub action: i32,
-    /// Role that is assigned to "members".
-    /// For example, "roles/viewer", "roles/editor", or "roles/owner".
-    #[prost(string, tag = "2")]
-    pub role: ::prost::alloc::string::String,
-    /// A single identity requesting access for a Cloud Platform resource, for
-    /// example, "foo@google.com".
-    #[prost(string, tag = "3")]
-    pub member: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `IamBinding`.
-pub mod iam_binding {
-    /// The type of action performed on a Binding in a policy.
+/// Nested message and enum types in `CloudDlpDataProfile`.
+pub mod cloud_dlp_data_profile {
+    /// Parents for configurations that produce data profile findings.
     #[derive(
         Clone,
         Copy,
@@ -832,202 +189,196 @@ pub mod iam_binding {
         ::prost::Enumeration
     )]
     #[repr(i32)]
-    pub enum Action {
-        /// Unspecified.
+    pub enum ParentType {
+        /// Unspecified parent type.
         Unspecified = 0,
-        /// Addition of a Binding.
-        Add = 1,
-        /// Removal of a Binding.
-        Remove = 2,
+        /// Organization-level configurations.
+        Organization = 1,
+        /// Project-level configurations.
+        Project = 2,
     }
-    impl Action {
+    impl ParentType {
         /// String value of the enum field names used in the ProtoBuf definition.
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Action::Unspecified => "ACTION_UNSPECIFIED",
-                Action::Add => "ADD",
-                Action::Remove => "REMOVE",
+                ParentType::Unspecified => "PARENT_TYPE_UNSPECIFIED",
+                ParentType::Organization => "ORGANIZATION",
+                ParentType::Project => "PROJECT",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
-                "ACTION_UNSPECIFIED" => Some(Self::Unspecified),
-                "ADD" => Some(Self::Add),
-                "REMOVE" => Some(Self::Remove),
+                "PARENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ORGANIZATION" => Some(Self::Organization),
+                "PROJECT" => Some(Self::Project),
                 _ => None,
             }
         }
     }
 }
-/// Represents what's commonly known as an _indicator of compromise_ (IoC) in
-/// computer forensics. This is an artifact observed on a network or in an
-/// operating system that, with high confidence, indicates a computer intrusion.
-/// For more information, see [Indicator of
-/// compromise](<https://en.wikipedia.org/wiki/Indicator_of_compromise>).
+/// Represents an instance of a Security Health Analytics custom module,
+/// including its full module name, display name, enablement state, and last
+/// updated time. You can create a custom module at the organization, folder, or
+/// project level. Custom modules that you create at the organization or folder
+/// level are inherited by the child folders and projects.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Indicator {
-    /// The list of IP addresses that are associated with the finding.
-    #[prost(string, repeated, tag = "1")]
-    pub ip_addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// List of domains associated to the Finding.
-    #[prost(string, repeated, tag = "2")]
-    pub domains: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The list of matched signatures indicating that the given
-    /// process is present in the environment.
-    #[prost(message, repeated, tag = "3")]
-    pub signatures: ::prost::alloc::vec::Vec<indicator::ProcessSignature>,
-    /// The list of URIs associated to the Findings.
-    #[prost(string, repeated, tag = "4")]
-    pub uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Nested message and enum types in `Indicator`.
-pub mod indicator {
-    /// Indicates what signature matched this process.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ProcessSignature {
-        /// Describes the type of resource associated with the signature.
-        #[prost(enumeration = "process_signature::SignatureType", tag = "8")]
-        pub signature_type: i32,
-        #[prost(oneof = "process_signature::Signature", tags = "6, 7")]
-        pub signature: ::core::option::Option<process_signature::Signature>,
-    }
-    /// Nested message and enum types in `ProcessSignature`.
-    pub mod process_signature {
-        /// A signature corresponding to memory page hashes.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct MemoryHashSignature {
-            /// The binary family.
-            #[prost(string, tag = "1")]
-            pub binary_family: ::prost::alloc::string::String,
-            /// The list of memory hash detections contributing to the binary family
-            /// match.
-            #[prost(message, repeated, tag = "4")]
-            pub detections: ::prost::alloc::vec::Vec<memory_hash_signature::Detection>,
-        }
-        /// Nested message and enum types in `MemoryHashSignature`.
-        pub mod memory_hash_signature {
-            /// Memory hash detection contributing to the binary family match.
-            #[allow(clippy::derive_partial_eq_without_eq)]
-            #[derive(Clone, PartialEq, ::prost::Message)]
-            pub struct Detection {
-                /// The name of the binary associated with the memory hash
-                /// signature detection.
-                #[prost(string, tag = "2")]
-                pub binary: ::prost::alloc::string::String,
-                /// The percentage of memory page hashes in the signature
-                /// that were matched.
-                #[prost(double, tag = "3")]
-                pub percent_pages_matched: f64,
-            }
-        }
-        /// A signature corresponding to a YARA rule.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct YaraRuleSignature {
-            /// The name of the YARA rule.
-            #[prost(string, tag = "5")]
-            pub yara_rule: ::prost::alloc::string::String,
-        }
-        /// Possible resource types to be associated with a signature.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum SignatureType {
-            /// The default signature type.
-            Unspecified = 0,
-            /// Used for signatures concerning processes.
-            Process = 1,
-            /// Used for signatures concerning disks.
-            File = 2,
-        }
-        impl SignatureType {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    SignatureType::Unspecified => "SIGNATURE_TYPE_UNSPECIFIED",
-                    SignatureType::Process => "SIGNATURE_TYPE_PROCESS",
-                    SignatureType::File => "SIGNATURE_TYPE_FILE",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "SIGNATURE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "SIGNATURE_TYPE_PROCESS" => Some(Self::Process),
-                    "SIGNATURE_TYPE_FILE" => Some(Self::File),
-                    _ => None,
-                }
-            }
-        }
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum Signature {
-            /// Signature indicating that a binary family was matched.
-            #[prost(message, tag = "6")]
-            MemoryHashSignature(MemoryHashSignature),
-            /// Signature indicating that a YARA rule was matched.
-            #[prost(message, tag = "7")]
-            YaraRuleSignature(YaraRuleSignature),
-        }
-    }
-}
-/// Kernel mode rootkit signatures.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct KernelRootkit {
-    /// Rootkit name, when available.
+pub struct SecurityHealthAnalyticsCustomModule {
+    /// Immutable. The resource name of the custom module.
+    /// Its format is
+    /// "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
+    /// or
+    /// "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+    /// or
+    /// "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+    ///
+    /// The id {customModule} is server-generated and is not user settable.
+    /// It will be a numeric id containing 1-20 digits.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// True if unexpected modifications of kernel code memory are present.
-    #[prost(bool, tag = "2")]
-    pub unexpected_code_modification: bool,
-    /// True if unexpected modifications of kernel read-only data memory are
-    /// present.
-    #[prost(bool, tag = "3")]
-    pub unexpected_read_only_data_modification: bool,
-    /// True if `ftrace` points are present with callbacks pointing to regions
-    /// that are not in the expected kernel or module code range.
-    #[prost(bool, tag = "4")]
-    pub unexpected_ftrace_handler: bool,
-    /// True if `kprobe` points are present with callbacks pointing to regions
-    /// that are not in the expected kernel or module code range.
-    #[prost(bool, tag = "5")]
-    pub unexpected_kprobe_handler: bool,
-    /// True if kernel code pages that are not in the expected kernel or module
-    /// code regions are present.
-    #[prost(bool, tag = "6")]
-    pub unexpected_kernel_code_pages: bool,
-    /// True if system call handlers that are are not in the expected kernel or
-    /// module code regions are present.
-    #[prost(bool, tag = "7")]
-    pub unexpected_system_call_handler: bool,
-    /// True if interrupt handlers that are are not in the expected kernel or
-    /// module code regions are present.
-    #[prost(bool, tag = "8")]
-    pub unexpected_interrupt_handler: bool,
-    /// True if unexpected processes in the scheduler run queue are present. Such
-    /// processes are in the run queue, but not in the process task list.
-    #[prost(bool, tag = "9")]
-    pub unexpected_processes_in_runqueue: bool,
+    /// The display name of the Security Health Analytics custom module. This
+    /// display name becomes the finding category for all findings that are
+    /// returned by this custom module. The display name must be between 1 and
+    /// 128 characters, start with a lowercase letter, and contain alphanumeric
+    /// characters or underscores only.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The enablement state of the custom module.
+    #[prost(
+        enumeration = "security_health_analytics_custom_module::EnablementState",
+        tag = "4"
+    )]
+    pub enablement_state: i32,
+    /// Output only. The time at which the custom module was last updated.
+    #[prost(message, optional, tag = "5")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The editor that last updated the custom module.
+    #[prost(string, tag = "6")]
+    pub last_editor: ::prost::alloc::string::String,
+    /// Output only. If empty, indicates that the custom module was created in the
+    /// organization, folder, or project in which you are viewing the custom
+    /// module. Otherwise, `ancestor_module` specifies the organization or folder
+    /// from which the custom module is inherited.
+    #[prost(string, tag = "7")]
+    pub ancestor_module: ::prost::alloc::string::String,
+    /// The user specified custom configuration for the module.
+    #[prost(message, optional, tag = "8")]
+    pub custom_config: ::core::option::Option<CustomConfig>,
+}
+/// Nested message and enum types in `SecurityHealthAnalyticsCustomModule`.
+pub mod security_health_analytics_custom_module {
+    /// Possible enablement states of a custom module.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum EnablementState {
+        /// Unspecified enablement state.
+        Unspecified = 0,
+        /// The module is enabled at the given CRM resource.
+        Enabled = 1,
+        /// The module is disabled at the given CRM resource.
+        Disabled = 2,
+        /// State is inherited from an ancestor module. The module will either
+        /// be effectively ENABLED or DISABLED based on its closest non-inherited
+        /// ancestor module in the CRM hierarchy.
+        Inherited = 3,
+    }
+    impl EnablementState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                EnablementState::Unspecified => "ENABLEMENT_STATE_UNSPECIFIED",
+                EnablementState::Enabled => "ENABLED",
+                EnablementState::Disabled => "DISABLED",
+                EnablementState::Inherited => "INHERITED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ENABLEMENT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ENABLED" => Some(Self::Enabled),
+                "DISABLED" => Some(Self::Disabled),
+                "INHERITED" => Some(Self::Inherited),
+                _ => None,
+            }
+        }
+    }
+}
+/// Contains information about the org policies associated with the finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct OrgPolicy {
+    /// The resource name of the org policy.
+    /// Example:
+    /// "organizations/{organization_id}/policies/{constraint_name}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Represents an application associated with a finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Application {
+    /// The base URI that identifies the network location of the application in
+    /// which the vulnerability was detected. For example, `<http://example.com`.>
+    #[prost(string, tag = "1")]
+    pub base_uri: ::prost::alloc::string::String,
+    /// The full URI with payload that can be used to reproduce the
+    /// vulnerability. For example, `<http://example.com?p=aMmYgI6H`.>
+    #[prost(string, tag = "2")]
+    pub full_uri: ::prost::alloc::string::String,
+}
+/// Represents a generic name-value label. A label has separate name and value
+/// fields to support filtering with the `contains()` function. For more
+/// information, see [Filtering on array-type
+/// fields](<https://cloud.google.com/security-command-center/docs/how-to-api-list-findings#array-contains-filtering>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Label {
+    /// Name of the label.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Value that corresponds to the label's name.
+    #[prost(string, tag = "2")]
+    pub value: ::prost::alloc::string::String,
+}
+/// Container associated with the finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Container {
+    /// Name of the container.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Container image URI provided when configuring a pod or container. This
+    /// string can identify a container image version using mutable tags.
+    #[prost(string, tag = "2")]
+    pub uri: ::prost::alloc::string::String,
+    /// Optional container image ID, if provided by the container runtime. Uniquely
+    /// identifies the container image launched using a container image digest.
+    #[prost(string, tag = "3")]
+    pub image_id: ::prost::alloc::string::String,
+    /// Container labels, as provided by the container runtime.
+    #[prost(message, repeated, tag = "4")]
+    pub labels: ::prost::alloc::vec::Vec<Label>,
+    /// The time that the container was created.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// Kubernetes-related attributes.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1305,6 +656,683 @@ pub mod kubernetes {
         /// Pod containers associated with this finding, if any.
         #[prost(message, repeated, tag = "5")]
         pub containers: ::prost::alloc::vec::Vec<super::Container>,
+    }
+}
+/// Represents a particular IAM binding, which captures a member's role addition,
+/// removal, or state.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct IamBinding {
+    /// The action that was performed on a Binding.
+    #[prost(enumeration = "iam_binding::Action", tag = "1")]
+    pub action: i32,
+    /// Role that is assigned to "members".
+    /// For example, "roles/viewer", "roles/editor", or "roles/owner".
+    #[prost(string, tag = "2")]
+    pub role: ::prost::alloc::string::String,
+    /// A single identity requesting access for a Cloud Platform resource, for
+    /// example, "foo@google.com".
+    #[prost(string, tag = "3")]
+    pub member: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `IamBinding`.
+pub mod iam_binding {
+    /// The type of action performed on a Binding in a policy.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Action {
+        /// Unspecified.
+        Unspecified = 0,
+        /// Addition of a Binding.
+        Add = 1,
+        /// Removal of a Binding.
+        Remove = 2,
+    }
+    impl Action {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Action::Unspecified => "ACTION_UNSPECIFIED",
+                Action::Add => "ADD",
+                Action::Remove => "REMOVE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ACTION_UNSPECIFIED" => Some(Self::Unspecified),
+                "ADD" => Some(Self::Add),
+                "REMOVE" => Some(Self::Remove),
+                _ => None,
+            }
+        }
+    }
+}
+/// Contains information about the IP connection associated with the finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Connection {
+    /// Destination IP address. Not present for sockets that are listening and not
+    /// connected.
+    #[prost(string, tag = "1")]
+    pub destination_ip: ::prost::alloc::string::String,
+    /// Destination port. Not present for sockets that are listening and not
+    /// connected.
+    #[prost(int32, tag = "2")]
+    pub destination_port: i32,
+    /// Source IP address.
+    #[prost(string, tag = "3")]
+    pub source_ip: ::prost::alloc::string::String,
+    /// Source port.
+    #[prost(int32, tag = "4")]
+    pub source_port: i32,
+    /// IANA Internet Protocol Number such as TCP(6) and UDP(17).
+    #[prost(enumeration = "connection::Protocol", tag = "5")]
+    pub protocol: i32,
+}
+/// Nested message and enum types in `Connection`.
+pub mod connection {
+    /// IANA Internet Protocol Number such as TCP(6) and UDP(17).
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Protocol {
+        /// Unspecified protocol (not HOPOPT).
+        Unspecified = 0,
+        /// Internet Control Message Protocol.
+        Icmp = 1,
+        /// Transmission Control Protocol.
+        Tcp = 6,
+        /// User Datagram Protocol.
+        Udp = 17,
+        /// Generic Routing Encapsulation.
+        Gre = 47,
+        /// Encap Security Payload.
+        Esp = 50,
+    }
+    impl Protocol {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Protocol::Unspecified => "PROTOCOL_UNSPECIFIED",
+                Protocol::Icmp => "ICMP",
+                Protocol::Tcp => "TCP",
+                Protocol::Udp => "UDP",
+                Protocol::Gre => "GRE",
+                Protocol::Esp => "ESP",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PROTOCOL_UNSPECIFIED" => Some(Self::Unspecified),
+                "ICMP" => Some(Self::Icmp),
+                "TCP" => Some(Self::Tcp),
+                "UDP" => Some(Self::Udp),
+                "GRE" => Some(Self::Gre),
+                "ESP" => Some(Self::Esp),
+                _ => None,
+            }
+        }
+    }
+}
+/// Represents what's commonly known as an _indicator of compromise_ (IoC) in
+/// computer forensics. This is an artifact observed on a network or in an
+/// operating system that, with high confidence, indicates a computer intrusion.
+/// For more information, see [Indicator of
+/// compromise](<https://en.wikipedia.org/wiki/Indicator_of_compromise>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Indicator {
+    /// The list of IP addresses that are associated with the finding.
+    #[prost(string, repeated, tag = "1")]
+    pub ip_addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// List of domains associated to the Finding.
+    #[prost(string, repeated, tag = "2")]
+    pub domains: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The list of matched signatures indicating that the given
+    /// process is present in the environment.
+    #[prost(message, repeated, tag = "3")]
+    pub signatures: ::prost::alloc::vec::Vec<indicator::ProcessSignature>,
+    /// The list of URIs associated to the Findings.
+    #[prost(string, repeated, tag = "4")]
+    pub uris: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Nested message and enum types in `Indicator`.
+pub mod indicator {
+    /// Indicates what signature matched this process.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProcessSignature {
+        /// Describes the type of resource associated with the signature.
+        #[prost(enumeration = "process_signature::SignatureType", tag = "8")]
+        pub signature_type: i32,
+        #[prost(oneof = "process_signature::Signature", tags = "6, 7")]
+        pub signature: ::core::option::Option<process_signature::Signature>,
+    }
+    /// Nested message and enum types in `ProcessSignature`.
+    pub mod process_signature {
+        /// A signature corresponding to memory page hashes.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct MemoryHashSignature {
+            /// The binary family.
+            #[prost(string, tag = "1")]
+            pub binary_family: ::prost::alloc::string::String,
+            /// The list of memory hash detections contributing to the binary family
+            /// match.
+            #[prost(message, repeated, tag = "4")]
+            pub detections: ::prost::alloc::vec::Vec<memory_hash_signature::Detection>,
+        }
+        /// Nested message and enum types in `MemoryHashSignature`.
+        pub mod memory_hash_signature {
+            /// Memory hash detection contributing to the binary family match.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct Detection {
+                /// The name of the binary associated with the memory hash
+                /// signature detection.
+                #[prost(string, tag = "2")]
+                pub binary: ::prost::alloc::string::String,
+                /// The percentage of memory page hashes in the signature
+                /// that were matched.
+                #[prost(double, tag = "3")]
+                pub percent_pages_matched: f64,
+            }
+        }
+        /// A signature corresponding to a YARA rule.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct YaraRuleSignature {
+            /// The name of the YARA rule.
+            #[prost(string, tag = "5")]
+            pub yara_rule: ::prost::alloc::string::String,
+        }
+        /// Possible resource types to be associated with a signature.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum SignatureType {
+            /// The default signature type.
+            Unspecified = 0,
+            /// Used for signatures concerning processes.
+            Process = 1,
+            /// Used for signatures concerning disks.
+            File = 2,
+        }
+        impl SignatureType {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    SignatureType::Unspecified => "SIGNATURE_TYPE_UNSPECIFIED",
+                    SignatureType::Process => "SIGNATURE_TYPE_PROCESS",
+                    SignatureType::File => "SIGNATURE_TYPE_FILE",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "SIGNATURE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "SIGNATURE_TYPE_PROCESS" => Some(Self::Process),
+                    "SIGNATURE_TYPE_FILE" => Some(Self::File),
+                    _ => None,
+                }
+            }
+        }
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Signature {
+            /// Signature indicating that a binary family was matched.
+            #[prost(message, tag = "6")]
+            MemoryHashSignature(MemoryHashSignature),
+            /// Signature indicating that a YARA rule was matched.
+            #[prost(message, tag = "7")]
+            YaraRuleSignature(YaraRuleSignature),
+        }
+    }
+}
+/// Kernel mode rootkit signatures.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct KernelRootkit {
+    /// Rootkit name, when available.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// True if unexpected modifications of kernel code memory are present.
+    #[prost(bool, tag = "2")]
+    pub unexpected_code_modification: bool,
+    /// True if unexpected modifications of kernel read-only data memory are
+    /// present.
+    #[prost(bool, tag = "3")]
+    pub unexpected_read_only_data_modification: bool,
+    /// True if `ftrace` points are present with callbacks pointing to regions
+    /// that are not in the expected kernel or module code range.
+    #[prost(bool, tag = "4")]
+    pub unexpected_ftrace_handler: bool,
+    /// True if `kprobe` points are present with callbacks pointing to regions
+    /// that are not in the expected kernel or module code range.
+    #[prost(bool, tag = "5")]
+    pub unexpected_kprobe_handler: bool,
+    /// True if kernel code pages that are not in the expected kernel or module
+    /// code regions are present.
+    #[prost(bool, tag = "6")]
+    pub unexpected_kernel_code_pages: bool,
+    /// True if system call handlers that are are not in the expected kernel or
+    /// module code regions are present.
+    #[prost(bool, tag = "7")]
+    pub unexpected_system_call_handler: bool,
+    /// True if interrupt handlers that are are not in the expected kernel or
+    /// module code regions are present.
+    #[prost(bool, tag = "8")]
+    pub unexpected_interrupt_handler: bool,
+    /// True if unexpected processes in the scheduler run queue are present. Such
+    /// processes are in the run queue, but not in the process task list.
+    #[prost(bool, tag = "9")]
+    pub unexpected_processes_in_runqueue: bool,
+}
+/// Contains compliance information about a security standard indicating unmet
+/// recommendations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Compliance {
+    /// Industry-wide compliance standards or benchmarks, such as CIS, PCI, and
+    /// OWASP.
+    #[prost(string, tag = "1")]
+    pub standard: ::prost::alloc::string::String,
+    /// Version of the standard or benchmark, for example, 1.1
+    #[prost(string, tag = "2")]
+    pub version: ::prost::alloc::string::String,
+    /// Policies within the standard or benchmark, for example, A.12.4.1
+    #[prost(string, repeated, tag = "3")]
+    pub ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Represents an access event.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Access {
+    /// Associated email, such as "foo@google.com".
+    ///
+    /// The email address of the authenticated user or a service account acting on
+    /// behalf of a third party principal making the request. For third party
+    /// identity callers, the `principal_subject` field is populated instead of
+    /// this field. For privacy reasons, the principal email address is sometimes
+    /// redacted. For more information, see [Caller identities in audit
+    /// logs](<https://cloud.google.com/logging/docs/audit#user-id>).
+    #[prost(string, tag = "1")]
+    pub principal_email: ::prost::alloc::string::String,
+    /// Caller's IP address, such as "1.1.1.1".
+    #[prost(string, tag = "2")]
+    pub caller_ip: ::prost::alloc::string::String,
+    /// The caller IP's geolocation, which identifies where the call came from.
+    #[prost(message, optional, tag = "3")]
+    pub caller_ip_geo: ::core::option::Option<Geolocation>,
+    /// Type of user agent associated with the finding. For example, an operating
+    /// system shell or an embedded or standalone application.
+    #[prost(string, tag = "4")]
+    pub user_agent_family: ::prost::alloc::string::String,
+    /// The caller's user agent string associated with the finding.
+    #[prost(string, tag = "12")]
+    pub user_agent: ::prost::alloc::string::String,
+    /// This is the API service that the service account made a call to, e.g.
+    /// "iam.googleapis.com"
+    #[prost(string, tag = "5")]
+    pub service_name: ::prost::alloc::string::String,
+    /// The method that the service account called, e.g. "SetIamPolicy".
+    #[prost(string, tag = "6")]
+    pub method_name: ::prost::alloc::string::String,
+    /// A string that represents the principal_subject that is associated with the
+    /// identity. Unlike `principal_email`, `principal_subject` supports principals
+    /// that aren't associated with email addresses, such as third party
+    /// principals. For most identities, the format is
+    /// `principal://iam.googleapis.com/{identity pool name}/subject/{subject}`.
+    /// Some GKE identities, such as GKE_WORKLOAD, FREEFORM, and GKE_HUB_WORKLOAD,
+    /// still use the legacy format `serviceAccount:{identity pool
+    /// name}\[{subject}\]`.
+    #[prost(string, tag = "7")]
+    pub principal_subject: ::prost::alloc::string::String,
+    /// The name of the service account key that was used to create or exchange
+    /// credentials when authenticating the service account that made the request.
+    /// This is a scheme-less URI full resource name. For example:
+    ///
+    /// "//iam.googleapis.com/projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}".
+    ///
+    #[prost(string, tag = "8")]
+    pub service_account_key_name: ::prost::alloc::string::String,
+    /// The identity delegation history of an authenticated service account that
+    /// made the request. The `serviceAccountDelegationInfo\[\]` object contains
+    /// information about the real authorities that try to access Google Cloud
+    /// resources by delegating on a service account. When multiple authorities are
+    /// present, they are guaranteed to be sorted based on the original ordering of
+    /// the identity delegation events.
+    #[prost(message, repeated, tag = "9")]
+    pub service_account_delegation_info: ::prost::alloc::vec::Vec<
+        ServiceAccountDelegationInfo,
+    >,
+    /// A string that represents a username. The username provided depends on the
+    /// type of the finding and is likely not an IAM principal. For example, this
+    /// can be a system username if the finding is related to a virtual machine, or
+    /// it can be an application login username.
+    #[prost(string, tag = "11")]
+    pub user_name: ::prost::alloc::string::String,
+}
+/// Identity delegation history of an authenticated service account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ServiceAccountDelegationInfo {
+    /// The email address of a Google account.
+    #[prost(string, tag = "1")]
+    pub principal_email: ::prost::alloc::string::String,
+    /// A string representing the principal_subject associated with the identity.
+    /// As compared to `principal_email`, supports principals that aren't
+    /// associated with email addresses, such as third party principals. For most
+    /// identities, the format will be `principal://iam.googleapis.com/{identity
+    /// pool name}/subjects/{subject}` except for some GKE identities
+    /// (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD) that are still in the legacy
+    /// format `serviceAccount:{identity pool name}\[{subject}\]`
+    #[prost(string, tag = "2")]
+    pub principal_subject: ::prost::alloc::string::String,
+}
+/// Represents a geographical location for a given access.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Geolocation {
+    /// A CLDR.
+    #[prost(string, tag = "1")]
+    pub region_code: ::prost::alloc::string::String,
+}
+/// Information related to Google Cloud Backup and DR Service findings.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BackupDisasterRecovery {
+    /// The name of a Backup and DR template which comprises one or more backup
+    /// policies. See the [Backup and DR
+    /// documentation](<https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#temp>)
+    /// for more information. For example, `snap-ov`.
+    #[prost(string, tag = "1")]
+    pub backup_template: ::prost::alloc::string::String,
+    /// The names of Backup and DR policies that are associated with a template
+    /// and that define when to run a backup, how frequently to run a backup, and
+    /// how long to retain the backup image. For example, `onvaults`.
+    #[prost(string, repeated, tag = "2")]
+    pub policies: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The name of a Backup and DR host, which is managed by the backup and
+    /// recovery appliance and known to the management console. The host can be of
+    /// type Generic (for example, Compute Engine, SQL Server, Oracle DB, SMB file
+    /// system, etc.), vCenter, or an ESX server. See the [Backup and DR
+    /// documentation on
+    /// hosts](<https://cloud.google.com/backup-disaster-recovery/docs/configuration/manage-hosts-and-their-applications>)
+    /// for more information. For example, `centos7-01`.
+    #[prost(string, tag = "3")]
+    pub host: ::prost::alloc::string::String,
+    /// The names of Backup and DR applications. An application is a VM, database,
+    /// or file system on a managed host monitored by a backup and recovery
+    /// appliance. For example, `centos7-01-vol00`, `centos7-01-vol01`,
+    /// `centos7-01-vol02`.
+    #[prost(string, repeated, tag = "4")]
+    pub applications: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The name of the Backup and DR storage pool that the backup and recovery
+    /// appliance is storing data in. The storage pool could be of type Cloud,
+    /// Primary, Snapshot, or OnVault. See the [Backup and DR documentation on
+    /// storage
+    /// pools](<https://cloud.google.com/backup-disaster-recovery/docs/concepts/storage-pools>).
+    /// For example, `DiskPoolOne`.
+    #[prost(string, tag = "5")]
+    pub storage_pool: ::prost::alloc::string::String,
+    /// The names of Backup and DR advanced policy options of a policy applying to
+    /// an application. See the [Backup and DR documentation on policy
+    /// options](<https://cloud.google.com/backup-disaster-recovery/docs/create-plan/policy-settings>).
+    /// For example, `skipofflineappsincongrp, nounmap`.
+    #[prost(string, repeated, tag = "6")]
+    pub policy_options: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The name of the Backup and DR resource profile that specifies the storage
+    /// media for backups of application and VM data. See the [Backup and DR
+    /// documentation on
+    /// profiles](<https://cloud.google.com/backup-disaster-recovery/docs/concepts/backup-plan#profile>).
+    /// For example, `GCP`.
+    #[prost(string, tag = "7")]
+    pub profile: ::prost::alloc::string::String,
+    /// The name of the Backup and DR appliance that captures, moves, and manages
+    /// the lifecycle of backup data. For example, `backup-server-57137`.
+    #[prost(string, tag = "8")]
+    pub appliance: ::prost::alloc::string::String,
+    /// The backup type of the Backup and DR image.
+    /// For example, `Snapshot`, `Remote Snapshot`, `OnVault`.
+    #[prost(string, tag = "9")]
+    pub backup_type: ::prost::alloc::string::String,
+    /// The timestamp at which the Backup and DR backup was created.
+    #[prost(message, optional, tag = "10")]
+    pub backup_create_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Details about the Cloud Data Loss Prevention (Cloud DLP) [inspection
+/// job](<https://cloud.google.com/dlp/docs/concepts-job-triggers>) that produced
+/// the finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudDlpInspection {
+    /// Name of the inspection job, for example,
+    /// `projects/123/locations/europe/dlpJobs/i-8383929`.
+    #[prost(string, tag = "1")]
+    pub inspect_job: ::prost::alloc::string::String,
+    /// The type of information (or
+    /// *[infoType](<https://cloud.google.com/dlp/docs/infotypes-reference>)*) found,
+    /// for example, `EMAIL_ADDRESS` or `STREET_ADDRESS`.
+    #[prost(string, tag = "2")]
+    pub info_type: ::prost::alloc::string::String,
+    /// The number of times Cloud DLP found this infoType within this job
+    /// and resource.
+    #[prost(int64, tag = "3")]
+    pub info_type_count: i64,
+    /// Whether Cloud DLP scanned the complete resource or a sampled subset.
+    #[prost(bool, tag = "4")]
+    pub full_scan: bool,
+}
+/// Details about specific contacts
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContactDetails {
+    /// A list of contacts
+    #[prost(message, repeated, tag = "1")]
+    pub contacts: ::prost::alloc::vec::Vec<Contact>,
+}
+/// The email address of a contact.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Contact {
+    /// An email address. For example, "`person123@company.com`".
+    #[prost(string, tag = "1")]
+    pub email: ::prost::alloc::string::String,
+}
+/// Exfiltration represents a data exfiltration attempt from one or more sources
+/// to one or more targets. The `sources` attribute lists the sources of the
+/// exfiltrated data. The `targets` attribute lists the destinations the data was
+/// copied to.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Exfiltration {
+    /// If there are multiple sources, then the data is considered "joined" between
+    /// them. For instance, BigQuery can join multiple tables, and each
+    /// table would be considered a source.
+    #[prost(message, repeated, tag = "1")]
+    pub sources: ::prost::alloc::vec::Vec<ExfilResource>,
+    /// If there are multiple targets, each target would get a complete copy of the
+    /// "joined" source data.
+    #[prost(message, repeated, tag = "2")]
+    pub targets: ::prost::alloc::vec::Vec<ExfilResource>,
+    /// Total exfiltrated bytes processed for the entire job.
+    #[prost(int64, tag = "3")]
+    pub total_exfiltrated_bytes: i64,
+}
+/// Resource where data was exfiltrated from or exfiltrated to.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExfilResource {
+    /// The resource's [full resource
+    /// name](<https://cloud.google.com/apis/design/resource_names#full_resource_name>).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Subcomponents of the asset that was exfiltrated, like URIs used during
+    /// exfiltration, table names, databases, and filenames. For example, multiple
+    /// tables might have been exfiltrated from the same Cloud SQL instance, or
+    /// multiple files might have been exfiltrated from the same Cloud Storage
+    /// bucket.
+    #[prost(string, repeated, tag = "2")]
+    pub components: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Representation of third party SIEM/SOAR fields within SCC.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExternalSystem {
+    /// Full resource name of the external system, for example:
+    /// "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+    /// "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+    /// "projects/1234/sources/5678/findings/123456/externalSystems/jira"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// References primary/secondary etc assignees in the external system.
+    #[prost(string, repeated, tag = "2")]
+    pub assignees: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The identifier that's used to track the finding's corresponding case in the
+    /// external system.
+    #[prost(string, tag = "3")]
+    pub external_uid: ::prost::alloc::string::String,
+    /// The most recent status of the finding's corresponding case, as reported by
+    /// the external system.
+    #[prost(string, tag = "4")]
+    pub status: ::prost::alloc::string::String,
+    /// The time when the case was last updated, as reported by the external
+    /// system.
+    #[prost(message, optional, tag = "5")]
+    pub external_system_update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The link to the finding's corresponding case in the external system.
+    #[prost(string, tag = "6")]
+    pub case_uri: ::prost::alloc::string::String,
+    /// The priority of the finding's corresponding case in the external system.
+    #[prost(string, tag = "7")]
+    pub case_priority: ::prost::alloc::string::String,
+    /// The SLA of the finding's corresponding case in the external system.
+    #[prost(message, optional, tag = "9")]
+    pub case_sla: ::core::option::Option<::prost_types::Timestamp>,
+    /// The time when the case was created, as reported by the external system.
+    #[prost(message, optional, tag = "10")]
+    pub case_create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The time when the case was closed, as reported by the external system.
+    #[prost(message, optional, tag = "11")]
+    pub case_close_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Information about the ticket, if any, that is being used to track the
+    /// resolution of the issue that is identified by this finding.
+    #[prost(message, optional, tag = "8")]
+    pub ticket_info: ::core::option::Option<external_system::TicketInfo>,
+}
+/// Nested message and enum types in `ExternalSystem`.
+pub mod external_system {
+    /// Information about the ticket, if any, that is being used to track the
+    /// resolution of the issue that is identified by this finding.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TicketInfo {
+        /// The identifier of the ticket in the ticket system.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The assignee of the ticket in the ticket system.
+        #[prost(string, tag = "2")]
+        pub assignee: ::prost::alloc::string::String,
+        /// The description of the ticket in the ticket system.
+        #[prost(string, tag = "3")]
+        pub description: ::prost::alloc::string::String,
+        /// The link to the ticket in the ticket system.
+        #[prost(string, tag = "4")]
+        pub uri: ::prost::alloc::string::String,
+        /// The latest status of the ticket, as reported by the ticket system.
+        #[prost(string, tag = "5")]
+        pub status: ::prost::alloc::string::String,
+        /// The time when the ticket was last updated, as reported by the ticket
+        /// system.
+        #[prost(message, optional, tag = "6")]
+        pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    }
+}
+/// File information about the related binary/library used by an executable, or
+/// the script used by a script interpreter
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct File {
+    /// Absolute path of the file as a JSON encoded string.
+    #[prost(string, tag = "1")]
+    pub path: ::prost::alloc::string::String,
+    /// Size of the file in bytes.
+    #[prost(int64, tag = "2")]
+    pub size: i64,
+    /// SHA256 hash of the first hashed_size bytes of the file encoded as a
+    /// hex string.  If hashed_size == size, sha256 represents the SHA256 hash
+    /// of the entire file.
+    #[prost(string, tag = "3")]
+    pub sha256: ::prost::alloc::string::String,
+    /// The length in bytes of the file prefix that was hashed.  If
+    /// hashed_size == size, any hashes reported represent the entire
+    /// file.
+    #[prost(int64, tag = "4")]
+    pub hashed_size: i64,
+    /// True when the hash covers only a prefix of the file.
+    #[prost(bool, tag = "5")]
+    pub partially_hashed: bool,
+    /// Prefix of the file contents as a JSON-encoded string.
+    #[prost(string, tag = "6")]
+    pub contents: ::prost::alloc::string::String,
+    /// Path of the file in terms of underlying disk/partition identifiers.
+    #[prost(message, optional, tag = "7")]
+    pub disk_path: ::core::option::Option<file::DiskPath>,
+}
+/// Nested message and enum types in `File`.
+pub mod file {
+    /// Path of the file in terms of underlying disk/partition identifiers.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DiskPath {
+        /// UUID of the partition (format
+        /// <https://wiki.archlinux.org/title/persistent_block_device_naming#by-uuid>)
+        #[prost(string, tag = "1")]
+        pub partition_uuid: ::prost::alloc::string::String,
+        /// Relative path of the file in the partition as a JSON encoded string.
+        /// Example: /home/user1/executable_file.sh
+        #[prost(string, tag = "2")]
+        pub relative_path: ::prost::alloc::string::String,
     }
 }
 /// Contains information related to the load balancer associated with the
@@ -1810,16 +1838,6 @@ pub struct Notebook {
     /// The most recent time the notebook was updated.
     #[prost(message, optional, tag = "4")]
     pub notebook_update_time: ::core::option::Option<::prost_types::Timestamp>,
-}
-/// Contains information about the org policies associated with the finding.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct OrgPolicy {
-    /// The resource name of the org policy.
-    /// Example:
-    /// "organizations/{organization_id}/policies/{constraint_name}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
 }
 /// Represents an operating system process.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3079,114 +3097,6 @@ pub mod notification_message {
         Finding(super::Finding),
     }
 }
-/// Cloud Security Command Center (Cloud SCC) notification configs.
-///
-/// A notification config is a Cloud SCC resource that contains the configuration
-/// to send notifications for create/update events of findings, assets and etc.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NotificationConfig {
-    /// The relative resource name of this notification config. See:
-    /// <https://cloud.google.com/apis/design/resource_names#relative_resource_name>
-    /// Example:
-    /// "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
-    /// "folders/{folder_id}/notificationConfigs/notify_public_bucket",
-    /// or "projects/{project_id}/notificationConfigs/notify_public_bucket".
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The description of the notification config (max of 1024 characters).
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// The Pub/Sub topic to send notifications to. Its format is
-    /// "projects/\[project_id\]/topics/\[topic\]".
-    #[prost(string, tag = "3")]
-    pub pubsub_topic: ::prost::alloc::string::String,
-    /// Output only. The service account that needs "pubsub.topics.publish"
-    /// permission to publish to the Pub/Sub topic.
-    #[prost(string, tag = "4")]
-    pub service_account: ::prost::alloc::string::String,
-    /// The config for triggering notifications.
-    #[prost(oneof = "notification_config::NotifyConfig", tags = "5")]
-    pub notify_config: ::core::option::Option<notification_config::NotifyConfig>,
-}
-/// Nested message and enum types in `NotificationConfig`.
-pub mod notification_config {
-    /// The config for streaming-based notifications, which send each event as soon
-    /// as it is detected.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct StreamingConfig {
-        /// Expression that defines the filter to apply across create/update events
-        /// of assets or findings as specified by the event type. The expression is a
-        /// list of zero or more restrictions combined via logical operators `AND`
-        /// and `OR`. Parentheses are supported, and `OR` has higher precedence than
-        /// `AND`.
-        ///
-        /// Restrictions have the form `<field> <operator> <value>` and may have a
-        /// `-` character in front of them to indicate negation. The fields map to
-        /// those defined in the corresponding resource.
-        ///
-        /// The supported operators are:
-        ///
-        /// * `=` for all value types.
-        /// * `>`, `<`, `>=`, `<=` for integer values.
-        /// * `:`, meaning substring matching, for strings.
-        ///
-        /// The supported value types are:
-        ///
-        /// * string literals in quotes.
-        /// * integer literals without quotes.
-        /// * boolean literals `true` and `false` without quotes.
-        #[prost(string, tag = "1")]
-        pub filter: ::prost::alloc::string::String,
-    }
-    /// The config for triggering notifications.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum NotifyConfig {
-        /// The config for triggering streaming-based notifications.
-        #[prost(message, tag = "5")]
-        StreamingConfig(StreamingConfig),
-    }
-}
-/// Security Command Center finding source. A finding source
-/// is an entity or a mechanism that can produce a finding. A source is like a
-/// container of findings that come from the same scanner, logger, monitor, and
-/// other tools.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Source {
-    /// The relative resource name of this source. See:
-    /// <https://cloud.google.com/apis/design/resource_names#relative_resource_name>
-    /// Example:
-    /// "organizations/{organization_id}/sources/{source_id}"
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// The source's display name.
-    /// A source's display name must be unique amongst its siblings, for example,
-    /// two sources with the same parent can't share the same display name.
-    /// The display name must have a length between 1 and 64 characters
-    /// (inclusive).
-    #[prost(string, tag = "2")]
-    pub display_name: ::prost::alloc::string::String,
-    /// The description of the source (max of 1024 characters).
-    /// Example:
-    /// "Web Security Scanner is a web security scanner for common
-    /// vulnerabilities in App Engine applications. It can automatically
-    /// scan and detect four common vulnerabilities, including cross-site-scripting
-    /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
-    /// outdated or insecure libraries."
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// The canonical name of the finding source. It's either
-    /// "organizations/{organization_id}/sources/{source_id}",
-    /// "folders/{folder_id}/sources/{source_id}", or
-    /// "projects/{project_number}/sources/{source_id}",
-    /// depending on the closest CRM ancestor of the resource associated with the
-    /// finding.
-    #[prost(string, tag = "14")]
-    pub canonical_name: ::prost::alloc::string::String,
-}
 /// Security Command Center representation of a Google Cloud
 /// resource.
 ///
@@ -3363,6 +3273,89 @@ pub struct BigQueryExport {
     #[prost(string, tag = "8")]
     pub principal: ::prost::alloc::string::String,
 }
+/// An EffectiveSecurityHealthAnalyticsCustomModule is the representation of
+/// a Security Health Analytics custom module at a specified level of the
+/// resource hierarchy: organization, folder, or project. If a custom module is
+/// inherited from a parent organization or folder, the value of the
+/// `enablementState` property in EffectiveSecurityHealthAnalyticsCustomModule is
+/// set to the value that is effective in the parent, instead of  `INHERITED`.
+/// For example, if the module is enabled in a parent organization or folder, the
+/// effective enablement_state for the module in all child folders or projects is
+/// also `enabled`. EffectiveSecurityHealthAnalyticsCustomModule is read-only.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EffectiveSecurityHealthAnalyticsCustomModule {
+    /// Output only. The resource name of the custom module.
+    /// Its format is
+    /// "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+    /// or
+    /// "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+    /// or
+    /// "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The user-specified configuration for the module.
+    #[prost(message, optional, tag = "2")]
+    pub custom_config: ::core::option::Option<CustomConfig>,
+    /// Output only. The effective state of enablement for the module at the given
+    /// level of the hierarchy.
+    #[prost(
+        enumeration = "effective_security_health_analytics_custom_module::EnablementState",
+        tag = "3"
+    )]
+    pub enablement_state: i32,
+    /// Output only. The display name for the custom module. The name must be
+    /// between 1 and 128 characters, start with a lowercase letter, and contain
+    /// alphanumeric characters or underscores only.
+    #[prost(string, tag = "4")]
+    pub display_name: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `EffectiveSecurityHealthAnalyticsCustomModule`.
+pub mod effective_security_health_analytics_custom_module {
+    /// The enablement state of the module.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum EnablementState {
+        /// Unspecified enablement state.
+        Unspecified = 0,
+        /// The module is enabled at the given level.
+        Enabled = 1,
+        /// The module is disabled at the given level.
+        Disabled = 2,
+    }
+    impl EnablementState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                EnablementState::Unspecified => "ENABLEMENT_STATE_UNSPECIFIED",
+                EnablementState::Enabled => "ENABLED",
+                EnablementState::Disabled => "DISABLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ENABLEMENT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ENABLED" => Some(Self::Enabled),
+                "DISABLED" => Some(Self::Disabled),
+                _ => None,
+            }
+        }
+    }
+}
 /// A mute config is a Cloud SCC resource that contains the configuration
 /// to mute create/update events of findings.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3418,6 +3411,76 @@ pub struct MuteConfig {
     /// creation or update.
     #[prost(string, tag = "7")]
     pub most_recent_editor: ::prost::alloc::string::String,
+}
+/// Cloud Security Command Center (Cloud SCC) notification configs.
+///
+/// A notification config is a Cloud SCC resource that contains the configuration
+/// to send notifications for create/update events of findings, assets and etc.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NotificationConfig {
+    /// The relative resource name of this notification config. See:
+    /// <https://cloud.google.com/apis/design/resource_names#relative_resource_name>
+    /// Example:
+    /// "organizations/{organization_id}/notificationConfigs/notify_public_bucket",
+    /// "folders/{folder_id}/notificationConfigs/notify_public_bucket",
+    /// or "projects/{project_id}/notificationConfigs/notify_public_bucket".
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The description of the notification config (max of 1024 characters).
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// The Pub/Sub topic to send notifications to. Its format is
+    /// "projects/\[project_id\]/topics/\[topic\]".
+    #[prost(string, tag = "3")]
+    pub pubsub_topic: ::prost::alloc::string::String,
+    /// Output only. The service account that needs "pubsub.topics.publish"
+    /// permission to publish to the Pub/Sub topic.
+    #[prost(string, tag = "4")]
+    pub service_account: ::prost::alloc::string::String,
+    /// The config for triggering notifications.
+    #[prost(oneof = "notification_config::NotifyConfig", tags = "5")]
+    pub notify_config: ::core::option::Option<notification_config::NotifyConfig>,
+}
+/// Nested message and enum types in `NotificationConfig`.
+pub mod notification_config {
+    /// The config for streaming-based notifications, which send each event as soon
+    /// as it is detected.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct StreamingConfig {
+        /// Expression that defines the filter to apply across create/update events
+        /// of assets or findings as specified by the event type. The expression is a
+        /// list of zero or more restrictions combined via logical operators `AND`
+        /// and `OR`. Parentheses are supported, and `OR` has higher precedence than
+        /// `AND`.
+        ///
+        /// Restrictions have the form `<field> <operator> <value>` and may have a
+        /// `-` character in front of them to indicate negation. The fields map to
+        /// those defined in the corresponding resource.
+        ///
+        /// The supported operators are:
+        ///
+        /// * `=` for all value types.
+        /// * `>`, `<`, `>=`, `<=` for integer values.
+        /// * `:`, meaning substring matching, for strings.
+        ///
+        /// The supported value types are:
+        ///
+        /// * string literals in quotes.
+        /// * integer literals without quotes.
+        /// * boolean literals `true` and `false` without quotes.
+        #[prost(string, tag = "1")]
+        pub filter: ::prost::alloc::string::String,
+    }
+    /// The config for triggering notifications.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum NotifyConfig {
+        /// The config for triggering streaming-based notifications.
+        #[prost(message, tag = "5")]
+        StreamingConfig(StreamingConfig),
+    }
 }
 /// User specified settings that are attached to the Security Command
 /// Center organization.
@@ -3578,106 +3641,43 @@ pub mod run_asset_discovery_response {
         }
     }
 }
-/// Represents an instance of a Security Health Analytics custom module,
-/// including its full module name, display name, enablement state, and last
-/// updated time. You can create a custom module at the organization, folder, or
-/// project level. Custom modules that you create at the organization or folder
-/// level are inherited by the child folders and projects.
+/// Security Command Center finding source. A finding source
+/// is an entity or a mechanism that can produce a finding. A source is like a
+/// container of findings that come from the same scanner, logger, monitor, and
+/// other tools.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SecurityHealthAnalyticsCustomModule {
-    /// Immutable. The resource name of the custom module.
-    /// Its format is
-    /// "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
-    /// or
-    /// "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
-    /// or
-    /// "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
-    ///
-    /// The id {customModule} is server-generated and is not user settable.
-    /// It will be a numeric id containing 1-20 digits.
+pub struct Source {
+    /// The relative resource name of this source. See:
+    /// <https://cloud.google.com/apis/design/resource_names#relative_resource_name>
+    /// Example:
+    /// "organizations/{organization_id}/sources/{source_id}"
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// The display name of the Security Health Analytics custom module. This
-    /// display name becomes the finding category for all findings that are
-    /// returned by this custom module. The display name must be between 1 and
-    /// 128 characters, start with a lowercase letter, and contain alphanumeric
-    /// characters or underscores only.
+    /// The source's display name.
+    /// A source's display name must be unique amongst its siblings, for example,
+    /// two sources with the same parent can't share the same display name.
+    /// The display name must have a length between 1 and 64 characters
+    /// (inclusive).
     #[prost(string, tag = "2")]
     pub display_name: ::prost::alloc::string::String,
-    /// The enablement state of the custom module.
-    #[prost(
-        enumeration = "security_health_analytics_custom_module::EnablementState",
-        tag = "4"
-    )]
-    pub enablement_state: i32,
-    /// Output only. The time at which the custom module was last updated.
-    #[prost(message, optional, tag = "5")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The editor that last updated the custom module.
-    #[prost(string, tag = "6")]
-    pub last_editor: ::prost::alloc::string::String,
-    /// Output only. If empty, indicates that the custom module was created in the
-    /// organization, folder, or project in which you are viewing the custom
-    /// module. Otherwise, `ancestor_module` specifies the organization or folder
-    /// from which the custom module is inherited.
-    #[prost(string, tag = "7")]
-    pub ancestor_module: ::prost::alloc::string::String,
-    /// The user specified custom configuration for the module.
-    #[prost(message, optional, tag = "8")]
-    pub custom_config: ::core::option::Option<CustomConfig>,
-}
-/// Nested message and enum types in `SecurityHealthAnalyticsCustomModule`.
-pub mod security_health_analytics_custom_module {
-    /// Possible enablement states of a custom module.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum EnablementState {
-        /// Unspecified enablement state.
-        Unspecified = 0,
-        /// The module is enabled at the given CRM resource.
-        Enabled = 1,
-        /// The module is disabled at the given CRM resource.
-        Disabled = 2,
-        /// State is inherited from an ancestor module. The module will either
-        /// be effectively ENABLED or DISABLED based on its closest non-inherited
-        /// ancestor module in the CRM hierarchy.
-        Inherited = 3,
-    }
-    impl EnablementState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                EnablementState::Unspecified => "ENABLEMENT_STATE_UNSPECIFIED",
-                EnablementState::Enabled => "ENABLED",
-                EnablementState::Disabled => "DISABLED",
-                EnablementState::Inherited => "INHERITED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ENABLEMENT_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ENABLED" => Some(Self::Enabled),
-                "DISABLED" => Some(Self::Disabled),
-                "INHERITED" => Some(Self::Inherited),
-                _ => None,
-            }
-        }
-    }
+    /// The description of the source (max of 1024 characters).
+    /// Example:
+    /// "Web Security Scanner is a web security scanner for common
+    /// vulnerabilities in App Engine applications. It can automatically
+    /// scan and detect four common vulnerabilities, including cross-site-scripting
+    /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
+    /// outdated or insecure libraries."
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// The canonical name of the finding source. It's either
+    /// "organizations/{organization_id}/sources/{source_id}",
+    /// "folders/{folder_id}/sources/{source_id}", or
+    /// "projects/{project_number}/sources/{source_id}",
+    /// depending on the closest CRM ancestor of the resource associated with the
+    /// finding.
+    #[prost(string, tag = "14")]
+    pub canonical_name: ::prost::alloc::string::String,
 }
 /// Request message for bulk findings update.
 ///

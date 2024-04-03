@@ -1,3 +1,44 @@
+/// Enum for possible completion states.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum CompletionState {
+    /// Unspecified completion state.
+    Unspecified = 0,
+    /// Task started (has start date) but not yet completed.
+    Pending = 1,
+    /// Succeeded state.
+    Succeeded = 2,
+    /// Failed state.
+    Failed = 3,
+    /// Not applicable state.
+    NotApplicable = 4,
+}
+impl CompletionState {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            CompletionState::Unspecified => "COMPLETION_STATE_UNSPECIFIED",
+            CompletionState::Pending => "PENDING",
+            CompletionState::Succeeded => "SUCCEEDED",
+            CompletionState::Failed => "FAILED",
+            CompletionState::NotApplicable => "NOT_APPLICABLE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "COMPLETION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+            "PENDING" => Some(Self::Pending),
+            "SUCCEEDED" => Some(Self::Succeeded),
+            "FAILED" => Some(Self::Failed),
+            "NOT_APPLICABLE" => Some(Self::NotApplicable),
+            _ => None,
+        }
+    }
+}
 /// Details about the Access request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -150,47 +191,6 @@ pub mod access_reason {
                 "CLOUD_INITIATED_ACCESS" => Some(Self::CloudInitiatedAccess),
                 _ => None,
             }
-        }
-    }
-}
-/// Enum for possible completion states.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum CompletionState {
-    /// Unspecified completion state.
-    Unspecified = 0,
-    /// Task started (has start date) but not yet completed.
-    Pending = 1,
-    /// Succeeded state.
-    Succeeded = 2,
-    /// Failed state.
-    Failed = 3,
-    /// Not applicable state.
-    NotApplicable = 4,
-}
-impl CompletionState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            CompletionState::Unspecified => "COMPLETION_STATE_UNSPECIFIED",
-            CompletionState::Pending => "PENDING",
-            CompletionState::Succeeded => "SUCCEEDED",
-            CompletionState::Failed => "FAILED",
-            CompletionState::NotApplicable => "NOT_APPLICABLE",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "COMPLETION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-            "PENDING" => Some(Self::Pending),
-            "SUCCEEDED" => Some(Self::Succeeded),
-            "FAILED" => Some(Self::Failed),
-            "NOT_APPLICABLE" => Some(Self::NotApplicable),
-            _ => None,
         }
     }
 }
