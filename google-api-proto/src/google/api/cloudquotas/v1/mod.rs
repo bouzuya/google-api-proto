@@ -365,6 +365,19 @@ pub struct QuotaDetails {
     /// The value currently in effect and being enforced.
     #[prost(int64, tag = "1")]
     pub value: i64,
+    /// Rollout information of this quota.
+    /// This field is present only if the effective limit will change due to the
+    /// ongoing rollout of the service config.
+    #[prost(message, optional, tag = "3")]
+    pub rollout_info: ::core::option::Option<RolloutInfo>,
+}
+/// \[Output only\] Rollout information of a quota.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RolloutInfo {
+    /// Whether there is an ongoing rollout for a quota or not.
+    #[prost(bool, tag = "1")]
+    pub ongoing_rollout: bool,
 }
 /// Enumerations of quota safety checks.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
