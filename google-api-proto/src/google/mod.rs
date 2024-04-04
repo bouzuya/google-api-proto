@@ -159,6 +159,7 @@ pub mod chromeos;
         feature = "google-cloud-automl-v1",
         feature = "google-cloud-automl-v1beta1",
         feature = "google-cloud-backupdr-logging-v1",
+        feature = "google-cloud-backupdr-v1",
         feature = "google-cloud-baremetalsolution-v2",
         feature = "google-cloud-batch-v1",
         feature = "google-cloud-batch-v1alpha",

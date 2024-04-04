@@ -1,3 +1,178 @@
+/// Record message for
+/// [RankService.Rank][google.cloud.discoveryengine.v1alpha.RankService.Rank]
+/// method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RankingRecord {
+    /// The unique ID to represent the record.
+    #[prost(string, tag = "1")]
+    pub id: ::prost::alloc::string::String,
+    /// The title of the record. Empty by default.
+    /// At least one of
+    /// [title][google.cloud.discoveryengine.v1alpha.RankingRecord.title] or
+    /// [content][google.cloud.discoveryengine.v1alpha.RankingRecord.content]
+    /// should be set otherwise an INVALID_ARGUMENT error is thrown.
+    #[prost(string, tag = "2")]
+    pub title: ::prost::alloc::string::String,
+    /// The content of the record. Empty by default.
+    /// At least one of
+    /// [title][google.cloud.discoveryengine.v1alpha.RankingRecord.title] or
+    /// [content][google.cloud.discoveryengine.v1alpha.RankingRecord.content]
+    /// should be set otherwise an INVALID_ARGUMENT error is thrown.
+    #[prost(string, tag = "3")]
+    pub content: ::prost::alloc::string::String,
+    /// The score of this record based on the given query and selected model.
+    #[prost(float, tag = "4")]
+    pub score: f32,
+}
+/// Request message for
+/// [RankService.Rank][google.cloud.discoveryengine.v1alpha.RankService.Rank]
+/// method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RankRequest {
+    /// Required. The resource name of the rank service config, such as
+    /// `projects/{project_num}/locations/{location_id}/rankingConfigs/default_ranking_config`.
+    #[prost(string, tag = "1")]
+    pub ranking_config: ::prost::alloc::string::String,
+    /// The identifier of the model to use. It is one of:
+    ///
+    /// * `semantic-ranker-512@latest`: Semantic ranking model with maxiumn input
+    /// token size 512.
+    ///
+    /// It is set to `semantic-ranker-512@latest` by default if unspecified.
+    #[prost(string, tag = "2")]
+    pub model: ::prost::alloc::string::String,
+    /// The number of results to return. If this is unset or no bigger than zero,
+    /// returns all results.
+    #[prost(int32, tag = "3")]
+    pub top_n: i32,
+    /// The query to use.
+    #[prost(string, tag = "4")]
+    pub query: ::prost::alloc::string::String,
+    /// Required. A list of records to rank. At most 200 records to rank.
+    #[prost(message, repeated, tag = "5")]
+    pub records: ::prost::alloc::vec::Vec<RankingRecord>,
+    /// If true, the response will contain only record ID and score. By default, it
+    /// is false, the response will contain record details.
+    #[prost(bool, tag = "6")]
+    pub ignore_record_details_in_response: bool,
+}
+/// Response message for
+/// [RankService.Rank][google.cloud.discoveryengine.v1alpha.RankService.Rank]
+/// method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RankResponse {
+    /// A list of records sorted by descending score.
+    #[prost(message, repeated, tag = "5")]
+    pub records: ::prost::alloc::vec::Vec<RankingRecord>,
+}
+/// Generated client implementations.
+pub mod rank_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service for ranking text records.
+    #[derive(Debug, Clone)]
+    pub struct RankServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> RankServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> RankServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            RankServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Ranks a list of text records based on the given input query.
+        pub async fn rank(
+            &mut self,
+            request: impl tonic::IntoRequest<super::RankRequest>,
+        ) -> std::result::Result<tonic::Response<super::RankResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.discoveryengine.v1alpha.RankService/Rank",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.discoveryengine.v1alpha.RankService",
+                        "Rank",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// Suggestion deny list entry identifying the phrase to block from suggestions
 /// and the applied operation for the phrase.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -319,6 +494,8 @@ pub enum IndustryVertical {
     Generic = 1,
     /// The media industry vertical.
     Media = 2,
+    /// The healthcare FHIR vertical.
+    HealthcareFhir = 7,
 }
 impl IndustryVertical {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -330,6 +507,7 @@ impl IndustryVertical {
             IndustryVertical::Unspecified => "INDUSTRY_VERTICAL_UNSPECIFIED",
             IndustryVertical::Generic => "GENERIC",
             IndustryVertical::Media => "MEDIA",
+            IndustryVertical::HealthcareFhir => "HEALTHCARE_FHIR",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -338,6 +516,7 @@ impl IndustryVertical {
             "INDUSTRY_VERTICAL_UNSPECIFIED" => Some(Self::Unspecified),
             "GENERIC" => Some(Self::Generic),
             "MEDIA" => Some(Self::Media),
+            "HEALTHCARE_FHIR" => Some(Self::HealthcareFhir),
             _ => None,
         }
     }
@@ -354,6 +533,10 @@ pub enum SolutionType {
     Search = 2,
     /// Used for use cases related to the Generative AI agent.
     Chat = 3,
+    /// Used for use cases related to the Generative Chat agent.
+    /// It's used for Generative chat engine only, the associated data stores
+    /// must enrolled with `SOLUTION_TYPE_CHAT` solution.
+    GenerativeChat = 4,
 }
 impl SolutionType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -366,6 +549,7 @@ impl SolutionType {
             SolutionType::Recommendation => "SOLUTION_TYPE_RECOMMENDATION",
             SolutionType::Search => "SOLUTION_TYPE_SEARCH",
             SolutionType::Chat => "SOLUTION_TYPE_CHAT",
+            SolutionType::GenerativeChat => "SOLUTION_TYPE_GENERATIVE_CHAT",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -375,6 +559,7 @@ impl SolutionType {
             "SOLUTION_TYPE_RECOMMENDATION" => Some(Self::Recommendation),
             "SOLUTION_TYPE_SEARCH" => Some(Self::Search),
             "SOLUTION_TYPE_CHAT" => Some(Self::Chat),
+            "SOLUTION_TYPE_GENERATIVE_CHAT" => Some(Self::GenerativeChat),
             _ => None,
         }
     }
@@ -632,6 +817,32 @@ pub mod document {
         /// registered [Schema][google.cloud.discoveryengine.v1alpha.Schema] or an
         /// `INVALID_ARGUMENT` error is thrown.
         #[prost(string, tag = "5")]
+        JsonData(::prost::alloc::string::String),
+    }
+}
+/// Document captures all raw metadata information of items to be recommended or
+/// searched.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ProcessedDocument {
+    /// Required. Full resource name of the referenced document, in the format
+    /// `projects/*/locations/*/collections/*/dataStores/*/branches/*/documents/*`.
+    #[prost(string, tag = "1")]
+    pub document: ::prost::alloc::string::String,
+    /// Output format of the processed document.
+    #[prost(oneof = "processed_document::ProcessedDataFormat", tags = "2")]
+    pub processed_data_format: ::core::option::Option<
+        processed_document::ProcessedDataFormat,
+    >,
+}
+/// Nested message and enum types in `ProcessedDocument`.
+pub mod processed_document {
+    /// Output format of the processed document.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ProcessedDataFormat {
+        /// The JSON string representation of the processed document.
+        #[prost(string, tag = "2")]
         JsonData(::prost::alloc::string::String),
     }
 }
@@ -1217,6 +1428,317 @@ pub mod big_query_source {
         PartitionDate(super::super::super::super::r#type::Date),
     }
 }
+/// The Spanner source for importing data
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SpannerSource {
+    /// The project ID that the Spanner source is in with a length limit of 128
+    /// characters. If not specified, inherits the project ID from the parent
+    /// request.
+    #[prost(string, tag = "1")]
+    pub project_id: ::prost::alloc::string::String,
+    /// Required. The instance ID of the source Spanner table.
+    #[prost(string, tag = "2")]
+    pub instance_id: ::prost::alloc::string::String,
+    /// Required. The database ID of the source Spanner table.
+    #[prost(string, tag = "3")]
+    pub database_id: ::prost::alloc::string::String,
+    /// Required. The table name of the Spanner database that needs to be imported.
+    #[prost(string, tag = "4")]
+    pub table_id: ::prost::alloc::string::String,
+    /// Whether to apply data boost on Spanner export. Enabling this option will
+    /// incur additional cost. More info can be found
+    /// [here](<https://cloud.google.com/spanner/docs/databoost/databoost-overview#billing_and_quotas>).
+    #[prost(bool, tag = "5")]
+    pub enable_data_boost: bool,
+}
+/// The Bigtable Options object that contains information to support
+/// the import.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigtableOptions {
+    /// The field name used for saving row key value in the document. The name has
+    /// to match the pattern `[a-zA-Z0-9][a-zA-Z0-9-_]*`.
+    #[prost(string, tag = "1")]
+    pub key_field_name: ::prost::alloc::string::String,
+    /// The mapping from family names to an object that contains column families
+    /// level information for the given column family. If a family is not present
+    /// in this map it will be ignored.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub families: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        bigtable_options::BigtableColumnFamily,
+    >,
+}
+/// Nested message and enum types in `BigtableOptions`.
+pub mod bigtable_options {
+    /// The column family of the Bigtable.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BigtableColumnFamily {
+        /// The field name to use for this column family in the document. The
+        /// name has to match the pattern `[a-zA-Z0-9][a-zA-Z0-9-_]*`. If not set,
+        /// it is parsed from the family name with best effort. However, due to
+        /// different naming patterns, field name collisions could happen, where
+        /// parsing behavior is undefined.
+        #[prost(string, tag = "1")]
+        pub field_name: ::prost::alloc::string::String,
+        /// The encoding mode of the values when the type is not STRING.
+        /// Acceptable encoding values are:
+        ///
+        /// * `TEXT`: indicates values are alphanumeric text strings.
+        /// * `BINARY`: indicates values are encoded using `HBase Bytes.toBytes`
+        /// family of functions. This can be overridden for a specific column
+        /// by listing that column in `columns` and specifying an encoding for it.
+        #[prost(enumeration = "Encoding", tag = "2")]
+        pub encoding: i32,
+        /// The type of values in this column family.
+        /// The values are expected to be encoded using `HBase Bytes.toBytes`
+        /// function when the encoding value is set to `BINARY`.
+        #[prost(enumeration = "Type", tag = "3")]
+        pub r#type: i32,
+        /// The list of objects that contains column level information for each
+        /// column. If a column is not present in this list it will be ignored.
+        #[prost(message, repeated, tag = "4")]
+        pub columns: ::prost::alloc::vec::Vec<BigtableColumn>,
+    }
+    /// The column of the Bigtable.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BigtableColumn {
+        /// Required. Qualifier of the column. If it cannot be decoded with utf-8,
+        /// use a base-64 encoded string instead.
+        #[prost(bytes = "bytes", tag = "1")]
+        pub qualifier: ::prost::bytes::Bytes,
+        /// The field name to use for this column in the document. The name has to
+        /// match the pattern `[a-zA-Z0-9][a-zA-Z0-9-_]*`.
+        /// If not set, it is parsed from the qualifier bytes with best effort.
+        /// However, due to different naming patterns, field name collisions could
+        /// happen, where parsing behavior is undefined.
+        #[prost(string, tag = "2")]
+        pub field_name: ::prost::alloc::string::String,
+        /// The encoding mode of the values when the type is not `STRING`.
+        /// Acceptable encoding values are:
+        ///
+        /// * `TEXT`: indicates values are alphanumeric text strings.
+        /// * `BINARY`: indicates values are encoded using `HBase Bytes.toBytes`
+        /// family of functions. This can be overridden for a specific column
+        /// by listing that column in `columns` and specifying an encoding for it.
+        #[prost(enumeration = "Encoding", tag = "3")]
+        pub encoding: i32,
+        /// The type of values in this column family.
+        /// The values are expected to be encoded using `HBase Bytes.toBytes`
+        /// function when the encoding value is set to `BINARY`.
+        #[prost(enumeration = "Type", tag = "4")]
+        pub r#type: i32,
+    }
+    /// The type of values in a Bigtable column or column family.
+    /// The values are expected to be encoded using
+    /// [HBase
+    /// Bytes.toBytes](<https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/util/Bytes.html>)
+    /// function when the encoding value is set to `BINARY`.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// The type is unspecified.
+        Unspecified = 0,
+        /// String type.
+        String = 1,
+        /// Numerical type.
+        Number = 2,
+        /// Integer type.
+        Integer = 3,
+        /// Variable length integer type.
+        VarInteger = 4,
+        /// BigDecimal type.
+        BigNumeric = 5,
+        /// Boolean type.
+        Boolean = 6,
+        /// JSON type.
+        Json = 7,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::String => "STRING",
+                Type::Number => "NUMBER",
+                Type::Integer => "INTEGER",
+                Type::VarInteger => "VAR_INTEGER",
+                Type::BigNumeric => "BIG_NUMERIC",
+                Type::Boolean => "BOOLEAN",
+                Type::Json => "JSON",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "STRING" => Some(Self::String),
+                "NUMBER" => Some(Self::Number),
+                "INTEGER" => Some(Self::Integer),
+                "VAR_INTEGER" => Some(Self::VarInteger),
+                "BIG_NUMERIC" => Some(Self::BigNumeric),
+                "BOOLEAN" => Some(Self::Boolean),
+                "JSON" => Some(Self::Json),
+                _ => None,
+            }
+        }
+    }
+    /// The encoding mode of a Bigtable column or column family.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Encoding {
+        /// The encoding is unspecified.
+        Unspecified = 0,
+        /// Text encoding.
+        Text = 1,
+        /// Binary encoding.
+        Binary = 2,
+    }
+    impl Encoding {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Encoding::Unspecified => "ENCODING_UNSPECIFIED",
+                Encoding::Text => "TEXT",
+                Encoding::Binary => "BINARY",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ENCODING_UNSPECIFIED" => Some(Self::Unspecified),
+                "TEXT" => Some(Self::Text),
+                "BINARY" => Some(Self::Binary),
+                _ => None,
+            }
+        }
+    }
+}
+/// The Cloud Bigtable source for importing data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BigtableSource {
+    /// The project ID that the Bigtable source is in with a length limit of 128
+    /// characters. If not specified, inherits the project ID from the parent
+    /// request.
+    #[prost(string, tag = "1")]
+    pub project_id: ::prost::alloc::string::String,
+    /// Required. The instance ID of the Cloud Bigtable that needs to be imported.
+    #[prost(string, tag = "2")]
+    pub instance_id: ::prost::alloc::string::String,
+    /// Required. The table ID of the Cloud Bigtable that needs to be imported.
+    #[prost(string, tag = "3")]
+    pub table_id: ::prost::alloc::string::String,
+    /// Required. Bigtable options that contains information needed when parsing
+    /// data into typed structures. For example, column type annotations.
+    #[prost(message, optional, tag = "4")]
+    pub bigtable_options: ::core::option::Option<BigtableOptions>,
+}
+/// Cloud FhirStore source import data from.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FhirStoreSource {
+    /// Required. The full resource name of the FHIR store to import data from, in
+    /// the format of
+    /// `projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}`.
+    #[prost(string, tag = "1")]
+    pub fhir_store: ::prost::alloc::string::String,
+    /// Intermediate Cloud Storage directory used for the import with a length
+    /// limit of 2,000 characters. Can be specified if one wants to have the
+    /// FhirStore export to a specific Cloud Storage directory.
+    #[prost(string, tag = "2")]
+    pub gcs_staging_dir: ::prost::alloc::string::String,
+}
+/// Cloud SQL source import data from.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudSqlSource {
+    /// The project ID that the Cloud SQL source is in with a length limit of 128
+    /// characters. If not specified, inherits the project ID from the parent
+    /// request.
+    #[prost(string, tag = "1")]
+    pub project_id: ::prost::alloc::string::String,
+    /// Required. The Cloud SQL instance to copy the data from with a length limit
+    /// of 256 characters.
+    #[prost(string, tag = "2")]
+    pub instance_id: ::prost::alloc::string::String,
+    /// Required. The Cloud SQL database to copy the data from with a length limit
+    /// of 256 characters.
+    #[prost(string, tag = "3")]
+    pub database_id: ::prost::alloc::string::String,
+    /// Required. The Cloud SQL table to copy the data from with a length limit of
+    /// 256 characters.
+    #[prost(string, tag = "4")]
+    pub table_id: ::prost::alloc::string::String,
+    /// Intermediate Cloud Storage directory used for the import with a length
+    /// limit of 2,000 characters. Can be specified if one wants to have the
+    /// Cloud SQL export to a specific Cloud Storage directory.
+    ///
+    /// Please ensure that the Cloud SQL service account has the necessary Cloud
+    /// Storage Admin permissions to access the specified Cloud Storage directory.
+    #[prost(string, tag = "5")]
+    pub gcs_staging_dir: ::prost::alloc::string::String,
+    /// Option for serverless export. Enabling this option will incur
+    /// additional cost. More info can be found
+    /// [here](<https://cloud.google.com/sql/pricing#serverless>).
+    #[prost(bool, tag = "6")]
+    pub offload: bool,
+}
+/// Firestore source import data from.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct FirestoreSource {
+    /// The project ID that the Cloud SQL source is in with a length limit of 128
+    /// characters. If not specified, inherits the project ID from the parent
+    /// request.
+    #[prost(string, tag = "1")]
+    pub project_id: ::prost::alloc::string::String,
+    /// Required. The Firestore database to copy the data from with a length limit
+    /// of 256 characters.
+    #[prost(string, tag = "2")]
+    pub database_id: ::prost::alloc::string::String,
+    /// Required. The Firestore collection to copy the data from with a length
+    /// limit of 1,500 characters.
+    #[prost(string, tag = "3")]
+    pub collection_id: ::prost::alloc::string::String,
+    /// Intermediate Cloud Storage directory used for the import with a length
+    /// limit of 2,000 characters. Can be specified if one wants to have the
+    /// Firestore export to a specific Cloud Storage directory.
+    ///
+    /// Please ensure that the Firestore service account has the necessary Cloud
+    /// Storage Admin permissions to access the specified Cloud Storage directory.
+    #[prost(string, tag = "4")]
+    pub gcs_staging_dir: ::prost::alloc::string::String,
+}
 /// Configuration of destination for Import related errors.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1338,6 +1860,9 @@ pub struct ImportDocumentsMetadata {
     /// Count of entries that encountered errors while processing.
     #[prost(int64, tag = "4")]
     pub failure_count: i64,
+    /// Total count of entries that were processed.
+    #[prost(int64, tag = "5")]
+    pub total_count: i64,
 }
 /// Request message for Import methods.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1356,6 +1881,10 @@ pub struct ImportDocumentsRequest {
     /// [ReconciliationMode.INCREMENTAL][google.cloud.discoveryengine.v1alpha.ImportDocumentsRequest.ReconciliationMode.INCREMENTAL].
     #[prost(enumeration = "import_documents_request::ReconciliationMode", tag = "6")]
     pub reconciliation_mode: i32,
+    /// Indicates which fields in the provided imported documents to update. If
+    /// not set, the default is to update all fields.
+    #[prost(message, optional, tag = "7")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
     /// Whether to automatically generate IDs for the documents if absent.
     ///
     /// If set to `true`,
@@ -1369,49 +1898,61 @@ pub struct ImportDocumentsRequest {
     /// [id_field][google.cloud.discoveryengine.v1alpha.ImportDocumentsRequest.id_field],
     /// otherwise, documents without IDs fail to be imported.
     ///
-    /// Only set this field when using
-    /// [GcsSource][google.cloud.discoveryengine.v1alpha.GcsSource] or
-    /// [BigQuerySource][google.cloud.discoveryengine.v1alpha.BigQuerySource], and
-    /// when
+    /// Supported data sources:
+    ///
+    /// * [GcsSource][google.cloud.discoveryengine.v1alpha.GcsSource].
     /// [GcsSource.data_schema][google.cloud.discoveryengine.v1alpha.GcsSource.data_schema]
-    /// or
+    /// must be `custom` or `csv`. Otherwise, an INVALID_ARGUMENT error is thrown.
+    /// * [BigQuerySource][google.cloud.discoveryengine.v1alpha.BigQuerySource].
     /// [BigQuerySource.data_schema][google.cloud.discoveryengine.v1alpha.BigQuerySource.data_schema]
-    /// is `custom` or `csv`. Otherwise, an INVALID_ARGUMENT error is thrown.
+    /// must be `custom` or `csv`. Otherwise, an INVALID_ARGUMENT error is thrown.
+    /// * [SpannerSource][google.cloud.discoveryengine.v1alpha.SpannerSource].
+    /// * [CloudSqlSource][google.cloud.discoveryengine.v1alpha.CloudSqlSource].
+    /// * [FirestoreSource][google.cloud.discoveryengine.v1alpha.FirestoreSource].
+    /// * [BigtableSource][google.cloud.discoveryengine.v1alpha.BigtableSource].
     #[prost(bool, tag = "8")]
     pub auto_generate_ids: bool,
-    /// The field in the Cloud Storage and BigQuery sources that indicates the
-    /// unique IDs of the documents.
+    /// The field indicates the ID field or column to be used as unique IDs of
+    /// the documents.
     ///
     /// For [GcsSource][google.cloud.discoveryengine.v1alpha.GcsSource] it is the
     /// key of the JSON field. For instance, `my_id` for JSON `{"my_id":
-    /// "some_uuid"}`. For
-    /// [BigQuerySource][google.cloud.discoveryengine.v1alpha.BigQuerySource] it is
-    /// the column name of the BigQuery table where the unique ids are stored.
+    /// "some_uuid"}`. For others, it may be the column name of the table where the
+    /// unique ids are stored.
     ///
-    /// The values of the JSON field or the BigQuery column are used as the
+    /// The values of the JSON field or the table column are used as the
     /// [Document.id][google.cloud.discoveryengine.v1alpha.Document.id]s. The JSON
-    /// field or the BigQuery column must be of string type, and the values must be
+    /// field or the table column must be of string type, and the values must be
     /// set as valid strings conform to
     /// [RFC-1034](<https://tools.ietf.org/html/rfc1034>) with 1-63 characters.
     /// Otherwise, documents without valid IDs fail to be imported.
     ///
-    /// Only set this field when using
-    /// [GcsSource][google.cloud.discoveryengine.v1alpha.GcsSource] or
-    /// [BigQuerySource][google.cloud.discoveryengine.v1alpha.BigQuerySource], and
-    /// when
-    /// [GcsSource.data_schema][google.cloud.discoveryengine.v1alpha.GcsSource.data_schema]
-    /// or
-    /// [BigQuerySource.data_schema][google.cloud.discoveryengine.v1alpha.BigQuerySource.data_schema]
-    /// is `custom`. And only set this field when
+    /// Only set this field when
     /// [auto_generate_ids][google.cloud.discoveryengine.v1alpha.ImportDocumentsRequest.auto_generate_ids]
     /// is unset or set as `false`. Otherwise, an INVALID_ARGUMENT error is thrown.
     ///
     /// If it is unset, a default value `_id` is used when importing from the
     /// allowed data sources.
+    ///
+    /// Supported data sources:
+    ///
+    /// * [GcsSource][google.cloud.discoveryengine.v1alpha.GcsSource].
+    /// [GcsSource.data_schema][google.cloud.discoveryengine.v1alpha.GcsSource.data_schema]
+    /// must be `custom` or `csv`. Otherwise, an INVALID_ARGUMENT error is thrown.
+    /// * [BigQuerySource][google.cloud.discoveryengine.v1alpha.BigQuerySource].
+    /// [BigQuerySource.data_schema][google.cloud.discoveryengine.v1alpha.BigQuerySource.data_schema]
+    /// must be `custom` or `csv`. Otherwise, an INVALID_ARGUMENT error is thrown.
+    /// * [SpannerSource][google.cloud.discoveryengine.v1alpha.SpannerSource].
+    /// * [CloudSqlSource][google.cloud.discoveryengine.v1alpha.CloudSqlSource].
+    /// * [FirestoreSource][google.cloud.discoveryengine.v1alpha.FirestoreSource].
+    /// * [BigtableSource][google.cloud.discoveryengine.v1alpha.BigtableSource].
     #[prost(string, tag = "9")]
     pub id_field: ::prost::alloc::string::String,
     /// Required. The source of the input.
-    #[prost(oneof = "import_documents_request::Source", tags = "2, 3, 4")]
+    #[prost(
+        oneof = "import_documents_request::Source",
+        tags = "2, 3, 4, 10, 11, 12, 13, 15"
+    )]
     pub source: ::core::option::Option<import_documents_request::Source>,
 }
 /// Nested message and enum types in `ImportDocumentsRequest`.
@@ -1484,6 +2025,21 @@ pub mod import_documents_request {
         /// BigQuery input source.
         #[prost(message, tag = "4")]
         BigquerySource(super::BigQuerySource),
+        /// FhirStore input source.
+        #[prost(message, tag = "10")]
+        FhirStoreSource(super::FhirStoreSource),
+        /// Spanner input source.
+        #[prost(message, tag = "11")]
+        SpannerSource(super::SpannerSource),
+        /// Cloud SQL input source.
+        #[prost(message, tag = "12")]
+        CloudSqlSource(super::CloudSqlSource),
+        /// Firestore input source.
+        #[prost(message, tag = "13")]
+        FirestoreSource(super::FirestoreSource),
+        /// Cloud Bigtable input source.
+        #[prost(message, tag = "15")]
+        BigtableSource(super::BigtableSource),
     }
 }
 /// Response of the
@@ -1570,6 +2126,42 @@ pub struct ImportSuggestionDenyListEntriesResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ImportSuggestionDenyListEntriesMetadata {
+    /// Operation create time.
+    #[prost(message, optional, tag = "1")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Operation last update time. If the operation is done, this is also the
+    /// finish time.
+    #[prost(message, optional, tag = "2")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Response of the
+/// [CompletionService.ImportCompletionSuggestions][google.cloud.discoveryengine.v1alpha.CompletionService.ImportCompletionSuggestions]
+/// method. If the long running operation is done, this message is returned by
+/// the google.longrunning.Operations.response field if the operation is
+/// successful.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportCompletionSuggestionsResponse {
+    /// A sample of errors encountered while processing the request.
+    #[prost(message, repeated, tag = "1")]
+    pub error_samples: ::prost::alloc::vec::Vec<super::super::super::rpc::Status>,
+    /// Count of
+    /// [CompletionSuggestion][google.cloud.discoveryengine.v1alpha.CompletionSuggestion]s
+    /// successfully imported.
+    #[prost(int64, tag = "2")]
+    pub success_count: i64,
+    /// Count of
+    /// [CompletionSuggestion][google.cloud.discoveryengine.v1alpha.CompletionSuggestion]s
+    /// that failed to be imported.
+    #[prost(int64, tag = "3")]
+    pub failure_count: i64,
+}
+/// Metadata related to the progress of the ImportCompletionSuggestions
+/// operation. This will be returned by the google.longrunning.Operation.metadata
+/// field.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImportCompletionSuggestionsMetadata {
     /// Operation create time.
     #[prost(message, optional, tag = "1")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -1819,7 +2411,7 @@ pub struct Chunk {
     /// characters.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Unique chunk id of the current chunk.
+    /// Unique chunk ID of the current chunk.
     #[prost(string, tag = "2")]
     pub id: ::prost::alloc::string::String,
     /// Content is a string from a document (parsed content).
@@ -1832,6 +2424,12 @@ pub struct Chunk {
     /// It contains derived data that are not in the original input document.
     #[prost(message, optional, tag = "4")]
     pub derived_struct_data: ::core::option::Option<::prost_types::Struct>,
+    /// Page span of the chunk.
+    #[prost(message, optional, tag = "6")]
+    pub page_span: ::core::option::Option<chunk::PageSpan>,
+    /// Output only. Metadata of the current chunk.
+    #[prost(message, optional, tag = "7")]
+    pub chunk_metadata: ::core::option::Option<chunk::ChunkMetadata>,
 }
 /// Nested message and enum types in `Chunk`.
 pub mod chunk {
@@ -1846,6 +2444,38 @@ pub mod chunk {
         /// Title of the document.
         #[prost(string, tag = "2")]
         pub title: ::prost::alloc::string::String,
+    }
+    /// Page span of the chunk.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct PageSpan {
+        /// The start page of the chunk.
+        #[prost(int32, tag = "1")]
+        pub page_start: i32,
+        /// The end page of the chunk.
+        #[prost(int32, tag = "2")]
+        pub page_end: i32,
+    }
+    /// Metadata of the current chunk. This field is only populated on
+    /// [SearchService.Search][google.cloud.discoveryengine.v1alpha.SearchService.Search]
+    /// API.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ChunkMetadata {
+        /// The previous chunks of the current chunk. The number is controlled by
+        /// [SearchRequest.ContentSearchSpec.ChunkSpec.num_previous_chunks][google.cloud.discoveryengine.v1alpha.SearchRequest.ContentSearchSpec.ChunkSpec.num_previous_chunks].
+        /// This field is only populated on
+        /// [SearchService.Search][google.cloud.discoveryengine.v1alpha.SearchService.Search]
+        /// API.
+        #[prost(message, repeated, tag = "1")]
+        pub previous_chunks: ::prost::alloc::vec::Vec<super::Chunk>,
+        /// The next chunks of the current chunk. The number is controlled by
+        /// [SearchRequest.ContentSearchSpec.ChunkSpec.num_next_chunks][google.cloud.discoveryengine.v1alpha.SearchRequest.ContentSearchSpec.ChunkSpec.num_next_chunks].
+        /// This field is only populated on
+        /// [SearchService.Search][google.cloud.discoveryengine.v1alpha.SearchService.Search]
+        /// API.
+        #[prost(message, repeated, tag = "2")]
+        pub next_chunks: ::prost::alloc::vec::Vec<super::Chunk>,
     }
 }
 /// Request message for
@@ -1876,11 +2506,15 @@ pub struct SearchRequest {
     #[prost(message, optional, tag = "19")]
     pub image_query: ::core::option::Option<search_request::ImageQuery>,
     /// Maximum number of
-    /// [Document][google.cloud.discoveryengine.v1alpha.Document]s to return. If
-    /// unspecified, defaults to a reasonable value. The maximum allowed value is
-    /// 100. Values above 100 are coerced to 100.
+    /// [Document][google.cloud.discoveryengine.v1alpha.Document]s to return. The
+    /// maximum allowed value depends on the data type. Values above the maximum
+    /// value are coerced to the maximum value.
     ///
-    /// If this field is negative, an  `INVALID_ARGUMENT`  is returned.
+    /// * Websites with basic indexing: Default `10`, Maximum `25`.
+    /// * Websites with advanced indexing: Default `25`, Maximum `50`.
+    /// * Other: Default `50`, Maximum `100`.
+    ///
+    /// If this field is negative, an  `INVALID_ARGUMENT` is returned.
     #[prost(int32, tag = "4")]
     pub page_size: i32,
     /// A page token received from a previous
@@ -2022,7 +2656,8 @@ pub struct SearchRequest {
     ///
     /// If
     /// [SearchRequest.EmbeddingSpec.EmbeddingVector.field_path][google.cloud.discoveryengine.v1alpha.SearchRequest.EmbeddingSpec.EmbeddingVector.field_path]
-    /// is not provided, it will use [ServingConfig.EmbeddingConfig.field_path][].
+    /// is not provided, it will use
+    /// [ServingConfig.EmbeddingConfig.field_path][google.cloud.discoveryengine.v1alpha.ServingConfig.embedding_config].
     #[prost(message, optional, tag = "23")]
     pub embedding_spec: ::core::option::Option<search_request::EmbeddingSpec>,
     /// The ranking expression controls the customized ranking on retrieval
@@ -2283,22 +2918,182 @@ pub mod search_request {
             /// Strength of the condition boost, which should be in \[-1, 1\]. Negative
             /// boost means demotion. Default is 0.0.
             ///
-            /// Setting to 1.0 gives the document a big promotion. However, it does not
-            /// necessarily mean that the boosted document will be the top result at
-            /// all times, nor that other documents will be excluded. Results could
-            /// still be shown even when none of them matches the condition. And
-            /// results that are significantly more relevant to the search query can
-            /// still trump your heavily favored but irrelevant documents.
+            /// Setting to 1.0 gives the document a big promotion. However, it does
+            /// not necessarily mean that the boosted document will be the top result
+            /// at all times, nor that other documents will be excluded. Results
+            /// could still be shown even when none of them matches the condition.
+            /// And results that are significantly more relevant to the search query
+            /// can still trump your heavily favored but irrelevant documents.
             ///
             /// Setting to -1.0 gives the document a big demotion. However, results
             /// that are deeply relevant might still be shown. The document will have
-            /// an upstream battle to get a fairly high ranking, but it is not blocked
-            /// out completely.
+            /// an upstream battle to get a fairly high ranking, but it is not
+            /// blocked out completely.
             ///
             /// Setting to 0.0 means no boost applied. The boosting condition is
-            /// ignored.
+            /// ignored. Only one of the (condition, boost) combination or the
+            /// boost_control_spec below are set. If both are set then the global boost
+            /// is ignored and the more fine-grained boost_control_spec is applied.
             #[prost(float, tag = "2")]
             pub boost: f32,
+            /// Complex specification for custom ranking based on customer defined
+            /// attribute value.
+            #[prost(message, optional, tag = "3")]
+            pub boost_control_spec: ::core::option::Option<
+                condition_boost_spec::BoostControlSpec,
+            >,
+        }
+        /// Nested message and enum types in `ConditionBoostSpec`.
+        pub mod condition_boost_spec {
+            /// Specification for custom ranking based on customer specified attribute
+            /// value. It provides more controls for customized ranking than the simple
+            /// (condition, boost) combination above.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct BoostControlSpec {
+                /// The name of the field whose value will be used to determine the
+                /// boost amount.
+                #[prost(string, tag = "1")]
+                pub field_name: ::prost::alloc::string::String,
+                /// The attribute type to be used to determine the boost amount. The
+                /// attribute value can be derived from the field value of the specified
+                /// field_name. In the case of numerical it is straightforward i.e.
+                /// attribute_value = numerical_field_value. In the case of freshness
+                /// however, attribute_value = (time.now() - datetime_field_value).
+                #[prost(enumeration = "boost_control_spec::AttributeType", tag = "2")]
+                pub attribute_type: i32,
+                /// The interpolation type to be applied to connect the control points
+                /// listed below.
+                #[prost(
+                    enumeration = "boost_control_spec::InterpolationType",
+                    tag = "3"
+                )]
+                pub interpolation_type: i32,
+                /// The control points used to define the curve. The monotonic function
+                /// (defined through the interpolation_type above) passes through the
+                /// control points listed here.
+                #[prost(message, repeated, tag = "4")]
+                pub control_points: ::prost::alloc::vec::Vec<
+                    boost_control_spec::ControlPoint,
+                >,
+            }
+            /// Nested message and enum types in `BoostControlSpec`.
+            pub mod boost_control_spec {
+                /// The control points used to define the curve. The curve defined
+                /// through these control points can only be monotonically increasing
+                /// or decreasing(constant values are acceptable).
+                #[allow(clippy::derive_partial_eq_without_eq)]
+                #[derive(Clone, PartialEq, ::prost::Message)]
+                pub struct ControlPoint {
+                    /// Can be one of:
+                    /// 1. The numerical field value.
+                    /// 2. The duration spec for freshness:
+                    /// The value must be formatted as an XSD `dayTimeDuration` value (a
+                    /// restricted subset of an ISO 8601 duration value). The pattern for
+                    /// this is: `[nD][T[nH][nM][nS]]`.
+                    #[prost(string, tag = "1")]
+                    pub attribute_value: ::prost::alloc::string::String,
+                    /// The value between -1 to 1 by which to boost the score if the
+                    /// attribute_value evaluates to the value specified above.
+                    #[prost(float, tag = "2")]
+                    pub boost_amount: f32,
+                }
+                /// The attribute(or function) for which the custom ranking is to be
+                /// applied.
+                #[derive(
+                    Clone,
+                    Copy,
+                    Debug,
+                    PartialEq,
+                    Eq,
+                    Hash,
+                    PartialOrd,
+                    Ord,
+                    ::prost::Enumeration
+                )]
+                #[repr(i32)]
+                pub enum AttributeType {
+                    /// Unspecified AttributeType.
+                    Unspecified = 0,
+                    /// The value of the numerical field will be used to dynamically update
+                    /// the boost amount. In this case, the attribute_value (the x value)
+                    /// of the control point will be the actual value of the numerical
+                    /// field for which the boost_amount is specified.
+                    Numerical = 1,
+                    /// For the freshness use case the attribute value will be the duration
+                    /// between the current time and the date in the datetime field
+                    /// specified. The value must be formatted as an XSD `dayTimeDuration`
+                    /// value (a restricted subset of an ISO 8601 duration value). The
+                    /// pattern for this is: `[nD][T[nH][nM][nS]]`.
+                    /// E.g. `5D`, `3DT12H30M`, `T24H`.
+                    Freshness = 2,
+                }
+                impl AttributeType {
+                    /// String value of the enum field names used in the ProtoBuf definition.
+                    ///
+                    /// The values are not transformed in any way and thus are considered stable
+                    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                    pub fn as_str_name(&self) -> &'static str {
+                        match self {
+                            AttributeType::Unspecified => "ATTRIBUTE_TYPE_UNSPECIFIED",
+                            AttributeType::Numerical => "NUMERICAL",
+                            AttributeType::Freshness => "FRESHNESS",
+                        }
+                    }
+                    /// Creates an enum from field names used in the ProtoBuf definition.
+                    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                        match value {
+                            "ATTRIBUTE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                            "NUMERICAL" => Some(Self::Numerical),
+                            "FRESHNESS" => Some(Self::Freshness),
+                            _ => None,
+                        }
+                    }
+                }
+                /// The interpolation type to be applied. Default will be linear
+                /// (Piecewise Linear).
+                #[derive(
+                    Clone,
+                    Copy,
+                    Debug,
+                    PartialEq,
+                    Eq,
+                    Hash,
+                    PartialOrd,
+                    Ord,
+                    ::prost::Enumeration
+                )]
+                #[repr(i32)]
+                pub enum InterpolationType {
+                    /// Interpolation type is unspecified. In this case, it defaults to
+                    /// Linear.
+                    Unspecified = 0,
+                    /// Piecewise linear interpolation will be applied.
+                    Linear = 1,
+                }
+                impl InterpolationType {
+                    /// String value of the enum field names used in the ProtoBuf definition.
+                    ///
+                    /// The values are not transformed in any way and thus are considered stable
+                    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                    pub fn as_str_name(&self) -> &'static str {
+                        match self {
+                            InterpolationType::Unspecified => {
+                                "INTERPOLATION_TYPE_UNSPECIFIED"
+                            }
+                            InterpolationType::Linear => "LINEAR",
+                        }
+                    }
+                    /// Creates an enum from field names used in the ProtoBuf definition.
+                    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                        match value {
+                            "INTERPOLATION_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                            "LINEAR" => Some(Self::Linear),
+                            _ => None,
+                        }
+                    }
+                }
+            }
         }
     }
     /// Specification to determine under which conditions query expansion should
@@ -2454,6 +3249,13 @@ pub mod search_request {
         /// * Otherwise, it defaults to `DOCUMENTS`.
         #[prost(enumeration = "content_search_spec::SearchResultMode", tag = "4")]
         pub search_result_mode: i32,
+        /// Specifies the chunk spec to be returned from the search response.
+        /// Only available if the
+        /// [SearchRequest.ContentSearchSpec.search_result_mode][google.cloud.discoveryengine.v1alpha.SearchRequest.ContentSearchSpec.search_result_mode]
+        /// is set to
+        /// [CHUNKS][google.cloud.discoveryengine.v1alpha.SearchRequest.ContentSearchSpec.SearchResultMode.CHUNKS]
+        #[prost(message, optional, tag = "5")]
+        pub chunk_spec: ::core::option::Option<content_search_spec::ChunkSpec>,
     }
     /// Nested message and enum types in `ContentSearchSpec`.
     pub mod content_search_spec {
@@ -2547,6 +3349,14 @@ pub mod search_request {
             /// provided to the LLM.
             #[prost(message, optional, tag = "7")]
             pub model_spec: ::core::option::Option<summary_spec::ModelSpec>,
+            /// If true, answer will be generated from most relevant chunks from top
+            /// search results. This feature will improve summary quality.
+            /// Please note that with this feature enabled, not all top search results
+            /// will be referenced and included in the reference list, so the citation
+            /// source index only points to the search results listed in the reference
+            /// list.
+            #[prost(bool, tag = "8")]
+            pub use_semantic_chunks: bool,
         }
         /// Nested message and enum types in `SummarySpec`.
         pub mod summary_spec {
@@ -2568,11 +3378,13 @@ pub mod search_request {
                 /// Supported values are:
                 ///
                 /// * `stable`: string. Default value when no value is specified. Uses a
-                ///    generally available, fine-tuned version of the text-bison@001
-                ///    model.
-                /// * `preview`: string. (Public preview) Uses a fine-tuned version of
-                ///    the text-bison@002 model. This model works only for summaries in
-                ///    English.
+                ///     generally available, fine-tuned model. For more information, see
+                ///     [Answer generation model versions and
+                ///     lifecycle](<https://cloud.google.com/generative-ai-app-builder/docs/answer-generation-models>).
+                /// * `preview`: string. (Public preview) Uses a preview model. For more
+                ///     information, see
+                ///     [Answer generation model versions and
+                ///     lifecycle](<https://cloud.google.com/generative-ai-app-builder/docs/answer-generation-models>).
                 #[prost(string, tag = "1")]
                 pub version: ::prost::alloc::string::String,
             }
@@ -2617,10 +3429,9 @@ pub mod search_request {
             #[prost(int32, tag = "2")]
             pub max_extractive_segment_count: i32,
             /// Specifies whether to return the confidence score from the extractive
-            /// segments in each search result. The default value is `false`.
-            ///
-            /// Note: this is a priavte preview feature and only works for allowlisted
-            /// users, please reach out to Cloud Support team if you want to use it.
+            /// segments in each search result. This feature is available only for new
+            /// or allowlisted data stores. To allowlist your data store, please
+            /// contact your Customer Engineer. The default value is `false`.
             #[prost(bool, tag = "3")]
             pub return_extractive_segment_score: bool,
             /// Specifies whether to also include the adjacent from each selected
@@ -2633,6 +3444,25 @@ pub mod search_request {
             /// segments.
             #[prost(int32, tag = "5")]
             pub num_next_segments: i32,
+        }
+        /// Specifies the chunk spec to be returned from the search response.
+        /// Only available if the
+        /// [SearchRequest.ContentSearchSpec.search_result_mode][google.cloud.discoveryengine.v1alpha.SearchRequest.ContentSearchSpec.search_result_mode]
+        /// is set to
+        /// [CHUNKS][google.cloud.discoveryengine.v1alpha.SearchRequest.ContentSearchSpec.SearchResultMode.CHUNKS]
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ChunkSpec {
+            /// The number of previous chunks to be returned of the current chunk. The
+            /// maximum allowed value is 3.
+            /// If not specified, no previous chunks will be returned.
+            #[prost(int32, tag = "1")]
+            pub num_previous_chunks: i32,
+            /// The number of next chunks to be returned of the current chunk. The
+            /// maximum allowed value is 3.
+            /// If not specified, no next chunks will be returned.
+            #[prost(int32, tag = "2")]
+            pub num_next_chunks: i32,
         }
         /// Specifies the search result mode. If unspecified, the
         /// search result mode is based on
@@ -2962,6 +3792,23 @@ pub mod search_response {
             /// Cloud Storage or HTTP uri for the document.
             #[prost(string, tag = "3")]
             pub uri: ::prost::alloc::string::String,
+            /// List of cited chunk contents derived from document content.
+            #[prost(message, repeated, tag = "4")]
+            pub chunk_contents: ::prost::alloc::vec::Vec<reference::ChunkContent>,
+        }
+        /// Nested message and enum types in `Reference`.
+        pub mod reference {
+            /// Chunk content.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ChunkContent {
+                /// Chunk textual content.
+                #[prost(string, tag = "1")]
+                pub content: ::prost::alloc::string::String,
+                /// Page identifier.
+                #[prost(string, tag = "2")]
+                pub page_identifier: ::prost::alloc::string::String,
+            }
         }
         /// Summary with metadata information.
         #[allow(clippy::derive_partial_eq_without_eq)]
@@ -6155,8 +7002,8 @@ pub mod train_custom_model_request {
         /// A newline delimited jsonl/ndjson file.
         ///
         /// For search-tuning model, each line should have the _id, title
-        /// and text. Example: {"_id": "doc1", title: "relevant doc", "text":
-        /// "relevant text"}
+        /// and text. Example:
+        /// `{"_id": "doc1", title: "relevant doc", "text": "relevant text"}`
         #[prost(string, tag = "1")]
         pub corpus_data_path: ::prost::alloc::string::String,
         /// The gcs query data which could be associated in train data.
@@ -6213,6 +7060,12 @@ pub struct TrainCustomModelResponse {
     ///   * **ready**: The model is ready for serving.
     #[prost(string, tag = "3")]
     pub model_status: ::prost::alloc::string::String,
+    /// The metrics of the trained model.
+    #[prost(btree_map = "string, double", tag = "4")]
+    pub metrics: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        f64,
+    >,
 }
 /// Metadata related to the progress of the TrainCustomModel operation. This is
 /// returned by the google.longrunning.Operation.metadata field.
@@ -7482,6 +8335,127 @@ pub struct DeleteDocumentRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// Request message for
+/// [DocumentService.GetDocument][google.cloud.discoveryengine.v1alpha.DocumentService.GetDocument]
+/// method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetProcessedDocumentRequest {
+    /// Required. Full resource name of
+    /// [Document][google.cloud.discoveryengine.v1alpha.Document], such as
+    /// `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/branches/{branch}/documents/{document}`.
+    ///
+    /// If the caller does not have permission to access the
+    /// [Document][google.cloud.discoveryengine.v1alpha.Document], regardless of
+    /// whether or not it exists, a `PERMISSION_DENIED` error is returned.
+    ///
+    /// If the requested [Document][google.cloud.discoveryengine.v1alpha.Document]
+    /// does not exist, a `NOT_FOUND` error is returned.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. What type of processing to return.
+    #[prost(
+        enumeration = "get_processed_document_request::ProcessedDocumentType",
+        tag = "2"
+    )]
+    pub processed_document_type: i32,
+    /// What format output should be.  If unspecified, defaults to JSON.
+    #[prost(
+        enumeration = "get_processed_document_request::ProcessedDocumentFormat",
+        tag = "3"
+    )]
+    pub processed_document_format: i32,
+}
+/// Nested message and enum types in `GetProcessedDocumentRequest`.
+pub mod get_processed_document_request {
+    /// The type of processing to return in the response.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ProcessedDocumentType {
+        /// Default value.
+        Unspecified = 0,
+        /// Available for all data store parsing configs.
+        ParsedDocument = 1,
+        /// Only available if ChunkingConfig is enabeld on the data store.
+        ChunkedDocument = 2,
+    }
+    impl ProcessedDocumentType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ProcessedDocumentType::Unspecified => {
+                    "PROCESSED_DOCUMENT_TYPE_UNSPECIFIED"
+                }
+                ProcessedDocumentType::ParsedDocument => "PARSED_DOCUMENT",
+                ProcessedDocumentType::ChunkedDocument => "CHUNKED_DOCUMENT",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PROCESSED_DOCUMENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PARSED_DOCUMENT" => Some(Self::ParsedDocument),
+                "CHUNKED_DOCUMENT" => Some(Self::ChunkedDocument),
+                _ => None,
+            }
+        }
+    }
+    /// The format of the returned processed document. If unspecified, defaults to
+    /// JSON.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ProcessedDocumentFormat {
+        /// Default value.
+        Unspecified = 0,
+        /// output format will be a JSON string representation of processed document.
+        Json = 1,
+    }
+    impl ProcessedDocumentFormat {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ProcessedDocumentFormat::Unspecified => {
+                    "PROCESSED_DOCUMENT_FORMAT_UNSPECIFIED"
+                }
+                ProcessedDocumentFormat::Json => "JSON",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "PROCESSED_DOCUMENT_FORMAT_UNSPECIFIED" => Some(Self::Unspecified),
+                "JSON" => Some(Self::Json),
+                _ => None,
+            }
+        }
+    }
+}
 /// Generated client implementations.
 pub mod document_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
@@ -7782,6 +8756,38 @@ pub mod document_service_client {
                     GrpcMethod::new(
                         "google.cloud.discoveryengine.v1alpha.DocumentService",
                         "PurgeDocuments",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets the parsed layout information for a
+        /// [Document][google.cloud.discoveryengine.v1alpha.Document].
+        pub async fn get_processed_document(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetProcessedDocumentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ProcessedDocument>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.discoveryengine.v1alpha.DocumentService/GetProcessedDocument",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.discoveryengine.v1alpha.DocumentService",
+                        "GetProcessedDocument",
                     ),
                 );
             self.inner.unary(req, path, codec).await
@@ -8385,7 +9391,8 @@ pub mod serving_config_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// Service for operations related to [ServingConfig][].
+    /// Service for operations related to
+    /// [ServingConfig][google.cloud.discoveryengine.v1alpha.ServingConfig].
     #[derive(Debug, Clone)]
     pub struct ServingConfigServiceClient<T> {
         inner: tonic::client::Grpc<T>,
