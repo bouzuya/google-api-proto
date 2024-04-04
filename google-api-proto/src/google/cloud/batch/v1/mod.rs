@@ -438,6 +438,8 @@ pub struct TaskSpec {
     pub compute_resource: ::core::option::Option<ComputeResource>,
     /// Maximum duration the task should run.
     /// The task will be killed and marked as FAILED if over this limit.
+    /// The valid value range for max_run_duration in seconds is [0,
+    /// 315576000000.999999999],
     #[prost(message, optional, tag = "4")]
     pub max_run_duration: ::core::option::Option<::prost_types::Duration>,
     /// Maximum number of retries on failures.

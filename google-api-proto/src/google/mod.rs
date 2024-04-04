@@ -589,6 +589,7 @@ pub mod search;
 #[cfg(
     any(
         feature = "google-shopping-css-v1",
+        feature = "google-shopping-merchant-conversions-v1beta",
         feature = "google-shopping-merchant-inventories-v1beta",
         feature = "google-shopping-merchant-quota-v1beta",
         feature = "google-shopping-merchant-reports-v1beta",
