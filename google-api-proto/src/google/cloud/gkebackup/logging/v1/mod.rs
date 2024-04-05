@@ -1,40 +1,3 @@
-/// Namespaces, list of namespaces
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Namespaces {
-    /// namespaces
-    #[prost(string, repeated, tag = "1")]
-    pub namespaces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// NamespacedName
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NamespacedName {
-    /// the namespace of the resource in Kubernetes
-    #[prost(string, tag = "1")]
-    pub namespace: ::prost::alloc::string::String,
-    /// the name of the resource in Kubernetes
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
-}
-/// NamespacedNames
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct NamespacedNames {
-    /// a list of namespaced names in Kubernetes
-    #[prost(message, repeated, tag = "1")]
-    pub namespaced_names: ::prost::alloc::vec::Vec<NamespacedName>,
-}
-/// Encryption key.
-/// This only contains the key metadata, and no key material.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EncryptionKey {
-    /// Google KMS encryption key in the format:
-    /// projects/<project>/locations/<location>/keyRings/<key-ring>/cryptoKeys/<key>
-    #[prost(string, tag = "1")]
-    pub gcp_kms_encryption_key: ::prost::alloc::string::String,
-}
 /// Backup as stored in Platform log. It's used to log the details of
 /// a createBackup/updateBackup request, so only fields that can be taken
 /// from API calls are included here.
@@ -126,92 +89,42 @@ pub mod logged_backup {
         }
     }
 }
-/// Restore as stored in Platform log. It's used to log the update details of a
-/// updateRestore request, so only mutable and non-output_only fields are
-/// included here..
+/// Namespaces, list of namespaces
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LoggedRestore {
-    /// Full name of the Backup resource this Restore resource used to restore
-    /// from. Format: projects/*/locations/*/backupPlans/*/backups/*.
-    #[prost(string, tag = "1")]
-    pub backup: ::prost::alloc::string::String,
-    /// GCP Labels.
-    #[prost(btree_map = "string, string", tag = "2")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// User specified descriptive string for this Restore.
-    #[prost(string, tag = "3")]
-    pub description: ::prost::alloc::string::String,
-    /// The current state of the Restore.
-    #[prost(enumeration = "logged_restore::State", tag = "4")]
-    pub state: i32,
-    /// Human-readable description of why the Restore is in its current state.
-    #[prost(string, tag = "5")]
-    pub state_reason: ::prost::alloc::string::String,
+pub struct Namespaces {
+    /// namespaces
+    #[prost(string, repeated, tag = "1")]
+    pub namespaces: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Nested message and enum types in `LoggedRestore`.
-pub mod logged_restore {
-    /// Possible values for state of the Restore.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The Restore resource is in the process of being created.
-        Unspecified = 0,
-        /// The Restore resource has been created and the associated RestoreJob
-        /// Kubernetes resource has been injected into target cluster.
-        Creating = 1,
-        /// The gkebackup agent in the cluster has begun executing the restore
-        /// operation.
-        InProgress = 2,
-        /// The restore operation has completed successfully. Restored workloads may
-        /// not yet be operational.
-        Succeeded = 3,
-        /// The restore operation has failed.
-        Failed = 4,
-        /// This Restore resource is in the process of being deleted.
-        Deleting = 5,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::InProgress => "IN_PROGRESS",
-                State::Succeeded => "SUCCEEDED",
-                State::Failed => "FAILED",
-                State::Deleting => "DELETING",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "IN_PROGRESS" => Some(Self::InProgress),
-                "SUCCEEDED" => Some(Self::Succeeded),
-                "FAILED" => Some(Self::Failed),
-                "DELETING" => Some(Self::Deleting),
-                _ => None,
-            }
-        }
-    }
+/// NamespacedName
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NamespacedName {
+    /// the namespace of the resource in Kubernetes
+    #[prost(string, tag = "1")]
+    pub namespace: ::prost::alloc::string::String,
+    /// the name of the resource in Kubernetes
+    #[prost(string, tag = "2")]
+    pub name: ::prost::alloc::string::String,
+}
+/// NamespacedNames
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NamespacedNames {
+    /// a list of namespaced names in Kubernetes
+    #[prost(message, repeated, tag = "1")]
+    pub namespaced_names: ::prost::alloc::vec::Vec<NamespacedName>,
+}
+/// Encryption key.
+/// This only contains the key metadata, and no key material.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct EncryptionKey {
+    /// Google KMS encryption key in the format:
+    /// projects/<project>/locations/<location>/keyRings/<key-ring>/cryptoKeys/<key>
+    #[prost(string, tag = "1")]
+    pub gcp_kms_encryption_key: ::prost::alloc::string::String,
 }
 /// BackupPlan as stored in Platform log. It's used to log the details of
 /// a createBackupPlan/updateBackupPlan request, so only fields that can be taken
@@ -313,6 +226,93 @@ pub mod logged_backup_plan {
             /// If set, backup the list of applications
             #[prost(message, tag = "3")]
             SelectedApplications(super::super::NamespacedNames),
+        }
+    }
+}
+/// Restore as stored in Platform log. It's used to log the update details of a
+/// updateRestore request, so only mutable and non-output_only fields are
+/// included here..
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LoggedRestore {
+    /// Full name of the Backup resource this Restore resource used to restore
+    /// from. Format: projects/*/locations/*/backupPlans/*/backups/*.
+    #[prost(string, tag = "1")]
+    pub backup: ::prost::alloc::string::String,
+    /// GCP Labels.
+    #[prost(btree_map = "string, string", tag = "2")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// User specified descriptive string for this Restore.
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// The current state of the Restore.
+    #[prost(enumeration = "logged_restore::State", tag = "4")]
+    pub state: i32,
+    /// Human-readable description of why the Restore is in its current state.
+    #[prost(string, tag = "5")]
+    pub state_reason: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `LoggedRestore`.
+pub mod logged_restore {
+    /// Possible values for state of the Restore.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The Restore resource is in the process of being created.
+        Unspecified = 0,
+        /// The Restore resource has been created and the associated RestoreJob
+        /// Kubernetes resource has been injected into target cluster.
+        Creating = 1,
+        /// The gkebackup agent in the cluster has begun executing the restore
+        /// operation.
+        InProgress = 2,
+        /// The restore operation has completed successfully. Restored workloads may
+        /// not yet be operational.
+        Succeeded = 3,
+        /// The restore operation has failed.
+        Failed = 4,
+        /// This Restore resource is in the process of being deleted.
+        Deleting = 5,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::InProgress => "IN_PROGRESS",
+                State::Succeeded => "SUCCEEDED",
+                State::Failed => "FAILED",
+                State::Deleting => "DELETING",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "IN_PROGRESS" => Some(Self::InProgress),
+                "SUCCEEDED" => Some(Self::Succeeded),
+                "FAILED" => Some(Self::Failed),
+                "DELETING" => Some(Self::Deleting),
+                _ => None,
+            }
         }
     }
 }

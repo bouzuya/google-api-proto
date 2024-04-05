@@ -1,456 +1,3 @@
-/// A Cloud Firestore Database.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Database {
-    /// The resource name of the Database.
-    /// Format: `projects/{project}/databases/{database}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The system-generated UUID4 for this Database.
-    #[prost(string, tag = "3")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The timestamp at which this database was created. Databases
-    /// created before 2016 do not populate create_time.
-    #[prost(message, optional, tag = "5")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp at which this database was most recently
-    /// updated. Note this only includes updates to the database resource and not
-    /// data contained by the database.
-    #[prost(message, optional, tag = "6")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// The location of the database. Available locations are listed at
-    /// <https://cloud.google.com/firestore/docs/locations.>
-    #[prost(string, tag = "9")]
-    pub location_id: ::prost::alloc::string::String,
-    /// The type of the database.
-    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
-    /// information about how to choose.
-    #[prost(enumeration = "database::DatabaseType", tag = "10")]
-    pub r#type: i32,
-    /// The concurrency control mode to use for this database.
-    #[prost(enumeration = "database::ConcurrencyMode", tag = "15")]
-    pub concurrency_mode: i32,
-    /// Output only. The period during which past versions of data are retained in
-    /// the database.
-    ///
-    /// Any [read][google.firestore.v1.GetDocumentRequest.read_time]
-    /// or [query][google.firestore.v1.ListDocumentsRequest.read_time] can specify
-    /// a `read_time` within this window, and will read the state of the database
-    /// at that time.
-    ///
-    /// If the PITR feature is enabled, the retention period is 7 days. Otherwise,
-    /// the retention period is 1 hour.
-    #[prost(message, optional, tag = "17")]
-    pub version_retention_period: ::core::option::Option<::prost_types::Duration>,
-    /// Output only. The earliest timestamp at which older versions of the data can
-    /// be read from the database. See \[version_retention_period\] above; this field
-    /// is populated with `now - version_retention_period`.
-    ///
-    /// This value is continuously updated, and becomes stale the moment it is
-    /// queried. If you are using this value to recover data, make sure to account
-    /// for the time from the moment when the value is queried to the moment when
-    /// you initiate the recovery.
-    #[prost(message, optional, tag = "18")]
-    pub earliest_version_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Whether to enable the PITR feature on this database.
-    #[prost(enumeration = "database::PointInTimeRecoveryEnablement", tag = "21")]
-    pub point_in_time_recovery_enablement: i32,
-    /// The App Engine integration mode to use for this database.
-    #[prost(enumeration = "database::AppEngineIntegrationMode", tag = "19")]
-    pub app_engine_integration_mode: i32,
-    /// Output only. The key_prefix for this database. This key_prefix is used, in
-    /// combination with the project id ("<key prefix>~<project id>") to construct
-    /// the application id that is returned from the Cloud Datastore APIs in Google
-    /// App Engine first generation runtimes.
-    ///
-    /// This value may be empty in which case the appid to use for URL-encoded keys
-    /// is the project_id (eg: foo instead of v~foo).
-    #[prost(string, tag = "20")]
-    pub key_prefix: ::prost::alloc::string::String,
-    /// State of delete protection for the database.
-    #[prost(enumeration = "database::DeleteProtectionState", tag = "22")]
-    pub delete_protection_state: i32,
-    /// This checksum is computed by the server based on the value of other
-    /// fields, and may be sent on update and delete requests to ensure the
-    /// client has an up-to-date value before proceeding.
-    #[prost(string, tag = "99")]
-    pub etag: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `Database`.
-pub mod database {
-    /// The type of the database.
-    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
-    /// information about how to choose.
-    ///
-    /// Mode changes are only allowed if the database is empty.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DatabaseType {
-        /// The default value. This value is used if the database type is omitted.
-        Unspecified = 0,
-        /// Firestore Native Mode
-        FirestoreNative = 1,
-        /// Firestore in Datastore Mode.
-        DatastoreMode = 2,
-    }
-    impl DatabaseType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
-                DatabaseType::FirestoreNative => "FIRESTORE_NATIVE",
-                DatabaseType::DatastoreMode => "DATASTORE_MODE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "FIRESTORE_NATIVE" => Some(Self::FirestoreNative),
-                "DATASTORE_MODE" => Some(Self::DatastoreMode),
-                _ => None,
-            }
-        }
-    }
-    /// The type of concurrency control mode for transactions.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ConcurrencyMode {
-        /// Not used.
-        Unspecified = 0,
-        /// Use optimistic concurrency control by default. This mode is available
-        /// for Cloud Firestore databases.
-        Optimistic = 1,
-        /// Use pessimistic concurrency control by default. This mode is available
-        /// for Cloud Firestore databases.
-        ///
-        /// This is the default setting for Cloud Firestore.
-        Pessimistic = 2,
-        /// Use optimistic concurrency control with entity groups by default.
-        ///
-        /// This is the only available mode for Cloud Datastore.
-        ///
-        /// This mode is also available for Cloud Firestore with Datastore Mode but
-        /// is not recommended.
-        OptimisticWithEntityGroups = 3,
-    }
-    impl ConcurrencyMode {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ConcurrencyMode::Unspecified => "CONCURRENCY_MODE_UNSPECIFIED",
-                ConcurrencyMode::Optimistic => "OPTIMISTIC",
-                ConcurrencyMode::Pessimistic => "PESSIMISTIC",
-                ConcurrencyMode::OptimisticWithEntityGroups => {
-                    "OPTIMISTIC_WITH_ENTITY_GROUPS"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CONCURRENCY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "OPTIMISTIC" => Some(Self::Optimistic),
-                "PESSIMISTIC" => Some(Self::Pessimistic),
-                "OPTIMISTIC_WITH_ENTITY_GROUPS" => Some(Self::OptimisticWithEntityGroups),
-                _ => None,
-            }
-        }
-    }
-    /// Point In Time Recovery feature enablement.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum PointInTimeRecoveryEnablement {
-        /// Not used.
-        Unspecified = 0,
-        /// Reads are supported on selected versions of the data from within the past
-        /// 7 days:
-        ///
-        /// * Reads against any timestamp within the past hour
-        /// * Reads against 1-minute snapshots beyond 1 hour and within 7 days
-        ///
-        /// `version_retention_period` and `earliest_version_time` can be
-        /// used to determine the supported versions.
-        PointInTimeRecoveryEnabled = 1,
-        /// Reads are supported on any version of the data from within the past 1
-        /// hour.
-        PointInTimeRecoveryDisabled = 2,
-    }
-    impl PointInTimeRecoveryEnablement {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                PointInTimeRecoveryEnablement::Unspecified => {
-                    "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
-                }
-                PointInTimeRecoveryEnablement::PointInTimeRecoveryEnabled => {
-                    "POINT_IN_TIME_RECOVERY_ENABLED"
-                }
-                PointInTimeRecoveryEnablement::PointInTimeRecoveryDisabled => {
-                    "POINT_IN_TIME_RECOVERY_DISABLED"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED" => {
-                    Some(Self::Unspecified)
-                }
-                "POINT_IN_TIME_RECOVERY_ENABLED" => {
-                    Some(Self::PointInTimeRecoveryEnabled)
-                }
-                "POINT_IN_TIME_RECOVERY_DISABLED" => {
-                    Some(Self::PointInTimeRecoveryDisabled)
-                }
-                _ => None,
-            }
-        }
-    }
-    /// The type of App Engine integration mode.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum AppEngineIntegrationMode {
-        /// Not used.
-        Unspecified = 0,
-        /// If an App Engine application exists in the same region as this database,
-        /// App Engine configuration will impact this database. This includes
-        /// disabling of the application & database, as well as disabling writes to
-        /// the database.
-        Enabled = 1,
-        /// App Engine has no effect on the ability of this database to serve
-        /// requests.
-        ///
-        /// This is the default setting for databases created with the Firestore API.
-        Disabled = 2,
-    }
-    impl AppEngineIntegrationMode {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                AppEngineIntegrationMode::Unspecified => {
-                    "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED"
-                }
-                AppEngineIntegrationMode::Enabled => "ENABLED",
-                AppEngineIntegrationMode::Disabled => "DISABLED",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED" => Some(Self::Unspecified),
-                "ENABLED" => Some(Self::Enabled),
-                "DISABLED" => Some(Self::Disabled),
-                _ => None,
-            }
-        }
-    }
-    /// The delete protection state of the database.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum DeleteProtectionState {
-        /// The default value. Delete protection type is not specified
-        Unspecified = 0,
-        /// Delete protection is disabled
-        DeleteProtectionDisabled = 1,
-        /// Delete protection is enabled
-        DeleteProtectionEnabled = 2,
-    }
-    impl DeleteProtectionState {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                DeleteProtectionState::Unspecified => {
-                    "DELETE_PROTECTION_STATE_UNSPECIFIED"
-                }
-                DeleteProtectionState::DeleteProtectionDisabled => {
-                    "DELETE_PROTECTION_DISABLED"
-                }
-                DeleteProtectionState::DeleteProtectionEnabled => {
-                    "DELETE_PROTECTION_ENABLED"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "DELETE_PROTECTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "DELETE_PROTECTION_DISABLED" => Some(Self::DeleteProtectionDisabled),
-                "DELETE_PROTECTION_ENABLED" => Some(Self::DeleteProtectionEnabled),
-                _ => None,
-            }
-        }
-    }
-}
-/// A Backup of a Cloud Firestore Database.
-///
-/// The backup contains all documents and index configurations for the given
-/// database at a specific point in time.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Backup {
-    /// Output only. The unique resource name of the Backup.
-    ///
-    /// Format is `projects/{project}/locations/{location}/backups/{backup}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Name of the Firestore database that the backup is from.
-    ///
-    /// Format is `projects/{project}/databases/{database}`.
-    #[prost(string, tag = "2")]
-    pub database: ::prost::alloc::string::String,
-    /// Output only. The system-generated UUID4 for the Firestore database that the
-    /// backup is from.
-    #[prost(string, tag = "7")]
-    pub database_uid: ::prost::alloc::string::String,
-    /// Output only. The backup contains an externally consistent copy of the
-    /// database at this time.
-    #[prost(message, optional, tag = "3")]
-    pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp at which this backup expires.
-    #[prost(message, optional, tag = "4")]
-    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Statistics about the backup.
-    ///
-    /// This data only becomes available after the backup is fully materialized to
-    /// secondary storage. This field will be empty till then.
-    #[prost(message, optional, tag = "6")]
-    pub stats: ::core::option::Option<backup::Stats>,
-    /// Output only. The current state of the backup.
-    #[prost(enumeration = "backup::State", tag = "8")]
-    pub state: i32,
-}
-/// Nested message and enum types in `Backup`.
-pub mod backup {
-    /// Backup specific statistics.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Stats {
-        /// Output only. Summation of the size of all documents and index entries in
-        /// the backup, measured in bytes.
-        #[prost(int64, tag = "1")]
-        pub size_bytes: i64,
-        /// Output only. The total number of documents contained in the backup.
-        #[prost(int64, tag = "2")]
-        pub document_count: i64,
-        /// Output only. The total number of index entries contained in the backup.
-        #[prost(int64, tag = "3")]
-        pub index_count: i64,
-    }
-    /// Indicate the current state of the backup.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum State {
-        /// The state is unspecified.
-        Unspecified = 0,
-        /// The pending backup is still being created. Operations on the
-        /// backup will be rejected in this state.
-        Creating = 1,
-        /// The backup is complete and ready to use.
-        Ready = 2,
-        /// The backup is not available at this moment.
-        NotAvailable = 3,
-    }
-    impl State {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                State::Unspecified => "STATE_UNSPECIFIED",
-                State::Creating => "CREATING",
-                State::Ready => "READY",
-                State::NotAvailable => "NOT_AVAILABLE",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
-                "CREATING" => Some(Self::Creating),
-                "READY" => Some(Self::Ready),
-                "NOT_AVAILABLE" => Some(Self::NotAvailable),
-                _ => None,
-            }
-        }
-    }
-}
 /// Cloud Firestore indexes enable simple and complex queries against
 /// documents in a database.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1148,73 +695,6 @@ impl OperationState {
         }
     }
 }
-/// A backup schedule for a Cloud Firestore Database.
-///
-/// This resource is owned by the database it is backing up, and is deleted along
-/// with the database. The actual backups are not though.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BackupSchedule {
-    /// Output only. The unique backup schedule identifier across all locations and
-    /// databases for the given project.
-    ///
-    /// This will be auto-assigned.
-    ///
-    /// Format is
-    /// `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The timestamp at which this backup schedule was created and
-    /// effective since.
-    ///
-    /// No backups will be created for this schedule before this time.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp at which this backup schedule was most recently
-    /// updated. When a backup schedule is first created, this is the same as
-    /// create_time.
-    #[prost(message, optional, tag = "10")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// At what relative time in the future, compared to its creation time,
-    /// the backup should be deleted, e.g. keep backups for 7 days.
-    #[prost(message, optional, tag = "6")]
-    pub retention: ::core::option::Option<::prost_types::Duration>,
-    /// A oneof field to represent when backups will be taken.
-    #[prost(oneof = "backup_schedule::Recurrence", tags = "7, 8")]
-    pub recurrence: ::core::option::Option<backup_schedule::Recurrence>,
-}
-/// Nested message and enum types in `BackupSchedule`.
-pub mod backup_schedule {
-    /// A oneof field to represent when backups will be taken.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Recurrence {
-        /// For a schedule that runs daily.
-        #[prost(message, tag = "7")]
-        DailyRecurrence(super::DailyRecurrence),
-        /// For a schedule that runs weekly on a specific day.
-        #[prost(message, tag = "8")]
-        WeeklyRecurrence(super::WeeklyRecurrence),
-    }
-}
-/// Represents a recurring schedule that runs at a specific time every day.
-///
-/// The time zone is UTC.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DailyRecurrence {}
-/// Represents a recurring schedule that runs on a specified day of the week.
-///
-/// The time zone is UTC.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WeeklyRecurrence {
-    /// The day of week to run.
-    ///
-    /// DAY_OF_WEEK_UNSPECIFIED is not allowed.
-    #[prost(enumeration = "super::super::super::r#type::DayOfWeek", tag = "2")]
-    pub day: i32,
-}
 /// Represents a single field in the database.
 ///
 /// Fields are grouped by their "Collection Group", which represent all
@@ -1360,11 +840,526 @@ pub mod field {
         }
     }
 }
-/// The metadata message for
-/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
+/// A backup schedule for a Cloud Firestore Database.
+///
+/// This resource is owned by the database it is backing up, and is deleted along
+/// with the database. The actual backups are not though.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LocationMetadata {}
+pub struct BackupSchedule {
+    /// Output only. The unique backup schedule identifier across all locations and
+    /// databases for the given project.
+    ///
+    /// This will be auto-assigned.
+    ///
+    /// Format is
+    /// `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The timestamp at which this backup schedule was created and
+    /// effective since.
+    ///
+    /// No backups will be created for this schedule before this time.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp at which this backup schedule was most recently
+    /// updated. When a backup schedule is first created, this is the same as
+    /// create_time.
+    #[prost(message, optional, tag = "10")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// At what relative time in the future, compared to its creation time,
+    /// the backup should be deleted, e.g. keep backups for 7 days.
+    #[prost(message, optional, tag = "6")]
+    pub retention: ::core::option::Option<::prost_types::Duration>,
+    /// A oneof field to represent when backups will be taken.
+    #[prost(oneof = "backup_schedule::Recurrence", tags = "7, 8")]
+    pub recurrence: ::core::option::Option<backup_schedule::Recurrence>,
+}
+/// Nested message and enum types in `BackupSchedule`.
+pub mod backup_schedule {
+    /// A oneof field to represent when backups will be taken.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Recurrence {
+        /// For a schedule that runs daily.
+        #[prost(message, tag = "7")]
+        DailyRecurrence(super::DailyRecurrence),
+        /// For a schedule that runs weekly on a specific day.
+        #[prost(message, tag = "8")]
+        WeeklyRecurrence(super::WeeklyRecurrence),
+    }
+}
+/// Represents a recurring schedule that runs at a specific time every day.
+///
+/// The time zone is UTC.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DailyRecurrence {}
+/// Represents a recurring schedule that runs on a specified day of the week.
+///
+/// The time zone is UTC.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WeeklyRecurrence {
+    /// The day of week to run.
+    ///
+    /// DAY_OF_WEEK_UNSPECIFIED is not allowed.
+    #[prost(enumeration = "super::super::super::r#type::DayOfWeek", tag = "2")]
+    pub day: i32,
+}
+/// A Cloud Firestore Database.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Database {
+    /// The resource name of the Database.
+    /// Format: `projects/{project}/databases/{database}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The system-generated UUID4 for this Database.
+    #[prost(string, tag = "3")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The timestamp at which this database was created. Databases
+    /// created before 2016 do not populate create_time.
+    #[prost(message, optional, tag = "5")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp at which this database was most recently
+    /// updated. Note this only includes updates to the database resource and not
+    /// data contained by the database.
+    #[prost(message, optional, tag = "6")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// The location of the database. Available locations are listed at
+    /// <https://cloud.google.com/firestore/docs/locations.>
+    #[prost(string, tag = "9")]
+    pub location_id: ::prost::alloc::string::String,
+    /// The type of the database.
+    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
+    /// information about how to choose.
+    #[prost(enumeration = "database::DatabaseType", tag = "10")]
+    pub r#type: i32,
+    /// The concurrency control mode to use for this database.
+    #[prost(enumeration = "database::ConcurrencyMode", tag = "15")]
+    pub concurrency_mode: i32,
+    /// Output only. The period during which past versions of data are retained in
+    /// the database.
+    ///
+    /// Any [read][google.firestore.v1.GetDocumentRequest.read_time]
+    /// or [query][google.firestore.v1.ListDocumentsRequest.read_time] can specify
+    /// a `read_time` within this window, and will read the state of the database
+    /// at that time.
+    ///
+    /// If the PITR feature is enabled, the retention period is 7 days. Otherwise,
+    /// the retention period is 1 hour.
+    #[prost(message, optional, tag = "17")]
+    pub version_retention_period: ::core::option::Option<::prost_types::Duration>,
+    /// Output only. The earliest timestamp at which older versions of the data can
+    /// be read from the database. See \[version_retention_period\] above; this field
+    /// is populated with `now - version_retention_period`.
+    ///
+    /// This value is continuously updated, and becomes stale the moment it is
+    /// queried. If you are using this value to recover data, make sure to account
+    /// for the time from the moment when the value is queried to the moment when
+    /// you initiate the recovery.
+    #[prost(message, optional, tag = "18")]
+    pub earliest_version_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Whether to enable the PITR feature on this database.
+    #[prost(enumeration = "database::PointInTimeRecoveryEnablement", tag = "21")]
+    pub point_in_time_recovery_enablement: i32,
+    /// The App Engine integration mode to use for this database.
+    #[prost(enumeration = "database::AppEngineIntegrationMode", tag = "19")]
+    pub app_engine_integration_mode: i32,
+    /// Output only. The key_prefix for this database. This key_prefix is used, in
+    /// combination with the project id ("<key prefix>~<project id>") to construct
+    /// the application id that is returned from the Cloud Datastore APIs in Google
+    /// App Engine first generation runtimes.
+    ///
+    /// This value may be empty in which case the appid to use for URL-encoded keys
+    /// is the project_id (eg: foo instead of v~foo).
+    #[prost(string, tag = "20")]
+    pub key_prefix: ::prost::alloc::string::String,
+    /// State of delete protection for the database.
+    #[prost(enumeration = "database::DeleteProtectionState", tag = "22")]
+    pub delete_protection_state: i32,
+    /// This checksum is computed by the server based on the value of other
+    /// fields, and may be sent on update and delete requests to ensure the
+    /// client has an up-to-date value before proceeding.
+    #[prost(string, tag = "99")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `Database`.
+pub mod database {
+    /// The type of the database.
+    /// See <https://cloud.google.com/datastore/docs/firestore-or-datastore> for
+    /// information about how to choose.
+    ///
+    /// Mode changes are only allowed if the database is empty.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DatabaseType {
+        /// The default value. This value is used if the database type is omitted.
+        Unspecified = 0,
+        /// Firestore Native Mode
+        FirestoreNative = 1,
+        /// Firestore in Datastore Mode.
+        DatastoreMode = 2,
+    }
+    impl DatabaseType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DatabaseType::Unspecified => "DATABASE_TYPE_UNSPECIFIED",
+                DatabaseType::FirestoreNative => "FIRESTORE_NATIVE",
+                DatabaseType::DatastoreMode => "DATASTORE_MODE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DATABASE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "FIRESTORE_NATIVE" => Some(Self::FirestoreNative),
+                "DATASTORE_MODE" => Some(Self::DatastoreMode),
+                _ => None,
+            }
+        }
+    }
+    /// The type of concurrency control mode for transactions.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ConcurrencyMode {
+        /// Not used.
+        Unspecified = 0,
+        /// Use optimistic concurrency control by default. This mode is available
+        /// for Cloud Firestore databases.
+        Optimistic = 1,
+        /// Use pessimistic concurrency control by default. This mode is available
+        /// for Cloud Firestore databases.
+        ///
+        /// This is the default setting for Cloud Firestore.
+        Pessimistic = 2,
+        /// Use optimistic concurrency control with entity groups by default.
+        ///
+        /// This is the only available mode for Cloud Datastore.
+        ///
+        /// This mode is also available for Cloud Firestore with Datastore Mode but
+        /// is not recommended.
+        OptimisticWithEntityGroups = 3,
+    }
+    impl ConcurrencyMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ConcurrencyMode::Unspecified => "CONCURRENCY_MODE_UNSPECIFIED",
+                ConcurrencyMode::Optimistic => "OPTIMISTIC",
+                ConcurrencyMode::Pessimistic => "PESSIMISTIC",
+                ConcurrencyMode::OptimisticWithEntityGroups => {
+                    "OPTIMISTIC_WITH_ENTITY_GROUPS"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CONCURRENCY_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "OPTIMISTIC" => Some(Self::Optimistic),
+                "PESSIMISTIC" => Some(Self::Pessimistic),
+                "OPTIMISTIC_WITH_ENTITY_GROUPS" => Some(Self::OptimisticWithEntityGroups),
+                _ => None,
+            }
+        }
+    }
+    /// Point In Time Recovery feature enablement.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum PointInTimeRecoveryEnablement {
+        /// Not used.
+        Unspecified = 0,
+        /// Reads are supported on selected versions of the data from within the past
+        /// 7 days:
+        ///
+        /// * Reads against any timestamp within the past hour
+        /// * Reads against 1-minute snapshots beyond 1 hour and within 7 days
+        ///
+        /// `version_retention_period` and `earliest_version_time` can be
+        /// used to determine the supported versions.
+        PointInTimeRecoveryEnabled = 1,
+        /// Reads are supported on any version of the data from within the past 1
+        /// hour.
+        PointInTimeRecoveryDisabled = 2,
+    }
+    impl PointInTimeRecoveryEnablement {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                PointInTimeRecoveryEnablement::Unspecified => {
+                    "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
+                }
+                PointInTimeRecoveryEnablement::PointInTimeRecoveryEnabled => {
+                    "POINT_IN_TIME_RECOVERY_ENABLED"
+                }
+                PointInTimeRecoveryEnablement::PointInTimeRecoveryDisabled => {
+                    "POINT_IN_TIME_RECOVERY_DISABLED"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED" => {
+                    Some(Self::Unspecified)
+                }
+                "POINT_IN_TIME_RECOVERY_ENABLED" => {
+                    Some(Self::PointInTimeRecoveryEnabled)
+                }
+                "POINT_IN_TIME_RECOVERY_DISABLED" => {
+                    Some(Self::PointInTimeRecoveryDisabled)
+                }
+                _ => None,
+            }
+        }
+    }
+    /// The type of App Engine integration mode.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum AppEngineIntegrationMode {
+        /// Not used.
+        Unspecified = 0,
+        /// If an App Engine application exists in the same region as this database,
+        /// App Engine configuration will impact this database. This includes
+        /// disabling of the application & database, as well as disabling writes to
+        /// the database.
+        Enabled = 1,
+        /// App Engine has no effect on the ability of this database to serve
+        /// requests.
+        ///
+        /// This is the default setting for databases created with the Firestore API.
+        Disabled = 2,
+    }
+    impl AppEngineIntegrationMode {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                AppEngineIntegrationMode::Unspecified => {
+                    "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED"
+                }
+                AppEngineIntegrationMode::Enabled => "ENABLED",
+                AppEngineIntegrationMode::Disabled => "DISABLED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ENABLED" => Some(Self::Enabled),
+                "DISABLED" => Some(Self::Disabled),
+                _ => None,
+            }
+        }
+    }
+    /// The delete protection state of the database.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum DeleteProtectionState {
+        /// The default value. Delete protection type is not specified
+        Unspecified = 0,
+        /// Delete protection is disabled
+        DeleteProtectionDisabled = 1,
+        /// Delete protection is enabled
+        DeleteProtectionEnabled = 2,
+    }
+    impl DeleteProtectionState {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                DeleteProtectionState::Unspecified => {
+                    "DELETE_PROTECTION_STATE_UNSPECIFIED"
+                }
+                DeleteProtectionState::DeleteProtectionDisabled => {
+                    "DELETE_PROTECTION_DISABLED"
+                }
+                DeleteProtectionState::DeleteProtectionEnabled => {
+                    "DELETE_PROTECTION_ENABLED"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "DELETE_PROTECTION_STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "DELETE_PROTECTION_DISABLED" => Some(Self::DeleteProtectionDisabled),
+                "DELETE_PROTECTION_ENABLED" => Some(Self::DeleteProtectionEnabled),
+                _ => None,
+            }
+        }
+    }
+}
+/// A Backup of a Cloud Firestore Database.
+///
+/// The backup contains all documents and index configurations for the given
+/// database at a specific point in time.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Backup {
+    /// Output only. The unique resource name of the Backup.
+    ///
+    /// Format is `projects/{project}/locations/{location}/backups/{backup}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Name of the Firestore database that the backup is from.
+    ///
+    /// Format is `projects/{project}/databases/{database}`.
+    #[prost(string, tag = "2")]
+    pub database: ::prost::alloc::string::String,
+    /// Output only. The system-generated UUID4 for the Firestore database that the
+    /// backup is from.
+    #[prost(string, tag = "7")]
+    pub database_uid: ::prost::alloc::string::String,
+    /// Output only. The backup contains an externally consistent copy of the
+    /// database at this time.
+    #[prost(message, optional, tag = "3")]
+    pub snapshot_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp at which this backup expires.
+    #[prost(message, optional, tag = "4")]
+    pub expire_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Statistics about the backup.
+    ///
+    /// This data only becomes available after the backup is fully materialized to
+    /// secondary storage. This field will be empty till then.
+    #[prost(message, optional, tag = "6")]
+    pub stats: ::core::option::Option<backup::Stats>,
+    /// Output only. The current state of the backup.
+    #[prost(enumeration = "backup::State", tag = "8")]
+    pub state: i32,
+}
+/// Nested message and enum types in `Backup`.
+pub mod backup {
+    /// Backup specific statistics.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Stats {
+        /// Output only. Summation of the size of all documents and index entries in
+        /// the backup, measured in bytes.
+        #[prost(int64, tag = "1")]
+        pub size_bytes: i64,
+        /// Output only. The total number of documents contained in the backup.
+        #[prost(int64, tag = "2")]
+        pub document_count: i64,
+        /// Output only. The total number of index entries contained in the backup.
+        #[prost(int64, tag = "3")]
+        pub index_count: i64,
+    }
+    /// Indicate the current state of the backup.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The state is unspecified.
+        Unspecified = 0,
+        /// The pending backup is still being created. Operations on the
+        /// backup will be rejected in this state.
+        Creating = 1,
+        /// The backup is complete and ready to use.
+        Ready = 2,
+        /// The backup is not available at this moment.
+        NotAvailable = 3,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Creating => "CREATING",
+                State::Ready => "READY",
+                State::NotAvailable => "NOT_AVAILABLE",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "CREATING" => Some(Self::Creating),
+                "READY" => Some(Self::Ready),
+                "NOT_AVAILABLE" => Some(Self::NotAvailable),
+                _ => None,
+            }
+        }
+    }
+}
 /// A request to list the Firestore Databases in all locations for a project.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2658,3 +2653,8 @@ pub mod firestore_admin_client {
         }
     }
 }
+/// The metadata message for
+/// [google.cloud.location.Location.metadata][google.cloud.location.Location.metadata].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LocationMetadata {}
