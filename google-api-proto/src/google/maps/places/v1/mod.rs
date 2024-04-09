@@ -363,8 +363,8 @@ pub struct Place {
     #[prost(message, optional, tag = "31")]
     pub display_name: ::core::option::Option<super::super::super::r#type::LocalizedText>,
     /// A set of type tags for this result. For example, "political" and
-    /// "locality".  For the complete list of possible values, see Table A and
-    /// Table B at
+    /// "locality". For the complete list of possible values, see Table A and Table
+    /// B at
     /// <https://developers.google.com/maps/documentation/places/web-service/place-types>
     #[prost(string, repeated, tag = "5")]
     pub types: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -376,8 +376,8 @@ pub struct Place {
     #[prost(string, tag = "50")]
     pub primary_type: ::prost::alloc::string::String,
     /// The display name of the primary type, localized to the request language if
-    /// applicable.  For the complete list of possible values, see Table A and
-    /// Table B at
+    /// applicable. For the complete list of possible values, see Table A and Table
+    /// B at
     /// <https://developers.google.com/maps/documentation/places/web-service/place-types>
     #[prost(message, optional, tag = "32")]
     pub primary_type_display_name: ::core::option::Option<
@@ -1762,7 +1762,7 @@ pub mod autocomplete_places_response {
         pub struct QueryPrediction {
             /// The predicted text. This text does not represent a Place, but rather a
             /// text query that could be used in a search endpoint (for example,
-            /// TextSearch).
+            /// Text Search).
             ///
             /// `text` is recommended for developers who wish to show a single UI
             /// element. Developers who wish to show two separate, but related, UI
@@ -1805,11 +1805,10 @@ pub mod places_client {
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     /// Service definition for the Places API.
-    /// Note: every request actually requires a field mask set outside of
-    /// the request proto (all/'*', is not assumed).  That can be set via either a
-    /// side channel (SystemParameterContext) over RPC, or a header
-    /// (X-Goog-FieldMask) over HTTP. See:
-    /// https://cloud.google.com/apis/docs/system-parameters
+    /// Note: every request (except for Autocomplete requests) requires a field mask
+    /// set outside of the request proto (`all/*`, is not assumed). The field mask
+    /// can be set via the HTTP header `X-Goog-FieldMask`. See:
+    /// https://developers.google.com/maps/documentation/places/web-service/choose-fields
     #[derive(Debug, Clone)]
     pub struct PlacesClient<T> {
         inner: tonic::client::Grpc<T>,
