@@ -4,6 +4,8 @@ pub mod css;
     any(
         feature = "google-shopping-merchant-conversions-v1beta",
         feature = "google-shopping-merchant-inventories-v1beta",
+        feature = "google-shopping-merchant-lfp-v1beta",
+        feature = "google-shopping-merchant-notifications-v1beta",
         feature = "google-shopping-merchant-quota-v1beta",
         feature = "google-shopping-merchant-reports-v1beta",
     )

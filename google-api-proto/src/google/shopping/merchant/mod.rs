@@ -2,6 +2,10 @@
 pub mod conversions;
 #[cfg(any(feature = "google-shopping-merchant-inventories-v1beta"))]
 pub mod inventories;
+#[cfg(any(feature = "google-shopping-merchant-lfp-v1beta"))]
+pub mod lfp;
+#[cfg(any(feature = "google-shopping-merchant-notifications-v1beta"))]
+pub mod notifications;
 #[cfg(any(feature = "google-shopping-merchant-quota-v1beta"))]
 pub mod quota;
 #[cfg(any(feature = "google-shopping-merchant-reports-v1beta"))]

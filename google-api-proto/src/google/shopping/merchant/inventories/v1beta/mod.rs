@@ -16,10 +16,11 @@ pub struct LocalInventory {
     /// if set by the client.
     #[prost(int64, tag = "2")]
     pub account: i64,
-    /// Required. Store code (the store ID from your Business Profile) of the
-    /// physical store the product is sold in. See the [Local product inventory
-    /// feed specification](<https://support.google.com/merchants/answer/3061342>)
-    /// for more information.
+    /// Required. Immutable. Store code (the store ID from your Business Profile)
+    /// of the physical store the product is sold in. See the [Local product
+    /// inventory feed
+    /// specification](<https://support.google.com/merchants/answer/3061342>) for
+    /// more information.
     #[prost(string, tag = "3")]
     pub store_code: ::prost::alloc::string::String,
     /// Price of the product at this store.
@@ -332,7 +333,7 @@ pub struct RegionalInventory {
     /// if set by the client.
     #[prost(int64, tag = "2")]
     pub account: i64,
-    /// Required. ID of the region for this
+    /// Required. Immutable. ID of the region for this
     /// `RegionalInventory` resource. See the [Regional availability and
     /// pricing](<https://support.google.com/merchants/answer/9698880>) for more
     /// details.
