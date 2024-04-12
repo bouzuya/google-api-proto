@@ -32,34 +32,44 @@ pub mod typed_value {
         DistributionValue(super::super::super::api::Distribution),
     }
 }
-/// A closed time interval. It extends from the start time to the end time, and includes both: `\[startTime, endTime\]`. Valid time intervals depend on the [`MetricKind`](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>) of the metric value. The end time must not be earlier than the start time. When writing data points, the start time must not be more than 25 hours in the past and the end time must not be more than five minutes in the future.
+/// Describes a time interval:
 ///
-/// * For `GAUGE` metrics, the `startTime` value is technically optional; if
-///    no value is specified, the start time defaults to the value of the
-///    end time, and the interval represents a single point in time. If both
-///    start and end times are specified, they must be identical. Such an
-///    interval is valid only for `GAUGE` metrics, which are point-in-time
-///    measurements. The end time of a new interval must be at least a
-///    millisecond after the end time of the previous interval.
-///
-/// * For `DELTA` metrics, the start time and end time must specify a
-///    non-zero interval, with subsequent points specifying contiguous and
-///    non-overlapping intervals. For `DELTA` metrics, the start time of
-///    the next interval must be at least a millisecond after the end time
-///    of the previous interval.
-///
-/// * For `CUMULATIVE` metrics, the start time and end time must specify a
-///    non-zero interval, with subsequent points specifying the same
-///    start time and increasing end times, until an event resets the
-///    cumulative value to zero and sets a new start time for the following
-///    points. The new start time must be at least a millisecond after the
-///    end time of the previous interval.
-///
-/// * The start time of a new interval must be at least a millisecond after the
-///    end time of the previous interval because intervals are closed. If the
-///    start time of a new interval is the same as the end time of the previous
-///    interval, then data written at the new start time could overwrite data
-///    written at the previous end time.
+///    * Reads: A half-open time interval. It includes the end time but
+///      excludes the start time: `(startTime, endTime]`. The start time
+///      must be specified, must be earlier than the end time, and should be
+///      no older than the data retention period for the metric.
+///    * Writes: A closed time interval. It extends from the start time to the end
+///    time,
+///      and includes both: `\[startTime, endTime\]`. Valid time intervals
+///      depend on the
+///      [`MetricKind`](<https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind>)
+///      of the metric value. The end time must not be earlier than the start
+///      time, and the end time must not be more than 25 hours in the past or more
+///      than five minutes in the future.
+///      * For `GAUGE` metrics, the `startTime` value is technically optional; if
+///        no value is specified, the start time defaults to the value of the
+///        end time, and the interval represents a single point in time. If both
+///        start and end times are specified, they must be identical. Such an
+///        interval is valid only for `GAUGE` metrics, which are point-in-time
+///        measurements. The end time of a new interval must be at least a
+///        millisecond after the end time of the previous interval.
+///      * For `DELTA` metrics, the start time and end time must specify a
+///        non-zero interval, with subsequent points specifying contiguous and
+///        non-overlapping intervals. For `DELTA` metrics, the start time of
+///        the next interval must be at least a millisecond after the end time
+///        of the previous interval.
+///      * For `CUMULATIVE` metrics, the start time and end time must specify a
+///        non-zero interval, with subsequent points specifying the same
+///        start time and increasing end times, until an event resets the
+///        cumulative value to zero and sets a new start time for the following
+///        points. The new start time must be at least a millisecond after the
+///        end time of the previous interval.
+///      * The start time of a new interval must be at least a millisecond after
+///      the
+///        end time of the previous interval because intervals are closed. If the
+///        start time of a new interval is the same as the end time of the
+///        previous interval, then data written at the new start time could
+///        overwrite data written at the previous end time.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TimeInterval {
@@ -563,7 +573,7 @@ impl ComparisonType {
         }
     }
 }
-/// The tier of service for a Workspace. Please see the
+/// The tier of service for a Metrics Scope. Please see the
 /// [service tiers
 /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>) for more
 /// details.
@@ -573,16 +583,16 @@ pub enum ServiceTier {
     /// An invalid sentinel value, used to indicate that a tier has not
     /// been provided explicitly.
     Unspecified = 0,
-    /// The Stackdriver Basic tier, a free tier of service that provides basic
+    /// The Cloud Monitoring Basic tier, a free tier of service that provides basic
     /// features, a moderate allotment of logs, and access to built-in metrics.
     /// A number of features are not available in this tier. For more details,
     /// see [the service tiers
     /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>).
     Basic = 1,
-    /// The Stackdriver Premium tier, a higher, more expensive tier of service
-    /// that provides access to all Stackdriver features, lets you use Stackdriver
-    /// with AWS accounts, and has a larger allotments for logs and metrics. For
-    /// more details, see [the service tiers
+    /// The Cloud Monitoring Premium tier, a higher, more expensive tier of service
+    /// that provides access to all Cloud Monitoring features, lets you use Cloud
+    /// Monitoring with AWS accounts, and has a larger allotments for logs and
+    /// metrics. For more details, see [the service tiers
     /// documentation](<https://cloud.google.com/monitoring/workspaces/tiers>).
     Premium = 2,
 }
@@ -866,8 +876,9 @@ pub mod text_locator {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListMonitoredResourceDescriptorsRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "5")]
@@ -922,8 +933,9 @@ pub struct GetMonitoredResourceDescriptorRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListMetricDescriptorsRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "5")]
@@ -938,7 +950,9 @@ pub struct ListMetricDescriptorsRequest {
     ///      metric.type = starts_with("custom.googleapis.com/")
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
-    /// A positive number that is the maximum number of results to return.
+    /// A positive number that is the maximum number of results to return. The
+    /// default and maximum value is 10,000. If a page_size <= 0 or > 10,000 is
+    /// submitted, will instead return a maximum of 10,000 results.
     #[prost(int32, tag = "3")]
     pub page_size: i32,
     /// If this field is not empty then it must contain the `nextPageToken` value
@@ -967,7 +981,8 @@ pub struct ListMetricDescriptorsResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetMetricDescriptorRequest {
-    /// Required. The metric descriptor on which to execute the request. The format is:
+    /// Required. The metric descriptor on which to execute the request. The format
+    /// is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/metricDescriptors/\[METRIC_ID\]
     ///
@@ -980,14 +995,15 @@ pub struct GetMetricDescriptorRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateMetricDescriptorRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     /// 4
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
-    /// Required. The new [custom metric](<https://cloud.google.com/monitoring/custom-metrics>)
-    /// descriptor.
+    /// Required. The new [custom
+    /// metric](<https://cloud.google.com/monitoring/custom-metrics>) descriptor.
     #[prost(message, optional, tag = "2")]
     pub metric_descriptor: ::core::option::Option<super::super::api::MetricDescriptor>,
 }
@@ -995,7 +1011,8 @@ pub struct CreateMetricDescriptorRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteMetricDescriptorRequest {
-    /// Required. The metric descriptor on which to execute the request. The format is:
+    /// Required. The metric descriptor on which to execute the request. The format
+    /// is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/metricDescriptors/\[METRIC_ID\]
     ///
@@ -1008,7 +1025,8 @@ pub struct DeleteMetricDescriptorRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListTimeSeriesRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>),
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>),
     /// organization or folder on which to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
@@ -1016,18 +1034,19 @@ pub struct ListTimeSeriesRequest {
     ///      folders/\[FOLDER_ID\]
     #[prost(string, tag = "10")]
     pub name: ::prost::alloc::string::String,
-    /// Required. A [monitoring filter](<https://cloud.google.com/monitoring/api/v3/filters>)
-    /// that specifies which time series should be returned.  The filter must
-    /// specify a single metric type, and can additionally specify metric labels
-    /// and other information. For example:
+    /// Required. A [monitoring
+    /// filter](<https://cloud.google.com/monitoring/api/v3/filters>) that specifies
+    /// which time series should be returned.  The filter must specify a single
+    /// metric type, and can additionally specify metric labels and other
+    /// information. For example:
     ///
     ///      metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
     ///          metric.labels.instance_name = "my-instance-name"
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
-    /// Required. The time interval for which results should be returned. Only time series
-    /// that contain data points in the specified interval are included
-    /// in the response.
+    /// Required. The time interval for which results should be returned. Only time
+    /// series that contain data points in the specified interval are included in
+    /// the response.
     #[prost(message, optional, tag = "4")]
     pub interval: ::core::option::Option<TimeInterval>,
     /// Specifies the alignment of data points in individual time series as
@@ -1063,7 +1082,7 @@ pub struct ListTimeSeriesRequest {
 }
 /// Nested message and enum types in `ListTimeSeriesRequest`.
 pub mod list_time_series_request {
-    /// Controls which fields are returned by `ListTimeSeries`.
+    /// Controls which fields are returned by `ListTimeSeries*`.
     #[derive(
         Clone,
         Copy,
@@ -1134,8 +1153,9 @@ pub struct ListTimeSeriesResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateTimeSeriesRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "3")]
@@ -1195,8 +1215,9 @@ pub mod create_time_series_summary {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryTimeSeriesRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on
-    /// which to execute the request. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) on which
+    /// to execute the request. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "1")]
@@ -1324,7 +1345,7 @@ pub mod metric_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Lists monitored resource descriptors that match a filter. This method does not require a Workspace.
+        /// Lists monitored resource descriptors that match a filter.
         pub async fn list_monitored_resource_descriptors(
             &mut self,
             request: impl tonic::IntoRequest<
@@ -1357,7 +1378,7 @@ pub mod metric_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets a single monitored resource descriptor. This method does not require a Workspace.
+        /// Gets a single monitored resource descriptor.
         pub async fn get_monitored_resource_descriptor(
             &mut self,
             request: impl tonic::IntoRequest<
@@ -1390,7 +1411,7 @@ pub mod metric_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists metric descriptors that match a filter. This method does not require a Workspace.
+        /// Lists metric descriptors that match a filter.
         pub async fn list_metric_descriptors(
             &mut self,
             request: impl tonic::IntoRequest<super::ListMetricDescriptorsRequest>,
@@ -1421,7 +1442,7 @@ pub mod metric_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets a single metric descriptor. This method does not require a Workspace.
+        /// Gets a single metric descriptor.
         pub async fn get_metric_descriptor(
             &mut self,
             request: impl tonic::IntoRequest<super::GetMetricDescriptorRequest>,
@@ -1453,10 +1474,11 @@ pub mod metric_service_client {
             self.inner.unary(req, path, codec).await
         }
         /// Creates a new metric descriptor.
-        /// The creation is executed asynchronously and callers may check the returned
-        /// operation to track its progress.
+        /// The creation is executed asynchronously.
         /// User-created metric descriptors define
         /// [custom metrics](https://cloud.google.com/monitoring/custom-metrics).
+        /// The metric descriptor is updated if it already exists,
+        /// except that metric labels are never removed.
         pub async fn create_metric_descriptor(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateMetricDescriptorRequest>,
@@ -1517,7 +1539,7 @@ pub mod metric_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists time series that match a filter. This method does not require a Workspace.
+        /// Lists time series that match a filter.
         pub async fn list_time_series(
             &mut self,
             request: impl tonic::IntoRequest<super::ListTimeSeriesRequest>,
@@ -1552,6 +1574,9 @@ pub mod metric_service_client {
         /// The response is empty if all time series in the request were written.
         /// If any time series could not be written, a corresponding failure message is
         /// included in the error response.
+        /// This method does not support
+        /// [resource locations constraint of an organization
+        /// policy](https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations#setting_the_organization_policy).
         pub async fn create_time_series(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateTimeSeriesRequest>,
@@ -1622,7 +1647,7 @@ pub mod query_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /// The QueryService API is used to manage time series data in Stackdriver
+    /// The QueryService API is used to manage time series data in Cloud
     /// Monitoring. Time series data is a collection of data points that describes
     /// the time-varying values of a metric.
     #[derive(Debug, Clone)]
@@ -1694,7 +1719,7 @@ pub mod query_service_client {
             self.inner = self.inner.max_encoding_message_size(limit);
             self
         }
-        /// Queries time series using Monitoring Query Language. This method does not require a Workspace.
+        /// Queries time series using Monitoring Query Language.
         pub async fn query_time_series(
             &mut self,
             request: impl tonic::IntoRequest<super::QueryTimeSeriesRequest>,
@@ -2610,8 +2635,8 @@ pub struct AlertPolicy {
 }
 /// Nested message and enum types in `AlertPolicy`.
 pub mod alert_policy {
-    /// A content string and a MIME type that describes the content string's
-    /// format.
+    /// Documentation that is included in the notifications and incidents
+    /// pertaining to this policy.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Documentation {
@@ -2809,7 +2834,8 @@ pub mod alert_policy {
             #[prost(message, optional, tag = "7")]
             pub trigger: ::core::option::Option<Trigger>,
             /// A condition control that determines how metric-threshold conditions
-            /// are evaluated when data stops arriving.
+            /// are evaluated when data stops arriving. To use this control, the value
+            /// of the `duration` field must be greater than or equal to 60 seconds.
             #[prost(enumeration = "EvaluationMissingData", tag = "11")]
             pub evaluation_missing_data: i32,
         }
@@ -5635,8 +5661,9 @@ pub mod uptime_check_service_client {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateServiceRequest {
-    /// Required. Resource [name](<https://cloud.google.com/monitoring/api/v3#project_name>) of
-    /// the parent workspace. The format is:
+    /// Required. Resource
+    /// [name](<https://cloud.google.com/monitoring/api/v3#project_name>) of the
+    /// parent Metrics Scope. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "1")]
@@ -5663,33 +5690,32 @@ pub struct GetServiceRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServicesRequest {
-    /// Required. Resource name of the parent containing the listed services, either a
-    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) or a
-    /// Monitoring Workspace. The formats are:
+    /// Required. Resource name of the parent containing the listed services,
+    /// either a [project](<https://cloud.google.com/monitoring/api/v3#project_name>)
+    /// or a Monitoring Metrics Scope. The formats are:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///      workspaces/\[HOST_PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// A filter specifying what `Service`s to return. The filter currently
-    /// supports the following fields:
+    /// A filter specifying what `Service`s to return. The filter supports
+    /// filtering on a particular service-identifier type or one of its attributes.
     ///
-    ///      - `identifier_case`
-    ///      - `app_engine.module_id`
-    ///      - `cloud_endpoints.service` (reserved for future use)
-    ///      - `mesh_istio.mesh_uid`
-    ///      - `mesh_istio.service_namespace`
-    ///      - `mesh_istio.service_name`
-    ///      - `cluster_istio.location` (deprecated)
-    ///      - `cluster_istio.cluster_name` (deprecated)
-    ///      - `cluster_istio.service_namespace` (deprecated)
-    ///      - `cluster_istio.service_name` (deprecated)
+    /// To filter on a particular service-identifier type, the `identifier_case`
+    /// refers to which option in the `identifier` field is populated. For example,
+    /// the filter `identifier_case = "CUSTOM"` would match all services with a
+    /// value for the `custom` field. Valid options include "CUSTOM", "APP_ENGINE",
+    /// "MESH_ISTIO", and the other options listed at
+    /// <https://cloud.google.com/monitoring/api/ref_v3/rest/v3/services#Service>
     ///
-    /// `identifier_case` refers to which option in the identifier oneof is
-    /// populated. For example, the filter `identifier_case = "CUSTOM"` would match
-    /// all services with a value for the `custom` field. Valid options are
-    /// "CUSTOM", "APP_ENGINE", "MESH_ISTIO", plus "CLUSTER_ISTIO" (deprecated)
-    /// and "CLOUD_ENDPOINTS" (reserved for future use).
+    /// To filter on an attribute of a service-identifier type, apply the filter
+    /// name by using the snake case of the service-identifier type and the
+    /// attribute of that service-identifier type, and join the two with a period.
+    /// For example, to filter by the `meshUid` field of the `MeshIstio`
+    /// service-identifier type, you must filter on `mesh_istio.mesh_uid =
+    /// "123"` to match all services with mesh UID "123". Service-identifier types
+    /// and their attributes are described at
+    /// <https://cloud.google.com/monitoring/api/ref_v3/rest/v3/services#Service>
     #[prost(string, tag = "2")]
     pub filter: ::prost::alloc::string::String,
     /// A non-negative number that is the maximum number of results to return.
@@ -5748,7 +5774,7 @@ pub struct CreateServiceLevelObjectiveRequest {
     pub parent: ::prost::alloc::string::String,
     /// Optional. The ServiceLevelObjective id to use for this
     /// ServiceLevelObjective. If omitted, an id will be generated instead. Must
-    /// match the pattern `\[a-z0-9\-\]+`
+    /// match the pattern `^\[a-zA-Z0-9-_:.\]+$`
     #[prost(string, tag = "3")]
     pub service_level_objective_id: ::prost::alloc::string::String,
     /// Required. The `ServiceLevelObjective` to create.
@@ -5761,7 +5787,8 @@ pub struct CreateServiceLevelObjectiveRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetServiceLevelObjectiveRequest {
-    /// Required. Resource name of the `ServiceLevelObjective` to get. The format is:
+    /// Required. Resource name of the `ServiceLevelObjective` to get. The format
+    /// is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
     #[prost(string, tag = "1")]
@@ -5778,7 +5805,7 @@ pub struct GetServiceLevelObjectiveRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListServiceLevelObjectivesRequest {
     /// Required. Resource name of the parent containing the listed SLOs, either a
-    /// project or a Monitoring Workspace. The formats are:
+    /// project or a Monitoring Metrics Scope. The formats are:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]
     ///      workspaces/\[HOST_PROJECT_ID_OR_NUMBER\]/services/-
@@ -5832,7 +5859,8 @@ pub struct UpdateServiceLevelObjectiveRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteServiceLevelObjectiveRequest {
-    /// Required. Resource name of the `ServiceLevelObjective` to delete. The format is:
+    /// Required. Resource name of the `ServiceLevelObjective` to delete. The
+    /// format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/services/\[SERVICE_ID\]/serviceLevelObjectives/\[SLO_NAME\]
     #[prost(string, tag = "1")]
@@ -5844,9 +5872,9 @@ pub mod service_monitoring_service_client {
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     /// The Cloud Monitoring Service-Oriented Monitoring API has endpoints for
-    /// managing and querying aspects of a workspace's services. These include the
-    /// `Service`'s monitored resources, its Service-Level Objectives, and a taxonomy
-    /// of categorized Health Metrics.
+    /// managing and querying aspects of a Metrics Scope's services. These include
+    /// the `Service`'s monitored resources, its Service-Level Objectives, and a
+    /// taxonomy of categorized Health Metrics.
     #[derive(Debug, Clone)]
     pub struct ServiceMonitoringServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -5974,7 +6002,7 @@ pub mod service_monitoring_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// List `Service`s for this workspace.
+        /// List `Service`s for this Metrics Scope.
         pub async fn list_services(
             &mut self,
             request: impl tonic::IntoRequest<super::ListServicesRequest>,
@@ -6634,8 +6662,9 @@ pub struct Group {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListGroupsRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>)
-    /// whose groups are to be listed. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) whose
+    /// groups are to be listed. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "7")]
@@ -6718,14 +6747,15 @@ pub struct GetGroupRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateGroupRequest {
-    /// Required. The [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in
-    /// which to create the group. The format is:
+    /// Required. The
+    /// [project](<https://cloud.google.com/monitoring/api/v3#project_name>) in which
+    /// to create the group. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     #[prost(string, tag = "4")]
     pub name: ::prost::alloc::string::String,
-    /// Required. A group definition. It is an error to define the `name` field because
-    /// the system assigns the name.
+    /// Required. A group definition. It is an error to define the `name` field
+    /// because the system assigns the name.
     #[prost(message, optional, tag = "2")]
     pub group: ::core::option::Option<Group>,
     /// If true, validate this request but do not create the group.
@@ -6736,8 +6766,9 @@ pub struct CreateGroupRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateGroupRequest {
-    /// Required. The new definition of the group.  All fields of the existing group,
-    /// excepting `name`, are replaced with the corresponding fields of this group.
+    /// Required. The new definition of the group.  All fields of the existing
+    /// group, excepting `name`, are replaced with the corresponding fields of this
+    /// group.
     #[prost(message, optional, tag = "2")]
     pub group: ::core::option::Option<Group>,
     /// If true, validate this request but do not update the existing group.
