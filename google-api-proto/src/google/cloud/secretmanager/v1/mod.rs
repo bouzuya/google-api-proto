@@ -507,12 +507,14 @@ pub struct SecretPayload {
     #[prost(int64, optional, tag = "2")]
     pub data_crc32c: ::core::option::Option<i64>,
 }
-/// Request message for [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
+/// Request message for
+/// [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListSecretsRequest {
     /// Required. The resource name of the project associated with the
-    /// [Secrets][google.cloud.secretmanager.v1.Secret], in the format `projects/*`.
+    /// [Secrets][google.cloud.secretmanager.v1.Secret], in the format
+    /// `projects/*`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Optional. The maximum number of results to be returned in a single page. If
@@ -532,23 +534,26 @@ pub struct ListSecretsRequest {
     #[prost(string, tag = "4")]
     pub filter: ::prost::alloc::string::String,
 }
-/// Response message for [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
+/// Response message for
+/// [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListSecretsResponse {
-    /// The list of [Secrets][google.cloud.secretmanager.v1.Secret] sorted in reverse by create_time (newest
-    /// first).
+    /// The list of [Secrets][google.cloud.secretmanager.v1.Secret] sorted in
+    /// reverse by create_time (newest first).
     #[prost(message, repeated, tag = "1")]
     pub secrets: ::prost::alloc::vec::Vec<Secret>,
     /// A token to retrieve the next page of results. Pass this value in
-    /// [ListSecretsRequest.page_token][google.cloud.secretmanager.v1.ListSecretsRequest.page_token] to retrieve the next page.
+    /// [ListSecretsRequest.page_token][google.cloud.secretmanager.v1.ListSecretsRequest.page_token]
+    /// to retrieve the next page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
     /// The total number of [Secrets][google.cloud.secretmanager.v1.Secret].
     #[prost(int32, tag = "3")]
     pub total_size: i32,
 }
-/// Request message for [SecretManagerService.CreateSecret][google.cloud.secretmanager.v1.SecretManagerService.CreateSecret].
+/// Request message for
+/// [SecretManagerService.CreateSecret][google.cloud.secretmanager.v1.SecretManagerService.CreateSecret].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateSecretRequest {
@@ -563,37 +568,47 @@ pub struct CreateSecretRequest {
     /// underscore (`_`) characters.
     #[prost(string, tag = "2")]
     pub secret_id: ::prost::alloc::string::String,
-    /// Required. A [Secret][google.cloud.secretmanager.v1.Secret] with initial field values.
+    /// Required. A [Secret][google.cloud.secretmanager.v1.Secret] with initial
+    /// field values.
     #[prost(message, optional, tag = "3")]
     pub secret: ::core::option::Option<Secret>,
 }
-/// Request message for [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion].
+/// Request message for
+/// [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AddSecretVersionRequest {
-    /// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] to associate with the
-    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format `projects/*/secrets/*`.
+    /// Required. The resource name of the
+    /// [Secret][google.cloud.secretmanager.v1.Secret] to associate with the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
+    /// `projects/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. The secret payload of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+    /// Required. The secret payload of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
     #[prost(message, optional, tag = "2")]
     pub payload: ::core::option::Option<SecretPayload>,
 }
-/// Request message for [SecretManagerService.GetSecret][google.cloud.secretmanager.v1.SecretManagerService.GetSecret].
+/// Request message for
+/// [SecretManagerService.GetSecret][google.cloud.secretmanager.v1.SecretManagerService.GetSecret].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetSecretRequest {
-    /// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret], in the format `projects/*/secrets/*`.
+    /// Required. The resource name of the
+    /// [Secret][google.cloud.secretmanager.v1.Secret], in the format
+    /// `projects/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request message for [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
+/// Request message for
+/// [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListSecretVersionsRequest {
-    /// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] associated with the
-    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] to list, in the format
-    /// `projects/*/secrets/*`.
+    /// Required. The resource name of the
+    /// [Secret][google.cloud.secretmanager.v1.Secret] associated with the
+    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] to list, in
+    /// the format `projects/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Optional. The maximum number of results to be returned in a single page. If
@@ -613,27 +628,32 @@ pub struct ListSecretVersionsRequest {
     #[prost(string, tag = "4")]
     pub filter: ::prost::alloc::string::String,
 }
-/// Response message for [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
+/// Response message for
+/// [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListSecretVersionsResponse {
-    /// The list of [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] sorted in reverse by
-    /// create_time (newest first).
+    /// The list of [SecretVersions][google.cloud.secretmanager.v1.SecretVersion]
+    /// sorted in reverse by create_time (newest first).
     #[prost(message, repeated, tag = "1")]
     pub versions: ::prost::alloc::vec::Vec<SecretVersion>,
     /// A token to retrieve the next page of results. Pass this value in
-    /// [ListSecretVersionsRequest.page_token][google.cloud.secretmanager.v1.ListSecretVersionsRequest.page_token] to retrieve the next page.
+    /// [ListSecretVersionsRequest.page_token][google.cloud.secretmanager.v1.ListSecretVersionsRequest.page_token]
+    /// to retrieve the next page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
-    /// The total number of [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+    /// The total number of
+    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
     #[prost(int32, tag = "3")]
     pub total_size: i32,
 }
-/// Request message for [SecretManagerService.GetSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.GetSecretVersion].
+/// Request message for
+/// [SecretManagerService.GetSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.GetSecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetSecretVersionRequest {
-    /// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
+    /// Required. The resource name of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
     /// `projects/*/secrets/*/versions/*`.
     ///
     /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
@@ -641,22 +661,26 @@ pub struct GetSecretVersionRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request message for [SecretManagerService.UpdateSecret][google.cloud.secretmanager.v1.SecretManagerService.UpdateSecret].
+/// Request message for
+/// [SecretManagerService.UpdateSecret][google.cloud.secretmanager.v1.SecretManagerService.UpdateSecret].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateSecretRequest {
-    /// Required. [Secret][google.cloud.secretmanager.v1.Secret] with updated field values.
+    /// Required. [Secret][google.cloud.secretmanager.v1.Secret] with updated field
+    /// values.
     #[prost(message, optional, tag = "1")]
     pub secret: ::core::option::Option<Secret>,
     /// Required. Specifies the fields to be updated.
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
-/// Request message for [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
+/// Request message for
+/// [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AccessSecretVersionRequest {
-    /// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
+    /// Required. The resource name of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
     /// `projects/*/secrets/*/versions/*`.
     ///
     /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
@@ -664,11 +688,13 @@ pub struct AccessSecretVersionRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Response message for [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
+/// Response message for
+/// [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AccessSecretVersionResponse {
-    /// The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
+    /// The resource name of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
     /// `projects/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
@@ -676,59 +702,70 @@ pub struct AccessSecretVersionResponse {
     #[prost(message, optional, tag = "2")]
     pub payload: ::core::option::Option<SecretPayload>,
 }
-/// Request message for [SecretManagerService.DeleteSecret][google.cloud.secretmanager.v1.SecretManagerService.DeleteSecret].
+/// Request message for
+/// [SecretManagerService.DeleteSecret][google.cloud.secretmanager.v1.SecretManagerService.DeleteSecret].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteSecretRequest {
-    /// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] to delete in the format
+    /// Required. The resource name of the
+    /// [Secret][google.cloud.secretmanager.v1.Secret] to delete in the format
     /// `projects/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Optional. Etag of the [Secret][google.cloud.secretmanager.v1.Secret]. The request succeeds if it matches
-    /// the etag of the currently stored secret object. If the etag is omitted,
-    /// the request succeeds.
+    /// Optional. Etag of the [Secret][google.cloud.secretmanager.v1.Secret]. The
+    /// request succeeds if it matches the etag of the currently stored secret
+    /// object. If the etag is omitted, the request succeeds.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
 }
-/// Request message for [SecretManagerService.DisableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DisableSecretVersion].
+/// Request message for
+/// [SecretManagerService.DisableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DisableSecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DisableSecretVersionRequest {
-    /// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to disable in the format
-    /// `projects/*/secrets/*/versions/*`.
+    /// Required. The resource name of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to disable in
+    /// the format `projects/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Optional. Etag of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request succeeds if it matches
-    /// the etag of the currently stored secret version object. If the etag is
-    /// omitted, the request succeeds.
+    /// Optional. Etag of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request
+    /// succeeds if it matches the etag of the currently stored secret version
+    /// object. If the etag is omitted, the request succeeds.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
 }
-/// Request message for [SecretManagerService.EnableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.EnableSecretVersion].
+/// Request message for
+/// [SecretManagerService.EnableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.EnableSecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EnableSecretVersionRequest {
-    /// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to enable in the format
-    /// `projects/*/secrets/*/versions/*`.
+    /// Required. The resource name of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to enable in
+    /// the format `projects/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Optional. Etag of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request succeeds if it matches
-    /// the etag of the currently stored secret version object. If the etag is
-    /// omitted, the request succeeds.
+    /// Optional. Etag of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request
+    /// succeeds if it matches the etag of the currently stored secret version
+    /// object. If the etag is omitted, the request succeeds.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
 }
-/// Request message for [SecretManagerService.DestroySecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DestroySecretVersion].
+/// Request message for
+/// [SecretManagerService.DestroySecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DestroySecretVersion].
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DestroySecretVersionRequest {
-    /// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to destroy in the format
-    /// `projects/*/secrets/*/versions/*`.
+    /// Required. The resource name of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to destroy in
+    /// the format `projects/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Optional. Etag of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request succeeds if it matches
-    /// the etag of the currently stored secret version object. If the etag is
-    /// omitted, the request succeeds.
+    /// Optional. Etag of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request
+    /// succeeds if it matches the etag of the currently stored secret version
+    /// object. If the etag is omitted, the request succeeds.
     #[prost(string, tag = "2")]
     pub etag: ::prost::alloc::string::String,
 }
@@ -844,7 +881,8 @@ pub mod secret_manager_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Creates a new [Secret][google.cloud.secretmanager.v1.Secret] containing no [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+        /// Creates a new [Secret][google.cloud.secretmanager.v1.Secret] containing no
+        /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
         pub async fn create_secret(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateSecretRequest>,
@@ -872,8 +910,9 @@ pub mod secret_manager_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Creates a new [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] containing secret data and attaches
-        /// it to an existing [Secret][google.cloud.secretmanager.v1.Secret].
+        /// Creates a new [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]
+        /// containing secret data and attaches it to an existing
+        /// [Secret][google.cloud.secretmanager.v1.Secret].
         pub async fn add_secret_version(
             &mut self,
             request: impl tonic::IntoRequest<super::AddSecretVersionRequest>,
@@ -929,7 +968,8 @@ pub mod secret_manager_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Updates metadata of an existing [Secret][google.cloud.secretmanager.v1.Secret].
+        /// Updates metadata of an existing
+        /// [Secret][google.cloud.secretmanager.v1.Secret].
         pub async fn update_secret(
             &mut self,
             request: impl tonic::IntoRequest<super::UpdateSecretRequest>,
@@ -985,8 +1025,8 @@ pub mod secret_manager_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Lists [SecretVersions][google.cloud.secretmanager.v1.SecretVersion]. This call does not return secret
-        /// data.
+        /// Lists [SecretVersions][google.cloud.secretmanager.v1.SecretVersion]. This
+        /// call does not return secret data.
         pub async fn list_secret_versions(
             &mut self,
             request: impl tonic::IntoRequest<super::ListSecretVersionsRequest>,
@@ -1017,7 +1057,8 @@ pub mod secret_manager_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Gets metadata for a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+        /// Gets metadata for a
+        /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
         ///
         /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
         /// created [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
@@ -1048,7 +1089,8 @@ pub mod secret_manager_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Accesses a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. This call returns the secret data.
+        /// Accesses a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+        /// This call returns the secret data.
         ///
         /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
         /// created [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
@@ -1084,7 +1126,8 @@ pub mod secret_manager_service_client {
         }
         /// Disables a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
         ///
-        /// Sets the [state][google.cloud.secretmanager.v1.SecretVersion.state] of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to
+        /// Sets the [state][google.cloud.secretmanager.v1.SecretVersion.state] of the
+        /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to
         /// [DISABLED][google.cloud.secretmanager.v1.SecretVersion.State.DISABLED].
         pub async fn disable_secret_version(
             &mut self,
@@ -1115,7 +1158,8 @@ pub mod secret_manager_service_client {
         }
         /// Enables a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
         ///
-        /// Sets the [state][google.cloud.secretmanager.v1.SecretVersion.state] of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to
+        /// Sets the [state][google.cloud.secretmanager.v1.SecretVersion.state] of the
+        /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to
         /// [ENABLED][google.cloud.secretmanager.v1.SecretVersion.State.ENABLED].
         pub async fn enable_secret_version(
             &mut self,
@@ -1146,9 +1190,10 @@ pub mod secret_manager_service_client {
         }
         /// Destroys a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
         ///
-        /// Sets the [state][google.cloud.secretmanager.v1.SecretVersion.state] of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to
-        /// [DESTROYED][google.cloud.secretmanager.v1.SecretVersion.State.DESTROYED] and irrevocably destroys the
-        /// secret data.
+        /// Sets the [state][google.cloud.secretmanager.v1.SecretVersion.state] of the
+        /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to
+        /// [DESTROYED][google.cloud.secretmanager.v1.SecretVersion.State.DESTROYED]
+        /// and irrevocably destroys the secret data.
         pub async fn destroy_secret_version(
             &mut self,
             request: impl tonic::IntoRequest<super::DestroySecretVersionRequest>,
@@ -1179,8 +1224,10 @@ pub mod secret_manager_service_client {
         /// Sets the access control policy on the specified secret. Replaces any
         /// existing policy.
         ///
-        /// Permissions on [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] are enforced according
-        /// to the policy set on the associated [Secret][google.cloud.secretmanager.v1.Secret].
+        /// Permissions on
+        /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] are enforced
+        /// according to the policy set on the associated
+        /// [Secret][google.cloud.secretmanager.v1.Secret].
         pub async fn set_iam_policy(
             &mut self,
             request: impl tonic::IntoRequest<
