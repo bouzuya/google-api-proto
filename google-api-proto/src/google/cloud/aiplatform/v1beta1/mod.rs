@@ -20299,6 +20299,1610 @@ pub mod featurestore {
         }
     }
 }
+/// Monitoring alert triggered condition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringAlertCondition {
+    /// Alert triggered condition.
+    #[prost(oneof = "model_monitoring_alert_condition::Condition", tags = "1")]
+    pub condition: ::core::option::Option<model_monitoring_alert_condition::Condition>,
+}
+/// Nested message and enum types in `ModelMonitoringAlertCondition`.
+pub mod model_monitoring_alert_condition {
+    /// Alert triggered condition.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Condition {
+        /// A condition that compares a stats value against a threshold. Alert will
+        /// be triggered if value above the threshold.
+        #[prost(double, tag = "1")]
+        Threshold(f64),
+    }
+}
+/// Represents a single model monitoring anomaly.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringAnomaly {
+    /// Model monitoring job resource name.
+    #[prost(string, tag = "2")]
+    pub model_monitoring_job: ::prost::alloc::string::String,
+    /// Algorithm used to calculated the metrics, eg: jensen_shannon_divergence,
+    /// l_infinity.
+    #[prost(string, tag = "3")]
+    pub algorithm: ::prost::alloc::string::String,
+    #[prost(oneof = "model_monitoring_anomaly::Anomaly", tags = "1")]
+    pub anomaly: ::core::option::Option<model_monitoring_anomaly::Anomaly>,
+}
+/// Nested message and enum types in `ModelMonitoringAnomaly`.
+pub mod model_monitoring_anomaly {
+    /// Tabular anomaly details.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TabularAnomaly {
+        /// Additional anomaly information. e.g. Google Cloud Storage uri.
+        #[prost(string, tag = "1")]
+        pub anomaly_uri: ::prost::alloc::string::String,
+        /// Overview of this anomaly.
+        #[prost(string, tag = "2")]
+        pub summary: ::prost::alloc::string::String,
+        /// Anomaly body.
+        #[prost(message, optional, tag = "3")]
+        pub anomaly: ::core::option::Option<::prost_types::Value>,
+        /// The time the anomaly was triggered.
+        #[prost(message, optional, tag = "4")]
+        pub trigger_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// The alert condition associated with this anomaly.
+        #[prost(message, optional, tag = "5")]
+        pub condition: ::core::option::Option<super::ModelMonitoringAlertCondition>,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Anomaly {
+        /// Tabular anomaly.
+        #[prost(message, tag = "1")]
+        TabularAnomaly(TabularAnomaly),
+    }
+}
+/// Represents a single monitoring alert. This is currently used in the
+/// SearchModelMonitoringAlerts api, thus the alert wrapped in this message
+/// belongs to the resource asked in the request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringAlert {
+    /// The stats name.
+    #[prost(string, tag = "1")]
+    pub stats_name: ::prost::alloc::string::String,
+    /// One of the supported monitoring objectives:
+    /// `raw-feature-drift`
+    /// `prediction-output-drift`
+    /// `feature-attribution`
+    #[prost(string, tag = "2")]
+    pub objective_type: ::prost::alloc::string::String,
+    /// Alert creation time.
+    #[prost(message, optional, tag = "3")]
+    pub alert_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Anomaly details.
+    #[prost(message, optional, tag = "4")]
+    pub anomaly: ::core::option::Option<ModelMonitoringAnomaly>,
+}
+/// Monitoring monitoring job spec. It outlines the specifications for monitoring
+/// objectives, notifications, and result exports.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringSpec {
+    /// The monitoring objective spec.
+    #[prost(message, optional, tag = "1")]
+    pub objective_spec: ::core::option::Option<ModelMonitoringObjectiveSpec>,
+    /// The model monitoring notification spec.
+    #[prost(message, optional, tag = "2")]
+    pub notification_spec: ::core::option::Option<ModelMonitoringNotificationSpec>,
+    /// The Output destination spec for metrics, error logs, etc.
+    #[prost(message, optional, tag = "3")]
+    pub output_spec: ::core::option::Option<ModelMonitoringOutputSpec>,
+}
+/// Monitoring objectives spec.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringObjectiveSpec {
+    /// The explanation spec.
+    /// This spec is required when the objectives spec includes feature attribution
+    /// objectives.
+    #[prost(message, optional, tag = "3")]
+    pub explanation_spec: ::core::option::Option<ExplanationSpec>,
+    /// Baseline dataset.
+    /// It could be the training dataset or production serving dataset from a
+    /// previous period.
+    #[prost(message, optional, tag = "4")]
+    pub baseline_dataset: ::core::option::Option<ModelMonitoringInput>,
+    /// Target dataset.
+    #[prost(message, optional, tag = "5")]
+    pub target_dataset: ::core::option::Option<ModelMonitoringInput>,
+    /// The monitoring objective.
+    #[prost(oneof = "model_monitoring_objective_spec::Objective", tags = "1")]
+    pub objective: ::core::option::Option<model_monitoring_objective_spec::Objective>,
+}
+/// Nested message and enum types in `ModelMonitoringObjectiveSpec`.
+pub mod model_monitoring_objective_spec {
+    /// Data drift monitoring spec.
+    /// Data drift measures the distribution distance between the current dataset
+    /// and a baseline dataset. A typical use case is to detect data drift between
+    /// the recent production serving dataset and the training dataset, or to
+    /// compare the recent production dataset with a dataset from a previous
+    /// period.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DataDriftSpec {
+        /// Feature names / Prediction output names interested in monitoring.
+        /// These should be a subset of the input feature names or prediction output
+        /// names specified in the monitoring schema.
+        /// If the field is not specified all features / prediction outputs outlied
+        /// in the monitoring schema will be used.
+        #[prost(string, repeated, tag = "1")]
+        pub features: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Supported metrics type:
+        ///   * l_infinity
+        ///   * jensen_shannon_divergence
+        #[prost(string, tag = "2")]
+        pub categorical_metric_type: ::prost::alloc::string::String,
+        /// Supported metrics type:
+        ///   * jensen_shannon_divergence
+        #[prost(string, tag = "3")]
+        pub numeric_metric_type: ::prost::alloc::string::String,
+        /// Default alert condition for all the categorical features.
+        #[prost(message, optional, tag = "4")]
+        pub default_categorical_alert_condition: ::core::option::Option<
+            super::ModelMonitoringAlertCondition,
+        >,
+        /// Default alert condition for all the numeric features.
+        #[prost(message, optional, tag = "5")]
+        pub default_numeric_alert_condition: ::core::option::Option<
+            super::ModelMonitoringAlertCondition,
+        >,
+        /// Per feature alert condition will override default alert condition.
+        #[prost(btree_map = "string, message", tag = "6")]
+        pub feature_alert_conditions: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            super::ModelMonitoringAlertCondition,
+        >,
+    }
+    /// Feature attribution monitoring spec.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FeatureAttributionSpec {
+        /// Feature names interested in monitoring.
+        /// These should be a subset of the input feature names specified in the
+        /// monitoring schema. If the field is not specified all features outlied in
+        /// the monitoring schema will be used.
+        #[prost(string, repeated, tag = "1")]
+        pub features: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Default alert condition for all the features.
+        #[prost(message, optional, tag = "2")]
+        pub default_alert_condition: ::core::option::Option<
+            super::ModelMonitoringAlertCondition,
+        >,
+        /// Per feature alert condition will override default alert condition.
+        #[prost(btree_map = "string, message", tag = "3")]
+        pub feature_alert_conditions: ::prost::alloc::collections::BTreeMap<
+            ::prost::alloc::string::String,
+            super::ModelMonitoringAlertCondition,
+        >,
+        /// The config of resources used by the Model Monitoring during the batch
+        /// explanation for non-AutoML models. If not set, `n1-standard-2` machine
+        /// type will be used by default.
+        #[prost(message, optional, tag = "4")]
+        pub batch_explanation_dedicated_resources: ::core::option::Option<
+            super::BatchDedicatedResources,
+        >,
+    }
+    /// Tabular monitoring objective.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TabularObjective {
+        /// Input feature distribution drift monitoring spec.
+        #[prost(message, optional, tag = "10")]
+        pub feature_drift_spec: ::core::option::Option<DataDriftSpec>,
+        /// Prediction output distribution drift monitoring spec.
+        #[prost(message, optional, tag = "11")]
+        pub prediction_output_drift_spec: ::core::option::Option<DataDriftSpec>,
+        /// Feature attribution monitoring spec.
+        #[prost(message, optional, tag = "12")]
+        pub feature_attribution_spec: ::core::option::Option<FeatureAttributionSpec>,
+    }
+    /// The monitoring objective.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Objective {
+        /// Tabular monitoring objective.
+        #[prost(message, tag = "1")]
+        TabularObjective(TabularObjective),
+    }
+}
+/// Specification for the export destination of monitoring results, including
+/// metrics, logs, etc.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringOutputSpec {
+    /// Google Cloud Storage base folder path for metrics, error logs, etc.
+    #[prost(message, optional, tag = "1")]
+    pub gcs_base_directory: ::core::option::Option<GcsDestination>,
+}
+/// Model monitoring data input spec.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringInput {
+    /// Dataset source.
+    #[prost(oneof = "model_monitoring_input::Dataset", tags = "1, 2, 3")]
+    pub dataset: ::core::option::Option<model_monitoring_input::Dataset>,
+    /// Time specification for the dataset.
+    #[prost(oneof = "model_monitoring_input::TimeSpec", tags = "6, 7")]
+    pub time_spec: ::core::option::Option<model_monitoring_input::TimeSpec>,
+}
+/// Nested message and enum types in `ModelMonitoringInput`.
+pub mod model_monitoring_input {
+    /// Input dataset spec.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ModelMonitoringDataset {
+        /// The timestamp field. Usually for serving data.
+        #[prost(string, tag = "7")]
+        pub timestamp_field: ::prost::alloc::string::String,
+        /// Choose one of supported data location for columnized dataset.
+        #[prost(oneof = "model_monitoring_dataset::DataLocation", tags = "1, 2, 6")]
+        pub data_location: ::core::option::Option<
+            model_monitoring_dataset::DataLocation,
+        >,
+    }
+    /// Nested message and enum types in `ModelMonitoringDataset`.
+    pub mod model_monitoring_dataset {
+        /// Dataset spec for data stored in Google Cloud Storage.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ModelMonitoringGcsSource {
+            /// Google Cloud Storage URI to the input file(s). May contain
+            /// wildcards. For more information on wildcards, see
+            /// <https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames.>
+            #[prost(string, tag = "1")]
+            pub gcs_uri: ::prost::alloc::string::String,
+            /// Data format of the dataset.
+            #[prost(enumeration = "model_monitoring_gcs_source::DataFormat", tag = "2")]
+            pub format: i32,
+        }
+        /// Nested message and enum types in `ModelMonitoringGcsSource`.
+        pub mod model_monitoring_gcs_source {
+            /// Supported data format.
+            #[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            pub enum DataFormat {
+                /// Data format unspecified, used when this field is unset.
+                Unspecified = 0,
+                /// CSV files.
+                Csv = 1,
+                /// TfRecord files
+                TfRecord = 2,
+                /// JsonL files.
+                Jsonl = 3,
+            }
+            impl DataFormat {
+                /// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                pub fn as_str_name(&self) -> &'static str {
+                    match self {
+                        DataFormat::Unspecified => "DATA_FORMAT_UNSPECIFIED",
+                        DataFormat::Csv => "CSV",
+                        DataFormat::TfRecord => "TF_RECORD",
+                        DataFormat::Jsonl => "JSONL",
+                    }
+                }
+                /// Creates an enum from field names used in the ProtoBuf definition.
+                pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                    match value {
+                        "DATA_FORMAT_UNSPECIFIED" => Some(Self::Unspecified),
+                        "CSV" => Some(Self::Csv),
+                        "TF_RECORD" => Some(Self::TfRecord),
+                        "JSONL" => Some(Self::Jsonl),
+                        _ => None,
+                    }
+                }
+            }
+        }
+        /// Dataset spec for data sotred in BigQuery.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ModelMonitoringBigQuerySource {
+            #[prost(
+                oneof = "model_monitoring_big_query_source::Connection",
+                tags = "1, 2"
+            )]
+            pub connection: ::core::option::Option<
+                model_monitoring_big_query_source::Connection,
+            >,
+        }
+        /// Nested message and enum types in `ModelMonitoringBigQuerySource`.
+        pub mod model_monitoring_big_query_source {
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Connection {
+                /// BigQuery URI to a table, up to 2000 characters long. All the columns
+                /// in the table will be selected. Accepted forms:
+                ///
+                /// *  BigQuery path. For example:
+                /// `bq://projectId.bqDatasetId.bqTableId`.
+                #[prost(string, tag = "1")]
+                TableUri(::prost::alloc::string::String),
+                /// Standard SQL to be used instead of the `table_uri`.
+                #[prost(string, tag = "2")]
+                Query(::prost::alloc::string::String),
+            }
+        }
+        /// Choose one of supported data location for columnized dataset.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum DataLocation {
+            /// Resource name of the Vertex AI managed dataset.
+            #[prost(string, tag = "1")]
+            VertexDataset(::prost::alloc::string::String),
+            /// Google Cloud Storage data source.
+            #[prost(message, tag = "2")]
+            GcsSource(ModelMonitoringGcsSource),
+            /// BigQuery data source.
+            #[prost(message, tag = "6")]
+            BigquerySource(ModelMonitoringBigQuerySource),
+        }
+    }
+    /// Data from Vertex AI Batch prediction job output.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct BatchPredictionOutput {
+        /// Vertex AI Batch prediction job resource name. The job must match the
+        /// model version specified in \[ModelMonitor\].[model_monitoring_target].
+        #[prost(string, tag = "1")]
+        pub batch_prediction_job: ::prost::alloc::string::String,
+    }
+    /// Data from Vertex AI Endpoint request response logging.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct VertexEndpointLogs {
+        /// List of endpoint resource names. The endpoints must enable the logging
+        /// with the \[Endpoint\].[request_response_logging_config], and must contain
+        /// the deployed model corresponding to the model version specified in
+        /// \[ModelMonitor\].[model_monitoring_target].
+        #[prost(string, repeated, tag = "1")]
+        pub endpoints: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// Time offset setting.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TimeOffset {
+        /// \[offset\] is the time difference from the cut-off time.
+        /// For scheduled jobs, the cut-off time is the scheduled time.
+        /// For non-scheduled jobs, it's the time when the job was created.
+        /// Currently we support the following format:
+        /// 'w|W': Week, 'd|D': Day, 'h|H': Hour
+        /// E.g. '1h' stands for 1 hour, '2d' stands for 2 days.
+        #[prost(string, tag = "1")]
+        pub offset: ::prost::alloc::string::String,
+        /// \[window\] refers to the scope of data selected for analysis.
+        /// It allows you to specify the quantity of data you wish to examine.
+        /// Currently we support the following format:
+        /// 'w|W': Week, 'd|D': Day, 'h|H': Hour
+        /// E.g. '1h' stands for 1 hour, '2d' stands for 2 days.
+        #[prost(string, tag = "2")]
+        pub window: ::prost::alloc::string::String,
+    }
+    /// Dataset source.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Dataset {
+        /// Columnized dataset.
+        #[prost(message, tag = "1")]
+        ColumnizedDataset(ModelMonitoringDataset),
+        /// Vertex AI Batch prediction Job.
+        #[prost(message, tag = "2")]
+        BatchPredictionOutput(BatchPredictionOutput),
+        /// Vertex AI Endpoint request & response logging.
+        #[prost(message, tag = "3")]
+        VertexEndpointLogs(VertexEndpointLogs),
+    }
+    /// Time specification for the dataset.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TimeSpec {
+        /// The time interval (pair of start_time and end_time) for which results
+        /// should be returned.
+        #[prost(message, tag = "6")]
+        TimeInterval(super::super::super::super::r#type::Interval),
+        /// The time offset setting for which results should be returned.
+        #[prost(message, tag = "7")]
+        TimeOffset(TimeOffset),
+    }
+}
+/// Notification spec(email, notification channel) for model monitoring
+/// statistics/alerts.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringNotificationSpec {
+    /// Email alert config.
+    #[prost(message, optional, tag = "1")]
+    pub email_config: ::core::option::Option<
+        model_monitoring_notification_spec::EmailConfig,
+    >,
+    /// Dump the anomalies to Cloud Logging. The anomalies will be put to json
+    /// payload encoded from proto
+    /// [google.cloud.aiplatform.logging.ModelMonitoringAnomaliesLogEntry][].
+    /// This can be further sinked to Pub/Sub or any other services supported
+    /// by Cloud Logging.
+    #[prost(bool, tag = "2")]
+    pub enable_cloud_logging: bool,
+    /// Notification channel config.
+    #[prost(message, repeated, tag = "3")]
+    pub notification_channel_configs: ::prost::alloc::vec::Vec<
+        model_monitoring_notification_spec::NotificationChannelConfig,
+    >,
+}
+/// Nested message and enum types in `ModelMonitoringNotificationSpec`.
+pub mod model_monitoring_notification_spec {
+    /// The config for email alerts.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct EmailConfig {
+        /// The email addresses to send the alerts.
+        #[prost(string, repeated, tag = "1")]
+        pub user_emails: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// Google Cloud Notification Channel config.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct NotificationChannelConfig {
+        /// Resource names of the NotificationChannels.
+        /// Must be of the format
+        /// `projects/<project_id_or_number>/notificationChannels/<channel_id>`
+        #[prost(string, tag = "1")]
+        pub notification_channel: ::prost::alloc::string::String,
+    }
+}
+/// Vertex AI Model Monitoring Service serves as a central hub for the analysis
+/// and visualization of data quality and performance related to models.
+/// ModelMonitor stands as a top level resource for overseeing your model
+/// monitoring tasks.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitor {
+    /// Immutable. Resource name of the ModelMonitor. Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The display name of the ModelMonitor.
+    /// The name can be up to 128 characters long and can consist of any UTF-8.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// The entity that is subject to analysis.
+    /// Currently only models in Vertex AI Model Registry are supported. If you
+    /// want to analyze the model which is outside the Vertex AI, you could
+    /// register a model in Vertex AI Model Registry using just a display name.
+    #[prost(message, optional, tag = "3")]
+    pub model_monitoring_target: ::core::option::Option<
+        model_monitor::ModelMonitoringTarget,
+    >,
+    /// Optional training dataset used to train the model.
+    /// It can serve as a reference dataset to identify changes in production.
+    #[prost(message, optional, tag = "10")]
+    pub training_dataset: ::core::option::Option<ModelMonitoringInput>,
+    /// Optional default notification spec, it can be overridden in the
+    /// ModelMonitoringJob notification spec.
+    #[prost(message, optional, tag = "12")]
+    pub notification_spec: ::core::option::Option<ModelMonitoringNotificationSpec>,
+    /// Optional default monitoring metrics/logs export spec, it can be overridden
+    /// in the ModelMonitoringJob output spec.
+    /// If not specified, a default Google Cloud Storage bucket will be created
+    /// under your project.
+    #[prost(message, optional, tag = "13")]
+    pub output_spec: ::core::option::Option<ModelMonitoringOutputSpec>,
+    /// Optional model explanation spec. It is used for feature attribution
+    /// monitoring.
+    #[prost(message, optional, tag = "16")]
+    pub explanation_spec: ::core::option::Option<ExplanationSpec>,
+    /// Monitoring Schema is to specify the model's features, prediction outputs
+    /// and ground truth properties. It is used to extract pertinent data from the
+    /// dataset and to process features based on their properties.
+    /// Make sure that the schema aligns with your dataset, if it does not, we will
+    /// be unable to extract data from the dataset.
+    /// It is required for most models, but optional for Vertex AI AutoML Tables
+    /// unless the schem information is not available.
+    #[prost(message, optional, tag = "9")]
+    pub model_monitoring_schema: ::core::option::Option<ModelMonitoringSchema>,
+    /// Output only. Timestamp when this ModelMonitor was created.
+    #[prost(message, optional, tag = "6")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this ModelMonitor was updated most recently.
+    #[prost(message, optional, tag = "7")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional default monitoring objective, it can be overridden in the
+    /// ModelMonitoringJob objective spec.
+    #[prost(oneof = "model_monitor::DefaultObjective", tags = "11")]
+    pub default_objective: ::core::option::Option<model_monitor::DefaultObjective>,
+}
+/// Nested message and enum types in `ModelMonitor`.
+pub mod model_monitor {
+    /// The monitoring target refers to the entity that is subject to analysis.
+    /// e.g. Vertex AI Model version.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ModelMonitoringTarget {
+        #[prost(oneof = "model_monitoring_target::Source", tags = "1")]
+        pub source: ::core::option::Option<model_monitoring_target::Source>,
+    }
+    /// Nested message and enum types in `ModelMonitoringTarget`.
+    pub mod model_monitoring_target {
+        /// Model in Vertex AI Model Registry.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct VertexModelSource {
+            /// Model resource name. Format:
+            /// projects/{project}/locations/{location}/models/{model}.
+            #[prost(string, tag = "1")]
+            pub model: ::prost::alloc::string::String,
+            /// Model version id.
+            #[prost(string, tag = "2")]
+            pub model_version_id: ::prost::alloc::string::String,
+        }
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Source {
+            /// Model in Vertex AI Model Registry.
+            #[prost(message, tag = "1")]
+            VertexModel(VertexModelSource),
+        }
+    }
+    /// Optional default monitoring objective, it can be overridden in the
+    /// ModelMonitoringJob objective spec.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum DefaultObjective {
+        /// Optional default tabular model monitoring objective.
+        #[prost(message, tag = "11")]
+        TabularObjective(super::model_monitoring_objective_spec::TabularObjective),
+    }
+}
+/// The Model Monitoring Schema definition.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringSchema {
+    /// Feature names of the model. Vertex AI will try to match the features from
+    /// your dataset as follows:
+    ///   * For 'csv' files, the header names are required, and we will extract the
+    ///     corresponding feature values when the header names align with the
+    ///     feature names.
+    ///   * For 'jsonl' files, we will extract the corresponding feature values if
+    ///     the key names match the feature names.
+    ///     Note: Nested features are not supported, so please ensure your features
+    ///     are flattened. Ensure the feature values are scalar or an array of
+    ///     scalars.
+    ///   * For 'bigquery' dataset, we will extract the corresponding feature values
+    ///     if the column names match the feature names.
+    ///     Note: The column type can be a scalar or an array of scalars. STRUCT or
+    ///     JSON types are not supported. You may use SQL queries to select or
+    ///     aggregate the relevant features from your original table. However,
+    ///     ensure that the 'schema' of the query results meets our requirements.
+    ///   * For the Vertex AI Endpoint Request Response Logging table or Vertex AI
+    ///     Batch Prediction Job results. If the
+    ///     [instance_type][google.cloud.aiplatform.v1beta1.ModelMonitoringSchema.instance_type]
+    ///     is an array, ensure that the sequence in
+    ///     [feature_fields][google.cloud.aiplatform.v1beta1.ModelMonitoringSchema.feature_fields]
+    ///     matches the order of features in the prediction instance. We will match
+    ///     the feature with the array in the order specified in \[feature_fields\].
+    #[prost(message, repeated, tag = "1")]
+    pub feature_fields: ::prost::alloc::vec::Vec<model_monitoring_schema::FieldSchema>,
+    /// Prediction output names of the model. The requirements are the same as the
+    /// [feature_fields][google.cloud.aiplatform.v1beta1.ModelMonitoringSchema.feature_fields].
+    /// For AutoML Tables, the prediction output name presented in schema will be:
+    /// `predicted_{target_column}`, the `target_column` is the one you specified
+    /// when you train the model.
+    /// For Prediction output drift analysis:
+    ///   * AutoML Classification, the distribution of the argmax label will be
+    ///     analyzed.
+    ///   * AutoML Regression, the distribution of the value will be analyzed.
+    #[prost(message, repeated, tag = "2")]
+    pub prediction_fields: ::prost::alloc::vec::Vec<
+        model_monitoring_schema::FieldSchema,
+    >,
+    /// Target /ground truth names of the model.
+    #[prost(message, repeated, tag = "3")]
+    pub ground_truth_fields: ::prost::alloc::vec::Vec<
+        model_monitoring_schema::FieldSchema,
+    >,
+    /// The prediction instance type that the Model accepts when serving.
+    /// Supported values are:
+    /// * `object`: Each input is a JSON object format.
+    /// * `array`: Each input is a JSON array format.
+    #[prost(string, tag = "4")]
+    pub instance_type: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `ModelMonitoringSchema`.
+pub mod model_monitoring_schema {
+    /// Schema field definition.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FieldSchema {
+        /// Field name.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Supported data types are:
+        /// `float`
+        /// `integer`
+        /// `boolean`
+        /// `string`
+        /// `categorical`
+        #[prost(string, tag = "2")]
+        pub data_type: ::prost::alloc::string::String,
+        /// Describes if the schema field is an array of given data type.
+        #[prost(bool, tag = "3")]
+        pub repeated: bool,
+    }
+}
+/// Represents a model monitoring job that analyze dataset using different
+/// monitoring algorithm.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringJob {
+    /// Output only. Resource name of a ModelMonitoringJob. Format:
+    /// `projects/{project_id}/locations/{location_id}/modelMonitors/{model_monitor_id}/modelMonitoringJobs/{model_monitoring_job_id}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The display name of the ModelMonitoringJob.
+    /// The name can be up to 128 characters long and can consist of any UTF-8.
+    #[prost(string, tag = "2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Monitoring monitoring job spec. It outlines the specifications for
+    /// monitoring objectives, notifications, and result exports. If left blank,
+    /// the default monitoring specifications from the top-level resource
+    /// 'ModelMonitor' will be applied. If provided, we will use the specification
+    /// defined here rather than the default one.
+    #[prost(message, optional, tag = "3")]
+    pub model_monitoring_spec: ::core::option::Option<ModelMonitoringSpec>,
+    /// Output only. Timestamp when this ModelMonitoringJob was created.
+    #[prost(message, optional, tag = "4")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Timestamp when this ModelMonitoringJob was updated most
+    /// recently.
+    #[prost(message, optional, tag = "5")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The state of the monitoring job.
+    ///   * When the job is still creating, the state will be 'JOB_STATE_PENDING'.
+    ///   * Once the job is successfully created, the state will be
+    ///     'JOB_STATE_RUNNING'.
+    ///   * Once the job is finished, the state will be one of
+    ///     'JOB_STATE_FAILED', 'JOB_STATE_SUCCEEDED',
+    ///     'JOB_STATE_PARTIALLY_SUCCEEDED'.
+    #[prost(enumeration = "JobState", tag = "6")]
+    pub state: i32,
+    /// Output only. Schedule resource name. It will only appear when this job is
+    /// triggered by a schedule.
+    #[prost(string, tag = "7")]
+    pub schedule: ::prost::alloc::string::String,
+    /// Output only. Execution results for all the monitoring objectives.
+    #[prost(message, optional, tag = "8")]
+    pub job_execution_detail: ::core::option::Option<ModelMonitoringJobExecutionDetail>,
+    /// Output only. Timestamp when this ModelMonitoringJob was scheduled. It will
+    /// only appear when this job is triggered by a schedule.
+    #[prost(message, optional, tag = "9")]
+    pub schedule_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Represent the execution details of the job.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringJobExecutionDetail {
+    /// Processed baseline datasets.
+    #[prost(message, repeated, tag = "1")]
+    pub baseline_datasets: ::prost::alloc::vec::Vec<
+        model_monitoring_job_execution_detail::ProcessedDataset,
+    >,
+    /// Processed target datasets.
+    #[prost(message, repeated, tag = "2")]
+    pub target_datasets: ::prost::alloc::vec::Vec<
+        model_monitoring_job_execution_detail::ProcessedDataset,
+    >,
+    /// Status of data processing for each monitoring objective.
+    /// Key is the objective.
+    #[prost(btree_map = "string, message", tag = "3")]
+    pub objective_status: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        super::super::super::rpc::Status,
+    >,
+    /// Additional job error status.
+    #[prost(message, optional, tag = "4")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+}
+/// Nested message and enum types in `ModelMonitoringJobExecutionDetail`.
+pub mod model_monitoring_job_execution_detail {
+    /// Processed dataset information.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ProcessedDataset {
+        /// Actual data location of the processed dataset.
+        #[prost(string, tag = "1")]
+        pub location: ::prost::alloc::string::String,
+        /// Dataset time range information if any.
+        #[prost(message, optional, tag = "2")]
+        pub time_range: ::core::option::Option<
+            super::super::super::super::r#type::Interval,
+        >,
+    }
+}
+/// Represents the collection of statistics for a metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringStats {
+    #[prost(oneof = "model_monitoring_stats::Stats", tags = "1")]
+    pub stats: ::core::option::Option<model_monitoring_stats::Stats>,
+}
+/// Nested message and enum types in `ModelMonitoringStats`.
+pub mod model_monitoring_stats {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Stats {
+        /// Generated tabular statistics.
+        #[prost(message, tag = "1")]
+        TabularStats(super::ModelMonitoringTabularStats),
+    }
+}
+/// Represents a single statistics data point.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringStatsDataPoint {
+    /// Statistics from current dataset.
+    #[prost(message, optional, tag = "1")]
+    pub current_stats: ::core::option::Option<
+        model_monitoring_stats_data_point::TypedValue,
+    >,
+    /// Statistics from baseline dataset.
+    #[prost(message, optional, tag = "2")]
+    pub baseline_stats: ::core::option::Option<
+        model_monitoring_stats_data_point::TypedValue,
+    >,
+    /// Threshold value.
+    #[prost(double, tag = "3")]
+    pub threshold_value: f64,
+    /// Indicate if the statistics has anomaly.
+    #[prost(bool, tag = "4")]
+    pub has_anomaly: bool,
+    /// Model monitoring job resource name.
+    #[prost(string, tag = "5")]
+    pub model_monitoring_job: ::prost::alloc::string::String,
+    /// Schedule resource name.
+    #[prost(string, tag = "6")]
+    pub schedule: ::prost::alloc::string::String,
+    /// Statistics create time.
+    #[prost(message, optional, tag = "7")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Algorithm used to calculated the metrics, eg: jensen_shannon_divergence,
+    /// l_infinity.
+    #[prost(string, tag = "8")]
+    pub algorithm: ::prost::alloc::string::String,
+}
+/// Nested message and enum types in `ModelMonitoringStatsDataPoint`.
+pub mod model_monitoring_stats_data_point {
+    /// Typed value of the statistics.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TypedValue {
+        /// The typed value.
+        #[prost(oneof = "typed_value::Value", tags = "1, 2")]
+        pub value: ::core::option::Option<typed_value::Value>,
+    }
+    /// Nested message and enum types in `TypedValue`.
+    pub mod typed_value {
+        /// Summary statistics for a population of values.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct DistributionDataValue {
+            /// tensorflow.metadata.v0.DatasetFeatureStatistics format.
+            #[prost(message, optional, tag = "1")]
+            pub distribution: ::core::option::Option<::prost_types::Value>,
+            /// Distribution distance deviation from the current dataset's statistics
+            /// to baseline dataset's statistics.
+            ///    * For categorical feature, the distribution distance is calculated
+            ///      by L-inifinity norm or Jensen–Shannon divergence.
+            ///    * For numerical feature, the distribution distance is calculated by
+            ///      Jensen–Shannon divergence.
+            #[prost(double, tag = "2")]
+            pub distribution_deviation: f64,
+        }
+        /// The typed value.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum Value {
+            /// Double.
+            #[prost(double, tag = "1")]
+            DoubleValue(f64),
+            /// Distribution.
+            #[prost(message, tag = "2")]
+            DistributionValue(DistributionDataValue),
+        }
+    }
+}
+/// A collection of data points that describes the time-varying values of a
+/// tabular metric.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModelMonitoringTabularStats {
+    /// The stats name.
+    #[prost(string, tag = "1")]
+    pub stats_name: ::prost::alloc::string::String,
+    /// One of the supported monitoring objectives:
+    /// `raw-feature-drift`
+    /// `prediction-output-drift`
+    /// `feature-attribution`
+    #[prost(string, tag = "2")]
+    pub objective_type: ::prost::alloc::string::String,
+    /// The data points of this time series. When listing time series, points are
+    /// returned in reverse time order.
+    #[prost(message, repeated, tag = "3")]
+    pub data_points: ::prost::alloc::vec::Vec<ModelMonitoringStatsDataPoint>,
+}
+/// Filter for searching ModelMonitoringStats.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchModelMonitoringStatsFilter {
+    #[prost(oneof = "search_model_monitoring_stats_filter::Filter", tags = "1")]
+    pub filter: ::core::option::Option<search_model_monitoring_stats_filter::Filter>,
+}
+/// Nested message and enum types in `SearchModelMonitoringStatsFilter`.
+pub mod search_model_monitoring_stats_filter {
+    /// Tabular statistics filter.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct TabularStatsFilter {
+        /// If not specified, will return all the stats_names.
+        #[prost(string, tag = "1")]
+        pub stats_name: ::prost::alloc::string::String,
+        /// One of the supported monitoring objectives:
+        /// `raw-feature-drift`
+        /// `prediction-output-drift`
+        /// `feature-attribution`
+        #[prost(string, tag = "2")]
+        pub objective_type: ::prost::alloc::string::String,
+        /// From a particular monitoring job.
+        #[prost(string, tag = "3")]
+        pub model_monitoring_job: ::prost::alloc::string::String,
+        /// From a particular monitoring schedule.
+        #[prost(string, tag = "4")]
+        pub model_monitoring_schedule: ::prost::alloc::string::String,
+        /// Specify the algorithm type used for distance calculation, eg:
+        /// jensen_shannon_divergence, l_infinity.
+        #[prost(string, tag = "5")]
+        pub algorithm: ::prost::alloc::string::String,
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Filter {
+        /// Tabular statistics filter.
+        #[prost(message, tag = "1")]
+        TabularStatsFilter(TabularStatsFilter),
+    }
+}
+/// Request message for
+/// [ModelMonitoringService.CreateModelMonitor][google.cloud.aiplatform.v1beta1.ModelMonitoringService.CreateModelMonitor].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateModelMonitorRequest {
+    /// Required. The resource name of the Location to create the ModelMonitor in.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The ModelMonitor to create.
+    #[prost(message, optional, tag = "2")]
+    pub model_monitor: ::core::option::Option<ModelMonitor>,
+    /// Optional. The ID to use for the Model Monitor, which will become the final
+    /// component of the model monitor resource name.
+    ///
+    /// The maximum length is 63 characters, and valid characters are
+    /// `/^[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?$/`.
+    #[prost(string, tag = "3")]
+    pub model_monitor_id: ::prost::alloc::string::String,
+}
+/// Runtime operation information for
+/// [ModelMonitoringService.CreateModelMonitor][google.cloud.aiplatform.v1beta1.ModelMonitoringService.CreateModelMonitor].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateModelMonitorOperationMetadata {
+    /// The operation generic information.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Request message for
+/// [ModelMonitoringService.UpdateModelMonitor][google.cloud.aiplatform.v1beta1.ModelMonitoringService.UpdateModelMonitor].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateModelMonitorRequest {
+    /// Required. The model monitoring configuration which replaces the resource on
+    /// the server.
+    #[prost(message, optional, tag = "1")]
+    pub model_monitor: ::core::option::Option<ModelMonitor>,
+    /// Required. Mask specifying which fields to update.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Runtime operation information for
+/// [ModelMonitoringService.UpdateModelMonitor][google.cloud.aiplatform.v1beta1.ModelMonitoringService.UpdateModelMonitor].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateModelMonitorOperationMetadata {
+    /// The operation generic information.
+    #[prost(message, optional, tag = "1")]
+    pub generic_metadata: ::core::option::Option<GenericOperationMetadata>,
+}
+/// Request message for
+/// [ModelMonitoringService.GetModelMonitor][google.cloud.aiplatform.v1beta1.ModelMonitoringService.GetModelMonitor].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetModelMonitorRequest {
+    /// Required. The name of the ModelMonitor resource.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.ListModelMonitors][google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitors].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelMonitorsRequest {
+    /// Required. The resource name of the Location to list the ModelMonitors from.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The standard list filter.
+    /// More detail in [AIP-160](<https://google.aip.dev/160>).
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The standard list page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// The standard list page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read.
+    #[prost(message, optional, tag = "5")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Response message for
+/// [ModelMonitoringService.ListModelMonitors][google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitors]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelMonitorsResponse {
+    /// List of ModelMonitor in the requested page.
+    #[prost(message, repeated, tag = "1")]
+    pub model_monitors: ::prost::alloc::vec::Vec<ModelMonitor>,
+    /// A token to retrieve the next page of results.
+    /// Pass to
+    /// [ListModelMonitorsRequest.page_token][google.cloud.aiplatform.v1beta1.ListModelMonitorsRequest.page_token]
+    /// to obtain that page.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.DeleteModelMonitor][google.cloud.aiplatform.v1beta1.ModelMonitoringService.DeleteModelMonitor].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteModelMonitorRequest {
+    /// Required. The name of the ModelMonitor resource to be deleted.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitords/{model_monitor}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Force delete the model monitor with schedules.
+    #[prost(bool, tag = "2")]
+    pub force: bool,
+}
+/// Request message for
+/// [ModelMonitoringService.CreateModelMonitoringJob][google.cloud.aiplatform.v1beta1.ModelMonitoringService.CreateModelMonitoringJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateModelMonitoringJobRequest {
+    /// Required. The parent of the ModelMonitoringJob.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMoniitors/{model_monitor}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The ModelMonitoringJob to create
+    #[prost(message, optional, tag = "2")]
+    pub model_monitoring_job: ::core::option::Option<ModelMonitoringJob>,
+    /// Optional. The ID to use for the Model Monitoring Job, which will become the
+    /// final component of the model monitoring job resource name.
+    ///
+    /// The maximum length is 63 characters, and valid characters are
+    /// `/^[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?$/`.
+    #[prost(string, tag = "3")]
+    pub model_monitoring_job_id: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.GetModelMonitoringJob][google.cloud.aiplatform.v1beta1.ModelMonitoringService.GetModelMonitoringJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetModelMonitoringJobRequest {
+    /// Required. The resource name of the ModelMonitoringJob.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}/modelMonitoringJobs/{model_monitoring_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.ListModelMonitoringJobs][google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitoringJobs].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelMonitoringJobsRequest {
+    /// Required. The parent of the ModelMonitoringJob.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// The standard list filter.
+    /// More detail in [AIP-160](<https://google.aip.dev/160>).
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// The standard list page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// The standard list page token.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Mask specifying which fields to read
+    #[prost(message, optional, tag = "5")]
+    pub read_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
+/// Response message for
+/// [ModelMonitoringService.ListModelMonitoringJobs][google.cloud.aiplatform.v1beta1.ModelMonitoringService.ListModelMonitoringJobs].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListModelMonitoringJobsResponse {
+    /// A list of ModelMonitoringJobs that matches the specified filter
+    /// in the request.
+    #[prost(message, repeated, tag = "1")]
+    pub model_monitoring_jobs: ::prost::alloc::vec::Vec<ModelMonitoringJob>,
+    /// The standard List next-page token.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.DeleteModelMonitoringJob][google.cloud.aiplatform.v1beta1.ModelMonitoringService.DeleteModelMonitoringJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteModelMonitoringJobRequest {
+    /// Required. The resource name of the model monitoring job to delete.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}/modelMonitoringJobs/{model_monitoring_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.SearchModelMonitoringStats][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchModelMonitoringStatsRequest {
+    /// Required. ModelMonitor resource name.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}`
+    #[prost(string, tag = "1")]
+    pub model_monitor: ::prost::alloc::string::String,
+    /// Filter for search different stats.
+    #[prost(message, optional, tag = "2")]
+    pub stats_filter: ::core::option::Option<SearchModelMonitoringStatsFilter>,
+    /// The time interval for which results should be returned.
+    #[prost(message, optional, tag = "3")]
+    pub time_interval: ::core::option::Option<super::super::super::r#type::Interval>,
+    /// The standard list page size.
+    #[prost(int32, tag = "4")]
+    pub page_size: i32,
+    /// A page token received from a previous
+    /// [ModelMonitoringService.SearchModelMonitoringStats][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats]
+    /// call.
+    #[prost(string, tag = "5")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for
+/// [ModelMonitoringService.SearchModelMonitoringStats][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchModelMonitoringStatsResponse {
+    /// Stats retrieved for requested objectives.
+    #[prost(message, repeated, tag = "1")]
+    pub monitoring_stats: ::prost::alloc::vec::Vec<ModelMonitoringStats>,
+    /// The page token that can be used by the next
+    /// [ModelMonitoringService.SearchModelMonitoringStats][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringStats]
+    /// call.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [ModelMonitoringService.SearchModelMonitoringAlerts][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringAlerts].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchModelMonitoringAlertsRequest {
+    /// Required. ModelMonitor resource name.
+    /// Format:
+    /// `projects/{project}/locations/{location}/modelMonitors/{model_monitor}`
+    #[prost(string, tag = "1")]
+    pub model_monitor: ::prost::alloc::string::String,
+    /// If non-empty, returns the alerts of this model monitoring job.
+    #[prost(string, tag = "2")]
+    pub model_monitoring_job: ::prost::alloc::string::String,
+    /// If non-empty, returns the alerts in this time interval.
+    #[prost(message, optional, tag = "3")]
+    pub alert_time_interval: ::core::option::Option<
+        super::super::super::r#type::Interval,
+    >,
+    /// If non-empty, returns the alerts of this stats_name.
+    #[prost(string, tag = "4")]
+    pub stats_name: ::prost::alloc::string::String,
+    /// If non-empty, returns the alerts of this objective type.
+    /// Supported monitoring objectives:
+    /// `raw-feature-drift`
+    /// `prediction-output-drift`
+    /// `feature-attribution`
+    #[prost(string, tag = "5")]
+    pub objective_type: ::prost::alloc::string::String,
+    /// The standard list page size.
+    #[prost(int32, tag = "6")]
+    pub page_size: i32,
+    /// A page token received from a previous
+    /// [ModelMonitoringService.SearchModelMonitoringAlerts][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringAlerts]
+    /// call.
+    #[prost(string, tag = "7")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for
+/// [ModelMonitoringService.SearchModelMonitoringAlerts][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringAlerts].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchModelMonitoringAlertsResponse {
+    /// Alerts retrieved for the requested objectives. Sorted by alert time
+    /// descendingly.
+    #[prost(message, repeated, tag = "1")]
+    pub model_monitoring_alerts: ::prost::alloc::vec::Vec<ModelMonitoringAlert>,
+    /// The total number of alerts retrieved by the requested objectives.
+    #[prost(int64, tag = "2")]
+    pub total_number_alerts: i64,
+    /// The page token that can be used by the next
+    /// [ModelMonitoringService.SearchModelMonitoringAlerts][google.cloud.aiplatform.v1beta1.ModelMonitoringService.SearchModelMonitoringAlerts]
+    /// call.
+    #[prost(string, tag = "3")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod model_monitoring_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service for creating and managing Vertex AI Model moitoring. This includes
+    /// `ModelMonitor` resources, `ModelMonitoringJob` resources.
+    #[derive(Debug, Clone)]
+    pub struct ModelMonitoringServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ModelMonitoringServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ModelMonitoringServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ModelMonitoringServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a ModelMonitor.
+        pub async fn create_model_monitor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateModelMonitorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/CreateModelMonitor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "CreateModelMonitor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a ModelMonitor.
+        pub async fn update_model_monitor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateModelMonitorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/UpdateModelMonitor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "UpdateModelMonitor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a ModelMonitor.
+        pub async fn get_model_monitor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetModelMonitorRequest>,
+        ) -> std::result::Result<tonic::Response<super::ModelMonitor>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/GetModelMonitor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "GetModelMonitor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists ModelMonitors in a Location.
+        pub async fn list_model_monitors(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListModelMonitorsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListModelMonitorsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/ListModelMonitors",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "ListModelMonitors",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a ModelMonitor.
+        pub async fn delete_model_monitor(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteModelMonitorRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/DeleteModelMonitor",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "DeleteModelMonitor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a ModelMonitoringJob.
+        pub async fn create_model_monitoring_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateModelMonitoringJobRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ModelMonitoringJob>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/CreateModelMonitoringJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "CreateModelMonitoringJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a ModelMonitoringJob.
+        pub async fn get_model_monitoring_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetModelMonitoringJobRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ModelMonitoringJob>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/GetModelMonitoringJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "GetModelMonitoringJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists ModelMonitoringJobs.
+        /// Callers may choose to read across multiple Monitors as per
+        /// [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash
+        /// character) as a wildcard character instead of modelMonitor id in the
+        /// parent. Format
+        /// `projects/{project_id}/locations/{location}/moodelMonitors/-/modelMonitoringJobs`
+        pub async fn list_model_monitoring_jobs(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListModelMonitoringJobsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListModelMonitoringJobsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/ListModelMonitoringJobs",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "ListModelMonitoringJobs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a ModelMonitoringJob.
+        pub async fn delete_model_monitoring_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteModelMonitoringJobRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/DeleteModelMonitoringJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "DeleteModelMonitoringJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Searches Model Monitoring Stats generated within a given time window.
+        pub async fn search_model_monitoring_stats(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SearchModelMonitoringStatsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SearchModelMonitoringStatsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/SearchModelMonitoringStats",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "SearchModelMonitoringStats",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns the Model Monitoring alerts.
+        pub async fn search_model_monitoring_alerts(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SearchModelMonitoringAlertsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::SearchModelMonitoringAlertsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.ModelMonitoringService/SearchModelMonitoringAlerts",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
+                        "SearchModelMonitoringAlerts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
 /// The TrainingPipeline orchestrates tasks associated with training a Model. It
 /// always executes the training task, and optionally may also
 /// export data from Vertex AI's Dataset which becomes the training input,
@@ -21620,7 +23224,7 @@ pub struct Schedule {
     /// Required.
     /// The API request template to launch the scheduled runs.
     /// User-specified ID is not supported in the request template.
-    #[prost(oneof = "schedule::Request", tags = "14")]
+    #[prost(oneof = "schedule::Request", tags = "14, 15")]
     pub request: ::core::option::Option<schedule::Request>,
 }
 /// Nested message and enum types in `Schedule`.
@@ -21713,6 +23317,10 @@ pub mod schedule {
         /// projects/{project}/locations/{location}).
         #[prost(message, tag = "14")]
         CreatePipelineJobRequest(super::CreatePipelineJobRequest),
+        /// Request for
+        /// [ModelMonitoringService.CreateModelMonitoringJob][google.cloud.aiplatform.v1beta1.ModelMonitoringService.CreateModelMonitoringJob].
+        #[prost(message, tag = "15")]
+        CreateModelMonitoringJobRequest(super::CreateModelMonitoringJobRequest),
     }
 }
 /// Request message for
