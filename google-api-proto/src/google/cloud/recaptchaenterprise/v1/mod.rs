@@ -1401,7 +1401,7 @@ pub struct ListFirewallPoliciesRequest {
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response to request to list firewall policies belonging to a key.
+/// Response to request to list firewall policies belonging to a project.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListFirewallPoliciesResponse {

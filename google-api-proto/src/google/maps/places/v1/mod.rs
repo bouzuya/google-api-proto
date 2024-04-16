@@ -19,6 +19,37 @@ pub struct AuthorAttribution {
     #[prost(string, tag = "3")]
     pub photo_uri: ::prost::alloc::string::String,
 }
+/// Information about a review of a place.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Review {
+    /// A reference representing this place review which may be used to look up
+    /// this place review again (also called the API "resource" name:
+    /// `places/{place_id}/reviews/{review}`).
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// A string of formatted recent time, expressing the review time relative
+    /// to the current time in a form appropriate for the language and country.
+    #[prost(string, tag = "2")]
+    pub relative_publish_time_description: ::prost::alloc::string::String,
+    /// The localized text of the review.
+    #[prost(message, optional, tag = "9")]
+    pub text: ::core::option::Option<super::super::super::r#type::LocalizedText>,
+    /// The review text in its original language.
+    #[prost(message, optional, tag = "12")]
+    pub original_text: ::core::option::Option<
+        super::super::super::r#type::LocalizedText,
+    >,
+    /// A number between 1.0 and 5.0, also called the number of stars.
+    #[prost(double, tag = "7")]
+    pub rating: f64,
+    /// This review's author.
+    #[prost(message, optional, tag = "13")]
+    pub author_attribution: ::core::option::Option<AuthorAttribution>,
+    /// Timestamp for the review.
+    #[prost(message, optional, tag = "14")]
+    pub publish_time: ::core::option::Option<::prost_types::Timestamp>,
+}
 /// Information about the EV Charge Station hosted in Place.
 /// Terminology follows
 /// <https://afdc.energy.gov/fuels/electricity_infrastructure.html> One port
@@ -144,6 +175,21 @@ impl EvConnectorType {
             _ => None,
         }
     }
+}
+/// Circle with a LatLng as center and radius.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Circle {
+    /// Required. Center latitude and longitude.
+    ///
+    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
+    /// longitude must be within \[-180.0, 180.0\].
+    #[prost(message, optional, tag = "1")]
+    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
+    /// Required. Radius measured in meters. The radius must be within [0.0,
+    /// 50000.0].
+    #[prost(double, tag = "2")]
+    pub radius: f64,
 }
 /// The most recent information about fuel options in a gas station. This
 /// information is updated regularly.
@@ -300,37 +346,6 @@ pub struct Photo {
     /// This photo's authors.
     #[prost(message, repeated, tag = "4")]
     pub author_attributions: ::prost::alloc::vec::Vec<AuthorAttribution>,
-}
-/// Information about a review of a place.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Review {
-    /// A reference representing this place review which may be used to look up
-    /// this place review again (also called the API "resource" name:
-    /// `places/{place_id}/reviews/{review}`).
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// A string of formatted recent time, expressing the review time relative
-    /// to the current time in a form appropriate for the language and country.
-    #[prost(string, tag = "2")]
-    pub relative_publish_time_description: ::prost::alloc::string::String,
-    /// The localized text of the review.
-    #[prost(message, optional, tag = "9")]
-    pub text: ::core::option::Option<super::super::super::r#type::LocalizedText>,
-    /// The review text in its original language.
-    #[prost(message, optional, tag = "12")]
-    pub original_text: ::core::option::Option<
-        super::super::super::r#type::LocalizedText,
-    >,
-    /// A number between 1.0 and 5.0, also called the number of stars.
-    #[prost(double, tag = "7")]
-    pub rating: f64,
-    /// This review's author.
-    #[prost(message, optional, tag = "13")]
-    pub author_attribution: ::core::option::Option<AuthorAttribution>,
-    /// Timestamp for the review.
-    #[prost(message, optional, tag = "14")]
-    pub publish_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// All the information representing a Place.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -968,21 +983,6 @@ impl PriceLevel {
             _ => None,
         }
     }
-}
-/// Circle with a LatLng as center and radius.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Circle {
-    /// Required. Center latitude and longitude.
-    ///
-    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
-    /// longitude must be within \[-180.0, 180.0\].
-    #[prost(message, optional, tag = "1")]
-    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
-    /// Required. Radius measured in meters. The radius must be within [0.0,
-    /// 50000.0].
-    #[prost(double, tag = "2")]
-    pub radius: f64,
 }
 /// Request proto for Search Nearby.
 ///

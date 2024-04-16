@@ -7325,522 +7325,6 @@ pub mod data_quality_scan_rule_result {
         }
     }
 }
-/// ResourceAccessSpec holds the access control configuration to be enforced
-/// on the resources, for example, Cloud Storage bucket, BigQuery dataset,
-/// BigQuery table.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ResourceAccessSpec {
-    /// Optional. The format of strings follows the pattern followed by IAM in the
-    /// bindings. user:{email}, serviceAccount:{email} group:{email}.
-    /// The set of principals to be granted reader role on the resource.
-    #[prost(string, repeated, tag = "1")]
-    pub readers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. The set of principals to be granted writer role on the resource.
-    #[prost(string, repeated, tag = "2")]
-    pub writers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. The set of principals to be granted owner role on the resource.
-    #[prost(string, repeated, tag = "3")]
-    pub owners: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// DataAccessSpec holds the access control configuration to be enforced on data
-/// stored within resources (eg: rows, columns in BigQuery Tables). When
-/// associated with data, the data is only accessible to
-/// principals explicitly granted access through the DataAccessSpec. Principals
-/// with access to the containing resource are not implicitly granted access.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataAccessSpec {
-    /// Optional. The format of strings follows the pattern followed by IAM in the
-    /// bindings. user:{email}, serviceAccount:{email} group:{email}.
-    /// The set of principals to be granted reader role on data
-    /// stored within resources.
-    #[prost(string, repeated, tag = "1")]
-    pub readers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Create content request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateContentRequest {
-    /// Required. The resource name of the parent lake:
-    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Content resource.
-    #[prost(message, optional, tag = "2")]
-    pub content: ::core::option::Option<Content>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// Update content request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateContentRequest {
-    /// Required. Mask of fields to update.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Update description.
-    /// Only fields specified in `update_mask` are updated.
-    #[prost(message, optional, tag = "2")]
-    pub content: ::core::option::Option<Content>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// Delete content request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteContentRequest {
-    /// Required. The resource name of the content:
-    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// List content request. Returns the BASIC Content view.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListContentRequest {
-    /// Required. The resource name of the parent lake:
-    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Maximum number of content to return. The service may return fewer
-    /// than this value. If unspecified, at most 10 content will be returned. The
-    /// maximum value is 1000; values above 1000 will be coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. Page token received from a previous `ListContent` call. Provide
-    /// this to retrieve the subsequent page. When paginating, all other parameters
-    /// provided to `ListContent` must match the call that provided the page
-    /// token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Filter request. Filters are case-sensitive.
-    /// The following formats are supported:
-    ///
-    /// labels.key1 = "value1"
-    /// labels:key1
-    /// type = "NOTEBOOK"
-    /// type = "SQL_SCRIPT"
-    ///
-    /// These restrictions can be coinjoined with AND, OR and NOT conjunctions.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-}
-/// List content response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListContentResponse {
-    /// Content under the given parent lake.
-    #[prost(message, repeated, tag = "1")]
-    pub content: ::prost::alloc::vec::Vec<Content>,
-    /// Token to retrieve the next page of results, or empty if there are no more
-    /// results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Get content request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetContentRequest {
-    /// Required. The resource name of the content:
-    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. Specify content view to make a partial request.
-    #[prost(enumeration = "get_content_request::ContentView", tag = "2")]
-    pub view: i32,
-}
-/// Nested message and enum types in `GetContentRequest`.
-pub mod get_content_request {
-    /// Specifies whether the request should return the full or the partial
-    /// representation.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum ContentView {
-        /// Content view not specified. Defaults to BASIC.
-        /// The API will default to the BASIC view.
-        Unspecified = 0,
-        /// Will not return the `data_text` field.
-        Basic = 1,
-        /// Returns the complete proto.
-        Full = 2,
-    }
-    impl ContentView {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                ContentView::Unspecified => "CONTENT_VIEW_UNSPECIFIED",
-                ContentView::Basic => "BASIC",
-                ContentView::Full => "FULL",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "CONTENT_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
-                "BASIC" => Some(Self::Basic),
-                "FULL" => Some(Self::Full),
-                _ => None,
-            }
-        }
-    }
-}
-/// Generated client implementations.
-pub mod content_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// ContentService manages Notebook and SQL Scripts for Dataplex.
-    #[derive(Debug, Clone)]
-    pub struct ContentServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> ContentServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> ContentServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            ContentServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Create a content.
-        pub async fn create_content(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateContentRequest>,
-        ) -> std::result::Result<tonic::Response<super::Content>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/CreateContent",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "CreateContent",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Update a content. Only supports full resource update.
-        pub async fn update_content(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateContentRequest>,
-        ) -> std::result::Result<tonic::Response<super::Content>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/UpdateContent",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "UpdateContent",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Delete a content.
-        pub async fn delete_content(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteContentRequest>,
-        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/DeleteContent",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "DeleteContent",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Get a content resource.
-        pub async fn get_content(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetContentRequest>,
-        ) -> std::result::Result<tonic::Response<super::Content>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/GetContent",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "GetContent",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets the access control policy for a contentitem resource. A `NOT_FOUND`
-        /// error is returned if the resource does not exist. An empty policy is
-        /// returned if the resource exists but does not have a policy set on it.
-        ///
-        /// Caller must have Google IAM `dataplex.content.getIamPolicy` permission
-        /// on the resource.
-        pub async fn get_iam_policy(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::super::super::super::iam::v1::GetIamPolicyRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::iam::v1::Policy>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/GetIamPolicy",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "GetIamPolicy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Sets the access control policy on the specified contentitem resource.
-        /// Replaces any existing policy.
-        ///
-        /// Caller must have Google IAM `dataplex.content.setIamPolicy` permission
-        /// on the resource.
-        pub async fn set_iam_policy(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::super::super::super::iam::v1::SetIamPolicyRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::iam::v1::Policy>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/SetIamPolicy",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "SetIamPolicy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Returns the caller's permissions on a resource.
-        /// If the resource does not exist, an empty set of
-        /// permissions is returned (a `NOT_FOUND` error is not returned).
-        ///
-        /// A caller is not required to have Google IAM permission to make this
-        /// request.
-        ///
-        /// Note: This operation is designed to be used for building permission-aware
-        /// UIs and command-line tools, not for authorization checking. This operation
-        /// may "fail open" without warning.
-        pub async fn test_iam_permissions(
-            &mut self,
-            request: impl tonic::IntoRequest<
-                super::super::super::super::iam::v1::TestIamPermissionsRequest,
-            >,
-        ) -> std::result::Result<
-            tonic::Response<
-                super::super::super::super::iam::v1::TestIamPermissionsResponse,
-            >,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/TestIamPermissions",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "TestIamPermissions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// List content.
-        pub async fn list_content(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListContentRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListContentResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.ContentService/ListContent",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.ContentService",
-                        "ListContent",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
 /// Create a metadata entity request.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -9208,6 +8692,1576 @@ pub mod metadata_service_client {
                     GrpcMethod::new(
                         "google.cloud.dataplex.v1.MetadataService",
                         "ListPartitions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// ResourceAccessSpec holds the access control configuration to be enforced
+/// on the resources, for example, Cloud Storage bucket, BigQuery dataset,
+/// BigQuery table.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourceAccessSpec {
+    /// Optional. The format of strings follows the pattern followed by IAM in the
+    /// bindings. user:{email}, serviceAccount:{email} group:{email}.
+    /// The set of principals to be granted reader role on the resource.
+    #[prost(string, repeated, tag = "1")]
+    pub readers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. The set of principals to be granted writer role on the resource.
+    #[prost(string, repeated, tag = "2")]
+    pub writers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. The set of principals to be granted owner role on the resource.
+    #[prost(string, repeated, tag = "3")]
+    pub owners: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// DataAccessSpec holds the access control configuration to be enforced on data
+/// stored within resources (eg: rows, columns in BigQuery Tables). When
+/// associated with data, the data is only accessible to
+/// principals explicitly granted access through the DataAccessSpec. Principals
+/// with access to the containing resource are not implicitly granted access.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataAccessSpec {
+    /// Optional. The format of strings follows the pattern followed by IAM in the
+    /// bindings. user:{email}, serviceAccount:{email} group:{email}.
+    /// The set of principals to be granted reader role on data
+    /// stored within resources.
+    #[prost(string, repeated, tag = "1")]
+    pub readers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Create content request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateContentRequest {
+    /// Required. The resource name of the parent lake:
+    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Content resource.
+    #[prost(message, optional, tag = "2")]
+    pub content: ::core::option::Option<Content>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// Update content request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateContentRequest {
+    /// Required. Mask of fields to update.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. Update description.
+    /// Only fields specified in `update_mask` are updated.
+    #[prost(message, optional, tag = "2")]
+    pub content: ::core::option::Option<Content>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// Delete content request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteContentRequest {
+    /// Required. The resource name of the content:
+    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// List content request. Returns the BASIC Content view.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListContentRequest {
+    /// Required. The resource name of the parent lake:
+    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Maximum number of content to return. The service may return fewer
+    /// than this value. If unspecified, at most 10 content will be returned. The
+    /// maximum value is 1000; values above 1000 will be coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. Page token received from a previous `ListContent` call. Provide
+    /// this to retrieve the subsequent page. When paginating, all other parameters
+    /// provided to `ListContent` must match the call that provided the page
+    /// token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Filter request. Filters are case-sensitive.
+    /// The following formats are supported:
+    ///
+    /// labels.key1 = "value1"
+    /// labels:key1
+    /// type = "NOTEBOOK"
+    /// type = "SQL_SCRIPT"
+    ///
+    /// These restrictions can be coinjoined with AND, OR and NOT conjunctions.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+}
+/// List content response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListContentResponse {
+    /// Content under the given parent lake.
+    #[prost(message, repeated, tag = "1")]
+    pub content: ::prost::alloc::vec::Vec<Content>,
+    /// Token to retrieve the next page of results, or empty if there are no more
+    /// results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Get content request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetContentRequest {
+    /// Required. The resource name of the content:
+    /// projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. Specify content view to make a partial request.
+    #[prost(enumeration = "get_content_request::ContentView", tag = "2")]
+    pub view: i32,
+}
+/// Nested message and enum types in `GetContentRequest`.
+pub mod get_content_request {
+    /// Specifies whether the request should return the full or the partial
+    /// representation.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ContentView {
+        /// Content view not specified. Defaults to BASIC.
+        /// The API will default to the BASIC view.
+        Unspecified = 0,
+        /// Will not return the `data_text` field.
+        Basic = 1,
+        /// Returns the complete proto.
+        Full = 2,
+    }
+    impl ContentView {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ContentView::Unspecified => "CONTENT_VIEW_UNSPECIFIED",
+                ContentView::Basic => "BASIC",
+                ContentView::Full => "FULL",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "CONTENT_VIEW_UNSPECIFIED" => Some(Self::Unspecified),
+                "BASIC" => Some(Self::Basic),
+                "FULL" => Some(Self::Full),
+                _ => None,
+            }
+        }
+    }
+}
+/// Generated client implementations.
+pub mod content_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// ContentService manages Notebook and SQL Scripts for Dataplex.
+    #[derive(Debug, Clone)]
+    pub struct ContentServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ContentServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ContentServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ContentServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Create a content.
+        pub async fn create_content(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateContentRequest>,
+        ) -> std::result::Result<tonic::Response<super::Content>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/CreateContent",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "CreateContent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Update a content. Only supports full resource update.
+        pub async fn update_content(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateContentRequest>,
+        ) -> std::result::Result<tonic::Response<super::Content>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/UpdateContent",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "UpdateContent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Delete a content.
+        pub async fn delete_content(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteContentRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/DeleteContent",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "DeleteContent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Get a content resource.
+        pub async fn get_content(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetContentRequest>,
+        ) -> std::result::Result<tonic::Response<super::Content>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/GetContent",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "GetContent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets the access control policy for a contentitem resource. A `NOT_FOUND`
+        /// error is returned if the resource does not exist. An empty policy is
+        /// returned if the resource exists but does not have a policy set on it.
+        ///
+        /// Caller must have Google IAM `dataplex.content.getIamPolicy` permission
+        /// on the resource.
+        pub async fn get_iam_policy(
+            &mut self,
+            request: impl tonic::IntoRequest<
+                super::super::super::super::iam::v1::GetIamPolicyRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::iam::v1::Policy>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/GetIamPolicy",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "GetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Sets the access control policy on the specified contentitem resource.
+        /// Replaces any existing policy.
+        ///
+        /// Caller must have Google IAM `dataplex.content.setIamPolicy` permission
+        /// on the resource.
+        pub async fn set_iam_policy(
+            &mut self,
+            request: impl tonic::IntoRequest<
+                super::super::super::super::iam::v1::SetIamPolicyRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::iam::v1::Policy>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/SetIamPolicy",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "SetIamPolicy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns the caller's permissions on a resource.
+        /// If the resource does not exist, an empty set of
+        /// permissions is returned (a `NOT_FOUND` error is not returned).
+        ///
+        /// A caller is not required to have Google IAM permission to make this
+        /// request.
+        ///
+        /// Note: This operation is designed to be used for building permission-aware
+        /// UIs and command-line tools, not for authorization checking. This operation
+        /// may "fail open" without warning.
+        pub async fn test_iam_permissions(
+            &mut self,
+            request: impl tonic::IntoRequest<
+                super::super::super::super::iam::v1::TestIamPermissionsRequest,
+            >,
+        ) -> std::result::Result<
+            tonic::Response<
+                super::super::super::super::iam::v1::TestIamPermissionsResponse,
+            >,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/TestIamPermissions",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "TestIamPermissions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// List content.
+        pub async fn list_content(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListContentRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListContentResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.ContentService/ListContent",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.ContentService",
+                        "ListContent",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// DataTaxonomy represents a set of hierarchical DataAttributes resources,
+/// grouped with a common theme Eg: 'SensitiveDataTaxonomy' can have attributes
+/// to manage PII data. It is defined at project level.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataTaxonomy {
+    /// Output only. The relative resource name of the DataTaxonomy, of the form:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. System generated globally unique ID for the dataTaxonomy. This
+    /// ID will be different if the DataTaxonomy is deleted and re-created with the
+    /// same name.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The time when the DataTaxonomy was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time when the DataTaxonomy was last updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Description of the DataTaxonomy.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. User friendly display name.
+    #[prost(string, tag = "6")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. User-defined labels for the DataTaxonomy.
+    #[prost(btree_map = "string, string", tag = "8")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The number of attributes in the DataTaxonomy.
+    #[prost(int32, tag = "9")]
+    pub attribute_count: i32,
+    /// This checksum is computed by the server based on the value of other
+    /// fields, and may be sent on update and delete requests to ensure the
+    /// client has an up-to-date value before proceeding.
+    #[prost(string, tag = "10")]
+    pub etag: ::prost::alloc::string::String,
+    /// Output only. The number of classes in the DataTaxonomy.
+    #[prost(int32, tag = "11")]
+    pub class_count: i32,
+}
+/// Denotes one dataAttribute in a dataTaxonomy, for example, PII.
+/// DataAttribute resources can be defined in a hierarchy.
+/// A single dataAttribute resource can contain specs of multiple types
+///
+/// ```
+/// PII
+///    - ResourceAccessSpec :
+///                  - readers :foo@bar.com
+///    - DataAccessSpec :
+///                  - readers :bar@foo.com
+/// ```
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataAttribute {
+    /// Output only. The relative resource name of the dataAttribute, of the form:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. System generated globally unique ID for the DataAttribute.
+    /// This ID will be different if the DataAttribute is deleted and re-created
+    /// with the same name.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The time when the DataAttribute was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time when the DataAttribute was last updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Description of the DataAttribute.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. User friendly display name.
+    #[prost(string, tag = "6")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. User-defined labels for the DataAttribute.
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. The ID of the parent DataAttribute resource, should belong to the
+    /// same data taxonomy. Circular dependency in parent chain is not valid.
+    /// Maximum depth of the hierarchy allowed is 4.
+    /// \[a -> b -> c -> d -> e, depth = 4\]
+    #[prost(string, tag = "8")]
+    pub parent_id: ::prost::alloc::string::String,
+    /// Output only. The number of child attributes present for this attribute.
+    #[prost(int32, tag = "9")]
+    pub attribute_count: i32,
+    /// This checksum is computed by the server based on the value of other
+    /// fields, and may be sent on update and delete requests to ensure the
+    /// client has an up-to-date value before proceeding.
+    #[prost(string, tag = "10")]
+    pub etag: ::prost::alloc::string::String,
+    /// Optional. Specified when applied to a resource (eg: Cloud Storage bucket,
+    /// BigQuery dataset, BigQuery table).
+    #[prost(message, optional, tag = "100")]
+    pub resource_access_spec: ::core::option::Option<ResourceAccessSpec>,
+    /// Optional. Specified when applied to data stored on the resource (eg: rows,
+    /// columns in BigQuery Tables).
+    #[prost(message, optional, tag = "101")]
+    pub data_access_spec: ::core::option::Option<DataAccessSpec>,
+}
+/// DataAttributeBinding represents binding of attributes to resources. Eg: Bind
+/// 'CustomerInfo' entity with 'PII' attribute.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DataAttributeBinding {
+    /// Output only. The relative resource name of the Data Attribute Binding, of
+    /// the form:
+    /// projects/{project_number}/locations/{location}/dataAttributeBindings/{data_attribute_binding_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. System generated globally unique ID for the
+    /// DataAttributeBinding. This ID will be different if the DataAttributeBinding
+    /// is deleted and re-created with the same name.
+    #[prost(string, tag = "2")]
+    pub uid: ::prost::alloc::string::String,
+    /// Output only. The time when the DataAttributeBinding was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The time when the DataAttributeBinding was last updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Description of the DataAttributeBinding.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. User friendly display name.
+    #[prost(string, tag = "6")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Optional. User-defined labels for the DataAttributeBinding.
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// This checksum is computed by the server based on the value of other
+    /// fields, and may be sent on update and delete requests to ensure the
+    /// client has an up-to-date value before proceeding.
+    /// Etags must be used when calling the DeleteDataAttributeBinding and the
+    /// UpdateDataAttributeBinding method.
+    #[prost(string, tag = "8")]
+    pub etag: ::prost::alloc::string::String,
+    /// Optional. List of attributes to be associated with the resource, provided
+    /// in the form:
+    /// projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+    #[prost(string, repeated, tag = "110")]
+    pub attributes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. The list of paths for items within the associated resource (eg.
+    /// columns and partitions within a table) along with attribute bindings.
+    #[prost(message, repeated, tag = "120")]
+    pub paths: ::prost::alloc::vec::Vec<data_attribute_binding::Path>,
+    /// The reference to the resource that is associated to attributes, or
+    /// the query to match resources and associate attributes.
+    #[prost(oneof = "data_attribute_binding::ResourceReference", tags = "100")]
+    pub resource_reference: ::core::option::Option<
+        data_attribute_binding::ResourceReference,
+    >,
+}
+/// Nested message and enum types in `DataAttributeBinding`.
+pub mod data_attribute_binding {
+    /// Represents a subresource of the given resource, and associated bindings
+    /// with it. Currently supported subresources are column and partition schema
+    /// fields within a table.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Path {
+        /// Required. The name identifier of the path.
+        /// Nested columns should be of the form: 'address.city'.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Optional. List of attributes to be associated with the path of the
+        /// resource, provided in the form:
+        /// projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+        #[prost(string, repeated, tag = "2")]
+        pub attributes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// The reference to the resource that is associated to attributes, or
+    /// the query to match resources and associate attributes.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ResourceReference {
+        /// Optional. Immutable. The resource name of the resource that is associated
+        /// to attributes. Presently, only entity resource is supported in the form:
+        /// projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/entities/{entity_id}
+        /// Must belong in the same project and region as the attribute binding, and
+        /// there can only exist one active binding for a resource.
+        #[prost(string, tag = "100")]
+        Resource(::prost::alloc::string::String),
+    }
+}
+/// Create DataTaxonomy request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDataTaxonomyRequest {
+    /// Required. The resource name of the data taxonomy location, of the form:
+    /// projects/{project_number}/locations/{location_id}
+    /// where `location_id` refers to a GCP region.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. DataTaxonomy identifier.
+    /// * Must contain only lowercase letters, numbers and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the Project.
+    #[prost(string, tag = "2")]
+    pub data_taxonomy_id: ::prost::alloc::string::String,
+    /// Required. DataTaxonomy resource.
+    #[prost(message, optional, tag = "3")]
+    pub data_taxonomy: ::core::option::Option<DataTaxonomy>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "4")]
+    pub validate_only: bool,
+}
+/// Update DataTaxonomy request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDataTaxonomyRequest {
+    /// Required. Mask of fields to update.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. Only fields specified in `update_mask` are updated.
+    #[prost(message, optional, tag = "2")]
+    pub data_taxonomy: ::core::option::Option<DataTaxonomy>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// Get DataTaxonomy request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDataTaxonomyRequest {
+    /// Required. The resource name of the DataTaxonomy:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// List DataTaxonomies request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDataTaxonomiesRequest {
+    /// Required. The resource name of the DataTaxonomy location, of the form:
+    /// projects/{project_number}/locations/{location_id}
+    /// where `location_id` refers to a GCP region.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Maximum number of DataTaxonomies to return. The service may
+    /// return fewer than this value. If unspecified, at most 10 DataTaxonomies
+    /// will be returned. The maximum value is 1000; values above 1000 will be
+    /// coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. Page token received from a previous ` ListDataTaxonomies` call.
+    /// Provide this to retrieve the subsequent page. When paginating, all other
+    /// parameters provided to ` ListDataTaxonomies` must match the call that
+    /// provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Filter request.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Order by fields for the result.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// List DataTaxonomies response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDataTaxonomiesResponse {
+    /// DataTaxonomies under the given parent location.
+    #[prost(message, repeated, tag = "1")]
+    pub data_taxonomies: ::prost::alloc::vec::Vec<DataTaxonomy>,
+    /// Token to retrieve the next page of results, or empty if there are no more
+    /// results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable_locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Delete DataTaxonomy request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDataTaxonomyRequest {
+    /// Required. The resource name of the DataTaxonomy:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. If the client provided etag value does not match the current etag
+    /// value,the DeleteDataTaxonomy method returns an ABORTED error.
+    #[prost(string, tag = "2")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Create DataAttribute request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDataAttributeRequest {
+    /// Required. The resource name of the parent data taxonomy
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. DataAttribute identifier.
+    /// * Must contain only lowercase letters, numbers and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the DataTaxonomy.
+    #[prost(string, tag = "2")]
+    pub data_attribute_id: ::prost::alloc::string::String,
+    /// Required. DataAttribute resource.
+    #[prost(message, optional, tag = "3")]
+    pub data_attribute: ::core::option::Option<DataAttribute>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "4")]
+    pub validate_only: bool,
+}
+/// Update DataAttribute request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDataAttributeRequest {
+    /// Required. Mask of fields to update.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. Only fields specified in `update_mask` are updated.
+    #[prost(message, optional, tag = "2")]
+    pub data_attribute: ::core::option::Option<DataAttribute>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// Get DataAttribute request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDataAttributeRequest {
+    /// Required. The resource name of the dataAttribute:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// List DataAttributes request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDataAttributesRequest {
+    /// Required. The resource name of the DataTaxonomy:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Maximum number of DataAttributes to return. The service may
+    /// return fewer than this value. If unspecified, at most 10 dataAttributes
+    /// will be returned. The maximum value is 1000; values above 1000 will be
+    /// coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. Page token received from a previous `ListDataAttributes` call.
+    /// Provide this to retrieve the subsequent page. When paginating, all other
+    /// parameters provided to `ListDataAttributes` must match the call that
+    /// provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Filter request.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Order by fields for the result.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// List DataAttributes response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDataAttributesResponse {
+    /// DataAttributes under the given parent DataTaxonomy.
+    #[prost(message, repeated, tag = "1")]
+    pub data_attributes: ::prost::alloc::vec::Vec<DataAttribute>,
+    /// Token to retrieve the next page of results, or empty if there are no more
+    /// results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable_locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Delete DataAttribute request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDataAttributeRequest {
+    /// Required. The resource name of the DataAttribute:
+    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. If the client provided etag value does not match the current etag
+    /// value, the DeleteDataAttribute method returns an ABORTED error response.
+    #[prost(string, tag = "2")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Create DataAttributeBinding request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateDataAttributeBindingRequest {
+    /// Required. The resource name of the parent data taxonomy
+    /// projects/{project_number}/locations/{location_id}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. DataAttributeBinding identifier.
+    /// * Must contain only lowercase letters, numbers and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the Location.
+    #[prost(string, tag = "2")]
+    pub data_attribute_binding_id: ::prost::alloc::string::String,
+    /// Required. DataAttributeBinding resource.
+    #[prost(message, optional, tag = "3")]
+    pub data_attribute_binding: ::core::option::Option<DataAttributeBinding>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "4")]
+    pub validate_only: bool,
+}
+/// Update DataAttributeBinding request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateDataAttributeBindingRequest {
+    /// Required. Mask of fields to update.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. Only fields specified in `update_mask` are updated.
+    #[prost(message, optional, tag = "2")]
+    pub data_attribute_binding: ::core::option::Option<DataAttributeBinding>,
+    /// Optional. Only validate the request, but do not perform mutations.
+    /// The default is false.
+    #[prost(bool, tag = "3")]
+    pub validate_only: bool,
+}
+/// Get DataAttributeBinding request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetDataAttributeBindingRequest {
+    /// Required. The resource name of the DataAttributeBinding:
+    /// projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// List DataAttributeBindings request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDataAttributeBindingsRequest {
+    /// Required. The resource name of the Location:
+    /// projects/{project_number}/locations/{location_id}
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Maximum number of DataAttributeBindings to return. The service
+    /// may return fewer than this value. If unspecified, at most 10
+    /// DataAttributeBindings will be returned. The maximum value is 1000; values
+    /// above 1000 will be coerced to 1000.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. Page token received from a previous `ListDataAttributeBindings`
+    /// call. Provide this to retrieve the subsequent page. When paginating, all
+    /// other parameters provided to `ListDataAttributeBindings` must match the
+    /// call that provided the page token.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Filter request.
+    /// Filter using resource: filter=resource:"resource-name"
+    /// Filter using attribute: filter=attributes:"attribute-name"
+    /// Filter using attribute in paths list:
+    /// filter=paths.attributes:"attribute-name"
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Order by fields for the result.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// List DataAttributeBindings response.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListDataAttributeBindingsResponse {
+    /// DataAttributeBindings under the given parent Location.
+    #[prost(message, repeated, tag = "1")]
+    pub data_attribute_bindings: ::prost::alloc::vec::Vec<DataAttributeBinding>,
+    /// Token to retrieve the next page of results, or empty if there are no more
+    /// results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable_locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Delete DataAttributeBinding request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteDataAttributeBindingRequest {
+    /// Required. The resource name of the DataAttributeBinding:
+    /// projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. If the client provided etag value does not match the current etag
+    /// value, the DeleteDataAttributeBindingRequest method returns an ABORTED
+    /// error response. Etags must be used when calling the
+    /// DeleteDataAttributeBinding.
+    #[prost(string, tag = "2")]
+    pub etag: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod data_taxonomy_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// DataTaxonomyService enables attribute-based governance. The resources
+    /// currently offered include DataTaxonomy and DataAttribute.
+    #[derive(Debug, Clone)]
+    pub struct DataTaxonomyServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> DataTaxonomyServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> DataTaxonomyServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            DataTaxonomyServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Create a DataTaxonomy resource.
+        pub async fn create_data_taxonomy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateDataTaxonomyRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/CreateDataTaxonomy",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "CreateDataTaxonomy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a DataTaxonomy resource.
+        pub async fn update_data_taxonomy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDataTaxonomyRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/UpdateDataTaxonomy",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "UpdateDataTaxonomy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy
+        /// must be deleted before the DataTaxonomy can be deleted.
+        pub async fn delete_data_taxonomy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteDataTaxonomyRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/DeleteDataTaxonomy",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "DeleteDataTaxonomy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists DataTaxonomy resources in a project and location.
+        pub async fn list_data_taxonomies(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListDataTaxonomiesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListDataTaxonomiesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/ListDataTaxonomies",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "ListDataTaxonomies",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a DataTaxonomy resource.
+        pub async fn get_data_taxonomy(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDataTaxonomyRequest>,
+        ) -> std::result::Result<tonic::Response<super::DataTaxonomy>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/GetDataTaxonomy",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "GetDataTaxonomy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Create a DataAttributeBinding resource.
+        pub async fn create_data_attribute_binding(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateDataAttributeBindingRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/CreateDataAttributeBinding",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "CreateDataAttributeBinding",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a DataAttributeBinding resource.
+        pub async fn update_data_attribute_binding(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDataAttributeBindingRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/UpdateDataAttributeBinding",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "UpdateDataAttributeBinding",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a DataAttributeBinding resource. All attributes within the
+        /// DataAttributeBinding must be deleted before the DataAttributeBinding can be
+        /// deleted.
+        pub async fn delete_data_attribute_binding(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteDataAttributeBindingRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/DeleteDataAttributeBinding",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "DeleteDataAttributeBinding",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists DataAttributeBinding resources in a project and location.
+        pub async fn list_data_attribute_bindings(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListDataAttributeBindingsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListDataAttributeBindingsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/ListDataAttributeBindings",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "ListDataAttributeBindings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a DataAttributeBinding resource.
+        pub async fn get_data_attribute_binding(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDataAttributeBindingRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::DataAttributeBinding>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/GetDataAttributeBinding",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "GetDataAttributeBinding",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Create a DataAttribute resource.
+        pub async fn create_data_attribute(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateDataAttributeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/CreateDataAttribute",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "CreateDataAttribute",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a DataAttribute resource.
+        pub async fn update_data_attribute(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateDataAttributeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/UpdateDataAttribute",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "UpdateDataAttribute",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes a Data Attribute resource.
+        pub async fn delete_data_attribute(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteDataAttributeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/DeleteDataAttribute",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "DeleteDataAttribute",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists Data Attribute resources in a DataTaxonomy.
+        pub async fn list_data_attributes(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListDataAttributesRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListDataAttributesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/ListDataAttributes",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "ListDataAttributes",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves a Data Attribute resource.
+        pub async fn get_data_attribute(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetDataAttributeRequest>,
+        ) -> std::result::Result<tonic::Response<super::DataAttribute>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dataplex.v1.DataTaxonomyService/GetDataAttribute",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dataplex.v1.DataTaxonomyService",
+                        "GetDataAttribute",
                     ),
                 );
             self.inner.unary(req, path, codec).await
@@ -11025,1060 +12079,6 @@ pub mod catalog_service_client {
                     GrpcMethod::new(
                         "google.cloud.dataplex.v1.CatalogService",
                         "SearchEntries",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// DataTaxonomy represents a set of hierarchical DataAttributes resources,
-/// grouped with a common theme Eg: 'SensitiveDataTaxonomy' can have attributes
-/// to manage PII data. It is defined at project level.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataTaxonomy {
-    /// Output only. The relative resource name of the DataTaxonomy, of the form:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. System generated globally unique ID for the dataTaxonomy. This
-    /// ID will be different if the DataTaxonomy is deleted and re-created with the
-    /// same name.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The time when the DataTaxonomy was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time when the DataTaxonomy was last updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Description of the DataTaxonomy.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. User friendly display name.
-    #[prost(string, tag = "6")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. User-defined labels for the DataTaxonomy.
-    #[prost(btree_map = "string, string", tag = "8")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Output only. The number of attributes in the DataTaxonomy.
-    #[prost(int32, tag = "9")]
-    pub attribute_count: i32,
-    /// This checksum is computed by the server based on the value of other
-    /// fields, and may be sent on update and delete requests to ensure the
-    /// client has an up-to-date value before proceeding.
-    #[prost(string, tag = "10")]
-    pub etag: ::prost::alloc::string::String,
-    /// Output only. The number of classes in the DataTaxonomy.
-    #[prost(int32, tag = "11")]
-    pub class_count: i32,
-}
-/// Denotes one dataAttribute in a dataTaxonomy, for example, PII.
-/// DataAttribute resources can be defined in a hierarchy.
-/// A single dataAttribute resource can contain specs of multiple types
-///
-/// ```
-/// PII
-///    - ResourceAccessSpec :
-///                  - readers :foo@bar.com
-///    - DataAccessSpec :
-///                  - readers :bar@foo.com
-/// ```
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataAttribute {
-    /// Output only. The relative resource name of the dataAttribute, of the form:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. System generated globally unique ID for the DataAttribute.
-    /// This ID will be different if the DataAttribute is deleted and re-created
-    /// with the same name.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The time when the DataAttribute was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time when the DataAttribute was last updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Description of the DataAttribute.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. User friendly display name.
-    #[prost(string, tag = "6")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. User-defined labels for the DataAttribute.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Optional. The ID of the parent DataAttribute resource, should belong to the
-    /// same data taxonomy. Circular dependency in parent chain is not valid.
-    /// Maximum depth of the hierarchy allowed is 4.
-    /// \[a -> b -> c -> d -> e, depth = 4\]
-    #[prost(string, tag = "8")]
-    pub parent_id: ::prost::alloc::string::String,
-    /// Output only. The number of child attributes present for this attribute.
-    #[prost(int32, tag = "9")]
-    pub attribute_count: i32,
-    /// This checksum is computed by the server based on the value of other
-    /// fields, and may be sent on update and delete requests to ensure the
-    /// client has an up-to-date value before proceeding.
-    #[prost(string, tag = "10")]
-    pub etag: ::prost::alloc::string::String,
-    /// Optional. Specified when applied to a resource (eg: Cloud Storage bucket,
-    /// BigQuery dataset, BigQuery table).
-    #[prost(message, optional, tag = "100")]
-    pub resource_access_spec: ::core::option::Option<ResourceAccessSpec>,
-    /// Optional. Specified when applied to data stored on the resource (eg: rows,
-    /// columns in BigQuery Tables).
-    #[prost(message, optional, tag = "101")]
-    pub data_access_spec: ::core::option::Option<DataAccessSpec>,
-}
-/// DataAttributeBinding represents binding of attributes to resources. Eg: Bind
-/// 'CustomerInfo' entity with 'PII' attribute.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DataAttributeBinding {
-    /// Output only. The relative resource name of the Data Attribute Binding, of
-    /// the form:
-    /// projects/{project_number}/locations/{location}/dataAttributeBindings/{data_attribute_binding_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. System generated globally unique ID for the
-    /// DataAttributeBinding. This ID will be different if the DataAttributeBinding
-    /// is deleted and re-created with the same name.
-    #[prost(string, tag = "2")]
-    pub uid: ::prost::alloc::string::String,
-    /// Output only. The time when the DataAttributeBinding was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The time when the DataAttributeBinding was last updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Description of the DataAttributeBinding.
-    #[prost(string, tag = "5")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. User friendly display name.
-    #[prost(string, tag = "6")]
-    pub display_name: ::prost::alloc::string::String,
-    /// Optional. User-defined labels for the DataAttributeBinding.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// This checksum is computed by the server based on the value of other
-    /// fields, and may be sent on update and delete requests to ensure the
-    /// client has an up-to-date value before proceeding.
-    /// Etags must be used when calling the DeleteDataAttributeBinding and the
-    /// UpdateDataAttributeBinding method.
-    #[prost(string, tag = "8")]
-    pub etag: ::prost::alloc::string::String,
-    /// Optional. List of attributes to be associated with the resource, provided
-    /// in the form:
-    /// projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
-    #[prost(string, repeated, tag = "110")]
-    pub attributes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. The list of paths for items within the associated resource (eg.
-    /// columns and partitions within a table) along with attribute bindings.
-    #[prost(message, repeated, tag = "120")]
-    pub paths: ::prost::alloc::vec::Vec<data_attribute_binding::Path>,
-    /// The reference to the resource that is associated to attributes, or
-    /// the query to match resources and associate attributes.
-    #[prost(oneof = "data_attribute_binding::ResourceReference", tags = "100")]
-    pub resource_reference: ::core::option::Option<
-        data_attribute_binding::ResourceReference,
-    >,
-}
-/// Nested message and enum types in `DataAttributeBinding`.
-pub mod data_attribute_binding {
-    /// Represents a subresource of the given resource, and associated bindings
-    /// with it. Currently supported subresources are column and partition schema
-    /// fields within a table.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Path {
-        /// Required. The name identifier of the path.
-        /// Nested columns should be of the form: 'address.city'.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// Optional. List of attributes to be associated with the path of the
-        /// resource, provided in the form:
-        /// projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
-        #[prost(string, repeated, tag = "2")]
-        pub attributes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-    /// The reference to the resource that is associated to attributes, or
-    /// the query to match resources and associate attributes.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ResourceReference {
-        /// Optional. Immutable. The resource name of the resource that is associated
-        /// to attributes. Presently, only entity resource is supported in the form:
-        /// projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/entities/{entity_id}
-        /// Must belong in the same project and region as the attribute binding, and
-        /// there can only exist one active binding for a resource.
-        #[prost(string, tag = "100")]
-        Resource(::prost::alloc::string::String),
-    }
-}
-/// Create DataTaxonomy request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDataTaxonomyRequest {
-    /// Required. The resource name of the data taxonomy location, of the form:
-    /// projects/{project_number}/locations/{location_id}
-    /// where `location_id` refers to a GCP region.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. DataTaxonomy identifier.
-    /// * Must contain only lowercase letters, numbers and hyphens.
-    /// * Must start with a letter.
-    /// * Must be between 1-63 characters.
-    /// * Must end with a number or a letter.
-    /// * Must be unique within the Project.
-    #[prost(string, tag = "2")]
-    pub data_taxonomy_id: ::prost::alloc::string::String,
-    /// Required. DataTaxonomy resource.
-    #[prost(message, optional, tag = "3")]
-    pub data_taxonomy: ::core::option::Option<DataTaxonomy>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "4")]
-    pub validate_only: bool,
-}
-/// Update DataTaxonomy request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDataTaxonomyRequest {
-    /// Required. Mask of fields to update.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Only fields specified in `update_mask` are updated.
-    #[prost(message, optional, tag = "2")]
-    pub data_taxonomy: ::core::option::Option<DataTaxonomy>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// Get DataTaxonomy request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDataTaxonomyRequest {
-    /// Required. The resource name of the DataTaxonomy:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// List DataTaxonomies request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDataTaxonomiesRequest {
-    /// Required. The resource name of the DataTaxonomy location, of the form:
-    /// projects/{project_number}/locations/{location_id}
-    /// where `location_id` refers to a GCP region.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Maximum number of DataTaxonomies to return. The service may
-    /// return fewer than this value. If unspecified, at most 10 DataTaxonomies
-    /// will be returned. The maximum value is 1000; values above 1000 will be
-    /// coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. Page token received from a previous ` ListDataTaxonomies` call.
-    /// Provide this to retrieve the subsequent page. When paginating, all other
-    /// parameters provided to ` ListDataTaxonomies` must match the call that
-    /// provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Filter request.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. Order by fields for the result.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// List DataTaxonomies response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDataTaxonomiesResponse {
-    /// DataTaxonomies under the given parent location.
-    #[prost(message, repeated, tag = "1")]
-    pub data_taxonomies: ::prost::alloc::vec::Vec<DataTaxonomy>,
-    /// Token to retrieve the next page of results, or empty if there are no more
-    /// results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable_locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Delete DataTaxonomy request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteDataTaxonomyRequest {
-    /// Required. The resource name of the DataTaxonomy:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. If the client provided etag value does not match the current etag
-    /// value,the DeleteDataTaxonomy method returns an ABORTED error.
-    #[prost(string, tag = "2")]
-    pub etag: ::prost::alloc::string::String,
-}
-/// Create DataAttribute request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDataAttributeRequest {
-    /// Required. The resource name of the parent data taxonomy
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. DataAttribute identifier.
-    /// * Must contain only lowercase letters, numbers and hyphens.
-    /// * Must start with a letter.
-    /// * Must be between 1-63 characters.
-    /// * Must end with a number or a letter.
-    /// * Must be unique within the DataTaxonomy.
-    #[prost(string, tag = "2")]
-    pub data_attribute_id: ::prost::alloc::string::String,
-    /// Required. DataAttribute resource.
-    #[prost(message, optional, tag = "3")]
-    pub data_attribute: ::core::option::Option<DataAttribute>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "4")]
-    pub validate_only: bool,
-}
-/// Update DataAttribute request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDataAttributeRequest {
-    /// Required. Mask of fields to update.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Only fields specified in `update_mask` are updated.
-    #[prost(message, optional, tag = "2")]
-    pub data_attribute: ::core::option::Option<DataAttribute>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// Get DataAttribute request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDataAttributeRequest {
-    /// Required. The resource name of the dataAttribute:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// List DataAttributes request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDataAttributesRequest {
-    /// Required. The resource name of the DataTaxonomy:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Maximum number of DataAttributes to return. The service may
-    /// return fewer than this value. If unspecified, at most 10 dataAttributes
-    /// will be returned. The maximum value is 1000; values above 1000 will be
-    /// coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. Page token received from a previous `ListDataAttributes` call.
-    /// Provide this to retrieve the subsequent page. When paginating, all other
-    /// parameters provided to `ListDataAttributes` must match the call that
-    /// provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Filter request.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. Order by fields for the result.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// List DataAttributes response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDataAttributesResponse {
-    /// DataAttributes under the given parent DataTaxonomy.
-    #[prost(message, repeated, tag = "1")]
-    pub data_attributes: ::prost::alloc::vec::Vec<DataAttribute>,
-    /// Token to retrieve the next page of results, or empty if there are no more
-    /// results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable_locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Delete DataAttribute request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteDataAttributeRequest {
-    /// Required. The resource name of the DataAttribute:
-    /// projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. If the client provided etag value does not match the current etag
-    /// value, the DeleteDataAttribute method returns an ABORTED error response.
-    #[prost(string, tag = "2")]
-    pub etag: ::prost::alloc::string::String,
-}
-/// Create DataAttributeBinding request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateDataAttributeBindingRequest {
-    /// Required. The resource name of the parent data taxonomy
-    /// projects/{project_number}/locations/{location_id}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. DataAttributeBinding identifier.
-    /// * Must contain only lowercase letters, numbers and hyphens.
-    /// * Must start with a letter.
-    /// * Must be between 1-63 characters.
-    /// * Must end with a number or a letter.
-    /// * Must be unique within the Location.
-    #[prost(string, tag = "2")]
-    pub data_attribute_binding_id: ::prost::alloc::string::String,
-    /// Required. DataAttributeBinding resource.
-    #[prost(message, optional, tag = "3")]
-    pub data_attribute_binding: ::core::option::Option<DataAttributeBinding>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "4")]
-    pub validate_only: bool,
-}
-/// Update DataAttributeBinding request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateDataAttributeBindingRequest {
-    /// Required. Mask of fields to update.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Only fields specified in `update_mask` are updated.
-    #[prost(message, optional, tag = "2")]
-    pub data_attribute_binding: ::core::option::Option<DataAttributeBinding>,
-    /// Optional. Only validate the request, but do not perform mutations.
-    /// The default is false.
-    #[prost(bool, tag = "3")]
-    pub validate_only: bool,
-}
-/// Get DataAttributeBinding request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetDataAttributeBindingRequest {
-    /// Required. The resource name of the DataAttributeBinding:
-    /// projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// List DataAttributeBindings request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDataAttributeBindingsRequest {
-    /// Required. The resource name of the Location:
-    /// projects/{project_number}/locations/{location_id}
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Maximum number of DataAttributeBindings to return. The service
-    /// may return fewer than this value. If unspecified, at most 10
-    /// DataAttributeBindings will be returned. The maximum value is 1000; values
-    /// above 1000 will be coerced to 1000.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. Page token received from a previous `ListDataAttributeBindings`
-    /// call. Provide this to retrieve the subsequent page. When paginating, all
-    /// other parameters provided to `ListDataAttributeBindings` must match the
-    /// call that provided the page token.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Filter request.
-    /// Filter using resource: filter=resource:"resource-name"
-    /// Filter using attribute: filter=attributes:"attribute-name"
-    /// Filter using attribute in paths list:
-    /// filter=paths.attributes:"attribute-name"
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. Order by fields for the result.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// List DataAttributeBindings response.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListDataAttributeBindingsResponse {
-    /// DataAttributeBindings under the given parent Location.
-    #[prost(message, repeated, tag = "1")]
-    pub data_attribute_bindings: ::prost::alloc::vec::Vec<DataAttributeBinding>,
-    /// Token to retrieve the next page of results, or empty if there are no more
-    /// results in the list.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable_locations: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Delete DataAttributeBinding request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteDataAttributeBindingRequest {
-    /// Required. The resource name of the DataAttributeBinding:
-    /// projects/{project_number}/locations/{location_id}/dataAttributeBindings/{data_attribute_binding_id}
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. If the client provided etag value does not match the current etag
-    /// value, the DeleteDataAttributeBindingRequest method returns an ABORTED
-    /// error response. Etags must be used when calling the
-    /// DeleteDataAttributeBinding.
-    #[prost(string, tag = "2")]
-    pub etag: ::prost::alloc::string::String,
-}
-/// Generated client implementations.
-pub mod data_taxonomy_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// DataTaxonomyService enables attribute-based governance. The resources
-    /// currently offered include DataTaxonomy and DataAttribute.
-    #[derive(Debug, Clone)]
-    pub struct DataTaxonomyServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> DataTaxonomyServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> DataTaxonomyServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            DataTaxonomyServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Create a DataTaxonomy resource.
-        pub async fn create_data_taxonomy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateDataTaxonomyRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/CreateDataTaxonomy",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "CreateDataTaxonomy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a DataTaxonomy resource.
-        pub async fn update_data_taxonomy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDataTaxonomyRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/UpdateDataTaxonomy",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "UpdateDataTaxonomy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a DataTaxonomy resource. All attributes within the DataTaxonomy
-        /// must be deleted before the DataTaxonomy can be deleted.
-        pub async fn delete_data_taxonomy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteDataTaxonomyRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/DeleteDataTaxonomy",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "DeleteDataTaxonomy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists DataTaxonomy resources in a project and location.
-        pub async fn list_data_taxonomies(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListDataTaxonomiesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListDataTaxonomiesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/ListDataTaxonomies",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "ListDataTaxonomies",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Retrieves a DataTaxonomy resource.
-        pub async fn get_data_taxonomy(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDataTaxonomyRequest>,
-        ) -> std::result::Result<tonic::Response<super::DataTaxonomy>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/GetDataTaxonomy",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "GetDataTaxonomy",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Create a DataAttributeBinding resource.
-        pub async fn create_data_attribute_binding(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateDataAttributeBindingRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/CreateDataAttributeBinding",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "CreateDataAttributeBinding",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a DataAttributeBinding resource.
-        pub async fn update_data_attribute_binding(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDataAttributeBindingRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/UpdateDataAttributeBinding",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "UpdateDataAttributeBinding",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a DataAttributeBinding resource. All attributes within the
-        /// DataAttributeBinding must be deleted before the DataAttributeBinding can be
-        /// deleted.
-        pub async fn delete_data_attribute_binding(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteDataAttributeBindingRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/DeleteDataAttributeBinding",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "DeleteDataAttributeBinding",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists DataAttributeBinding resources in a project and location.
-        pub async fn list_data_attribute_bindings(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListDataAttributeBindingsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListDataAttributeBindingsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/ListDataAttributeBindings",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "ListDataAttributeBindings",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Retrieves a DataAttributeBinding resource.
-        pub async fn get_data_attribute_binding(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDataAttributeBindingRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::DataAttributeBinding>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/GetDataAttributeBinding",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "GetDataAttributeBinding",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Create a DataAttribute resource.
-        pub async fn create_data_attribute(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateDataAttributeRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/CreateDataAttribute",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "CreateDataAttribute",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates a DataAttribute resource.
-        pub async fn update_data_attribute(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateDataAttributeRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/UpdateDataAttribute",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "UpdateDataAttribute",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes a Data Attribute resource.
-        pub async fn delete_data_attribute(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteDataAttributeRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/DeleteDataAttribute",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "DeleteDataAttribute",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists Data Attribute resources in a DataTaxonomy.
-        pub async fn list_data_attributes(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListDataAttributesRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListDataAttributesResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/ListDataAttributes",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "ListDataAttributes",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Retrieves a Data Attribute resource.
-        pub async fn get_data_attribute(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetDataAttributeRequest>,
-        ) -> std::result::Result<tonic::Response<super::DataAttribute>, tonic::Status> {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.dataplex.v1.DataTaxonomyService/GetDataAttribute",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.dataplex.v1.DataTaxonomyService",
-                        "GetDataAttribute",
                     ),
                 );
             self.inner.unary(req, path, codec).await

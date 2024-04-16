@@ -427,7 +427,6 @@ pub mod cloud;
         feature = "google-devtools-source-v1",
         feature = "google-devtools-sourcerepo-v1",
         feature = "google-devtools-testing-v1",
-        feature = "google-example-endpointsapis-v1",
         feature = "google-example-library-v1",
         feature = "google-firebase-fcm-connection-v1alpha1",
         feature = "google-firestore-admin-v1",

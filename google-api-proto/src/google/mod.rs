@@ -494,12 +494,7 @@ pub mod datastore;
     )
 )]
 pub mod devtools;
-#[cfg(
-    any(
-        feature = "google-example-endpointsapis-v1",
-        feature = "google-example-library-v1",
-    )
-)]
+#[cfg(any(feature = "google-example-library-v1"))]
 pub mod example;
 #[cfg(any(feature = "google-firebase-fcm-connection-v1alpha1"))]
 pub mod firebase;
