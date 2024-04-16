@@ -4455,12 +4455,50 @@ pub mod internal_checker {
         }
     }
 }
+/// Describes a Synthetic Monitor to be invoked by Uptime.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SyntheticMonitorTarget {
+    /// Specifies a Synthetic Monitor's execution stack.
+    #[prost(oneof = "synthetic_monitor_target::Target", tags = "1")]
+    pub target: ::core::option::Option<synthetic_monitor_target::Target>,
+}
+/// Nested message and enum types in `SyntheticMonitorTarget`.
+pub mod synthetic_monitor_target {
+    /// A Synthetic Monitor deployed to a Cloud Functions V2 instance.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct CloudFunctionV2Target {
+        /// Required. Fully qualified GCFv2 resource name
+        /// i.e. `projects/{project}/locations/{location}/functions/{function}`
+        /// Required.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Output only. The `cloud_run_revision` Monitored Resource associated with
+        /// the GCFv2. The Synthetic Monitor execution results (metrics, logs, and
+        /// spans) are reported against this Monitored Resource. This field is output
+        /// only.
+        #[prost(message, optional, tag = "2")]
+        pub cloud_run_revision: ::core::option::Option<
+            super::super::super::api::MonitoredResource,
+        >,
+    }
+    /// Specifies a Synthetic Monitor's execution stack.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Target {
+        /// Target a Synthetic Monitor GCFv2 instance.
+        #[prost(message, tag = "1")]
+        CloudFunctionV2(CloudFunctionV2Target),
+    }
+}
 /// This message configures which resources and services to monitor for
 /// availability.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UptimeCheckConfig {
-    /// A unique resource name for this Uptime check configuration. The format is:
+    /// Identifier. A unique resource name for this Uptime check configuration. The
+    /// format is:
     ///
     ///       projects/\[PROJECT_ID_OR_NUMBER\]/uptimeCheckConfigs/\[UPTIME_CHECK_ID\]
     ///
@@ -4531,7 +4569,7 @@ pub struct UptimeCheckConfig {
         ::prost::alloc::string::String,
     >,
     /// The resource the check is checking. Required.
-    #[prost(oneof = "uptime_check_config::Resource", tags = "3, 4")]
+    #[prost(oneof = "uptime_check_config::Resource", tags = "3, 4, 21")]
     pub resource: ::core::option::Option<uptime_check_config::Resource>,
     /// The type of Uptime check request.
     #[prost(oneof = "uptime_check_config::CheckRequestType", tags = "5, 6")]
@@ -4591,6 +4629,7 @@ pub mod uptime_check_config {
         pub port: i32,
         /// The authentication information. Optional when creating an HTTP check;
         /// defaults to empty.
+        /// Do not set both `auth_method` and `auth_info`.
         #[prost(message, optional, tag = "4")]
         pub auth_info: ::core::option::Option<http_check::BasicAuthentication>,
         /// Boolean specifying whether to encrypt the header information.
@@ -4659,6 +4698,11 @@ pub mod uptime_check_config {
         /// Contains information needed to add pings to an HTTP check.
         #[prost(message, optional, tag = "12")]
         pub ping_config: ::core::option::Option<PingConfig>,
+        /// This field is optional and should be set only by users interested in
+        /// an authenticated uptime check.
+        /// Do not set both `auth_method` and `auth_info`.
+        #[prost(oneof = "http_check::AuthMethod", tags = "14")]
+        pub auth_method: ::core::option::Option<http_check::AuthMethod>,
     }
     /// Nested message and enum types in `HttpCheck`.
     pub mod http_check {
@@ -4758,6 +4802,67 @@ pub mod uptime_check_config {
                 StatusClass(i32),
             }
         }
+        /// Contains information needed for generating an
+        /// [OpenID Connect
+        /// token](<https://developers.google.com/identity/protocols/OpenIDConnect>).
+        /// The OIDC token will be generated for the Monitoring service agent service
+        /// account.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ServiceAgentAuthentication {
+            /// Type of authentication.
+            #[prost(
+                enumeration = "service_agent_authentication::ServiceAgentAuthenticationType",
+                tag = "1"
+            )]
+            pub r#type: i32,
+        }
+        /// Nested message and enum types in `ServiceAgentAuthentication`.
+        pub mod service_agent_authentication {
+            /// Type of authentication.
+            #[derive(
+                Clone,
+                Copy,
+                Debug,
+                PartialEq,
+                Eq,
+                Hash,
+                PartialOrd,
+                Ord,
+                ::prost::Enumeration
+            )]
+            #[repr(i32)]
+            pub enum ServiceAgentAuthenticationType {
+                /// Default value, will result in OIDC Authentication.
+                Unspecified = 0,
+                /// OIDC Authentication
+                OidcToken = 1,
+            }
+            impl ServiceAgentAuthenticationType {
+                /// String value of the enum field names used in the ProtoBuf definition.
+                ///
+                /// The values are not transformed in any way and thus are considered stable
+                /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+                pub fn as_str_name(&self) -> &'static str {
+                    match self {
+                        ServiceAgentAuthenticationType::Unspecified => {
+                            "SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED"
+                        }
+                        ServiceAgentAuthenticationType::OidcToken => "OIDC_TOKEN",
+                    }
+                }
+                /// Creates an enum from field names used in the ProtoBuf definition.
+                pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                    match value {
+                        "SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED" => {
+                            Some(Self::Unspecified)
+                        }
+                        "OIDC_TOKEN" => Some(Self::OidcToken),
+                        _ => None,
+                    }
+                }
+            }
+        }
         /// The HTTP request method options.
         #[derive(
             Clone,
@@ -4846,6 +4951,18 @@ pub mod uptime_check_config {
                     _ => None,
                 }
             }
+        }
+        /// This field is optional and should be set only by users interested in
+        /// an authenticated uptime check.
+        /// Do not set both `auth_method` and `auth_info`.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum AuthMethod {
+            /// If specified, Uptime will generate and attach an OIDC JWT token for the
+            /// Monitoring service agent service account as an `Authorization` header
+            /// in the HTTP request when probing.
+            #[prost(message, tag = "14")]
+            ServiceAgentAuthentication(ServiceAgentAuthentication),
         }
     }
     /// Information required for a TCP Uptime check request.
@@ -5110,6 +5227,9 @@ pub mod uptime_check_config {
         /// The group resource associated with the configuration.
         #[prost(message, tag = "4")]
         ResourceGroup(ResourceGroup),
+        /// Specifies a Synthetic Monitor to invoke.
+        #[prost(message, tag = "21")]
+        SyntheticMonitor(super::SyntheticMonitorTarget),
     }
     /// The type of Uptime check request.
     #[allow(clippy::derive_partial_eq_without_eq)]
