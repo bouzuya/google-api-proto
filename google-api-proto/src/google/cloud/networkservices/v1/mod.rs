@@ -169,119 +169,15 @@ pub mod endpoint_matcher {
         MetadataLabelMatcher(MetadataLabelMatcher),
     }
 }
-/// A single extension chain wrapper that contains the match conditions and
-/// extensions to execute.
+/// EndpointPolicy is a resource that helps apply desired configuration
+/// on the endpoints that match specific criteria.
+/// For example, this resource can be used to apply "authentication config"
+/// an all endpoints that serve on port 8080.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExtensionChain {
-    /// Required. The name for this extension chain.
-    /// The name is logged as part of the HTTP request logs.
-    /// The name must conform with RFC-1034, is restricted to lower-cased letters,
-    /// numbers and hyphens, and can have a maximum length of 63 characters.
-    /// Additionally, the first character must be a letter and the last a letter or
-    /// a number.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Required. Conditions under which this chain is invoked for a request.
-    #[prost(message, optional, tag = "2")]
-    pub match_condition: ::core::option::Option<extension_chain::MatchCondition>,
-    /// Required. A set of extensions to execute for the matching request.
-    /// At least one extension is required.
-    /// Up to 3 extensions can be defined for each extension chain
-    /// for `LbTrafficExtension` resource.
-    /// `LbRouteExtension` chains are limited to 1 extension per extension chain.
-    #[prost(message, repeated, tag = "3")]
-    pub extensions: ::prost::alloc::vec::Vec<extension_chain::Extension>,
-}
-/// Nested message and enum types in `ExtensionChain`.
-pub mod extension_chain {
-    /// Conditions under which this chain is invoked for a request.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MatchCondition {
-        /// Required. A Common Expression Language (CEL) expression that is used to
-        /// match requests for which the extension chain is executed.
-        ///
-        /// For more information, see
-        /// [CEL matcher language
-        /// reference](<https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference>).
-        #[prost(string, tag = "1")]
-        pub cel_expression: ::prost::alloc::string::String,
-    }
-    /// A single extension in the chain to execute for the matching request.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Extension {
-        /// Required. The name for this extension.
-        /// The name is logged as part of the HTTP request logs.
-        /// The name must conform with RFC-1034, is restricted to lower-cased
-        /// letters, numbers and hyphens, and can have a maximum length of 63
-        /// characters. Additionally, the first character must be a letter and the
-        /// last a letter or a number.
-        #[prost(string, tag = "1")]
-        pub name: ::prost::alloc::string::String,
-        /// Optional. The `:authority` header in the gRPC request sent from Envoy
-        /// to the extension service.
-        /// Required for Callout extensions.
-        #[prost(string, tag = "2")]
-        pub authority: ::prost::alloc::string::String,
-        /// Required. The reference to the service that runs the extension.
-        ///
-        /// Currently only callout extensions are supported here.
-        ///
-        /// To configure a callout extension, `service` must be a fully-qualified
-        /// reference
-        /// to a [backend
-        /// service](<https://cloud.google.com/compute/docs/reference/rest/v1/backendServices>)
-        /// in the format:
-        /// `<https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}`>
-        /// or
-        /// `<https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}`.>
-        #[prost(string, tag = "3")]
-        pub service: ::prost::alloc::string::String,
-        /// Optional. A set of events during request or response processing for which
-        /// this extension is called. This field is required for the
-        /// `LbTrafficExtension` resource. It's not relevant for the
-        /// `LbRouteExtension` resource.
-        #[prost(enumeration = "super::EventType", repeated, packed = "false", tag = "4")]
-        pub supported_events: ::prost::alloc::vec::Vec<i32>,
-        /// Optional. Specifies the timeout for each individual message on the
-        /// stream. The timeout must be between 10-1000 milliseconds. Required for
-        /// Callout extensions.
-        #[prost(message, optional, tag = "5")]
-        pub timeout: ::core::option::Option<::prost_types::Duration>,
-        /// Optional. Determines how the proxy behaves if the call to the extension
-        /// fails or times out.
-        ///
-        /// When set to `TRUE`, request or response processing continues without
-        /// error. Any subsequent extensions in the extension chain are also
-        /// executed. When set to `FALSE` or the default setting of `FALSE` is used,
-        /// one of the following happens:
-        /// * If response headers have not been delivered to the downstream client,
-        /// a generic 500 error is returned to the client. The error response can be
-        /// tailored by configuring a custom error response in the load balancer.
-        ///
-        /// * If response headers have been delivered, then the HTTP stream to the
-        /// downstream client is reset.
-        #[prost(bool, tag = "6")]
-        pub fail_open: bool,
-        /// Optional. List of the HTTP headers to forward to the extension
-        /// (from the client or backend). If omitted, all headers are sent.
-        /// Each element is a string indicating the header name.
-        #[prost(string, repeated, tag = "7")]
-        pub forward_headers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-}
-/// `LbTrafficExtension` is a resource that lets the extension service modify the
-/// headers and payloads of both requests and responses without impacting the
-/// choice of backend services or any other security policies associated with the
-/// backend service.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LbTrafficExtension {
-    /// Required. Identifier. Name of the `LbTrafficExtension` resource in the
-    /// following format:
-    /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+pub struct EndpointPolicy {
+    /// Required. Name of the EndpointPolicy resource. It matches pattern
+    /// `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. The timestamp when the resource was created.
@@ -290,1111 +186,175 @@ pub struct LbTrafficExtension {
     /// Output only. The timestamp when the resource was updated.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. A human-readable description of the resource.
-    #[prost(string, tag = "9")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. Set of labels associated with the `LbTrafficExtension` resource.
-    ///
-    /// The format must comply with [the requirements for
-    /// labels](<https://cloud.google.com/compute/docs/labeling-resources#requirements>) for Google Cloud
-    /// resources.
+    /// Optional. Set of label tags associated with the EndpointPolicy resource.
     #[prost(btree_map = "string, string", tag = "4")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Required. A list of references to the forwarding rules to which this
-    /// service extension is attached to. At least one forwarding rule is required.
-    /// There can be only one `LBTrafficExtension` resource per forwarding rule.
-    #[prost(string, repeated, tag = "5")]
-    pub forwarding_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Required. A set of ordered extension chains that contain the match
-    /// conditions and extensions to execute. Match conditions for each extension
-    /// chain are evaluated in sequence for a given request. The first extension
-    /// chain that has a condition that matches the request is executed.
-    /// Any subsequent extension chains do not execute.
-    /// Limited to 5 extension chains per resource.
-    #[prost(message, repeated, tag = "7")]
-    pub extension_chains: ::prost::alloc::vec::Vec<ExtensionChain>,
-    /// Required. All backend services and forwarding rules referenced by this
-    /// extension must share the same load balancing scheme. Supported values:
-    /// `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
-    /// [Choosing a load
-    /// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
-    #[prost(enumeration = "LoadBalancingScheme", tag = "8")]
-    pub load_balancing_scheme: i32,
-}
-/// Message for requesting list of `LbTrafficExtension` resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLbTrafficExtensionsRequest {
-    /// Required. The project and location from which the `LbTrafficExtension`
-    /// resources are listed, specified in the following format:
-    /// `projects/{project}/locations/{location}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Requested page size. The server might return fewer items than
-    /// requested. If unspecified, the server picks an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. A token identifying a page of results that the server returns.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing `LbTrafficExtension` resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLbTrafficExtensionsResponse {
-    /// The list of `LbTrafficExtension` resources.
-    #[prost(message, repeated, tag = "1")]
-    pub lb_traffic_extensions: ::prost::alloc::vec::Vec<LbTrafficExtension>,
-    /// A token identifying a page of results that the server returns.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a `LbTrafficExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetLbTrafficExtensionRequest {
-    /// Required. A name of the `LbTrafficExtension` resource to get. Must be in
-    /// the format
-    /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a `LbTrafficExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateLbTrafficExtensionRequest {
-    /// Required. The parent resource of the `LbTrafficExtension` resource. Must be
-    /// in the format `projects/{project}/locations/{location}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. User-provided ID of the `LbTrafficExtension` resource to be
-    /// created.
-    #[prost(string, tag = "2")]
-    pub lb_traffic_extension_id: ::prost::alloc::string::String,
-    /// Required. `LbTrafficExtension` resource to be created.
-    #[prost(message, optional, tag = "3")]
-    pub lb_traffic_extension: ::core::option::Option<LbTrafficExtension>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server can ignore
-    /// the request if it has already been completed. The server guarantees
-    /// that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, ignores the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating a `LbTrafficExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateLbTrafficExtensionRequest {
-    /// Required. Used to specify the fields to be overwritten in the
-    /// `LbTrafficExtension` resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field is overwritten if it is in the mask. If the
-    /// user does not specify a mask, then all fields are overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. `LbTrafficExtension` resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub lb_traffic_extension: ::core::option::Option<LbTrafficExtension>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server can ignore
-    /// the request if it has already been completed. The server guarantees
-    /// that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, ignores the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for deleting a `LbTrafficExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteLbTrafficExtensionRequest {
-    /// Required. The name of the `LbTrafficExtension` resource to delete. Must be
-    /// in the format
-    /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server can ignore
-    /// the request if it has already been completed. The server guarantees
-    /// that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, ignores the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// `LbRouteExtension` is a resource that lets you control where traffic is
-/// routed to for a given request.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct LbRouteExtension {
-    /// Required. Identifier. Name of the `LbRouteExtension` resource in the
-    /// following format:
-    /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The timestamp when the resource was created.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when the resource was updated.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. A human-readable description of the resource.
-    #[prost(string, tag = "9")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. Set of labels associated with the `LbRouteExtension` resource.
-    ///
-    /// The format must comply with [the requirements for
-    /// labels](<https://cloud.google.com/compute/docs/labeling-resources#requirements>) for Google Cloud
-    /// resources.
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. A list of references to the forwarding rules to which this
-    /// service extension is attached to. At least one forwarding rule is required.
-    /// There can be only one `LbRouteExtension` resource per forwarding rule.
-    #[prost(string, repeated, tag = "5")]
-    pub forwarding_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Required. A set of ordered extension chains that contain the match
-    /// conditions and extensions to execute. Match conditions for each extension
-    /// chain are evaluated in sequence for a given request. The first extension
-    /// chain that has a condition that matches the request is executed.
-    /// Any subsequent extension chains do not execute.
-    /// Limited to 5 extension chains per resource.
-    #[prost(message, repeated, tag = "7")]
-    pub extension_chains: ::prost::alloc::vec::Vec<ExtensionChain>,
-    /// Required. All backend services and forwarding rules referenced by this
-    /// extension must share the same load balancing scheme. Supported values:
-    /// `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
-    /// [Choosing a load
-    /// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
-    #[prost(enumeration = "LoadBalancingScheme", tag = "8")]
-    pub load_balancing_scheme: i32,
-}
-/// Message for requesting list of `LbRouteExtension` resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLbRouteExtensionsRequest {
-    /// Required. The project and location from which the `LbRouteExtension`
-    /// resources are listed, specified in the following format:
-    /// `projects/{project}/locations/{location}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Optional. Requested page size. The server might return fewer items than
-    /// requested. If unspecified, the server picks an appropriate default.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// Optional. A token identifying a page of results that the server returns.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-    /// Optional. Filtering results.
-    #[prost(string, tag = "4")]
-    pub filter: ::prost::alloc::string::String,
-    /// Optional. Hint for how to order the results.
-    #[prost(string, tag = "5")]
-    pub order_by: ::prost::alloc::string::String,
-}
-/// Message for response to listing `LbRouteExtension` resources.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListLbRouteExtensionsResponse {
-    /// The list of `LbRouteExtension` resources.
-    #[prost(message, repeated, tag = "1")]
-    pub lb_route_extensions: ::prost::alloc::vec::Vec<LbRouteExtension>,
-    /// A token identifying a page of results that the server returns.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-    /// Locations that could not be reached.
-    #[prost(string, repeated, tag = "3")]
-    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// Message for getting a `LbRouteExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetLbRouteExtensionRequest {
-    /// Required. A name of the `LbRouteExtension` resource to get. Must be in the
-    /// format
-    /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Message for creating a `LbRouteExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateLbRouteExtensionRequest {
-    /// Required. The parent resource of the `LbRouteExtension` resource. Must be
-    /// in the format `projects/{project}/locations/{location}`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. User-provided ID of the `LbRouteExtension` resource to be
-    /// created.
-    #[prost(string, tag = "2")]
-    pub lb_route_extension_id: ::prost::alloc::string::String,
-    /// Required. `LbRouteExtension` resource to be created.
-    #[prost(message, optional, tag = "3")]
-    pub lb_route_extension: ::core::option::Option<LbRouteExtension>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server can ignore
-    /// the request if it has already been completed. The server guarantees
-    /// that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, ignores the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "4")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for updating a `LbRouteExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateLbRouteExtensionRequest {
-    /// Required. Used to specify the fields to be overwritten in the
-    /// `LbRouteExtension` resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field is overwritten if it is in the mask. If the
-    /// user does not specify a mask, then all fields are overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. `LbRouteExtension` resource being updated.
-    #[prost(message, optional, tag = "2")]
-    pub lb_route_extension: ::core::option::Option<LbRouteExtension>,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server can ignore
-    /// the request if it has already been completed. The server guarantees
-    /// that for at least 60 minutes since the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, ignores the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "3")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// Message for deleting a `LbRouteExtension` resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteLbRouteExtensionRequest {
-    /// Required. The name of the `LbRouteExtension` resource to delete. Must be in
-    /// the format
-    /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. An optional request ID to identify requests. Specify a unique
-    /// request ID so that if you must retry your request, the server can ignore
-    /// the request if it has already been completed. The server guarantees
-    /// that for at least 60 minutes after the first request.
-    ///
-    /// For example, consider a situation where you make an initial request and the
-    /// request times out. If you make the request again with the same request
-    /// ID, the server can check if original operation with the same request ID
-    /// was received, and if so, ignores the second request. This prevents
-    /// clients from accidentally creating duplicate commitments.
-    ///
-    /// The request ID must be a valid UUID with the exception that zero UUID is
-    /// not supported (00000000-0000-0000-0000-000000000000).
-    #[prost(string, tag = "2")]
-    pub request_id: ::prost::alloc::string::String,
-}
-/// The part of the request or response for which the extension is called.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum EventType {
-    /// Unspecified value. Do not use.
-    Unspecified = 0,
-    /// If included in `supported_events`,
-    /// the extension is called when the HTTP request headers arrive.
-    RequestHeaders = 1,
-    /// If included in `supported_events`,
-    /// the extension is called when the HTTP request body arrives.
-    RequestBody = 2,
-    /// If included in `supported_events`,
-    /// the extension is called when the HTTP response headers arrive.
-    ResponseHeaders = 3,
-    /// If included in `supported_events`,
-    /// the extension is called when the HTTP response body arrives.
-    ResponseBody = 4,
-    /// If included in `supported_events`,
-    /// the extension is called when the HTTP request trailers arrives.
-    RequestTrailers = 5,
-    /// If included in `supported_events`,
-    /// the extension is called when the HTTP response trailers arrives.
-    ResponseTrailers = 6,
-}
-impl EventType {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            EventType::Unspecified => "EVENT_TYPE_UNSPECIFIED",
-            EventType::RequestHeaders => "REQUEST_HEADERS",
-            EventType::RequestBody => "REQUEST_BODY",
-            EventType::ResponseHeaders => "RESPONSE_HEADERS",
-            EventType::ResponseBody => "RESPONSE_BODY",
-            EventType::RequestTrailers => "REQUEST_TRAILERS",
-            EventType::ResponseTrailers => "RESPONSE_TRAILERS",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "EVENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-            "REQUEST_HEADERS" => Some(Self::RequestHeaders),
-            "REQUEST_BODY" => Some(Self::RequestBody),
-            "RESPONSE_HEADERS" => Some(Self::ResponseHeaders),
-            "RESPONSE_BODY" => Some(Self::ResponseBody),
-            "REQUEST_TRAILERS" => Some(Self::RequestTrailers),
-            "RESPONSE_TRAILERS" => Some(Self::ResponseTrailers),
-            _ => None,
-        }
-    }
-}
-/// Load balancing schemes supported by the `LbTrafficExtension` resource and
-/// `LbRouteExtension` resource.
-/// For more information, refer to [Choosing a load
-/// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum LoadBalancingScheme {
-    /// Default value. Do not use.
-    Unspecified = 0,
-    /// Signifies that this is used for Internal HTTP(S) Load Balancing.
-    InternalManaged = 1,
-    /// Signifies that this is used for External Managed HTTP(S) Load
-    /// Balancing.
-    ExternalManaged = 2,
-}
-impl LoadBalancingScheme {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            LoadBalancingScheme::Unspecified => "LOAD_BALANCING_SCHEME_UNSPECIFIED",
-            LoadBalancingScheme::InternalManaged => "INTERNAL_MANAGED",
-            LoadBalancingScheme::ExternalManaged => "EXTERNAL_MANAGED",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "LOAD_BALANCING_SCHEME_UNSPECIFIED" => Some(Self::Unspecified),
-            "INTERNAL_MANAGED" => Some(Self::InternalManaged),
-            "EXTERNAL_MANAGED" => Some(Self::ExternalManaged),
-            _ => None,
-        }
-    }
-}
-/// Generated client implementations.
-pub mod dep_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::*;
-    use tonic::codegen::http::Uri;
-    /// Service describing handlers for resources.
-    #[derive(Debug, Clone)]
-    pub struct DepServiceClient<T> {
-        inner: tonic::client::Grpc<T>,
-    }
-    impl<T> DepServiceClient<T>
-    where
-        T: tonic::client::GrpcService<tonic::body::BoxBody>,
-        T::Error: Into<StdError>,
-        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
-        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
-    {
-        pub fn new(inner: T) -> Self {
-            let inner = tonic::client::Grpc::new(inner);
-            Self { inner }
-        }
-        pub fn with_origin(inner: T, origin: Uri) -> Self {
-            let inner = tonic::client::Grpc::with_origin(inner, origin);
-            Self { inner }
-        }
-        pub fn with_interceptor<F>(
-            inner: T,
-            interceptor: F,
-        ) -> DepServiceClient<InterceptedService<T, F>>
-        where
-            F: tonic::service::Interceptor,
-            T::ResponseBody: Default,
-            T: tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-                Response = http::Response<
-                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
-                >,
-            >,
-            <T as tonic::codegen::Service<
-                http::Request<tonic::body::BoxBody>,
-            >>::Error: Into<StdError> + Send + Sync,
-        {
-            DepServiceClient::new(InterceptedService::new(inner, interceptor))
-        }
-        /// Compress requests with the given encoding.
-        ///
-        /// This requires the server to support it otherwise it might respond with an
-        /// error.
-        #[must_use]
-        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.send_compressed(encoding);
-            self
-        }
-        /// Enable decompressing responses.
-        #[must_use]
-        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
-            self.inner = self.inner.accept_compressed(encoding);
-            self
-        }
-        /// Limits the maximum size of a decoded message.
-        ///
-        /// Default: `4MB`
-        #[must_use]
-        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_decoding_message_size(limit);
-            self
-        }
-        /// Limits the maximum size of an encoded message.
-        ///
-        /// Default: `usize::MAX`
-        #[must_use]
-        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
-            self.inner = self.inner.max_encoding_message_size(limit);
-            self
-        }
-        /// Lists `LbTrafficExtension` resources in a given project and location.
-        pub async fn list_lb_traffic_extensions(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListLbTrafficExtensionsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListLbTrafficExtensionsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/ListLbTrafficExtensions",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "ListLbTrafficExtensions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of the specified `LbTrafficExtension` resource.
-        pub async fn get_lb_traffic_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetLbTrafficExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::LbTrafficExtension>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/GetLbTrafficExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "GetLbTrafficExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new `LbTrafficExtension` resource in a given project and
-        /// location.
-        pub async fn create_lb_traffic_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateLbTrafficExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/CreateLbTrafficExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "CreateLbTrafficExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of the specified `LbTrafficExtension` resource.
-        pub async fn update_lb_traffic_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateLbTrafficExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/UpdateLbTrafficExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "UpdateLbTrafficExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes the specified `LbTrafficExtension` resource.
-        pub async fn delete_lb_traffic_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteLbTrafficExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/DeleteLbTrafficExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "DeleteLbTrafficExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Lists `LbRouteExtension` resources in a given project and location.
-        pub async fn list_lb_route_extensions(
-            &mut self,
-            request: impl tonic::IntoRequest<super::ListLbRouteExtensionsRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::ListLbRouteExtensionsResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/ListLbRouteExtensions",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "ListLbRouteExtensions",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Gets details of the specified `LbRouteExtension` resource.
-        pub async fn get_lb_route_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::GetLbRouteExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::LbRouteExtension>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/GetLbRouteExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "GetLbRouteExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Creates a new `LbRouteExtension` resource in a given project and location.
-        pub async fn create_lb_route_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::CreateLbRouteExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/CreateLbRouteExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "CreateLbRouteExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Updates the parameters of the specified `LbRouteExtension` resource.
-        pub async fn update_lb_route_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::UpdateLbRouteExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/UpdateLbRouteExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "UpdateLbRouteExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deletes the specified `LbRouteExtension` resource.
-        pub async fn delete_lb_route_extension(
-            &mut self,
-            request: impl tonic::IntoRequest<super::DeleteLbRouteExtensionRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::super::super::super::longrunning::Operation>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/google.cloud.networkservices.v1.DepService/DeleteLbRouteExtension",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "google.cloud.networkservices.v1.DepService",
-                        "DeleteLbRouteExtension",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-    }
-}
-/// TlsRoute defines how traffic should be routed based on SNI and other matching
-/// L3 attributes.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TlsRoute {
-    /// Required. Name of the TlsRoute resource. It matches pattern
-    /// `projects/*/locations/global/tlsRoutes/tls_route_name>`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. Server-defined URL of this resource
-    #[prost(string, tag = "8")]
-    pub self_link: ::prost::alloc::string::String,
-    /// Output only. The timestamp when the resource was created.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when the resource was updated.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. The type of endpoint policy. This is primarily used to validate
+    /// the configuration.
+    #[prost(enumeration = "endpoint_policy::EndpointPolicyType", tag = "5")]
+    pub r#type: i32,
+    /// Optional. This field specifies the URL of AuthorizationPolicy resource that
+    /// applies authorization policies to the inbound traffic at the
+    /// matched endpoints. Refer to Authorization. If this field is not
+    /// specified, authorization is disabled(no authz checks) for this
+    /// endpoint.
+    #[prost(string, tag = "7")]
+    pub authorization_policy: ::prost::alloc::string::String,
+    /// Required. A matcher that selects endpoints to which the policies should be
+    /// applied.
+    #[prost(message, optional, tag = "9")]
+    pub endpoint_matcher: ::core::option::Option<EndpointMatcher>,
+    /// Optional. Port selector for the (matched) endpoints. If no port selector is
+    /// provided, the matched config is applied to all ports.
+    #[prost(message, optional, tag = "10")]
+    pub traffic_port_selector: ::core::option::Option<TrafficPortSelector>,
     /// Optional. A free-text description of the resource. Max length 1024
     /// characters.
-    #[prost(string, tag = "4")]
+    #[prost(string, tag = "11")]
     pub description: ::prost::alloc::string::String,
-    /// Required. Rules that define how traffic is routed and handled. At least one
-    /// RouteRule must be supplied. If there are multiple rules then the action
-    /// taken will be the first rule to match.
-    #[prost(message, repeated, tag = "5")]
-    pub rules: ::prost::alloc::vec::Vec<tls_route::RouteRule>,
-    /// Optional. Meshes defines a list of meshes this TlsRoute is attached to, as
-    /// one of the routing rules to route the requests served by the mesh.
-    ///
-    /// Each mesh reference should match the pattern:
-    /// `projects/*/locations/global/meshes/<mesh_name>`
-    ///
-    /// The attached Mesh should be of a type SIDECAR
-    #[prost(string, repeated, tag = "6")]
-    pub meshes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. Gateways defines a list of gateways this TlsRoute is attached to,
-    /// as one of the routing rules to route the requests served by the gateway.
-    ///
-    /// Each gateway reference should match the pattern:
-    /// `projects/*/locations/global/gateways/<gateway_name>`
-    #[prost(string, repeated, tag = "7")]
-    pub gateways: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is
+    /// used to determine the authentication policy to be applied to terminate the
+    /// inbound traffic at the identified backends. If this field is not set,
+    /// authentication is disabled(open) for this endpoint.
+    #[prost(string, tag = "12")]
+    pub server_tls_policy: ::prost::alloc::string::String,
+    /// Optional. A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy
+    /// can be set to specify the authentication for traffic from the proxy to the
+    /// actual endpoints. More specifically, it is applied to the outgoing traffic
+    /// from the proxy to the endpoint. This is typically used for sidecar model
+    /// where the proxy identifies itself as endpoint to the control plane, with
+    /// the connection between sidecar and endpoint requiring authentication. If
+    /// this field is not set, authentication is disabled(open). Applicable only
+    /// when EndpointPolicyType is SIDECAR_PROXY.
+    #[prost(string, tag = "13")]
+    pub client_tls_policy: ::prost::alloc::string::String,
 }
-/// Nested message and enum types in `TlsRoute`.
-pub mod tls_route {
-    /// Specifies how to match traffic and how to route traffic when traffic is
-    /// matched.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteRule {
-        /// Required. RouteMatch defines the predicate used to match requests to a
-        /// given action. Multiple match types are "OR"ed for evaluation.
-        #[prost(message, repeated, tag = "1")]
-        pub matches: ::prost::alloc::vec::Vec<RouteMatch>,
-        /// Required. The detailed rule defining how to route matched traffic.
-        #[prost(message, optional, tag = "2")]
-        pub action: ::core::option::Option<RouteAction>,
+/// Nested message and enum types in `EndpointPolicy`.
+pub mod endpoint_policy {
+    /// The type of endpoint policy.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum EndpointPolicyType {
+        /// Default value. Must not be used.
+        Unspecified = 0,
+        /// Represents a proxy deployed as a sidecar.
+        SidecarProxy = 1,
+        /// Represents a proxyless gRPC backend.
+        GrpcServer = 2,
     }
-    /// RouteMatch defines the predicate used to match requests to a given action.
-    /// Multiple match types are "AND"ed for evaluation.
-    /// If no routeMatch field is specified, this rule will unconditionally match
-    /// traffic.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteMatch {
-        /// Optional. SNI (server name indicator) to match against.
-        /// SNI will be matched against all wildcard domains, i.e. `www.example.com`
-        /// will be first matched against `www.example.com`, then `*.example.com`,
-        /// then `*.com.`
-        /// Partial wildcards are not supported, and values like *w.example.com are
-        /// invalid.
-        /// At least one of sni_host and alpn is required.
-        /// Up to 5 sni hosts across all matches can be set.
-        #[prost(string, repeated, tag = "1")]
-        pub sni_host: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// Optional. ALPN (Application-Layer Protocol Negotiation) to match against.
-        /// Examples: "http/1.1", "h2".
-        /// At least one of sni_host and alpn is required.
-        /// Up to 5 alpns across all matches can be set.
-        #[prost(string, repeated, tag = "2")]
-        pub alpn: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-    /// The specifications for routing traffic and applying associated policies.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteAction {
-        /// Required. The destination services to which traffic should be forwarded.
-        /// At least one destination service is required.
-        #[prost(message, repeated, tag = "1")]
-        pub destinations: ::prost::alloc::vec::Vec<RouteDestination>,
-    }
-    /// Describe the destination for traffic to be routed to.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteDestination {
-        /// Required. The URL of a BackendService to route traffic to.
-        #[prost(string, tag = "1")]
-        pub service_name: ::prost::alloc::string::String,
-        /// Optional. Specifies the proportion of requests forwareded to the backend
-        /// referenced by the service_name field. This is computed as:
-        /// - weight/Sum(weights in destinations)
-        /// Weights in all destinations does not need to sum up to 100.
-        #[prost(int32, tag = "2")]
-        pub weight: i32,
+    impl EndpointPolicyType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                EndpointPolicyType::Unspecified => "ENDPOINT_POLICY_TYPE_UNSPECIFIED",
+                EndpointPolicyType::SidecarProxy => "SIDECAR_PROXY",
+                EndpointPolicyType::GrpcServer => "GRPC_SERVER",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ENDPOINT_POLICY_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "SIDECAR_PROXY" => Some(Self::SidecarProxy),
+                "GRPC_SERVER" => Some(Self::GrpcServer),
+                _ => None,
+            }
+        }
     }
 }
-/// Request used with the ListTlsRoutes method.
+/// Request used with the ListEndpointPolicies method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListTlsRoutesRequest {
-    /// Required. The project and location from which the TlsRoutes should be
-    /// listed, specified in the format `projects/*/locations/global`.
+pub struct ListEndpointPoliciesRequest {
+    /// Required. The project and location from which the EndpointPolicies should
+    /// be listed, specified in the format `projects/*/locations/global`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Maximum number of TlsRoutes to return per call.
+    /// Maximum number of EndpointPolicies to return per call.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// The value returned by the last `ListTlsRoutesResponse`
-    /// Indicates that this is a continuation of a prior `ListTlsRoutes` call,
-    /// and that the system should return the next page of data.
+    /// The value returned by the last `ListEndpointPoliciesResponse`
+    /// Indicates that this is a continuation of a prior
+    /// `ListEndpointPolicies` call, and that the system should return the
+    /// next page of data.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response returned by the ListTlsRoutes method.
+/// Response returned by the ListEndpointPolicies method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListTlsRoutesResponse {
-    /// List of TlsRoute resources.
+pub struct ListEndpointPoliciesResponse {
+    /// List of EndpointPolicy resources.
     #[prost(message, repeated, tag = "1")]
-    pub tls_routes: ::prost::alloc::vec::Vec<TlsRoute>,
+    pub endpoint_policies: ::prost::alloc::vec::Vec<EndpointPolicy>,
     /// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// Request used by the GetTlsRoute method.
+/// Request used with the GetEndpointPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetTlsRouteRequest {
-    /// Required. A name of the TlsRoute to get. Must be in the format
-    /// `projects/*/locations/global/tlsRoutes/*`.
+pub struct GetEndpointPolicyRequest {
+    /// Required. A name of the EndpointPolicy to get. Must be in the format
+    /// `projects/*/locations/global/endpointPolicies/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request used by the TlsRoute method.
+/// Request used with the CreateEndpointPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateTlsRouteRequest {
-    /// Required. The parent resource of the TlsRoute. Must be in the
+pub struct CreateEndpointPolicyRequest {
+    /// Required. The parent resource of the EndpointPolicy. Must be in the
     /// format `projects/*/locations/global`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the TlsRoute resource to be created.
+    /// Required. Short name of the EndpointPolicy resource to be created.
+    /// E.g. "CustomECS".
     #[prost(string, tag = "2")]
-    pub tls_route_id: ::prost::alloc::string::String,
-    /// Required. TlsRoute resource to be created.
+    pub endpoint_policy_id: ::prost::alloc::string::String,
+    /// Required. EndpointPolicy resource to be created.
     #[prost(message, optional, tag = "3")]
-    pub tls_route: ::core::option::Option<TlsRoute>,
+    pub endpoint_policy: ::core::option::Option<EndpointPolicy>,
 }
-/// Request used by the UpdateTlsRoute method.
+/// Request used with the UpdateEndpointPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateTlsRouteRequest {
+pub struct UpdateEndpointPolicyRequest {
     /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// TlsRoute resource by the update.
+    /// EndpointPolicy resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated TlsRoute resource.
+    /// Required. Updated EndpointPolicy resource.
     #[prost(message, optional, tag = "2")]
-    pub tls_route: ::core::option::Option<TlsRoute>,
+    pub endpoint_policy: ::core::option::Option<EndpointPolicy>,
 }
-/// Request used by the DeleteTlsRoute method.
+/// Request used with the DeleteEndpointPolicy method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteTlsRouteRequest {
-    /// Required. A name of the TlsRoute to delete. Must be in the format
-    /// `projects/*/locations/global/tlsRoutes/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// ServiceBinding is the resource that defines a Service Directory Service to
-/// be used in a BackendService resource.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ServiceBinding {
-    /// Required. Name of the ServiceBinding resource. It matches pattern
-    /// `projects/*/locations/global/serviceBindings/service_binding_name`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Optional. A free-text description of the resource. Max length 1024
-    /// characters.
-    #[prost(string, tag = "2")]
-    pub description: ::prost::alloc::string::String,
-    /// Output only. The timestamp when the resource was created.
-    #[prost(message, optional, tag = "3")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when the resource was updated.
-    #[prost(message, optional, tag = "4")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Required. The full service directory service name of the format
-    /// /projects/*/locations/*/namespaces/*/services/*
-    #[prost(string, tag = "5")]
-    pub service: ::prost::alloc::string::String,
-    /// Optional. Set of label tags associated with the ServiceBinding resource.
-    #[prost(btree_map = "string, string", tag = "7")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-}
-/// Request used with the ListServiceBindings method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServiceBindingsRequest {
-    /// Required. The project and location from which the ServiceBindings should be
-    /// listed, specified in the format `projects/*/locations/global`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Maximum number of ServiceBindings to return per call.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The value returned by the last `ListServiceBindingsResponse`
-    /// Indicates that this is a continuation of a prior `ListRouters` call,
-    /// and that the system should return the next page of data.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response returned by the ListServiceBindings method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListServiceBindingsResponse {
-    /// List of ServiceBinding resources.
-    #[prost(message, repeated, tag = "1")]
-    pub service_bindings: ::prost::alloc::vec::Vec<ServiceBinding>,
-    /// If there might be more results than those appearing in this response, then
-    /// `next_page_token` is included. To get the next set of results, call this
-    /// method again using the value of `next_page_token` as `page_token`.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request used by the GetServiceBinding method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetServiceBindingRequest {
-    /// Required. A name of the ServiceBinding to get. Must be in the format
-    /// `projects/*/locations/global/serviceBindings/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request used by the ServiceBinding method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateServiceBindingRequest {
-    /// Required. The parent resource of the ServiceBinding. Must be in the
-    /// format `projects/*/locations/global`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the ServiceBinding resource to be created.
-    #[prost(string, tag = "2")]
-    pub service_binding_id: ::prost::alloc::string::String,
-    /// Required. ServiceBinding resource to be created.
-    #[prost(message, optional, tag = "3")]
-    pub service_binding: ::core::option::Option<ServiceBinding>,
-}
-/// Request used by the DeleteServiceBinding method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteServiceBindingRequest {
-    /// Required. A name of the ServiceBinding to delete. Must be in the format
-    /// `projects/*/locations/global/serviceBindings/*`.
+pub struct DeleteEndpointPolicyRequest {
+    /// Required. A name of the EndpointPolicy to delete. Must be in the format
+    /// `projects/*/locations/global/endpointPolicies/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -1577,6 +537,472 @@ pub struct UpdateGatewayRequest {
 pub struct DeleteGatewayRequest {
     /// Required. A name of the Gateway to delete. Must be in the format
     /// `projects/*/locations/*/gateways/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// GrpcRoute is the resource defining how gRPC traffic routed by a Mesh
+/// or Gateway resource is routed.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GrpcRoute {
+    /// Required. Name of the GrpcRoute resource. It matches pattern
+    /// `projects/*/locations/global/grpcRoutes/<grpc_route_name>`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. Server-defined URL of this resource
+    #[prost(string, tag = "12")]
+    pub self_link: ::prost::alloc::string::String,
+    /// Output only. The timestamp when the resource was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when the resource was updated.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. Set of label tags associated with the GrpcRoute resource.
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Optional. A free-text description of the resource. Max length 1024
+    /// characters.
+    #[prost(string, tag = "5")]
+    pub description: ::prost::alloc::string::String,
+    /// Required. Service hostnames with an optional port for which this route
+    /// describes traffic.
+    ///
+    /// Format: <hostname>\[:<port>\]
+    ///
+    /// Hostname is the fully qualified domain name of a network host. This matches
+    /// the RFC 1123 definition of a hostname with 2 notable exceptions:
+    ///   - IPs are not allowed.
+    ///   - A hostname may be prefixed with a wildcard label (`*.`). The wildcard
+    ///     label must appear by itself as the first label.
+    ///
+    /// Hostname can be "precise" which is a domain name without the terminating
+    /// dot of a network host (e.g. `foo.example.com`) or "wildcard", which is a
+    /// domain name prefixed with a single wildcard label (e.g. `*.example.com`).
+    ///
+    /// Note that as per RFC1035 and RFC1123, a label must consist of lower case
+    /// alphanumeric characters or '-', and must start and end with an alphanumeric
+    /// character. No other punctuation is allowed.
+    ///
+    /// The routes associated with a Mesh or Gateway must have unique hostnames. If
+    /// you attempt to attach multiple routes with conflicting hostnames, the
+    /// configuration will be rejected.
+    ///
+    /// For example, while it is acceptable for routes for the hostnames
+    /// `*.foo.bar.com` and `*.bar.com` to be associated with the same route, it is
+    /// not possible to associate two routes both with `*.bar.com` or both with
+    /// `bar.com`.
+    ///
+    /// If a port is specified, then gRPC clients must use the channel URI with the
+    /// port to match this rule (i.e. "xds:///service:123"), otherwise they must
+    /// supply the URI without a port (i.e. "xds:///service").
+    #[prost(string, repeated, tag = "6")]
+    pub hostnames: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. Meshes defines a list of meshes this GrpcRoute is attached to, as
+    /// one of the routing rules to route the requests served by the mesh.
+    ///
+    /// Each mesh reference should match the pattern:
+    /// `projects/*/locations/global/meshes/<mesh_name>`
+    #[prost(string, repeated, tag = "9")]
+    pub meshes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. Gateways defines a list of gateways this GrpcRoute is attached
+    /// to, as one of the routing rules to route the requests served by the
+    /// gateway.
+    ///
+    /// Each gateway reference should match the pattern:
+    /// `projects/*/locations/global/gateways/<gateway_name>`
+    #[prost(string, repeated, tag = "10")]
+    pub gateways: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Required. A list of detailed rules defining how to route traffic.
+    ///
+    /// Within a single GrpcRoute, the GrpcRoute.RouteAction associated with the
+    /// first matching GrpcRoute.RouteRule will be executed. At least one rule
+    /// must be supplied.
+    #[prost(message, repeated, tag = "7")]
+    pub rules: ::prost::alloc::vec::Vec<grpc_route::RouteRule>,
+}
+/// Nested message and enum types in `GrpcRoute`.
+pub mod grpc_route {
+    /// Specifies a match against a method.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MethodMatch {
+        /// Optional. Specifies how to match against the name. If not specified, a
+        /// default value of "EXACT" is used.
+        #[prost(enumeration = "method_match::Type", tag = "1")]
+        pub r#type: i32,
+        /// Required. Name of the service to match against. If unspecified, will
+        /// match all services.
+        #[prost(string, tag = "2")]
+        pub grpc_service: ::prost::alloc::string::String,
+        /// Required. Name of the method to match against. If unspecified, will match
+        /// all methods.
+        #[prost(string, tag = "3")]
+        pub grpc_method: ::prost::alloc::string::String,
+        /// Optional. Specifies that matches are case sensitive.  The default value
+        /// is true. case_sensitive must not be used with a type of
+        /// REGULAR_EXPRESSION.
+        #[prost(bool, optional, tag = "4")]
+        pub case_sensitive: ::core::option::Option<bool>,
+    }
+    /// Nested message and enum types in `MethodMatch`.
+    pub mod method_match {
+        /// The type of the match.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Type {
+            /// Unspecified.
+            Unspecified = 0,
+            /// Will only match the exact name provided.
+            Exact = 1,
+            /// Will interpret grpc_method and grpc_service as regexes. RE2 syntax is
+            /// supported.
+            RegularExpression = 2,
+        }
+        impl Type {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Type::Unspecified => "TYPE_UNSPECIFIED",
+                    Type::Exact => "EXACT",
+                    Type::RegularExpression => "REGULAR_EXPRESSION",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "EXACT" => Some(Self::Exact),
+                    "REGULAR_EXPRESSION" => Some(Self::RegularExpression),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// A match against a collection of headers.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct HeaderMatch {
+        /// Optional. Specifies how to match against the value of the header. If not
+        /// specified, a default value of EXACT is used.
+        #[prost(enumeration = "header_match::Type", tag = "1")]
+        pub r#type: i32,
+        /// Required. The key of the header.
+        #[prost(string, tag = "2")]
+        pub key: ::prost::alloc::string::String,
+        /// Required. The value of the header.
+        #[prost(string, tag = "3")]
+        pub value: ::prost::alloc::string::String,
+    }
+    /// Nested message and enum types in `HeaderMatch`.
+    pub mod header_match {
+        /// The type of match.
+        #[derive(
+            Clone,
+            Copy,
+            Debug,
+            PartialEq,
+            Eq,
+            Hash,
+            PartialOrd,
+            Ord,
+            ::prost::Enumeration
+        )]
+        #[repr(i32)]
+        pub enum Type {
+            /// Unspecified.
+            Unspecified = 0,
+            /// Will only match the exact value provided.
+            Exact = 1,
+            /// Will match paths conforming to the prefix specified by value. RE2
+            /// syntax is supported.
+            RegularExpression = 2,
+        }
+        impl Type {
+            /// String value of the enum field names used in the ProtoBuf definition.
+            ///
+            /// The values are not transformed in any way and thus are considered stable
+            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+            pub fn as_str_name(&self) -> &'static str {
+                match self {
+                    Type::Unspecified => "TYPE_UNSPECIFIED",
+                    Type::Exact => "EXACT",
+                    Type::RegularExpression => "REGULAR_EXPRESSION",
+                }
+            }
+            /// Creates an enum from field names used in the ProtoBuf definition.
+            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+                match value {
+                    "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                    "EXACT" => Some(Self::Exact),
+                    "REGULAR_EXPRESSION" => Some(Self::RegularExpression),
+                    _ => None,
+                }
+            }
+        }
+    }
+    /// Criteria for matching traffic. A RouteMatch will be considered to match
+    /// when all supplied fields match.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteMatch {
+        /// Optional. A gRPC method to match against. If this field is empty or
+        /// omitted, will match all methods.
+        #[prost(message, optional, tag = "1")]
+        pub method: ::core::option::Option<MethodMatch>,
+        /// Optional. Specifies a collection of headers to match.
+        #[prost(message, repeated, tag = "2")]
+        pub headers: ::prost::alloc::vec::Vec<HeaderMatch>,
+    }
+    /// The destination to which traffic will be routed.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Destination {
+        /// Optional. Specifies the proportion of requests forwarded to the backend
+        /// referenced by the serviceName field. This is computed as:
+        /// - weight/Sum(weights in this destination list).
+        /// For non-zero values, there may be some epsilon from the exact proportion
+        /// defined here depending on the precision an implementation supports.
+        ///
+        /// If only one serviceName is specified and it has a weight greater than 0,
+        /// 100% of the traffic is forwarded to that backend.
+        ///
+        /// If weights are specified for any one service name, they need to be
+        /// specified for all of them.
+        ///
+        /// If weights are unspecified for all services, then, traffic is distributed
+        /// in equal proportions to all of them.
+        #[prost(int32, optional, tag = "2")]
+        pub weight: ::core::option::Option<i32>,
+        /// Specifies the kind of destination to which traffic will be routed.
+        #[prost(oneof = "destination::DestinationType", tags = "1")]
+        pub destination_type: ::core::option::Option<destination::DestinationType>,
+    }
+    /// Nested message and enum types in `Destination`.
+    pub mod destination {
+        /// Specifies the kind of destination to which traffic will be routed.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum DestinationType {
+            /// Required. The URL of a destination service to which to route traffic.
+            /// Must refer to either a BackendService or ServiceDirectoryService.
+            #[prost(string, tag = "1")]
+            ServiceName(::prost::alloc::string::String),
+        }
+    }
+    /// The specification for fault injection introduced into traffic to test the
+    /// resiliency of clients to destination service failure. As part of fault
+    /// injection, when clients send requests to a destination, delays can be
+    /// introduced on a percentage of requests before sending those requests to the
+    /// destination service. Similarly requests from clients can be aborted by for
+    /// a percentage of requests.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct FaultInjectionPolicy {
+        /// The specification for injecting delay to client requests.
+        #[prost(message, optional, tag = "1")]
+        pub delay: ::core::option::Option<fault_injection_policy::Delay>,
+        /// The specification for aborting to client requests.
+        #[prost(message, optional, tag = "2")]
+        pub abort: ::core::option::Option<fault_injection_policy::Abort>,
+    }
+    /// Nested message and enum types in `FaultInjectionPolicy`.
+    pub mod fault_injection_policy {
+        /// Specification of how client requests are delayed as part of fault
+        /// injection before being sent to a destination.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Delay {
+            /// Specify a fixed delay before forwarding the request.
+            #[prost(message, optional, tag = "1")]
+            pub fixed_delay: ::core::option::Option<::prost_types::Duration>,
+            /// The percentage of traffic on which delay will be injected.
+            ///
+            /// The value must be between \[0, 100\]
+            #[prost(int32, optional, tag = "2")]
+            pub percentage: ::core::option::Option<i32>,
+        }
+        /// Specification of how client requests are aborted as part of fault
+        /// injection before being sent to a destination.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Abort {
+            /// The HTTP status code used to abort the request.
+            ///
+            /// The value must be between 200 and 599 inclusive.
+            #[prost(int32, optional, tag = "1")]
+            pub http_status: ::core::option::Option<i32>,
+            /// The percentage of traffic which will be aborted.
+            ///
+            /// The value must be between \[0, 100\]
+            #[prost(int32, optional, tag = "2")]
+            pub percentage: ::core::option::Option<i32>,
+        }
+    }
+    /// The specifications for retries.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RetryPolicy {
+        /// - connect-failure: Router will retry on failures connecting to Backend
+        ///     Services, for example due to connection timeouts.
+        /// - refused-stream: Router will retry if the backend service resets the
+        /// stream
+        ///     with a REFUSED_STREAM error code. This reset type indicates that it is
+        ///     safe to retry.
+        /// - cancelled: Router will retry if the gRPC status code in the response
+        /// header
+        ///     is set to cancelled
+        /// - deadline-exceeded: Router will retry if the gRPC status code in the
+        /// response
+        ///     header is set to deadline-exceeded
+        /// - resource-exhausted: Router will retry if the gRPC status code in the
+        ///     response header is set to resource-exhausted
+        /// - unavailable: Router will retry if the gRPC status code in the response
+        ///     header is set to unavailable
+        #[prost(string, repeated, tag = "1")]
+        pub retry_conditions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Specifies the allowed number of retries. This number must be > 0. If not
+        /// specified, default to 1.
+        #[prost(uint32, tag = "2")]
+        pub num_retries: u32,
+    }
+    /// Specifies how to route matched traffic.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteAction {
+        /// Optional. The destination services to which traffic should be forwarded.
+        /// If multiple destinations are specified, traffic will be split between
+        /// Backend Service(s) according to the weight field of these destinations.
+        #[prost(message, repeated, tag = "1")]
+        pub destinations: ::prost::alloc::vec::Vec<Destination>,
+        /// Optional. The specification for fault injection introduced into traffic to test the
+        /// resiliency of clients to destination service failure. As part of fault
+        /// injection, when clients send requests to a destination, delays can be
+        /// introduced on a percentage of requests before sending those requests to
+        /// the destination service. Similarly requests from clients can be aborted
+        /// by for a percentage of requests.
+        ///
+        /// timeout and retry_policy will be ignored by clients that are configured
+        /// with a fault_injection_policy
+        #[prost(message, optional, tag = "3")]
+        pub fault_injection_policy: ::core::option::Option<FaultInjectionPolicy>,
+        /// Optional. Specifies the timeout for selected route. Timeout is computed
+        /// from the time the request has been fully processed (i.e. end of stream)
+        /// up until the response has been completely processed. Timeout includes all
+        /// retries.
+        #[prost(message, optional, tag = "7")]
+        pub timeout: ::core::option::Option<::prost_types::Duration>,
+        /// Optional. Specifies the retry policy associated with this route.
+        #[prost(message, optional, tag = "8")]
+        pub retry_policy: ::core::option::Option<RetryPolicy>,
+    }
+    /// Describes how to route traffic.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteRule {
+        /// Optional. Matches define conditions used for matching the rule against
+        /// incoming gRPC requests. Each match is independent, i.e. this rule will be
+        /// matched if ANY one of the matches is satisfied.  If no matches field is
+        /// specified, this rule will unconditionally match traffic.
+        #[prost(message, repeated, tag = "1")]
+        pub matches: ::prost::alloc::vec::Vec<RouteMatch>,
+        /// Required. A detailed rule defining how to route traffic. This field is
+        /// required.
+        #[prost(message, optional, tag = "2")]
+        pub action: ::core::option::Option<RouteAction>,
+    }
+}
+/// Request used with the ListGrpcRoutes method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGrpcRoutesRequest {
+    /// Required. The project and location from which the GrpcRoutes should be
+    /// listed, specified in the format `projects/*/locations/global`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Maximum number of GrpcRoutes to return per call.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The value returned by the last `ListGrpcRoutesResponse`
+    /// Indicates that this is a continuation of a prior `ListGrpcRoutes` call,
+    /// and that the system should return the next page of data.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response returned by the ListGrpcRoutes method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListGrpcRoutesResponse {
+    /// List of GrpcRoute resources.
+    #[prost(message, repeated, tag = "1")]
+    pub grpc_routes: ::prost::alloc::vec::Vec<GrpcRoute>,
+    /// If there might be more results than those appearing in this response, then
+    /// `next_page_token` is included. To get the next set of results, call this
+    /// method again using the value of `next_page_token` as `page_token`.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request used by the GetGrpcRoute method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetGrpcRouteRequest {
+    /// Required. A name of the GrpcRoute to get. Must be in the format
+    /// `projects/*/locations/global/grpcRoutes/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request used by the CreateGrpcRoute method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateGrpcRouteRequest {
+    /// Required. The parent resource of the GrpcRoute. Must be in the
+    /// format `projects/*/locations/global`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Short name of the GrpcRoute resource to be created.
+    #[prost(string, tag = "2")]
+    pub grpc_route_id: ::prost::alloc::string::String,
+    /// Required. GrpcRoute resource to be created.
+    #[prost(message, optional, tag = "3")]
+    pub grpc_route: ::core::option::Option<GrpcRoute>,
+}
+/// Request used by the UpdateGrpcRoute method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateGrpcRouteRequest {
+    /// Optional. Field mask is used to specify the fields to be overwritten in the
+    /// GrpcRoute resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field will be overwritten if it is in the mask. If the
+    /// user does not provide a mask then all fields will be overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. Updated GrpcRoute resource.
+    #[prost(message, optional, tag = "2")]
+    pub grpc_route: ::core::option::Option<GrpcRoute>,
+}
+/// Request used by the DeleteGrpcRoute method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteGrpcRouteRequest {
+    /// Required. A name of the GrpcRoute to delete. Must be in the format
+    /// `projects/*/locations/global/grpcRoutes/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -2255,206 +1681,18 @@ pub struct DeleteHttpRouteRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// EndpointPolicy is a resource that helps apply desired configuration
-/// on the endpoints that match specific criteria.
-/// For example, this resource can be used to apply "authentication config"
-/// an all endpoints that serve on port 8080.
+/// Mesh represents a logical configuration grouping for workload to workload
+/// communication within a service mesh. Routes that point to mesh dictate how
+/// requests are routed within this logical mesh boundary.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct EndpointPolicy {
-    /// Required. Name of the EndpointPolicy resource. It matches pattern
-    /// `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-    /// Output only. The timestamp when the resource was created.
-    #[prost(message, optional, tag = "2")]
-    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. The timestamp when the resource was updated.
-    #[prost(message, optional, tag = "3")]
-    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Set of label tags associated with the EndpointPolicy resource.
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
-    /// Required. The type of endpoint policy. This is primarily used to validate
-    /// the configuration.
-    #[prost(enumeration = "endpoint_policy::EndpointPolicyType", tag = "5")]
-    pub r#type: i32,
-    /// Optional. This field specifies the URL of AuthorizationPolicy resource that
-    /// applies authorization policies to the inbound traffic at the
-    /// matched endpoints. Refer to Authorization. If this field is not
-    /// specified, authorization is disabled(no authz checks) for this
-    /// endpoint.
-    #[prost(string, tag = "7")]
-    pub authorization_policy: ::prost::alloc::string::String,
-    /// Required. A matcher that selects endpoints to which the policies should be
-    /// applied.
-    #[prost(message, optional, tag = "9")]
-    pub endpoint_matcher: ::core::option::Option<EndpointMatcher>,
-    /// Optional. Port selector for the (matched) endpoints. If no port selector is
-    /// provided, the matched config is applied to all ports.
-    #[prost(message, optional, tag = "10")]
-    pub traffic_port_selector: ::core::option::Option<TrafficPortSelector>,
-    /// Optional. A free-text description of the resource. Max length 1024
-    /// characters.
-    #[prost(string, tag = "11")]
-    pub description: ::prost::alloc::string::String,
-    /// Optional. A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is
-    /// used to determine the authentication policy to be applied to terminate the
-    /// inbound traffic at the identified backends. If this field is not set,
-    /// authentication is disabled(open) for this endpoint.
-    #[prost(string, tag = "12")]
-    pub server_tls_policy: ::prost::alloc::string::String,
-    /// Optional. A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy
-    /// can be set to specify the authentication for traffic from the proxy to the
-    /// actual endpoints. More specifically, it is applied to the outgoing traffic
-    /// from the proxy to the endpoint. This is typically used for sidecar model
-    /// where the proxy identifies itself as endpoint to the control plane, with
-    /// the connection between sidecar and endpoint requiring authentication. If
-    /// this field is not set, authentication is disabled(open). Applicable only
-    /// when EndpointPolicyType is SIDECAR_PROXY.
-    #[prost(string, tag = "13")]
-    pub client_tls_policy: ::prost::alloc::string::String,
-}
-/// Nested message and enum types in `EndpointPolicy`.
-pub mod endpoint_policy {
-    /// The type of endpoint policy.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum EndpointPolicyType {
-        /// Default value. Must not be used.
-        Unspecified = 0,
-        /// Represents a proxy deployed as a sidecar.
-        SidecarProxy = 1,
-        /// Represents a proxyless gRPC backend.
-        GrpcServer = 2,
-    }
-    impl EndpointPolicyType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                EndpointPolicyType::Unspecified => "ENDPOINT_POLICY_TYPE_UNSPECIFIED",
-                EndpointPolicyType::SidecarProxy => "SIDECAR_PROXY",
-                EndpointPolicyType::GrpcServer => "GRPC_SERVER",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "ENDPOINT_POLICY_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                "SIDECAR_PROXY" => Some(Self::SidecarProxy),
-                "GRPC_SERVER" => Some(Self::GrpcServer),
-                _ => None,
-            }
-        }
-    }
-}
-/// Request used with the ListEndpointPolicies method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListEndpointPoliciesRequest {
-    /// Required. The project and location from which the EndpointPolicies should
-    /// be listed, specified in the format `projects/*/locations/global`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Maximum number of EndpointPolicies to return per call.
-    #[prost(int32, tag = "2")]
-    pub page_size: i32,
-    /// The value returned by the last `ListEndpointPoliciesResponse`
-    /// Indicates that this is a continuation of a prior
-    /// `ListEndpointPolicies` call, and that the system should return the
-    /// next page of data.
-    #[prost(string, tag = "3")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// Response returned by the ListEndpointPolicies method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListEndpointPoliciesResponse {
-    /// List of EndpointPolicy resources.
-    #[prost(message, repeated, tag = "1")]
-    pub endpoint_policies: ::prost::alloc::vec::Vec<EndpointPolicy>,
-    /// If there might be more results than those appearing in this response, then
-    /// `next_page_token` is included. To get the next set of results, call this
-    /// method again using the value of `next_page_token` as `page_token`.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
-/// Request used with the GetEndpointPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetEndpointPolicyRequest {
-    /// Required. A name of the EndpointPolicy to get. Must be in the format
-    /// `projects/*/locations/global/endpointPolicies/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// Request used with the CreateEndpointPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateEndpointPolicyRequest {
-    /// Required. The parent resource of the EndpointPolicy. Must be in the
-    /// format `projects/*/locations/global`.
-    #[prost(string, tag = "1")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the EndpointPolicy resource to be created.
-    /// E.g. "CustomECS".
-    #[prost(string, tag = "2")]
-    pub endpoint_policy_id: ::prost::alloc::string::String,
-    /// Required. EndpointPolicy resource to be created.
-    #[prost(message, optional, tag = "3")]
-    pub endpoint_policy: ::core::option::Option<EndpointPolicy>,
-}
-/// Request used with the UpdateEndpointPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateEndpointPolicyRequest {
-    /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// EndpointPolicy resource by the update.
-    /// The fields specified in the update_mask are relative to the resource, not
-    /// the full request. A field will be overwritten if it is in the mask. If the
-    /// user does not provide a mask then all fields will be overwritten.
-    #[prost(message, optional, tag = "1")]
-    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated EndpointPolicy resource.
-    #[prost(message, optional, tag = "2")]
-    pub endpoint_policy: ::core::option::Option<EndpointPolicy>,
-}
-/// Request used with the DeleteEndpointPolicy method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteEndpointPolicyRequest {
-    /// Required. A name of the EndpointPolicy to delete. Must be in the format
-    /// `projects/*/locations/global/endpointPolicies/*`.
-    #[prost(string, tag = "1")]
-    pub name: ::prost::alloc::string::String,
-}
-/// GrpcRoute is the resource defining how gRPC traffic routed by a Mesh
-/// or Gateway resource is routed.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GrpcRoute {
-    /// Required. Name of the GrpcRoute resource. It matches pattern
-    /// `projects/*/locations/global/grpcRoutes/<grpc_route_name>`
+pub struct Mesh {
+    /// Required. Name of the Mesh resource. It matches pattern
+    /// `projects/*/locations/global/meshes/<mesh_name>`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Server-defined URL of this resource
-    #[prost(string, tag = "12")]
+    #[prost(string, tag = "9")]
     pub self_link: ::prost::alloc::string::String,
     /// Output only. The timestamp when the resource was created.
     #[prost(message, optional, tag = "2")]
@@ -2462,7 +1700,7 @@ pub struct GrpcRoute {
     /// Output only. The timestamp when the resource was updated.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Set of label tags associated with the GrpcRoute resource.
+    /// Optional. Set of label tags associated with the Mesh resource.
     #[prost(btree_map = "string, string", tag = "4")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
@@ -2472,441 +1710,183 @@ pub struct GrpcRoute {
     /// characters.
     #[prost(string, tag = "5")]
     pub description: ::prost::alloc::string::String,
-    /// Required. Service hostnames with an optional port for which this route
-    /// describes traffic.
-    ///
-    /// Format: <hostname>\[:<port>\]
-    ///
-    /// Hostname is the fully qualified domain name of a network host. This matches
-    /// the RFC 1123 definition of a hostname with 2 notable exceptions:
-    ///   - IPs are not allowed.
-    ///   - A hostname may be prefixed with a wildcard label (`*.`). The wildcard
-    ///     label must appear by itself as the first label.
-    ///
-    /// Hostname can be "precise" which is a domain name without the terminating
-    /// dot of a network host (e.g. `foo.example.com`) or "wildcard", which is a
-    /// domain name prefixed with a single wildcard label (e.g. `*.example.com`).
-    ///
-    /// Note that as per RFC1035 and RFC1123, a label must consist of lower case
-    /// alphanumeric characters or '-', and must start and end with an alphanumeric
-    /// character. No other punctuation is allowed.
-    ///
-    /// The routes associated with a Mesh or Gateway must have unique hostnames. If
-    /// you attempt to attach multiple routes with conflicting hostnames, the
-    /// configuration will be rejected.
-    ///
-    /// For example, while it is acceptable for routes for the hostnames
-    /// `*.foo.bar.com` and `*.bar.com` to be associated with the same route, it is
-    /// not possible to associate two routes both with `*.bar.com` or both with
-    /// `bar.com`.
-    ///
-    /// If a port is specified, then gRPC clients must use the channel URI with the
-    /// port to match this rule (i.e. "xds:///service:123"), otherwise they must
-    /// supply the URI without a port (i.e. "xds:///service").
-    #[prost(string, repeated, tag = "6")]
-    pub hostnames: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. Meshes defines a list of meshes this GrpcRoute is attached to, as
-    /// one of the routing rules to route the requests served by the mesh.
-    ///
-    /// Each mesh reference should match the pattern:
-    /// `projects/*/locations/global/meshes/<mesh_name>`
-    #[prost(string, repeated, tag = "9")]
-    pub meshes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. Gateways defines a list of gateways this GrpcRoute is attached
-    /// to, as one of the routing rules to route the requests served by the
-    /// gateway.
-    ///
-    /// Each gateway reference should match the pattern:
-    /// `projects/*/locations/global/gateways/<gateway_name>`
-    #[prost(string, repeated, tag = "10")]
-    pub gateways: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Required. A list of detailed rules defining how to route traffic.
-    ///
-    /// Within a single GrpcRoute, the GrpcRoute.RouteAction associated with the
-    /// first matching GrpcRoute.RouteRule will be executed. At least one rule
-    /// must be supplied.
-    #[prost(message, repeated, tag = "7")]
-    pub rules: ::prost::alloc::vec::Vec<grpc_route::RouteRule>,
+    /// Optional. If set to a valid TCP port (1-65535), instructs the SIDECAR proxy
+    /// to listen on the specified port of localhost (127.0.0.1) address. The
+    /// SIDECAR proxy will expect all traffic to be redirected to this port
+    /// regardless of its actual ip:port destination. If unset, a port '15001' is
+    /// used as the interception port. This is applicable only for sidecar proxy
+    /// deployments.
+    #[prost(int32, tag = "8")]
+    pub interception_port: i32,
 }
-/// Nested message and enum types in `GrpcRoute`.
-pub mod grpc_route {
-    /// Specifies a match against a method.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct MethodMatch {
-        /// Optional. Specifies how to match against the name. If not specified, a
-        /// default value of "EXACT" is used.
-        #[prost(enumeration = "method_match::Type", tag = "1")]
-        pub r#type: i32,
-        /// Required. Name of the service to match against. If unspecified, will
-        /// match all services.
-        #[prost(string, tag = "2")]
-        pub grpc_service: ::prost::alloc::string::String,
-        /// Required. Name of the method to match against. If unspecified, will match
-        /// all methods.
-        #[prost(string, tag = "3")]
-        pub grpc_method: ::prost::alloc::string::String,
-        /// Optional. Specifies that matches are case sensitive.  The default value
-        /// is true. case_sensitive must not be used with a type of
-        /// REGULAR_EXPRESSION.
-        #[prost(bool, optional, tag = "4")]
-        pub case_sensitive: ::core::option::Option<bool>,
-    }
-    /// Nested message and enum types in `MethodMatch`.
-    pub mod method_match {
-        /// The type of the match.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum Type {
-            /// Unspecified.
-            Unspecified = 0,
-            /// Will only match the exact name provided.
-            Exact = 1,
-            /// Will interpret grpc_method and grpc_service as regexes. RE2 syntax is
-            /// supported.
-            RegularExpression = 2,
-        }
-        impl Type {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    Type::Unspecified => "TYPE_UNSPECIFIED",
-                    Type::Exact => "EXACT",
-                    Type::RegularExpression => "REGULAR_EXPRESSION",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "EXACT" => Some(Self::Exact),
-                    "REGULAR_EXPRESSION" => Some(Self::RegularExpression),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// A match against a collection of headers.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct HeaderMatch {
-        /// Optional. Specifies how to match against the value of the header. If not
-        /// specified, a default value of EXACT is used.
-        #[prost(enumeration = "header_match::Type", tag = "1")]
-        pub r#type: i32,
-        /// Required. The key of the header.
-        #[prost(string, tag = "2")]
-        pub key: ::prost::alloc::string::String,
-        /// Required. The value of the header.
-        #[prost(string, tag = "3")]
-        pub value: ::prost::alloc::string::String,
-    }
-    /// Nested message and enum types in `HeaderMatch`.
-    pub mod header_match {
-        /// The type of match.
-        #[derive(
-            Clone,
-            Copy,
-            Debug,
-            PartialEq,
-            Eq,
-            Hash,
-            PartialOrd,
-            Ord,
-            ::prost::Enumeration
-        )]
-        #[repr(i32)]
-        pub enum Type {
-            /// Unspecified.
-            Unspecified = 0,
-            /// Will only match the exact value provided.
-            Exact = 1,
-            /// Will match paths conforming to the prefix specified by value. RE2
-            /// syntax is supported.
-            RegularExpression = 2,
-        }
-        impl Type {
-            /// String value of the enum field names used in the ProtoBuf definition.
-            ///
-            /// The values are not transformed in any way and thus are considered stable
-            /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            pub fn as_str_name(&self) -> &'static str {
-                match self {
-                    Type::Unspecified => "TYPE_UNSPECIFIED",
-                    Type::Exact => "EXACT",
-                    Type::RegularExpression => "REGULAR_EXPRESSION",
-                }
-            }
-            /// Creates an enum from field names used in the ProtoBuf definition.
-            pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-                match value {
-                    "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
-                    "EXACT" => Some(Self::Exact),
-                    "REGULAR_EXPRESSION" => Some(Self::RegularExpression),
-                    _ => None,
-                }
-            }
-        }
-    }
-    /// Criteria for matching traffic. A RouteMatch will be considered to match
-    /// when all supplied fields match.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteMatch {
-        /// Optional. A gRPC method to match against. If this field is empty or
-        /// omitted, will match all methods.
-        #[prost(message, optional, tag = "1")]
-        pub method: ::core::option::Option<MethodMatch>,
-        /// Optional. Specifies a collection of headers to match.
-        #[prost(message, repeated, tag = "2")]
-        pub headers: ::prost::alloc::vec::Vec<HeaderMatch>,
-    }
-    /// The destination to which traffic will be routed.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Destination {
-        /// Optional. Specifies the proportion of requests forwarded to the backend
-        /// referenced by the serviceName field. This is computed as:
-        /// - weight/Sum(weights in this destination list).
-        /// For non-zero values, there may be some epsilon from the exact proportion
-        /// defined here depending on the precision an implementation supports.
-        ///
-        /// If only one serviceName is specified and it has a weight greater than 0,
-        /// 100% of the traffic is forwarded to that backend.
-        ///
-        /// If weights are specified for any one service name, they need to be
-        /// specified for all of them.
-        ///
-        /// If weights are unspecified for all services, then, traffic is distributed
-        /// in equal proportions to all of them.
-        #[prost(int32, optional, tag = "2")]
-        pub weight: ::core::option::Option<i32>,
-        /// Specifies the kind of destination to which traffic will be routed.
-        #[prost(oneof = "destination::DestinationType", tags = "1")]
-        pub destination_type: ::core::option::Option<destination::DestinationType>,
-    }
-    /// Nested message and enum types in `Destination`.
-    pub mod destination {
-        /// Specifies the kind of destination to which traffic will be routed.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum DestinationType {
-            /// Required. The URL of a destination service to which to route traffic.
-            /// Must refer to either a BackendService or ServiceDirectoryService.
-            #[prost(string, tag = "1")]
-            ServiceName(::prost::alloc::string::String),
-        }
-    }
-    /// The specification for fault injection introduced into traffic to test the
-    /// resiliency of clients to destination service failure. As part of fault
-    /// injection, when clients send requests to a destination, delays can be
-    /// introduced on a percentage of requests before sending those requests to the
-    /// destination service. Similarly requests from clients can be aborted by for
-    /// a percentage of requests.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct FaultInjectionPolicy {
-        /// The specification for injecting delay to client requests.
-        #[prost(message, optional, tag = "1")]
-        pub delay: ::core::option::Option<fault_injection_policy::Delay>,
-        /// The specification for aborting to client requests.
-        #[prost(message, optional, tag = "2")]
-        pub abort: ::core::option::Option<fault_injection_policy::Abort>,
-    }
-    /// Nested message and enum types in `FaultInjectionPolicy`.
-    pub mod fault_injection_policy {
-        /// Specification of how client requests are delayed as part of fault
-        /// injection before being sent to a destination.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Delay {
-            /// Specify a fixed delay before forwarding the request.
-            #[prost(message, optional, tag = "1")]
-            pub fixed_delay: ::core::option::Option<::prost_types::Duration>,
-            /// The percentage of traffic on which delay will be injected.
-            ///
-            /// The value must be between \[0, 100\]
-            #[prost(int32, optional, tag = "2")]
-            pub percentage: ::core::option::Option<i32>,
-        }
-        /// Specification of how client requests are aborted as part of fault
-        /// injection before being sent to a destination.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Message)]
-        pub struct Abort {
-            /// The HTTP status code used to abort the request.
-            ///
-            /// The value must be between 200 and 599 inclusive.
-            #[prost(int32, optional, tag = "1")]
-            pub http_status: ::core::option::Option<i32>,
-            /// The percentage of traffic which will be aborted.
-            ///
-            /// The value must be between \[0, 100\]
-            #[prost(int32, optional, tag = "2")]
-            pub percentage: ::core::option::Option<i32>,
-        }
-    }
-    /// The specifications for retries.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RetryPolicy {
-        /// - connect-failure: Router will retry on failures connecting to Backend
-        ///     Services, for example due to connection timeouts.
-        /// - refused-stream: Router will retry if the backend service resets the
-        /// stream
-        ///     with a REFUSED_STREAM error code. This reset type indicates that it is
-        ///     safe to retry.
-        /// - cancelled: Router will retry if the gRPC status code in the response
-        /// header
-        ///     is set to cancelled
-        /// - deadline-exceeded: Router will retry if the gRPC status code in the
-        /// response
-        ///     header is set to deadline-exceeded
-        /// - resource-exhausted: Router will retry if the gRPC status code in the
-        ///     response header is set to resource-exhausted
-        /// - unavailable: Router will retry if the gRPC status code in the response
-        ///     header is set to unavailable
-        #[prost(string, repeated, tag = "1")]
-        pub retry_conditions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-        /// Specifies the allowed number of retries. This number must be > 0. If not
-        /// specified, default to 1.
-        #[prost(uint32, tag = "2")]
-        pub num_retries: u32,
-    }
-    /// Specifies how to route matched traffic.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteAction {
-        /// Optional. The destination services to which traffic should be forwarded.
-        /// If multiple destinations are specified, traffic will be split between
-        /// Backend Service(s) according to the weight field of these destinations.
-        #[prost(message, repeated, tag = "1")]
-        pub destinations: ::prost::alloc::vec::Vec<Destination>,
-        /// Optional. The specification for fault injection introduced into traffic to test the
-        /// resiliency of clients to destination service failure. As part of fault
-        /// injection, when clients send requests to a destination, delays can be
-        /// introduced on a percentage of requests before sending those requests to
-        /// the destination service. Similarly requests from clients can be aborted
-        /// by for a percentage of requests.
-        ///
-        /// timeout and retry_policy will be ignored by clients that are configured
-        /// with a fault_injection_policy
-        #[prost(message, optional, tag = "3")]
-        pub fault_injection_policy: ::core::option::Option<FaultInjectionPolicy>,
-        /// Optional. Specifies the timeout for selected route. Timeout is computed
-        /// from the time the request has been fully processed (i.e. end of stream)
-        /// up until the response has been completely processed. Timeout includes all
-        /// retries.
-        #[prost(message, optional, tag = "7")]
-        pub timeout: ::core::option::Option<::prost_types::Duration>,
-        /// Optional. Specifies the retry policy associated with this route.
-        #[prost(message, optional, tag = "8")]
-        pub retry_policy: ::core::option::Option<RetryPolicy>,
-    }
-    /// Describes how to route traffic.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct RouteRule {
-        /// Optional. Matches define conditions used for matching the rule against
-        /// incoming gRPC requests. Each match is independent, i.e. this rule will be
-        /// matched if ANY one of the matches is satisfied.  If no matches field is
-        /// specified, this rule will unconditionally match traffic.
-        #[prost(message, repeated, tag = "1")]
-        pub matches: ::prost::alloc::vec::Vec<RouteMatch>,
-        /// Required. A detailed rule defining how to route traffic. This field is
-        /// required.
-        #[prost(message, optional, tag = "2")]
-        pub action: ::core::option::Option<RouteAction>,
-    }
-}
-/// Request used with the ListGrpcRoutes method.
+/// Request used with the ListMeshes method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGrpcRoutesRequest {
-    /// Required. The project and location from which the GrpcRoutes should be
+pub struct ListMeshesRequest {
+    /// Required. The project and location from which the Meshes should be
     /// listed, specified in the format `projects/*/locations/global`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Maximum number of GrpcRoutes to return per call.
+    /// Maximum number of Meshes to return per call.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// The value returned by the last `ListGrpcRoutesResponse`
-    /// Indicates that this is a continuation of a prior `ListGrpcRoutes` call,
+    /// The value returned by the last `ListMeshesResponse`
+    /// Indicates that this is a continuation of a prior `ListMeshes` call,
     /// and that the system should return the next page of data.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response returned by the ListGrpcRoutes method.
+/// Response returned by the ListMeshes method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListGrpcRoutesResponse {
-    /// List of GrpcRoute resources.
+pub struct ListMeshesResponse {
+    /// List of Mesh resources.
     #[prost(message, repeated, tag = "1")]
-    pub grpc_routes: ::prost::alloc::vec::Vec<GrpcRoute>,
+    pub meshes: ::prost::alloc::vec::Vec<Mesh>,
     /// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// Request used by the GetGrpcRoute method.
+/// Request used by the GetMesh method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetGrpcRouteRequest {
-    /// Required. A name of the GrpcRoute to get. Must be in the format
-    /// `projects/*/locations/global/grpcRoutes/*`.
+pub struct GetMeshRequest {
+    /// Required. A name of the Mesh to get. Must be in the format
+    /// `projects/*/locations/global/meshes/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request used by the CreateGrpcRoute method.
+/// Request used by the CreateMesh method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateGrpcRouteRequest {
-    /// Required. The parent resource of the GrpcRoute. Must be in the
+pub struct CreateMeshRequest {
+    /// Required. The parent resource of the Mesh. Must be in the
     /// format `projects/*/locations/global`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the GrpcRoute resource to be created.
+    /// Required. Short name of the Mesh resource to be created.
     #[prost(string, tag = "2")]
-    pub grpc_route_id: ::prost::alloc::string::String,
-    /// Required. GrpcRoute resource to be created.
+    pub mesh_id: ::prost::alloc::string::String,
+    /// Required. Mesh resource to be created.
     #[prost(message, optional, tag = "3")]
-    pub grpc_route: ::core::option::Option<GrpcRoute>,
+    pub mesh: ::core::option::Option<Mesh>,
 }
-/// Request used by the UpdateGrpcRoute method.
+/// Request used by the UpdateMesh method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateGrpcRouteRequest {
+pub struct UpdateMeshRequest {
     /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// GrpcRoute resource by the update.
+    /// Mesh resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated GrpcRoute resource.
+    /// Required. Updated Mesh resource.
     #[prost(message, optional, tag = "2")]
-    pub grpc_route: ::core::option::Option<GrpcRoute>,
+    pub mesh: ::core::option::Option<Mesh>,
 }
-/// Request used by the DeleteGrpcRoute method.
+/// Request used by the DeleteMesh method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteGrpcRouteRequest {
-    /// Required. A name of the GrpcRoute to delete. Must be in the format
-    /// `projects/*/locations/global/grpcRoutes/*`.
+pub struct DeleteMeshRequest {
+    /// Required. A name of the Mesh to delete. Must be in the format
+    /// `projects/*/locations/global/meshes/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// ServiceBinding is the resource that defines a Service Directory Service to
+/// be used in a BackendService resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ServiceBinding {
+    /// Required. Name of the ServiceBinding resource. It matches pattern
+    /// `projects/*/locations/global/serviceBindings/service_binding_name`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. A free-text description of the resource. Max length 1024
+    /// characters.
+    #[prost(string, tag = "2")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. The timestamp when the resource was created.
+    #[prost(message, optional, tag = "3")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when the resource was updated.
+    #[prost(message, optional, tag = "4")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Required. The full service directory service name of the format
+    /// /projects/*/locations/*/namespaces/*/services/*
+    #[prost(string, tag = "5")]
+    pub service: ::prost::alloc::string::String,
+    /// Optional. Set of label tags associated with the ServiceBinding resource.
+    #[prost(btree_map = "string, string", tag = "7")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+/// Request used with the ListServiceBindings method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListServiceBindingsRequest {
+    /// Required. The project and location from which the ServiceBindings should be
+    /// listed, specified in the format `projects/*/locations/global`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Maximum number of ServiceBindings to return per call.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// The value returned by the last `ListServiceBindingsResponse`
+    /// Indicates that this is a continuation of a prior `ListRouters` call,
+    /// and that the system should return the next page of data.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response returned by the ListServiceBindings method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListServiceBindingsResponse {
+    /// List of ServiceBinding resources.
+    #[prost(message, repeated, tag = "1")]
+    pub service_bindings: ::prost::alloc::vec::Vec<ServiceBinding>,
+    /// If there might be more results than those appearing in this response, then
+    /// `next_page_token` is included. To get the next set of results, call this
+    /// method again using the value of `next_page_token` as `page_token`.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request used by the GetServiceBinding method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetServiceBindingRequest {
+    /// Required. A name of the ServiceBinding to get. Must be in the format
+    /// `projects/*/locations/global/serviceBindings/*`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request used by the ServiceBinding method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateServiceBindingRequest {
+    /// Required. The parent resource of the ServiceBinding. Must be in the
+    /// format `projects/*/locations/global`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. Short name of the ServiceBinding resource to be created.
+    #[prost(string, tag = "2")]
+    pub service_binding_id: ::prost::alloc::string::String,
+    /// Required. ServiceBinding resource to be created.
+    #[prost(message, optional, tag = "3")]
+    pub service_binding: ::core::option::Option<ServiceBinding>,
+}
+/// Request used by the DeleteServiceBinding method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteServiceBindingRequest {
+    /// Required. A name of the ServiceBinding to delete. Must be in the format
+    /// `projects/*/locations/global/serviceBindings/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -3117,18 +2097,17 @@ pub struct DeleteTcpRouteRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Mesh represents a logical configuration grouping for workload to workload
-/// communication within a service mesh. Routes that point to mesh dictate how
-/// requests are routed within this logical mesh boundary.
+/// TlsRoute defines how traffic should be routed based on SNI and other matching
+/// L3 attributes.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Mesh {
-    /// Required. Name of the Mesh resource. It matches pattern
-    /// `projects/*/locations/global/meshes/<mesh_name>`.
+pub struct TlsRoute {
+    /// Required. Name of the TlsRoute resource. It matches pattern
+    /// `projects/*/locations/global/tlsRoutes/tls_route_name>`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Server-defined URL of this resource
-    #[prost(string, tag = "9")]
+    #[prost(string, tag = "8")]
     pub self_link: ::prost::alloc::string::String,
     /// Output only. The timestamp when the resource was created.
     #[prost(message, optional, tag = "2")]
@@ -3136,100 +2115,170 @@ pub struct Mesh {
     /// Output only. The timestamp when the resource was updated.
     #[prost(message, optional, tag = "3")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Optional. Set of label tags associated with the Mesh resource.
-    #[prost(btree_map = "string, string", tag = "4")]
-    pub labels: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        ::prost::alloc::string::String,
-    >,
     /// Optional. A free-text description of the resource. Max length 1024
     /// characters.
-    #[prost(string, tag = "5")]
+    #[prost(string, tag = "4")]
     pub description: ::prost::alloc::string::String,
-    /// Optional. If set to a valid TCP port (1-65535), instructs the SIDECAR proxy
-    /// to listen on the specified port of localhost (127.0.0.1) address. The
-    /// SIDECAR proxy will expect all traffic to be redirected to this port
-    /// regardless of its actual ip:port destination. If unset, a port '15001' is
-    /// used as the interception port. This is applicable only for sidecar proxy
-    /// deployments.
-    #[prost(int32, tag = "8")]
-    pub interception_port: i32,
+    /// Required. Rules that define how traffic is routed and handled. At least one
+    /// RouteRule must be supplied. If there are multiple rules then the action
+    /// taken will be the first rule to match.
+    #[prost(message, repeated, tag = "5")]
+    pub rules: ::prost::alloc::vec::Vec<tls_route::RouteRule>,
+    /// Optional. Meshes defines a list of meshes this TlsRoute is attached to, as
+    /// one of the routing rules to route the requests served by the mesh.
+    ///
+    /// Each mesh reference should match the pattern:
+    /// `projects/*/locations/global/meshes/<mesh_name>`
+    ///
+    /// The attached Mesh should be of a type SIDECAR
+    #[prost(string, repeated, tag = "6")]
+    pub meshes: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Optional. Gateways defines a list of gateways this TlsRoute is attached to,
+    /// as one of the routing rules to route the requests served by the gateway.
+    ///
+    /// Each gateway reference should match the pattern:
+    /// `projects/*/locations/global/gateways/<gateway_name>`
+    #[prost(string, repeated, tag = "7")]
+    pub gateways: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Request used with the ListMeshes method.
+/// Nested message and enum types in `TlsRoute`.
+pub mod tls_route {
+    /// Specifies how to match traffic and how to route traffic when traffic is
+    /// matched.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteRule {
+        /// Required. RouteMatch defines the predicate used to match requests to a
+        /// given action. Multiple match types are "OR"ed for evaluation.
+        #[prost(message, repeated, tag = "1")]
+        pub matches: ::prost::alloc::vec::Vec<RouteMatch>,
+        /// Required. The detailed rule defining how to route matched traffic.
+        #[prost(message, optional, tag = "2")]
+        pub action: ::core::option::Option<RouteAction>,
+    }
+    /// RouteMatch defines the predicate used to match requests to a given action.
+    /// Multiple match types are "AND"ed for evaluation.
+    /// If no routeMatch field is specified, this rule will unconditionally match
+    /// traffic.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteMatch {
+        /// Optional. SNI (server name indicator) to match against.
+        /// SNI will be matched against all wildcard domains, i.e. `www.example.com`
+        /// will be first matched against `www.example.com`, then `*.example.com`,
+        /// then `*.com.`
+        /// Partial wildcards are not supported, and values like *w.example.com are
+        /// invalid.
+        /// At least one of sni_host and alpn is required.
+        /// Up to 5 sni hosts across all matches can be set.
+        #[prost(string, repeated, tag = "1")]
+        pub sni_host: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        /// Optional. ALPN (Application-Layer Protocol Negotiation) to match against.
+        /// Examples: "http/1.1", "h2".
+        /// At least one of sni_host and alpn is required.
+        /// Up to 5 alpns across all matches can be set.
+        #[prost(string, repeated, tag = "2")]
+        pub alpn: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// The specifications for routing traffic and applying associated policies.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteAction {
+        /// Required. The destination services to which traffic should be forwarded.
+        /// At least one destination service is required.
+        #[prost(message, repeated, tag = "1")]
+        pub destinations: ::prost::alloc::vec::Vec<RouteDestination>,
+    }
+    /// Describe the destination for traffic to be routed to.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct RouteDestination {
+        /// Required. The URL of a BackendService to route traffic to.
+        #[prost(string, tag = "1")]
+        pub service_name: ::prost::alloc::string::String,
+        /// Optional. Specifies the proportion of requests forwareded to the backend
+        /// referenced by the service_name field. This is computed as:
+        /// - weight/Sum(weights in destinations)
+        /// Weights in all destinations does not need to sum up to 100.
+        #[prost(int32, tag = "2")]
+        pub weight: i32,
+    }
+}
+/// Request used with the ListTlsRoutes method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListMeshesRequest {
-    /// Required. The project and location from which the Meshes should be
+pub struct ListTlsRoutesRequest {
+    /// Required. The project and location from which the TlsRoutes should be
     /// listed, specified in the format `projects/*/locations/global`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Maximum number of Meshes to return per call.
+    /// Maximum number of TlsRoutes to return per call.
     #[prost(int32, tag = "2")]
     pub page_size: i32,
-    /// The value returned by the last `ListMeshesResponse`
-    /// Indicates that this is a continuation of a prior `ListMeshes` call,
+    /// The value returned by the last `ListTlsRoutesResponse`
+    /// Indicates that this is a continuation of a prior `ListTlsRoutes` call,
     /// and that the system should return the next page of data.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
 }
-/// Response returned by the ListMeshes method.
+/// Response returned by the ListTlsRoutes method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ListMeshesResponse {
-    /// List of Mesh resources.
+pub struct ListTlsRoutesResponse {
+    /// List of TlsRoute resources.
     #[prost(message, repeated, tag = "1")]
-    pub meshes: ::prost::alloc::vec::Vec<Mesh>,
+    pub tls_routes: ::prost::alloc::vec::Vec<TlsRoute>,
     /// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// Request used by the GetMesh method.
+/// Request used by the GetTlsRoute method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct GetMeshRequest {
-    /// Required. A name of the Mesh to get. Must be in the format
-    /// `projects/*/locations/global/meshes/*`.
+pub struct GetTlsRouteRequest {
+    /// Required. A name of the TlsRoute to get. Must be in the format
+    /// `projects/*/locations/global/tlsRoutes/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Request used by the CreateMesh method.
+/// Request used by the TlsRoute method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CreateMeshRequest {
-    /// Required. The parent resource of the Mesh. Must be in the
+pub struct CreateTlsRouteRequest {
+    /// Required. The parent resource of the TlsRoute. Must be in the
     /// format `projects/*/locations/global`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
-    /// Required. Short name of the Mesh resource to be created.
+    /// Required. Short name of the TlsRoute resource to be created.
     #[prost(string, tag = "2")]
-    pub mesh_id: ::prost::alloc::string::String,
-    /// Required. Mesh resource to be created.
+    pub tls_route_id: ::prost::alloc::string::String,
+    /// Required. TlsRoute resource to be created.
     #[prost(message, optional, tag = "3")]
-    pub mesh: ::core::option::Option<Mesh>,
+    pub tls_route: ::core::option::Option<TlsRoute>,
 }
-/// Request used by the UpdateMesh method.
+/// Request used by the UpdateTlsRoute method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UpdateMeshRequest {
+pub struct UpdateTlsRouteRequest {
     /// Optional. Field mask is used to specify the fields to be overwritten in the
-    /// Mesh resource by the update.
+    /// TlsRoute resource by the update.
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
     #[prost(message, optional, tag = "1")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
-    /// Required. Updated Mesh resource.
+    /// Required. Updated TlsRoute resource.
     #[prost(message, optional, tag = "2")]
-    pub mesh: ::core::option::Option<Mesh>,
+    pub tls_route: ::core::option::Option<TlsRoute>,
 }
-/// Request used by the DeleteMesh method.
+/// Request used by the DeleteTlsRoute method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DeleteMeshRequest {
-    /// Required. A name of the Mesh to delete. Must be in the format
-    /// `projects/*/locations/global/meshes/*`.
+pub struct DeleteTlsRouteRequest {
+    /// Required. A name of the TlsRoute to delete. Must be in the format
+    /// `projects/*/locations/global/tlsRoutes/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -4488,6 +3537,957 @@ pub mod network_services_client {
                     GrpcMethod::new(
                         "google.cloud.networkservices.v1.NetworkServices",
                         "DeleteMesh",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// A single extension chain wrapper that contains the match conditions and
+/// extensions to execute.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExtensionChain {
+    /// Required. The name for this extension chain.
+    /// The name is logged as part of the HTTP request logs.
+    /// The name must conform with RFC-1034, is restricted to lower-cased letters,
+    /// numbers and hyphens, and can have a maximum length of 63 characters.
+    /// Additionally, the first character must be a letter and the last a letter or
+    /// a number.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Required. Conditions under which this chain is invoked for a request.
+    #[prost(message, optional, tag = "2")]
+    pub match_condition: ::core::option::Option<extension_chain::MatchCondition>,
+    /// Required. A set of extensions to execute for the matching request.
+    /// At least one extension is required.
+    /// Up to 3 extensions can be defined for each extension chain
+    /// for `LbTrafficExtension` resource.
+    /// `LbRouteExtension` chains are limited to 1 extension per extension chain.
+    #[prost(message, repeated, tag = "3")]
+    pub extensions: ::prost::alloc::vec::Vec<extension_chain::Extension>,
+}
+/// Nested message and enum types in `ExtensionChain`.
+pub mod extension_chain {
+    /// Conditions under which this chain is invoked for a request.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct MatchCondition {
+        /// Required. A Common Expression Language (CEL) expression that is used to
+        /// match requests for which the extension chain is executed.
+        ///
+        /// For more information, see
+        /// [CEL matcher language
+        /// reference](<https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference>).
+        #[prost(string, tag = "1")]
+        pub cel_expression: ::prost::alloc::string::String,
+    }
+    /// A single extension in the chain to execute for the matching request.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Extension {
+        /// Required. The name for this extension.
+        /// The name is logged as part of the HTTP request logs.
+        /// The name must conform with RFC-1034, is restricted to lower-cased
+        /// letters, numbers and hyphens, and can have a maximum length of 63
+        /// characters. Additionally, the first character must be a letter and the
+        /// last a letter or a number.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+        /// Optional. The `:authority` header in the gRPC request sent from Envoy
+        /// to the extension service.
+        /// Required for Callout extensions.
+        #[prost(string, tag = "2")]
+        pub authority: ::prost::alloc::string::String,
+        /// Required. The reference to the service that runs the extension.
+        ///
+        /// Currently only callout extensions are supported here.
+        ///
+        /// To configure a callout extension, `service` must be a fully-qualified
+        /// reference
+        /// to a [backend
+        /// service](<https://cloud.google.com/compute/docs/reference/rest/v1/backendServices>)
+        /// in the format:
+        /// `<https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}`>
+        /// or
+        /// `<https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}`.>
+        #[prost(string, tag = "3")]
+        pub service: ::prost::alloc::string::String,
+        /// Optional. A set of events during request or response processing for which
+        /// this extension is called. This field is required for the
+        /// `LbTrafficExtension` resource. It's not relevant for the
+        /// `LbRouteExtension` resource.
+        #[prost(enumeration = "super::EventType", repeated, packed = "false", tag = "4")]
+        pub supported_events: ::prost::alloc::vec::Vec<i32>,
+        /// Optional. Specifies the timeout for each individual message on the
+        /// stream. The timeout must be between 10-1000 milliseconds. Required for
+        /// Callout extensions.
+        #[prost(message, optional, tag = "5")]
+        pub timeout: ::core::option::Option<::prost_types::Duration>,
+        /// Optional. Determines how the proxy behaves if the call to the extension
+        /// fails or times out.
+        ///
+        /// When set to `TRUE`, request or response processing continues without
+        /// error. Any subsequent extensions in the extension chain are also
+        /// executed. When set to `FALSE` or the default setting of `FALSE` is used,
+        /// one of the following happens:
+        /// * If response headers have not been delivered to the downstream client,
+        /// a generic 500 error is returned to the client. The error response can be
+        /// tailored by configuring a custom error response in the load balancer.
+        ///
+        /// * If response headers have been delivered, then the HTTP stream to the
+        /// downstream client is reset.
+        #[prost(bool, tag = "6")]
+        pub fail_open: bool,
+        /// Optional. List of the HTTP headers to forward to the extension
+        /// (from the client or backend). If omitted, all headers are sent.
+        /// Each element is a string indicating the header name.
+        #[prost(string, repeated, tag = "7")]
+        pub forward_headers: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+}
+/// `LbTrafficExtension` is a resource that lets the extension service modify the
+/// headers and payloads of both requests and responses without impacting the
+/// choice of backend services or any other security policies associated with the
+/// backend service.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LbTrafficExtension {
+    /// Required. Identifier. Name of the `LbTrafficExtension` resource in the
+    /// following format:
+    /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The timestamp when the resource was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when the resource was updated.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. A human-readable description of the resource.
+    #[prost(string, tag = "9")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. Set of labels associated with the `LbTrafficExtension` resource.
+    ///
+    /// The format must comply with [the requirements for
+    /// labels](<https://cloud.google.com/compute/docs/labeling-resources#requirements>) for Google Cloud
+    /// resources.
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. A list of references to the forwarding rules to which this
+    /// service extension is attached to. At least one forwarding rule is required.
+    /// There can be only one `LBTrafficExtension` resource per forwarding rule.
+    #[prost(string, repeated, tag = "5")]
+    pub forwarding_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Required. A set of ordered extension chains that contain the match
+    /// conditions and extensions to execute. Match conditions for each extension
+    /// chain are evaluated in sequence for a given request. The first extension
+    /// chain that has a condition that matches the request is executed.
+    /// Any subsequent extension chains do not execute.
+    /// Limited to 5 extension chains per resource.
+    #[prost(message, repeated, tag = "7")]
+    pub extension_chains: ::prost::alloc::vec::Vec<ExtensionChain>,
+    /// Required. All backend services and forwarding rules referenced by this
+    /// extension must share the same load balancing scheme. Supported values:
+    /// `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+    /// [Choosing a load
+    /// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
+    #[prost(enumeration = "LoadBalancingScheme", tag = "8")]
+    pub load_balancing_scheme: i32,
+}
+/// Message for requesting list of `LbTrafficExtension` resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLbTrafficExtensionsRequest {
+    /// Required. The project and location from which the `LbTrafficExtension`
+    /// resources are listed, specified in the following format:
+    /// `projects/{project}/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Requested page size. The server might return fewer items than
+    /// requested. If unspecified, the server picks an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. A token identifying a page of results that the server returns.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing `LbTrafficExtension` resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLbTrafficExtensionsResponse {
+    /// The list of `LbTrafficExtension` resources.
+    #[prost(message, repeated, tag = "1")]
+    pub lb_traffic_extensions: ::prost::alloc::vec::Vec<LbTrafficExtension>,
+    /// A token identifying a page of results that the server returns.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting a `LbTrafficExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetLbTrafficExtensionRequest {
+    /// Required. A name of the `LbTrafficExtension` resource to get. Must be in
+    /// the format
+    /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a `LbTrafficExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateLbTrafficExtensionRequest {
+    /// Required. The parent resource of the `LbTrafficExtension` resource. Must be
+    /// in the format `projects/{project}/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. User-provided ID of the `LbTrafficExtension` resource to be
+    /// created.
+    #[prost(string, tag = "2")]
+    pub lb_traffic_extension_id: ::prost::alloc::string::String,
+    /// Required. `LbTrafficExtension` resource to be created.
+    #[prost(message, optional, tag = "3")]
+    pub lb_traffic_extension: ::core::option::Option<LbTrafficExtension>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server can ignore
+    /// the request if it has already been completed. The server guarantees
+    /// that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, ignores the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating a `LbTrafficExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateLbTrafficExtensionRequest {
+    /// Required. Used to specify the fields to be overwritten in the
+    /// `LbTrafficExtension` resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field is overwritten if it is in the mask. If the
+    /// user does not specify a mask, then all fields are overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. `LbTrafficExtension` resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub lb_traffic_extension: ::core::option::Option<LbTrafficExtension>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server can ignore
+    /// the request if it has already been completed. The server guarantees
+    /// that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, ignores the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting a `LbTrafficExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteLbTrafficExtensionRequest {
+    /// Required. The name of the `LbTrafficExtension` resource to delete. Must be
+    /// in the format
+    /// `projects/{project}/locations/{location}/lbTrafficExtensions/{lb_traffic_extension}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server can ignore
+    /// the request if it has already been completed. The server guarantees
+    /// that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, ignores the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// `LbRouteExtension` is a resource that lets you control where traffic is
+/// routed to for a given request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LbRouteExtension {
+    /// Required. Identifier. Name of the `LbRouteExtension` resource in the
+    /// following format:
+    /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Output only. The timestamp when the resource was created.
+    #[prost(message, optional, tag = "2")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The timestamp when the resource was updated.
+    #[prost(message, optional, tag = "3")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Optional. A human-readable description of the resource.
+    #[prost(string, tag = "9")]
+    pub description: ::prost::alloc::string::String,
+    /// Optional. Set of labels associated with the `LbRouteExtension` resource.
+    ///
+    /// The format must comply with [the requirements for
+    /// labels](<https://cloud.google.com/compute/docs/labeling-resources#requirements>) for Google Cloud
+    /// resources.
+    #[prost(btree_map = "string, string", tag = "4")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Required. A list of references to the forwarding rules to which this
+    /// service extension is attached to. At least one forwarding rule is required.
+    /// There can be only one `LbRouteExtension` resource per forwarding rule.
+    #[prost(string, repeated, tag = "5")]
+    pub forwarding_rules: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Required. A set of ordered extension chains that contain the match
+    /// conditions and extensions to execute. Match conditions for each extension
+    /// chain are evaluated in sequence for a given request. The first extension
+    /// chain that has a condition that matches the request is executed.
+    /// Any subsequent extension chains do not execute.
+    /// Limited to 5 extension chains per resource.
+    #[prost(message, repeated, tag = "7")]
+    pub extension_chains: ::prost::alloc::vec::Vec<ExtensionChain>,
+    /// Required. All backend services and forwarding rules referenced by this
+    /// extension must share the same load balancing scheme. Supported values:
+    /// `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+    /// [Choosing a load
+    /// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
+    #[prost(enumeration = "LoadBalancingScheme", tag = "8")]
+    pub load_balancing_scheme: i32,
+}
+/// Message for requesting list of `LbRouteExtension` resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLbRouteExtensionsRequest {
+    /// Required. The project and location from which the `LbRouteExtension`
+    /// resources are listed, specified in the following format:
+    /// `projects/{project}/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. Requested page size. The server might return fewer items than
+    /// requested. If unspecified, the server picks an appropriate default.
+    #[prost(int32, tag = "2")]
+    pub page_size: i32,
+    /// Optional. A token identifying a page of results that the server returns.
+    #[prost(string, tag = "3")]
+    pub page_token: ::prost::alloc::string::String,
+    /// Optional. Filtering results.
+    #[prost(string, tag = "4")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. Hint for how to order the results.
+    #[prost(string, tag = "5")]
+    pub order_by: ::prost::alloc::string::String,
+}
+/// Message for response to listing `LbRouteExtension` resources.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListLbRouteExtensionsResponse {
+    /// The list of `LbRouteExtension` resources.
+    #[prost(message, repeated, tag = "1")]
+    pub lb_route_extensions: ::prost::alloc::vec::Vec<LbRouteExtension>,
+    /// A token identifying a page of results that the server returns.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+    /// Locations that could not be reached.
+    #[prost(string, repeated, tag = "3")]
+    pub unreachable: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Message for getting a `LbRouteExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetLbRouteExtensionRequest {
+    /// Required. A name of the `LbRouteExtension` resource to get. Must be in the
+    /// format
+    /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Message for creating a `LbRouteExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateLbRouteExtensionRequest {
+    /// Required. The parent resource of the `LbRouteExtension` resource. Must be
+    /// in the format `projects/{project}/locations/{location}`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. User-provided ID of the `LbRouteExtension` resource to be
+    /// created.
+    #[prost(string, tag = "2")]
+    pub lb_route_extension_id: ::prost::alloc::string::String,
+    /// Required. `LbRouteExtension` resource to be created.
+    #[prost(message, optional, tag = "3")]
+    pub lb_route_extension: ::core::option::Option<LbRouteExtension>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server can ignore
+    /// the request if it has already been completed. The server guarantees
+    /// that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, ignores the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "4")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for updating a `LbRouteExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateLbRouteExtensionRequest {
+    /// Required. Used to specify the fields to be overwritten in the
+    /// `LbRouteExtension` resource by the update.
+    /// The fields specified in the update_mask are relative to the resource, not
+    /// the full request. A field is overwritten if it is in the mask. If the
+    /// user does not specify a mask, then all fields are overwritten.
+    #[prost(message, optional, tag = "1")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+    /// Required. `LbRouteExtension` resource being updated.
+    #[prost(message, optional, tag = "2")]
+    pub lb_route_extension: ::core::option::Option<LbRouteExtension>,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server can ignore
+    /// the request if it has already been completed. The server guarantees
+    /// that for at least 60 minutes since the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, ignores the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "3")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// Message for deleting a `LbRouteExtension` resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteLbRouteExtensionRequest {
+    /// Required. The name of the `LbRouteExtension` resource to delete. Must be in
+    /// the format
+    /// `projects/{project}/locations/{location}/lbRouteExtensions/{lb_route_extension}`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional request ID to identify requests. Specify a unique
+    /// request ID so that if you must retry your request, the server can ignore
+    /// the request if it has already been completed. The server guarantees
+    /// that for at least 60 minutes after the first request.
+    ///
+    /// For example, consider a situation where you make an initial request and the
+    /// request times out. If you make the request again with the same request
+    /// ID, the server can check if original operation with the same request ID
+    /// was received, and if so, ignores the second request. This prevents
+    /// clients from accidentally creating duplicate commitments.
+    ///
+    /// The request ID must be a valid UUID with the exception that zero UUID is
+    /// not supported (00000000-0000-0000-0000-000000000000).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+}
+/// The part of the request or response for which the extension is called.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum EventType {
+    /// Unspecified value. Do not use.
+    Unspecified = 0,
+    /// If included in `supported_events`,
+    /// the extension is called when the HTTP request headers arrive.
+    RequestHeaders = 1,
+    /// If included in `supported_events`,
+    /// the extension is called when the HTTP request body arrives.
+    RequestBody = 2,
+    /// If included in `supported_events`,
+    /// the extension is called when the HTTP response headers arrive.
+    ResponseHeaders = 3,
+    /// If included in `supported_events`,
+    /// the extension is called when the HTTP response body arrives.
+    ResponseBody = 4,
+    /// If included in `supported_events`,
+    /// the extension is called when the HTTP request trailers arrives.
+    RequestTrailers = 5,
+    /// If included in `supported_events`,
+    /// the extension is called when the HTTP response trailers arrives.
+    ResponseTrailers = 6,
+}
+impl EventType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            EventType::Unspecified => "EVENT_TYPE_UNSPECIFIED",
+            EventType::RequestHeaders => "REQUEST_HEADERS",
+            EventType::RequestBody => "REQUEST_BODY",
+            EventType::ResponseHeaders => "RESPONSE_HEADERS",
+            EventType::ResponseBody => "RESPONSE_BODY",
+            EventType::RequestTrailers => "REQUEST_TRAILERS",
+            EventType::ResponseTrailers => "RESPONSE_TRAILERS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "EVENT_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+            "REQUEST_HEADERS" => Some(Self::RequestHeaders),
+            "REQUEST_BODY" => Some(Self::RequestBody),
+            "RESPONSE_HEADERS" => Some(Self::ResponseHeaders),
+            "RESPONSE_BODY" => Some(Self::ResponseBody),
+            "REQUEST_TRAILERS" => Some(Self::RequestTrailers),
+            "RESPONSE_TRAILERS" => Some(Self::ResponseTrailers),
+            _ => None,
+        }
+    }
+}
+/// Load balancing schemes supported by the `LbTrafficExtension` resource and
+/// `LbRouteExtension` resource.
+/// For more information, refer to [Choosing a load
+/// balancer](<https://cloud.google.com/load-balancing/docs/backend-service>).
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum LoadBalancingScheme {
+    /// Default value. Do not use.
+    Unspecified = 0,
+    /// Signifies that this is used for Internal HTTP(S) Load Balancing.
+    InternalManaged = 1,
+    /// Signifies that this is used for External Managed HTTP(S) Load
+    /// Balancing.
+    ExternalManaged = 2,
+}
+impl LoadBalancingScheme {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            LoadBalancingScheme::Unspecified => "LOAD_BALANCING_SCHEME_UNSPECIFIED",
+            LoadBalancingScheme::InternalManaged => "INTERNAL_MANAGED",
+            LoadBalancingScheme::ExternalManaged => "EXTERNAL_MANAGED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "LOAD_BALANCING_SCHEME_UNSPECIFIED" => Some(Self::Unspecified),
+            "INTERNAL_MANAGED" => Some(Self::InternalManaged),
+            "EXTERNAL_MANAGED" => Some(Self::ExternalManaged),
+            _ => None,
+        }
+    }
+}
+/// Generated client implementations.
+pub mod dep_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service describing handlers for resources.
+    #[derive(Debug, Clone)]
+    pub struct DepServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> DepServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> DepServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            DepServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Lists `LbTrafficExtension` resources in a given project and location.
+        pub async fn list_lb_traffic_extensions(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListLbTrafficExtensionsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListLbTrafficExtensionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/ListLbTrafficExtensions",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "ListLbTrafficExtensions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of the specified `LbTrafficExtension` resource.
+        pub async fn get_lb_traffic_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetLbTrafficExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::LbTrafficExtension>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/GetLbTrafficExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "GetLbTrafficExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new `LbTrafficExtension` resource in a given project and
+        /// location.
+        pub async fn create_lb_traffic_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateLbTrafficExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/CreateLbTrafficExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "CreateLbTrafficExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of the specified `LbTrafficExtension` resource.
+        pub async fn update_lb_traffic_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateLbTrafficExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/UpdateLbTrafficExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "UpdateLbTrafficExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes the specified `LbTrafficExtension` resource.
+        pub async fn delete_lb_traffic_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteLbTrafficExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/DeleteLbTrafficExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "DeleteLbTrafficExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists `LbRouteExtension` resources in a given project and location.
+        pub async fn list_lb_route_extensions(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListLbRouteExtensionsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListLbRouteExtensionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/ListLbRouteExtensions",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "ListLbRouteExtensions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets details of the specified `LbRouteExtension` resource.
+        pub async fn get_lb_route_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetLbRouteExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::LbRouteExtension>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/GetLbRouteExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "GetLbRouteExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Creates a new `LbRouteExtension` resource in a given project and location.
+        pub async fn create_lb_route_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateLbRouteExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/CreateLbRouteExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "CreateLbRouteExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates the parameters of the specified `LbRouteExtension` resource.
+        pub async fn update_lb_route_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateLbRouteExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/UpdateLbRouteExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "UpdateLbRouteExtension",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes the specified `LbRouteExtension` resource.
+        pub async fn delete_lb_route_extension(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteLbRouteExtensionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.networkservices.v1.DepService/DeleteLbRouteExtension",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.networkservices.v1.DepService",
+                        "DeleteLbRouteExtension",
                     ),
                 );
             self.inner.unary(req, path, codec).await
