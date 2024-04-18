@@ -2538,7 +2538,6 @@ pub struct Membership {
     /// Optional. User's role within a Chat space, which determines their permitted
     /// actions in the space.
     ///
-    /// [Developer Preview](<https://developers.google.com/workspace/preview>):
     /// This field can only be used as input in `UpdateMembership`.
     #[prost(enumeration = "membership::MembershipRole", tag = "7")]
     pub role: i32,
@@ -2708,6 +2707,23 @@ pub struct CreateMembershipRequest {
     /// scope, set `user.type` to `BOT`, and set `user.name` to `users/app`.
     #[prost(message, optional, tag = "2")]
     pub membership: ::core::option::Option<Membership>,
+}
+/// Request message for updating a membership.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateMembershipRequest {
+    /// Required. The membership to update. Only fields specified by `update_mask`
+    /// are updated.
+    #[prost(message, optional, tag = "1")]
+    pub membership: ::core::option::Option<Membership>,
+    /// Required. The field paths to update. Separate multiple values with commas
+    /// or use `*` to update all field paths.
+    ///
+    /// Currently supported field paths:
+    ///
+    /// - `role`
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
 /// Request message for listing memberships.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3651,6 +3667,32 @@ pub mod chat_service_client {
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new("google.chat.v1.ChatService", "CreateMembership"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a membership. Requires [user
+        /// authentication](https://developers.google.com/chat/api/guides/auth/users).
+        pub async fn update_membership(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateMembershipRequest>,
+        ) -> std::result::Result<tonic::Response<super::Membership>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.chat.v1.ChatService/UpdateMembership",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.chat.v1.ChatService", "UpdateMembership"),
                 );
             self.inner.unary(req, path, codec).await
         }
