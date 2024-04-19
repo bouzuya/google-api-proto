@@ -1353,7 +1353,7 @@ pub struct SkaffoldModules {
     #[prost(string, repeated, tag = "1")]
     pub configs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// The source that contains the Skaffold Config modules.
-    #[prost(oneof = "skaffold_modules::Source", tags = "2, 3")]
+    #[prost(oneof = "skaffold_modules::Source", tags = "2, 3, 4")]
     pub source: ::core::option::Option<skaffold_modules::Source>,
 }
 /// Nested message and enum types in `SkaffoldModules`.
@@ -1368,7 +1368,7 @@ pub mod skaffold_modules {
         /// Optional. Relative path from the repository root to the Skaffold file.
         #[prost(string, tag = "2")]
         pub path: ::prost::alloc::string::String,
-        /// Optional. Git ref the package should be cloned from.
+        /// Optional. Git branch or tag to use when cloning the repository.
         #[prost(string, tag = "3")]
         pub r#ref: ::prost::alloc::string::String,
     }
@@ -1385,6 +1385,23 @@ pub mod skaffold_modules {
         #[prost(string, tag = "2")]
         pub path: ::prost::alloc::string::String,
     }
+    /// Cloud Build V2 Repository containing Skaffold Configs.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct SkaffoldGcbRepoSource {
+        /// Required. Name of the Cloud Build V2 Repository.
+        /// Format is
+        /// projects/{project}/locations/{location}/connections/{connection}/repositories/{repository}.
+        #[prost(string, tag = "1")]
+        pub repository: ::prost::alloc::string::String,
+        /// Optional. Relative path from the repository root to the Skaffold Config
+        /// file.
+        #[prost(string, tag = "2")]
+        pub path: ::prost::alloc::string::String,
+        /// Optional. Branch or tag to use when cloning the repository.
+        #[prost(string, tag = "3")]
+        pub r#ref: ::prost::alloc::string::String,
+    }
     /// The source that contains the Skaffold Config modules.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -1395,6 +1412,9 @@ pub mod skaffold_modules {
         /// Cloud Storage bucket containing the Skaffold Config modules.
         #[prost(message, tag = "3")]
         GoogleCloudStorage(SkaffoldGcsSource),
+        /// Cloud Build V2 repository containing the Skaffold Config modules.
+        #[prost(message, tag = "4")]
+        GoogleCloudBuildRepo(SkaffoldGcbRepoSource),
     }
 }
 /// The request object for `ListCustomTargetTypes`.

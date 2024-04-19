@@ -2859,6 +2859,81 @@ pub struct DeleteMembershipRequest {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
+/// A user's read state within a space, used to identify read and unread
+/// messages.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SpaceReadState {
+    /// Resource name of the space read state.
+    ///
+    /// Format: `users/{user}/spaces/{space}/spaceReadState`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. The time when the user's space read state was updated. Usually
+    /// this corresponds with either the timestamp of the last read message, or a
+    /// timestamp specified by the user to mark the last read position in a space.
+    #[prost(message, optional, tag = "2")]
+    pub last_read_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Request message for GetSpaceReadState API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetSpaceReadStateRequest {
+    /// Required. Resource name of the space read state to retrieve.
+    ///
+    /// Only supports getting read state for the calling user.
+    ///
+    /// To refer to the calling user, set one of the following:
+    ///
+    /// - The `me` alias. For example, `users/me/spaces/{space}/spaceReadState`.
+    ///
+    /// - Their Workspace email address. For example,
+    /// `users/user@example.com/spaces/{space}/spaceReadState`.
+    ///
+    /// - Their user id. For example,
+    /// `users/123456789/spaces/{space}/spaceReadState`.
+    ///
+    /// Format: users/{user}/spaces/{space}/spaceReadState
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for UpdateSpaceReadState API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UpdateSpaceReadStateRequest {
+    /// Required. The space read state and fields to update.
+    ///
+    /// Only supports updating read state for the calling user.
+    ///
+    /// To refer to the calling user, set one of the following:
+    ///
+    /// - The `me` alias. For example, `users/me/spaces/{space}/spaceReadState`.
+    ///
+    /// - Their Workspace email address. For example,
+    /// `users/user@example.com/spaces/{space}/spaceReadState`.
+    ///
+    /// - Their user id. For example,
+    /// `users/123456789/spaces/{space}/spaceReadState`.
+    ///
+    /// Format: users/{user}/spaces/{space}/spaceReadState
+    #[prost(message, optional, tag = "1")]
+    pub space_read_state: ::core::option::Option<SpaceReadState>,
+    /// Required. The field paths to update. Currently supported field paths:
+    ///
+    /// - `last_read_time`
+    ///
+    /// When the `last_read_time` is before the latest message create time, the
+    /// space appears as unread in the UI.
+    ///
+    /// To mark the space as read, set `last_read_time` to any value later (larger)
+    /// than the latest message create time. The `last_read_time` is coerced to
+    /// match the latest message create time. Note that the space read state only
+    /// affects the read state of messages that are visible in the space's
+    /// top-level conversation. Replies in threads are unaffected by this
+    /// timestamp, and instead rely on the thread read state.
+    #[prost(message, optional, tag = "2")]
+    pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
+}
 /// Request to create a space and add specified users to it.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2923,6 +2998,44 @@ pub struct SetUpSpaceRequest {
     /// `DIRECT_MESSAGE` and `Space.singleUserBotDm` to `true`).
     #[prost(message, repeated, tag = "4")]
     pub memberships: ::prost::alloc::vec::Vec<Membership>,
+}
+/// A user's read state within a thread, used to identify read and unread
+/// messages.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ThreadReadState {
+    /// Resource name of the thread read state.
+    ///
+    /// Format: `users/{user}/spaces/{space}/threads/{thread}/threadReadState`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The time when the user's thread read state was updated. Usually this
+    /// corresponds with the timestamp of the last read message in a thread.
+    #[prost(message, optional, tag = "2")]
+    pub last_read_time: ::core::option::Option<::prost_types::Timestamp>,
+}
+/// Request message for GetThreadReadStateRequest API.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetThreadReadStateRequest {
+    /// Required. Resource name of the thread read state to retrieve.
+    ///
+    /// Only supports getting read state for the calling user.
+    ///
+    /// To refer to the calling user, set one of the following:
+    ///
+    /// - The `me` alias. For example,
+    /// `users/me/spaces/{space}/threads/{thread}/threadReadState`.
+    ///
+    /// - Their Workspace email address. For example,
+    /// `users/user@example.com/spaces/{space}/threads/{thread}/threadReadState`.
+    ///
+    /// - Their user id. For example,
+    /// `users/123456789/spaces/{space}/threads/{thread}/threadReadState`.
+    ///
+    /// Format: users/{user}/spaces/{space}/threads/{thread}/threadReadState
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
 }
 /// Generated client implementations.
 pub mod chat_service_client {
@@ -3810,6 +3923,96 @@ pub mod chat_service_client {
             let mut req = request.into_request();
             req.extensions_mut()
                 .insert(GrpcMethod::new("google.chat.v1.ChatService", "DeleteReaction"));
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns details about a user's read state within a space, used to identify
+        /// read and unread messages.
+        ///
+        /// Requires [user
+        /// authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+        pub async fn get_space_read_state(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetSpaceReadStateRequest>,
+        ) -> std::result::Result<tonic::Response<super::SpaceReadState>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.chat.v1.ChatService/GetSpaceReadState",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.chat.v1.ChatService", "GetSpaceReadState"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Updates a user's read state within a space, used to identify read and
+        /// unread messages.
+        ///
+        /// Requires [user
+        /// authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+        pub async fn update_space_read_state(
+            &mut self,
+            request: impl tonic::IntoRequest<super::UpdateSpaceReadStateRequest>,
+        ) -> std::result::Result<tonic::Response<super::SpaceReadState>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.chat.v1.ChatService/UpdateSpaceReadState",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.chat.v1.ChatService", "UpdateSpaceReadState"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Returns details about a user's read state within a thread, used to identify
+        /// read and unread messages.
+        ///
+        /// Requires [user
+        /// authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+        pub async fn get_thread_read_state(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetThreadReadStateRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ThreadReadState>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.chat.v1.ChatService/GetThreadReadState",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("google.chat.v1.ChatService", "GetThreadReadState"),
+                );
             self.inner.unary(req, path, codec).await
         }
     }
