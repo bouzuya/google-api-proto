@@ -292,7 +292,8 @@ pub mod search_ads360_field_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Returns all fields that match the search query.
+        /// Returns all fields that match the search
+        /// [query](/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details).
         ///
         /// List of thrown errors:
         ///   [AuthenticationError]()
@@ -779,6 +780,11 @@ pub struct SearchAds360Row {
     /// The customer asset set referenced in the query.
     #[prost(message, optional, tag = "195")]
     pub customer_asset_set: ::core::option::Option<super::resources::CustomerAssetSet>,
+    /// The accessible bidding strategy referenced in the query.
+    #[prost(message, optional, tag = "169")]
+    pub accessible_bidding_strategy: ::core::option::Option<
+        super::resources::AccessibleBiddingStrategy,
+    >,
     /// The CustomerManagerLink referenced in the query.
     #[prost(message, optional, tag = "61")]
     pub customer_manager_link: ::core::option::Option<

@@ -1443,6 +1443,212 @@ pub mod summary_row_setting_enum {
         }
     }
 }
+/// Container for enum describing possible bidding strategy types.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BiddingStrategyTypeEnum {}
+/// Nested message and enum types in `BiddingStrategyTypeEnum`.
+pub mod bidding_strategy_type_enum {
+    /// Enum describing possible bidding strategy types.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum BiddingStrategyType {
+        /// Not specified.
+        Unspecified = 0,
+        /// Used for return value only. Represents value unknown in this version.
+        Unknown = 1,
+        /// Commission is an automatic bidding strategy in which the advertiser pays
+        /// a certain portion of the conversion value.
+        Commission = 16,
+        /// Enhanced CPC is a bidding strategy that raises bids for clicks
+        /// that seem more likely to lead to a conversion and lowers
+        /// them for clicks where they seem less likely.
+        EnhancedCpc = 2,
+        /// Used for return value only. Indicates that a campaign does not have a
+        /// bidding strategy. This prevents the campaign from serving. For example,
+        /// a campaign may be attached to a manager bidding strategy and the serving
+        /// account is subsequently unlinked from the manager account. In this case
+        /// the campaign will automatically be detached from the now inaccessible
+        /// manager bidding strategy and transition to the INVALID bidding strategy
+        /// type.
+        Invalid = 17,
+        /// Manual bidding strategy that allows advertiser to set the bid per
+        /// advertiser-specified action.
+        ManualCpa = 18,
+        /// Manual click based bidding where user pays per click.
+        ManualCpc = 3,
+        /// Manual impression based bidding
+        /// where user pays per thousand impressions.
+        ManualCpm = 4,
+        /// A bidding strategy that pays a configurable amount per video view.
+        ManualCpv = 13,
+        /// A bidding strategy that automatically maximizes number of conversions
+        /// given a daily budget.
+        MaximizeConversions = 10,
+        /// An automated bidding strategy that automatically sets bids to maximize
+        /// revenue while spending your budget.
+        MaximizeConversionValue = 11,
+        /// Page-One Promoted bidding scheme, which sets max cpc bids to
+        /// target impressions on page one or page one promoted slots on google.com.
+        /// This enum value is deprecated.
+        PageOnePromoted = 5,
+        /// Percent Cpc is bidding strategy where bids are a fraction of the
+        /// advertised price for some good or service.
+        PercentCpc = 12,
+        /// Target CPA is an automated bid strategy that sets bids
+        /// to help get as many conversions as possible
+        /// at the target cost-per-acquisition (CPA) you set.
+        TargetCpa = 6,
+        /// Target CPM is an automated bid strategy that sets bids to help get
+        /// as many impressions as possible at the target cost per one thousand
+        /// impressions (CPM) you set.
+        TargetCpm = 14,
+        /// An automated bidding strategy that sets bids so that a certain percentage
+        /// of search ads are shown at the top of the first page (or other targeted
+        /// location).
+        TargetImpressionShare = 15,
+        /// Target Outrank Share is an automated bidding strategy that sets bids
+        /// based on the target fraction of auctions where the advertiser
+        /// should outrank a specific competitor.
+        /// This enum value is deprecated.
+        TargetOutrankShare = 7,
+        /// Target ROAS is an automated bidding strategy
+        /// that helps you maximize revenue while averaging
+        /// a specific target Return On Average Spend (ROAS).
+        TargetRoas = 8,
+        /// Target Spend is an automated bid strategy that sets your bids
+        /// to help get as many clicks as possible within your budget.
+        TargetSpend = 9,
+    }
+    impl BiddingStrategyType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                BiddingStrategyType::Unspecified => "UNSPECIFIED",
+                BiddingStrategyType::Unknown => "UNKNOWN",
+                BiddingStrategyType::Commission => "COMMISSION",
+                BiddingStrategyType::EnhancedCpc => "ENHANCED_CPC",
+                BiddingStrategyType::Invalid => "INVALID",
+                BiddingStrategyType::ManualCpa => "MANUAL_CPA",
+                BiddingStrategyType::ManualCpc => "MANUAL_CPC",
+                BiddingStrategyType::ManualCpm => "MANUAL_CPM",
+                BiddingStrategyType::ManualCpv => "MANUAL_CPV",
+                BiddingStrategyType::MaximizeConversions => "MAXIMIZE_CONVERSIONS",
+                BiddingStrategyType::MaximizeConversionValue => {
+                    "MAXIMIZE_CONVERSION_VALUE"
+                }
+                BiddingStrategyType::PageOnePromoted => "PAGE_ONE_PROMOTED",
+                BiddingStrategyType::PercentCpc => "PERCENT_CPC",
+                BiddingStrategyType::TargetCpa => "TARGET_CPA",
+                BiddingStrategyType::TargetCpm => "TARGET_CPM",
+                BiddingStrategyType::TargetImpressionShare => "TARGET_IMPRESSION_SHARE",
+                BiddingStrategyType::TargetOutrankShare => "TARGET_OUTRANK_SHARE",
+                BiddingStrategyType::TargetRoas => "TARGET_ROAS",
+                BiddingStrategyType::TargetSpend => "TARGET_SPEND",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "UNKNOWN" => Some(Self::Unknown),
+                "COMMISSION" => Some(Self::Commission),
+                "ENHANCED_CPC" => Some(Self::EnhancedCpc),
+                "INVALID" => Some(Self::Invalid),
+                "MANUAL_CPA" => Some(Self::ManualCpa),
+                "MANUAL_CPC" => Some(Self::ManualCpc),
+                "MANUAL_CPM" => Some(Self::ManualCpm),
+                "MANUAL_CPV" => Some(Self::ManualCpv),
+                "MAXIMIZE_CONVERSIONS" => Some(Self::MaximizeConversions),
+                "MAXIMIZE_CONVERSION_VALUE" => Some(Self::MaximizeConversionValue),
+                "PAGE_ONE_PROMOTED" => Some(Self::PageOnePromoted),
+                "PERCENT_CPC" => Some(Self::PercentCpc),
+                "TARGET_CPA" => Some(Self::TargetCpa),
+                "TARGET_CPM" => Some(Self::TargetCpm),
+                "TARGET_IMPRESSION_SHARE" => Some(Self::TargetImpressionShare),
+                "TARGET_OUTRANK_SHARE" => Some(Self::TargetOutrankShare),
+                "TARGET_ROAS" => Some(Self::TargetRoas),
+                "TARGET_SPEND" => Some(Self::TargetSpend),
+                _ => None,
+            }
+        }
+    }
+}
+/// Container for enum describing where on the first search results page the
+/// automated bidding system should target impressions for the
+/// TargetImpressionShare bidding strategy.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TargetImpressionShareLocationEnum {}
+/// Nested message and enum types in `TargetImpressionShareLocationEnum`.
+pub mod target_impression_share_location_enum {
+    /// Enum describing possible goals.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum TargetImpressionShareLocation {
+        /// Not specified.
+        Unspecified = 0,
+        /// Used for return value only. Represents value unknown in this version.
+        Unknown = 1,
+        /// Any location on the web page.
+        AnywhereOnPage = 2,
+        /// Top box of ads.
+        TopOfPage = 3,
+        /// Top slot in the top box of ads.
+        AbsoluteTopOfPage = 4,
+    }
+    impl TargetImpressionShareLocation {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                TargetImpressionShareLocation::Unspecified => "UNSPECIFIED",
+                TargetImpressionShareLocation::Unknown => "UNKNOWN",
+                TargetImpressionShareLocation::AnywhereOnPage => "ANYWHERE_ON_PAGE",
+                TargetImpressionShareLocation::TopOfPage => "TOP_OF_PAGE",
+                TargetImpressionShareLocation::AbsoluteTopOfPage => {
+                    "ABSOLUTE_TOP_OF_PAGE"
+                }
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "UNSPECIFIED" => Some(Self::Unspecified),
+                "UNKNOWN" => Some(Self::Unknown),
+                "ANYWHERE_ON_PAGE" => Some(Self::AnywhereOnPage),
+                "TOP_OF_PAGE" => Some(Self::TopOfPage),
+                "ABSOLUTE_TOP_OF_PAGE" => Some(Self::AbsoluteTopOfPage),
+                _ => None,
+            }
+        }
+    }
+}
 /// The dimensions that can be targeted.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2695,6 +2901,8 @@ pub mod criterion_type_enum {
         Brand = 39,
         /// Brand List
         BrandList = 40,
+        /// Life Event
+        LifeEvent = 41,
     }
     impl CriterionType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2742,6 +2950,7 @@ pub mod criterion_type_enum {
                 CriterionType::LocalServiceId => "LOCAL_SERVICE_ID",
                 CriterionType::Brand => "BRAND",
                 CriterionType::BrandList => "BRAND_LIST",
+                CriterionType::LifeEvent => "LIFE_EVENT",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2786,6 +2995,7 @@ pub mod criterion_type_enum {
                 "LOCAL_SERVICE_ID" => Some(Self::LocalServiceId),
                 "BRAND" => Some(Self::Brand),
                 "BRAND_LIST" => Some(Self::BrandList),
+                "LIFE_EVENT" => Some(Self::LifeEvent),
                 _ => None,
             }
         }
@@ -3669,6 +3879,8 @@ pub mod asset_field_type_enum {
         /// The asset is linked for use as a hotel property in a Performance Max for
         /// travel goals campaign.
         HotelProperty = 28,
+        /// The asset is linked for use as a discovery carousel card.
+        DiscoveryCarouselCard = 29,
     }
     impl AssetFieldType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -3706,6 +3918,7 @@ pub mod asset_field_type_enum {
                 AssetFieldType::AdImage => "AD_IMAGE",
                 AssetFieldType::BusinessLogo => "BUSINESS_LOGO",
                 AssetFieldType::HotelProperty => "HOTEL_PROPERTY",
+                AssetFieldType::DiscoveryCarouselCard => "DISCOVERY_CAROUSEL_CARD",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -3740,6 +3953,7 @@ pub mod asset_field_type_enum {
                 "AD_IMAGE" => Some(Self::AdImage),
                 "BUSINESS_LOGO" => Some(Self::BusinessLogo),
                 "HOTEL_PROPERTY" => Some(Self::HotelProperty),
+                "DISCOVERY_CAROUSEL_CARD" => Some(Self::DiscoveryCarouselCard),
                 _ => None,
             }
         }
@@ -4400,68 +4614,6 @@ pub mod asset_set_asset_status_enum {
         }
     }
 }
-/// Container for enum describing where on the first search results page the
-/// automated bidding system should target impressions for the
-/// TargetImpressionShare bidding strategy.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetImpressionShareLocationEnum {}
-/// Nested message and enum types in `TargetImpressionShareLocationEnum`.
-pub mod target_impression_share_location_enum {
-    /// Enum describing possible goals.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum TargetImpressionShareLocation {
-        /// Not specified.
-        Unspecified = 0,
-        /// Used for return value only. Represents value unknown in this version.
-        Unknown = 1,
-        /// Any location on the web page.
-        AnywhereOnPage = 2,
-        /// Top box of ads.
-        TopOfPage = 3,
-        /// Top slot in the top box of ads.
-        AbsoluteTopOfPage = 4,
-    }
-    impl TargetImpressionShareLocation {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                TargetImpressionShareLocation::Unspecified => "UNSPECIFIED",
-                TargetImpressionShareLocation::Unknown => "UNKNOWN",
-                TargetImpressionShareLocation::AnywhereOnPage => "ANYWHERE_ON_PAGE",
-                TargetImpressionShareLocation::TopOfPage => "TOP_OF_PAGE",
-                TargetImpressionShareLocation::AbsoluteTopOfPage => {
-                    "ABSOLUTE_TOP_OF_PAGE"
-                }
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "UNKNOWN" => Some(Self::Unknown),
-                "ANYWHERE_ON_PAGE" => Some(Self::AnywhereOnPage),
-                "TOP_OF_PAGE" => Some(Self::TopOfPage),
-                "ABSOLUTE_TOP_OF_PAGE" => Some(Self::AbsoluteTopOfPage),
-                _ => None,
-            }
-        }
-    }
-}
 /// Message describing BiddingStrategy statuses.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4513,150 +4665,6 @@ pub mod bidding_strategy_status_enum {
                 "UNKNOWN" => Some(Self::Unknown),
                 "ENABLED" => Some(Self::Enabled),
                 "REMOVED" => Some(Self::Removed),
-                _ => None,
-            }
-        }
-    }
-}
-/// Container for enum describing possible bidding strategy types.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BiddingStrategyTypeEnum {}
-/// Nested message and enum types in `BiddingStrategyTypeEnum`.
-pub mod bidding_strategy_type_enum {
-    /// Enum describing possible bidding strategy types.
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
-    #[repr(i32)]
-    pub enum BiddingStrategyType {
-        /// Not specified.
-        Unspecified = 0,
-        /// Used for return value only. Represents value unknown in this version.
-        Unknown = 1,
-        /// Commission is an automatic bidding strategy in which the advertiser pays
-        /// a certain portion of the conversion value.
-        Commission = 16,
-        /// Enhanced CPC is a bidding strategy that raises bids for clicks
-        /// that seem more likely to lead to a conversion and lowers
-        /// them for clicks where they seem less likely.
-        EnhancedCpc = 2,
-        /// Used for return value only. Indicates that a campaign does not have a
-        /// bidding strategy. This prevents the campaign from serving. For example,
-        /// a campaign may be attached to a manager bidding strategy and the serving
-        /// account is subsequently unlinked from the manager account. In this case
-        /// the campaign will automatically be detached from the now inaccessible
-        /// manager bidding strategy and transition to the INVALID bidding strategy
-        /// type.
-        Invalid = 17,
-        /// Manual bidding strategy that allows advertiser to set the bid per
-        /// advertiser-specified action.
-        ManualCpa = 18,
-        /// Manual click based bidding where user pays per click.
-        ManualCpc = 3,
-        /// Manual impression based bidding
-        /// where user pays per thousand impressions.
-        ManualCpm = 4,
-        /// A bidding strategy that pays a configurable amount per video view.
-        ManualCpv = 13,
-        /// A bidding strategy that automatically maximizes number of conversions
-        /// given a daily budget.
-        MaximizeConversions = 10,
-        /// An automated bidding strategy that automatically sets bids to maximize
-        /// revenue while spending your budget.
-        MaximizeConversionValue = 11,
-        /// Page-One Promoted bidding scheme, which sets max cpc bids to
-        /// target impressions on page one or page one promoted slots on google.com.
-        /// This enum value is deprecated.
-        PageOnePromoted = 5,
-        /// Percent Cpc is bidding strategy where bids are a fraction of the
-        /// advertised price for some good or service.
-        PercentCpc = 12,
-        /// Target CPA is an automated bid strategy that sets bids
-        /// to help get as many conversions as possible
-        /// at the target cost-per-acquisition (CPA) you set.
-        TargetCpa = 6,
-        /// Target CPM is an automated bid strategy that sets bids to help get
-        /// as many impressions as possible at the target cost per one thousand
-        /// impressions (CPM) you set.
-        TargetCpm = 14,
-        /// An automated bidding strategy that sets bids so that a certain percentage
-        /// of search ads are shown at the top of the first page (or other targeted
-        /// location).
-        TargetImpressionShare = 15,
-        /// Target Outrank Share is an automated bidding strategy that sets bids
-        /// based on the target fraction of auctions where the advertiser
-        /// should outrank a specific competitor.
-        /// This enum value is deprecated.
-        TargetOutrankShare = 7,
-        /// Target ROAS is an automated bidding strategy
-        /// that helps you maximize revenue while averaging
-        /// a specific target Return On Average Spend (ROAS).
-        TargetRoas = 8,
-        /// Target Spend is an automated bid strategy that sets your bids
-        /// to help get as many clicks as possible within your budget.
-        TargetSpend = 9,
-    }
-    impl BiddingStrategyType {
-        /// String value of the enum field names used in the ProtoBuf definition.
-        ///
-        /// The values are not transformed in any way and thus are considered stable
-        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        pub fn as_str_name(&self) -> &'static str {
-            match self {
-                BiddingStrategyType::Unspecified => "UNSPECIFIED",
-                BiddingStrategyType::Unknown => "UNKNOWN",
-                BiddingStrategyType::Commission => "COMMISSION",
-                BiddingStrategyType::EnhancedCpc => "ENHANCED_CPC",
-                BiddingStrategyType::Invalid => "INVALID",
-                BiddingStrategyType::ManualCpa => "MANUAL_CPA",
-                BiddingStrategyType::ManualCpc => "MANUAL_CPC",
-                BiddingStrategyType::ManualCpm => "MANUAL_CPM",
-                BiddingStrategyType::ManualCpv => "MANUAL_CPV",
-                BiddingStrategyType::MaximizeConversions => "MAXIMIZE_CONVERSIONS",
-                BiddingStrategyType::MaximizeConversionValue => {
-                    "MAXIMIZE_CONVERSION_VALUE"
-                }
-                BiddingStrategyType::PageOnePromoted => "PAGE_ONE_PROMOTED",
-                BiddingStrategyType::PercentCpc => "PERCENT_CPC",
-                BiddingStrategyType::TargetCpa => "TARGET_CPA",
-                BiddingStrategyType::TargetCpm => "TARGET_CPM",
-                BiddingStrategyType::TargetImpressionShare => "TARGET_IMPRESSION_SHARE",
-                BiddingStrategyType::TargetOutrankShare => "TARGET_OUTRANK_SHARE",
-                BiddingStrategyType::TargetRoas => "TARGET_ROAS",
-                BiddingStrategyType::TargetSpend => "TARGET_SPEND",
-            }
-        }
-        /// Creates an enum from field names used in the ProtoBuf definition.
-        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-            match value {
-                "UNSPECIFIED" => Some(Self::Unspecified),
-                "UNKNOWN" => Some(Self::Unknown),
-                "COMMISSION" => Some(Self::Commission),
-                "ENHANCED_CPC" => Some(Self::EnhancedCpc),
-                "INVALID" => Some(Self::Invalid),
-                "MANUAL_CPA" => Some(Self::ManualCpa),
-                "MANUAL_CPC" => Some(Self::ManualCpc),
-                "MANUAL_CPM" => Some(Self::ManualCpm),
-                "MANUAL_CPV" => Some(Self::ManualCpv),
-                "MAXIMIZE_CONVERSIONS" => Some(Self::MaximizeConversions),
-                "MAXIMIZE_CONVERSION_VALUE" => Some(Self::MaximizeConversionValue),
-                "PAGE_ONE_PROMOTED" => Some(Self::PageOnePromoted),
-                "PERCENT_CPC" => Some(Self::PercentCpc),
-                "TARGET_CPA" => Some(Self::TargetCpa),
-                "TARGET_CPM" => Some(Self::TargetCpm),
-                "TARGET_IMPRESSION_SHARE" => Some(Self::TargetImpressionShare),
-                "TARGET_OUTRANK_SHARE" => Some(Self::TargetOutrankShare),
-                "TARGET_ROAS" => Some(Self::TargetRoas),
-                "TARGET_SPEND" => Some(Self::TargetSpend),
                 _ => None,
             }
         }
