@@ -1312,12 +1312,12 @@ pub mod search_text_request {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct EvOptions {
-        /// Optional. Filtering places by minimum charging rate. Any places with
-        /// charging a rate less than the minimum charging rate are filtered out.
+        /// Optional. Minimum required charging rate in kilowatts. A place with a
+        /// charging rate less than the specified rate is filtered out.
         #[prost(double, tag = "1")]
         pub minimum_charging_rate_kw: f64,
         /// Optional. The list of preferred EV connector types. A place that does not
-        /// support any of the listed connector types are filter out.
+        /// support any of the listed connector types is filtered out.
         #[prost(
             enumeration = "super::EvConnectorType",
             repeated,
