@@ -13,7 +13,7 @@ pub struct Secret {
     /// `projects/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
-    /// Required. Immutable. The replication policy of the secret data attached to
+    /// Optional. Immutable. The replication policy of the secret data attached to
     /// the [Secret][google.cloud.secretmanager.v1.Secret].
     ///
     /// The replication policy cannot be changed after the Secret has been created.
@@ -61,7 +61,7 @@ pub struct Secret {
     /// No more than 50 aliases can be assigned to a given secret.
     ///
     /// Version-Alias pairs will be viewable via GetSecret and modifiable via
-    /// UpdateSecret. At launch access by alias will only be supported on
+    /// UpdateSecret. Access by alias is only be supported on
     /// GetSecretVersion and AccessSecretVersion.
     #[prost(btree_map = "string, int64", tag = "11")]
     pub version_aliases: ::prost::alloc::collections::BTreeMap<
@@ -85,6 +85,25 @@ pub struct Secret {
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
+    /// Optional. Secret Version TTL after destruction request
+    ///
+    /// This is a part of the Delayed secret version destroy feature.
+    /// For secret with TTL>0, version destruction doesn't happen immediately
+    /// on calling destroy instead the version goes to a disabled state and
+    /// destruction happens after the TTL expires.
+    #[prost(message, optional, tag = "14")]
+    pub version_destroy_ttl: ::core::option::Option<::prost_types::Duration>,
+    /// Optional. The customer-managed encryption configuration of the Regionalised
+    /// Secrets. If no configuration is provided, Google-managed default encryption
+    /// is used.
+    ///
+    /// Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+    /// configuration only apply to
+    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+    /// afterwards. They do not apply retroactively to existing
+    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+    #[prost(message, optional, tag = "15")]
+    pub customer_managed_encryption: ::core::option::Option<CustomerManagedEncryption>,
     /// Expiration policy attached to the
     /// [Secret][google.cloud.secretmanager.v1.Secret]. If specified the
     /// [Secret][google.cloud.secretmanager.v1.Secret] and all
@@ -170,6 +189,22 @@ pub struct SecretVersion {
     /// [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion].
     #[prost(bool, tag = "7")]
     pub client_specified_payload_checksum: bool,
+    /// Optional. Output only. Scheduled destroy time for secret version.
+    /// This is a part of the Delayed secret version destroy feature. For a
+    /// Secret with a valid version destroy TTL, when a secert version is
+    /// destroyed, the version is moved to disabled state and it is scheduled for
+    /// destruction. The version is destroyed only after the
+    /// `scheduled_destroy_time`.
+    #[prost(message, optional, tag = "8")]
+    pub scheduled_destroy_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. The customer-managed encryption status of the
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+    /// populated if customer-managed encryption is used and
+    /// [Secret][google.cloud.secretmanager.v1.Secret] is a Regionalised Secret.
+    #[prost(message, optional, tag = "9")]
+    pub customer_managed_encryption: ::core::option::Option<
+        CustomerManagedEncryptionStatus,
+    >,
 }
 /// Nested message and enum types in `SecretVersion`.
 pub mod secret_version {
@@ -441,8 +476,9 @@ pub struct CustomerManagedEncryptionStatus {
 pub struct Topic {
     /// Required. The resource name of the Pub/Sub topic that will be published to,
     /// in the following format: `projects/*/topics/*`. For publication to succeed,
-    /// the Secret Manager P4SA must have `pubsub.publisher` permissions on the
-    /// topic.
+    /// the Secret Manager service agent must have the `pubsub.topic.publish`
+    /// permission on the topic. The Pub/Sub Publisher role
+    /// (`roles/pubsub.publisher`) includes this permission.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -513,8 +549,8 @@ pub struct SecretPayload {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListSecretsRequest {
     /// Required. The resource name of the project associated with the
-    /// [Secrets][google.cloud.secretmanager.v1.Secret], in the format
-    /// `projects/*`.
+    /// [Secrets][google.cloud.secretmanager.v1.Secret], in the format `projects/*`
+    /// or `projects/*/locations/*`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Optional. The maximum number of results to be returned in a single page. If
@@ -548,7 +584,10 @@ pub struct ListSecretsResponse {
     /// to retrieve the next page.
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
-    /// The total number of [Secrets][google.cloud.secretmanager.v1.Secret].
+    /// The total number of [Secrets][google.cloud.secretmanager.v1.Secret] but 0
+    /// when the
+    /// [ListSecretsRequest.filter][google.cloud.secretmanager.v1.ListSecretsRequest.filter]
+    /// field is set.
     #[prost(int32, tag = "3")]
     pub total_size: i32,
 }
@@ -558,7 +597,8 @@ pub struct ListSecretsResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateSecretRequest {
     /// Required. The resource name of the project to associate with the
-    /// [Secret][google.cloud.secretmanager.v1.Secret], in the format `projects/*`.
+    /// [Secret][google.cloud.secretmanager.v1.Secret], in the format `projects/*`
+    /// or `projects/*/locations/*`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. This must be unique within the project.
@@ -581,7 +621,7 @@ pub struct AddSecretVersionRequest {
     /// Required. The resource name of the
     /// [Secret][google.cloud.secretmanager.v1.Secret] to associate with the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
-    /// `projects/*/secrets/*`.
+    /// `projects/*/secrets/*` or `projects/*/locations/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The secret payload of the
@@ -596,7 +636,7 @@ pub struct AddSecretVersionRequest {
 pub struct GetSecretRequest {
     /// Required. The resource name of the
     /// [Secret][google.cloud.secretmanager.v1.Secret], in the format
-    /// `projects/*/secrets/*`.
+    /// `projects/*/secrets/*` or `projects/*/locations/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -608,7 +648,7 @@ pub struct ListSecretVersionsRequest {
     /// Required. The resource name of the
     /// [Secret][google.cloud.secretmanager.v1.Secret] associated with the
     /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] to list, in
-    /// the format `projects/*/secrets/*`.
+    /// the format `projects/*/secrets/*` or `projects/*/locations/*/secrets/*`.
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Optional. The maximum number of results to be returned in a single page. If
@@ -643,7 +683,10 @@ pub struct ListSecretVersionsResponse {
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
     /// The total number of
-    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+    /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] but 0 when
+    /// the
+    /// [ListSecretsRequest.filter][google.cloud.secretmanager.v1.ListSecretsRequest.filter]
+    /// field is set.
     #[prost(int32, tag = "3")]
     pub total_size: i32,
 }
@@ -654,10 +697,13 @@ pub struct ListSecretVersionsResponse {
 pub struct GetSecretVersionRequest {
     /// Required. The resource name of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
-    /// `projects/*/secrets/*/versions/*`.
+    /// `projects/*/secrets/*/versions/*` or
+    /// `projects/*/locations/*/secrets/*/versions/*`.
     ///
-    /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
-    /// created [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+    /// `projects/*/secrets/*/versions/latest` or
+    /// `projects/*/locations/*/secrets/*/versions/latest` is an alias to the most
+    /// recently created
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -681,10 +727,13 @@ pub struct UpdateSecretRequest {
 pub struct AccessSecretVersionRequest {
     /// Required. The resource name of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
-    /// `projects/*/secrets/*/versions/*`.
+    /// `projects/*/secrets/*/versions/*` or
+    /// `projects/*/locations/*/secrets/*/versions/*`.
     ///
-    /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
-    /// created [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+    /// `projects/*/secrets/*/versions/latest` or
+    /// `projects/*/locations/*/secrets/*/versions/latest` is an alias to the most
+    /// recently created
+    /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
@@ -695,7 +744,8 @@ pub struct AccessSecretVersionRequest {
 pub struct AccessSecretVersionResponse {
     /// The resource name of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
-    /// `projects/*/secrets/*/versions/*`.
+    /// `projects/*/secrets/*/versions/*` or
+    /// `projects/*/locations/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Secret payload
@@ -725,7 +775,8 @@ pub struct DeleteSecretRequest {
 pub struct DisableSecretVersionRequest {
     /// Required. The resource name of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to disable in
-    /// the format `projects/*/secrets/*/versions/*`.
+    /// the format `projects/*/secrets/*/versions/*` or
+    /// `projects/*/locations/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Optional. Etag of the
@@ -742,7 +793,8 @@ pub struct DisableSecretVersionRequest {
 pub struct EnableSecretVersionRequest {
     /// Required. The resource name of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to enable in
-    /// the format `projects/*/secrets/*/versions/*`.
+    /// the format `projects/*/secrets/*/versions/*` or
+    /// `projects/*/locations/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Optional. Etag of the
@@ -759,7 +811,8 @@ pub struct EnableSecretVersionRequest {
 pub struct DestroySecretVersionRequest {
     /// Required. The resource name of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to destroy in
-    /// the format `projects/*/secrets/*/versions/*`.
+    /// the format `projects/*/secrets/*/versions/*` or
+    /// `projects/*/locations/*/secrets/*/versions/*`.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Optional. Etag of the
