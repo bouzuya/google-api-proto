@@ -9050,12 +9050,6 @@ pub struct ModelMonitoringSchema {
     pub ground_truth_fields: ::prost::alloc::vec::Vec<
         model_monitoring_schema::FieldSchema,
     >,
-    /// The prediction instance type that the Model accepts when serving.
-    /// Supported values are:
-    /// * `object`: Each input is a JSON object format.
-    /// * `array`: Each input is a JSON array format.
-    #[prost(string, tag = "4")]
-    pub instance_type: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `ModelMonitoringSchema`.
 pub mod model_monitoring_schema {
