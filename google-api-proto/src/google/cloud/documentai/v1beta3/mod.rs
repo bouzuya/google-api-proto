@@ -1097,16 +1097,16 @@ pub mod document {
                 /// Whether the text is underlined.
                 #[prost(bool, tag = "7")]
                 pub underlined: bool,
-                /// Whether the text is strikethrough.
+                /// Whether the text is strikethrough. This feature is not supported yet.
                 #[prost(bool, tag = "8")]
                 pub strikeout: bool,
-                /// Whether the text is a subscript.
+                /// Whether the text is a subscript. This feature is not supported yet.
                 #[prost(bool, tag = "9")]
                 pub subscript: bool,
-                /// Whether the text is a superscript.
+                /// Whether the text is a superscript. This feature is not supported yet.
                 #[prost(bool, tag = "10")]
                 pub superscript: bool,
-                /// Whether the text is in small caps.
+                /// Whether the text is in small caps. This feature is not supported yet.
                 #[prost(bool, tag = "11")]
                 pub smallcaps: bool,
                 /// TrueType weight on a scale `100` (thin) to `1000` (ultra-heavy).
@@ -1949,6 +1949,7 @@ pub mod document {
             /// ID of the chunk.
             #[prost(string, tag = "1")]
             pub chunk_id: ::prost::alloc::string::String,
+            /// DO NOT USE.
             /// List of all parsed documents layout source blocks used to generate the
             /// chunk.
             #[prost(string, repeated, tag = "2")]
@@ -1961,6 +1962,12 @@ pub mod document {
             /// Page span of the chunk.
             #[prost(message, optional, tag = "4")]
             pub page_span: ::core::option::Option<chunk::ChunkPageSpan>,
+            /// Page headers associated with the chunk.
+            #[prost(message, repeated, tag = "5")]
+            pub page_headers: ::prost::alloc::vec::Vec<chunk::ChunkPageHeader>,
+            /// Page footers associated with the chunk.
+            #[prost(message, repeated, tag = "6")]
+            pub page_footers: ::prost::alloc::vec::Vec<chunk::ChunkPageFooter>,
         }
         /// Nested message and enum types in `Chunk`.
         pub mod chunk {
@@ -1974,6 +1981,28 @@ pub mod document {
                 /// Page where chunk ends in the document.
                 #[prost(int32, tag = "2")]
                 pub page_end: i32,
+            }
+            /// Represents the page header associated with the chunk.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ChunkPageHeader {
+                /// Header in text format.
+                #[prost(string, tag = "1")]
+                pub text: ::prost::alloc::string::String,
+                /// Page span of the header.
+                #[prost(message, optional, tag = "2")]
+                pub page_span: ::core::option::Option<ChunkPageSpan>,
+            }
+            /// Represents the page footer associated with the chunk.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ChunkPageFooter {
+                /// Footer in text format.
+                #[prost(string, tag = "1")]
+                pub text: ::prost::alloc::string::String,
+                /// Page span of the footer.
+                #[prost(message, optional, tag = "2")]
+                pub page_span: ::core::option::Option<ChunkPageSpan>,
             }
         }
     }
