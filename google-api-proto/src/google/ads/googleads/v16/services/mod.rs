@@ -25314,6 +25314,11 @@ pub struct MutateCustomerSkAdNetworkConversionValueSchemaRequest {
     /// returned, not results.
     #[prost(bool, tag = "3")]
     pub validate_only: bool,
+    /// Optional. If true, enables returning warnings. Warnings return error
+    /// messages and error codes without blocking the execution of the mutate
+    /// operation.
+    #[prost(bool, tag = "4")]
+    pub enable_warnings: bool,
 }
 /// The result for the CustomerSkAdNetworkConversionValueSchema mutate.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -25335,6 +25340,10 @@ pub struct MutateCustomerSkAdNetworkConversionValueSchemaResponse {
     pub result: ::core::option::Option<
         MutateCustomerSkAdNetworkConversionValueSchemaResult,
     >,
+    /// Non blocking errors that provides schema validation failure details.
+    /// Returned only when enable_warnings = true.
+    #[prost(message, optional, tag = "2")]
+    pub warning: ::core::option::Option<super::super::super::super::rpc::Status>,
 }
 /// Generated client implementations.
 pub mod customer_sk_ad_network_conversion_value_schema_service_client {

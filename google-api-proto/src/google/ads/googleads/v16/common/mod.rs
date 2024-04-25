@@ -369,8 +369,8 @@ pub struct StoreSalesThirdPartyMetadata {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Metrics {
-    /// The percent of your ad impressions that are shown as the very first ad
-    /// above the organic search results.
+    /// Search absolute top impression share is the percentage of your Search ad
+    /// impressions that are shown in the most prominent Search position.
     #[prost(double, optional, tag = "183")]
     pub absolute_top_impression_percentage: ::core::option::Option<f64>,
     /// Average cost of viewable impressions (`active_view_impressions`).
@@ -486,8 +486,8 @@ pub struct Metrics {
     #[prost(double, optional, tag = "202")]
     pub all_conversions_from_store_website: ::core::option::Option<f64>,
     /// This metric is part of the Auction Insights report, and tells how often
-    /// the ads of another participant showed as the very first ad above the
-    /// organic search results.
+    /// the ads of another participant showed in the most prominent position on the
+    /// search results page.
     /// This percentage is computed only over the auctions that you appeared in
     /// the page.
     ///
@@ -528,9 +528,9 @@ pub struct Metrics {
     #[prost(double, optional, tag = "262")]
     pub auction_insight_search_position_above_rate: ::core::option::Option<f64>,
     /// This metric is part of the Auction Insights report, and tells how often
-    /// the ads of another participant showed above the organic search results.
-    /// This percentage is computed only over the auctions that you appeared in
-    /// the page.
+    /// the ads of another participant showed adjacent to the top organic search
+    /// results. This percentage is computed only over the auctions that you
+    /// appeared in the page.
     ///
     /// This metric is not publicly available.
     #[prost(double, optional, tag = "263")]
@@ -935,8 +935,8 @@ pub struct Metrics {
     /// for details. Any value below 0.1 is reported as 0.0999.
     #[prost(double, optional, tag = "136")]
     pub search_absolute_top_impression_share: ::core::option::Option<f64>,
-    /// The number estimating how often your ad wasn't the very first ad above the
-    /// organic search results due to a low budget. Note: Search
+    /// The number estimating how often your ad wasn't the very first ad among the
+    /// top ads in the search results due to a low budget. Note: Search
     /// budget lost absolute top impression share is reported in the range of 0 to
     /// 0.9. Any value above 0.9 is reported as 0.9001.
     #[prost(double, optional, tag = "137")]
@@ -947,7 +947,7 @@ pub struct Metrics {
     /// value above 0.9 is reported as 0.9001.
     #[prost(double, optional, tag = "138")]
     pub search_budget_lost_impression_share: ::core::option::Option<f64>,
-    /// The number estimating how often your ad didn't show anywhere above the
+    /// The number estimating how often your ad didn't show adjacent to the top
     /// organic search results due to a low budget. Note: Search
     /// budget lost top impression share is reported in the range of 0 to 0.9. Any
     /// value above 0.9 is reported as 0.9001.
@@ -973,8 +973,8 @@ pub struct Metrics {
     /// value below 0.1 is reported as 0.0999.
     #[prost(double, optional, tag = "142")]
     pub search_impression_share: ::core::option::Option<f64>,
-    /// The number estimating how often your ad wasn't the very first ad above the
-    /// organic search results due to poor Ad Rank.
+    /// The number estimating how often your ad wasn't the very first ad among the
+    /// top ads in the search results due to poor Ad Rank.
     /// Note: Search rank lost absolute top impression share is reported in the
     /// range of 0 to 0.9. Any value above 0.9 is reported as 0.9001.
     #[prost(double, optional, tag = "143")]
@@ -985,17 +985,19 @@ pub struct Metrics {
     /// 0.9. Any value above 0.9 is reported as 0.9001.
     #[prost(double, optional, tag = "144")]
     pub search_rank_lost_impression_share: ::core::option::Option<f64>,
-    /// The number estimating how often your ad didn't show anywhere above the
+    /// The number estimating how often your ad didn't show adjacent to the top
     /// organic search results due to poor Ad Rank.
     /// Note: Search rank lost top impression share is reported in the range of 0
     /// to 0.9. Any value above 0.9 is reported as 0.9001.
     #[prost(double, optional, tag = "145")]
     pub search_rank_lost_top_impression_share: ::core::option::Option<f64>,
-    /// The impressions you've received in the top location (anywhere above the
-    /// organic search results) compared to the estimated number of impressions you
-    /// were eligible to receive in the top location.
+    /// The impressions you've received among the top ads compared to the estimated
+    /// number of impressions you were eligible to receive among the top ads.
     /// Note: Search top impression share is reported in the range of 0.1 to 1. Any
     /// value below 0.1 is reported as 0.0999.
+    ///
+    /// Top ads are generally above the top organic results, although they may show
+    /// below the top organic results on certain queries.
     #[prost(double, optional, tag = "146")]
     pub search_top_impression_share: ::core::option::Option<f64>,
     /// Search volume range for a search term insight category.
@@ -1013,7 +1015,7 @@ pub struct Metrics {
     /// campaigns that had traffic from portfolio bidding strategies or non-tROAS).
     #[prost(double, optional, tag = "250")]
     pub average_target_roas: ::core::option::Option<f64>,
-    /// The percent of your ad impressions that are shown anywhere above the
+    /// The percent of your ad impressions that are shown adjacent to the top
     /// organic search results.
     #[prost(double, optional, tag = "148")]
     pub top_impression_percentage: ::core::option::Option<f64>,
@@ -2380,9 +2382,29 @@ pub struct SearchThemeInfo {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BrandInfo {
+    /// Output only. A text representation of a brand.
+    #[prost(string, optional, tag = "2")]
+    pub display_name: ::core::option::Option<::prost::alloc::string::String>,
     /// The Commercial KG MID for the brand.
     #[prost(string, optional, tag = "1")]
     pub entity_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The primary url of a brand.
+    #[prost(string, optional, tag = "3")]
+    pub primary_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// Output only. The rejection reason when a brand status is REJECTED.
+    #[prost(
+        enumeration = "super::enums::brand_request_rejection_reason_enum::BrandRequestRejectionReason",
+        optional,
+        tag = "4"
+    )]
+    pub rejection_reason: ::core::option::Option<i32>,
+    /// Output only. The status of a brand.
+    #[prost(
+        enumeration = "super::enums::brand_state_enum::BrandState",
+        optional,
+        tag = "5"
+    )]
+    pub status: ::core::option::Option<i32>,
 }
 /// A Brand List Criterion is used to specify a list of brands.  The list is
 /// represented as a SharedSet id type BRAND_HINT. A criterion of this type can
