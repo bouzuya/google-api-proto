@@ -720,6 +720,9 @@ pub struct WebhookRequest {
     pub sentiment_analysis_result: ::core::option::Option<
         webhook_request::SentimentAnalysisResult,
     >,
+    /// Information about the language of the request.
+    #[prost(message, optional, tag = "18")]
+    pub language_info: ::core::option::Option<LanguageInfo>,
     /// The original conversational query.
     #[prost(oneof = "webhook_request::Query", tags = "10, 11, 12, 14, 17")]
     pub query: ::core::option::Option<webhook_request::Query>,
@@ -1108,6 +1111,22 @@ pub struct SessionInfo {
         ::prost::alloc::string::String,
         ::prost_types::Value,
     >,
+}
+/// Represents the language information of the request.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LanguageInfo {
+    /// The language code specified in the original
+    /// [request][google.cloud.dialogflow.cx.v3beta1.QueryInput.language_code].
+    #[prost(string, tag = "1")]
+    pub input_language_code: ::prost::alloc::string::String,
+    /// The language code detected for this request based on the user
+    /// conversation.
+    #[prost(string, tag = "2")]
+    pub resolved_language_code: ::prost::alloc::string::String,
+    /// The confidence score of the detected language between 0 and 1.
+    #[prost(float, tag = "3")]
+    pub confidence_score: f32,
 }
 /// Generated client implementations.
 pub mod webhooks_client {
@@ -15005,7 +15024,8 @@ pub mod security_settings {
     pub enum RetentionStrategy {
         /// Retains the persisted data with Dialogflow's internal default 365d TTLs.
         Unspecified = 0,
-        /// Removes data when the conversation ends. If there is no [Conversation][]
+        /// Removes data when the conversation ends. If there is no
+        /// [Conversation][google.cloud.dialogflow.cx.v3beta1.Conversation]
         /// explicitly established, a default conversation ends when the
         /// corresponding Dialogflow session ends.
         RemoveAfterConversation = 1,
@@ -15323,6 +15343,511 @@ pub mod security_settings_service_client {
                     GrpcMethod::new(
                         "google.cloud.dialogflow.cx.v3beta1.SecuritySettingsService",
                         "DeleteSecuritySettings",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// The request message for [Conversations.GetConversation][].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetConversationRequest {
+    /// Required. The name of the conversation.
+    /// Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    /// ID>/conversations/<Conversation ID>`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The request message for [Conversations.DeleteConversation][].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DeleteConversationRequest {
+    /// Required. The name of the conversation.
+    /// Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    /// ID>/conversations/<Conversation ID>`.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// The request message for [Conversations.ListConversations][].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListConversationsRequest {
+    /// Required. The agent to list all conversations for.
+    /// Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>`.
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The filter string. Supports filter by create_time,
+    /// metrics.has_end_interaction, metrics.has_live_agent_handoff,
+    /// intents.display_name, pages.display_name and flows.display_name. Timestamps
+    /// expect an [RFC-3339][<https://datatracker.ietf.org/doc/html/rfc3339]>
+    /// formatted string (e.g. 2012-04-21T11:30:00-04:00). UTC offsets are
+    /// supported. Some examples:
+    ///    1. By create time:
+    ///         create_time > "2022-04-21T11:30:00-04:00"
+    ///    2. By intent display name:
+    ///         intents.display_name : "billing"
+    ///    3. By end interaction signal:
+    ///         metrics.has_end_interaction = true
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. The maximum number of items to return in a single page. By
+    /// default 100 and at most 1000.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// Optional. The next_page_token value returned from a previous list request.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// The response message for [Conversations.ListConversations][].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListConversationsResponse {
+    /// The list of conversations. There will be a maximum number of items returned
+    /// based on the
+    /// [page_size][google.cloud.dialogflow.cx.v3beta1.ListConversationsRequest.page_size]
+    /// field. The returned conversations will be sorted by start_time in
+    /// descending order (newest conversation first).
+    #[prost(message, repeated, tag = "1")]
+    pub conversations: ::prost::alloc::vec::Vec<Conversation>,
+    /// Token to retrieve the next page of results, or empty if there are no more
+    /// results in the list.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Represents a conversation.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Conversation {
+    /// Identifier. The identifier of the conversation.
+    /// If conversation ID is reused, interactions happened later than 48 hours of
+    /// the conversation's create time will be ignored. Format:
+    /// `projects/<ProjectID>/locations/<Location ID>/agents/<Agent
+    /// ID>/conversations/<Conversation ID>`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The type of the conversation.
+    #[prost(enumeration = "conversation::Type", tag = "2")]
+    pub r#type: i32,
+    /// The language of the conversation, which is the language of the first
+    /// request in the conversation.
+    #[prost(string, tag = "3")]
+    pub language_code: ::prost::alloc::string::String,
+    /// Start time of the conversation, which is the time of the first request of
+    /// the conversation.
+    #[prost(message, optional, tag = "4")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Duration of the conversation.
+    #[prost(message, optional, tag = "5")]
+    pub duration: ::core::option::Option<::prost_types::Duration>,
+    /// Conversation metrics.
+    #[prost(message, optional, tag = "6")]
+    pub metrics: ::core::option::Option<conversation::Metrics>,
+    /// All the matched [Intent][google.cloud.dialogflow.cx.v3beta1.Intent] in the
+    /// conversation. Only `name` and `display_name` are filled in this message.
+    #[prost(message, repeated, tag = "7")]
+    pub intents: ::prost::alloc::vec::Vec<Intent>,
+    /// All the [Flow][google.cloud.dialogflow.cx.v3beta1.Flow] the conversation
+    /// has went through. Only `name` and `display_name` are filled in this
+    /// message.
+    #[prost(message, repeated, tag = "8")]
+    pub flows: ::prost::alloc::vec::Vec<Flow>,
+    /// All the [Page][google.cloud.dialogflow.cx.v3beta1.Page] the conversation
+    /// has went through. Only `name` and `display_name` are filled in this
+    /// message.
+    #[prost(message, repeated, tag = "9")]
+    pub pages: ::prost::alloc::vec::Vec<Page>,
+    /// Interactions of the conversation.
+    /// Only populated for `GetConversation` and empty for `ListConversations`.
+    #[prost(message, repeated, tag = "10")]
+    pub interactions: ::prost::alloc::vec::Vec<conversation::Interaction>,
+    /// Environment of the conversation.
+    /// Only `name` and `display_name` are filled in this message.
+    #[prost(message, optional, tag = "11")]
+    pub environment: ::core::option::Option<Environment>,
+    /// Flow versions used in the conversation.
+    #[prost(btree_map = "string, int64", tag = "12")]
+    pub flow_versions: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        i64,
+    >,
+}
+/// Nested message and enum types in `Conversation`.
+pub mod conversation {
+    /// Represents metrics for the conversation.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Metrics {
+        /// The number of interactions in the conversation.
+        #[prost(int32, tag = "1")]
+        pub interaction_count: i32,
+        /// Duration of all the input's audio in the conversation.
+        #[prost(message, optional, tag = "2")]
+        pub input_audio_duration: ::core::option::Option<::prost_types::Duration>,
+        /// Duration of all the output's audio in the conversation.
+        #[prost(message, optional, tag = "3")]
+        pub output_audio_duration: ::core::option::Option<::prost_types::Duration>,
+        /// Maximum latency of the
+        /// [Webhook][google.cloud.dialogflow.cx.v3beta1.Webhook] calls in the
+        /// conversation.
+        #[prost(message, optional, tag = "4")]
+        pub max_webhook_latency: ::core::option::Option<::prost_types::Duration>,
+        /// A signal that indicates the interaction with the Dialogflow agent has
+        /// ended.
+        /// If any response has the
+        /// [ResponseMessage.end_interaction][google.cloud.dialogflow.cx.v3beta1.ResponseMessage.end_interaction]
+        /// signal, this is set to true.
+        #[prost(bool, tag = "5")]
+        pub has_end_interaction: bool,
+        /// Hands off conversation to a human agent.
+        /// If any response has the
+        /// [ResponseMessage.live_agent_handoff][google.cloud.dialogflow.cx.v3beta1.ResponseMessage.live_agent_handoff]signal,
+        /// this is set to true.
+        #[prost(bool, tag = "6")]
+        pub has_live_agent_handoff: bool,
+        /// The average confidence all of the
+        /// [Match][google.cloud.dialogflow.cx.v3beta1.Match] in the conversation.
+        /// Values range from 0.0 (completely uncertain) to 1.0 (completely certain).
+        #[prost(float, tag = "7")]
+        pub average_match_confidence: f32,
+        /// Query input counts.
+        #[prost(message, optional, tag = "8")]
+        pub query_input_count: ::core::option::Option<metrics::QueryInputCount>,
+        /// Match type counts.
+        #[prost(message, optional, tag = "9")]
+        pub match_type_count: ::core::option::Option<metrics::MatchTypeCount>,
+    }
+    /// Nested message and enum types in `Metrics`.
+    pub mod metrics {
+        /// Count by types of
+        /// [QueryInput][google.cloud.dialogflow.cx.v3beta1.QueryInput] of the
+        /// requests in the conversation.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct QueryInputCount {
+            /// The number of [TextInput][google.cloud.dialogflow.cx.v3beta1.TextInput]
+            /// in the conversation.
+            #[prost(int32, tag = "1")]
+            pub text_count: i32,
+            /// The number of
+            /// [IntentInput][google.cloud.dialogflow.cx.v3beta1.IntentInput] in the
+            /// conversation.
+            #[prost(int32, tag = "2")]
+            pub intent_count: i32,
+            /// The number of
+            /// [AudioInput][google.cloud.dialogflow.cx.v3beta1.AudioInput] in the
+            /// conversation.
+            #[prost(int32, tag = "3")]
+            pub audio_count: i32,
+            /// The number of
+            /// [EventInput][google.cloud.dialogflow.cx.v3beta1.EventInput] in the
+            /// conversation.
+            #[prost(int32, tag = "4")]
+            pub event_count: i32,
+            /// The number of [DtmfInput][google.cloud.dialogflow.cx.v3beta1.DtmfInput]
+            /// in the conversation.
+            #[prost(int32, tag = "5")]
+            pub dtmf_count: i32,
+        }
+        /// Count by
+        /// [Match.MatchType][google.cloud.dialogflow.cx.v3beta1.Match.MatchType] of
+        /// the matches in the conversation.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct MatchTypeCount {
+            /// The number of matches with type
+            /// [Match.MatchType.MATCH_TYPE_UNSPECIFIED][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.MATCH_TYPE_UNSPECIFIED].
+            #[prost(int32, tag = "1")]
+            pub unspecified_count: i32,
+            /// The number of matches with type
+            /// [Match.MatchType.INTENT][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.INTENT].
+            #[prost(int32, tag = "2")]
+            pub intent_count: i32,
+            /// The number of matches with type
+            /// [Match.MatchType.DIRECT_INTENT][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.DIRECT_INTENT].
+            #[prost(int32, tag = "3")]
+            pub direct_intent_count: i32,
+            /// The number of matches with type
+            /// [Match.MatchType.PARAMETER_FILLING][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.PARAMETER_FILLING].
+            #[prost(int32, tag = "4")]
+            pub parameter_filling_count: i32,
+            /// The number of matches with type
+            /// [Match.MatchType.NO_MATCH][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.NO_MATCH].
+            #[prost(int32, tag = "5")]
+            pub no_match_count: i32,
+            /// The number of matches with type
+            /// [Match.MatchType.NO_INPUT][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.NO_INPUT].
+            #[prost(int32, tag = "6")]
+            pub no_input_count: i32,
+            /// The number of matches with type
+            /// [Match.MatchType.EVENT][google.cloud.dialogflow.cx.v3beta1.Match.MatchType.EVENT].
+            #[prost(int32, tag = "7")]
+            pub event_count: i32,
+        }
+    }
+    /// Represents an interaction between an end user and a Dialogflow CX agent
+    /// using V3 (Streaming)DetectIntent API, or an interaction between an end user
+    /// and a Dialogflow CX agent using V2 (Streaming)AnalyzeContent API.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct Interaction {
+        /// The request of the interaction.
+        #[prost(message, optional, tag = "1")]
+        pub request: ::core::option::Option<super::DetectIntentRequest>,
+        /// The final response of the interaction.
+        #[prost(message, optional, tag = "2")]
+        pub response: ::core::option::Option<super::DetectIntentResponse>,
+        /// The partial responses of the interaction. Empty if there is no partial
+        /// response in the interaction.
+        /// See the
+        /// [partial response
+        /// documentation][<https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#queue].>
+        #[prost(message, repeated, tag = "3")]
+        pub partial_responses: ::prost::alloc::vec::Vec<super::DetectIntentResponse>,
+        /// The input text or the transcript of the input audio in the request.
+        #[prost(string, tag = "4")]
+        pub request_utterances: ::prost::alloc::string::String,
+        /// The output text or the transcript of the output audio in the responses.
+        /// If multiple output messages are returned, they will be concatenated into
+        /// one.
+        #[prost(string, tag = "5")]
+        pub response_utterances: ::prost::alloc::string::String,
+        /// The time that the interaction was created.
+        #[prost(message, optional, tag = "6")]
+        pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Missing transition predicted for the interaction. This field is set only
+        /// if the interaction match type was no-match.
+        #[prost(message, optional, tag = "8")]
+        pub missing_transition: ::core::option::Option<interaction::MissingTransition>,
+    }
+    /// Nested message and enum types in `Interaction`.
+    pub mod interaction {
+        /// Information collected for DF CX agents in case NLU predicted an intent
+        /// that was filtered out as being inactive which may indicate a missing
+        /// transition and/or absent functionality.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct MissingTransition {
+            /// Name of the intent that could have triggered.
+            #[prost(string, tag = "1")]
+            pub intent_display_name: ::prost::alloc::string::String,
+            /// Score of the above intent. The higher it is the more likely a
+            /// transition was missed on a given page.
+            #[prost(float, tag = "2")]
+            pub score: f32,
+        }
+    }
+    /// Represents the type of a conversation.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Type {
+        /// Not specified. This value should never be used.
+        Unspecified = 0,
+        /// Audio conversation. A conversation is classified as an audio conversation
+        /// if any request has STT input audio or any response has TTS output audio.
+        Audio = 1,
+        /// Text conversation. A conversation is classified as a text conversation
+        /// if any request has text input and no request has STT input audio and no
+        /// response has TTS output audio.
+        Text = 2,
+        /// Default conversation type for a conversation. A conversation is
+        /// classified as undetermined if none of the requests contain text or audio
+        /// input (eg. event or intent input).
+        Undetermined = 3,
+    }
+    impl Type {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Type::Unspecified => "TYPE_UNSPECIFIED",
+                Type::Audio => "AUDIO",
+                Type::Text => "TEXT",
+                Type::Undetermined => "UNDETERMINED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "AUDIO" => Some(Self::Audio),
+                "TEXT" => Some(Self::Text),
+                "UNDETERMINED" => Some(Self::Undetermined),
+                _ => None,
+            }
+        }
+    }
+}
+/// Generated client implementations.
+pub mod conversation_history_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// Service for managing conversation history.
+    #[derive(Debug, Clone)]
+    pub struct ConversationHistoryClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> ConversationHistoryClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> ConversationHistoryClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            ConversationHistoryClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Returns the list of all conversations.
+        pub async fn list_conversations(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListConversationsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListConversationsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dialogflow.cx.v3beta1.ConversationHistory/ListConversations",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dialogflow.cx.v3beta1.ConversationHistory",
+                        "ListConversations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Retrieves the specified conversation.
+        pub async fn get_conversation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetConversationRequest>,
+        ) -> std::result::Result<tonic::Response<super::Conversation>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dialogflow.cx.v3beta1.ConversationHistory/GetConversation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dialogflow.cx.v3beta1.ConversationHistory",
+                        "GetConversation",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Deletes the specified conversation.
+        pub async fn delete_conversation(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DeleteConversationRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.dialogflow.cx.v3beta1.ConversationHistory/DeleteConversation",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.dialogflow.cx.v3beta1.ConversationHistory",
+                        "DeleteConversation",
                     ),
                 );
             self.inner.unary(req, path, codec).await
