@@ -1340,7 +1340,9 @@ pub mod search_text_request {
     )]
     #[repr(i32)]
     pub enum RankPreference {
-        /// RankPreference value not set. Will default to DISTANCE.
+        /// For a categorical query such as "Restaurants in New York City", RELEVANCE
+        /// is the default. For non-categorical queries such as "Mountain View, CA"
+        /// we recommend that you leave rankPreference unset.
         Unspecified = 0,
         /// Ranks results by distance.
         Distance = 1,
