@@ -2630,6 +2630,8 @@ pub enum AcceleratorType {
     TpuV3 = 7,
     /// TPU v4.
     TpuV4Pod = 10,
+    /// TPU v5.
+    TpuV5Litepod = 12,
 }
 impl AcceleratorType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -2651,6 +2653,7 @@ impl AcceleratorType {
             AcceleratorType::TpuV2 => "TPU_V2",
             AcceleratorType::TpuV3 => "TPU_V3",
             AcceleratorType::TpuV4Pod => "TPU_V4_POD",
+            AcceleratorType::TpuV5Litepod => "TPU_V5_LITEPOD",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2669,6 +2672,7 @@ impl AcceleratorType {
             "TPU_V2" => Some(Self::TpuV2),
             "TPU_V3" => Some(Self::TpuV3),
             "TPU_V4_POD" => Some(Self::TpuV4Pod),
+            "TPU_V5_LITEPOD" => Some(Self::TpuV5Litepod),
             _ => None,
         }
     }
@@ -2902,6 +2906,33 @@ pub struct ShieldedVmConfig {
     #[prost(bool, tag = "1")]
     pub enable_secure_boot: bool,
 }
+/// Represents configuration for private service connect.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PrivateServiceConnectConfig {
+    /// Required. If true, expose the IndexEndpoint via private service connect.
+    #[prost(bool, tag = "1")]
+    pub enable_private_service_connect: bool,
+    /// A list of Projects from which the forwarding rule will target the service
+    /// attachment.
+    #[prost(string, repeated, tag = "2")]
+    pub project_allowlist: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// PscAutomatedEndpoints defines the output of the forwarding rule
+/// automatically created by each PscAutomationConfig.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PscAutomatedEndpoints {
+    /// Corresponding project_id in pscAutomationConfigs
+    #[prost(string, tag = "1")]
+    pub project_id: ::prost::alloc::string::String,
+    /// Corresponding network in pscAutomationConfigs.
+    #[prost(string, tag = "2")]
+    pub network: ::prost::alloc::string::String,
+    /// Ip Address created by the automated forwarding rule.
+    #[prost(string, tag = "3")]
+    pub match_address: ::prost::alloc::string::String,
+}
 /// Models are deployed into it, and afterwards Endpoint is called to obtain
 /// predictions and explanations.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2993,6 +3024,15 @@ pub struct Endpoint {
     #[deprecated]
     #[prost(bool, tag = "17")]
     pub enable_private_service_connect: bool,
+    /// Optional. Configuration for private service connect.
+    ///
+    /// [network][google.cloud.aiplatform.v1.Endpoint.network] and
+    /// [private_service_connect_config][google.cloud.aiplatform.v1.Endpoint.private_service_connect_config]
+    /// are mutually exclusive.
+    #[prost(message, optional, tag = "21")]
+    pub private_service_connect_config: ::core::option::Option<
+        PrivateServiceConnectConfig,
+    >,
     /// Output only. Resource name of the Model Monitoring job associated with this
     /// Endpoint if monitoring is enabled by
     /// [JobService.CreateModelDeploymentMonitoringJob][google.cloud.aiplatform.v1.JobService.CreateModelDeploymentMonitoringJob].
@@ -3200,33 +3240,6 @@ pub struct CompletionStats {
     /// batch prediction.
     #[prost(int64, tag = "5")]
     pub successful_forecast_point_count: i64,
-}
-/// Represents configuration for private service connect.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PrivateServiceConnectConfig {
-    /// Required. If true, expose the IndexEndpoint via private service connect.
-    #[prost(bool, tag = "1")]
-    pub enable_private_service_connect: bool,
-    /// A list of Projects from which the forwarding rule will target the service
-    /// attachment.
-    #[prost(string, repeated, tag = "2")]
-    pub project_allowlist: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// PscAutomatedEndpoints defines the output of the forwarding rule
-/// automatically created by each PscAutomationConfig.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PscAutomatedEndpoints {
-    /// Corresponding project_id in pscAutomationConfigs
-    #[prost(string, tag = "1")]
-    pub project_id: ::prost::alloc::string::String,
-    /// Corresponding network in pscAutomationConfigs.
-    #[prost(string, tag = "2")]
-    pub network: ::prost::alloc::string::String,
-    /// Ip Address created by the automated forwarding rule.
-    #[prost(string, tag = "3")]
-    pub match_address: ::prost::alloc::string::String,
 }
 /// Indexes are deployed into it. An IndexEndpoint can have multiple
 /// DeployedIndexes.
@@ -5370,6 +5383,10 @@ pub mod publisher_model {
             /// any of its supporting files.
             #[prost(string, tag = "4")]
             pub artifact_uri: ::prost::alloc::string::String,
+            /// Optional. The name of the deploy task (e.g., "text to image
+            /// generation").
+            #[prost(string, optional, tag = "10")]
+            pub deploy_task_name: ::core::option::Option<::prost::alloc::string::String>,
             /// Required. The title of the regional resource reference.
             #[prost(string, tag = "8")]
             pub title: ::prost::alloc::string::String,
@@ -8407,11 +8424,13 @@ pub struct Retrieval {
     /// generation.
     #[prost(bool, tag = "3")]
     pub disable_attribution: bool,
+    /// The source of the retrieval.
     #[prost(oneof = "retrieval::Source", tags = "2")]
     pub source: ::core::option::Option<retrieval::Source>,
 }
 /// Nested message and enum types in `Retrieval`.
 pub mod retrieval {
+    /// The source of the retrieval.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Source {
@@ -11831,7 +11850,7 @@ pub struct NotebookIdleShutdownConfig {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct NotebookRuntimeTemplate {
-    /// Output only. The resource name of the NotebookRuntimeTemplate.
+    /// The resource name of the NotebookRuntimeTemplate.
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Required. The display name of the NotebookRuntimeTemplate.
@@ -19398,6 +19417,22 @@ pub struct GroundingMetadata {
     /// Optional. List of grounding attributions.
     #[prost(message, repeated, tag = "2")]
     pub grounding_attributions: ::prost::alloc::vec::Vec<GroundingAttribution>,
+    /// Optional. Google search entry for the following-up web searches.
+    #[prost(message, optional, tag = "4")]
+    pub search_entry_point: ::core::option::Option<SearchEntryPoint>,
+}
+/// Google search entry point.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchEntryPoint {
+    /// Optional. Web content snippet that can be embedded in a web page or an app
+    /// webview.
+    #[prost(string, tag = "1")]
+    pub rendered_content: ::prost::alloc::string::String,
+    /// Optional. Base64 encoded JSON representing array of <search term, search
+    /// url> tuple.
+    #[prost(bytes = "bytes", tag = "2")]
+    pub sdk_blob: ::prost::bytes::Bytes,
 }
 /// Harm categories that will block the content.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
@@ -25075,8 +25110,8 @@ pub struct TuningJob {
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Optional. The display name of the
-    /// [TunedModel][google.cloud.aiplatform.v1.Model]. The name can be up to
-    /// 128 characters long and can consist of any UTF-8 characters.
+    /// [TunedModel][google.cloud.aiplatform.v1.Model]. The name can be up to 128
+    /// characters long and can consist of any UTF-8 characters.
     #[prost(string, tag = "2")]
     pub tuned_model_display_name: ::prost::alloc::string::String,
     /// Optional. The description of the
@@ -25146,7 +25181,7 @@ pub mod tuning_job {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum SourceModel {
-        /// Model name for tuning, e.g., "gemini-1.0-pro-002".
+        /// The base model that is being tuned, e.g., "gemini-1.0-pro-002".
         #[prost(string, tag = "4")]
         BaseModel(::prost::alloc::string::String),
     }
@@ -25278,10 +25313,11 @@ pub mod tuning_data_stats {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SupervisedHyperParameters {
-    /// Optional. Number of training epoches for this tuning job.
+    /// Optional. Number of complete passes the model makes over the entire
+    /// training dataset during training.
     #[prost(int64, tag = "1")]
     pub epoch_count: i64,
-    /// Optional. Learning rate multiplier for tuning.
+    /// Optional. Multiplier for adjusting the default learning rate.
     #[prost(double, tag = "2")]
     pub learning_rate_multiplier: f64,
     /// Optional. Adapter size for tuning.
@@ -25347,11 +25383,11 @@ pub mod supervised_hyper_parameters {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SupervisedTuningSpec {
     /// Required. Cloud Storage path to file containing training dataset for
-    /// tuning.
+    /// tuning. The dataset must be formatted as a JSONL file.
     #[prost(string, tag = "1")]
     pub training_dataset_uri: ::prost::alloc::string::String,
     /// Optional. Cloud Storage path to file containing validation dataset for
-    /// tuning.
+    /// tuning. The dataset must be formatted as a JSONL file.
     #[prost(string, tag = "2")]
     pub validation_dataset_uri: ::prost::alloc::string::String,
     /// Optional. Hyperparameters for SFT.
@@ -30303,7 +30339,7 @@ pub mod featurestore_service_client {
 pub struct CreateFeatureGroupRequest {
     /// Required. The resource name of the Location to create FeatureGroups.
     /// Format:
-    /// `projects/{project}/locations/{location}'`
+    /// `projects/{project}/locations/{location}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Required. The FeatureGroup to create.
@@ -31623,6 +31659,8 @@ pub mod nearest_neighbor_search_operation_metadata {
             InvalidNumericValue = 12,
             /// File is not in UTF_8 format.
             InvalidEncoding = 13,
+            /// Token restrict value is invalid.
+            InvalidTokenValue = 15,
         }
         impl RecordErrorType {
             /// String value of the enum field names used in the ProtoBuf definition.
@@ -31645,6 +31683,7 @@ pub mod nearest_neighbor_search_operation_metadata {
                     RecordErrorType::MultipleValues => "MULTIPLE_VALUES",
                     RecordErrorType::InvalidNumericValue => "INVALID_NUMERIC_VALUE",
                     RecordErrorType::InvalidEncoding => "INVALID_ENCODING",
+                    RecordErrorType::InvalidTokenValue => "INVALID_TOKEN_VALUE",
                 }
             }
             /// Creates an enum from field names used in the ProtoBuf definition.
@@ -31664,6 +31703,7 @@ pub mod nearest_neighbor_search_operation_metadata {
                     "MULTIPLE_VALUES" => Some(Self::MultipleValues),
                     "INVALID_NUMERIC_VALUE" => Some(Self::InvalidNumericValue),
                     "INVALID_ENCODING" => Some(Self::InvalidEncoding),
+                    "INVALID_TOKEN_VALUE" => Some(Self::InvalidTokenValue),
                     _ => None,
                 }
             }
