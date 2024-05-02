@@ -122,7 +122,9 @@ pub struct JobRunNotificationEvent {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeliveryPipeline {
     /// Optional. Name of the `DeliveryPipeline`. Format is
-    /// `projects/{project}/locations/{location}/deliveryPipelines/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+    /// The `deliveryPipeline` component must match
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Unique identifier of the `DeliveryPipeline`.
@@ -792,7 +794,8 @@ pub struct RollbackTargetResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Target {
     /// Optional. Name of the `Target`. Format is
-    /// `projects/{project}/locations/{location}/targets/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/targets/{target}`.
+    /// The `target` component must match `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Resource id of the `Target`.
@@ -1038,7 +1041,7 @@ pub struct PrivatePool {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GkeCluster {
-    /// Information specifying a GKE Cluster. Format is
+    /// Optional. Information specifying a GKE Cluster. Format is
     /// `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`.
     #[prost(string, tag = "1")]
     pub cluster: ::prost::alloc::string::String,
@@ -1057,8 +1060,8 @@ pub struct GkeCluster {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AnthosCluster {
-    /// Membership of the GKE Hub-registered cluster to which to apply the Skaffold
-    /// configuration. Format is
+    /// Optional. Membership of the GKE Hub-registered cluster to which to apply
+    /// the Skaffold configuration. Format is
     /// `projects/{project}/locations/{location}/memberships/{membership_name}`.
     #[prost(string, tag = "1")]
     pub membership: ::prost::alloc::string::String,
@@ -1262,7 +1265,9 @@ pub struct DeleteTargetRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CustomTargetType {
     /// Optional. Name of the `CustomTargetType`. Format is
-    /// `projects/{project}/locations/{location}/customTargetTypes/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+    /// The `customTargetType` component must match
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Resource id of the `CustomTargetType`.
@@ -1607,7 +1612,8 @@ pub struct TargetAttribute {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Release {
     /// Optional. Name of the `Release`. Format is
-    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}`.
+    /// The `release` component must match `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Unique identifier of the `Release`.
@@ -2157,7 +2163,8 @@ pub struct CreateReleaseRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Rollout {
     /// Optional. Name of the `Rollout`. Format is
-    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
+    /// The `rollout` component must match `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Output only. Unique identifier of the `Rollout`.
@@ -2240,7 +2247,7 @@ pub struct Rollout {
     #[prost(message, optional, tag = "24")]
     pub metadata: ::core::option::Option<Metadata>,
     /// Output only. Name of the `ControllerRollout`. Format is
-    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
     #[prost(string, tag = "25")]
     pub controller_rollout: ::prost::alloc::string::String,
     /// Output only. Name of the `Rollout` that is rolled back by this `Rollout`.
@@ -3498,7 +3505,7 @@ pub mod postdeploy_job_run {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateChildRolloutJobRun {
     /// Output only. Name of the `ChildRollout`. Format is
-    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
     #[prost(string, tag = "1")]
     pub rollout: ::prost::alloc::string::String,
     /// Output only. The ID of the childRollout Phase initiated by this JobRun.
@@ -3511,7 +3518,7 @@ pub struct CreateChildRolloutJobRun {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AdvanceChildRolloutJobRun {
     /// Output only. Name of the `ChildRollout`. Format is
-    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/[a-z][a-z0-9\-]{0,62}`.
+    /// `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
     #[prost(string, tag = "1")]
     pub rollout: ::prost::alloc::string::String,
     /// Output only. the ID of the ChildRollout's Phase.
@@ -3754,7 +3761,8 @@ pub mod automation_rule {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PromoteReleaseRule {
     /// Required. ID of the rule. This id must be unique in the `Automation`
-    /// resource to which this rule belongs. The format is `[a-z][a-z0-9\-]{0,62}`.
+    /// resource to which this rule belongs. The format is
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     #[prost(string, tag = "1")]
     pub id: ::prost::alloc::string::String,
     /// Optional. How long the release need to be paused until being promoted to
@@ -3785,7 +3793,8 @@ pub struct PromoteReleaseRule {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AdvanceRolloutRule {
     /// Required. ID of the rule. This id must be unique in the `Automation`
-    /// resource to which this rule belongs. The format is `[a-z][a-z0-9\-]{0,62}`.
+    /// resource to which this rule belongs. The format is
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     #[prost(string, tag = "1")]
     pub id: ::prost::alloc::string::String,
     /// Optional. Proceeds only after phase name matched any one in the list.
@@ -3808,7 +3817,8 @@ pub struct AdvanceRolloutRule {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RepairRolloutRule {
     /// Required. ID of the rule. This id must be unique in the `Automation`
-    /// resource to which this rule belongs. The format is `[a-z][a-z0-9\-]{0,62}`.
+    /// resource to which this rule belongs. The format is
+    /// `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     #[prost(string, tag = "1")]
     pub id: ::prost::alloc::string::String,
     /// Optional. Phases within which jobs are subject to automatic repair actions
