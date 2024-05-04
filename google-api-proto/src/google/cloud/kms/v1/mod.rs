@@ -553,6 +553,8 @@ pub mod crypto_key_version {
         /// Other hash functions can also be used:
         /// <https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms>
         EcSignSecp256k1Sha256 = 31,
+        /// EdDSA on the Curve25519 in pure mode (taking data as input).
+        EcSignEd25519 = 40,
         /// HMAC-SHA256 signing with a 256 bit key.
         HmacSha256 = 32,
         /// HMAC-SHA1 signing with a 160 bit key.
@@ -644,6 +646,7 @@ pub mod crypto_key_version {
                 CryptoKeyVersionAlgorithm::EcSignSecp256k1Sha256 => {
                     "EC_SIGN_SECP256K1_SHA256"
                 }
+                CryptoKeyVersionAlgorithm::EcSignEd25519 => "EC_SIGN_ED25519",
                 CryptoKeyVersionAlgorithm::HmacSha256 => "HMAC_SHA256",
                 CryptoKeyVersionAlgorithm::HmacSha1 => "HMAC_SHA1",
                 CryptoKeyVersionAlgorithm::HmacSha384 => "HMAC_SHA384",
@@ -686,6 +689,7 @@ pub mod crypto_key_version {
                 "EC_SIGN_P256_SHA256" => Some(Self::EcSignP256Sha256),
                 "EC_SIGN_P384_SHA384" => Some(Self::EcSignP384Sha384),
                 "EC_SIGN_SECP256K1_SHA256" => Some(Self::EcSignSecp256k1Sha256),
+                "EC_SIGN_ED25519" => Some(Self::EcSignEd25519),
                 "HMAC_SHA256" => Some(Self::HmacSha256),
                 "HMAC_SHA1" => Some(Self::HmacSha1),
                 "HMAC_SHA384" => Some(Self::HmacSha384),
