@@ -1996,8 +1996,12 @@ pub mod part {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Blob {
     /// The IANA standard MIME type of the source data.
-    /// Accepted types include: "image/png", "image/jpeg", "image/heic",
-    /// "image/heif", "image/webp".
+    /// Examples:
+    ///    - image/png
+    ///    - image/jpeg
+    /// If an unsupported MIME type is provided, an error will be returned. For a
+    /// complete list of supported types, see [Supported file
+    /// formats](<https://ai.google.dev/gemini-api/docs/prompting_with_media#supported_file_formats>).
     #[prost(string, tag = "1")]
     pub mime_type: ::prost::alloc::string::String,
     /// Raw bytes for media formats.
@@ -2710,6 +2714,16 @@ pub struct GenerationConfig {
     /// `application/json`: JSON response in the candidates.
     #[prost(string, tag = "13")]
     pub response_mime_type: ::prost::alloc::string::String,
+    /// Optional. Output response schema of the generated candidate text when
+    /// response mime type can have schema. Schema can be objects, primitives or
+    /// arrays and is a subset of [OpenAPI
+    /// schema](<https://spec.openapis.org/oas/v3.0.3#schema>).
+    ///
+    /// If set, a compatible response_mime_type must also be set.
+    /// Compatible mimetypes:
+    /// `application/json`: Schema for JSON response.
+    #[prost(message, optional, tag = "14")]
+    pub response_schema: ::core::option::Option<Schema>,
 }
 /// Configuration for retrieving grounding content from a `Corpus` or
 /// `Document` created using the Semantic Retriever API.
@@ -2756,6 +2770,9 @@ pub struct GenerateContentResponse {
     pub prompt_feedback: ::core::option::Option<
         generate_content_response::PromptFeedback,
     >,
+    /// Output only. Metadata on the generation requests' token usage.
+    #[prost(message, optional, tag = "3")]
+    pub usage_metadata: ::core::option::Option<generate_content_response::UsageMetadata>,
 }
 /// Nested message and enum types in `GenerateContentResponse`.
 pub mod generate_content_response {
@@ -2819,6 +2836,20 @@ pub mod generate_content_response {
                 }
             }
         }
+    }
+    /// Metadata on the generation request's token usage.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct UsageMetadata {
+        /// Number of tokens in the prompt.
+        #[prost(int32, tag = "1")]
+        pub prompt_token_count: i32,
+        /// Total number of tokens across the generated candidates.
+        #[prost(int32, tag = "2")]
+        pub candidates_token_count: i32,
+        /// Total token count for the generation request (prompt + candidates).
+        #[prost(int32, tag = "3")]
+        pub total_token_count: i32,
     }
 }
 /// A response candidate generated from the model.
@@ -3222,7 +3253,8 @@ pub struct EmbedContentRequest {
     pub title: ::core::option::Option<::prost::alloc::string::String>,
     /// Optional. Optional reduced dimension for the output embedding. If set,
     /// excessive values in the output embedding are truncated from the end.
-    /// Supported by `models/text-embedding-latest`.
+    /// Supported by newer models since 2024, and the earlier model
+    /// (`models/embedding-001`) cannot specify this value.
     #[prost(int32, optional, tag = "5")]
     pub output_dimensionality: ::core::option::Option<i32>,
 }
@@ -3283,9 +3315,13 @@ pub struct CountTokensRequest {
     /// Format: `models/{model}`
     #[prost(string, tag = "1")]
     pub model: ::prost::alloc::string::String,
-    /// Required. The input given to the model as a prompt.
+    /// Optional. The input given to the model as a prompt.
     #[prost(message, repeated, tag = "2")]
     pub contents: ::prost::alloc::vec::Vec<Content>,
+    /// Optional. The overall input given to the model. CountTokens will count
+    /// prompt, function calling, etc.
+    #[prost(message, optional, tag = "3")]
+    pub generate_content_request: ::core::option::Option<GenerateContentRequest>,
 }
 /// A response from `CountTokens`.
 ///
@@ -3430,6 +3466,11 @@ pub mod generative_service_client {
         }
         /// Generates a response from the model given an input
         /// `GenerateContentRequest`.
+        ///
+        /// Input capabilities differ between models, including tuned models. See the
+        /// [model guide](https://ai.google.dev/models/gemini) and
+        /// [tuning guide](https://ai.google.dev/docs/model_tuning_guidance) for
+        /// details.
         pub async fn generate_content(
             &mut self,
             request: impl tonic::IntoRequest<super::GenerateContentRequest>,
@@ -3658,6 +3699,59 @@ pub struct File {
     /// Output only. The uri of the `File`.
     #[prost(string, tag = "9")]
     pub uri: ::prost::alloc::string::String,
+    /// Output only. Processing state of the File.
+    #[prost(enumeration = "file::State", tag = "10")]
+    pub state: i32,
+}
+/// Nested message and enum types in `File`.
+pub mod file {
+    /// States for the lifecycle of a File.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum State {
+        /// The default value. This value is used if the state is omitted.
+        Unspecified = 0,
+        /// File is being processed and cannot be used for inference yet.
+        Processing = 1,
+        /// File is processed and available for inference.
+        Active = 2,
+        /// File failed processing.
+        Failed = 10,
+    }
+    impl State {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                State::Unspecified => "STATE_UNSPECIFIED",
+                State::Processing => "PROCESSING",
+                State::Active => "ACTIVE",
+                State::Failed => "FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_UNSPECIFIED" => Some(Self::Unspecified),
+                "PROCESSING" => Some(Self::Processing),
+                "ACTIVE" => Some(Self::Active),
+                "FAILED" => Some(Self::Failed),
+                _ => None,
+            }
+        }
+    }
 }
 /// Request for `CreateFile`.
 #[allow(clippy::derive_partial_eq_without_eq)]
