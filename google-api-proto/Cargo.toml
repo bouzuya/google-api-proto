@@ -486,6 +486,7 @@ google-maps-playablelocations-v3 = ["google-api", "google-maps-playablelocations
 google-maps-playablelocations-v3-sample = ["google-api", "google-maps-playablelocations-v3", "google-type"]
 google-maps-regionlookup-v1alpha = ["google-api", "google-type"]
 google-maps-roads-v1op = ["google-api", "google-type"]
+google-maps-routeoptimization-v1 = ["google-api", "google-longrunning", "google-type"]
 google-maps-routes-v1 = ["google-api", "google-geo-type", "google-rpc", "google-type"]
 google-maps-routes-v1alpha = ["google-api", "google-maps-routes-v1"]
 google-maps-routing-v2 = ["google-api", "google-geo-type", "google-rpc", "google-type"]

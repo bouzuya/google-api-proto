@@ -464,6 +464,7 @@ pub mod cloud;
         feature = "google-maps-playablelocations-v3-sample",
         feature = "google-maps-regionlookup-v1alpha",
         feature = "google-maps-roads-v1op",
+        feature = "google-maps-routeoptimization-v1",
         feature = "google-maps-routes-v1",
         feature = "google-maps-routes-v1alpha",
         feature = "google-maps-routing-v2",
