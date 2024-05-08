@@ -1476,59 +1476,6 @@ pub struct GetTaskRequest {
     #[prost(string, tag = "3")]
     pub name: ::prost::alloc::string::String,
 }
-/// Deprecated: Issue `GetTaskTrackingInfoRequest`s to `GetTaskTrackingInfo`
-/// instead.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchTasksRequest {
-    /// Optional. The standard Delivery API request header.
-    #[prost(message, optional, tag = "1")]
-    pub header: ::core::option::Option<DeliveryRequestHeader>,
-    /// Required. Must be in the format `providers/{provider}`.
-    /// The provider must be the Google Cloud Project ID. For example,
-    /// `sample-cloud-project`.
-    #[prost(string, tag = "3")]
-    pub parent: ::prost::alloc::string::String,
-    /// Required. The identifier of the set of related Tasks being requested.
-    /// Tracking IDs are subject to the following restrictions:
-    ///
-    /// * Must be a valid Unicode string.
-    /// * Limited to a maximum length of 64 characters.
-    /// * Normalized according to \[Unicode Normalization Form C\]
-    /// (<http://www.unicode.org/reports/tr15/>).
-    /// * May not contain any of the following ASCII characters: '/', ':', '?',
-    /// ',', or '#'.
-    #[prost(string, tag = "4")]
-    pub tracking_id: ::prost::alloc::string::String,
-    /// Optional. The maximum number of Tasks to return. The service may return
-    /// fewer than this value. If you don't specify this value, then the server
-    /// determines the number of results to return.
-    #[prost(int32, tag = "5")]
-    pub page_size: i32,
-    /// Optional. A page token, received from a previous `SearchTasks` call. You
-    /// must provide this value to retrieve the subsequent page.
-    ///
-    /// When paginating, all other parameters provided to `SearchTasks` must match
-    /// the call that provided the page token.
-    #[prost(string, tag = "6")]
-    pub page_token: ::prost::alloc::string::String,
-}
-/// The `SearchTasks` response. It contains the set of Tasks that meet the search
-/// criteria in the `SearchTasksRequest`.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchTasksResponse {
-    /// The set of Tasks for the requested `tracking_id`. A successful response can
-    /// also be empty. An empty response indicates that no Tasks are associated
-    /// with the supplied `tracking_id`.
-    #[prost(message, repeated, tag = "1")]
-    pub tasks: ::prost::alloc::vec::Vec<Task>,
-    /// Pass this token in the `SearchTasksRequest` to continue to
-    /// list results. If all results have been returned, then this field is either
-    /// an empty string, or it doesn't appear in the response.
-    #[prost(string, tag = "2")]
-    pub next_page_token: ::prost::alloc::string::String,
-}
 /// The `UpdateTask` request message.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1887,37 +1834,6 @@ pub mod delivery_service_client {
                     GrpcMethod::new(
                         "maps.fleetengine.delivery.v1.DeliveryService",
                         "GetTask",
-                    ),
-                );
-            self.inner.unary(req, path, codec).await
-        }
-        /// Deprecated: Use `GetTaskTrackingInfo` instead.
-        pub async fn search_tasks(
-            &mut self,
-            request: impl tonic::IntoRequest<super::SearchTasksRequest>,
-        ) -> std::result::Result<
-            tonic::Response<super::SearchTasksResponse>,
-            tonic::Status,
-        > {
-            self.inner
-                .ready()
-                .await
-                .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
-                        format!("Service was not ready: {}", e.into()),
-                    )
-                })?;
-            let codec = tonic::codec::ProstCodec::default();
-            let path = http::uri::PathAndQuery::from_static(
-                "/maps.fleetengine.delivery.v1.DeliveryService/SearchTasks",
-            );
-            let mut req = request.into_request();
-            req.extensions_mut()
-                .insert(
-                    GrpcMethod::new(
-                        "maps.fleetengine.delivery.v1.DeliveryService",
-                        "SearchTasks",
                     ),
                 );
             self.inner.unary(req, path, codec).await
