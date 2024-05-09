@@ -375,6 +375,7 @@ pub mod chromeos;
         feature = "google-cloud-securesourcemanager-v1",
         feature = "google-cloud-security-privateca-v1",
         feature = "google-cloud-security-privateca-v1beta1",
+        feature = "google-cloud-security-publicca-v1",
         feature = "google-cloud-security-publicca-v1beta1",
         feature = "google-cloud-securitycenter-settings-v1beta1",
         feature = "google-cloud-securitycenter-v1",

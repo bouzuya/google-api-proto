@@ -299,6 +299,42 @@ pub struct OperationMetadata {
     #[prost(string, tag = "7")]
     pub api_version: ::prost::alloc::string::String,
 }
+/// Google Cloud Storage as a source.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SourceGcsBucket {
+    /// Required. URI to a Cloud Storage object in format:
+    /// 'gs://<bucket_name>/<path_inside_bucket>'.
+    #[prost(string, tag = "1")]
+    pub uri: ::prost::alloc::string::String,
+}
+/// Google Cloud Storage as a destination.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DestinationGcsBucket {
+    /// Required. URI to a Cloud Storage object in format:
+    /// 'gs://<bucket_name>/<path_inside_bucket>'.
+    #[prost(string, tag = "1")]
+    pub uri: ::prost::alloc::string::String,
+}
+/// Pa as a source.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SourceParallelstore {
+    /// Optional. Root directory path to the Paralellstore filesystem, starting
+    /// with '/'. Defaults to '/' if unset.
+    #[prost(string, tag = "1")]
+    pub path: ::prost::alloc::string::String,
+}
+/// Parallelstore as a destination.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DestinationParallelstore {
+    /// Optional. Root directory path to the Paralellstore filesystem, starting
+    /// with '/'. Defaults to '/' if unset.
+    #[prost(string, tag = "1")]
+    pub path: ::prost::alloc::string::String,
+}
 /// Message representing the request importing data from parallelstore to Cloud
 /// Storage.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -335,19 +371,17 @@ pub mod import_data_request {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Source {
-        /// URI to a Cloud Storage object in format:
-        /// 'gs://<bucket_name>/<path_inside_bucket>'.
-        #[prost(string, tag = "2")]
-        SourceGcsUri(::prost::alloc::string::String),
+        /// Cloud Storage source.
+        #[prost(message, tag = "2")]
+        SourceGcsBucket(super::SourceGcsBucket),
     }
     /// The destination of the data being imported into the parallelstore instance.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Destination {
-        /// Optional. Root directory path to the Paralellstore filesystem, starting
-        /// with '/'. Sets to '/' if no value is set.
-        #[prost(string, tag = "3")]
-        DestinationPath(::prost::alloc::string::String),
+        /// Parallelstore destination.
+        #[prost(message, tag = "3")]
+        DestinationParallelstore(super::DestinationParallelstore),
     }
 }
 /// Message representing the request exporting data from Cloud Storage to
@@ -386,19 +420,17 @@ pub mod export_data_request {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Source {
-        /// Optional. Root directory path to the Paralellstore filesystem, starting
-        /// with '/'. Sets to '/' if no value is set.
-        #[prost(string, tag = "2")]
-        SourcePath(::prost::alloc::string::String),
+        /// Parallelstore source.
+        #[prost(message, tag = "2")]
+        SourceParallelstore(super::SourceParallelstore),
     }
     /// The destination of the data exported from the parallelstore instance.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Destination {
-        /// URI to a Cloud Storage object in format:
-        /// 'gs://<bucket_name>/<path_inside_bucket>'.
-        #[prost(string, tag = "3")]
-        DestinationGcsUri(::prost::alloc::string::String),
+        /// Cloud Storage destination.
+        #[prost(message, tag = "3")]
+        DestinationGcsBucket(super::DestinationGcsBucket),
     }
 }
 /// ImportDataResponse is the response returned from ImportData rpc.

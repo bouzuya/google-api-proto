@@ -564,6 +564,7 @@ pub mod securesourcemanager;
     any(
         feature = "google-cloud-security-privateca-v1",
         feature = "google-cloud-security-privateca-v1beta1",
+        feature = "google-cloud-security-publicca-v1",
         feature = "google-cloud-security-publicca-v1beta1",
     )
 )]
