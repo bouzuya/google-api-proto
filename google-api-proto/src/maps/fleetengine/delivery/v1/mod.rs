@@ -695,16 +695,15 @@ pub struct VehicleJourneySegment {
 pub struct VehicleStop {
     /// Required. The location of the stop. Note that the locations in the `Task`s
     /// might not exactly match this location, but will be within a short distance
-    /// of it. This field won't be populated in the response of either a `GetTask`,
-    /// or a `SearchTasks` call.
+    /// of it. This field won't be populated in the response of a `GetTask` call.
     #[prost(message, optional, tag = "1")]
     pub planned_location: ::core::option::Option<LocationInfo>,
     /// The list of `Task`s to be performed at this stop. This field won't be
-    /// populated in the response of either a `GetTask` or `SearchTasks` call.
+    /// populated in the response of a `GetTask` call.
     #[prost(message, repeated, tag = "2")]
     pub tasks: ::prost::alloc::vec::Vec<vehicle_stop::TaskInfo>,
     /// The state of the `VehicleStop`. This field won't be populated in the
-    /// response of either a `GetTask`, or a `SearchTasks` call.
+    /// response of a `GetTask` call.
     #[prost(enumeration = "vehicle_stop::State", tag = "3")]
     pub state: i32,
 }
@@ -714,9 +713,8 @@ pub mod vehicle_stop {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct TaskInfo {
-        /// The Task ID. This field won't be populated in the response of either a
-        /// `GetTask`, or a `SearchTasks` call. Task IDs are subject to the following
-        /// restrictions:
+        /// The Task ID. This field won't be populated in the response of a `GetTask`
+        /// call. Task IDs are subject to the following restrictions:
         ///
         /// * Must be a valid Unicode string.
         /// * Limited to a maximum length of 64 characters.
