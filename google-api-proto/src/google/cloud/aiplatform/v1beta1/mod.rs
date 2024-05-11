@@ -29651,6 +29651,304 @@ pub mod vertex_rag_service_client {
         }
     }
 }
+/// Represents a TuningJob that runs with Google owned models.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TuningJob {
+    /// Output only. Identifier. Resource name of a TuningJob. Format:
+    /// `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. The display name of the
+    /// [TunedModel][google.cloud.aiplatform.v1.Model]. The name can be up to 128
+    /// characters long and can consist of any UTF-8 characters.
+    #[prost(string, tag = "2")]
+    pub tuned_model_display_name: ::prost::alloc::string::String,
+    /// Optional. The description of the
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob].
+    #[prost(string, tag = "3")]
+    pub description: ::prost::alloc::string::String,
+    /// Output only. The detailed state of the job.
+    #[prost(enumeration = "JobState", tag = "6")]
+    pub state: i32,
+    /// Output only. Time when the
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob] was created.
+    #[prost(message, optional, tag = "7")]
+    pub create_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Time when the
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob] for the first time
+    /// entered the `JOB_STATE_RUNNING` state.
+    #[prost(message, optional, tag = "8")]
+    pub start_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Time when the TuningJob entered any of the following
+    /// [JobStates][google.cloud.aiplatform.v1.JobState]: `JOB_STATE_SUCCEEDED`,
+    /// `JOB_STATE_FAILED`, `JOB_STATE_CANCELLED`, `JOB_STATE_EXPIRED`.
+    #[prost(message, optional, tag = "9")]
+    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Time when the
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob] was most recently
+    /// updated.
+    #[prost(message, optional, tag = "10")]
+    pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Only populated when job's state is `JOB_STATE_FAILED` or
+    /// `JOB_STATE_CANCELLED`.
+    #[prost(message, optional, tag = "11")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+    /// Optional. The labels with user-defined metadata to organize
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob] and generated resources
+    /// such as [Model][google.cloud.aiplatform.v1.Model] and
+    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint].
+    ///
+    /// Label keys and values can be no longer than 64 characters
+    /// (Unicode codepoints), can only contain lowercase letters, numeric
+    /// characters, underscores and dashes. International characters are allowed.
+    ///
+    /// See <https://goo.gl/xmQnxf> for more information and examples of labels.
+    #[prost(btree_map = "string, string", tag = "12")]
+    pub labels: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+    /// Output only. The Experiment associated with this
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob].
+    #[prost(string, tag = "13")]
+    pub experiment: ::prost::alloc::string::String,
+    /// Output only. The tuned model resources assiociated with this
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob].
+    #[prost(message, optional, tag = "14")]
+    pub tuned_model: ::core::option::Option<TunedModel>,
+    /// Output only. The tuning data statistics associated with this
+    /// [TuningJob][google.cloud.aiplatform.v1.TuningJob].
+    #[prost(message, optional, tag = "15")]
+    pub tuning_data_stats: ::core::option::Option<TuningDataStats>,
+    /// Customer-managed encryption key options for a TuningJob. If this is set,
+    /// then all resources created by the TuningJob will be encrypted with the
+    /// provided encryption key.
+    #[prost(message, optional, tag = "16")]
+    pub encryption_spec: ::core::option::Option<EncryptionSpec>,
+    #[prost(oneof = "tuning_job::SourceModel", tags = "4")]
+    pub source_model: ::core::option::Option<tuning_job::SourceModel>,
+    #[prost(oneof = "tuning_job::TuningSpec", tags = "5")]
+    pub tuning_spec: ::core::option::Option<tuning_job::TuningSpec>,
+}
+/// Nested message and enum types in `TuningJob`.
+pub mod tuning_job {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum SourceModel {
+        /// The base model that is being tuned, e.g., "gemini-1.0-pro-002".
+        #[prost(string, tag = "4")]
+        BaseModel(::prost::alloc::string::String),
+    }
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TuningSpec {
+        /// Tuning Spec for Supervised Fine Tuning.
+        #[prost(message, tag = "5")]
+        SupervisedTuningSpec(super::SupervisedTuningSpec),
+    }
+}
+/// The Model Registry Model and Online Prediction Endpoint assiociated with
+/// this [TuningJob][google.cloud.aiplatform.v1.TuningJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TunedModel {
+    /// Output only. The resource name of the TunedModel. Format:
+    /// `projects/{project}/locations/{location}/models/{model}`.
+    #[prost(string, tag = "1")]
+    pub model: ::prost::alloc::string::String,
+    /// Output only. A resource name of an Endpoint. Format:
+    /// `projects/{project}/locations/{location}/endpoints/{endpoint}`.
+    #[prost(string, tag = "2")]
+    pub endpoint: ::prost::alloc::string::String,
+}
+/// Dataset distribution for Supervised Tuning.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SupervisedTuningDatasetDistribution {
+    /// Output only. Sum of a given population of values.
+    #[prost(int64, tag = "1")]
+    pub sum: i64,
+    /// Output only. The minimum of the population values.
+    #[prost(double, tag = "2")]
+    pub min: f64,
+    /// Output only. The maximum of the population values.
+    #[prost(double, tag = "3")]
+    pub max: f64,
+    /// Output only. The arithmetic mean of the values in the population.
+    #[prost(double, tag = "4")]
+    pub mean: f64,
+    /// Output only. The median of the values in the population.
+    #[prost(double, tag = "5")]
+    pub median: f64,
+    /// Output only. The 5th percentile of the values in the population.
+    #[prost(double, tag = "6")]
+    pub p5: f64,
+    /// Output only. The 95th percentile of the values in the population.
+    #[prost(double, tag = "7")]
+    pub p95: f64,
+    /// Output only. Defines the histogram bucket.
+    #[prost(message, repeated, tag = "8")]
+    pub buckets: ::prost::alloc::vec::Vec<
+        supervised_tuning_dataset_distribution::DatasetBucket,
+    >,
+}
+/// Nested message and enum types in `SupervisedTuningDatasetDistribution`.
+pub mod supervised_tuning_dataset_distribution {
+    /// Dataset bucket used to create a histogram for the distribution given a
+    /// population of values.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DatasetBucket {
+        /// Output only. Number of values in the bucket.
+        #[prost(double, tag = "1")]
+        pub count: f64,
+        /// Output only. Left bound of the bucket.
+        #[prost(double, tag = "2")]
+        pub left: f64,
+        /// Output only. Right bound of the bucket.
+        #[prost(double, tag = "3")]
+        pub right: f64,
+    }
+}
+/// Tuning data statistics for Supervised Tuning.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SupervisedTuningDataStats {
+    /// Output only. Number of examples in the tuning dataset.
+    #[prost(int64, tag = "1")]
+    pub tuning_dataset_example_count: i64,
+    /// Output only. Number of tuning characters in the tuning dataset.
+    #[prost(int64, tag = "2")]
+    pub total_tuning_character_count: i64,
+    /// Output only. Number of billable characters in the tuning dataset.
+    #[prost(int64, tag = "3")]
+    pub total_billable_character_count: i64,
+    /// Output only. Number of tuning steps for this Tuning Job.
+    #[prost(int64, tag = "4")]
+    pub tuning_step_count: i64,
+    /// Output only. Dataset distributions for the user input tokens.
+    #[prost(message, optional, tag = "5")]
+    pub user_input_token_distribution: ::core::option::Option<
+        SupervisedTuningDatasetDistribution,
+    >,
+    /// Output only. Dataset distributions for the user output tokens.
+    #[prost(message, optional, tag = "6")]
+    pub user_output_token_distribution: ::core::option::Option<
+        SupervisedTuningDatasetDistribution,
+    >,
+    /// Output only. Dataset distributions for the messages per example.
+    #[prost(message, optional, tag = "7")]
+    pub user_message_per_example_distribution: ::core::option::Option<
+        SupervisedTuningDatasetDistribution,
+    >,
+    /// Output only. Sample user messages in the training dataset uri.
+    #[prost(message, repeated, tag = "8")]
+    pub user_dataset_examples: ::prost::alloc::vec::Vec<Content>,
+}
+/// The tuning data statistic values for
+/// [TuningJob][google.cloud.aiplatform.v1.TuningJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TuningDataStats {
+    #[prost(oneof = "tuning_data_stats::TuningDataStats", tags = "1")]
+    pub tuning_data_stats: ::core::option::Option<tuning_data_stats::TuningDataStats>,
+}
+/// Nested message and enum types in `TuningDataStats`.
+pub mod tuning_data_stats {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum TuningDataStats {
+        /// The SFT Tuning data stats.
+        #[prost(message, tag = "1")]
+        SupervisedTuningDataStats(super::SupervisedTuningDataStats),
+    }
+}
+/// Hyperparameters for SFT.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SupervisedHyperParameters {
+    /// Optional. Number of complete passes the model makes over the entire
+    /// training dataset during training.
+    #[prost(int64, tag = "1")]
+    pub epoch_count: i64,
+    /// Optional. Multiplier for adjusting the default learning rate.
+    #[prost(double, tag = "2")]
+    pub learning_rate_multiplier: f64,
+    /// Optional. Adapter size for tuning.
+    #[prost(enumeration = "supervised_hyper_parameters::AdapterSize", tag = "3")]
+    pub adapter_size: i32,
+}
+/// Nested message and enum types in `SupervisedHyperParameters`.
+pub mod supervised_hyper_parameters {
+    /// Supported adapter sizes for tuning.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum AdapterSize {
+        /// Adapter size is unspecified.
+        Unspecified = 0,
+        /// Adapter size 1.
+        One = 1,
+        /// Adapter size 4.
+        Four = 2,
+        /// Adapter size 8.
+        Eight = 3,
+        /// Adapter size 16.
+        Sixteen = 4,
+    }
+    impl AdapterSize {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                AdapterSize::Unspecified => "ADAPTER_SIZE_UNSPECIFIED",
+                AdapterSize::One => "ADAPTER_SIZE_ONE",
+                AdapterSize::Four => "ADAPTER_SIZE_FOUR",
+                AdapterSize::Eight => "ADAPTER_SIZE_EIGHT",
+                AdapterSize::Sixteen => "ADAPTER_SIZE_SIXTEEN",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "ADAPTER_SIZE_UNSPECIFIED" => Some(Self::Unspecified),
+                "ADAPTER_SIZE_ONE" => Some(Self::One),
+                "ADAPTER_SIZE_FOUR" => Some(Self::Four),
+                "ADAPTER_SIZE_EIGHT" => Some(Self::Eight),
+                "ADAPTER_SIZE_SIXTEEN" => Some(Self::Sixteen),
+                _ => None,
+            }
+        }
+    }
+}
+/// Tuning Spec for Supervised Tuning.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SupervisedTuningSpec {
+    /// Required. Cloud Storage path to file containing training dataset for
+    /// tuning. The dataset must be formatted as a JSONL file.
+    #[prost(string, tag = "1")]
+    pub training_dataset_uri: ::prost::alloc::string::String,
+    /// Optional. Cloud Storage path to file containing validation dataset for
+    /// tuning. The dataset must be formatted as a JSONL file.
+    #[prost(string, tag = "2")]
+    pub validation_dataset_uri: ::prost::alloc::string::String,
+    /// Optional. Hyperparameters for SFT.
+    #[prost(message, optional, tag = "3")]
+    pub hyper_parameters: ::core::option::Option<SupervisedHyperParameters>,
+}
 /// Represents one resource that exists in automl.googleapis.com,
 /// datalabeling.googleapis.com or ml.googleapis.com.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -38933,6 +39231,279 @@ pub mod llm_utility_service_client {
                     GrpcMethod::new(
                         "google.cloud.aiplatform.v1beta1.LlmUtilityService",
                         "ComputeTokens",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+    }
+}
+/// Request message for
+/// [GenAiTuningService.CreateTuningJob][google.cloud.aiplatform.v1beta1.GenAiTuningService.CreateTuningJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CreateTuningJobRequest {
+    /// Required. The resource name of the Location to create the TuningJob in.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Required. The TuningJob to create.
+    #[prost(message, optional, tag = "2")]
+    pub tuning_job: ::core::option::Option<TuningJob>,
+}
+/// Request message for
+/// [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1beta1.GenAiTuningService.GetTuningJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GetTuningJobRequest {
+    /// Required. The name of the TuningJob resource. Format:
+    /// `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [GenAiTuningService.ListTuningJobs][google.cloud.aiplatform.v1beta1.GenAiTuningService.ListTuningJobs].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListTuningJobsRequest {
+    /// Required. The resource name of the Location to list the TuningJobs from.
+    /// Format: `projects/{project}/locations/{location}`
+    #[prost(string, tag = "1")]
+    pub parent: ::prost::alloc::string::String,
+    /// Optional. The standard list filter.
+    #[prost(string, tag = "2")]
+    pub filter: ::prost::alloc::string::String,
+    /// Optional. The standard list page size.
+    #[prost(int32, tag = "3")]
+    pub page_size: i32,
+    /// Optional. The standard list page token.
+    /// Typically obtained via [ListTuningJob.next_page_token][] of the
+    /// previous GenAiTuningService.ListTuningJob][] call.
+    #[prost(string, tag = "4")]
+    pub page_token: ::prost::alloc::string::String,
+}
+/// Response message for
+/// [GenAiTuningService.ListTuningJobs][google.cloud.aiplatform.v1beta1.GenAiTuningService.ListTuningJobs]
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ListTuningJobsResponse {
+    /// List of TuningJobs in the requested page.
+    #[prost(message, repeated, tag = "1")]
+    pub tuning_jobs: ::prost::alloc::vec::Vec<TuningJob>,
+    /// A token to retrieve the next page of results.
+    /// Pass to
+    /// [ListTuningJobsRequest.page_token][google.cloud.aiplatform.v1beta1.ListTuningJobsRequest.page_token]
+    /// to obtain that page.
+    #[prost(string, tag = "2")]
+    pub next_page_token: ::prost::alloc::string::String,
+}
+/// Request message for
+/// [GenAiTuningService.CancelTuningJob][google.cloud.aiplatform.v1beta1.GenAiTuningService.CancelTuningJob].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CancelTuningJobRequest {
+    /// Required. The name of the TuningJob to cancel. Format:
+    /// `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+}
+/// Generated client implementations.
+pub mod gen_ai_tuning_service_client {
+    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
+    /// A service for creating and managing GenAI Tuning Jobs.
+    #[derive(Debug, Clone)]
+    pub struct GenAiTuningServiceClient<T> {
+        inner: tonic::client::Grpc<T>,
+    }
+    impl<T> GenAiTuningServiceClient<T>
+    where
+        T: tonic::client::GrpcService<tonic::body::BoxBody>,
+        T::Error: Into<StdError>,
+        T::ResponseBody: Body<Data = Bytes> + Send + 'static,
+        <T::ResponseBody as Body>::Error: Into<StdError> + Send,
+    {
+        pub fn new(inner: T) -> Self {
+            let inner = tonic::client::Grpc::new(inner);
+            Self { inner }
+        }
+        pub fn with_origin(inner: T, origin: Uri) -> Self {
+            let inner = tonic::client::Grpc::with_origin(inner, origin);
+            Self { inner }
+        }
+        pub fn with_interceptor<F>(
+            inner: T,
+            interceptor: F,
+        ) -> GenAiTuningServiceClient<InterceptedService<T, F>>
+        where
+            F: tonic::service::Interceptor,
+            T::ResponseBody: Default,
+            T: tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+                Response = http::Response<
+                    <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
+                >,
+            >,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
+        {
+            GenAiTuningServiceClient::new(InterceptedService::new(inner, interceptor))
+        }
+        /// Compress requests with the given encoding.
+        ///
+        /// This requires the server to support it otherwise it might respond with an
+        /// error.
+        #[must_use]
+        pub fn send_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.send_compressed(encoding);
+            self
+        }
+        /// Enable decompressing responses.
+        #[must_use]
+        pub fn accept_compressed(mut self, encoding: CompressionEncoding) -> Self {
+            self.inner = self.inner.accept_compressed(encoding);
+            self
+        }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
+        /// Creates a TuningJob. A created TuningJob right away will be attempted to
+        /// be run.
+        pub async fn create_tuning_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CreateTuningJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::TuningJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.GenAiTuningService/CreateTuningJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.GenAiTuningService",
+                        "CreateTuningJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Gets a TuningJob.
+        pub async fn get_tuning_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::GetTuningJobRequest>,
+        ) -> std::result::Result<tonic::Response<super::TuningJob>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.GenAiTuningService/GetTuningJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.GenAiTuningService",
+                        "GetTuningJob",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Lists TuningJobs in a Location.
+        pub async fn list_tuning_jobs(
+            &mut self,
+            request: impl tonic::IntoRequest<super::ListTuningJobsRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::ListTuningJobsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.GenAiTuningService/ListTuningJobs",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.GenAiTuningService",
+                        "ListTuningJobs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Cancels a TuningJob.
+        /// Starts asynchronous cancellation on the TuningJob. The server makes a best
+        /// effort to cancel the job, but success is not guaranteed. Clients can use
+        /// [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1beta1.GenAiTuningService.GetTuningJob]
+        /// or other methods to check whether the cancellation succeeded or whether the
+        /// job completed despite cancellation. On successful cancellation, the
+        /// TuningJob is not deleted; instead it becomes a job with a
+        /// [TuningJob.error][google.cloud.aiplatform.v1beta1.TuningJob.error] value
+        /// with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
+        /// to `Code.CANCELLED`, and
+        /// [TuningJob.state][google.cloud.aiplatform.v1beta1.TuningJob.state] is set
+        /// to `CANCELLED`.
+        pub async fn cancel_tuning_job(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelTuningJobRequest>,
+        ) -> std::result::Result<tonic::Response<()>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.aiplatform.v1beta1.GenAiTuningService/CancelTuningJob",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.aiplatform.v1beta1.GenAiTuningService",
+                        "CancelTuningJob",
                     ),
                 );
             self.inner.unary(req, path, codec).await
