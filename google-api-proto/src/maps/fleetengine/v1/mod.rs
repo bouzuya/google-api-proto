@@ -233,11 +233,13 @@ pub struct ConsumableTrafficPolyline {
     #[prost(string, tag = "2")]
     pub encoded_path_to_waypoint: ::prost::alloc::string::String,
 }
-/// Identifies a terminal point.
+/// Deprecated: TerminalPoints are no longer supported in Fleet Engine. Use
+/// `TerminalLocation.point` instead.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TerminalPointId {
-    /// Unique ID of the terminal point.
+    /// Deprecated.
+    #[deprecated]
     #[prost(string, tag = "4")]
     pub value: ::prost::alloc::string::String,
     /// Deprecated.
@@ -265,10 +267,11 @@ pub struct TerminalLocation {
     /// Required. Denotes the location of a trip waypoint.
     #[prost(message, optional, tag = "1")]
     pub point: ::core::option::Option<super::super::super::google::r#type::LatLng>,
-    /// ID of the terminal point.
+    /// Deprecated: Specify the `point` field instead.
+    #[deprecated]
     #[prost(message, optional, tag = "2")]
     pub terminal_point_id: ::core::option::Option<TerminalPointId>,
-    /// Deprecated.
+    /// Deprecated: Specify the `point` field instead.
     #[deprecated]
     #[prost(string, tag = "3")]
     pub access_point_id: ::prost::alloc::string::String,
