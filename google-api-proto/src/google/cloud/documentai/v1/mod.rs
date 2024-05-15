@@ -948,16 +948,16 @@ pub mod document {
                 /// Whether the text is underlined.
                 #[prost(bool, tag = "7")]
                 pub underlined: bool,
-                /// Whether the text is strikethrough.
+                /// Whether the text is strikethrough. This feature is not supported yet.
                 #[prost(bool, tag = "8")]
                 pub strikeout: bool,
-                /// Whether the text is a subscript.
+                /// Whether the text is a subscript. This feature is not supported yet.
                 #[prost(bool, tag = "9")]
                 pub subscript: bool,
-                /// Whether the text is a superscript.
+                /// Whether the text is a superscript. This feature is not supported yet.
                 #[prost(bool, tag = "10")]
                 pub superscript: bool,
-                /// Whether the text is in small caps.
+                /// Whether the text is in small caps. This feature is not supported yet.
                 #[prost(bool, tag = "11")]
                 pub smallcaps: bool,
                 /// TrueType weight on a scale `100` (thin) to `1000` (ultra-heavy).
@@ -1876,7 +1876,7 @@ pub mod evaluation {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ProcessorVersion {
-    /// The resource name of the processor version.
+    /// Identifier. The resource name of the processor version.
     /// Format:
     /// `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
     #[prost(string, tag = "1")]
@@ -1887,7 +1887,7 @@ pub struct ProcessorVersion {
     /// The schema of the processor version. Describes the output.
     #[prost(message, optional, tag = "12")]
     pub document_schema: ::core::option::Option<DocumentSchema>,
-    /// The state of the processor version.
+    /// Output only. The state of the processor version.
     #[prost(enumeration = "processor_version::State", tag = "6")]
     pub state: i32,
     /// The time the processor version was created.
