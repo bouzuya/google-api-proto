@@ -726,7 +726,7 @@ pub mod safety_rating {
 }
 /// Safety setting, affecting the safety-blocking behavior.
 ///
-/// Passing a safety setting for a category changes the allowed proability that
+/// Passing a safety setting for a category changes the allowed probability that
 /// content is blocked.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2520,7 +2520,8 @@ pub struct CountTokensRequest {
     /// Format: `models/{model}`
     #[prost(string, tag = "1")]
     pub model: ::prost::alloc::string::String,
-    /// Optional. The input given to the model as a prompt.
+    /// Optional. The input given to the model as a prompt. This field is ignored
+    /// when `generate_content_request` is set.
     #[prost(message, repeated, tag = "2")]
     pub contents: ::prost::alloc::vec::Vec<Content>,
     /// Optional. The overall input given to the model. CountTokens will count
@@ -5246,6 +5247,12 @@ pub struct File {
     /// Output only. Processing state of the File.
     #[prost(enumeration = "file::State", tag = "10")]
     pub state: i32,
+    /// Output only. Error status if File processing failed.
+    #[prost(message, optional, tag = "11")]
+    pub error: ::core::option::Option<super::super::super::rpc::Status>,
+    /// Metadata for the File.
+    #[prost(oneof = "file::Metadata", tags = "12")]
+    pub metadata: ::core::option::Option<file::Metadata>,
 }
 /// Nested message and enum types in `File`.
 pub mod file {
@@ -5296,6 +5303,22 @@ pub mod file {
             }
         }
     }
+    /// Metadata for the File.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Metadata {
+        /// Output only. Metadata for a video.
+        #[prost(message, tag = "12")]
+        VideoMetadata(super::VideoMetadata),
+    }
+}
+/// Metadata for a video `File`.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct VideoMetadata {
+    /// Duration of the video.
+    #[prost(message, optional, tag = "1")]
+    pub video_duration: ::core::option::Option<::prost_types::Duration>,
 }
 /// Request for `CreateFile`.
 #[allow(clippy::derive_partial_eq_without_eq)]
