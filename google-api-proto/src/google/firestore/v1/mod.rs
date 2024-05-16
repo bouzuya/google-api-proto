@@ -140,123 +140,6 @@ pub struct MapValue {
         Value,
     >,
 }
-/// The result of a single bucket from a Firestore aggregation query.
-///
-/// The keys of `aggregate_fields` are the same for all results in an aggregation
-/// query, unlike document queries which can have different fields present for
-/// each result.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AggregationResult {
-    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
-    ///
-    /// The key is the
-    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
-    /// assigned to the aggregation function on input and the size of this map
-    /// equals the number of aggregation functions in the query.
-    #[prost(btree_map = "string, message", tag = "2")]
-    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
-        ::prost::alloc::string::String,
-        Value,
-    >,
-}
-/// A set of field paths on a document.
-/// Used to restrict a get or update operation on a document to a subset of its
-/// fields.
-/// This is different from standard field masks, as this is always scoped to a
-/// [Document][google.firestore.v1.Document], and takes in account the dynamic
-/// nature of [Value][google.firestore.v1.Value].
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct DocumentMask {
-    /// The list of field paths in the mask. See
-    /// [Document.fields][google.firestore.v1.Document.fields] for a field path
-    /// syntax reference.
-    #[prost(string, repeated, tag = "1")]
-    pub field_paths: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A precondition on a document, used for conditional operations.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Precondition {
-    /// The type of precondition.
-    #[prost(oneof = "precondition::ConditionType", tags = "1, 2")]
-    pub condition_type: ::core::option::Option<precondition::ConditionType>,
-}
-/// Nested message and enum types in `Precondition`.
-pub mod precondition {
-    /// The type of precondition.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum ConditionType {
-        /// When set to `true`, the target document must exist.
-        /// When set to `false`, the target document must not exist.
-        #[prost(bool, tag = "1")]
-        Exists(bool),
-        /// When set, the target document must exist and have been last updated at
-        /// that time. Timestamp must be microsecond aligned.
-        #[prost(message, tag = "2")]
-        UpdateTime(::prost_types::Timestamp),
-    }
-}
-/// Options for creating a new transaction.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TransactionOptions {
-    /// The mode of the transaction.
-    #[prost(oneof = "transaction_options::Mode", tags = "2, 3")]
-    pub mode: ::core::option::Option<transaction_options::Mode>,
-}
-/// Nested message and enum types in `TransactionOptions`.
-pub mod transaction_options {
-    /// Options for a transaction that can be used to read and write documents.
-    ///
-    /// Firestore does not allow 3rd party auth requests to create read-write.
-    /// transactions.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ReadWrite {
-        /// An optional transaction to retry.
-        #[prost(bytes = "bytes", tag = "1")]
-        pub retry_transaction: ::prost::bytes::Bytes,
-    }
-    /// Options for a transaction that can only be used to read documents.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct ReadOnly {
-        /// The consistency mode for this transaction. If not set, defaults to strong
-        /// consistency.
-        #[prost(oneof = "read_only::ConsistencySelector", tags = "2")]
-        pub consistency_selector: ::core::option::Option<read_only::ConsistencySelector>,
-    }
-    /// Nested message and enum types in `ReadOnly`.
-    pub mod read_only {
-        /// The consistency mode for this transaction. If not set, defaults to strong
-        /// consistency.
-        #[allow(clippy::derive_partial_eq_without_eq)]
-        #[derive(Clone, PartialEq, ::prost::Oneof)]
-        pub enum ConsistencySelector {
-            /// Reads documents at the given time.
-            ///
-            /// This must be a microsecond precision timestamp within the past one
-            /// hour, or if Point-in-Time Recovery is enabled, can additionally be a
-            /// whole minute timestamp within the past 7 days.
-            #[prost(message, tag = "2")]
-            ReadTime(::prost_types::Timestamp),
-        }
-    }
-    /// The mode of the transaction.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Mode {
-        /// The transaction can only be used for read operations.
-        #[prost(message, tag = "2")]
-        ReadOnly(ReadOnly),
-        /// The transaction can be used for both read and write operations.
-        #[prost(message, tag = "3")]
-        ReadWrite(ReadWrite),
-    }
-}
 /// A Firestore query.
 ///
 /// The query stages are executed in the following order:
@@ -1038,74 +921,6 @@ pub struct Cursor {
     #[prost(bool, tag = "2")]
     pub before: bool,
 }
-/// Explain options for the query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExplainOptions {
-    /// Optional. Whether to execute this query.
-    ///
-    /// When false (the default), the query will be planned, returning only
-    /// metrics from the planning stages.
-    ///
-    /// When true, the query will be planned and executed, returning the full
-    /// query results along with both planning and execution stage metrics.
-    #[prost(bool, tag = "1")]
-    pub analyze: bool,
-}
-/// Explain metrics for the query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExplainMetrics {
-    /// Planning phase information for the query.
-    #[prost(message, optional, tag = "1")]
-    pub plan_summary: ::core::option::Option<PlanSummary>,
-    /// Aggregated stats from the execution of the query. Only present when
-    /// [ExplainOptions.analyze][google.firestore.v1.ExplainOptions.analyze] is set
-    /// to true.
-    #[prost(message, optional, tag = "2")]
-    pub execution_stats: ::core::option::Option<ExecutionStats>,
-}
-/// Planning phase information for the query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct PlanSummary {
-    /// The indexes selected for the query. For example:
-    ///   [
-    ///     {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
-    ///     {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"}
-    ///   ]
-    #[prost(message, repeated, tag = "1")]
-    pub indexes_used: ::prost::alloc::vec::Vec<::prost_types::Struct>,
-}
-/// Execution statistics for the query.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ExecutionStats {
-    /// Total number of results returned, including documents, projections,
-    /// aggregation results, keys.
-    #[prost(int64, tag = "1")]
-    pub results_returned: i64,
-    /// Total time to execute the query in the backend.
-    #[prost(message, optional, tag = "3")]
-    pub execution_duration: ::core::option::Option<::prost_types::Duration>,
-    /// Total billable read operations.
-    #[prost(int64, tag = "4")]
-    pub read_operations: i64,
-    /// Debugging statistics from the execution of the query. Note that the
-    /// debugging stats are subject to change as Firestore evolves. It could
-    /// include:
-    ///   {
-    ///     "indexes_entries_scanned": "1000",
-    ///     "documents_scanned": "20",
-    ///     "billing_details" : {
-    ///        "documents_billable": "20",
-    ///        "index_entries_billable": "1000",
-    ///        "min_query_cost": "0"
-    ///     }
-    ///   }
-    #[prost(message, optional, tag = "5")]
-    pub debug_stats: ::core::option::Option<::prost_types::Struct>,
-}
 /// A sequence of bits, encoded in a byte array.
 ///
 /// Each byte in the `bitmap` byte array stores 8 bits of the sequence. The only
@@ -1156,6 +971,103 @@ pub struct BloomFilter {
     /// The number of hashes used by the algorithm.
     #[prost(int32, tag = "2")]
     pub hash_count: i32,
+}
+/// A set of field paths on a document.
+/// Used to restrict a get or update operation on a document to a subset of its
+/// fields.
+/// This is different from standard field masks, as this is always scoped to a
+/// [Document][google.firestore.v1.Document], and takes in account the dynamic
+/// nature of [Value][google.firestore.v1.Value].
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DocumentMask {
+    /// The list of field paths in the mask. See
+    /// [Document.fields][google.firestore.v1.Document.fields] for a field path
+    /// syntax reference.
+    #[prost(string, repeated, tag = "1")]
+    pub field_paths: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A precondition on a document, used for conditional operations.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Precondition {
+    /// The type of precondition.
+    #[prost(oneof = "precondition::ConditionType", tags = "1, 2")]
+    pub condition_type: ::core::option::Option<precondition::ConditionType>,
+}
+/// Nested message and enum types in `Precondition`.
+pub mod precondition {
+    /// The type of precondition.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ConditionType {
+        /// When set to `true`, the target document must exist.
+        /// When set to `false`, the target document must not exist.
+        #[prost(bool, tag = "1")]
+        Exists(bool),
+        /// When set, the target document must exist and have been last updated at
+        /// that time. Timestamp must be microsecond aligned.
+        #[prost(message, tag = "2")]
+        UpdateTime(::prost_types::Timestamp),
+    }
+}
+/// Options for creating a new transaction.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TransactionOptions {
+    /// The mode of the transaction.
+    #[prost(oneof = "transaction_options::Mode", tags = "2, 3")]
+    pub mode: ::core::option::Option<transaction_options::Mode>,
+}
+/// Nested message and enum types in `TransactionOptions`.
+pub mod transaction_options {
+    /// Options for a transaction that can be used to read and write documents.
+    ///
+    /// Firestore does not allow 3rd party auth requests to create read-write.
+    /// transactions.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ReadWrite {
+        /// An optional transaction to retry.
+        #[prost(bytes = "bytes", tag = "1")]
+        pub retry_transaction: ::prost::bytes::Bytes,
+    }
+    /// Options for a transaction that can only be used to read documents.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ReadOnly {
+        /// The consistency mode for this transaction. If not set, defaults to strong
+        /// consistency.
+        #[prost(oneof = "read_only::ConsistencySelector", tags = "2")]
+        pub consistency_selector: ::core::option::Option<read_only::ConsistencySelector>,
+    }
+    /// Nested message and enum types in `ReadOnly`.
+    pub mod read_only {
+        /// The consistency mode for this transaction. If not set, defaults to strong
+        /// consistency.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Oneof)]
+        pub enum ConsistencySelector {
+            /// Reads documents at the given time.
+            ///
+            /// This must be a microsecond precision timestamp within the past one
+            /// hour, or if Point-in-Time Recovery is enabled, can additionally be a
+            /// whole minute timestamp within the past 7 days.
+            #[prost(message, tag = "2")]
+            ReadTime(::prost_types::Timestamp),
+        }
+    }
+    /// The mode of the transaction.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Mode {
+        /// The transaction can only be used for read operations.
+        #[prost(message, tag = "2")]
+        ReadOnly(ReadOnly),
+        /// The transaction can be used for both read and write operations.
+        #[prost(message, tag = "3")]
+        ReadWrite(ReadWrite),
+    }
 }
 /// A write on a document.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1476,6 +1388,94 @@ pub struct ExistenceFilter {
     /// figure out which documents in the client's cache are out of sync.
     #[prost(message, optional, tag = "3")]
     pub unchanged_names: ::core::option::Option<BloomFilter>,
+}
+/// Explain options for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExplainOptions {
+    /// Optional. Whether to execute this query.
+    ///
+    /// When false (the default), the query will be planned, returning only
+    /// metrics from the planning stages.
+    ///
+    /// When true, the query will be planned and executed, returning the full
+    /// query results along with both planning and execution stage metrics.
+    #[prost(bool, tag = "1")]
+    pub analyze: bool,
+}
+/// Explain metrics for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExplainMetrics {
+    /// Planning phase information for the query.
+    #[prost(message, optional, tag = "1")]
+    pub plan_summary: ::core::option::Option<PlanSummary>,
+    /// Aggregated stats from the execution of the query. Only present when
+    /// [ExplainOptions.analyze][google.firestore.v1.ExplainOptions.analyze] is set
+    /// to true.
+    #[prost(message, optional, tag = "2")]
+    pub execution_stats: ::core::option::Option<ExecutionStats>,
+}
+/// Planning phase information for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlanSummary {
+    /// The indexes selected for the query. For example:
+    ///   [
+    ///     {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
+    ///     {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"}
+    ///   ]
+    #[prost(message, repeated, tag = "1")]
+    pub indexes_used: ::prost::alloc::vec::Vec<::prost_types::Struct>,
+}
+/// Execution statistics for the query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecutionStats {
+    /// Total number of results returned, including documents, projections,
+    /// aggregation results, keys.
+    #[prost(int64, tag = "1")]
+    pub results_returned: i64,
+    /// Total time to execute the query in the backend.
+    #[prost(message, optional, tag = "3")]
+    pub execution_duration: ::core::option::Option<::prost_types::Duration>,
+    /// Total billable read operations.
+    #[prost(int64, tag = "4")]
+    pub read_operations: i64,
+    /// Debugging statistics from the execution of the query. Note that the
+    /// debugging stats are subject to change as Firestore evolves. It could
+    /// include:
+    ///   {
+    ///     "indexes_entries_scanned": "1000",
+    ///     "documents_scanned": "20",
+    ///     "billing_details" : {
+    ///        "documents_billable": "20",
+    ///        "index_entries_billable": "1000",
+    ///        "min_query_cost": "0"
+    ///     }
+    ///   }
+    #[prost(message, optional, tag = "5")]
+    pub debug_stats: ::core::option::Option<::prost_types::Struct>,
+}
+/// The result of a single bucket from a Firestore aggregation query.
+///
+/// The keys of `aggregate_fields` are the same for all results in an aggregation
+/// query, unlike document queries which can have different fields present for
+/// each result.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AggregationResult {
+    /// The result of the aggregation functions, ex: `COUNT(*) AS total_docs`.
+    ///
+    /// The key is the
+    /// [alias][google.firestore.v1.StructuredAggregationQuery.Aggregation.alias]
+    /// assigned to the aggregation function on input and the size of this map
+    /// equals the number of aggregation functions in the query.
+    #[prost(btree_map = "string, message", tag = "2")]
+    pub aggregate_fields: ::prost::alloc::collections::BTreeMap<
+        ::prost::alloc::string::String,
+        Value,
+    >,
 }
 /// The request for
 /// [Firestore.GetDocument][google.firestore.v1.Firestore.GetDocument].

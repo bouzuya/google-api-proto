@@ -865,6 +865,270 @@ pub struct AudienceInfo {
     #[prost(string, tag = "1")]
     pub audience: ::prost::alloc::string::String,
 }
+/// A YouTube asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct YoutubeVideoAsset {
+    /// YouTube video id. This is the 11 character string value used in the
+    /// YouTube video URL.
+    #[prost(string, optional, tag = "2")]
+    pub youtube_video_id: ::core::option::Option<::prost::alloc::string::String>,
+    /// YouTube video title.
+    #[prost(string, tag = "3")]
+    pub youtube_video_title: ::prost::alloc::string::String,
+}
+/// An Image asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImageAsset {
+    /// File size of the image asset in bytes.
+    #[prost(int64, optional, tag = "6")]
+    pub file_size: ::core::option::Option<i64>,
+    /// MIME type of the image asset.
+    #[prost(enumeration = "super::enums::mime_type_enum::MimeType", tag = "3")]
+    pub mime_type: i32,
+    /// Metadata for this image at its original size.
+    #[prost(message, optional, tag = "4")]
+    pub full_size: ::core::option::Option<ImageDimension>,
+}
+/// Metadata for an image at a certain size, either original or resized.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ImageDimension {
+    /// Height of the image.
+    #[prost(int64, optional, tag = "4")]
+    pub height_pixels: ::core::option::Option<i64>,
+    /// Width of the image.
+    #[prost(int64, optional, tag = "5")]
+    pub width_pixels: ::core::option::Option<i64>,
+    /// A URL that returns the image with this height and width.
+    #[prost(string, optional, tag = "6")]
+    pub url: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A Text asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TextAsset {
+    /// Text content of the text asset.
+    #[prost(string, optional, tag = "2")]
+    pub text: ::core::option::Option<::prost::alloc::string::String>,
+}
+/// A unified callout asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UnifiedCalloutAsset {
+    /// The callout text.
+    /// The length of this string should be between 1 and 25, inclusive.
+    #[prost(string, tag = "1")]
+    pub callout_text: ::prost::alloc::string::String,
+    /// Start date of when this asset is effective and can begin serving, in
+    /// yyyy-MM-dd format.
+    #[prost(string, tag = "2")]
+    pub start_date: ::prost::alloc::string::String,
+    /// Last date of when this asset is effective and still serving, in yyyy-MM-dd
+    /// format.
+    #[prost(string, tag = "3")]
+    pub end_date: ::prost::alloc::string::String,
+    /// List of non-overlapping schedules specifying all time intervals for which
+    /// the asset may serve. There can be a maximum of 6 schedules per day, 42 in
+    /// total.
+    #[prost(message, repeated, tag = "4")]
+    pub ad_schedule_targets: ::prost::alloc::vec::Vec<AdScheduleInfo>,
+    /// Whether to show the asset in search user's time zone. Applies to Microsoft
+    /// Ads.
+    #[prost(bool, tag = "5")]
+    pub use_searcher_time_zone: bool,
+}
+/// A unified sitelink asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UnifiedSitelinkAsset {
+    /// URL display text for the sitelink.
+    /// The length of this string should be between 1 and 25, inclusive.
+    #[prost(string, tag = "1")]
+    pub link_text: ::prost::alloc::string::String,
+    /// First line of the description for the sitelink.
+    /// If set, the length should be between 1 and 35, inclusive, and description2
+    /// must also be set.
+    #[prost(string, tag = "2")]
+    pub description1: ::prost::alloc::string::String,
+    /// Second line of the description for the sitelink.
+    /// If set, the length should be between 1 and 35, inclusive, and description1
+    /// must also be set.
+    #[prost(string, tag = "3")]
+    pub description2: ::prost::alloc::string::String,
+    /// Start date of when this asset is effective and can begin serving, in
+    /// yyyy-MM-dd format.
+    #[prost(string, tag = "4")]
+    pub start_date: ::prost::alloc::string::String,
+    /// Last date of when this asset is effective and still serving, in yyyy-MM-dd
+    /// format.
+    #[prost(string, tag = "5")]
+    pub end_date: ::prost::alloc::string::String,
+    /// List of non-overlapping schedules specifying all time intervals for which
+    /// the asset may serve. There can be a maximum of 6 schedules per day, 42 in
+    /// total.
+    #[prost(message, repeated, tag = "6")]
+    pub ad_schedule_targets: ::prost::alloc::vec::Vec<AdScheduleInfo>,
+    /// ID used for tracking clicks for the sitelink asset. This is a Yahoo! Japan
+    /// only field.
+    #[prost(int64, tag = "7")]
+    pub tracking_id: i64,
+    /// Whether to show the sitelink asset in search user's time zone.
+    /// Applies to Microsoft Ads.
+    #[prost(bool, tag = "8")]
+    pub use_searcher_time_zone: bool,
+    /// Whether the preference is for the sitelink asset to be displayed on mobile
+    /// devices. Applies to Microsoft Ads.
+    #[prost(bool, tag = "9")]
+    pub mobile_preferred: bool,
+}
+/// A Unified Page Feed asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UnifiedPageFeedAsset {
+    /// The webpage that advertisers want to target.
+    #[prost(string, tag = "1")]
+    pub page_url: ::prost::alloc::string::String,
+    /// Labels used to group the page urls.
+    #[prost(string, repeated, tag = "2")]
+    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// An asset representing a mobile app.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MobileAppAsset {
+    /// Required. A string that uniquely identifies a mobile application. It should
+    /// just contain the platform native id, like "com.android.ebay" for Android or
+    /// "12345689" for iOS.
+    #[prost(string, tag = "1")]
+    pub app_id: ::prost::alloc::string::String,
+    /// Required. The application store that distributes this specific app.
+    #[prost(
+        enumeration = "super::enums::mobile_app_vendor_enum::MobileAppVendor",
+        tag = "2"
+    )]
+    pub app_store: i32,
+}
+/// A unified call asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UnifiedCallAsset {
+    /// Two-letter country code of the phone number. Examples: 'US', 'us'.
+    #[prost(string, tag = "1")]
+    pub country_code: ::prost::alloc::string::String,
+    /// The advertiser's raw phone number. Examples: '1234567890', '(123)456-7890'
+    #[prost(string, tag = "2")]
+    pub phone_number: ::prost::alloc::string::String,
+    /// Output only. Indicates whether this CallAsset should use its own call
+    /// conversion setting, follow the account level setting, or disable call
+    /// conversion.
+    #[prost(
+        enumeration = "super::enums::call_conversion_reporting_state_enum::CallConversionReportingState",
+        tag = "3"
+    )]
+    pub call_conversion_reporting_state: i32,
+    /// The conversion action to attribute a call conversion to. If not set, the
+    /// default conversion action is used. This field only has effect if
+    /// call_conversion_reporting_state is set to
+    /// USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION.
+    #[prost(string, tag = "4")]
+    pub call_conversion_action: ::prost::alloc::string::String,
+    /// List of non-overlapping schedules specifying all time intervals for which
+    /// the asset may serve. There can be a maximum of 6 schedules per day, 42 in
+    /// total.
+    #[prost(message, repeated, tag = "5")]
+    pub ad_schedule_targets: ::prost::alloc::vec::Vec<AdScheduleInfo>,
+    /// Whether the call only shows the phone number without a link to the website.
+    /// Applies to Microsoft Ads.
+    #[prost(bool, tag = "7")]
+    pub call_only: bool,
+    /// Whether the call should be enabled on call tracking.
+    /// Applies to Microsoft Ads.
+    #[prost(bool, tag = "8")]
+    pub call_tracking_enabled: bool,
+    /// Whether to show the call extension in search user's time zone.
+    /// Applies to Microsoft Ads.
+    #[prost(bool, tag = "9")]
+    pub use_searcher_time_zone: bool,
+    /// Start date of when this asset is effective and can begin serving, in
+    /// yyyy-MM-dd format.
+    #[prost(string, tag = "10")]
+    pub start_date: ::prost::alloc::string::String,
+    /// Last date of when this asset is effective and still serving, in yyyy-MM-dd
+    /// format.
+    #[prost(string, tag = "11")]
+    pub end_date: ::prost::alloc::string::String,
+}
+/// A call to action asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CallToActionAsset {
+    /// Call to action.
+    #[prost(
+        enumeration = "super::enums::call_to_action_type_enum::CallToActionType",
+        tag = "1"
+    )]
+    pub call_to_action: i32,
+}
+/// A unified location asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct UnifiedLocationAsset {
+    /// Place IDs uniquely identify a place in the Google Places database and on
+    /// Google Maps.
+    /// This field is unique for a given customer ID and asset type. See
+    /// <https://developers.google.com/places/web-service/place-id> to learn more
+    /// about Place ID.
+    #[prost(string, tag = "1")]
+    pub place_id: ::prost::alloc::string::String,
+    /// The list of business locations for the customer.
+    /// This will only be returned if the Location Asset is syncing from the
+    /// Business Profile account. It is possible to have multiple Business Profile
+    /// listings under the same account that point to the same Place ID.
+    #[prost(message, repeated, tag = "2")]
+    pub business_profile_locations: ::prost::alloc::vec::Vec<BusinessProfileLocation>,
+    /// The type of location ownership.
+    /// If the type is BUSINESS_OWNER, it will be served as a location extension.
+    /// If the type is AFFILIATE, it will be served as an affiliate location.
+    #[prost(
+        enumeration = "super::enums::location_ownership_type_enum::LocationOwnershipType",
+        tag = "3"
+    )]
+    pub location_ownership_type: i32,
+}
+/// Business Profile location data synced from the linked Business Profile
+/// account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct BusinessProfileLocation {
+    /// Advertiser specified label for the location on the Business Profile
+    /// account. This is synced from the Business Profile account.
+    #[prost(string, repeated, tag = "1")]
+    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Business Profile store code of this location. This is synced from the
+    /// Business Profile account.
+    #[prost(string, tag = "2")]
+    pub store_code: ::prost::alloc::string::String,
+    /// Listing ID of this Business Profile location. This is synced from the
+    /// linked Business Profile account.
+    #[prost(int64, tag = "3")]
+    pub listing_id: i64,
+}
+/// Contains the usage information of the asset.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AssetUsage {
+    /// Resource name of the asset.
+    #[prost(string, tag = "1")]
+    pub asset: ::prost::alloc::string::String,
+    /// The served field type of the asset.
+    #[prost(
+        enumeration = "super::enums::served_asset_field_type_enum::ServedAssetFieldType",
+        tag = "2"
+    )]
+    pub served_asset_field_type: i32,
+}
 /// Segment only fields.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1141,385 +1405,23 @@ pub struct AssetInteractionTarget {
     #[prost(bool, tag = "2")]
     pub interaction_on_this_asset: bool,
 }
-/// Settings for the targeting-related features, at the campaign and ad group
-/// levels. For more details about the targeting setting, visit
-/// <https://support.google.com/google-ads/answer/7365594>
+/// A mapping that can be used by custom parameter tags in a
+/// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetingSetting {
-    /// The per-targeting-dimension setting to restrict the reach of your campaign
-    /// or ad group.
-    #[prost(message, repeated, tag = "1")]
-    pub target_restrictions: ::prost::alloc::vec::Vec<TargetRestriction>,
-}
-/// The list of per-targeting-dimension targeting settings.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TargetRestriction {
-    /// The targeting dimension that these settings apply to.
-    #[prost(
-        enumeration = "super::enums::targeting_dimension_enum::TargetingDimension",
-        tag = "1"
-    )]
-    pub targeting_dimension: i32,
-    /// Indicates whether to restrict your ads to show only for the criteria you
-    /// have selected for this targeting_dimension, or to target all values for
-    /// this targeting_dimension and show ads based on your targeting in other
-    /// TargetingDimensions. A value of `true` means that these criteria will only
-    /// apply bid modifiers, and not affect targeting. A value of `false` means
-    /// that these criteria will restrict targeting as well as applying bid
-    /// modifiers.
-    #[prost(bool, optional, tag = "3")]
-    pub bid_only: ::core::option::Option<bool>,
-}
-/// A Search Ads 360 text ad.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360TextAdInfo {
-    /// The headline of the ad.
-    #[prost(string, optional, tag = "1")]
-    pub headline: ::core::option::Option<::prost::alloc::string::String>,
-    /// The first line of the ad's description.
-    #[prost(string, optional, tag = "2")]
-    pub description1: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second line of the ad's description.
+pub struct CustomParameter {
+    /// The key matching the parameter tag name.
     #[prost(string, optional, tag = "3")]
-    pub description2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The displayed URL of the ad.
+    pub key: ::core::option::Option<::prost::alloc::string::String>,
+    /// The value to be substituted.
     #[prost(string, optional, tag = "4")]
-    pub display_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// The displayed mobile URL of the ad.
-    #[prost(string, optional, tag = "5")]
-    pub display_mobile_url: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "6")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
+    pub value: ::core::option::Option<::prost::alloc::string::String>,
 }
-/// A Search Ads 360 expanded text ad.
+/// A rule specifying the maximum number of times an ad (or some set of ads) can
+/// be shown to a user over a particular time period.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ExpandedTextAdInfo {
-    /// The headline of the ad.
-    #[prost(string, optional, tag = "1")]
-    pub headline: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second headline of the ad.
-    #[prost(string, optional, tag = "2")]
-    pub headline2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The third headline of the ad.
-    #[prost(string, optional, tag = "3")]
-    pub headline3: ::core::option::Option<::prost::alloc::string::String>,
-    /// The first line of the ad's description.
-    #[prost(string, optional, tag = "4")]
-    pub description1: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second line of the ad's description.
-    #[prost(string, optional, tag = "5")]
-    pub description2: ::core::option::Option<::prost::alloc::string::String>,
-    /// Text appended to the auto-generated visible URL with a delimiter.
-    #[prost(string, optional, tag = "6")]
-    pub path1: ::core::option::Option<::prost::alloc::string::String>,
-    /// Text appended to path1 with a delimiter.
-    #[prost(string, optional, tag = "7")]
-    pub path2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "8")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
-}
-/// An expanded dynamic search ad.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ExpandedDynamicSearchAdInfo {
-    /// The first line of the ad's description.
-    #[prost(string, optional, tag = "1")]
-    pub description1: ::core::option::Option<::prost::alloc::string::String>,
-    /// The second line of the ad's description.
-    #[prost(string, optional, tag = "2")]
-    pub description2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "3")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
-}
-/// A Search Ads 360 product ad.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ProductAdInfo {}
-/// A Search Ads 360 responsive search ad.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SearchAds360ResponsiveSearchAdInfo {
-    /// Text appended to the auto-generated visible URL with a delimiter.
-    #[prost(string, optional, tag = "1")]
-    pub path1: ::core::option::Option<::prost::alloc::string::String>,
-    /// Text appended to path1 with a delimiter.
-    #[prost(string, optional, tag = "2")]
-    pub path2: ::core::option::Option<::prost::alloc::string::String>,
-    /// The tracking id of the ad.
-    #[prost(int64, optional, tag = "3")]
-    pub ad_tracking_id: ::core::option::Option<i64>,
-}
-/// A YouTube asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct YoutubeVideoAsset {
-    /// YouTube video id. This is the 11 character string value used in the
-    /// YouTube video URL.
-    #[prost(string, optional, tag = "2")]
-    pub youtube_video_id: ::core::option::Option<::prost::alloc::string::String>,
-    /// YouTube video title.
-    #[prost(string, tag = "3")]
-    pub youtube_video_title: ::prost::alloc::string::String,
-}
-/// An Image asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageAsset {
-    /// File size of the image asset in bytes.
-    #[prost(int64, optional, tag = "6")]
-    pub file_size: ::core::option::Option<i64>,
-    /// MIME type of the image asset.
-    #[prost(enumeration = "super::enums::mime_type_enum::MimeType", tag = "3")]
-    pub mime_type: i32,
-    /// Metadata for this image at its original size.
-    #[prost(message, optional, tag = "4")]
-    pub full_size: ::core::option::Option<ImageDimension>,
-}
-/// Metadata for an image at a certain size, either original or resized.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ImageDimension {
-    /// Height of the image.
-    #[prost(int64, optional, tag = "4")]
-    pub height_pixels: ::core::option::Option<i64>,
-    /// Width of the image.
-    #[prost(int64, optional, tag = "5")]
-    pub width_pixels: ::core::option::Option<i64>,
-    /// A URL that returns the image with this height and width.
-    #[prost(string, optional, tag = "6")]
-    pub url: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A Text asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct TextAsset {
-    /// Text content of the text asset.
-    #[prost(string, optional, tag = "2")]
-    pub text: ::core::option::Option<::prost::alloc::string::String>,
-}
-/// A unified callout asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UnifiedCalloutAsset {
-    /// The callout text.
-    /// The length of this string should be between 1 and 25, inclusive.
-    #[prost(string, tag = "1")]
-    pub callout_text: ::prost::alloc::string::String,
-    /// Start date of when this asset is effective and can begin serving, in
-    /// yyyy-MM-dd format.
-    #[prost(string, tag = "2")]
-    pub start_date: ::prost::alloc::string::String,
-    /// Last date of when this asset is effective and still serving, in yyyy-MM-dd
-    /// format.
-    #[prost(string, tag = "3")]
-    pub end_date: ::prost::alloc::string::String,
-    /// List of non-overlapping schedules specifying all time intervals for which
-    /// the asset may serve. There can be a maximum of 6 schedules per day, 42 in
-    /// total.
-    #[prost(message, repeated, tag = "4")]
-    pub ad_schedule_targets: ::prost::alloc::vec::Vec<AdScheduleInfo>,
-    /// Whether to show the asset in search user's time zone. Applies to Microsoft
-    /// Ads.
-    #[prost(bool, tag = "5")]
-    pub use_searcher_time_zone: bool,
-}
-/// A unified sitelink asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UnifiedSitelinkAsset {
-    /// URL display text for the sitelink.
-    /// The length of this string should be between 1 and 25, inclusive.
-    #[prost(string, tag = "1")]
-    pub link_text: ::prost::alloc::string::String,
-    /// First line of the description for the sitelink.
-    /// If set, the length should be between 1 and 35, inclusive, and description2
-    /// must also be set.
-    #[prost(string, tag = "2")]
-    pub description1: ::prost::alloc::string::String,
-    /// Second line of the description for the sitelink.
-    /// If set, the length should be between 1 and 35, inclusive, and description1
-    /// must also be set.
-    #[prost(string, tag = "3")]
-    pub description2: ::prost::alloc::string::String,
-    /// Start date of when this asset is effective and can begin serving, in
-    /// yyyy-MM-dd format.
-    #[prost(string, tag = "4")]
-    pub start_date: ::prost::alloc::string::String,
-    /// Last date of when this asset is effective and still serving, in yyyy-MM-dd
-    /// format.
-    #[prost(string, tag = "5")]
-    pub end_date: ::prost::alloc::string::String,
-    /// List of non-overlapping schedules specifying all time intervals for which
-    /// the asset may serve. There can be a maximum of 6 schedules per day, 42 in
-    /// total.
-    #[prost(message, repeated, tag = "6")]
-    pub ad_schedule_targets: ::prost::alloc::vec::Vec<AdScheduleInfo>,
-    /// ID used for tracking clicks for the sitelink asset. This is a Yahoo! Japan
-    /// only field.
-    #[prost(int64, tag = "7")]
-    pub tracking_id: i64,
-    /// Whether to show the sitelink asset in search user's time zone.
-    /// Applies to Microsoft Ads.
-    #[prost(bool, tag = "8")]
-    pub use_searcher_time_zone: bool,
-    /// Whether the preference is for the sitelink asset to be displayed on mobile
-    /// devices. Applies to Microsoft Ads.
-    #[prost(bool, tag = "9")]
-    pub mobile_preferred: bool,
-}
-/// A Unified Page Feed asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UnifiedPageFeedAsset {
-    /// The webpage that advertisers want to target.
-    #[prost(string, tag = "1")]
-    pub page_url: ::prost::alloc::string::String,
-    /// Labels used to group the page urls.
-    #[prost(string, repeated, tag = "2")]
-    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// An asset representing a mobile app.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct MobileAppAsset {
-    /// Required. A string that uniquely identifies a mobile application. It should
-    /// just contain the platform native id, like "com.android.ebay" for Android or
-    /// "12345689" for iOS.
-    #[prost(string, tag = "1")]
-    pub app_id: ::prost::alloc::string::String,
-    /// Required. The application store that distributes this specific app.
-    #[prost(
-        enumeration = "super::enums::mobile_app_vendor_enum::MobileAppVendor",
-        tag = "2"
-    )]
-    pub app_store: i32,
-}
-/// A unified call asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UnifiedCallAsset {
-    /// Two-letter country code of the phone number. Examples: 'US', 'us'.
-    #[prost(string, tag = "1")]
-    pub country_code: ::prost::alloc::string::String,
-    /// The advertiser's raw phone number. Examples: '1234567890', '(123)456-7890'
-    #[prost(string, tag = "2")]
-    pub phone_number: ::prost::alloc::string::String,
-    /// Output only. Indicates whether this CallAsset should use its own call
-    /// conversion setting, follow the account level setting, or disable call
-    /// conversion.
-    #[prost(
-        enumeration = "super::enums::call_conversion_reporting_state_enum::CallConversionReportingState",
-        tag = "3"
-    )]
-    pub call_conversion_reporting_state: i32,
-    /// The conversion action to attribute a call conversion to. If not set, the
-    /// default conversion action is used. This field only has effect if
-    /// call_conversion_reporting_state is set to
-    /// USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION.
-    #[prost(string, tag = "4")]
-    pub call_conversion_action: ::prost::alloc::string::String,
-    /// List of non-overlapping schedules specifying all time intervals for which
-    /// the asset may serve. There can be a maximum of 6 schedules per day, 42 in
-    /// total.
-    #[prost(message, repeated, tag = "5")]
-    pub ad_schedule_targets: ::prost::alloc::vec::Vec<AdScheduleInfo>,
-    /// Whether the call only shows the phone number without a link to the website.
-    /// Applies to Microsoft Ads.
-    #[prost(bool, tag = "7")]
-    pub call_only: bool,
-    /// Whether the call should be enabled on call tracking.
-    /// Applies to Microsoft Ads.
-    #[prost(bool, tag = "8")]
-    pub call_tracking_enabled: bool,
-    /// Whether to show the call extension in search user's time zone.
-    /// Applies to Microsoft Ads.
-    #[prost(bool, tag = "9")]
-    pub use_searcher_time_zone: bool,
-    /// Start date of when this asset is effective and can begin serving, in
-    /// yyyy-MM-dd format.
-    #[prost(string, tag = "10")]
-    pub start_date: ::prost::alloc::string::String,
-    /// Last date of when this asset is effective and still serving, in yyyy-MM-dd
-    /// format.
-    #[prost(string, tag = "11")]
-    pub end_date: ::prost::alloc::string::String,
-}
-/// A call to action asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CallToActionAsset {
-    /// Call to action.
-    #[prost(
-        enumeration = "super::enums::call_to_action_type_enum::CallToActionType",
-        tag = "1"
-    )]
-    pub call_to_action: i32,
-}
-/// A unified location asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct UnifiedLocationAsset {
-    /// Place IDs uniquely identify a place in the Google Places database and on
-    /// Google Maps.
-    /// This field is unique for a given customer ID and asset type. See
-    /// <https://developers.google.com/places/web-service/place-id> to learn more
-    /// about Place ID.
-    #[prost(string, tag = "1")]
-    pub place_id: ::prost::alloc::string::String,
-    /// The list of business locations for the customer.
-    /// This will only be returned if the Location Asset is syncing from the
-    /// Business Profile account. It is possible to have multiple Business Profile
-    /// listings under the same account that point to the same Place ID.
-    #[prost(message, repeated, tag = "2")]
-    pub business_profile_locations: ::prost::alloc::vec::Vec<BusinessProfileLocation>,
-    /// The type of location ownership.
-    /// If the type is BUSINESS_OWNER, it will be served as a location extension.
-    /// If the type is AFFILIATE, it will be served as an affiliate location.
-    #[prost(
-        enumeration = "super::enums::location_ownership_type_enum::LocationOwnershipType",
-        tag = "3"
-    )]
-    pub location_ownership_type: i32,
-}
-/// Business Profile location data synced from the linked Business Profile
-/// account.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct BusinessProfileLocation {
-    /// Advertiser specified label for the location on the Business Profile
-    /// account. This is synced from the Business Profile account.
-    #[prost(string, repeated, tag = "1")]
-    pub labels: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Business Profile store code of this location. This is synced from the
-    /// Business Profile account.
-    #[prost(string, tag = "2")]
-    pub store_code: ::prost::alloc::string::String,
-    /// Listing ID of this Business Profile location. This is synced from the
-    /// linked Business Profile account.
-    #[prost(int64, tag = "3")]
-    pub listing_id: i64,
-}
-/// Contains the usage information of the asset.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct AssetUsage {
-    /// Resource name of the asset.
-    #[prost(string, tag = "1")]
-    pub asset: ::prost::alloc::string::String,
-    /// The served field type of the asset.
-    #[prost(
-        enumeration = "super::enums::served_asset_field_type_enum::ServedAssetFieldType",
-        tag = "2"
-    )]
-    pub served_asset_field_type: i32,
-}
+pub struct FrequencyCapEntry {}
 /// An automated bidding strategy that raises bids for clicks
 /// that seem more likely to lead to a conversion and lowers
 /// them for clicks where they seem less likely.
@@ -1710,23 +1612,90 @@ pub struct PercentCpc {
     #[prost(bool, optional, tag = "4")]
     pub enhanced_cpc_enabled: ::core::option::Option<bool>,
 }
-/// A mapping that can be used by custom parameter tags in a
-/// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
+/// A Search Ads 360 text ad.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct CustomParameter {
-    /// The key matching the parameter tag name.
+pub struct SearchAds360TextAdInfo {
+    /// The headline of the ad.
+    #[prost(string, optional, tag = "1")]
+    pub headline: ::core::option::Option<::prost::alloc::string::String>,
+    /// The first line of the ad's description.
+    #[prost(string, optional, tag = "2")]
+    pub description1: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second line of the ad's description.
     #[prost(string, optional, tag = "3")]
-    pub key: ::core::option::Option<::prost::alloc::string::String>,
-    /// The value to be substituted.
+    pub description2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The displayed URL of the ad.
     #[prost(string, optional, tag = "4")]
-    pub value: ::core::option::Option<::prost::alloc::string::String>,
+    pub display_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// The displayed mobile URL of the ad.
+    #[prost(string, optional, tag = "5")]
+    pub display_mobile_url: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "6")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
 }
-/// A rule specifying the maximum number of times an ad (or some set of ads) can
-/// be shown to a user over a particular time period.
+/// A Search Ads 360 expanded text ad.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct FrequencyCapEntry {}
+pub struct SearchAds360ExpandedTextAdInfo {
+    /// The headline of the ad.
+    #[prost(string, optional, tag = "1")]
+    pub headline: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second headline of the ad.
+    #[prost(string, optional, tag = "2")]
+    pub headline2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The third headline of the ad.
+    #[prost(string, optional, tag = "3")]
+    pub headline3: ::core::option::Option<::prost::alloc::string::String>,
+    /// The first line of the ad's description.
+    #[prost(string, optional, tag = "4")]
+    pub description1: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second line of the ad's description.
+    #[prost(string, optional, tag = "5")]
+    pub description2: ::core::option::Option<::prost::alloc::string::String>,
+    /// Text appended to the auto-generated visible URL with a delimiter.
+    #[prost(string, optional, tag = "6")]
+    pub path1: ::core::option::Option<::prost::alloc::string::String>,
+    /// Text appended to path1 with a delimiter.
+    #[prost(string, optional, tag = "7")]
+    pub path2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "8")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
+}
+/// An expanded dynamic search ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ExpandedDynamicSearchAdInfo {
+    /// The first line of the ad's description.
+    #[prost(string, optional, tag = "1")]
+    pub description1: ::core::option::Option<::prost::alloc::string::String>,
+    /// The second line of the ad's description.
+    #[prost(string, optional, tag = "2")]
+    pub description2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "3")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
+}
+/// A Search Ads 360 product ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ProductAdInfo {}
+/// A Search Ads 360 responsive search ad.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SearchAds360ResponsiveSearchAdInfo {
+    /// Text appended to the auto-generated visible URL with a delimiter.
+    #[prost(string, optional, tag = "1")]
+    pub path1: ::core::option::Option<::prost::alloc::string::String>,
+    /// Text appended to path1 with a delimiter.
+    #[prost(string, optional, tag = "2")]
+    pub path2: ::core::option::Option<::prost::alloc::string::String>,
+    /// The tracking id of the ad.
+    #[prost(int64, optional, tag = "3")]
+    pub ad_tracking_id: ::core::option::Option<i64>,
+}
 /// Settings for Real-Time Bidding, a feature only available for campaigns
 /// targeting the Ad Exchange network.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1735,6 +1704,37 @@ pub struct RealTimeBiddingSetting {
     /// Whether the campaign is opted in to real-time bidding.
     #[prost(bool, optional, tag = "2")]
     pub opt_in: ::core::option::Option<bool>,
+}
+/// Settings for the targeting-related features, at the campaign and ad group
+/// levels. For more details about the targeting setting, visit
+/// <https://support.google.com/google-ads/answer/7365594>
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TargetingSetting {
+    /// The per-targeting-dimension setting to restrict the reach of your campaign
+    /// or ad group.
+    #[prost(message, repeated, tag = "1")]
+    pub target_restrictions: ::prost::alloc::vec::Vec<TargetRestriction>,
+}
+/// The list of per-targeting-dimension targeting settings.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TargetRestriction {
+    /// The targeting dimension that these settings apply to.
+    #[prost(
+        enumeration = "super::enums::targeting_dimension_enum::TargetingDimension",
+        tag = "1"
+    )]
+    pub targeting_dimension: i32,
+    /// Indicates whether to restrict your ads to show only for the criteria you
+    /// have selected for this targeting_dimension, or to target all values for
+    /// this targeting_dimension and show ads based on your targeting in other
+    /// TargetingDimensions. A value of `true` means that these criteria will only
+    /// apply bid modifiers, and not affect targeting. A value of `false` means
+    /// that these criteria will restrict targeting as well as applying bid
+    /// modifiers.
+    #[prost(bool, optional, tag = "3")]
+    pub bid_only: ::core::option::Option<bool>,
 }
 /// A type of label displaying text on a colored background.
 #[allow(clippy::derive_partial_eq_without_eq)]
