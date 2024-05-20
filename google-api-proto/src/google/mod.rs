@@ -124,6 +124,7 @@ pub mod chromeos;
 #[cfg(
     any(
         feature = "google-cloud",
+        feature = "google-cloud-abuseevent-logging-v1",
         feature = "google-cloud-accessapproval-v1",
         feature = "google-cloud-advisorynotifications-v1",
         feature = "google-cloud-aiplatform-logging",

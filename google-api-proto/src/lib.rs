@@ -81,6 +81,7 @@ pub mod cloud;
         feature = "google-chromeos-moblab-v1beta1",
         feature = "google-chromeos-uidetection-v1",
         feature = "google-cloud",
+        feature = "google-cloud-abuseevent-logging-v1",
         feature = "google-cloud-accessapproval-v1",
         feature = "google-cloud-advisorynotifications-v1",
         feature = "google-cloud-aiplatform-logging",
