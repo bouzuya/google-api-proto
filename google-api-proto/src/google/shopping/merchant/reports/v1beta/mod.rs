@@ -48,6 +48,9 @@ pub struct ReportRow {
     /// Fields available for query in `product_performance_view` table.
     #[prost(message, optional, tag = "1")]
     pub product_performance_view: ::core::option::Option<ProductPerformanceView>,
+    /// Fields available for query in `non_product_performance_view` table.
+    #[prost(message, optional, tag = "7")]
+    pub non_product_performance_view: ::core::option::Option<NonProductPerformanceView>,
     /// Fields available for query in `product_view` table.
     #[prost(message, optional, tag = "2")]
     pub product_view: ::core::option::Option<ProductView>,
@@ -1152,6 +1155,44 @@ pub struct BestSellersBrandView {
         tag = "11"
     )]
     pub relative_demand_change: ::core::option::Option<i32>,
+}
+/// Fields available for query in `non_product_performance_view` table.
+///
+/// Performance data on images and online store links leading to your non-product
+/// pages. This includes performance metrics (for example, `clicks`)
+/// and dimensions according to which performance metrics are segmented (for
+/// example, `date`).
+///
+/// Segment fields cannot be selected in queries without also selecting at least
+/// one metric field.
+///
+/// Values are only set for fields requested explicitly in the request's search
+/// query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct NonProductPerformanceView {
+    /// Date in the merchant timezone to which metrics apply. Segment.
+    ///
+    /// Condition on `date` is required in the `WHERE` clause.
+    #[prost(message, optional, tag = "1")]
+    pub date: ::core::option::Option<super::super::super::super::r#type::Date>,
+    /// First day of the week (Monday) of the metrics date in the merchant
+    /// timezone. Segment.
+    #[prost(message, optional, tag = "2")]
+    pub week: ::core::option::Option<super::super::super::super::r#type::Date>,
+    /// Number of clicks on images and online store links leading to your
+    /// non-product pages. Metric.
+    #[prost(int64, optional, tag = "3")]
+    pub clicks: ::core::option::Option<i64>,
+    /// Number of times images and online store links leading to your non-product
+    /// pages were shown. Metric.
+    #[prost(int64, optional, tag = "4")]
+    pub impressions: ::core::option::Option<i64>,
+    /// Click-through rate - the number of clicks (`clicks`) divided by the number
+    /// of impressions (`impressions`) of images and online store links leading to
+    /// your non-product pages. Metric.
+    #[prost(double, optional, tag = "5")]
+    pub click_through_rate: ::core::option::Option<f64>,
 }
 /// Fields available for query in `competitive_visibility_competitor_view` table.
 ///
