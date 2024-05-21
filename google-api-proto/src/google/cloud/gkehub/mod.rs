@@ -23,7 +23,12 @@ pub mod metering;
     )
 )]
 pub mod multiclusteringress;
-#[cfg(any(feature = "google-cloud-gkehub-servicemesh-v1alpha"))]
+#[cfg(
+    any(
+        feature = "google-cloud-gkehub-servicemesh-v1alpha",
+        feature = "google-cloud-gkehub-servicemesh-v1beta",
+    )
+)]
 pub mod servicemesh;
 #[cfg(any(feature = "google-cloud-gkehub-v1"))]
 pub mod v1;

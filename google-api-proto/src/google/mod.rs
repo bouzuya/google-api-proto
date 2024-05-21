@@ -270,6 +270,7 @@ pub mod chromeos;
         feature = "google-cloud-gkehub-multiclusteringress-v1alpha",
         feature = "google-cloud-gkehub-multiclusteringress-v1beta",
         feature = "google-cloud-gkehub-servicemesh-v1alpha",
+        feature = "google-cloud-gkehub-servicemesh-v1beta",
         feature = "google-cloud-gkehub-v1",
         feature = "google-cloud-gkehub-v1alpha",
         feature = "google-cloud-gkehub-v1beta",
