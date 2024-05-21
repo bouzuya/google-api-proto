@@ -324,7 +324,7 @@ pub struct ProductView {
     pub availability: ::core::option::Option<::prost::alloc::string::String>,
     /// Normalized [shipping
     /// label](<https://support.google.com/merchants/answer/6324504>) specified in
-    /// the feed.
+    /// the data source.
     #[prost(string, optional, tag = "20")]
     pub shipping_label: ::core::option::Option<::prost::alloc::string::String>,
     /// List of Global Trade Item Numbers (GTINs) of the product.
@@ -552,7 +552,7 @@ pub mod product_view {
     ///
     /// Here's an example of how the aggregated status is computed:
     ///
-    /// Free listings | Shopping Ads | Status
+    /// Free listings | Shopping ads | Status
     /// --------------|--------------|------------------------------
     /// Approved      | Approved     | ELIGIBLE
     /// Approved      | Pending      | ELIGIBLE
@@ -839,6 +839,65 @@ pub struct PriceInsightsProductView {
     /// predicted increase in conversions).
     #[prost(double, optional, tag = "19")]
     pub predicted_conversions_change_fraction: ::core::option::Option<f64>,
+    /// The predicted effectiveness of applying the price suggestion, bucketed.
+    #[prost(enumeration = "price_insights_product_view::Effectiveness", tag = "22")]
+    pub effectiveness: i32,
+}
+/// Nested message and enum types in `PriceInsightsProductView`.
+pub mod price_insights_product_view {
+    /// Predicted effectiveness bucket.
+    ///
+    /// Effectiveness indicates which products would benefit most from price
+    /// changes. This rating takes into consideration the performance boost
+    /// predicted by adjusting the sale price and the difference between your
+    /// current price and the suggested price. Price suggestions with `HIGH`
+    /// effectiveness are predicted to drive the largest increase in performance.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Effectiveness {
+        /// Effectiveness is unknown.
+        Unspecified = 0,
+        /// Effectiveness is low.
+        Low = 1,
+        /// Effectiveness is medium.
+        Medium = 2,
+        /// Effectiveness is high.
+        High = 3,
+    }
+    impl Effectiveness {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Effectiveness::Unspecified => "EFFECTIVENESS_UNSPECIFIED",
+                Effectiveness::Low => "LOW",
+                Effectiveness::Medium => "MEDIUM",
+                Effectiveness::High => "HIGH",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "EFFECTIVENESS_UNSPECIFIED" => Some(Self::Unspecified),
+                "LOW" => Some(Self::Low),
+                "MEDIUM" => Some(Self::Medium),
+                "HIGH" => Some(Self::High),
+                _ => None,
+            }
+        }
+    }
 }
 /// Fields available for query in `best_sellers_product_cluster_view` table.
 ///
@@ -923,9 +982,9 @@ pub struct BestSellersProductClusterView {
     /// GTINs of example variants of the product cluster.
     #[prost(string, repeated, tag = "13")]
     pub variant_gtins: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Whether the product cluster is `IN_STOCK` in your product feed in at least
-    /// one of the countries, `OUT_OF_STOCK` in your product feed in all countries,
-    /// or `NOT_IN_INVENTORY` at all.
+    /// Whether the product cluster is `IN_STOCK` in your product data source in at
+    /// least one of the countries, `OUT_OF_STOCK` in your product data source in
+    /// all countries, or `NOT_IN_INVENTORY` at all.
     ///
     /// The field doesn't take the Best sellers report country filter into account.
     #[prost(
@@ -935,8 +994,8 @@ pub struct BestSellersProductClusterView {
     )]
     pub inventory_status: ::core::option::Option<i32>,
     /// Whether there is at least one product of the brand currently `IN_STOCK` in
-    /// your product feed in at least one of the countries, all products are
-    /// `OUT_OF_STOCK` in your product feed in all countries, or
+    /// your product data source in at least one of the countries, all products are
+    /// `OUT_OF_STOCK` in your product data source in all countries, or
     /// `NOT_IN_INVENTORY`.
     ///
     /// The field doesn't take the Best sellers report country filter into account.
