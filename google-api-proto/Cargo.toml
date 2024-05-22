@@ -24,7 +24,6 @@ prost-types = "0.12"
 
 [features]
 default = []
-ccc-hosted-marketplace-v2 = ["google-api"]
 cloud-kubernetes-security-containersecurity_logging = []
 google-actions-sdk-v2 = ["google-actions-sdk-v2-conversation", "google-actions-sdk-v2-interactionmodel", "google-actions-sdk-v2-interactionmodel-prompt", "google-actions-sdk-v2-interactionmodel-type", "google-api", "google-rpc", "google-type"]
 google-actions-sdk-v2-conversation = ["google-actions-sdk-v2"]
