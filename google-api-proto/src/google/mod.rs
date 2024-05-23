@@ -228,6 +228,7 @@ pub mod chromeos;
         feature = "google-cloud-datastream-v1",
         feature = "google-cloud-datastream-v1alpha1",
         feature = "google-cloud-deploy-v1",
+        feature = "google-cloud-developerconnect-v1",
         feature = "google-cloud-dialogflow-cx-v3",
         feature = "google-cloud-dialogflow-cx-v3beta1",
         feature = "google-cloud-dialogflow-v2",

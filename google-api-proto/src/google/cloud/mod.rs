@@ -217,6 +217,8 @@ pub mod dataqna;
 pub mod datastream;
 #[cfg(any(feature = "google-cloud-deploy-v1"))]
 pub mod deploy;
+#[cfg(any(feature = "google-cloud-developerconnect-v1"))]
+pub mod developerconnect;
 #[cfg(
     any(
         feature = "google-cloud-dialogflow-cx-v3",

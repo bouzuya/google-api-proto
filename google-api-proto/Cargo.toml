@@ -206,6 +206,7 @@ google-cloud-datastream-logging-v1 = ["google-api", "google-cloud", "google-clou
 google-cloud-datastream-v1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-datastream-v1alpha1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-deploy-v1 = ["google-api", "google-cloud", "google-longrunning", "google-type"]
+google-cloud-developerconnect-v1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-dialogflow-cx-v3 = ["google-api", "google-cloud", "google-longrunning", "google-rpc", "google-type"]
 google-cloud-dialogflow-cx-v3beta1 = ["google-api", "google-cloud", "google-longrunning", "google-rpc", "google-type"]
 google-cloud-dialogflow-v2 = ["google-api", "google-cloud", "google-longrunning", "google-rpc", "google-type"]
