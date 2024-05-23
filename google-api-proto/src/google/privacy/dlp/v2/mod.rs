@@ -989,6 +989,18 @@ pub struct BigQueryTable {
     #[prost(string, tag = "3")]
     pub table_id: ::prost::alloc::string::String,
 }
+/// Message defining the location of a BigQuery table with the projectId inferred
+/// from the parent project.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct TableReference {
+    /// Dataset ID of the table.
+    #[prost(string, tag = "1")]
+    pub dataset_id: ::prost::alloc::string::String,
+    /// Name of the table.
+    #[prost(string, tag = "2")]
+    pub table_id: ::prost::alloc::string::String,
+}
 /// Message defining a field of a BigQuery table.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2350,7 +2362,7 @@ pub mod inspect_data_source_details {
         /// inspect job.
         #[prost(message, repeated, tag = "3")]
         pub info_type_stats: ::prost::alloc::vec::Vec<super::InfoTypeStats>,
-        /// Number of rows scanned post sampling and time filtering (Applicable for
+        /// Number of rows scanned after sampling and time filtering (applicable for
         /// row based stores such as BigQuery).
         #[prost(int64, tag = "5")]
         pub num_rows_processed: i64,
@@ -2539,6 +2551,8 @@ pub mod info_type_category {
         Argentina = 2,
         /// The infoType is typically used in Australia.
         Australia = 3,
+        /// The infoType is typically used in Azerbaijan.
+        Azerbaijan = 48,
         /// The infoType is typically used in Belgium.
         Belgium = 4,
         /// The infoType is typically used in Brazil.
@@ -2639,6 +2653,7 @@ pub mod info_type_category {
                 LocationCategory::Global => "GLOBAL",
                 LocationCategory::Argentina => "ARGENTINA",
                 LocationCategory::Australia => "AUSTRALIA",
+                LocationCategory::Azerbaijan => "AZERBAIJAN",
                 LocationCategory::Belgium => "BELGIUM",
                 LocationCategory::Brazil => "BRAZIL",
                 LocationCategory::Canada => "CANADA",
@@ -2692,6 +2707,7 @@ pub mod info_type_category {
                 "GLOBAL" => Some(Self::Global),
                 "ARGENTINA" => Some(Self::Argentina),
                 "AUSTRALIA" => Some(Self::Australia),
+                "AZERBAIJAN" => Some(Self::Azerbaijan),
                 "BELGIUM" => Some(Self::Belgium),
                 "BRAZIL" => Some(Self::Brazil),
                 "CANADA" => Some(Self::Canada),
@@ -5094,7 +5110,7 @@ pub struct Error {
     #[prost(message, repeated, tag = "2")]
     pub timestamps: ::prost::alloc::vec::Vec<::prost_types::Timestamp>,
 }
-/// Contains a configuration to make api calls on a repeating basis.
+/// Contains a configuration to make API calls on a repeating basis.
 /// See
 /// <https://cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers>
 /// to learn more.
@@ -6031,13 +6047,9 @@ pub mod data_profile_action {
         Unspecified = 0,
         /// New profile (not a re-profile).
         NewProfile = 1,
-        /// Changed one of the following profile metrics:
-        /// * Data risk score
-        /// * Sensitivity score
-        /// * Resource visibility
-        /// * Encryption type
-        /// * Predicted infoTypes
-        /// * Other infoTypes
+        /// One of the following profile metrics changed: Data risk score,
+        /// Sensitivity score, Resource visibility, Encryption type, Predicted
+        /// infoTypes, Other infoTypes
         ChangedProfile = 2,
         /// Table data risk score or sensitivity score increased.
         ScoreIncreased = 3,
@@ -6314,7 +6326,7 @@ pub mod discovery_config {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DiscoveryTarget {
     /// A target to match against for Discovery.
-    #[prost(oneof = "discovery_target::Target", tags = "1, 2")]
+    #[prost(oneof = "discovery_target::Target", tags = "1, 2, 3")]
     pub target: ::core::option::Option<discovery_target::Target>,
 }
 /// Nested message and enum types in `DiscoveryTarget`.
@@ -6331,6 +6343,11 @@ pub mod discovery_target {
         /// the one applied.
         #[prost(message, tag = "2")]
         CloudSqlTarget(super::CloudSqlDiscoveryTarget),
+        /// Discovery target that looks for credentials and secrets stored in cloud
+        /// resource metadata and reports them as vulnerabilities to Security Command
+        /// Center. Only one target of this type is allowed.
+        #[prost(message, tag = "3")]
+        SecretsTarget(super::SecretsDiscoveryTarget),
     }
 }
 /// Target used to match against for discovery with BigQuery tables
@@ -6379,7 +6396,7 @@ pub struct DiscoveryBigQueryFilter {
     /// within the location being profiled. The first filter to match will be
     /// applied, regardless of the condition. If none is set, will default to
     /// `other_tables`.
-    #[prost(oneof = "discovery_big_query_filter::Filter", tags = "1, 2")]
+    #[prost(oneof = "discovery_big_query_filter::Filter", tags = "1, 2, 3")]
     pub filter: ::core::option::Option<discovery_big_query_filter::Filter>,
 }
 /// Nested message and enum types in `DiscoveryBigQueryFilter`.
@@ -6409,6 +6426,11 @@ pub mod discovery_big_query_filter {
         /// automatically.
         #[prost(message, tag = "2")]
         OtherTables(AllOtherBigQueryTables),
+        /// The table to scan. Discovery configurations including this can only
+        /// include one DiscoveryTarget (the DiscoveryTarget with this
+        /// TableReference).
+        #[prost(message, tag = "3")]
+        TableReference(super::TableReference),
     }
 }
 /// Specifies a collection of BigQuery tables. Used for Discovery.
@@ -6640,7 +6662,7 @@ pub struct DatabaseResourceRegexes {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DatabaseResourceRegex {
     /// For organizations, if unset, will match all projects. Has no effect
-    /// for Data Profile configurations created within a project.
+    /// for configurations created within a project.
     #[prost(string, tag = "1")]
     pub project_id_regex: ::prost::alloc::string::String,
     /// Regex to test the instance name against. If empty, all instances match.
@@ -6665,13 +6687,20 @@ pub struct AllOtherDatabaseResources {}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DatabaseResourceReference {
     /// Required. If within a project-level config, then this must match the
-    /// config's project id.
+    /// config's project ID.
     #[prost(string, tag = "1")]
     pub project_id: ::prost::alloc::string::String,
     /// Required. The instance where this resource is located. For example: Cloud
-    /// SQL's instance id.
+    /// SQL instance ID.
     #[prost(string, tag = "2")]
     pub instance: ::prost::alloc::string::String,
+    /// Required. Name of a database within the instance.
+    #[prost(string, tag = "3")]
+    pub database: ::prost::alloc::string::String,
+    /// Required. Name of a database resource, for example, a table within the
+    /// database.
+    #[prost(string, tag = "4")]
+    pub database_resource: ::prost::alloc::string::String,
 }
 /// Requirements that must be true before a table is profiled for the
 /// first time.
@@ -6717,9 +6746,9 @@ pub mod discovery_cloud_sql_conditions {
         Unspecified = 0,
         /// Include all supported database engines.
         AllSupportedDatabaseEngines = 1,
-        /// MySql database.
+        /// MySQL database.
         Mysql = 2,
-        /// PostGres database.
+        /// PostgreSQL database.
         Postgres = 3,
     }
     impl DatabaseEngine {
@@ -6811,14 +6840,14 @@ pub struct DiscoveryCloudSqlGenerationCadence {
     >,
     /// Data changes (non-schema changes) in Cloud SQL tables can't trigger
     /// reprofiling. If you set this field, profiles are refreshed at this
-    /// frequency regardless of whether the underlying tables have changes.
+    /// frequency regardless of whether the underlying tables have changed.
     /// Defaults to never.
     #[prost(enumeration = "DataProfileUpdateFrequency", tag = "2")]
     pub refresh_frequency: i32,
 }
 /// Nested message and enum types in `DiscoveryCloudSqlGenerationCadence`.
 pub mod discovery_cloud_sql_generation_cadence {
-    /// How frequency to modify the profile when the table's schema is modified.
+    /// How frequently to modify the profile when the table's schema is modified.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct SchemaModifiedCadence {
@@ -6853,7 +6882,7 @@ pub mod discovery_cloud_sql_generation_cadence {
         pub enum CloudSqlSchemaModification {
             /// Unused.
             SqlSchemaModificationUnspecified = 0,
-            /// New columns has appeared.
+            /// New columns have appeared.
             NewColumns = 1,
             /// Columns have been removed from the table.
             RemovedColumns = 2,
@@ -6886,6 +6915,21 @@ pub mod discovery_cloud_sql_generation_cadence {
         }
     }
 }
+/// Discovery target for credentials and secrets in cloud resource metadata.
+///
+/// This target does not include any filtering or frequency controls. Cloud
+/// DLP will scan cloud resource metadata for secrets daily.
+///
+/// No inspect template should be included in the discovery config for a
+/// security benchmarks scan. Instead, the built-in list of secrets and
+/// credentials infoTypes will be used (see
+/// <https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#credentials_and_secrets>).
+///
+/// Credentials and secrets discovered will be reported as vulnerabilities to
+/// Security Command Center.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SecretsDiscoveryTarget {}
 /// The location to begin a discovery scan. Denotes an organization ID or folder
 /// ID within an organization.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -8670,8 +8714,7 @@ pub struct ListConnectionsRequest {
     /// results. If set, all other request fields must match the original request.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
-    /// Optional. * Supported fields/values
-    ///      - `state` - MISSING|AVAILABLE|ERROR
+    /// Optional. Supported field/value: `state` - MISSING|AVAILABLE|ERROR
     #[prost(string, tag = "4")]
     pub filter: ::prost::alloc::string::String,
 }
@@ -8690,8 +8733,7 @@ pub struct SearchConnectionsRequest {
     /// results. If set, all other request fields must match the original request.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
-    /// Optional. * Supported fields/values
-    ///      - `state` - MISSING|AVAILABLE|ERROR
+    /// Optional. Supported field/value: - `state` - MISSING|AVAILABLE|ERROR
     #[prost(string, tag = "4")]
     pub filter: ::prost::alloc::string::String,
 }
@@ -8791,8 +8833,8 @@ pub struct SecretManagerCredential {
     #[prost(string, tag = "2")]
     pub password_secret_version_name: ::prost::alloc::string::String,
 }
-/// Use IAM auth to connect. This requires the Cloud SQL IAM feature to be
-/// enabled on the instance, which is not the default for Cloud SQL.
+/// Use IAM authentication to connect. This requires the Cloud SQL IAM feature
+/// to be enabled on the instance, which is not the default for Cloud SQL.
 /// See <https://cloud.google.com/sql/docs/postgres/authentication> and
 /// <https://cloud.google.com/sql/docs/mysql/authentication.>
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -8843,11 +8885,11 @@ pub mod cloud_sql_properties {
     )]
     #[repr(i32)]
     pub enum DatabaseEngine {
-        /// An engine that is not currently supported by SDP.
+        /// An engine that is not currently supported by Sensitive Data Protection.
         Unknown = 0,
         /// Cloud SQL for MySQL instance.
         Mysql = 1,
-        /// Cloud SQL for Postgres instance.
+        /// Cloud SQL for PostgreSQL instance.
         Postgres = 2,
     }
     impl DatabaseEngine {
@@ -9567,8 +9609,8 @@ pub enum ResourceVisibility {
     /// Visible to any user.
     Public = 10,
     /// May contain public items.
-    /// For example, if a GCS bucket has uniform bucket level access disabled, some
-    /// objects inside it may be public.
+    /// For example, if a Cloud Storage bucket has uniform bucket level access
+    /// disabled, some objects inside it may be public.
     Inconclusive = 15,
     /// Visible only to specific users.
     Restricted = 20,
@@ -9728,10 +9770,10 @@ pub enum ConnectionState {
     /// A configured connection that encountered errors during its last use. It
     /// will not be used again until it is set to AVAILABLE.
     ///
-    /// If the resolution requires external action, then a request to set the
-    /// status to AVAILABLE will mark this connection for use. Otherwise, any
-    /// changes to the connection properties will automatically mark it as
-    /// AVAILABLE.
+    /// If the resolution requires external action, then the client must send a
+    /// request to set the status to AVAILABLE when the connection is ready for
+    /// use. If the resolution doesn't require external action, then any changes to
+    /// the connection properties will automatically mark it as AVAILABLE.
     Error = 3,
 }
 impl ConnectionState {
