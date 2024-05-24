@@ -5815,6 +5815,15 @@ pub struct GenerationConfig {
     /// This is a preview feature.
     #[prost(string, tag = "13")]
     pub response_mime_type: ::prost::alloc::string::String,
+    /// Optional. The `Schema` object allows the definition of input and output
+    /// data types. These types can be objects, but also primitives and arrays.
+    /// Represents a select subset of an [OpenAPI 3.0 schema
+    /// object](<https://spec.openapis.org/oas/v3.0.3#schema>).
+    /// If set, a compatible response_mime_type must also be set.
+    /// Compatible mimetypes:
+    /// `application/json`: Schema for JSON response.
+    #[prost(message, optional, tag = "16")]
+    pub response_schema: ::core::option::Option<Schema>,
 }
 /// Safety settings.
 #[allow(clippy::derive_partial_eq_without_eq)]
