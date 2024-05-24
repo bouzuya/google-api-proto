@@ -374,6 +374,8 @@ pub mod location;
     )
 )]
 pub mod managedidentities;
+#[cfg(any(feature = "google-cloud-managedkafka-v1"))]
+pub mod managedkafka;
 #[cfg(
     any(
         feature = "google-cloud-mediatranslation-v1alpha1",

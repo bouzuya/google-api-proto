@@ -277,6 +277,7 @@ google-cloud-lifesciences-v2beta = ["google-api", "google-cloud", "google-longru
 google-cloud-location = ["google-api", "google-cloud"]
 google-cloud-managedidentities-v1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-managedidentities-v1beta1 = ["google-api", "google-cloud", "google-longrunning"]
+google-cloud-managedkafka-v1 = ["google-api", "google-cloud", "google-longrunning"]
 google-cloud-mediatranslation-v1alpha1 = ["google-api", "google-cloud", "google-rpc"]
 google-cloud-mediatranslation-v1beta1 = ["google-api", "google-cloud", "google-rpc"]
 google-cloud-memcache-v1 = ["google-api", "google-cloud", "google-longrunning", "google-type"]

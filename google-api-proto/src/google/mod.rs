@@ -299,6 +299,7 @@ pub mod chromeos;
         feature = "google-cloud-location",
         feature = "google-cloud-managedidentities-v1",
         feature = "google-cloud-managedidentities-v1beta1",
+        feature = "google-cloud-managedkafka-v1",
         feature = "google-cloud-mediatranslation-v1alpha1",
         feature = "google-cloud-mediatranslation-v1beta1",
         feature = "google-cloud-memcache-v1",
