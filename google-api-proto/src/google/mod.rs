@@ -567,6 +567,8 @@ pub mod longrunning;
     )
 )]
 pub mod maps;
+#[cfg(any(feature = "google-marketingplatform-admin-v1alpha"))]
+pub mod marketingplatform;
 #[cfg(
     any(
         feature = "google-monitoring-dashboard-v1",

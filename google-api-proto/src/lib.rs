@@ -473,6 +473,7 @@ pub mod cloud;
         feature = "google-maps-routing-v2",
         feature = "google-maps-solar-v1",
         feature = "google-maps-unity",
+        feature = "google-marketingplatform-admin-v1alpha",
         feature = "google-monitoring-dashboard-v1",
         feature = "google-monitoring-metricsscope-v1",
         feature = "google-monitoring-v3",
