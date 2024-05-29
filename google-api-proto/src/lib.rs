@@ -460,7 +460,6 @@ pub mod cloud;
         feature = "google-maps-addressvalidation-v1",
         feature = "google-maps-aerialview-v1",
         feature = "google-maps-mapsplatformdatasets-v1",
-        feature = "google-maps-mapsplatformdatasets-v1alpha",
         feature = "google-maps-mobilitybilling-logs-v1",
         feature = "google-maps-places-v1",
         feature = "google-maps-playablelocations-v3",

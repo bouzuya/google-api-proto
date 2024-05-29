@@ -127,6 +127,12 @@ pub struct Document {
     /// Placeholder. Revision history of this document.
     #[prost(message, repeated, tag = "13")]
     pub revisions: ::prost::alloc::vec::Vec<document::Revision>,
+    /// Parsed layout of the document.
+    #[prost(message, optional, tag = "17")]
+    pub document_layout: ::core::option::Option<document::DocumentLayout>,
+    /// Document chunked based on chunking config.
+    #[prost(message, optional, tag = "18")]
+    pub chunked_document: ::core::option::Option<document::ChunkedDocument>,
     /// Original source document from the user.
     #[prost(oneof = "document::Source", tags = "1, 2")]
     pub source: ::core::option::Option<document::Source>,
@@ -1279,6 +1285,206 @@ pub mod document {
         #[prost(message, repeated, tag = "3")]
         pub provenance: ::prost::alloc::vec::Vec<Provenance>,
     }
+    /// Represents the parsed layout of a document as a collection of blocks that
+    /// the document is divided into.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct DocumentLayout {
+        /// List of blocks in the document.
+        #[prost(message, repeated, tag = "1")]
+        pub blocks: ::prost::alloc::vec::Vec<document_layout::DocumentLayoutBlock>,
+    }
+    /// Nested message and enum types in `DocumentLayout`.
+    pub mod document_layout {
+        /// Represents a block. A block could be one of the various types (text,
+        /// table, list) supported.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct DocumentLayoutBlock {
+            /// ID of the block.
+            #[prost(string, tag = "1")]
+            pub block_id: ::prost::alloc::string::String,
+            /// Page span of the block.
+            #[prost(message, optional, tag = "5")]
+            pub page_span: ::core::option::Option<document_layout_block::LayoutPageSpan>,
+            #[prost(oneof = "document_layout_block::Block", tags = "2, 3, 4")]
+            pub block: ::core::option::Option<document_layout_block::Block>,
+        }
+        /// Nested message and enum types in `DocumentLayoutBlock`.
+        pub mod document_layout_block {
+            /// Represents where the block starts and ends in the document.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutPageSpan {
+                /// Page where block starts in the document.
+                #[prost(int32, tag = "1")]
+                pub page_start: i32,
+                /// Page where block ends in the document.
+                #[prost(int32, tag = "2")]
+                pub page_end: i32,
+            }
+            /// Represents a text type block.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutTextBlock {
+                /// Text content stored in the block.
+                #[prost(string, tag = "1")]
+                pub text: ::prost::alloc::string::String,
+                /// Type of the text in the block. Available options are: `paragraph`,
+                /// `subtitle`, `heading-1`, `heading-2`, `heading-3`, `heading-4`,
+                /// `heading-5`, `header`, `footer`.
+                #[prost(string, tag = "2")]
+                pub r#type: ::prost::alloc::string::String,
+                /// A text block could further have child blocks.
+                /// Repeated blocks support further hierarchies and nested blocks.
+                #[prost(message, repeated, tag = "3")]
+                pub blocks: ::prost::alloc::vec::Vec<super::DocumentLayoutBlock>,
+            }
+            /// Represents a table type block.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutTableBlock {
+                /// Header rows at the top of the table.
+                #[prost(message, repeated, tag = "1")]
+                pub header_rows: ::prost::alloc::vec::Vec<LayoutTableRow>,
+                /// Body rows containing main table content.
+                #[prost(message, repeated, tag = "2")]
+                pub body_rows: ::prost::alloc::vec::Vec<LayoutTableRow>,
+                /// Table caption/title.
+                #[prost(string, tag = "3")]
+                pub caption: ::prost::alloc::string::String,
+            }
+            /// Represents a row in a table.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutTableRow {
+                /// A table row is a list of table cells.
+                #[prost(message, repeated, tag = "1")]
+                pub cells: ::prost::alloc::vec::Vec<LayoutTableCell>,
+            }
+            /// Represents a cell in a table row.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutTableCell {
+                /// A table cell is a list of blocks.
+                /// Repeated blocks support further hierarchies and nested blocks.
+                #[prost(message, repeated, tag = "1")]
+                pub blocks: ::prost::alloc::vec::Vec<super::DocumentLayoutBlock>,
+                /// How many rows this cell spans.
+                #[prost(int32, tag = "2")]
+                pub row_span: i32,
+                /// How many columns this cell spans.
+                #[prost(int32, tag = "3")]
+                pub col_span: i32,
+            }
+            /// Represents a list type block.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutListBlock {
+                /// List entries that constitute a list block.
+                #[prost(message, repeated, tag = "1")]
+                pub list_entries: ::prost::alloc::vec::Vec<LayoutListEntry>,
+                /// Type of the list_entries (if exist). Available options are `ordered`
+                /// and `unordered`.
+                #[prost(string, tag = "2")]
+                pub r#type: ::prost::alloc::string::String,
+            }
+            /// Represents an entry in the list.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct LayoutListEntry {
+                /// A list entry is a list of blocks.
+                /// Repeated blocks support further hierarchies and nested blocks.
+                #[prost(message, repeated, tag = "1")]
+                pub blocks: ::prost::alloc::vec::Vec<super::DocumentLayoutBlock>,
+            }
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum Block {
+                /// Block consisting of text content.
+                #[prost(message, tag = "2")]
+                TextBlock(LayoutTextBlock),
+                /// Block consisting of table content/structure.
+                #[prost(message, tag = "3")]
+                TableBlock(LayoutTableBlock),
+                /// Block consisting of list content/structure.
+                #[prost(message, tag = "4")]
+                ListBlock(LayoutListBlock),
+            }
+        }
+    }
+    /// Represents the chunks that the document is divided into.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ChunkedDocument {
+        /// List of chunks.
+        #[prost(message, repeated, tag = "1")]
+        pub chunks: ::prost::alloc::vec::Vec<chunked_document::Chunk>,
+    }
+    /// Nested message and enum types in `ChunkedDocument`.
+    pub mod chunked_document {
+        /// Represents a chunk.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct Chunk {
+            /// ID of the chunk.
+            #[prost(string, tag = "1")]
+            pub chunk_id: ::prost::alloc::string::String,
+            /// Unused.
+            #[prost(string, repeated, tag = "2")]
+            pub source_block_ids: ::prost::alloc::vec::Vec<
+                ::prost::alloc::string::String,
+            >,
+            /// Text content of the chunk.
+            #[prost(string, tag = "3")]
+            pub content: ::prost::alloc::string::String,
+            /// Page span of the chunk.
+            #[prost(message, optional, tag = "4")]
+            pub page_span: ::core::option::Option<chunk::ChunkPageSpan>,
+            /// Page headers associated with the chunk.
+            #[prost(message, repeated, tag = "5")]
+            pub page_headers: ::prost::alloc::vec::Vec<chunk::ChunkPageHeader>,
+            /// Page footers associated with the chunk.
+            #[prost(message, repeated, tag = "6")]
+            pub page_footers: ::prost::alloc::vec::Vec<chunk::ChunkPageFooter>,
+        }
+        /// Nested message and enum types in `Chunk`.
+        pub mod chunk {
+            /// Represents where the chunk starts and ends in the document.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ChunkPageSpan {
+                /// Page where chunk starts in the document.
+                #[prost(int32, tag = "1")]
+                pub page_start: i32,
+                /// Page where chunk ends in the document.
+                #[prost(int32, tag = "2")]
+                pub page_end: i32,
+            }
+            /// Represents the page header associated with the chunk.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ChunkPageHeader {
+                /// Header in text format.
+                #[prost(string, tag = "1")]
+                pub text: ::prost::alloc::string::String,
+                /// Page span of the header.
+                #[prost(message, optional, tag = "2")]
+                pub page_span: ::core::option::Option<ChunkPageSpan>,
+            }
+            /// Represents the page footer associated with the chunk.
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Message)]
+            pub struct ChunkPageFooter {
+                /// Footer in text format.
+                #[prost(string, tag = "1")]
+                pub text: ::prost::alloc::string::String,
+                /// Page span of the footer.
+                #[prost(message, optional, tag = "2")]
+                pub page_span: ::core::option::Option<ChunkPageSpan>,
+            }
+        }
+    }
     /// Original source document from the user.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
@@ -1719,6 +1925,12 @@ pub struct ProcessorVersion {
     /// Output only. The model type of this processor version.
     #[prost(enumeration = "processor_version::ModelType", tag = "15")]
     pub model_type: i32,
+    /// Output only. Reserved for future use.
+    #[prost(bool, tag = "16")]
+    pub satisfies_pzs: bool,
+    /// Output only. Reserved for future use.
+    #[prost(bool, tag = "17")]
+    pub satisfies_pzi: bool,
 }
 /// Nested message and enum types in `ProcessorVersion`.
 pub mod processor_version {
@@ -1892,6 +2104,12 @@ pub struct Processor {
     /// encryption and decryption in CMEK scenarios.
     #[prost(string, tag = "8")]
     pub kms_key_name: ::prost::alloc::string::String,
+    /// Output only. Reserved for future use.
+    #[prost(bool, tag = "12")]
+    pub satisfies_pzs: bool,
+    /// Output only. Reserved for future use.
+    #[prost(bool, tag = "13")]
+    pub satisfies_pzi: bool,
 }
 /// Nested message and enum types in `Processor`.
 pub mod processor {
