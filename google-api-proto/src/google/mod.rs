@@ -347,6 +347,7 @@ pub mod chromeos;
         feature = "google-cloud-policytroubleshooter-iam-v3beta",
         feature = "google-cloud-policytroubleshooter-v1",
         feature = "google-cloud-privatecatalog-v1beta1",
+        feature = "google-cloud-privilegedaccessmanager-v1",
         feature = "google-cloud-pubsublite-v1",
         feature = "google-cloud-rapidmigrationassessment-v1",
         feature = "google-cloud-recaptchaenterprise-v1",

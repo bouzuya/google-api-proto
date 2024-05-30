@@ -493,6 +493,8 @@ pub mod policysimulator;
 pub mod policytroubleshooter;
 #[cfg(any(feature = "google-cloud-privatecatalog-v1beta1"))]
 pub mod privatecatalog;
+#[cfg(any(feature = "google-cloud-privilegedaccessmanager-v1"))]
+pub mod privilegedaccessmanager;
 #[cfg(any(feature = "google-cloud-pubsublite-v1"))]
 pub mod pubsublite;
 #[cfg(any(feature = "google-cloud-rapidmigrationassessment-v1"))]
