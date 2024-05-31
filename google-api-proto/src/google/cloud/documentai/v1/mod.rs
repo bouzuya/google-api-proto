@@ -2504,6 +2504,10 @@ pub struct ProcessOptions {
     /// Returns error if set on other processor types.
     #[prost(message, optional, tag = "1")]
     pub ocr_config: ::core::option::Option<OcrConfig>,
+    /// Optional. Only applicable to `LAYOUT_PARSER_PROCESSOR`.
+    /// Returns error if set on other processor types.
+    #[prost(message, optional, tag = "9")]
+    pub layout_config: ::core::option::Option<process_options::LayoutConfig>,
     /// Optional. Override the schema of the
     /// [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion]. Will
     /// return an Invalid Argument error if this field is set when the underlying
@@ -2522,6 +2526,29 @@ pub struct ProcessOptions {
 }
 /// Nested message and enum types in `ProcessOptions`.
 pub mod process_options {
+    /// Serving config for layout parser processor.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct LayoutConfig {
+        /// Optional. Config for chunking in layout parser processor.
+        #[prost(message, optional, tag = "1")]
+        pub chunking_config: ::core::option::Option<layout_config::ChunkingConfig>,
+    }
+    /// Nested message and enum types in `LayoutConfig`.
+    pub mod layout_config {
+        /// Serving config for chunking.
+        #[allow(clippy::derive_partial_eq_without_eq)]
+        #[derive(Clone, PartialEq, ::prost::Message)]
+        pub struct ChunkingConfig {
+            /// Optional. The chunk sizes to use when splitting documents, in order of
+            /// level.
+            #[prost(int32, tag = "1")]
+            pub chunk_size: i32,
+            /// Optional. Whether or not to include ancestor headings when splitting.
+            #[prost(bool, tag = "2")]
+            pub include_ancestor_headings: bool,
+        }
+    }
     /// A list of individual page numbers.
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
