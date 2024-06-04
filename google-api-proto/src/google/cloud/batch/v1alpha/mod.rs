@@ -172,12 +172,11 @@ pub struct TaskExecution {
     /// due to the following reasons, the exit code will be 50000.
     ///
     /// Otherwise, it can be from different sources:
-    /// - Batch known failures as
+    /// * Batch known failures:
     /// <https://cloud.google.com/batch/docs/troubleshooting#reserved-exit-codes.>
-    /// - Batch runnable execution failures: You can rely on Batch logs for further
-    /// diagnose: <https://cloud.google.com/batch/docs/analyze-job-using-logs.>
-    /// If there are multiple runnables failures, Batch only exposes the first
-    /// error caught for now.
+    /// * Batch runnable execution failures; you can rely on Batch logs to further
+    /// diagnose: <https://cloud.google.com/batch/docs/analyze-job-using-logs.> If
+    /// there are multiple runnables failures, Batch only exposes the first error.
     #[prost(int32, tag = "1")]
     pub exit_code: i32,
     /// Optional. The tail end of any content written to standard error by the task
@@ -489,10 +488,15 @@ pub struct TaskSpec {
     /// ComputeResource requirements.
     #[prost(message, optional, tag = "3")]
     pub compute_resource: ::core::option::Option<ComputeResource>,
-    /// Maximum duration the task should run.
-    /// The task will be killed and marked as FAILED if over this limit.
-    /// The valid value range for max_run_duration in seconds is [0,
-    /// 315576000000.999999999],
+    /// Maximum duration the task should run before being automatically retried
+    /// (if enabled) or automatically failed. Format the value of this field
+    /// as a time limit in seconds followed by `s`&mdash;for example, `3600s`
+    /// for 1 hour. The field accepts any value between 0 and the maximum listed
+    /// for the `Duration` field type at
+    /// <https://protobuf.dev/reference/protobuf/google.protobuf/#duration;> however,
+    /// the actual maximum run time for a job will be limited to the maximum run
+    /// time for a job listed at
+    /// <https://cloud.google.com/batch/quotas#max-job-duration.>
     #[prost(message, optional, tag = "4")]
     pub max_run_duration: ::core::option::Option<::prost_types::Duration>,
     /// Maximum number of retries on failures.
@@ -1396,9 +1400,9 @@ pub mod allocation_policy {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct InstancePolicyOrTemplate {
-        /// Set this field true if users want Batch to help fetch drivers from a
-        /// third party location and install them for GPUs specified in
-        /// policy.accelerators or instance_template on their behalf. Default is
+        /// Set this field true if you want Batch to help fetch drivers from a third
+        /// party location and install them for GPUs specified in
+        /// `policy.accelerators` or `instance_template` on your behalf. Default is
         /// false.
         ///
         /// For Container-Optimized Image cases, Batch will install the
@@ -1408,6 +1412,10 @@ pub mod allocation_policy {
         /// <https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py.>
         #[prost(bool, tag = "3")]
         pub install_gpu_drivers: bool,
+        /// Optional. Set this field true if you want Batch to install Ops Agent on
+        /// your behalf. Default is false.
+        #[prost(bool, tag = "4")]
+        pub install_ops_agent: bool,
         #[prost(oneof = "instance_policy_or_template::PolicyTemplate", tags = "1, 2")]
         pub policy_template: ::core::option::Option<
             instance_policy_or_template::PolicyTemplate,
@@ -2036,13 +2044,26 @@ pub struct DeleteJobRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct UpdateJobRequest {
     /// Required. The Job to update.
-    /// Only fields specified in `update_mask` are updated.
+    /// Only fields specified in `updateMask` are updated.
     #[prost(message, optional, tag = "1")]
     pub job: ::core::option::Option<Job>,
     /// Required. Mask of fields to update.
     ///
-    /// UpdateJob request now only supports update on `task_count` field in a job's
-    /// first task group. Other fields will be ignored.
+    /// The `jobs.patch` method can only be used while a job is in the `QUEUED`,
+    /// `SCHEDULED`, or `RUNNING` state and currently only supports increasing the
+    /// value of the first `taskCount` field in the job's `taskGroups` field.
+    /// Therefore, you must set the value of `updateMask` to `taskGroups`. Any
+    /// other job fields in the update request will be ignored.
+    ///
+    /// For example, to update a job's `taskCount` to `2`, set `updateMask` to
+    /// `taskGroups` and use the following request body:
+    /// ```
+    /// {
+    ///    "taskGroups":[{
+    ///      "taskCount": 2
+    ///    }]
+    /// }
+    /// ```
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
     /// Optional. An optional request ID to identify requests. Specify a unique
