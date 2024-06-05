@@ -4,11 +4,6 @@ pub mod admanager;
 pub mod admob;
 #[cfg(
     any(
-        feature = "google-ads-googleads-v14-common",
-        feature = "google-ads-googleads-v14-enums",
-        feature = "google-ads-googleads-v14-errors",
-        feature = "google-ads-googleads-v14-resources",
-        feature = "google-ads-googleads-v14-services",
         feature = "google-ads-googleads-v15-common",
         feature = "google-ads-googleads-v15-enums",
         feature = "google-ads-googleads-v15-errors",

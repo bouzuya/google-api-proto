@@ -371,7 +371,7 @@ pub struct BusinessInfo {
     pub address: ::core::option::Option<
         super::super::super::super::r#type::PostalAddress,
     >,
-    /// Optional. The phone number of the business.
+    /// Output only. The phone number of the business.
     #[prost(message, optional, tag = "3")]
     pub phone: ::core::option::Option<super::super::super::super::r#type::PhoneNumber>,
     /// Output only. The phone verification state of the business.

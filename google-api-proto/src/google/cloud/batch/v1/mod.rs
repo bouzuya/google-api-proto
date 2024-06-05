@@ -146,12 +146,11 @@ pub struct TaskExecution {
     /// due to the following reasons, the exit code will be 50000.
     ///
     /// Otherwise, it can be from different sources:
-    /// - Batch known failures as
+    /// * Batch known failures:
     /// <https://cloud.google.com/batch/docs/troubleshooting#reserved-exit-codes.>
-    /// - Batch runnable execution failures: You can rely on Batch logs for further
-    /// diagnose: <https://cloud.google.com/batch/docs/analyze-job-using-logs.>
-    /// If there are multiple runnables failures, Batch only exposes the first
-    /// error caught for now.
+    /// * Batch runnable execution failures; you can rely on Batch logs to further
+    /// diagnose: <https://cloud.google.com/batch/docs/analyze-job-using-logs.> If
+    /// there are multiple runnables failures, Batch only exposes the first error.
     #[prost(int32, tag = "1")]
     pub exit_code: i32,
 }
@@ -447,10 +446,15 @@ pub struct TaskSpec {
     /// ComputeResource requirements.
     #[prost(message, optional, tag = "3")]
     pub compute_resource: ::core::option::Option<ComputeResource>,
-    /// Maximum duration the task should run.
-    /// The task will be killed and marked as FAILED if over this limit.
-    /// The valid value range for max_run_duration in seconds is [0,
-    /// 315576000000.999999999],
+    /// Maximum duration the task should run before being automatically retried
+    /// (if enabled) or automatically failed. Format the value of this field
+    /// as a time limit in seconds followed by `s`&mdash;for example, `3600s`
+    /// for 1 hour. The field accepts any value between 0 and the maximum listed
+    /// for the `Duration` field type at
+    /// <https://protobuf.dev/reference/protobuf/google.protobuf/#duration;> however,
+    /// the actual maximum run time for a job will be limited to the maximum run
+    /// time for a job listed at
+    /// <https://cloud.google.com/batch/quotas#max-job-duration.>
     #[prost(message, optional, tag = "4")]
     pub max_run_duration: ::core::option::Option<::prost_types::Duration>,
     /// Maximum number of retries on failures.
@@ -1187,9 +1191,9 @@ pub mod allocation_policy {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct InstancePolicyOrTemplate {
-        /// Set this field true if users want Batch to help fetch drivers from a
-        /// third party location and install them for GPUs specified in
-        /// policy.accelerators or instance_template on their behalf. Default is
+        /// Set this field true if you want Batch to help fetch drivers from a third
+        /// party location and install them for GPUs specified in
+        /// `policy.accelerators` or `instance_template` on your behalf. Default is
         /// false.
         ///
         /// For Container-Optimized Image cases, Batch will install the
