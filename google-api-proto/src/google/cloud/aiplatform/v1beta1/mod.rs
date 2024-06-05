@@ -23512,6 +23512,50 @@ pub struct DataItem {
     #[prost(string, tag = "7")]
     pub etag: ::prost::alloc::string::String,
 }
+/// Config for the embedding model to use for RAG.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RagEmbeddingModelConfig {
+    /// The model config to use.
+    #[prost(oneof = "rag_embedding_model_config::ModelConfig", tags = "1")]
+    pub model_config: ::core::option::Option<rag_embedding_model_config::ModelConfig>,
+}
+/// Nested message and enum types in `RagEmbeddingModelConfig`.
+pub mod rag_embedding_model_config {
+    /// Config representing a model hosted on Vertex Prediction Endpoint.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct VertexPredictionEndpoint {
+        /// Required. The endpoint resource name.
+        /// Format:
+        /// `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+        /// or
+        /// `projects/{project}/locations/{location}/endpoints/{endpoint}`
+        #[prost(string, tag = "1")]
+        pub endpoint: ::prost::alloc::string::String,
+        /// Output only. The resource name of the model that is deployed on the
+        /// endpoint. Present only when the endpoint is not a publisher model.
+        /// Pattern:
+        /// `projects/{project}/locations/{location}/models/{model}`
+        #[prost(string, tag = "2")]
+        pub model: ::prost::alloc::string::String,
+        /// Output only. Version ID of the model that is deployed on the endpoint.
+        /// Present only when the endpoint is not a publisher model.
+        #[prost(string, tag = "3")]
+        pub model_version_id: ::prost::alloc::string::String,
+    }
+    /// The model config to use.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum ModelConfig {
+        /// The Vertex AI Prediction Endpoint that either refers to a publisher model
+        /// or an endpoint that is hosting a 1P fine-tuned text embedding model.
+        /// Endpoints hosting non-1P fine-tuned text embedding models are
+        /// currently not supported.
+        #[prost(message, tag = "1")]
+        VertexPredictionEndpoint(VertexPredictionEndpoint),
+    }
+}
 /// A RagCorpus is a RagFile container and a project can have multiple
 /// RagCorpora.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -23528,6 +23572,9 @@ pub struct RagCorpus {
     /// Optional. The description of the RagCorpus.
     #[prost(string, tag = "3")]
     pub description: ::prost::alloc::string::String,
+    /// Optional. Immutable. The embedding model config of the RagCorpus.
+    #[prost(message, optional, tag = "6")]
+    pub rag_embedding_model_config: ::core::option::Option<RagEmbeddingModelConfig>,
     /// Output only. Timestamp when this RagCorpus was created.
     #[prost(message, optional, tag = "4")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -23657,6 +23704,13 @@ pub struct ImportRagFilesConfig {
     /// Specifies the size and overlap of chunks after importing RagFiles.
     #[prost(message, optional, tag = "4")]
     pub rag_file_chunking_config: ::core::option::Option<RagFileChunkingConfig>,
+    /// Optional. The max number of queries per minute that this job is allowed to
+    /// make to the embedding model specified on the corpus. This value is specific
+    /// to this job and not shared across other import jobs. Consult the Quotas
+    /// page on the project to set an appropriate value here.
+    /// If unspecified, a default value of 1,000 QPM would be used.
+    #[prost(int32, tag = "5")]
+    pub max_embedding_requests_per_min: i32,
     #[prost(oneof = "import_rag_files_config::ImportSource", tags = "2, 3")]
     pub import_source: ::core::option::Option<import_rag_files_config::ImportSource>,
 }
