@@ -18,3 +18,13 @@ pub mod v15;
     )
 )]
 pub mod v16;
+#[cfg(
+    any(
+        feature = "google-ads-googleads-v17-common",
+        feature = "google-ads-googleads-v17-enums",
+        feature = "google-ads-googleads-v17-errors",
+        feature = "google-ads-googleads-v17-resources",
+        feature = "google-ads-googleads-v17-services",
+    )
+)]
+pub mod v17;
