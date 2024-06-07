@@ -699,7 +699,7 @@ pub struct UpdateUserRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListUsersRequest {
     /// Required. The parent, which owns this collection of users.
-    /// Format: `accounts/{account}
+    /// Format: `accounts/{account}`
     #[prost(string, tag = "1")]
     pub parent: ::prost::alloc::string::String,
     /// Optional. The maximum number of users to return. The service may return
