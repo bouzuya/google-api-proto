@@ -97,6 +97,10 @@ pub mod security_center_service {
         Enabled = 2,
         /// State is disabled.
         Disabled = 3,
+        /// SCC is configured to ingest findings from this service but not enable
+        /// this service. Not a valid intended_enablement_state (that is, this is a
+        /// readonly state).
+        IngestOnly = 4,
     }
     impl EnablementState {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -109,6 +113,7 @@ pub mod security_center_service {
                 EnablementState::Inherited => "INHERITED",
                 EnablementState::Enabled => "ENABLED",
                 EnablementState::Disabled => "DISABLED",
+                EnablementState::IngestOnly => "INGEST_ONLY",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -118,6 +123,7 @@ pub mod security_center_service {
                 "INHERITED" => Some(Self::Inherited),
                 "ENABLED" => Some(Self::Enabled),
                 "DISABLED" => Some(Self::Disabled),
+                "INGEST_ONLY" => Some(Self::IngestOnly),
                 _ => None,
             }
         }
