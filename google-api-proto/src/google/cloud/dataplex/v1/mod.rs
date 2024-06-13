@@ -3272,8 +3272,8 @@ pub struct DataQualityScanRuleResult {
     /// The number of rows with null values in the specified column.
     #[prost(int64, tag = "12")]
     pub null_row_count: i64,
-    /// The number of rows returned by the sql statement in the SqlAssertion rule.
-    /// This field is only valid for SqlAssertion rules.
+    /// The number of rows returned by the SQL statement in a SQL assertion rule.
+    /// This field is only valid for SQL assertion rules.
     #[prost(int64, tag = "13")]
     pub assertion_row_count: i64,
 }
@@ -3295,32 +3295,32 @@ pub mod data_quality_scan_rule_result {
     pub enum RuleType {
         /// An unspecified rule type.
         Unspecified = 0,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#nonnullexpectation.>
+        /// See
+        /// [DataQualityRule.NonNullExpectation][google.cloud.dataplex.v1.DataQualityRule.NonNullExpectation].
         NonNullExpectation = 1,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rangeexpectation.>
+        /// See
+        /// [DataQualityRule.RangeExpectation][google.cloud.dataplex.v1.DataQualityRule.RangeExpectation].
         RangeExpectation = 2,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#regexexpectation.>
+        /// See
+        /// [DataQualityRule.RegexExpectation][google.cloud.dataplex.v1.DataQualityRule.RegexExpectation].
         RegexExpectation = 3,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#rowconditionexpectation.>
+        /// See
+        /// [DataQualityRule.RowConditionExpectation][google.cloud.dataplex.v1.DataQualityRule.RowConditionExpectation].
         RowConditionExpectation = 4,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#setexpectation.>
+        /// See
+        /// [DataQualityRule.SetExpectation][google.cloud.dataplex.v1.DataQualityRule.SetExpectation].
         SetExpectation = 5,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#statisticrangeexpectation.>
+        /// See
+        /// [DataQualityRule.StatisticRangeExpectation][google.cloud.dataplex.v1.DataQualityRule.StatisticRangeExpectation].
         StatisticRangeExpectation = 6,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#tableconditionexpectation.>
+        /// See
+        /// [DataQualityRule.TableConditionExpectation][google.cloud.dataplex.v1.DataQualityRule.TableConditionExpectation].
         TableConditionExpectation = 7,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#uniquenessexpectation.>
+        /// See
+        /// [DataQualityRule.UniquenessExpectation][google.cloud.dataplex.v1.DataQualityRule.UniquenessExpectation].
         UniquenessExpectation = 8,
-        /// Please see
-        /// <https://cloud.google.com/dataplex/docs/reference/rest/v1/DataQualityRule#sqlAssertion.>
+        /// See
+        /// [DataQualityRule.SqlAssertion][google.cloud.dataplex.v1.DataQualityRule.SqlAssertion].
         SqlAssertion = 9,
     }
     impl RuleType {
@@ -4751,10 +4751,10 @@ pub struct DataQualityRuleResult {
     /// This field is only valid for row-level type rules.
     #[prost(string, tag = "10")]
     pub failing_rows_query: ::prost::alloc::string::String,
-    /// Output only. The number of rows returned by the sql statement in the
-    /// SqlAssertion rule.
+    /// Output only. The number of rows returned by the SQL statement in a SQL
+    /// assertion rule.
     ///
-    /// This field is only valid for SqlAssertion rules.
+    /// This field is only valid for SQL assertion rules.
     #[prost(int64, tag = "11")]
     pub assertion_row_count: i64,
 }
@@ -5003,17 +5003,19 @@ pub mod data_quality_rule {
         #[prost(string, tag = "1")]
         pub sql_expression: ::prost::alloc::string::String,
     }
-    /// Queries for rows returned by the provided SQL statement. If any rows are
-    /// are returned, this rule fails.
+    /// A SQL statement that is evaluated to return rows that match an invalid
+    /// state. If any rows are are returned, this rule fails.
     ///
-    /// The SQL statement needs to use BigQuery standard SQL syntax, and must not
+    /// The SQL statement must use BigQuery standard SQL syntax, and must not
     /// contain any semicolons.
     ///
-    /// ${data()} can be used to reference the rows being evaluated, i.e. the table
-    /// after all additional filters (row filters, incremental data filters,
-    /// sampling) are applied.
+    /// You can use the data reference parameter `${data()}` to reference the
+    /// source table with all of its precondition filters applied. Examples of
+    /// precondition filters include row filters, incremental data filters, and
+    /// sampling. For more information, see [Data reference
+    /// parameter](<https://cloud.google.com/dataplex/docs/auto-data-quality-overview#data-reference-parameter>).
     ///
-    /// Example: SELECT * FROM ${data()} WHERE price < 0
+    /// Example: `SELECT * FROM ${data()} WHERE price < 0`
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct SqlAssertion {
@@ -5056,7 +5058,7 @@ pub mod data_quality_rule {
         #[prost(message, tag = "201")]
         TableConditionExpectation(TableConditionExpectation),
         /// Aggregate rule which evaluates the number of rows returned for the
-        /// provided statement.
+        /// provided statement. If any rows are returned, this rule fails.
         #[prost(message, tag = "202")]
         SqlAssertion(SqlAssertion),
     }
@@ -8779,12 +8781,13 @@ pub struct SearchEntriesRequest {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SearchEntriesResult {
     /// Linked resource name.
+    #[deprecated]
     #[prost(string, tag = "8")]
     pub linked_resource: ::prost::alloc::string::String,
-    /// Entry format of the result.
     #[prost(message, optional, tag = "9")]
     pub dataplex_entry: ::core::option::Option<Entry>,
     /// Snippets.
+    #[deprecated]
     #[prost(message, optional, tag = "12")]
     pub snippets: ::core::option::Option<search_entries_result::Snippets>,
 }
@@ -8796,6 +8799,7 @@ pub mod search_entries_result {
     #[derive(Clone, PartialEq, ::prost::Message)]
     pub struct Snippets {
         /// Entry
+        #[deprecated]
         #[prost(message, optional, tag = "1")]
         pub dataplex_entry: ::core::option::Option<super::Entry>,
     }
