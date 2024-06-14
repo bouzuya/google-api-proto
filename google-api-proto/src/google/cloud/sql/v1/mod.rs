@@ -1213,7 +1213,8 @@ pub mod operation {
         AutoRestart = 37,
         /// Re-encrypts CMEK instances with latest key version.
         Reencrypt = 38,
-        /// Switches over to replica instance from primary.
+        /// Switches the roles of the primary and replica pair. The target instance
+        /// should be the replica.
         Switchover = 39,
         /// Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
         AcquireSsrsLease = 42,
@@ -1235,6 +1236,9 @@ pub mod operation {
         /// Maintenance typically causes the instance to be unavailable for 1-3
         /// minutes.
         SelfServiceMaintenance = 46,
+        /// Switches a primary instance to a replica. This operation runs as part of
+        /// a switchover operation to the original primary instance.
+        SwitchoverToReplica = 47,
     }
     impl SqlOperationType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1287,6 +1291,7 @@ pub mod operation {
                 SqlOperationType::ReconfigureOldPrimary => "RECONFIGURE_OLD_PRIMARY",
                 SqlOperationType::ClusterMaintenance => "CLUSTER_MAINTENANCE",
                 SqlOperationType::SelfServiceMaintenance => "SELF_SERVICE_MAINTENANCE",
+                SqlOperationType::SwitchoverToReplica => "SWITCHOVER_TO_REPLICA",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1336,6 +1341,7 @@ pub mod operation {
                 "RECONFIGURE_OLD_PRIMARY" => Some(Self::ReconfigureOldPrimary),
                 "CLUSTER_MAINTENANCE" => Some(Self::ClusterMaintenance),
                 "SELF_SERVICE_MAINTENANCE" => Some(Self::SelfServiceMaintenance),
+                "SWITCHOVER_TO_REPLICA" => Some(Self::SwitchoverToReplica),
                 _ => None,
             }
         }
@@ -4016,8 +4022,9 @@ pub struct DatabaseInstance {
     pub scheduled_maintenance: ::core::option::Option<
         database_instance::SqlScheduledMaintenance,
     >,
-    /// The status indicating if instance satisfiesPzs.
-    /// Reserved for future use.
+    /// This status indicates whether the instance satisfies PZS.
+    ///
+    /// The status is reserved for future use.
     #[prost(message, optional, tag = "35")]
     pub satisfies_pzs: ::core::option::Option<bool>,
     /// Output only. Stores the current database version running on the instance
@@ -4325,6 +4332,15 @@ pub struct GeminiInstanceConfig {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReplicationCluster {
+    /// Output only. If set, it indicates this instance has a private service
+    /// access (PSA) dns endpoint that is pointing to the primary instance of the
+    /// cluster. If this instance is the primary, the dns should be pointing to
+    /// this instance. After Switchover or Replica failover, this DNS endpoint
+    /// points to the promoted instance. This is a read-only field, returned to the
+    /// user as information. This field can exist even if a standalone instance
+    /// does not yet have a replica, or had a DR replica that was deleted.
+    #[prost(string, tag = "1")]
+    pub psa_write_endpoint: ::prost::alloc::string::String,
     /// Optional. If the instance is a primary instance, then this field identifies
     /// the disaster recovery (DR) replica. A DR replica is an optional
     /// configuration for Enterprise Plus edition instances. If the instance is a
