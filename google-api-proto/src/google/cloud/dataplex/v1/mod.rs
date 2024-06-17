@@ -7179,22 +7179,25 @@ pub struct ListDataScanJobsResponse {
     #[prost(string, tag = "2")]
     pub next_page_token: ::prost::alloc::string::String,
 }
-/// Generate recommended DataQualityRules request.
+/// Request details for generating data quality rule recommendations.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GenerateDataQualityRulesRequest {
-    /// Required. The name should be either
-    /// * the name of a datascan with at least one successful completed data
-    /// profiling job, or
-    /// * the name of a successful completed data profiling datascan job.
+    /// Required. The name must be one of the following:
+    ///
+    /// * The name of a data scan with at least one successful, completed data
+    /// profiling job
+    /// * The name of a successful, completed data profiling job (a data scan job
+    /// where the job type is data profiling)
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
 }
-/// Generate recommended DataQualityRules response.
+/// Response details for data quality rule recommendations.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GenerateDataQualityRulesResponse {
-    /// Generated recommended {@link DataQualityRule}s.
+    /// The data quality rules that Dataplex generates based on the results
+    /// of a data profiling scan.
     #[prost(message, repeated, tag = "1")]
     pub rule: ::prost::alloc::vec::Vec<DataQualityRule>,
 }
@@ -7814,7 +7817,10 @@ pub mod data_scan_service_client {
                 );
             self.inner.unary(req, path, codec).await
         }
-        /// Generates recommended DataQualityRule from a data profiling DataScan.
+        /// Generates recommended data quality rules based on the results of a data
+        /// profiling scan.
+        ///
+        /// Use the recommendations to build rules for a data quality scan.
         pub async fn generate_data_quality_rules(
             &mut self,
             request: impl tonic::IntoRequest<super::GenerateDataQualityRulesRequest>,
@@ -8263,6 +8269,12 @@ pub struct EntrySource {
     /// The update time of the resource in the source system.
     #[prost(message, optional, tag = "11")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Output only. Location of the resource in the source system. Entry will be
+    /// searchable by this location. By default, this should match the location of
+    /// the EntryGroup containing this entry. A different value allows capturing
+    /// source location for data external to GCP.
+    #[prost(string, tag = "12")]
+    pub location: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `EntrySource`.
 pub mod entry_source {
