@@ -193,40 +193,6 @@ pub mod contextual_content {
         }
     }
 }
-/// Experimental: See
-/// <https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative>
-/// for more details.
-///
-/// Reference that the generative content is related to.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct References {
-    /// Reviews that serve as references.
-    #[prost(message, repeated, tag = "1")]
-    pub reviews: ::prost::alloc::vec::Vec<Review>,
-    /// The list of resource names of the referenced places. This name can be used
-    /// in other APIs that accept Place resource names.
-    #[prost(string, repeated, tag = "2")]
-    pub places: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}
-/// A block of content that can be served individually.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ContentBlock {
-    /// The topic of the content, for example "overview" or "restaurant".
-    #[prost(string, tag = "1")]
-    pub topic: ::prost::alloc::string::String,
-    /// Content related to the topic.
-    #[prost(message, optional, tag = "2")]
-    pub content: ::core::option::Option<super::super::super::r#type::LocalizedText>,
-    /// Experimental: See
-    /// <https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative>
-    /// for more details.
-    ///
-    /// References that are related to this block of content.
-    #[prost(message, optional, tag = "3")]
-    pub references: ::core::option::Option<References>,
-}
 /// Information about the EV Charge Station hosted in Place.
 /// Terminology follows
 /// <https://afdc.energy.gov/fuels/electricity_infrastructure.html> One port
@@ -352,6 +318,55 @@ impl EvConnectorType {
             _ => None,
         }
     }
+}
+/// Circle with a LatLng as center and radius.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Circle {
+    /// Required. Center latitude and longitude.
+    ///
+    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
+    /// longitude must be within \[-180.0, 180.0\].
+    #[prost(message, optional, tag = "1")]
+    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
+    /// Required. Radius measured in meters. The radius must be within [0.0,
+    /// 50000.0].
+    #[prost(double, tag = "2")]
+    pub radius: f64,
+}
+/// Experimental: See
+/// <https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative>
+/// for more details.
+///
+/// Reference that the generative content is related to.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct References {
+    /// Reviews that serve as references.
+    #[prost(message, repeated, tag = "1")]
+    pub reviews: ::prost::alloc::vec::Vec<Review>,
+    /// The list of resource names of the referenced places. This name can be used
+    /// in other APIs that accept Place resource names.
+    #[prost(string, repeated, tag = "2")]
+    pub places: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// A block of content that can be served individually.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ContentBlock {
+    /// The topic of the content, for example "overview" or "restaurant".
+    #[prost(string, tag = "1")]
+    pub topic: ::prost::alloc::string::String,
+    /// Content related to the topic.
+    #[prost(message, optional, tag = "2")]
+    pub content: ::core::option::Option<super::super::super::r#type::LocalizedText>,
+    /// Experimental: See
+    /// <https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative>
+    /// for more details.
+    ///
+    /// References that are related to this block of content.
+    #[prost(message, optional, tag = "3")]
+    pub references: ::core::option::Option<References>,
 }
 /// The most recent information about fuel options in a gas station. This
 /// information is updated regularly.
@@ -1175,21 +1190,6 @@ impl PriceLevel {
             _ => None,
         }
     }
-}
-/// Circle with a LatLng as center and radius.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Circle {
-    /// Required. Center latitude and longitude.
-    ///
-    /// The range of latitude must be within \[-90.0, 90.0\]. The range of the
-    /// longitude must be within \[-180.0, 180.0\].
-    #[prost(message, optional, tag = "1")]
-    pub center: ::core::option::Option<super::super::super::r#type::LatLng>,
-    /// Required. Radius measured in meters. The radius must be within [0.0,
-    /// 50000.0].
-    #[prost(double, tag = "2")]
-    pub radius: f64,
 }
 /// Request proto for Search Nearby.
 ///
