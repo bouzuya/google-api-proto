@@ -9,7 +9,6 @@ pub struct PendingRenameInfo {
 }
 /// A folder resource. This resource can only exist in a hierarchical namespace
 /// enabled bucket.
-/// Hierarchical namespace buckets are in allowlist preview.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Folder {
@@ -37,7 +36,6 @@ pub struct Folder {
 }
 /// Request message for GetFolder. This operation is only applicable to a
 /// hierarchical namespace enabled bucket.
-/// Hierarchical namespace buckets are in allowlist preview.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetFolderRequest {
@@ -60,7 +58,6 @@ pub struct GetFolderRequest {
 }
 /// Request message for CreateFolder. This operation is only applicable to a
 /// hierarchical namespace enabled bucket.
-/// Hierarchical namespace buckets are in allowlist preview.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateFolderRequest {
@@ -92,7 +89,6 @@ pub struct CreateFolderRequest {
 }
 /// Request message for DeleteFolder. This operation is only applicable to a
 /// hierarchical namespace enabled bucket.
-/// Hierarchical namespace buckets are in allowlist preview.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteFolderRequest {
@@ -115,7 +111,6 @@ pub struct DeleteFolderRequest {
 }
 /// Request message for ListFolders. This operation is only applicable to a
 /// hierarchical namespace enabled bucket.
-/// Hierarchical namespace buckets are in allowlist preview.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListFoldersRequest {
@@ -171,7 +166,6 @@ pub struct ListFoldersResponse {
 }
 /// Request message for RenameFolder. This operation is only applicable to a
 /// hierarchical namespace enabled bucket.
-/// Hierarchical namespace buckets are in allowlist preview.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RenameFolderRequest {
@@ -509,7 +503,6 @@ pub mod storage_control_client {
         }
         /// Creates a new folder. This operation is only applicable to a hierarchical
         /// namespace enabled bucket.
-        /// Hierarchical namespace buckets are in allowlist preview.
         pub async fn create_folder(
             &mut self,
             request: impl tonic::IntoRequest<super::CreateFolderRequest>,
@@ -539,7 +532,6 @@ pub mod storage_control_client {
         }
         /// Permanently deletes an empty folder. This operation is only applicable to a
         /// hierarchical namespace enabled bucket.
-        /// Hierarchical namespace buckets are in allowlist preview.
         pub async fn delete_folder(
             &mut self,
             request: impl tonic::IntoRequest<super::DeleteFolderRequest>,
@@ -569,7 +561,6 @@ pub mod storage_control_client {
         }
         /// Returns metadata for the specified folder. This operation is only
         /// applicable to a hierarchical namespace enabled bucket.
-        /// Hierarchical namespace buckets are in allowlist preview.
         pub async fn get_folder(
             &mut self,
             request: impl tonic::IntoRequest<super::GetFolderRequest>,
@@ -599,7 +590,6 @@ pub mod storage_control_client {
         }
         /// Retrieves a list of folders. This operation is only applicable to a
         /// hierarchical namespace enabled bucket.
-        /// Hierarchical namespace buckets are in allowlist preview.
         pub async fn list_folders(
             &mut self,
             request: impl tonic::IntoRequest<super::ListFoldersRequest>,
@@ -634,7 +624,6 @@ pub mod storage_control_client {
         /// applicable to a hierarchical namespace enabled bucket. During a rename, the
         /// source and destination folders are locked until the long running operation
         /// completes.
-        /// Hierarchical namespace buckets are in allowlist preview.
         pub async fn rename_folder(
             &mut self,
             request: impl tonic::IntoRequest<super::RenameFolderRequest>,
