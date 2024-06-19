@@ -401,11 +401,17 @@ pub struct CloneContext {
     /// instance. Clone all databases if empty.
     #[prost(string, repeated, tag = "9")]
     pub database_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. (Point-in-time recovery for PostgreSQL only) Clone to an instance
-    /// in the specified zone. If no zone is specified, clone to the same zone as
+    /// Optional. Copy clone and point-in-time recovery clone of an instance to the
+    /// specified zone. If no zone is specified, clone to the same primary zone as
     /// the source instance.
     #[prost(string, optional, tag = "10")]
     pub preferred_zone: ::core::option::Option<::prost::alloc::string::String>,
+    /// Optional. Copy clone and point-in-time recovery clone of a regional
+    /// instance in the specified zones. If not specified, clone to the same
+    /// secondary zone as the source instance. This value cannot be the same as the
+    /// preferred_zone field.
+    #[prost(string, optional, tag = "11")]
+    pub preferred_secondary_zone: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// Represents a SQL database on the Cloud SQL instance.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -639,8 +645,9 @@ pub struct DatabaseInstance {
     pub scheduled_maintenance: ::core::option::Option<
         database_instance::SqlScheduledMaintenance,
     >,
-    /// The status indicating if instance satisfiesPzs.
-    /// Reserved for future use.
+    /// This status indicates whether the instance satisfies PZS.
+    ///
+    /// The status is reserved for future use.
     #[prost(message, optional, tag = "35")]
     pub satisfies_pzs: ::core::option::Option<bool>,
     /// Output only. Stores the current database version running on the instance
@@ -949,6 +956,15 @@ pub struct GeminiInstanceConfig {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ReplicationCluster {
+    /// Output only. If set, it indicates this instance has a private service
+    /// access (PSA) dns endpoint that is pointing to the primary instance of the
+    /// cluster. If this instance is the primary, the dns should be pointing to
+    /// this instance. After Switchover or Replica failover, this DNS endpoint
+    /// points to the promoted instance. This is a read-only field, returned to the
+    /// user as information. This field can exist even if a standalone instance
+    /// does not yet have a replica, or had a DR replica that was deleted.
+    #[prost(string, optional, tag = "1")]
+    pub psa_write_endpoint: ::core::option::Option<::prost::alloc::string::String>,
     /// Optional. If the instance is a primary instance, then this field identifies
     /// the disaster recovery (DR) replica. A DR replica is an optional
     /// configuration for Enterprise Plus edition instances. If the instance is a
@@ -2451,7 +2467,8 @@ pub mod operation {
         AutoRestart = 37,
         /// Re-encrypts CMEK instances with latest key version.
         Reencrypt = 38,
-        /// Switches over to replica instance from primary.
+        /// Switches the roles of the primary and replica pair. The target instance
+        /// should be the replica.
         Switchover = 39,
         /// Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
         AcquireSsrsLease = 42,
@@ -2473,6 +2490,9 @@ pub mod operation {
         /// Maintenance typically causes the instance to be unavailable for 1-3
         /// minutes.
         SelfServiceMaintenance = 46,
+        /// Switches a primary instance to a replica. This operation runs as part of
+        /// a switchover operation to the original primary instance.
+        SwitchoverToReplica = 47,
     }
     impl SqlOperationType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -2525,6 +2545,7 @@ pub mod operation {
                 SqlOperationType::ReconfigureOldPrimary => "RECONFIGURE_OLD_PRIMARY",
                 SqlOperationType::ClusterMaintenance => "CLUSTER_MAINTENANCE",
                 SqlOperationType::SelfServiceMaintenance => "SELF_SERVICE_MAINTENANCE",
+                SqlOperationType::SwitchoverToReplica => "SWITCHOVER_TO_REPLICA",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -2574,6 +2595,7 @@ pub mod operation {
                 "RECONFIGURE_OLD_PRIMARY" => Some(Self::ReconfigureOldPrimary),
                 "CLUSTER_MAINTENANCE" => Some(Self::ClusterMaintenance),
                 "SELF_SERVICE_MAINTENANCE" => Some(Self::SelfServiceMaintenance),
+                "SWITCHOVER_TO_REPLICA" => Some(Self::SwitchoverToReplica),
                 _ => None,
             }
         }
@@ -3694,6 +3716,8 @@ pub enum SqlDatabaseVersion {
     Postgres14 = 110,
     /// The database version is PostgreSQL 15.
     Postgres15 = 172,
+    /// The database version is PostgreSQL 16.
+    Postgres16 = 272,
     /// The database version is MySQL 8.
     Mysql80 = 20,
     /// The database major version is MySQL 8.0 and the minor version is 18.
@@ -3730,6 +3754,8 @@ pub enum SqlDatabaseVersion {
     Mysql8040 = 358,
     /// The database version is MySQL 8.4.
     Mysql84 = 398,
+    /// The database version is MySQL 8.4 and the patch version is 0.
+    Mysql840 = 399,
     /// The database version is SQL Server 2019 Standard.
     Sqlserver2019Standard = 26,
     /// The database version is SQL Server 2019 Enterprise.
@@ -3770,6 +3796,7 @@ impl SqlDatabaseVersion {
             SqlDatabaseVersion::Postgres13 => "POSTGRES_13",
             SqlDatabaseVersion::Postgres14 => "POSTGRES_14",
             SqlDatabaseVersion::Postgres15 => "POSTGRES_15",
+            SqlDatabaseVersion::Postgres16 => "POSTGRES_16",
             SqlDatabaseVersion::Mysql80 => "MYSQL_8_0",
             SqlDatabaseVersion::Mysql8018 => "MYSQL_8_0_18",
             SqlDatabaseVersion::Mysql8026 => "MYSQL_8_0_26",
@@ -3788,6 +3815,7 @@ impl SqlDatabaseVersion {
             SqlDatabaseVersion::Mysql8039 => "MYSQL_8_0_39",
             SqlDatabaseVersion::Mysql8040 => "MYSQL_8_0_40",
             SqlDatabaseVersion::Mysql84 => "MYSQL_8_4",
+            SqlDatabaseVersion::Mysql840 => "MYSQL_8_4_0",
             SqlDatabaseVersion::Sqlserver2019Standard => "SQLSERVER_2019_STANDARD",
             SqlDatabaseVersion::Sqlserver2019Enterprise => "SQLSERVER_2019_ENTERPRISE",
             SqlDatabaseVersion::Sqlserver2019Express => "SQLSERVER_2019_EXPRESS",
@@ -3817,6 +3845,7 @@ impl SqlDatabaseVersion {
             "POSTGRES_13" => Some(Self::Postgres13),
             "POSTGRES_14" => Some(Self::Postgres14),
             "POSTGRES_15" => Some(Self::Postgres15),
+            "POSTGRES_16" => Some(Self::Postgres16),
             "MYSQL_8_0" => Some(Self::Mysql80),
             "MYSQL_8_0_18" => Some(Self::Mysql8018),
             "MYSQL_8_0_26" => Some(Self::Mysql8026),
@@ -3835,6 +3864,7 @@ impl SqlDatabaseVersion {
             "MYSQL_8_0_39" => Some(Self::Mysql8039),
             "MYSQL_8_0_40" => Some(Self::Mysql8040),
             "MYSQL_8_4" => Some(Self::Mysql84),
+            "MYSQL_8_4_0" => Some(Self::Mysql840),
             "SQLSERVER_2019_STANDARD" => Some(Self::Sqlserver2019Standard),
             "SQLSERVER_2019_ENTERPRISE" => Some(Self::Sqlserver2019Enterprise),
             "SQLSERVER_2019_EXPRESS" => Some(Self::Sqlserver2019Express),
