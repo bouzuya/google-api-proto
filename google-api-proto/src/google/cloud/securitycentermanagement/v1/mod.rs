@@ -911,6 +911,9 @@ pub mod simulated_finding {
         /// Describes a potential security risk due to a change in the security
         /// posture.
         PostureViolation = 6,
+        /// Describes a combination of security issues that represent a more severe
+        /// security problem when taken together.
+        ToxicCombination = 7,
     }
     impl FindingClass {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -926,6 +929,7 @@ pub mod simulated_finding {
                 FindingClass::Observation => "OBSERVATION",
                 FindingClass::SccError => "SCC_ERROR",
                 FindingClass::PostureViolation => "POSTURE_VIOLATION",
+                FindingClass::ToxicCombination => "TOXIC_COMBINATION",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -938,6 +942,7 @@ pub mod simulated_finding {
                 "OBSERVATION" => Some(Self::Observation),
                 "SCC_ERROR" => Some(Self::SccError),
                 "POSTURE_VIOLATION" => Some(Self::PostureViolation),
+                "TOXIC_COMBINATION" => Some(Self::ToxicCombination),
                 _ => None,
             }
         }
@@ -1470,6 +1475,10 @@ pub struct GetSecurityCenterServiceRequest {
     ///    * web-security-scanner
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
+    /// Flag that, when set, will be used to filter the ModuleSettings that are
+    /// in scope. The default setting is that all modules will be shown.
+    #[prost(bool, tag = "2")]
+    pub show_eligible_modules_only: bool,
 }
 /// Request message for listing Security Command Center services.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1491,6 +1500,10 @@ pub struct ListSecurityCenterServicesRequest {
     /// Optional. The value returned by the last call indicating a continuation.
     #[prost(string, tag = "3")]
     pub page_token: ::prost::alloc::string::String,
+    /// Flag that, when set, will be used to filter the ModuleSettings that are
+    /// in scope. The default setting is that all modules will be shown.
+    #[prost(bool, tag = "4")]
+    pub show_eligible_modules_only: bool,
 }
 /// Response message for listing Security Command Center services.
 #[allow(clippy::derive_partial_eq_without_eq)]
