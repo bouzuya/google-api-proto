@@ -286,6 +286,8 @@ pub mod filestore;
     )
 )]
 pub mod functions;
+#[cfg(any(feature = "google-cloud-gdchardwaremanagement-v1alpha"))]
+pub mod gdchardwaremanagement;
 #[cfg(
     any(
         feature = "google-cloud-gkebackup-logging-v1",
