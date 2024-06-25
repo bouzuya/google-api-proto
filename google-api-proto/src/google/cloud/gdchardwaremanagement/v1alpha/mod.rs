@@ -677,6 +677,9 @@ pub struct Zone {
     /// Optional. Networking configuration for this zone.
     #[prost(message, optional, tag = "11")]
     pub network_config: ::core::option::Option<ZoneNetworkConfig>,
+    /// Output only. Globally unique identifier generated for this Edge Zone.
+    #[prost(string, tag = "12")]
+    pub globally_unique_id: ::prost::alloc::string::String,
 }
 /// Nested message and enum types in `Zone`.
 pub mod zone {
@@ -700,6 +703,12 @@ pub mod zone {
         AdditionalInfoNeeded = 1,
         /// Google is preparing the Zone.
         Preparing = 2,
+        /// Factory turnup has succeeded.
+        ReadyForCustomerFactoryTurnupChecks = 5,
+        /// The Zone is ready for site turnup.
+        ReadyForSiteTurnup = 6,
+        /// The Zone failed in factory turnup checks.
+        CustomerFactoryTurnupChecksFailed = 7,
         /// The Zone is available to use.
         Active = 3,
         /// The Zone has been cancelled.
@@ -715,6 +724,13 @@ pub mod zone {
                 State::Unspecified => "STATE_UNSPECIFIED",
                 State::AdditionalInfoNeeded => "ADDITIONAL_INFO_NEEDED",
                 State::Preparing => "PREPARING",
+                State::ReadyForCustomerFactoryTurnupChecks => {
+                    "READY_FOR_CUSTOMER_FACTORY_TURNUP_CHECKS"
+                }
+                State::ReadyForSiteTurnup => "READY_FOR_SITE_TURNUP",
+                State::CustomerFactoryTurnupChecksFailed => {
+                    "CUSTOMER_FACTORY_TURNUP_CHECKS_FAILED"
+                }
                 State::Active => "ACTIVE",
                 State::Cancelled => "CANCELLED",
             }
@@ -725,6 +741,13 @@ pub mod zone {
                 "STATE_UNSPECIFIED" => Some(Self::Unspecified),
                 "ADDITIONAL_INFO_NEEDED" => Some(Self::AdditionalInfoNeeded),
                 "PREPARING" => Some(Self::Preparing),
+                "READY_FOR_CUSTOMER_FACTORY_TURNUP_CHECKS" => {
+                    Some(Self::ReadyForCustomerFactoryTurnupChecks)
+                }
+                "READY_FOR_SITE_TURNUP" => Some(Self::ReadyForSiteTurnup),
+                "CUSTOMER_FACTORY_TURNUP_CHECKS_FAILED" => {
+                    Some(Self::CustomerFactoryTurnupChecksFailed)
+                }
                 "ACTIVE" => Some(Self::Active),
                 "CANCELLED" => Some(Self::Cancelled),
                 _ => None,
@@ -1907,6 +1930,68 @@ pub struct DeleteZoneRequest {
     #[prost(string, tag = "2")]
     pub request_id: ::prost::alloc::string::String,
 }
+/// A request to signal the state of a zone.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SignalZoneStateRequest {
+    /// Required. The name of the zone.
+    /// Format: `projects/{project}/locations/{location}/zones/{zone}`
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// Optional. An optional unique identifier for this request. See
+    /// [AIP-155](<https://google.aip.dev/155>).
+    #[prost(string, tag = "2")]
+    pub request_id: ::prost::alloc::string::String,
+    /// Required. The state signal to send for this zone.
+    #[prost(enumeration = "signal_zone_state_request::StateSignal", tag = "3")]
+    pub state_signal: i32,
+}
+/// Nested message and enum types in `SignalZoneStateRequest`.
+pub mod signal_zone_state_request {
+    /// Valid state signals for a zone.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum StateSignal {
+        /// State signal of the zone is unspecified.
+        Unspecified = 0,
+        /// The Zone is ready for site turnup.
+        ReadyForSiteTurnup = 1,
+        /// The Zone failed in factory turnup checks.
+        FactoryTurnupChecksFailed = 2,
+    }
+    impl StateSignal {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                StateSignal::Unspecified => "STATE_SIGNAL_UNSPECIFIED",
+                StateSignal::ReadyForSiteTurnup => "READY_FOR_SITE_TURNUP",
+                StateSignal::FactoryTurnupChecksFailed => "FACTORY_TURNUP_CHECKS_FAILED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "STATE_SIGNAL_UNSPECIFIED" => Some(Self::Unspecified),
+                "READY_FOR_SITE_TURNUP" => Some(Self::ReadyForSiteTurnup),
+                "FACTORY_TURNUP_CHECKS_FAILED" => Some(Self::FactoryTurnupChecksFailed),
+                _ => None,
+            }
+        }
+    }
+}
 /// Represents the metadata of a long-running operation.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2976,6 +3061,37 @@ pub mod gdc_hardware_management_client {
                     GrpcMethod::new(
                         "google.cloud.gdchardwaremanagement.v1alpha.GDCHardwareManagement",
                         "DeleteZone",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
+        }
+        /// Signals the state of a zone.
+        pub async fn signal_zone_state(
+            &mut self,
+            request: impl tonic::IntoRequest<super::SignalZoneStateRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::super::super::super::longrunning::Operation>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic::codec::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/google.cloud.gdchardwaremanagement.v1alpha.GDCHardwareManagement/SignalZoneState",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "google.cloud.gdchardwaremanagement.v1alpha.GDCHardwareManagement",
+                        "SignalZoneState",
                     ),
                 );
             self.inner.unary(req, path, codec).await
