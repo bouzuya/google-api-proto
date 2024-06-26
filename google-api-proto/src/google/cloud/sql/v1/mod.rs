@@ -1644,8 +1644,8 @@ pub struct Settings {
     /// Server timezone, relevant only for Cloud SQL for SQL Server.
     #[prost(string, tag = "34")]
     pub time_zone: ::prost::alloc::string::String,
-    /// Specifies advance machine configuration for the instance
-    /// relevant only for SQL Server.
+    /// Specifies advanced machine configuration for the instances relevant only
+    /// for SQL Server.
     #[prost(message, optional, tag = "35")]
     pub advanced_machine_features: ::core::option::Option<AdvancedMachineFeatures>,
     /// Configuration for data cache.
@@ -2088,6 +2088,8 @@ pub enum SqlDatabaseVersion {
     Postgres14 = 110,
     /// The database version is PostgreSQL 15.
     Postgres15 = 172,
+    /// The database version is PostgreSQL 16.
+    Postgres16 = 272,
     /// The database version is MySQL 8.
     Mysql80 = 20,
     /// The database major version is MySQL 8.0 and the minor version is 18.
@@ -2124,6 +2126,8 @@ pub enum SqlDatabaseVersion {
     Mysql8040 = 358,
     /// The database version is MySQL 8.4.
     Mysql84 = 398,
+    /// The database version is MySQL 8.4 and the patch version is 0.
+    Mysql840 = 399,
     /// The database version is SQL Server 2019 Standard.
     Sqlserver2019Standard = 26,
     /// The database version is SQL Server 2019 Enterprise.
@@ -2164,6 +2168,7 @@ impl SqlDatabaseVersion {
             SqlDatabaseVersion::Postgres13 => "POSTGRES_13",
             SqlDatabaseVersion::Postgres14 => "POSTGRES_14",
             SqlDatabaseVersion::Postgres15 => "POSTGRES_15",
+            SqlDatabaseVersion::Postgres16 => "POSTGRES_16",
             SqlDatabaseVersion::Mysql80 => "MYSQL_8_0",
             SqlDatabaseVersion::Mysql8018 => "MYSQL_8_0_18",
             SqlDatabaseVersion::Mysql8026 => "MYSQL_8_0_26",
@@ -2182,6 +2187,7 @@ impl SqlDatabaseVersion {
             SqlDatabaseVersion::Mysql8039 => "MYSQL_8_0_39",
             SqlDatabaseVersion::Mysql8040 => "MYSQL_8_0_40",
             SqlDatabaseVersion::Mysql84 => "MYSQL_8_4",
+            SqlDatabaseVersion::Mysql840 => "MYSQL_8_4_0",
             SqlDatabaseVersion::Sqlserver2019Standard => "SQLSERVER_2019_STANDARD",
             SqlDatabaseVersion::Sqlserver2019Enterprise => "SQLSERVER_2019_ENTERPRISE",
             SqlDatabaseVersion::Sqlserver2019Express => "SQLSERVER_2019_EXPRESS",
@@ -2211,6 +2217,7 @@ impl SqlDatabaseVersion {
             "POSTGRES_13" => Some(Self::Postgres13),
             "POSTGRES_14" => Some(Self::Postgres14),
             "POSTGRES_15" => Some(Self::Postgres15),
+            "POSTGRES_16" => Some(Self::Postgres16),
             "MYSQL_8_0" => Some(Self::Mysql80),
             "MYSQL_8_0_18" => Some(Self::Mysql8018),
             "MYSQL_8_0_26" => Some(Self::Mysql8026),
@@ -2229,6 +2236,7 @@ impl SqlDatabaseVersion {
             "MYSQL_8_0_39" => Some(Self::Mysql8039),
             "MYSQL_8_0_40" => Some(Self::Mysql8040),
             "MYSQL_8_4" => Some(Self::Mysql84),
+            "MYSQL_8_4_0" => Some(Self::Mysql840),
             "SQLSERVER_2019_STANDARD" => Some(Self::Sqlserver2019Standard),
             "SQLSERVER_2019_ENTERPRISE" => Some(Self::Sqlserver2019Enterprise),
             "SQLSERVER_2019_EXPRESS" => Some(Self::Sqlserver2019Express),
@@ -4038,9 +4046,9 @@ pub struct CloneContext {
     /// instance. Clone all databases if empty.
     #[prost(string, repeated, tag = "9")]
     pub database_names: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// Optional. (Point-in-time recovery for PostgreSQL only) Clone to an instance
-    /// in the specified zone. If no zone is specified, clone to the same zone as
-    /// the source instance.
+    /// Optional. Copy clone and point-in-time recovery clone of an instance to the
+    /// specified zone. If no zone is specified, clone to the same primary zone as
+    /// the source instance. This field applies to all DB types.
     #[prost(string, optional, tag = "10")]
     pub preferred_zone: ::core::option::Option<::prost::alloc::string::String>,
 }
@@ -4222,6 +4230,9 @@ pub struct DatabaseInstance {
     /// The current software version on the instance.
     #[prost(string, tag = "42")]
     pub maintenance_version: ::prost::alloc::string::String,
+    /// Output only. All database versions that are available for upgrade.
+    #[prost(message, repeated, tag = "45")]
+    pub upgradable_database_versions: ::prost::alloc::vec::Vec<AvailableDatabaseVersion>,
     #[prost(
         enumeration = "database_instance::SqlNetworkArchitecture",
         optional,
@@ -4522,6 +4533,21 @@ pub struct ReplicationCluster {
     #[prost(bool, tag = "4")]
     pub dr_replica: bool,
 }
+/// An available database version. It can be a major or a minor version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AvailableDatabaseVersion {
+    /// The version's major version name.
+    #[prost(string, optional, tag = "3")]
+    pub major_version: ::core::option::Option<::prost::alloc::string::String>,
+    /// The database version name. For MySQL 8.0, this string provides the database
+    /// major and minor version.
+    #[prost(string, optional, tag = "8")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The database version's display name.
+    #[prost(string, optional, tag = "9")]
+    pub display_name: ::core::option::Option<::prost::alloc::string::String>,
+}
 /// Reschedule options for maintenance windows.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -4821,6 +4847,15 @@ pub mod sql_external_sync_setting_error {
         /// cores of the replica instance is less than 8, and the memory of the
         /// replica is less than 32 GB.
         InsufficientMachineTier = 44,
+        /// The warning message indicates the unsupported extensions will not be
+        /// migrated to the destination.
+        UnsupportedExtensionsNotMigrated = 45,
+        /// The warning message indicates the pg_cron extension and settings will not
+        /// be migrated to the destination.
+        ExtensionsNotMigrated = 46,
+        /// The error message indicates that pg_cron flags are enabled on the
+        /// destination which is not supported during the migration.
+        PgCronFlagEnabledInReplica = 47,
     }
     impl SqlExternalSyncSettingErrorType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -4954,6 +4989,15 @@ pub mod sql_external_sync_setting_error {
                 SqlExternalSyncSettingErrorType::InsufficientMachineTier => {
                     "INSUFFICIENT_MACHINE_TIER"
                 }
+                SqlExternalSyncSettingErrorType::UnsupportedExtensionsNotMigrated => {
+                    "UNSUPPORTED_EXTENSIONS_NOT_MIGRATED"
+                }
+                SqlExternalSyncSettingErrorType::ExtensionsNotMigrated => {
+                    "EXTENSIONS_NOT_MIGRATED"
+                }
+                SqlExternalSyncSettingErrorType::PgCronFlagEnabledInReplica => {
+                    "PG_CRON_FLAG_ENABLED_IN_REPLICA"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -5026,6 +5070,13 @@ pub mod sql_external_sync_setting_error {
                 "PG_SYNC_PARALLEL_LEVEL" => Some(Self::PgSyncParallelLevel),
                 "INSUFFICIENT_DISK_SIZE" => Some(Self::InsufficientDiskSize),
                 "INSUFFICIENT_MACHINE_TIER" => Some(Self::InsufficientMachineTier),
+                "UNSUPPORTED_EXTENSIONS_NOT_MIGRATED" => {
+                    Some(Self::UnsupportedExtensionsNotMigrated)
+                }
+                "EXTENSIONS_NOT_MIGRATED" => Some(Self::ExtensionsNotMigrated),
+                "PG_CRON_FLAG_ENABLED_IN_REPLICA" => {
+                    Some(Self::PgCronFlagEnabledInReplica)
+                }
                 _ => None,
             }
         }

@@ -283,6 +283,7 @@ pub struct LocationMetadata {
     #[prost(string, tag = "1")]
     pub legacy_location_id: ::prost::alloc::string::String,
 }
+/// Identifier for a dataset.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DatasetReference {
@@ -295,6 +296,7 @@ pub struct DatasetReference {
     #[prost(string, tag = "2")]
     pub project_id: ::prost::alloc::string::String,
 }
+/// Configuration for Cloud KMS encryption settings.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EncryptionConfiguration {
@@ -764,9 +766,11 @@ pub struct Access {
     /// An IAM role ID that should be granted to the user, group,
     /// or domain specified in this access entry.
     /// The following legacy mappings will be applied:
-    ///    OWNER <=> roles/bigquery.dataOwner
-    ///    WRITER <=> roles/bigquery.dataEditor
-    ///    READER <=> roles/bigquery.dataViewer
+    ///
+    /// * `OWNER`: `roles/bigquery.dataOwner`
+    /// * `WRITER`: `roles/bigquery.dataEditor`
+    /// * `READER`: `roles/bigquery.dataViewer`
+    ///
     /// This field will accept any of the above formats, but will return only
     /// the legacy format. For example, if you set this field to
     /// "roles/bigquery.dataOwner", it will be returned back as "OWNER".
@@ -787,10 +791,12 @@ pub struct Access {
     #[prost(string, tag = "4")]
     pub domain: ::prost::alloc::string::String,
     /// \[Pick one\] A special group to grant access to. Possible values include:
-    ///    projectOwners: Owners of the enclosing project.
-    ///    projectReaders: Readers of the enclosing project.
-    ///    projectWriters: Writers of the enclosing project.
-    ///    allAuthenticatedUsers: All authenticated BigQuery users.
+    ///
+    ///    * projectOwners: Owners of the enclosing project.
+    ///    * projectReaders: Readers of the enclosing project.
+    ///    * projectWriters: Writers of the enclosing project.
+    ///    * allAuthenticatedUsers: All authenticated BigQuery users.
+    ///
     /// Maps to similarly-named IAM members.
     #[prost(string, tag = "5")]
     pub special_group: ::prost::alloc::string::String,
@@ -822,6 +828,7 @@ pub struct Access {
     #[prost(message, optional, tag = "9")]
     pub dataset: ::core::option::Option<DatasetAccessEntry>,
 }
+/// Represents a BigQuery dataset.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Dataset {
@@ -880,9 +887,9 @@ pub struct Dataset {
     /// The labels associated with this dataset. You can use these
     /// to organize and group your datasets.
     /// You can set this property when inserting or updating a dataset.
-    /// See <a
-    /// href="/bigquery/docs/creating-managing-labels#creating_and_updating_dataset_labels">Creating
-    /// and Updating Dataset Labels</a> for more information.
+    /// See [Creating and Updating Dataset
+    /// Labels](<https://cloud.google.com/bigquery/docs/creating-managing-labels#creating_and_updating_dataset_labels>)
+    /// for more information.
     #[prost(btree_map = "string, string", tag = "9")]
     pub labels: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
@@ -1265,11 +1272,11 @@ pub struct ListDatasetsRequest {
     #[prost(bool, tag = "4")]
     pub all: bool,
     /// An expression for filtering the results of the request by label.
-    /// The syntax is \"labels.&lt;name&gt;\[:&lt;value&gt;\]\".
+    /// The syntax is `labels.<name>\[:<value>\]`.
     /// Multiple filters can be ANDed together by connecting with a space.
-    /// Example: \"labels.department:receiving labels.active\".
+    /// Example: `labels.department:receiving labels.active`.
     /// See [Filtering datasets using
-    /// labels](/bigquery/docs/filtering-labels#filtering_datasets_using_labels)
+    /// labels](<https://cloud.google.com/bigquery/docs/filtering-labels#filtering_datasets_using_labels>)
     /// for details.
     #[prost(string, tag = "5")]
     pub filter: ::prost::alloc::string::String,
@@ -1758,14 +1765,13 @@ impl DecimalTargetType {
 pub struct BigLakeConfiguration {
     /// Required. The connection specifying the credentials to be used to read and
     /// write to external storage, such as Cloud Storage. The connection_id can
-    /// have the form
-    /// "&lt;project\_id&gt;.&lt;location\_id&gt;.&lt;connection\_id&gt;" or
-    /// "projects/&lt;project\_id&gt;/locations/&lt;location\_id&gt;/connections/&lt;connection\_id&gt;".
+    /// have the form `{project}.{location}.{connection_id}` or
+    /// `projects/{project}/locations/{location}/connections/{connection_id}".
     #[prost(string, tag = "1")]
     pub connection_id: ::prost::alloc::string::String,
     /// Required. The fully qualified location prefix of the external folder where
     /// table data is stored. The '*' wildcard character is not allowed. The URI
-    /// should be in the format "gs://bucket/path_to_table/"
+    /// should be in the format `gs://bucket/path_to_table/`
     #[prost(string, tag = "2")]
     pub storage_uri: ::prost::alloc::string::String,
     /// Required. The file format the table data is stored in.
@@ -2056,7 +2062,7 @@ pub mod row_access_policy_service_client {
         }
     }
 }
-/// The partitioning information, which includes managed table,  external table
+/// The partitioning information, which includes managed table, external table
 /// and metastore partitioned table partition information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2065,6 +2071,14 @@ pub struct PartitioningDefinition {
     /// for all partitioning types other than metastore partitioned tables.
     /// BigQuery native tables only support 1 partitioning column. Other table
     /// types may support 0, 1 or more partitioning columns.
+    /// For metastore partitioned tables, the order must match the definition order
+    /// in the Hive Metastore, where it must match the physical layout of the
+    /// table. For example,
+    ///
+    /// CREATE TABLE a_table(id BIGINT, name STRING)
+    /// PARTITIONED BY (city STRING, state STRING).
+    ///
+    /// In this case the values must be \['city', 'state'\] in that order.
     #[prost(message, repeated, tag = "1")]
     pub partitioned_column: ::prost::alloc::vec::Vec<PartitionedColumn>,
 }
@@ -2474,7 +2488,7 @@ pub struct JsonOptions {
 pub struct BigtableColumn {
     /// \[Required\] Qualifier of the column.
     /// Columns in the parent column family that has this exact qualifier are
-    /// exposed as <family field name>.<column field name> field.
+    /// exposed as `<family field name>.<column field name>` field.
     /// If the qualifier is valid UTF-8 string, it can be specified in the
     /// qualifier_string field.  Otherwise, a base-64 encoded value must be set to
     /// qualifier_encoded.
@@ -2561,9 +2575,9 @@ pub struct BigtableColumnFamily {
     /// Optional. Lists of columns that should be exposed as individual fields as
     /// opposed to a list of (column name, value) pairs.
     /// All columns whose qualifier matches a qualifier in this list can be
-    /// accessed as <family field name>.<column field name>.
-    /// Other columns can be accessed as a list through <family field name>.Column
-    /// field.
+    /// accessed as `<family field name>.<column field name>`.
+    /// Other columns can be accessed as a list through
+    /// the `<family field name>.Column` field.
     #[prost(message, repeated, tag = "4")]
     pub columns: ::prost::alloc::vec::Vec<BigtableColumn>,
     /// Optional. If this is set only the latest version of value are exposed for
@@ -2728,8 +2742,8 @@ pub struct ExternalDataConfiguration {
     /// Optional. The connection specifying the credentials to be used to read
     /// external storage, such as Azure Blob, Cloud Storage, or S3. The
     /// connection_id can have the form
-    /// "&lt;project\_id&gt;.&lt;location\_id&gt;.&lt;connection\_id&gt;" or
-    /// "projects/&lt;project\_id&gt;/locations/&lt;location\_id&gt;/connections/&lt;connection\_id&gt;".
+    /// `{project_id}.{location_id};{connection_id}` or
+    /// `projects/{project_id}/locations/{location_id}/connections/{connection_id}`.
     #[prost(string, tag = "14")]
     pub connection_id: ::prost::alloc::string::String,
     /// Defines the list of possible SQL data types to which the source decimal
@@ -4238,6 +4252,11 @@ pub struct DestinationTableProperties {
 /// format in which a you can specify a query label, see labels
 /// in the JobConfiguration resource type:
 /// <https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#jobconfiguration>
+///
+/// * **service_account**: indicates the service account to use to run a
+/// continuous query. If set, the query job uses the service account to access
+/// Google Cloud resources. Service account access is bounded by the IAM
+/// permissions that you have granted to the service account.
 ///
 /// Additional properties are allowed, but ignored. Specifying multiple
 /// connection properties with the same key returns an error.
@@ -7281,7 +7300,8 @@ pub mod model {
         TensorflowLite = 26,
         /// An imported ONNX model.
         Onnx = 28,
-        /// Model to capture the manual preprocessing logic in the transform clause.
+        /// Model to capture the columns and logic in the TRANSFORM clause along with
+        /// statistics useful for ML analytic functions.
         TransformOnly = 29,
     }
     impl ModelType {
@@ -10085,6 +10105,10 @@ pub struct TableMetadataCacheUsage {
     /// the job.
     #[prost(string, optional, tag = "3")]
     pub explanation: ::core::option::Option<::prost::alloc::string::String>,
+    /// Duration since last refresh as of this job for managed tables (indicates
+    /// metadata cache staleness as seen by this job).
+    #[prost(message, optional, tag = "5")]
+    pub staleness: ::core::option::Option<::prost_types::Duration>,
     /// [Table type](/bigquery/docs/reference/rest/v2/tables#Table.FIELDS.type).
     #[prost(string, tag = "6")]
     pub table_type: ::prost::alloc::string::String,
@@ -10205,10 +10229,12 @@ pub struct CancelJobRequest {
     pub job_id: ::prost::alloc::string::String,
     /// The geographic location of the job. You must specify the location to run
     /// the job for the following scenarios:
-    /// <ul><li> If the location to run a job is not in the `us` or
-    /// the `eu` multi-regional location</li>
-    /// <li> If the job's location is in a single region (for example,
-    /// `us-central1`) </li></ul>
+    ///
+    /// * If the location to run a job is not in the `us` or
+    ///    the `eu` multi-regional location
+    /// * If the job's location is in a single region (for example,
+    ///    `us-central1`)
+    ///
     /// For more information, see
     /// <https://cloud.google.com/bigquery/docs/locations#specifying_your_location.>
     #[prost(string, tag = "3")]
@@ -10237,10 +10263,12 @@ pub struct GetJobRequest {
     pub job_id: ::prost::alloc::string::String,
     /// The geographic location of the job. You must specify the location to run
     /// the job for the following scenarios:
-    /// <ul><li> If the location to run a job is not in the `us` or
-    /// the `eu` multi-regional location</li>
-    /// <li> If the job's location is in a single region (for example,
-    /// `us-central1`) </li></ul>
+    ///
+    /// * If the location to run a job is not in the `us` or
+    ///    the `eu` multi-regional location
+    /// * If the job's location is in a single region (for example,
+    ///    `us-central1`)
+    ///
     /// For more information, see
     /// <https://cloud.google.com/bigquery/docs/locations#specifying_your_location.>
     #[prost(string, tag = "3")]
@@ -10498,10 +10526,12 @@ pub struct GetQueryResultsRequest {
     pub timeout_ms: ::core::option::Option<u32>,
     /// The geographic location of the job. You must specify the location to run
     /// the job for the following scenarios:
-    /// <ul><li> If the location to run a job is not in the `us` or
-    /// the `eu` multi-regional location</li>
-    /// <li> If the job's location is in a single region (for example,
-    /// `us-central1`) </li></ul>
+    ///
+    /// * If the location to run a job is not in the `us` or
+    ///    the `eu` multi-regional location
+    /// * If the job's location is in a single region (for example,
+    /// `us-central1`)
+    ///
     /// For more information, see
     /// <https://cloud.google.com/bigquery/docs/locations#specifying_your_location.>
     #[prost(string, tag = "7")]

@@ -677,6 +677,9 @@ pub struct DatabaseInstance {
     /// The current software version on the instance.
     #[prost(string, tag = "42")]
     pub maintenance_version: ::prost::alloc::string::String,
+    /// Output only. All database versions that are available for upgrade.
+    #[prost(message, repeated, tag = "45")]
+    pub upgradable_database_versions: ::prost::alloc::vec::Vec<AvailableDatabaseVersion>,
     /// The SQL network architecture for the instance.
     #[prost(
         enumeration = "database_instance::SqlNetworkArchitecture",
@@ -977,6 +980,21 @@ pub struct ReplicationCluster {
     /// replica. This field is not set if the instance is a primary instance.
     #[prost(bool, optional, tag = "4")]
     pub dr_replica: ::core::option::Option<bool>,
+}
+/// An available database version. It can be a major or a minor version.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AvailableDatabaseVersion {
+    /// The version's major version name.
+    #[prost(string, optional, tag = "3")]
+    pub major_version: ::core::option::Option<::prost::alloc::string::String>,
+    /// The database version name. For MySQL 8.0, this string provides the database
+    /// major and minor version.
+    #[prost(string, optional, tag = "8")]
+    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    /// The database version's display name.
+    #[prost(string, optional, tag = "9")]
+    pub display_name: ::core::option::Option<::prost::alloc::string::String>,
 }
 /// Database list response.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1701,6 +1719,15 @@ pub mod sql_external_sync_setting_error {
         /// cores of the replica instance is less than 8, and the memory of the
         /// replica is less than 32 GB.
         InsufficientMachineTier = 44,
+        /// The warning message indicates the unsupported extensions will not be
+        /// migrated to the destination.
+        UnsupportedExtensionsNotMigrated = 45,
+        /// The warning message indicates the pg_cron extension and settings will not
+        /// be migrated to the destination.
+        ExtensionsNotMigrated = 46,
+        /// The error message indicates that pg_cron flags are enabled on the
+        /// destination which is not supported during the migration.
+        PgCronFlagEnabledInReplica = 47,
     }
     impl SqlExternalSyncSettingErrorType {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1834,6 +1861,15 @@ pub mod sql_external_sync_setting_error {
                 SqlExternalSyncSettingErrorType::InsufficientMachineTier => {
                     "INSUFFICIENT_MACHINE_TIER"
                 }
+                SqlExternalSyncSettingErrorType::UnsupportedExtensionsNotMigrated => {
+                    "UNSUPPORTED_EXTENSIONS_NOT_MIGRATED"
+                }
+                SqlExternalSyncSettingErrorType::ExtensionsNotMigrated => {
+                    "EXTENSIONS_NOT_MIGRATED"
+                }
+                SqlExternalSyncSettingErrorType::PgCronFlagEnabledInReplica => {
+                    "PG_CRON_FLAG_ENABLED_IN_REPLICA"
+                }
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1906,6 +1942,13 @@ pub mod sql_external_sync_setting_error {
                 "PG_SYNC_PARALLEL_LEVEL" => Some(Self::PgSyncParallelLevel),
                 "INSUFFICIENT_DISK_SIZE" => Some(Self::InsufficientDiskSize),
                 "INSUFFICIENT_MACHINE_TIER" => Some(Self::InsufficientMachineTier),
+                "UNSUPPORTED_EXTENSIONS_NOT_MIGRATED" => {
+                    Some(Self::UnsupportedExtensionsNotMigrated)
+                }
+                "EXTENSIONS_NOT_MIGRATED" => Some(Self::ExtensionsNotMigrated),
+                "PG_CRON_FLAG_ENABLED_IN_REPLICA" => {
+                    Some(Self::PgCronFlagEnabledInReplica)
+                }
                 _ => None,
             }
         }
@@ -2971,8 +3014,8 @@ pub struct Settings {
     /// Server timezone, relevant only for Cloud SQL for SQL Server.
     #[prost(string, tag = "34")]
     pub time_zone: ::prost::alloc::string::String,
-    /// Specifies advance machine configuration for the instance
-    /// relevant only for SQL Server.
+    /// Specifies advanced machine configuration for the instances relevant only
+    /// for SQL Server.
     #[prost(message, optional, tag = "35")]
     pub advanced_machine_features: ::core::option::Option<AdvancedMachineFeatures>,
     /// Configuration for data cache.
