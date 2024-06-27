@@ -9780,6 +9780,9 @@ pub mod data_scan {
         /// The time when the latest DataScanJob ended.
         #[prost(message, optional, tag = "5")]
         pub latest_job_end_time: ::core::option::Option<::prost_types::Timestamp>,
+        /// Optional. The time when the DataScanJob execution was created.
+        #[prost(message, optional, tag = "6")]
+        pub latest_job_create_time: ::core::option::Option<::prost_types::Timestamp>,
     }
     /// Data Scan related setting.
     /// It is required and immutable which means once data_quality_spec is set, it
