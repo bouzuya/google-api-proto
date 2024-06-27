@@ -268,6 +268,103 @@ pub struct BackupDisasterRecovery {
     #[prost(message, optional, tag = "10")]
     pub backup_create_time: ::core::option::Option<::prost_types::Timestamp>,
 }
+/// Fields related to Google Cloud Armor findings.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CloudArmor {
+    /// Information about the [Google Cloud Armor security
+    /// policy](<https://cloud.google.com/armor/docs/security-policy-overview>)
+    /// relevant to the finding.
+    #[prost(message, optional, tag = "1")]
+    pub security_policy: ::core::option::Option<SecurityPolicy>,
+    /// Information about incoming requests evaluated by [Google Cloud Armor
+    /// security
+    /// policies](<https://cloud.google.com/armor/docs/security-policy-overview>).
+    #[prost(message, optional, tag = "2")]
+    pub requests: ::core::option::Option<Requests>,
+    /// Information about potential Layer 7 DDoS attacks identified by [Google
+    /// Cloud Armor Adaptive
+    /// Protection](<https://cloud.google.com/armor/docs/adaptive-protection-overview>).
+    #[prost(message, optional, tag = "3")]
+    pub adaptive_protection: ::core::option::Option<AdaptiveProtection>,
+    /// Information about DDoS attack volume and classification.
+    #[prost(message, optional, tag = "4")]
+    pub attack: ::core::option::Option<Attack>,
+    /// Distinguish between volumetric & protocol DDoS attack and
+    /// application layer attacks. For example, "L3_4" for Layer 3 and Layer 4 DDoS
+    /// attacks, or "L_7" for Layer 7 DDoS attacks.
+    #[prost(string, tag = "5")]
+    pub threat_vector: ::prost::alloc::string::String,
+    /// Duration of attack from the start until the current moment (updated every 5
+    /// minutes).
+    #[prost(message, optional, tag = "6")]
+    pub duration: ::core::option::Option<::prost_types::Duration>,
+}
+/// Information about the [Google Cloud Armor security
+/// policy](<https://cloud.google.com/armor/docs/security-policy-overview>)
+/// relevant to the finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SecurityPolicy {
+    /// The name of the Google Cloud Armor security policy, for example,
+    /// "my-security-policy".
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The type of Google Cloud Armor security policy for example, 'backend
+    /// security policy', 'edge security policy', 'network edge security policy',
+    /// or 'always-on DDoS protection'.
+    #[prost(string, tag = "2")]
+    pub r#type: ::prost::alloc::string::String,
+    /// Whether or not the associated rule or policy is in preview mode.
+    #[prost(bool, tag = "3")]
+    pub preview: bool,
+}
+/// Information about the requests relevant to the finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Requests {
+    /// For 'Increasing deny ratio', the ratio is the denied traffic divided by the
+    /// allowed traffic. For 'Allowed traffic spike', the ratio is the allowed
+    /// traffic in the short term divided by allowed traffic in the long term.
+    #[prost(double, tag = "1")]
+    pub ratio: f64,
+    /// Allowed RPS (requests per second) in the short term.
+    #[prost(int32, tag = "2")]
+    pub short_term_allowed: i32,
+    /// Allowed RPS (requests per second) over the long term.
+    #[prost(int32, tag = "3")]
+    pub long_term_allowed: i32,
+    /// Denied RPS (requests per second) over the long term.
+    #[prost(int32, tag = "4")]
+    pub long_term_denied: i32,
+}
+/// Information about [Google Cloud Armor Adaptive
+/// Protection](<https://cloud.google.com/armor/docs/cloud-armor-overview#google-cloud-armor-adaptive-protection>).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AdaptiveProtection {
+    /// A score of 0 means that there is low confidence that the detected event is
+    /// an actual attack. A score of 1 means that there is high confidence that the
+    /// detected event is an attack. See the [Adaptive Protection
+    /// documentation](<https://cloud.google.com/armor/docs/adaptive-protection-overview#configure-alert-tuning>)
+    /// for further explanation.
+    #[prost(double, tag = "1")]
+    pub confidence: f64,
+}
+/// Information about DDoS attack volume and classification.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Attack {
+    /// Total PPS (packets per second) volume of attack.
+    #[prost(int32, tag = "1")]
+    pub volume_pps: i32,
+    /// Total BPS (bytes per second) volume of attack.
+    #[prost(int32, tag = "2")]
+    pub volume_bps: i32,
+    /// Type of attack, for example, 'SYN-flood', 'NTP-udp', or 'CHARGEN-udp'.
+    #[prost(string, tag = "3")]
+    pub classification: ::prost::alloc::string::String,
+}
 /// The [data profile](<https://cloud.google.com/dlp/docs/data-profiles>)
 /// associated with the finding.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1434,7 +1531,7 @@ pub mod mitre_attack {
     }
     /// MITRE ATT&CK techniques that can be referenced by SCC findings.
     /// See: <https://attack.mitre.org/techniques/enterprise/>
-    /// Next ID: 59
+    /// Next ID: 63
     #[derive(
         Clone,
         Copy,
@@ -1466,6 +1563,8 @@ pub mod mitre_attack {
         CommandAndScriptingInterpreter = 6,
         /// T1059.004
         UnixShell = 7,
+        /// T1059.006
+        Python = 59,
         /// T1069
         PermissionGroupsDiscovery = 18,
         /// T1069.003
@@ -1565,7 +1664,13 @@ pub mod mitre_attack {
         /// T1595.001
         ScanningIpBlocks = 2,
         /// T1613
+        ContainerAdministrationCommand = 60,
+        /// T1611
+        EscapeToHost = 61,
+        /// T1613
         ContainerAndResourceDiscovery = 57,
+        /// T1649
+        StealOrForgeAuthenticationCertificates = 62,
     }
     impl Technique {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -1589,6 +1694,7 @@ pub mod mitre_attack {
                     "COMMAND_AND_SCRIPTING_INTERPRETER"
                 }
                 Technique::UnixShell => "UNIX_SHELL",
+                Technique::Python => "PYTHON",
                 Technique::PermissionGroupsDiscovery => "PERMISSION_GROUPS_DISCOVERY",
                 Technique::CloudGroups => "CLOUD_GROUPS",
                 Technique::ApplicationLayerProtocol => "APPLICATION_LAYER_PROTOCOL",
@@ -1652,8 +1758,15 @@ pub mod mitre_attack {
                 Technique::ObtainCapabilities => "OBTAIN_CAPABILITIES",
                 Technique::ActiveScanning => "ACTIVE_SCANNING",
                 Technique::ScanningIpBlocks => "SCANNING_IP_BLOCKS",
+                Technique::ContainerAdministrationCommand => {
+                    "CONTAINER_ADMINISTRATION_COMMAND"
+                }
+                Technique::EscapeToHost => "ESCAPE_TO_HOST",
                 Technique::ContainerAndResourceDiscovery => {
                     "CONTAINER_AND_RESOURCE_DISCOVERY"
+                }
+                Technique::StealOrForgeAuthenticationCertificates => {
+                    "STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES"
                 }
             }
         }
@@ -1675,6 +1788,7 @@ pub mod mitre_attack {
                     Some(Self::CommandAndScriptingInterpreter)
                 }
                 "UNIX_SHELL" => Some(Self::UnixShell),
+                "PYTHON" => Some(Self::Python),
                 "PERMISSION_GROUPS_DISCOVERY" => Some(Self::PermissionGroupsDiscovery),
                 "CLOUD_GROUPS" => Some(Self::CloudGroups),
                 "APPLICATION_LAYER_PROTOCOL" => Some(Self::ApplicationLayerProtocol),
@@ -1740,13 +1854,39 @@ pub mod mitre_attack {
                 "OBTAIN_CAPABILITIES" => Some(Self::ObtainCapabilities),
                 "ACTIVE_SCANNING" => Some(Self::ActiveScanning),
                 "SCANNING_IP_BLOCKS" => Some(Self::ScanningIpBlocks),
+                "CONTAINER_ADMINISTRATION_COMMAND" => {
+                    Some(Self::ContainerAdministrationCommand)
+                }
+                "ESCAPE_TO_HOST" => Some(Self::EscapeToHost),
                 "CONTAINER_AND_RESOURCE_DISCOVERY" => {
                     Some(Self::ContainerAndResourceDiscovery)
+                }
+                "STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES" => {
+                    Some(Self::StealOrForgeAuthenticationCertificates)
                 }
                 _ => None,
             }
         }
     }
+}
+/// Represents a Jupyter notebook IPYNB file, such as a [Colab Enterprise
+/// notebook](<https://cloud.google.com/colab/docs/introduction>) file, that is
+/// associated with a finding.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Notebook {
+    /// The name of the notebook.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The source notebook service, for example, "Colab Enterprise".
+    #[prost(string, tag = "2")]
+    pub service: ::prost::alloc::string::String,
+    /// The user ID of the latest author to modify the notebook.
+    #[prost(string, tag = "3")]
+    pub last_author: ::prost::alloc::string::String,
+    /// The most recent time the notebook was updated.
+    #[prost(message, optional, tag = "4")]
+    pub notebook_update_time: ::core::option::Option<::prost_types::Timestamp>,
 }
 /// Contains information about the org policies associated with the finding.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2734,6 +2874,12 @@ pub struct Finding {
     /// The load balancers associated with the finding.
     #[prost(message, repeated, tag = "50")]
     pub load_balancers: ::prost::alloc::vec::Vec<LoadBalancer>,
+    /// Fields related to Cloud Armor findings.
+    #[prost(message, optional, tag = "51")]
+    pub cloud_armor: ::core::option::Option<CloudArmor>,
+    /// Notebook associated with the finding.
+    #[prost(message, optional, tag = "55")]
+    pub notebook: ::core::option::Option<Notebook>,
     /// Contains details about a group of security issues that, when the issues
     /// occur together, represent a greater risk than when the issues occur
     /// independently. A group of such issues is referred to as a toxic
@@ -3001,6 +3147,19 @@ pub mod finding {
         }
     }
 }
+/// Message that contains the resource name and display name of a folder
+/// resource.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Folder {
+    /// Full resource name of this folder. See:
+    /// <https://cloud.google.com/apis/design/resource_names#full_resource_name>
+    #[prost(string, tag = "1")]
+    pub resource_folder: ::prost::alloc::string::String,
+    /// The user defined display name for this folder.
+    #[prost(string, tag = "2")]
+    pub resource_folder_display_name: ::prost::alloc::string::String,
+}
 /// Information related to the Google Cloud resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3015,6 +3174,326 @@ pub struct Resource {
     /// The full resource type of the resource.
     #[prost(string, tag = "3")]
     pub r#type: ::prost::alloc::string::String,
+    /// Indicates which cloud provider the finding is from.
+    #[prost(enumeration = "CloudProvider", tag = "4")]
+    pub cloud_provider: i32,
+    /// The service or resource provider associated with the resource.
+    #[prost(string, tag = "5")]
+    pub service: ::prost::alloc::string::String,
+    /// The region or location of the service (if applicable).
+    #[prost(string, tag = "6")]
+    pub location: ::prost::alloc::string::String,
+    /// Provides the path to the resource within the resource hierarchy.
+    #[prost(message, optional, tag = "10")]
+    pub resource_path: ::core::option::Option<ResourcePath>,
+    /// A string representation of the resource path.
+    /// For Google Cloud, it has the format of
+    /// organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}
+    /// where there can be any number of folders.
+    /// For AWS, it has the format of
+    /// org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+    /// where there can be any number of organizational units.
+    /// For Azure, it has the format of
+    /// mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+    /// where there can be any number of management groups.
+    #[prost(string, tag = "11")]
+    pub resource_path_string: ::prost::alloc::string::String,
+    #[prost(oneof = "resource::CloudProviderMetadata", tags = "7, 8, 9")]
+    pub cloud_provider_metadata: ::core::option::Option<resource::CloudProviderMetadata>,
+}
+/// Nested message and enum types in `Resource`.
+pub mod resource {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum CloudProviderMetadata {
+        /// The GCP metadata associated with the finding.
+        #[prost(message, tag = "7")]
+        GcpMetadata(super::GcpMetadata),
+        /// The AWS metadata associated with the finding.
+        #[prost(message, tag = "8")]
+        AwsMetadata(super::AwsMetadata),
+        /// The Azure metadata associated with the finding.
+        #[prost(message, tag = "9")]
+        AzureMetadata(super::AzureMetadata),
+    }
+}
+/// GCP metadata associated with the resource, only applicable if the finding's
+/// cloud provider is Google Cloud Platform.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GcpMetadata {
+    /// The full resource name of project that the resource belongs to.
+    #[prost(string, tag = "1")]
+    pub project: ::prost::alloc::string::String,
+    /// The project ID that the resource belongs to.
+    #[prost(string, tag = "2")]
+    pub project_display_name: ::prost::alloc::string::String,
+    /// The full resource name of resource's parent.
+    #[prost(string, tag = "3")]
+    pub parent: ::prost::alloc::string::String,
+    /// The human readable name of resource's parent.
+    #[prost(string, tag = "4")]
+    pub parent_display_name: ::prost::alloc::string::String,
+    /// Output only. Contains a Folder message for each folder in the assets
+    /// ancestry. The first folder is the deepest nested folder, and the last
+    /// folder is the folder directly under the Organization.
+    #[prost(message, repeated, tag = "5")]
+    pub folders: ::prost::alloc::vec::Vec<Folder>,
+    /// The name of the organization that the resource belongs to.
+    #[prost(string, tag = "6")]
+    pub organization: ::prost::alloc::string::String,
+}
+/// AWS metadata associated with the resource, only applicable if the finding's
+/// cloud provider is Amazon Web Services.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AwsMetadata {
+    /// The AWS organization associated with the resource.
+    #[prost(message, optional, tag = "1")]
+    pub organization: ::core::option::Option<aws_metadata::AwsOrganization>,
+    /// A list of AWS organizational units associated with the resource, ordered
+    /// from lowest level (closest to the account) to highest level.
+    #[prost(message, repeated, tag = "2")]
+    pub organizational_units: ::prost::alloc::vec::Vec<
+        aws_metadata::AwsOrganizationalUnit,
+    >,
+    /// The AWS account associated with the resource.
+    #[prost(message, optional, tag = "3")]
+    pub account: ::core::option::Option<aws_metadata::AwsAccount>,
+}
+/// Nested message and enum types in `AwsMetadata`.
+pub mod aws_metadata {
+    /// An organization is a collection of accounts that are centrally managed
+    /// together using consolidated billing, organized hierarchically with
+    /// organizational units (OUs), and controlled with policies.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AwsOrganization {
+        /// The unique identifier (ID) for the organization. The regex pattern for an
+        /// organization ID string requires "o-" followed by from 10 to 32 lowercase
+        /// letters or digits.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+    }
+    /// An Organizational Unit (OU) is a container of AWS accounts within a root of
+    /// an organization. Policies that are attached to an OU apply to all accounts
+    /// contained in that OU and in any child OUs.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AwsOrganizationalUnit {
+        /// The unique identifier (ID) associated with this OU. The regex pattern for
+        /// an organizational unit ID string requires "ou-" followed by from 4 to 32
+        /// lowercase letters or digits (the ID of the root that contains the OU).
+        /// This string is followed by a second "-" dash and from 8 to 32 additional
+        /// lowercase letters or digits. For example, "ou-ab12-cd34ef56".
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The friendly name of the OU.
+        #[prost(string, tag = "2")]
+        pub name: ::prost::alloc::string::String,
+    }
+    /// An AWS account that is a member of an organization.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AwsAccount {
+        /// The unique identifier (ID) of the account, containing exactly 12 digits.
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The friendly name of this account.
+        #[prost(string, tag = "2")]
+        pub name: ::prost::alloc::string::String,
+    }
+}
+/// Azure metadata associated with the resource, only applicable if the finding's
+/// cloud provider is Microsoft Azure.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AzureMetadata {
+    /// A list of Azure management groups associated with the resource, ordered
+    /// from lowest level (closest to the subscription) to highest level.
+    #[prost(message, repeated, tag = "1")]
+    pub management_groups: ::prost::alloc::vec::Vec<
+        azure_metadata::AzureManagementGroup,
+    >,
+    /// The Azure subscription associated with the resource.
+    #[prost(message, optional, tag = "2")]
+    pub subscription: ::core::option::Option<azure_metadata::AzureSubscription>,
+    /// The Azure resource group associated with the resource.
+    #[prost(message, optional, tag = "3")]
+    pub resource_group: ::core::option::Option<azure_metadata::AzureResourceGroup>,
+}
+/// Nested message and enum types in `AzureMetadata`.
+pub mod azure_metadata {
+    /// Represents an Azure management group.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AzureManagementGroup {
+        /// The UUID of the Azure management group, for example,
+        /// "20000000-0001-0000-0000-000000000000".
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The display name of the Azure management group.
+        #[prost(string, tag = "2")]
+        pub display_name: ::prost::alloc::string::String,
+    }
+    /// Represents an Azure subscription.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AzureSubscription {
+        /// The UUID of the Azure subscription, for example,
+        /// "291bba3f-e0a5-47bc-a099-3bdcb2a50a05".
+        #[prost(string, tag = "1")]
+        pub id: ::prost::alloc::string::String,
+        /// The display name of the Azure subscription.
+        #[prost(string, tag = "2")]
+        pub display_name: ::prost::alloc::string::String,
+    }
+    /// Represents an Azure resource group.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct AzureResourceGroup {
+        /// The name of the Azure resource group. This is not a UUID.
+        #[prost(string, tag = "1")]
+        pub name: ::prost::alloc::string::String,
+    }
+}
+/// Represents the path of resources leading up to the resource this finding is
+/// about.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ResourcePath {
+    /// The list of nodes that make the up resource path, ordered from lowest
+    /// level to highest level.
+    #[prost(message, repeated, tag = "1")]
+    pub nodes: ::prost::alloc::vec::Vec<resource_path::ResourcePathNode>,
+}
+/// Nested message and enum types in `ResourcePath`.
+pub mod resource_path {
+    /// A node within the resource path. Each node represents a resource within the
+    /// resource hierarchy.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(Clone, PartialEq, ::prost::Message)]
+    pub struct ResourcePathNode {
+        /// The type of resource this node represents.
+        #[prost(enumeration = "ResourcePathNodeType", tag = "1")]
+        pub node_type: i32,
+        /// The ID of the resource this node represents.
+        #[prost(string, tag = "2")]
+        pub id: ::prost::alloc::string::String,
+        /// The display name of the resource this node represents.
+        #[prost(string, tag = "3")]
+        pub display_name: ::prost::alloc::string::String,
+    }
+    /// The type of resource the node represents.
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum ResourcePathNodeType {
+        /// Node type is unspecified.
+        Unspecified = 0,
+        /// The node represents a Google Cloud organization.
+        GcpOrganization = 1,
+        /// The node represents a Google Cloud folder.
+        GcpFolder = 2,
+        /// The node represents a Google Cloud project.
+        GcpProject = 3,
+        /// The node represents an AWS organization.
+        AwsOrganization = 4,
+        /// The node represents an AWS organizational unit.
+        AwsOrganizationalUnit = 5,
+        /// The node represents an AWS account.
+        AwsAccount = 6,
+        /// The node represents an Azure management group.
+        AzureManagementGroup = 7,
+        /// The node represents an Azure subscription.
+        AzureSubscription = 8,
+        /// The node represents an Azure resource group.
+        AzureResourceGroup = 9,
+    }
+    impl ResourcePathNodeType {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                ResourcePathNodeType::Unspecified => {
+                    "RESOURCE_PATH_NODE_TYPE_UNSPECIFIED"
+                }
+                ResourcePathNodeType::GcpOrganization => "GCP_ORGANIZATION",
+                ResourcePathNodeType::GcpFolder => "GCP_FOLDER",
+                ResourcePathNodeType::GcpProject => "GCP_PROJECT",
+                ResourcePathNodeType::AwsOrganization => "AWS_ORGANIZATION",
+                ResourcePathNodeType::AwsOrganizationalUnit => "AWS_ORGANIZATIONAL_UNIT",
+                ResourcePathNodeType::AwsAccount => "AWS_ACCOUNT",
+                ResourcePathNodeType::AzureManagementGroup => "AZURE_MANAGEMENT_GROUP",
+                ResourcePathNodeType::AzureSubscription => "AZURE_SUBSCRIPTION",
+                ResourcePathNodeType::AzureResourceGroup => "AZURE_RESOURCE_GROUP",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESOURCE_PATH_NODE_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
+                "GCP_ORGANIZATION" => Some(Self::GcpOrganization),
+                "GCP_FOLDER" => Some(Self::GcpFolder),
+                "GCP_PROJECT" => Some(Self::GcpProject),
+                "AWS_ORGANIZATION" => Some(Self::AwsOrganization),
+                "AWS_ORGANIZATIONAL_UNIT" => Some(Self::AwsOrganizationalUnit),
+                "AWS_ACCOUNT" => Some(Self::AwsAccount),
+                "AZURE_MANAGEMENT_GROUP" => Some(Self::AzureManagementGroup),
+                "AZURE_SUBSCRIPTION" => Some(Self::AzureSubscription),
+                "AZURE_RESOURCE_GROUP" => Some(Self::AzureResourceGroup),
+                _ => None,
+            }
+        }
+    }
+}
+/// The cloud provider the finding pertains to.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum CloudProvider {
+    /// The cloud provider is unspecified.
+    Unspecified = 0,
+    /// The cloud provider is Google Cloud Platform.
+    GoogleCloudPlatform = 1,
+    /// The cloud provider is Amazon Web Services.
+    AmazonWebServices = 2,
+    /// The cloud provider is Microsoft Azure.
+    MicrosoftAzure = 3,
+}
+impl CloudProvider {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            CloudProvider::Unspecified => "CLOUD_PROVIDER_UNSPECIFIED",
+            CloudProvider::GoogleCloudPlatform => "GOOGLE_CLOUD_PLATFORM",
+            CloudProvider::AmazonWebServices => "AMAZON_WEB_SERVICES",
+            CloudProvider::MicrosoftAzure => "MICROSOFT_AZURE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CLOUD_PROVIDER_UNSPECIFIED" => Some(Self::Unspecified),
+            "GOOGLE_CLOUD_PLATFORM" => Some(Self::GoogleCloudPlatform),
+            "AMAZON_WEB_SERVICES" => Some(Self::AmazonWebServices),
+            "MICROSOFT_AZURE" => Some(Self::MicrosoftAzure),
+            _ => None,
+        }
+    }
 }
 /// Cloud SCC's Notification
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3440,6 +3919,9 @@ pub struct Simulation {
     pub resource_value_configs_metadata: ::prost::alloc::vec::Vec<
         ResourceValueConfigMetadata,
     >,
+    /// Indicates which cloud provider was used in this simulation.
+    #[prost(enumeration = "CloudProvider", tag = "4")]
+    pub cloud_provider: i32,
 }
 /// A path that an attacker could take to reach an exposed resource.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -3592,54 +4074,58 @@ pub mod attack_path {
         pub destination: ::prost::alloc::string::String,
     }
 }
-/// A resource value config (RVC) is a mapping configuration of user's resources
-/// to resource values. Used in Attack path simulations.
+/// A resource value configuration (RVC) is a mapping configuration of user's
+/// resources to resource values. Used in Attack path simulations.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ResourceValueConfig {
-    /// Name for the resource value config
+    /// Name for the resource value configuration
     #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// Resource value level this expression represents
     /// Only required when there is no SDP mapping in the request
     #[prost(enumeration = "ResourceValue", tag = "2")]
     pub resource_value: i32,
-    /// Required. Tag values combined with AND to check against.
+    /// Required. Tag values combined with <code>AND</code> to check against.
     /// Values in the form "tagValues/123"
-    /// E.g. \[ "tagValues/123", "tagValues/456", "tagValues/789" \]
+    /// Example: \[ "tagValues/123", "tagValues/456", "tagValues/789" \]
     /// <https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing>
     #[prost(string, repeated, tag = "3")]
     pub tag_values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     /// Apply resource_value only to resources that match resource_type.
-    /// resource_type will be checked with "AND" of other resources.
-    /// E.g. "storage.googleapis.com/Bucket" with resource_value "HIGH" will
-    /// apply "HIGH" value only to "storage.googleapis.com/Bucket" resources.
+    /// resource_type will be checked with <code>AND</code> of other resources.
+    /// For example, "storage.googleapis.com/Bucket" with resource_value "HIGH"
+    /// will apply "HIGH" value only to "storage.googleapis.com/Bucket" resources.
     #[prost(string, tag = "4")]
     pub resource_type: ::prost::alloc::string::String,
-    /// Project or folder to scope this config to.
-    /// For example, "project/456" would apply this config only to resources in
-    /// "project/456"
-    /// scope will be checked with "AND" of other resources.
+    /// Project or folder to scope this configuration to.
+    /// For example, "project/456" would apply this configuration only to resources
+    /// in "project/456" scope will be checked with <code>AND</code> of other
+    /// resources.
     #[prost(string, tag = "5")]
     pub scope: ::prost::alloc::string::String,
-    /// List of resource labels to search for, evaluated with AND.
-    /// E.g. "resource_labels_selector": {"key": "value", "env": "prod"}
-    /// will match resources with labels "key": "value" AND "env": "prod"
+    /// List of resource labels to search for, evaluated with <code>AND</code>.
+    /// For example, "resource_labels_selector": {"key": "value", "env": "prod"}
+    /// will match resources with labels "key": "value" <code>AND</code> "env":
+    /// "prod"
     /// <https://cloud.google.com/resource-manager/docs/creating-managing-labels>
     #[prost(btree_map = "string, string", tag = "6")]
     pub resource_labels_selector: ::prost::alloc::collections::BTreeMap<
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     >,
-    /// Description of the resource value config.
+    /// Description of the resource value configuration.
     #[prost(string, tag = "7")]
     pub description: ::prost::alloc::string::String,
-    /// Output only. Timestamp this resource value config was created.
+    /// Output only. Timestamp this resource value configuration was created.
     #[prost(message, optional, tag = "8")]
     pub create_time: ::core::option::Option<::prost_types::Timestamp>,
-    /// Output only. Timestamp this resource value config was last updated.
+    /// Output only. Timestamp this resource value configuration was last updated.
     #[prost(message, optional, tag = "9")]
     pub update_time: ::core::option::Option<::prost_types::Timestamp>,
+    /// Cloud provider this configuration applies to
+    #[prost(enumeration = "CloudProvider", tag = "10")]
+    pub cloud_provider: i32,
     /// A mapping of the sensitivity on Sensitive Data Protection finding to
     /// resource values. This mapping can only be used in combination with a
     /// resource_type that is related to BigQuery, e.g.
@@ -4086,14 +4572,6 @@ pub struct GroupFindingsRequest {
     /// Required. Expression that defines what assets fields to use for grouping.
     /// The string value should follow SQL syntax: comma separated list of fields.
     /// For example: "parent,resource_name".
-    ///
-    /// The following fields are supported:
-    ///
-    /// * resource_name
-    /// * category
-    /// * state
-    /// * parent
-    /// * severity
     #[prost(string, tag = "3")]
     pub group_by: ::prost::alloc::string::String,
     /// The value returned by the last `GroupFindingsResponse`; indicates
@@ -4398,6 +4876,50 @@ pub mod list_findings_response {
             /// The full resource type of the resource.
             #[prost(string, tag = "3")]
             pub r#type: ::prost::alloc::string::String,
+            /// Indicates which cloud provider the finding is from.
+            #[prost(enumeration = "super::super::CloudProvider", tag = "4")]
+            pub cloud_provider: i32,
+            /// The service or resource provider associated with the resource.
+            #[prost(string, tag = "5")]
+            pub service: ::prost::alloc::string::String,
+            /// The region or location of the service (if applicable).
+            #[prost(string, tag = "6")]
+            pub location: ::prost::alloc::string::String,
+            /// Provides the path to the resource within the resource hierarchy.
+            #[prost(message, optional, tag = "10")]
+            pub resource_path: ::core::option::Option<super::super::ResourcePath>,
+            /// A string representation of the resource path.
+            /// For Google Cloud, it has the format of
+            /// organizations/{organization_id}/folders/{folder_id}/folders/{folder_id}/projects/{project_id}
+            /// where there can be any number of folders.
+            /// For AWS, it has the format of
+            /// org/{organization_id}/ou/{organizational_unit_id}/ou/{organizational_unit_id}/account/{account_id}
+            /// where there can be any number of organizational units.
+            /// For Azure, it has the format of
+            /// mg/{management_group_id}/mg/{management_group_id}/subscription/{subscription_id}/rg/{resource_group_name}
+            /// where there can be any number of management groups.
+            #[prost(string, tag = "11")]
+            pub resource_path_string: ::prost::alloc::string::String,
+            #[prost(oneof = "resource::CloudProviderMetadata", tags = "7, 8, 9")]
+            pub cloud_provider_metadata: ::core::option::Option<
+                resource::CloudProviderMetadata,
+            >,
+        }
+        /// Nested message and enum types in `Resource`.
+        pub mod resource {
+            #[allow(clippy::derive_partial_eq_without_eq)]
+            #[derive(Clone, PartialEq, ::prost::Oneof)]
+            pub enum CloudProviderMetadata {
+                /// The GCP metadata associated with the finding.
+                #[prost(message, tag = "7")]
+                GcpMetadata(super::super::super::GcpMetadata),
+                /// The AWS metadata associated with the finding.
+                #[prost(message, tag = "8")]
+                AwsMetadata(super::super::super::AwsMetadata),
+                /// The Azure metadata associated with the finding.
+                #[prost(message, tag = "9")]
+                AzureMetadata(super::super::super::AzureMetadata),
+            }
         }
     }
 }
@@ -4736,6 +5258,10 @@ pub struct UpdateResourceValueConfigRequest {
     pub resource_value_config: ::core::option::Option<ResourceValueConfig>,
     /// The list of fields to be updated.
     /// If empty all mutable fields will be updated.
+    ///
+    /// To update nested fields, include the top level field in the mask
+    /// For example, to update gcp_metadata.resource_type, include the
+    /// "gcp_metadata" field mask
     #[prost(message, optional, tag = "2")]
     pub update_mask: ::core::option::Option<::prost_types::FieldMask>,
 }
